@@ -452,7 +452,7 @@ repository’s `master` branch on GitHub.
 Using `ghp-import` will over write your local `gh-pages` branch and the remote GitHub `master` branch.
 In effect, GitHub's `master` branch will maintain the website's current content, but no history.
 
-I do want maintain a historical record of the website's source materials (i.e. the markdown files)a.
+I do want maintain a historical record of the website's source materials (i.e. the markdown files).
 To place the source materials for the website into GitHub,
 I'll use standard git procedures (i.e. no use of `ghp-import`).
 See below for the procedure used:
