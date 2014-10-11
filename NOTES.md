@@ -109,6 +109,45 @@ And the source code for the website can be updated via
     git commit -m "<comment>"
     git push origin master:source
 
+### Git Status Message
+Once you start making pushes to GitHub,
+you'll find that the executing of `git status` will give you something like this
+
+```
+$ git status
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 5 and 2 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+nothing to commit, working directory clean
+```
+
+This "error" is caused by independent commits
+associated with the local and remote repositories.
+In the example above,
+5 on the local origin copy and 2 on the remote master copy.
+This is to be expected give that the remote `master` branch isn't maintaining any history.
+
+Also note that if you do a git branch (or to "see it", using [`gitg`][07]), you'll get
+
+```
+git branch
+  gh-pages
+* master
+```
+
+So while you local `master` contains your website content and source,
+the remote `master` is an image of the local branch `gh-pages`,
+and the remote `source` is an image of a subset of your local `master`
+(i.e. just the Markdown, templates, tools, etc. but not the generated HTML).
+
+I suggest you just live with this message from `git`.
+With the right combination and sequence of
+`git rebase`, `git checkout`, `git push`, `git reset --hard`, etc.
+you might eliminate the message, but I'll be dammed if I know how to successfully do it!
+
+
 
 
 # Random Notes
@@ -146,7 +185,6 @@ I found the following sites useful:
 [04]:https://help.github.com/articles/user-organization-and-project-pages
 [05]:http://www.thinkful.com/learn/a-guide-to-using-github-pages/
 [06]:https://help.github.com/articles/ignoring-files/
-[07]:
+[07]:https://wiki.gnome.org/Apps/Gitg/
 [08]:
 [09]:
-
