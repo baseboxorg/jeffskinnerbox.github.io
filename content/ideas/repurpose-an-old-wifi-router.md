@@ -1,0 +1,45 @@
+Title: Repurpose an Old WiFi Router
+Date: 2100-01-01 00:00
+Category: xxx
+Tags: xxx
+Slug: repurpose-an-old-wifi-router
+Author: Jeff Irland
+Image: DRAFT_stamp.png
+Summary: bla bla bla
+
+
+* [Repurpose an old wifi router for the internet-of-things](http://www.instructables.com/id/Repurpose-an-old-wifi-router-for-the-internet-of-t/?ALLSTEPS)
+* [The Top 6 Alternative Firmwares For Your Router](http://www.makeuseof.com/tag/top-6-alternative-firmwares-router/)
+* [Turn Your Home Router Into a Super-Powered Router with DD-WRT](http://www.howtogeek.com/56612/turn-your-home-router-into-a-super-powered-router-with-dd-wrt/)
+* [Getting SPI on a router](http://hackaday.com/2013/08/17/getting-spi-on-a-router/)
+* [PirateBox DIY – OpenWrt](http://daviddarts.com/piratebox-diy-openwrt/)
+
+* [Setting up a wireless hotspot using TP-Link TL-MR3020 Wireless N Router](http://www.instructables.com/id/Setting-up-a-wireless-hotspot-using-TP-Link-TL-MR3/?ALLSTEPS)
+* [HOWTO : TP-Link TL-MR3020 as WiFi Pineapple Made Easy](http://samiux.blogspot.com/2013/05/howto-tp-link-tl-mr3020-as-wifi.html)
+
+* [Teach your router new tricks with DD-WRT or OpenWrt](http://www.infoworld.com/d/networking/teach-your-router-new-tricks-dd-wrt-or-openwrt-243185)
+* [OpenWrt](https://openwrt.org/)
+* [DD-WRT](https://secure.dd-wrt.com/site/)
+    * [DD-WRT Supported Devices](http://www.dd-wrt.com/wiki/index.php/Supported_Devices)
+
+* [Raspberry Pi Mini PC Transformed Into Wireless Router](http://www.geeky-gadgets.com/raspberry-pi-mini-pc-transformed-into-router-29-05-2014/)
+* [RASPBERRY PI AND ROUTING: TURNING A PI INTO A ROUTER](http://www.jacobsalmela.com/raspberry-pi-and-routing-turning-a-pi-into-a-router/)
+* [RASPBERRY PI + CANTENNA: ULTIMATE 2.4GHZ WARDRIVING AND LONG-RANGE WIFI ACCESS](http://www.jacobsalmela.com/raspberry-pi-cantenna-ultimate-2-4ghz-wardriving-and-long-range-wifi-access/)
+
+* [hackable Linksys WRT54G router in a new WRT1900AC model](http://linuxgizmos.com/linksys-creates-successor-to-wrt54g/)
+* [Raspberry Pi Auto-Hotspot](http://cymplecy.wordpress.com/2014/08/01/class-hotspot/)
+
+## Tor Network
+* [open network that helps you defend you form threatens to personal freedom and privacy](https://www.torproject.org/)
+* [Safeplug - Linux-based Tor gadget protects IP identity](http://linuxgizmos.com/linux-based-tor-device-protects-internet-identity/)
+
+## Mesh Network
+Quick Mesh Project (qMp) is a system for easily deploying Mesh/MANET networks using Wi-Fi technology.
+The qMp firmware, based on OpenWrt, works on many embedded WiFi network devices. 
+* [Quick Mesh Project (qMp)](http://qmp.cat/Home)
+
+## Special Hardware
+* [WRTnode](http://wrtnode.com/)
+* [Tiniest Linux COM yet](http://linuxgizmos.com/tiniest-linux-com-yet/)
+* [TP-LINK TL-WR703N](http://www.cnx-software.com/development-kits/hackable-gadgets/)
+* []()

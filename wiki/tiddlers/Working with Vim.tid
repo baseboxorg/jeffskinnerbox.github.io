@@ -1,0 +1,13 @@
+created: 20140916015804477
+modified: 20140921023949623
+tags: study
+title: Working with Vim
+type: text/vnd.tiddlywiki
+
+!!Vim and IPython
+*[[Working with Vim and IPython|http://petro.tanrei.ca/2010/8/working-with-vim-and-ipython.html]]
+*[[vim-ipython - A two-way integration between Vim and IPython|http://github.com/ivanov/vim-ipython]]
+
+!!Vim and Browser
+*[[wasavi (VI editor for any web page)|http://appsweets.net/wasavi/]]
+*[[TextAid|http://lalashan.mcmaster.ca/theobio/projects/index.php/TextAid]]
