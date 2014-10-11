@@ -1,0 +1,399 @@
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Dropbox for the Raspberry Pi (sort of) - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="http://jeffskinnerbox.me/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Dropbox for the Raspberry Pi (sort of)"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/posts/2012/Nov/11/dropbox-for-the-raspberry-pi-sort-of/"/>
+            <meta property="og:description" content="I'm presently using Dropbox as a service for quick and easy movement of files between multiple PCs I use. I would like the same on the Raspberry Pi, particularly for moving files from my PC to the RPi."/>
+
+    <!-- Bootstrap -->
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
+
+        <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://jeffskinnerbox.me/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="deadend.html">Wiki</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+<!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://jeffskinnerbox.me/posts/2012/Nov/11/dropbox-for-the-raspberry-pi-sort-of/"
+                       rel="bookmark"
+                       title="Permalink to Dropbox for the Raspberry Pi (sort of)">
+                        Dropbox for the Raspberry Pi (sort of)
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2012-11-11T00:01:00"> Sunday&nbsp;&nbsp;&nbsp;&nbsp;November 11, 2012</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/linux/">Linux</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/raspberry-pi/">Raspberry Pi</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/dropbox/">Dropbox</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>I&#8217;m presently using <a href="https://www.dropbox.com/">Dropbox</a> as a service for quick <span class="amp">&amp;</span> easy movement of files between multiple PCs I use.  Its copy <span class="amp">&amp;</span> paste operation is very intuitive on a Windows <span class="caps">PC</span>. I would like the same on the Raspberry Pi (RPi), particularly for moving files from my <span class="caps">PC</span> to the RPi.  I wanted the same utility on my RPi, but at the same time, I want the Linux command line paradigm supported and not be force to run X Windows on the&nbsp;RPi.</p>
+<p>I did some searching and found things like <a href="https://www.dropbox.com/install?os=lnx">Dropbox&#8217;s Linux distribution</a> (which I wasn&#8217;t confident would work &#8220;out of the box&#8221; for the RPi&#8217;s <span class="caps">ARM</span> architecture, but source is provided),  <a href="http://www.lifehacker.com.au/2011/07/how-to-set-up-a-file-syncing-dropbox-clone-you-control/">GoodSync</a> or <a href="http://hm-innovations.com/2012/10/29/best-way-to-use-raspberry-pi-and-turn-it-into-a-dropbox/">Owncloud</a> (which wouldn&#8217;t access my existing Dropbox files but instead create an alternative), <a href="http://raspberrypigadget.wordpress.com/2012/07/01/day-six-dropbox-access/">python</a> or  <a href="http://harizanov.com/2012/08/dropbox-shell-script-for-raspberrypi/">bash shell</a> based up/down loaders (appears to behave like a simplified <span class="caps">FTP</span> tool), or the <a href="http://fuse.sourceforge.net/sshfs.html">Secure SHell File System (<span class="caps">SSHFS</span>)</a> based approach (the <span class="caps">PC</span>&#8217;s Dropbox directory is mounted on the&nbsp;RPi).</p>
+<p>While the <a href="https://www.dropbox.com/install?os=lnx">Dropbox&#8217;s Linux distribution</a> is likely the ultimate way to go, I didn&#8217;t want to commit myself to the effort it would potentially require.  I settled on the <span class="caps">SSHFS</span> based approach.  I&#8217;m running my <a href="http://jeffskinnerbox.wordpress.com/2012/09/09/raspberry-pi-has-arrived/">RPi headless</a> and access it via my <span class="caps">PC</span> using <a href="http://x.cygwin.com/">Cygwin/X</a> and <a href="http://www.openssh.org/">Secure Shell (ssh)</a>.  With the <span class="caps">SSHFS</span> approach, I could make the Dropbox directory available for mounting at boot-up or mount it at will.  I only envision using the RPi-based Dropbox when I&#8217;m doing development and I will be doing that from my <span class="caps">PC</span>.  So this <span class="caps">SSHFS</span> approach seems fine for the way that I&nbsp;operate.</p>
+<p>The <span class="caps">SSHFS</span> approach means files will not really be replicated on the RPi, like Dropbox does.  The files will reside within my <span class="caps">PC</span>&#8217;s Dropbox folder (and replicated on my other PCs via the Dropbox service) but accessible by the RPi via the <span class="caps">SSHFS</span> file mount.  This means I can&#8217;t have any applications I run on the RPi depend on files located in its Dropbox directory since it may not be always mounted.  I&#8217;m <span class="caps">OK</span> with this limitation, and in fact is consistent with the ad-hoc purpose I have for the Dropbox directory.
+<h2>Installation Required on the <span class="caps">PC</span></h2>
+For me, nothing needs to be done here.  I already have Dropbox running on my <span class="caps">PC</span>, and via Cygwin/X, I have the foundations required for the host side of the <span class="caps">SSHFS</span> solution.  If you need help with this, <a href="http://db.tt/WG4dR9shttp://db.tt/WG4dR9s">signup for Dropbox here</a> and find out<a href="http://jeffskinnerbox.wordpress.com/2012/10/04/establishing-an-x-window-system-environment-for-my-pc-and-raspberry-pi/"> how I&#8217;m using Cygwin/X here</a>.
+<h2>Installation Required on the&nbsp;RPi</h2>
+On the client side of the solution, you&#8217;ll need to install <a href="http://fuse.sourceforge.net/sshfs.html"><span class="caps">SSHFS</span></a> and <a href="http://fuse.sourceforge.net/"><span class="caps">FUSE</span></a>. <span class="caps">FUSE</span> is the user-space filesystem framework and is the foundation on which <span class="caps">SSHFS</span> resides. <span class="caps">FUSE</span> allows user-space software, <span class="caps">SSH</span> in this case, to present a virtual file system interface to the user; something generally only done by the Linux kernel.  <span class="caps">SSHFS</span> connects to the remote system and provide the look and feel of a regular file system interface for remote files. On the RPi, install <span class="caps">SSHFS</span> via the&nbsp;command:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install sshfs
+</pre></div>
+
+
+<p><span class="caps">FUSE</span> appear to be already installed on the RPi or maybe comes with <span class="caps">SSHFS</span>. Next you need to add required users to the <span class="caps">FUSE</span> usergroup.  In my case, that is the user pi.  You can see the existing groups pi is part of via the command <code>groups pi</code>.  You can validate that the <span class="caps">FUSE</span> user group has been created by using the command <code>cat /etc/group | grep fuse</code>.  To add pi to the <span class="caps">FUSE</span> user group, use the&nbsp;command:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo gpasswd -a pi fuse
+</pre></div>
+
+
+<p>The fuse group lets you limit which users are allowed to use <span class="caps">FUSE</span>-based file systems, in my case the Dropbox. This is important because <span class="caps">FUSE</span> installs <a href="http://www.acm.uiuc.edu/workshops/security/setuid.html">setuid programs</a>, which always carry security implications.
+<h2>Configuring the Dropbox File&nbsp;System</h2>
+Now its time to make your Dropbox directory on the RPi, and mount it to the <span class="caps">PC</span>&#8217;s instance of Dropbox. On the RPi, use this command to create the&nbsp;Dropbox:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">mkdir ~/Dropbox
+</pre></div>
+
+
+<p>The next thing to do is to make sure that you can connect to the <span class="caps">PC</span> via ssh.  When I installed Cygwin, my focus was on using it as an X Server and making ssh connections from the <span class="caps">PC</span> to RPi.  I never tried the inverse (connect from the RPi to the <span class="caps">PC</span>) and that is what <span class="caps">SSHFS</span> is effectively doing.  So check for two things:
+<ul>
+<ul>
+    <li>Is the ssh server running on the <span class="caps">PC</span>?  You can check for its status via the command <code>cygrunsrv -Q sshd</code>. In my case it was running, so its&nbsp;fine.</li>
+    <li>Is the port used by the ssh server on the <span class="caps">PC</span> open? You&#8217;ll need to <a href="http://lifehacker.com/205090/geek-to-live--set-up-a-personal-home-ssh-server">open <span class="caps">SSH</span> port 22</a> for ssh services to work.  You can check its status by attempting to use it.  In my case, this was <code>ssh Jeff@HomePC.home</code>.  If this command appears to hang or time out (as it did for me), the port is likely blocked.  You&#8217;ll need to go to your <a href="http://www.dummies.com/how-to/content/how-to-open-a-port-in-the-windows-7-firewall.html">Windows Firewall</a> and open port&nbsp;22.</li>
+</ul>
+</ul>
+There is another Cygwin sublimity that has to be taken into consideration.  When using the Cygwin, Windows drive letters are mapped to a <a href="http://znark.com/tech/cygwin.html">special directory</a>.  In my case, the Dropbox directory appears to Cygwin to have the following path: <code>/cygdrive/c/Users/Jeff/Dropbox</code>.</p>
+<p>With this all addressed, <span style="text-decoration:underline;">reboot the RPi</span>, and then you can now fire up you RPi Dropbox&nbsp;via:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sshfs Jeff@HomePC.home:/cygdrive/c/Users/Jeff/Dropbox ~/Dropbox
+</pre></div>
+
+
+<p>After you supply the <span class="caps">PC</span>&#8217;s password, you should now be able to access the Dropbox directory on the <span class="caps">PC</span>.  If you wish, you can remove the file system connection to the <span class="caps">PC</span> via the&nbsp;command:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">fusermount -u ~/Dropbox
+</pre></div>
+
+
+<p>This connection will stay established as long as you don&#8217;t do the <code>fusermount -u</code> or reboot the RPi.  If you wish to mount the file system upon boot-up, and avoid executing the <code>sshfs</code> when you log-in, you can follow the procedure outline in the article that initially inspired me: <a href="http://mitchtech.net/dropbox-on-raspberry-pi-via-sshfs/">Dropbox on Raspberry Pi via <span class="caps">SSHFS</span></a>
+<h2>Something to Keep in&nbsp;Mind</h2>
+While for the most part, moving between Windows/<span class="caps">DOS</span> and the Linux file systems isn&#8217;t a problem, there is one thing to remember. Windows-based text editors put one set of special characters at the end of lines (i.e. carriage return and line break = &#8216;\r\n&#8217;), while Unix/Linux puts other characters (i.e. line break = &#8216;\n&#8217;).  This <a href="http://www.codinghorror.com/blog/2010/01/the-great-newline-schism.html">odd anomaly</a> is normally harmless, but some applications on a Linux cannot understand these characters and can cause Linux to not respond&nbsp;correctly.</p>
+<p>The best example of Linux behaving badly (and the only one I know) is the execution of “<a href="http://bash.cyberciti.biz/guide/Shebang">shebang</a>” or the “#!&#8230;” at the top of a bash, python, perl, etc. script.  If you edit these files in <span class="caps">DOS</span>, then move them to Linux, shebang will stop working.  Editing them under <span class="caps">DOS</span> is the origin of the problem, since a <span class="caps">DOS</span> based text editor will inject the extra carriage return character at the end of the text&nbsp;line.</p>
+<p>To fix this problem, you can quickly convert an <span class="caps">ASCII</span> text file from <span class="caps">DOS</span> format (carriage return and line break) to the Unix format (line break), you can use the tool <a href="http://linux.die.net/man/1/dos2unix"><code>dos2unix</code></a>.  Run this utility on the effected file and shebang should work once again.
+<h2>Epilogue</h2>
+At its foundation, <span class="caps">SSH</span> functions as a protocol for authenticating and encrypting remote shell sessions.  <span class="caps">SSH</span> can be thought of as much more than just a secure shell.  Using <span class="caps">SSH</span>&#8217;s foundation, <span class="caps">SSHFS</span> creates a new capability.  To learn more, check out the link <a href="http://matt.might.net/articles/ssh-hacks/"><span class="caps">SSH</span>: More than secure shell</a>.</p>
+<p>Key sources I consulted to write this include:
+<ul>
+<ul>
+    <li><a href="http://www.linuxjournal.com/article/8904?page=0,0"><span class="caps">SSHFS</span>: Super Easy File Access over <span class="caps">SSH</span></a></li>
+    <li><a href="http://mitchtech.net/dropbox-on-raspberry-pi-via-sshfs/">Dropbox on Raspberry Pi via <span class="caps">SSHFS</span></a></li>
+    <li><a href="http://www.debianadmin.com/mount-a-remote-file-system-through-ssh-using-sshfs.html">Mount a remote file system through ssh Using&nbsp;sshfs</a></li>
+</ul>
+</ul></p>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+            var disqus_identifier = 'dropbox-for-the-raspberry-pi-sort-of';
+            var disqus_url = 'http://jeffskinnerbox.me/posts/2012/Nov/11/dropbox-for-the-raspberry-pi-sort-of/';
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="http://jeffskinnerbox.me/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <a href="http://jeffskinnerbox.me/pages/about-me.html">
+                        <img class="img-rounded" src="http://jeffskinnerbox.me/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                    </a>
+                </div>
+
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+<li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
+                RPi Packages
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                Vim Cheat Sheet
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-puzzle-piece fa-lg"></i><span class="icon-label">Wiki Topics</span></h4>
+    <ul class="list-group" id="wiki">
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Project Ideas
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Things to Study
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">External Links</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://tiddlywiki.com/" target="_blank">
+                TiddlyWiki
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+    <ul class="list-group" id="social">
+        <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-github-square fa-lg"></i> Github
+        </a></li>
+        <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-twitter-square fa-lg"></i> Twitter
+        </a></li>
+        <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+            <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
+        </a></li>
+    </ul>
+</li>
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+<li class="list-group-item"><h4><i class="fa fa-thumbs-up fa-lg"></i><span class="icon-label">Reposted At</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://www.eeweb.com/websites/jeffs-skinner-box" target="_blank">
+                EEWeb.com
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-gears fa-lg"></i><span class="icon-label">Admin</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a43272292w73270397p83408137/" target="_blank">
+                Google Analytics
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io" target="_blank">
+                Web Site Source Code
+            </a>
+        </li>
+    </ul>
+</li>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://tiddlywiki.com/" target="_blank">TiddlyWiki</a>,
+            <a href="http://ipython.org/notebook.html" target="_blank">Python Notebook</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
+            <small>
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://jeffskinnerbox.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://jeffskinnerbox.me/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://jeffskinnerbox.me/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://jeffskinnerbox.me/theme/js/github.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-43272292-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>

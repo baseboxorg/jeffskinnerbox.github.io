@@ -1,0 +1,447 @@
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Arduino Memory - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="http://jeffskinnerbox.me/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Arduino Memory"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/posts/2012/Sep/10/arduino-memory/"/>
+            <meta property="og:description" content="I explore here the Flash, SRAM, and EEPROM memory options available for the Arduino, and several useful links. This table of information will be useful for later referance."/>
+
+    <!-- Bootstrap -->
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
+
+        <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://jeffskinnerbox.me/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="deadend.html">Wiki</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+<!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://jeffskinnerbox.me/posts/2012/Sep/10/arduino-memory/"
+                       rel="bookmark"
+                       title="Permalink to Arduino Memory">
+                        Arduino Memory
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2012-09-10T00:01:00"> Monday&nbsp;&nbsp;&nbsp;&nbsp;September 10, 2012</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/arduino/">Arduino</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>As I have been exploring the Arduino hardware platforms for my <span class="caps">TBD</span> project, I find myself forgetting the memory options available.  I&#8217;m recording here my findings so I can reference it later.
+<center>
+<table border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="115">
+<p align="center"><strong>Arduino</strong></p>
+</td>
+<td valign="top" width="139">
+<p align="center"><strong>Chip</strong></p>
+</td>
+<td valign="top" width="126">
+<p align="center"><strong>Flash</strong></p>
+</td>
+<td valign="top" width="127">
+<p align="center"><strong><span class="caps">SRAM</span></strong></p>
+</td>
+<td valign="top" width="133">
+<p align="center"><strong><span class="caps">EEPROM</span></strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="115">
+<p align="center"><strong>Nano&nbsp;2.3</strong></p>
+</td>
+<td valign="top" width="139">
+<p align="center">ATmega168</p>
+</td>
+<td valign="top" width="126">
+<p align="center">16K&nbsp;bytes</p>
+</td>
+<td valign="top" width="127">
+<p align="center">1024&nbsp;bytes</p>
+</td>
+<td valign="top" width="133">
+<p align="center">512&nbsp;bytes</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="115">
+<p align="center"><strong>Nano&nbsp;3.0</strong></p>
+</td>
+<td valign="top" width="139">
+<p align="center">ATmega328</p>
+</td>
+<td valign="top" width="126">
+<p align="center">32K&nbsp;bytes</p>
+</td>
+<td valign="top" width="127">
+<p align="center">2048&nbsp;bytes</p>
+</td>
+<td valign="top" width="133">
+<p align="center">1024&nbsp;bytes</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="115">
+<p align="center"><strong>Uno</strong></p>
+</td>
+<td valign="top" width="139">
+<p align="center">ATmega328</p>
+</td>
+<td valign="top" width="126">
+<p align="center">32K&nbsp;bytes</p>
+</td>
+<td valign="top" width="127">
+<p align="center">2048&nbsp;bytes</p>
+</td>
+<td valign="top" width="133">
+<p align="center">1024&nbsp;bytes</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="115">
+<p align="center"><strong>Mega&nbsp;2560</strong></p>
+</td>
+<td valign="top" width="139">
+<p align="center">ATmega2560</p>
+</td>
+<td valign="top" width="126">
+<p align="center">256K&nbsp;bytes</p>
+</td>
+<td valign="top" width="127">
+<p align="center">8192&nbsp;bytes</p>
+</td>
+<td valign="top" width="133">
+<p align="center">4096&nbsp;bytes</p>
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<ul>
+</center>
+    <li><span class="caps">SRAM</span> (Static Random Access Memory) is where the sketch creates and manipulates variables when it&nbsp;runs.</li>
+    <li><span class="caps">EEPROM</span> (Electrically Erasable Programmable Read-Only Memory) is memory space that programmers can use to store long-term&nbsp;information.</li>
+    <li>Flash memory is where the Arduino sketch is stored (program space).  The bootloader takes about 2 <span class="caps">KB</span> of flash memory and remaining space is for the&nbsp;sketch.</li>
+</ul>
+</ul>
+The Arduino <span class="caps">IDE</span> will tell you exactly how much Flash is being used after each compile/upload.  <span class="caps">EEPROM</span> is an older, more reliable technology. It is somewhat slower than Flash.  In Flash, a large block is erased all at once, much faster than the <span class="caps">EEPROM</span> method of going&nbsp;cell-by-cell.</p>
+<p>If you don&#8217;t need to modify the strings or data while your sketch is running, you can store them in Flash (program) memory instead of <span class="caps">SRAM</span>; to do this, use the <span class="caps">PROGMEM</span>&nbsp;keyword.</p>
+<p>Part of my interest in the Arduino&#8217;s memory is my concern about how much memory a sketch uses.  Here are some sites that provide insight and algorithms for calculating the memory:
+<ul>
+<ul>
+    <li><a href="http://jeelabs.org/2011/05/22/atmega-memory-use/">ATmega memory&nbsp;use</a></li>
+    <li><a href="http://www.nongnu.org/avr-libc/user-manual/malloc.html">Memory Areas and Using&nbsp;malloc()</a></li>
+    <li><a href="http://code.google.com/p/cec-arduino/source/browse/branches/anc/MemoryFree.c?r=15">MemoryFree.c</a></li>
+</ul>
+</ul></p>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+            var disqus_identifier = 'arduino-memory';
+            var disqus_url = 'http://jeffskinnerbox.me/posts/2012/Sep/10/arduino-memory/';
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="http://jeffskinnerbox.me/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <a href="http://jeffskinnerbox.me/pages/about-me.html">
+                        <img class="img-rounded" src="http://jeffskinnerbox.me/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                    </a>
+                </div>
+
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+<li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
+                RPi Packages
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                Vim Cheat Sheet
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-puzzle-piece fa-lg"></i><span class="icon-label">Wiki Topics</span></h4>
+    <ul class="list-group" id="wiki">
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Project Ideas
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Things to Study
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">External Links</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://tiddlywiki.com/" target="_blank">
+                TiddlyWiki
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+    <ul class="list-group" id="social">
+        <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-github-square fa-lg"></i> Github
+        </a></li>
+        <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-twitter-square fa-lg"></i> Twitter
+        </a></li>
+        <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+            <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
+        </a></li>
+    </ul>
+</li>
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+<li class="list-group-item"><h4><i class="fa fa-thumbs-up fa-lg"></i><span class="icon-label">Reposted At</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://www.eeweb.com/websites/jeffs-skinner-box" target="_blank">
+                EEWeb.com
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-gears fa-lg"></i><span class="icon-label">Admin</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a43272292w73270397p83408137/" target="_blank">
+                Google Analytics
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io" target="_blank">
+                Web Site Source Code
+            </a>
+        </li>
+    </ul>
+</li>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://tiddlywiki.com/" target="_blank">TiddlyWiki</a>,
+            <a href="http://ipython.org/notebook.html" target="_blank">Python Notebook</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
+            <small>
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://jeffskinnerbox.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://jeffskinnerbox.me/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://jeffskinnerbox.me/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://jeffskinnerbox.me/theme/js/github.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-43272292-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>

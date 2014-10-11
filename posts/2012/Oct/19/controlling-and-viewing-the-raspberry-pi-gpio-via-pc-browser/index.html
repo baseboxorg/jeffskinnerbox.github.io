@@ -1,0 +1,458 @@
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Controlling and Viewing the Raspberry Pi GPIO via PC Browser - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="http://jeffskinnerbox.me/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Controlling and Viewing the Raspberry Pi GPIO via PC Browser"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/posts/2012/Oct/19/controlling-and-viewing-the-raspberry-pi-gpio-via-pc-browser/"/>
+            <meta property="og:description" content="In this article, I use a tool called WebIOPi, I control my Raspberry Pi, and the things its networked with, via an internet browser. With this, you can control and monitor GPIO using Python scripts."/>
+
+    <!-- Bootstrap -->
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
+
+        <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://jeffskinnerbox.me/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="deadend.html">Wiki</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+<!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://jeffskinnerbox.me/posts/2012/Oct/19/controlling-and-viewing-the-raspberry-pi-gpio-via-pc-browser/"
+                       rel="bookmark"
+                       title="Permalink to Controlling and Viewing the Raspberry Pi GPIO via PC Browser">
+                        Controlling and Viewing the Raspberry Pi GPIO via PC Browser
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2012-10-19T00:01:00"> Friday&nbsp;&nbsp;&nbsp;&nbsp;October 19, 2012</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/raspberry-pi/">Raspberry Pi</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p><center>
+<a href="https://code.google.com/p/webiopi/"><img alt="WebIOPi" src="http://jeffskinnerbox.me/images/webiopi-chrome.jpg" title="WebIOPi Web Page" /></a>
+</center>
+This idea of controlling my Raspberry Pi (RPi), and the things its networked with, via an internet browser is at the heart of what I would like to do with the assortment of Arduino and Xbee devices I&#8217;m assembling.  To explore how best to do this, I&#8217;m considering using <a href="http://code.google.com/p/webiopi/">WebIOPi</a>, which is a web application used to control your RPi’s <span class="caps">GPIO</span>.  I believe it could be useful as a test tool, but more importantly, I suspect that I could learn how to engineer my application by studying its design.
+<h2>Install&nbsp;WebIOPi</h2>
+When installing WebIOPi on my RPi, I followed the <a href="http://code.google.com/p/webiopi/wiki/INSTALL#PHP/Apache">installation</a> instructions for the Apache version.  I choose this version since  I&#8217;ll be using the Apache web server for other features as my project evolves. Note that there is a small error on the instructions if you use a symbolic link to the webiopi directory.  Create this link&nbsp;using</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo ln -s /home/pi/webiopi /var/www/webiopi
+</pre></div>
+
+
+<p>Immediately after installation,  you can test to see if you can render a web page.  Assuming that your  Raspberry Pi is connected to your network  and its named <code>raspberrypi</code>, you can open a browser to <code><a href="http://raspberrypi/webiopi/" rel="nofollow">http://raspberrypi/webiopi/</a></code> with your network <span class="caps">PC</span>.  It might work but your likely to get a error, something like &#8220;&#8230;Could not reliably determine the server’s fully qualified domain name&#8230;&#8221; and the <a href="http://scottlinux.com/2011/02/16/could-not-reliably-determine-the-servers-fully-qualified-domain-name/">solution</a> is to give your web server a&nbsp;name.</p>
+<p>To do this,  create this Apache config&nbsp;file:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo vi /etc/apache2/conf.d/fqdn
+</pre></div>
+
+
+<p>Enter <code>ServerName raspberrypi</code> into this file and restart Apache&nbsp;using</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo /etc/init.d/apache2 restart
+</pre></div>
+
+
+<h2>Installing <span class="caps">GPIO</span>&nbsp;Utilities</h2>
+
+<p>While checking on the status of of the Python based <span class="caps">GPIO</span> package on the <span class="caps">RPI</span> using the command <code>dpkg -l | grep gpio</code>, I concluded that the  <a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/overview">Occidentalis</a> distribution I&#8217;m using doesn&#8217;t have any Python libraries for <span class="caps">GPIO</span>.</p>
+<p>Picking up some tips from <a href="http://learn.adafruit.com/raspberry-pi-e-mail-notifier-using-leds/overview">Raspberry Pi E-mail Notifier Using LEDs</a>.  I determined that I need to install several python packages first.  I did this&nbsp;via</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install python
+sudo apt-get install python-dev
+sudo apt-get install python-pip
+</pre></div>
+
+
+<p>With this done, now its time to install the required Python libraries but first, update the Python distribution by&nbsp;running</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo easy_install -U distribute
+</pre></div>
+
+
+<p>Finally you can install the Raspberry Pi <span class="caps">GPIO</span> (General Purpose Input/Ouput)&nbsp;library:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo pip install RPi.GPIO
+</pre></div>
+
+
+<h2>What did I&nbsp;find</h2>
+
+<p>WebIOPi  supports binary GPIOs, in both input and output.  That is, you can set a <span class="caps">GPIO</span> output pin high/low via a browser pick.  Also, you can see the state of a <span class="caps">GPIO</span> pin.  Equally important to me is that WebIOPi auto-refreshes, via <a href="http://www.kendoui.com/blogs/teamblog/posts/12-05-11/hello_services_webapi_rest_json_and_ajax.aspx">WebAPI, <span class="caps">REST</span>, <span class="caps">JSON</span> and <span class="caps">AJAX</span></a> I assume.  Therefore, when the <span class="caps">GPIO</span> pins change state, the browser automatically is updated with the new status.  And this happens for all browsers displaying WebIOPi.  You can demonstrate this by opening two browsers pointing at WebIOPi.  Action performed in one browser will also appear in the other.
+<h2>Test&nbsp;Script</h2>
+I used this code to generate some random activity on the <span class="caps">GPIO</span> pins and test&nbsp;WebIOPi.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/usr/bin/env python</span>
+
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">RPi.GPIO</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">GPIO</span><span style="color: #555555">,</span> <span style="color: #00CCFF; font-weight: bold">time</span>
+
+BLINK_FREQ <span style="color: #555555">=</span> <span style="color: #FF6600">3</span>                  <span style="color: #0099FF; font-style: italic"># refresh GPIO pins every 3 seconds</span>
+
+GPIO<span style="color: #555555">.</span>setmode(GPIO<span style="color: #555555">.</span>BCM)
+GPIO<span style="color: #555555">.</span>setup(<span style="color: #FF6600">0</span>, GPIO<span style="color: #555555">.</span>OUT)
+GPIO<span style="color: #555555">.</span>setup(<span style="color: #FF6600">1</span>, GPIO<span style="color: #555555">.</span>OUT)
+GPIO<span style="color: #555555">.</span>setup(<span style="color: #FF6600">4</span>, GPIO<span style="color: #555555">.</span>OUT)
+GPIO<span style="color: #555555">.</span>setup(<span style="color: #FF6600">17</span>, GPIO<span style="color: #555555">.</span>OUT)
+GPIO<span style="color: #555555">.</span>setup(<span style="color: #FF6600">21</span>, GPIO<span style="color: #555555">.</span>OUT)
+GPIO<span style="color: #555555">.</span>setup(<span style="color: #FF6600">22</span>, GPIO<span style="color: #555555">.</span>OUT)
+GPIO<span style="color: #555555">.</span>setup(<span style="color: #FF6600">10</span>, GPIO<span style="color: #555555">.</span>OUT)
+GPIO<span style="color: #555555">.</span>setup(<span style="color: #FF6600">9</span>, GPIO<span style="color: #555555">.</span>OUT)
+GPIO<span style="color: #555555">.</span>setup(<span style="color: #FF6600">11</span>, GPIO<span style="color: #555555">.</span>OUT)
+GPIO<span style="color: #555555">.</span>setup(<span style="color: #FF6600">18</span>, GPIO<span style="color: #555555">.</span>OUT)
+GPIO<span style="color: #555555">.</span>setup(<span style="color: #FF6600">23</span>, GPIO<span style="color: #555555">.</span>OUT)
+GPIO<span style="color: #555555">.</span>setup(<span style="color: #FF6600">24</span>, GPIO<span style="color: #555555">.</span>OUT)
+GPIO<span style="color: #555555">.</span>setup(<span style="color: #FF6600">25</span>, GPIO<span style="color: #555555">.</span>OUT)
+GPIO<span style="color: #555555">.</span>setup(<span style="color: #FF6600">8</span>, GPIO<span style="color: #555555">.</span>OUT)
+GPIO<span style="color: #555555">.</span>setup(<span style="color: #FF6600">7</span>, GPIO<span style="color: #555555">.</span>OUT)
+
+i <span style="color: #555555">=</span> <span style="color: #FF6600">0</span>
+<span style="color: #006699; font-weight: bold">while</span> <span style="color: #336666">True</span>:
+                <span style="color: #006699; font-weight: bold">if</span> i <span style="color: #555555">==</span> <span style="color: #FF6600">0</span>:
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">0</span>, <span style="color: #336666">True</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">1</span>, <span style="color: #336666">False</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">4</span>, <span style="color: #336666">False</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">17</span>, <span style="color: #336666">True</span>)
+                                i <span style="color: #555555">=</span> i <span style="color: #555555">+</span> <span style="color: #FF6600">1</span>
+                <span style="color: #006699; font-weight: bold">elif</span> i <span style="color: #555555">==</span> <span style="color: #FF6600">2</span>:
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">0</span>, <span style="color: #336666">False</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">1</span>, <span style="color: #336666">True</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">4</span>, <span style="color: #336666">True</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">17</span>, <span style="color: #336666">False</span>)
+                                i <span style="color: #555555">=</span> i <span style="color: #555555">+</span> <span style="color: #FF6600">1</span>
+                <span style="color: #006699; font-weight: bold">elif</span> i <span style="color: #555555">==</span> <span style="color: #FF6600">1</span>:
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">7</span>, <span style="color: #336666">False</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">8</span>, <span style="color: #336666">True</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">25</span>, <span style="color: #336666">True</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">23</span>, <span style="color: #336666">False</span>)
+                                i <span style="color: #555555">=</span> i <span style="color: #555555">+</span> <span style="color: #FF6600">1</span>
+                <span style="color: #006699; font-weight: bold">elif</span> i <span style="color: #555555">==</span> <span style="color: #FF6600">3</span>:
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">7</span>, <span style="color: #336666">True</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">8</span>, <span style="color: #336666">False</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">25</span>, <span style="color: #336666">False</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">23</span>, <span style="color: #336666">True</span>)
+                                i <span style="color: #555555">=</span> i <span style="color: #555555">+</span> <span style="color: #FF6600">1</span>
+                <span style="color: #006699; font-weight: bold">elif</span> i <span style="color: #555555">==</span> <span style="color: #FF6600">4</span>:
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">21</span>, <span style="color: #336666">True</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">22</span>, <span style="color: #336666">False</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">10</span>, <span style="color: #336666">False</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">9</span>, <span style="color: #336666">True</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">11</span>, <span style="color: #336666">True</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">18</span>, <span style="color: #336666">True</span>)
+                                i <span style="color: #555555">=</span> i <span style="color: #555555">+</span> <span style="color: #FF6600">1</span>
+                <span style="color: #006699; font-weight: bold">elif</span> i <span style="color: #555555">==</span> <span style="color: #FF6600">5</span>:
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">21</span>, <span style="color: #336666">False</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">22</span>, <span style="color: #336666">True</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">10</span>, <span style="color: #336666">True</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">9</span>, <span style="color: #336666">False</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">11</span>, <span style="color: #336666">False</span>)
+                                GPIO<span style="color: #555555">.</span>output(<span style="color: #FF6600">18</span>, <span style="color: #336666">False</span>)
+                                i <span style="color: #555555">=</span> i <span style="color: #555555">+</span> <span style="color: #FF6600">1</span>
+                <span style="color: #006699; font-weight: bold">else</span>:
+                                i <span style="color: #555555">=</span> <span style="color: #FF6600">0</span>
+                time<span style="color: #555555">.</span>sleep(BLINK_FREQ)
+</pre></div>
+
+
+<h2>Alternative&nbsp;Approaches</h2>
+
+<p>The use of a Web page to control the RPi seems useful enough but what if the target environment for launching control messages is a cell phone?  Maybe a phone app would be a better approach.  Check out the post  <a href="http://www.samratamin.com/blog/raspberry-pi-iphone-control-a-rpi-with-an-iphone-in-2-minutes/">Raspberry Pi + iPhone: Control a RPi with an iPhone in 2 Minutes</a>.</p>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+            var disqus_identifier = 'controlling-and-viewing-the-raspberry-pi-gpio-via-pc-browser';
+            var disqus_url = 'http://jeffskinnerbox.me/posts/2012/Oct/19/controlling-and-viewing-the-raspberry-pi-gpio-via-pc-browser/';
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="http://jeffskinnerbox.me/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <a href="http://jeffskinnerbox.me/pages/about-me.html">
+                        <img class="img-rounded" src="http://jeffskinnerbox.me/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                    </a>
+                </div>
+
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+<li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
+                RPi Packages
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                Vim Cheat Sheet
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-puzzle-piece fa-lg"></i><span class="icon-label">Wiki Topics</span></h4>
+    <ul class="list-group" id="wiki">
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Project Ideas
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Things to Study
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">External Links</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://tiddlywiki.com/" target="_blank">
+                TiddlyWiki
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+    <ul class="list-group" id="social">
+        <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-github-square fa-lg"></i> Github
+        </a></li>
+        <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-twitter-square fa-lg"></i> Twitter
+        </a></li>
+        <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+            <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
+        </a></li>
+    </ul>
+</li>
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+<li class="list-group-item"><h4><i class="fa fa-thumbs-up fa-lg"></i><span class="icon-label">Reposted At</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://www.eeweb.com/websites/jeffs-skinner-box" target="_blank">
+                EEWeb.com
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-gears fa-lg"></i><span class="icon-label">Admin</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a43272292w73270397p83408137/" target="_blank">
+                Google Analytics
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io" target="_blank">
+                Web Site Source Code
+            </a>
+        </li>
+    </ul>
+</li>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://tiddlywiki.com/" target="_blank">TiddlyWiki</a>,
+            <a href="http://ipython.org/notebook.html" target="_blank">Python Notebook</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
+            <small>
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://jeffskinnerbox.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://jeffskinnerbox.me/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://jeffskinnerbox.me/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://jeffskinnerbox.me/theme/js/github.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-43272292-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>

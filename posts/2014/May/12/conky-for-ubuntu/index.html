@@ -1,0 +1,510 @@
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Conky for Ubuntu - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="http://jeffskinnerbox.me/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Conky for Ubuntu"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/posts/2014/May/12/conky-for-ubuntu/"/>
+            <meta property="og:description" content="Conky is a Linux system monitor tool using X Windows. Conky is highly configurable and is able to monitor many system variables including the status of the CPU, memory, swap space, disk storage, temperatures, processes, network interfaces, battery power, system messages, e-mail in-boxes, Linux updates, runs many popular music players, and much more."/>
+
+    <!-- Bootstrap -->
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
+
+        <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://jeffskinnerbox.me/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="deadend.html">Wiki</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+<!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://jeffskinnerbox.me/posts/2014/May/12/conky-for-ubuntu/"
+                       rel="bookmark"
+                       title="Permalink to Conky for Ubuntu">
+                        Conky for Ubuntu
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-05-12T12:42:00"> Monday&nbsp;&nbsp;&nbsp;&nbsp;May 12, 2014</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/conky/">Conky</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/linux/">Linux</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/ubuntu/">Ubuntu</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Over a Year ago, I created a <a href="http://jeffskinnerbox.me/posts/2012/Nov/02/conky-for-the-raspberry-pi/">Conky configuration file for the Raspberry Pi</a>.
+I final got around to tailoring it for my desktop Linux box.
+You find both version on <a href="https://github.com/jeffskinnerbox/dotconky">GitHub</a>.
+Screen shot is at the&nbsp;bottom.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># --------------------------------------------------------------------- #</span>
+<span style="color: #0099FF; font-style: italic">#</span>
+<span style="color: #0099FF; font-style: italic"># .conkyrc - derived from various examples across the &#39;net</span>
+<span style="color: #0099FF; font-style: italic">#   Designed to support a 4 core processer running Ubunutu</span>
+<span style="color: #0099FF; font-style: italic">#</span>
+<span style="color: #0099FF; font-style: italic"># You can restart conky by running</span>
+<span style="color: #0099FF; font-style: italic">#       killall -SIGUSR1 conky</span>
+<span style="color: #0099FF; font-style: italic">#</span>
+<span style="color: #0099FF; font-style: italic"># --------------------------------------------------------------------- #</span>
+
+
+<span style="color: #0099FF; font-style: italic"># -------------------- Conky&#39;s Run Time Parameters -------------------- #</span>
+
+update_interval 2.0         <span style="color: #0099FF; font-style: italic"># Conky update interval in seconds</span>
+total_run_times 0           <span style="color: #0099FF; font-style: italic"># Number of updates before quitting.  Set to zero to run forever.</span>
+no_buffers yes              <span style="color: #0099FF; font-style: italic"># Subtract file system buffers from used memory?</span>
+cpu_avg_samples 2           <span style="color: #0099FF; font-style: italic"># Number of cpu samples to average. Set to 1 to disable averaging</span>
+net_avg_samples 2           <span style="color: #0099FF; font-style: italic"># Number of net samples to average. Set to 1 to disable averaging</span>
+
+
+<span style="color: #0099FF; font-style: italic"># -------------------- Conky&#39;s General Look &amp; Feel -------------------- #</span>
+
+<span style="color: #0099FF; font-style: italic"># --- defualt values --- #</span>
+default_color grey          <span style="color: #0099FF; font-style: italic"># Default color and border color</span>
+default_bar_size 0 6        <span style="color: #0099FF; font-style: italic"># Specify a default width and height for bars.</span>
+default_gauge_size 25 25    <span style="color: #0099FF; font-style: italic"># Specify a default width and height for gauges.</span>
+default_graph_size 0 25     <span style="color: #0099FF; font-style: italic"># Specify a default width and height for graphs.</span>
+default_outline_color green <span style="color: #0099FF; font-style: italic"># Default border and text outline color</span>
+default_shade_color yellow  <span style="color: #0099FF; font-style: italic"># Default border and text shading color</span>
+
+<span style="color: #0099FF; font-style: italic"># --- predefined colors - http://www.kgym.jp/freesoft/xrgb.html --- #</span>
+color0 FFFFFF               <span style="color: #0099FF; font-style: italic"># white</span>
+color1 FFA500               <span style="color: #0099FF; font-style: italic"># orange</span>
+color2 B22222               <span style="color: #0099FF; font-style: italic"># firebrick</span>
+color3 696969               <span style="color: #0099FF; font-style: italic"># dim gray</span>
+color4 D3D3D3               <span style="color: #0099FF; font-style: italic"># light gray</span>
+color5 2F4F4F               <span style="color: #0099FF; font-style: italic"># dark slate gray</span>
+color6 FFEC8B               <span style="color: #0099FF; font-style: italic"># light golden rod</span>
+color7 54FF9F               <span style="color: #0099FF; font-style: italic"># sea green</span>
+color8 FF8C69               <span style="color: #0099FF; font-style: italic"># salmon</span>
+color9 FFE7BA               <span style="color: #0099FF; font-style: italic"># wheat</span>
+
+<span style="color: #0099FF; font-style: italic"># --- window layout &amp; options --- #</span>
+own_window yes              <span style="color: #0099FF; font-style: italic"># Conky creates its own window instead of using desktop</span>
+own_window_type normal      <span style="color: #0099FF; font-style: italic"># If own_window is yes, use type normal, desktop, or override   </span>
+own_window_transparent yes  <span style="color: #0099FF; font-style: italic"># Use pseudo transparency with own_window?</span>
+own_window_colour blue      <span style="color: #0099FF; font-style: italic"># If own_window_transparent is no, set the background colour</span>
+double_buffer yes           <span style="color: #0099FF; font-style: italic"># Use double buffering (reduces flicker)</span>
+use_spacer right            <span style="color: #0099FF; font-style: italic"># Adds spaces to stop object from moving</span>
+maximum_width 600           <span style="color: #0099FF; font-style: italic"># Maximum width of window in pixels</span>
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+<span style="color: #0099FF; font-style: italic"># --- window placment --- #</span>
+alignment top_right         <span style="color: #0099FF; font-style: italic"># window placement can be top_right, top_left, bottom_left, bottom_right</span>
+
+<span style="color: #0099FF; font-style: italic"># --- borders, margins, and outlines --- #</span>
+draw_graph_borders yes      <span style="color: #0099FF; font-style: italic"># Do you want to draw borders around graphs</span>
+border_inner_margin 9       <span style="color: #0099FF; font-style: italic"># Window&#39;s inner border margin (in pixels)</span>
+border_outer_margin 5       <span style="color: #0099FF; font-style: italic"># Window&#39;s outer border margin (in pixels)</span>
+gap_x 10                    <span style="color: #0099FF; font-style: italic"># Gap between borders of screen and text (on x-axis)</span>
+gap_y 40                    <span style="color: #0099FF; font-style: italic"># Gap between borders of screen and text (on y-axis)</span>
+border_width 10             <span style="color: #0099FF; font-style: italic"># Window&#39;s border width (in pixels)</span>
+
+<span style="color: #0099FF; font-style: italic"># --- Text --- #</span>
+draw_outline no             <span style="color: #0099FF; font-style: italic"># Do you want ot draw outlines</span>
+draw_shades no              <span style="color: #0099FF; font-style: italic"># Do you want to draw shades</span>
+draw_borders no             <span style="color: #0099FF; font-style: italic"># Do you want to draw borders around text</span>
+uppercase no                <span style="color: #0099FF; font-style: italic"># set to yes if you want all text to be in uppercase</span>
+use_xft yes                 <span style="color: #0099FF; font-style: italic"># use the X FreeType interface library (anti-aliased font)</span>
+xftfont Monospace:size<span style="color: #555555">=</span>8:weight<span style="color: #555555">=</span>bold    <span style="color: #0099FF; font-style: italic"># Xft font to be used</span>
+
+
+<span style="color: #0099FF; font-style: italic"># -------------------- Conky&#39;s Displayed System Monitoring Parameters -------------------- #</span>
+TEXT
+<span style="color: #0099FF; font-style: italic"># General system information</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color1</span><span style="color: #006699; font-weight: bold">}</span>SYSTEM INFORMATION <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">hr</span> 2<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>System: <span style="color: #003333">$color$nodename</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">alignr</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Uptime: <span style="color: #003333">$color$uptime</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Kernel: <span style="color: #003333">$color$kernel</span><span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">alignr</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Arch: <span style="color: #003333">$color$machine</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Distribution: <span style="color: #003333">$color</span><span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">execi</span> 99999 lsb_release --description | awk <span style="color: #CC3300">&#39;{ print $2&quot; &quot;$3 }&#39;</span><span style="color: #006699; font-weight: bold">}</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>CPU Type: <span style="color: #003333">$color</span><span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">execi</span> 99999 grep <span style="color: #CC3300">&#39;model name&#39;</span> /proc/cpuinfo | awk <span style="color: #CC3300">&#39;{ print $6 }&#39;</span> | sed <span style="color: #CC3300">&#39;2,$d&#39;</span><span style="color: #006699; font-weight: bold">}</span> / <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">execi</span> 99999 grep <span style="color: #CC3300">&#39;model name&#39;</span> /proc/cpuinfo | wc -l<span style="color: #006699; font-weight: bold">}</span> Cores
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>CPU Speed: <span style="color: #003333">$color</span><span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">freq</span> 0<span style="color: #006699; font-weight: bold">}</span> MHz Current / <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">execi</span> 99999 grep <span style="color: #CC3300">&#39;model name&#39;</span> /proc/cpuinfo | awk <span style="color: #CC3300">&#39;{ print $9 }&#39;</span> | sed <span style="color: #CC3300">&#39;2,$d&#39;</span><span style="color: #006699; font-weight: bold">}</span> Max
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Processor Temperature: <span style="color: #003333">$color</span><span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">acpitemp</span><span style="color: #006699; font-weight: bold">}</span>°C
+<span style="color: #0099FF; font-style: italic">#${color0}MAC Address (eth0): $color${execi 99999 cat /sys/class/net/eth0/address }</span>
+<span style="color: #0099FF; font-style: italic">#${color0}MAC Address (eth1): $color${execi 99999 cat /sys/class/net/eth1/address }</span>
+<span style="color: #0099FF; font-style: italic">#${color0}MAC Address (wlan0): $color${execi 99999 cat /sys/class/net/wlan0/address }</span>
+
+<span style="color: #0099FF; font-style: italic"># CPU information</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color1</span><span style="color: #006699; font-weight: bold">}</span>CPU <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">hr</span> 2<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>CPU Usage:<span style="color: #003333">$color</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">cpu</span> cpu0<span style="color: #006699; font-weight: bold">}</span>% <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color7</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">cpubar</span> cpu0<span style="color: #006699; font-weight: bold">}</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">cpugraph</span> cpu0 0000ff 00ff00<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Core 1:<span style="color: #003333">$color</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">freq</span> 1<span style="color: #006699; font-weight: bold">}</span> MHz <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">cpu</span> cpu1<span style="color: #006699; font-weight: bold">}</span>% <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color5</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">cpubar</span> cpu1<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Core 2:<span style="color: #003333">$color</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">freq</span> 2<span style="color: #006699; font-weight: bold">}</span> MHz <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">cpu</span> cpu2<span style="color: #006699; font-weight: bold">}</span>% <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color5</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">cpubar</span> cpu2<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Core 3:<span style="color: #003333">$color</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">freq</span> 3<span style="color: #006699; font-weight: bold">}</span> MHz <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">cpu</span> cpu3<span style="color: #006699; font-weight: bold">}</span>% <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color5</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">cpubar</span> cpu3<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Core 4:<span style="color: #003333">$color</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">freq</span> 4<span style="color: #006699; font-weight: bold">}</span> MHz <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">cpu</span> cpu4<span style="color: #006699; font-weight: bold">}</span>% <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color5</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">cpubar</span> cpu4<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+
+<span style="color: #0099FF; font-style: italic"># Top running processes</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color1</span><span style="color: #006699; font-weight: bold">}</span>TOP 5 PROCESSES <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">hr</span> 2<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Processes:<span style="color: #003333">$color</span> <span style="color: #003333">$processes</span>  <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Running:<span style="color: #003333">$color</span> <span style="color: #003333">$running_processes</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Threads:<span style="color: #003333">$color</span> <span style="color: #003333">$threads</span>  <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Running:<span style="color: #003333">$color</span> <span style="color: #003333">$running_threads</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">stippled_hr</span> 2<span style="color: #006699; font-weight: bold">}</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>CPU Usage<span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color3</span><span style="color: #006699; font-weight: bold">}</span> NAME              PID    CPU %   MEM<span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color2</span><span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> name 1<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> pid 1<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> cpu 1<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> mem 1<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+ <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> name 2<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> pid 2<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> cpu 2<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> mem 2<span style="color: #006699; font-weight: bold">}</span>
+ <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> name 3<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> pid 3<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> cpu 3<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> mem 3<span style="color: #006699; font-weight: bold">}</span>
+ <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> name 4<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> pid 4<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> cpu 4<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> mem 4<span style="color: #006699; font-weight: bold">}</span>
+ <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> name 5<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> pid 5<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> cpu 5<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top</span> mem 5<span style="color: #006699; font-weight: bold">}</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">stippled_hr</span> 2<span style="color: #006699; font-weight: bold">}</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Mem Usage<span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color3</span><span style="color: #006699; font-weight: bold">}</span> NAME              PID    CPU %   MEM<span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color2</span><span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> name 1<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> pid 1<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> cpu 1<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> mem 1<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+ <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> name 2<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> pid 2<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> cpu 2<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> mem 2<span style="color: #006699; font-weight: bold">}</span>
+ <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> name 3<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> pid 3<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> cpu 3<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> mem 3<span style="color: #006699; font-weight: bold">}</span>
+ <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> name 4<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> pid 4<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> cpu 4<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> mem 4<span style="color: #006699; font-weight: bold">}</span>
+ <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> name 5<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> pid 5<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> cpu 5<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">top_mem</span> mem 5<span style="color: #006699; font-weight: bold">}</span>
+
+<span style="color: #0099FF; font-style: italic"># Memory and swap space untilization</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color1</span><span style="color: #006699; font-weight: bold">}</span>MEMORY &amp; SWAP <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">hr</span> 2<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>RAM Usage: <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color</span><span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$mem</span> / <span style="color: #003333">$memmax</span>
+<span style="color: #003333">$memperc</span>% <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color6</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">membar</span><span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Swap Usage: <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color</span><span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$swap</span> / <span style="color: #003333">$swapmax</span>
+<span style="color: #003333">$swapperc</span>% <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color6</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">swapbar</span><span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+
+<span style="color: #0099FF; font-style: italic"># File System utilization</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color1</span><span style="color: #006699; font-weight: bold">}</span>FILE SYSTEM <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">hr</span> 2<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>root:<span style="color: #003333">$color</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">fs_used</span> /<span style="color: #006699; font-weight: bold">}</span> / <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">fs_size</span> /<span style="color: #006699; font-weight: bold">}</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">fs_used_perc</span> /<span style="color: #006699; font-weight: bold">}</span>% <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color8</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">fs_bar</span> /<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>boot:<span style="color: #003333">$color</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">fs_used</span> /boot<span style="color: #006699; font-weight: bold">}</span> / <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">fs_size</span> /boot<span style="color: #006699; font-weight: bold">}</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">fs_used_perc</span> /boot<span style="color: #006699; font-weight: bold">}</span>% <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color8</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">fs_bar</span> /boot<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>home:<span style="color: #003333">$color</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">fs_used</span> /home<span style="color: #006699; font-weight: bold">}</span> / <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">fs_size</span> /home<span style="color: #006699; font-weight: bold">}</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">fs_used_perc</span> /home<span style="color: #006699; font-weight: bold">}</span>% <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color8</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">fs_bar</span> /home<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>backup:<span style="color: #003333">$color</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">fs_used</span> /mnt/backup<span style="color: #006699; font-weight: bold">}</span> / <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">fs_size</span> /mnt/backup<span style="color: #006699; font-weight: bold">}</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">fs_used_perc</span> /mnt/backup<span style="color: #006699; font-weight: bold">}</span>% <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color8</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">fs_bar</span> /mnt/backup<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+
+<span style="color: #0099FF; font-style: italic"># Hard Drive Utilization</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color1</span><span style="color: #006699; font-weight: bold">}</span>HARD DRIVE I/O <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">hr</span> 2<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Device:<span style="color: #003333">$color</span> /dev/sda
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Reads: <span style="color: #003333">$color</span><span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">diskio_read</span> /dev/sda<span style="color: #006699; font-weight: bold">}</span>/s<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">alignr</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Writes: <span style="color: #003333">$color</span><span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">diskio_write</span> /dev/sda<span style="color: #006699; font-weight: bold">}</span>/s
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color8</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">diskiograph_read</span> /dev/sda 20,100 33FF00 FF3333 scale -t<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span><span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">alignr</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">color8</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">diskiograph_write</span> /dev/sda 20,100 33FF00 FF3333 scale -t<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Device:<span style="color: #003333">$color</span> /dev/md0
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Reads: <span style="color: #003333">$color</span><span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">diskio_read</span> /dev/md0<span style="color: #006699; font-weight: bold">}</span>/s<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">alignr</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Writes: <span style="color: #003333">$color</span><span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">diskio_write</span> /dev/md0<span style="color: #006699; font-weight: bold">}</span>/s
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color8</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">diskiograph_read</span> /dev/md0 20,100 33FF00 FF3333 scale -t<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span><span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">alignr</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">color8</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">diskiograph_write</span> /dev/md0 20,100 33FF00 FF3333 scale -t<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+
+<span style="color: #0099FF; font-style: italic"># Ethernet utilization</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color1</span><span style="color: #006699; font-weight: bold">}</span>NETWORKING <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">hr</span> 2<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Wired <span style="color: #555555">(</span><span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">addr</span> eth0<span style="color: #006699; font-weight: bold">}</span><span style="color: #555555">)</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Down:<span style="color: #003333">$color</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">downspeed</span> eth0<span style="color: #006699; font-weight: bold">}</span>/s <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">alignr</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Up:<span style="color: #003333">$color</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">upspeed</span> eth0<span style="color: #006699; font-weight: bold">}</span>/s
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Total:<span style="color: #003333">$color</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">totaldown</span> eth0<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">alignr</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Total: <span style="color: #003333">$color</span><span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">totalup</span> eth0<span style="color: #006699; font-weight: bold">}</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">downspeedgraph</span> eth0 25,120 000000 00ff00<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">alignr</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">upspeedgraph</span> eth0 25,120 000000 ff0000<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">stippled_hr</span> 2<span style="color: #006699; font-weight: bold">}</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Wireless <span style="color: #555555">(</span><span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">addr</span> wlan0<span style="color: #006699; font-weight: bold">}</span><span style="color: #555555">)</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Down:<span style="color: #003333">$color</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">downspeed</span> wlan0<span style="color: #006699; font-weight: bold">}</span>/s <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">alignr</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Up:<span style="color: #003333">$color</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">upspeed</span> wlan0<span style="color: #006699; font-weight: bold">}</span>/s
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Total:<span style="color: #003333">$color</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">totaldown</span> wlan0<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">alignr</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>Total: <span style="color: #003333">$color</span><span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">totalup</span> wlan0<span style="color: #006699; font-weight: bold">}</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">downspeedgraph</span> wlan0 25,120 000000 00ff00<span style="color: #006699; font-weight: bold">}</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">alignr</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">upspeedgraph</span> wlan0 25,120 000000 ff0000<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+
+<span style="color: #0099FF; font-style: italic"># Print the tail of the Linux system log</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color1</span><span style="color: #006699; font-weight: bold">}</span>LOG FILES <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">hr</span> 2<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color0</span><span style="color: #006699; font-weight: bold">}</span>SysLog Messages<span style="color: #003333">$color</span>
+<span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">color4</span><span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">font</span> Arial:<span style="color: #003333">size</span>=7<span style="color: #006699; font-weight: bold">}${</span><span style="color: #003333">execi</span> 30 tail -n3 /var/log/syslog | fold -w50<span style="color: #006699; font-weight: bold">}</span><span style="color: #003333">$color$font</span>
+</pre></div>
+
+
+<p>Screen shot is below with Corky instance on the right&nbsp;side:</p>
+<p><a href="http://jeffskinnerbox.me/images/corky-screen-shot.jpg"><img alt="Corky Screen Shot" src="http://jeffskinnerbox.me/images/corky-screen-shot.jpg" title="Corky for Ubuntu on right of the desktop" /></a></p>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+            var disqus_identifier = 'conky-for-ubuntu';
+            var disqus_url = 'http://jeffskinnerbox.me/posts/2014/May/12/conky-for-ubuntu/';
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="http://jeffskinnerbox.me/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <a href="http://jeffskinnerbox.me/pages/about-me.html">
+                        <img class="img-rounded" src="http://jeffskinnerbox.me/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                    </a>
+                </div>
+
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+<li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
+                RPi Packages
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                Vim Cheat Sheet
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-puzzle-piece fa-lg"></i><span class="icon-label">Wiki Topics</span></h4>
+    <ul class="list-group" id="wiki">
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Project Ideas
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Things to Study
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">External Links</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://tiddlywiki.com/" target="_blank">
+                TiddlyWiki
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+    <ul class="list-group" id="social">
+        <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-github-square fa-lg"></i> Github
+        </a></li>
+        <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-twitter-square fa-lg"></i> Twitter
+        </a></li>
+        <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+            <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
+        </a></li>
+    </ul>
+</li>
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+<li class="list-group-item"><h4><i class="fa fa-thumbs-up fa-lg"></i><span class="icon-label">Reposted At</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://www.eeweb.com/websites/jeffs-skinner-box" target="_blank">
+                EEWeb.com
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-gears fa-lg"></i><span class="icon-label">Admin</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a43272292w73270397p83408137/" target="_blank">
+                Google Analytics
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io" target="_blank">
+                Web Site Source Code
+            </a>
+        </li>
+    </ul>
+</li>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://tiddlywiki.com/" target="_blank">TiddlyWiki</a>,
+            <a href="http://ipython.org/notebook.html" target="_blank">Python Notebook</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
+            <small>
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://jeffskinnerbox.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://jeffskinnerbox.me/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://jeffskinnerbox.me/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://jeffskinnerbox.me/theme/js/github.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-43272292-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Getting Started with Arduino - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="http://jeffskinnerbox.me/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Getting Started with Arduino"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/posts/2012/Sep/04/getting-started-with-arduino/"/>
+            <meta property="og:description" content="What is the Arduino, where can you get one, what tools do you need to use it, where can you get specifications, and how can you find out more about the Arduino?"/>
+
+    <!-- Bootstrap -->
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
+
+        <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://jeffskinnerbox.me/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="deadend.html">Wiki</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+<!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://jeffskinnerbox.me/posts/2012/Sep/04/getting-started-with-arduino/"
+                       rel="bookmark"
+                       title="Permalink to Getting Started with Arduino">
+                        Getting Started with Arduino
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2012-09-04T00:01:00"> Tuesday&nbsp;&nbsp;&nbsp;&nbsp;September 04, 2012</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/arduino/">Arduino</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p><a href="http://www.arduino.cc/"><img class="alignright size-medium wp-image-384" title="Ardunio Uno Board" alt="Ardino Uno Board" src="http://jeffskinnerbox.files.wordpress.com/2012/10/arduino-uno-board-on-an-angle.jpg?w=300" width="300" height="300" /></a></p>
+
+<h2>What is an&nbsp;Arduino?</h2>
+
+<p>First things first - Just what is an Arduino? Check out the following links for a brief&nbsp;introduction:</p>
+
+<ul><ul><li><a href="http://www.wired.com/gadgetlab/2008/04/just-what-is-an/">Just What Is An Arduino, And Why Do you Want&nbsp;One?</a></li><li><a href="http://www.pcworld.com/article/239454/geek_101_what_is_arduino.html">Geek 101: What Is&nbsp;Arduino?</a></li><li><a href="http://www.ted.com/talks/massimo_banzi_how_arduino_is_open_sourcing_imagination.html">Massimo Banzi: How Arduino is open-sourcing imagination at TEDGlobal&nbsp;2012</a></li><li><a href="http://redux.com/stream/item/1909904/Arduino-The-Documentary-2010-English-HD">Arduino: The&nbsp;Documentary</a></li></ul></ul>
+
+<p>For a lighter look at the Arduino, check out the <a href="http://arduino.cc/playground/uploads/Main/arduino_comic_v0004.pdf">comic book</a> by Jody&nbsp;Culkin.</p>
+
+<p>To go a bit deeper to understand the Arduino hardware variants and the Arduino’s Interactive Development Environment (<span class="caps">IDE</span>):</p>
+
+<ul><ul><li><a href="http://arduino.cc/en/Guide/Introduction">Ardunio as defined by the&nbsp;source</a></li><li><a href="http://www.howtogeek.com/65963/what-is-arduino/">What is Arduino? Learn About This Open-Source Electronics&nbsp;Platform</a></li></ul></ul>
+
+<p>Arduino also comes in <a href="http://arduino.cc/hu/Main/Hardware">multiple hardware variations</a> to support different types of&nbsp;applications.</p>
+
+<h2>What you Need to&nbsp;Purchase</h2>
+
+<p>For less than $100, Adafruit Industries offers an excellent starter package, <a href="http://www.adafruit.com/products/170">Adafruit <span class="caps">ARDX</span></a>. This package not only includes an Arduino Uno but also all the electronic pieces needed to complete 11 different circuits, along with a experimenter&#8217;s guide booklet <span class="amp">&amp;</span> breadboard layout&nbsp;sheets.</p>
+
+<h2>Installing the <span class="caps">IDE</span></h2>
+
+<p>This is the program used to write code for the Arduino. Install the software for you operating system and type of Arduino. I’m assuming Vista and Arduino Uno&nbsp;R3.</p>
+
+<ul><ul><li><a href="http://www.arduino.cc/en/Main/Software">Download the Arduino <span class="caps">IED</span>&nbsp;Software</a></li><li><a href="http://arduino.cc/en/Guide/Windows">How to connect your Arduino board to the computer (Windows <span class="caps">PC</span>) and upload your first&nbsp;sketch</a></li><li>Note: Within Device Manager, you may have to go to Action &gt; Add Legacy Hardware to see the Arduino and get the driver&nbsp;installed.</li></ul></ul>
+
+<h2>Start Your&nbsp;Education</h2>
+
+<p>Using the experiments guide that comes with the Arduino kit, <a href="http://www.oomlout.com/products/ARDX/ARDX-experimenters-guide-DD.pdf">Arduino Experimenter&#8217;s Guide (<span class="caps">ARDX</span>)</a>, and your off and running! Other sites to check out&nbsp;include:</p>
+
+<ul><ul><li><a href="http://www.oomlout.com/a/products/ardx/"><span class="caps">ARDX</span> Kit&nbsp;Tutorials</a></li><li><a href="http://www.ladyada.net/learn/arduino/index.html">Ladyada&#8217;s Arduino&nbsp;Tutorial</a></li><li><a href="http://arduino.cc/en/Tutorial/HomePage">Official Arduino Example&nbsp;Tutorials</a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-arduino/">Instructables&#8217; Arduino&nbsp;Section</a></li><li><a href="http://makezine.com/arduino/">Make Magazine&#8217;s Arduino&nbsp;Section</a></li><li><a href="http://www.adafruit.com/tutorials">Adafruit&nbsp;Industries</a></li><li><a href="http://www.sparkfun.com/tutorials">Sparkfun&nbsp;Electronics</a></li><li><a href="http://learn.sparkfun.com/curriculum">Education at SparkFun&nbsp;Electronics</a></li><li><a href="http://www.arduinotutorials.com">Arduino&nbsp;Tutorials</a></li><li><a href="http://letsmakerobots.com/node/28278">Arduino 101: Timers and&nbsp;Interrupts</a></li><li><a href="http://tronixstuff.wordpress.com/tutorials/">Arduino&nbsp;Tutorials</a></li><li><a href="http://guides.machinescience.org/course/view.php?id=29">Machine&nbsp;Science</a></li><li><a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl">Official&nbsp;Forums</a></li></ul></ul>
+
+<h2>Purchasing Arduino Hardware and Supporting&nbsp;Electronics</h2>
+
+<p>There are several online retail stores that sell the bits and pieces to make electronics projects possible. Some of the best&nbsp;are:</p>
+
+<ul><ul><li><a href="http://www.adafruit.com/category/17">Adafruit&nbsp;Industries</a></li><li><a href="http://www.sparkfun.com/">SparkFun&nbsp;Electronics</a></li><li><a href="http://www.parallax.com/">Parallax.com</a></li><li><a href="http://www.makershed.com/category_s/211.htm">Maker&nbsp;Shed</a></li><li><a href="http://www.mouser.com/Arduino/">Mouser&nbsp;Electronics</a></li><li><a href="http://www.goldmine-elec.com/">Electronic&nbsp;Goldmine</a></li><li><a href="http://www.jameco.com">Jameco&nbsp;Electronics</a></li><li><a href="http://www.digikey.com/">Digi-Key</a></li><li><a href="http://www.alliedelec.com/">Allied&nbsp;Electronics</a></li><li><a href="http://www.radioshack.com/category/index.jsp?categoryId=2032058">Radio&nbsp;Shack</a></li><li><a href="http://www.hobbypartz.com/">Hobby&nbsp;Partz</a></li><li><a href="http://www.lynxmotion.com/default.aspx">Lynxmotion</a></li></ul></ul>
+
+<p>Robotics is a popular topic for Arduino and these sites specialize in components and kits especially suited for&nbsp;robots:</p>
+
+<ul><ul><li><a href="http://www.dfrobot.com/"><span class="caps">DF</span>&nbsp;Robot</a></li><li><a href="http://www.machinescience.org/">Machine&nbsp;Science</a></li><li><a href="http://www.trossenrobotics.com/">Trossen&nbsp;Robotics</a></li><li><a href="http://www.robotshop.com/">RobotShop</a></li></ul></ul>
+
+<p>There are many shields available for the Arduino to accommodate many needs and <a href="http://shieldlist.org/">Arduino Shield List</a> keeps a running list of&nbsp;them.</p>
+
+<h2>Arduino&nbsp;Knowledgebases</h2>
+
+<ul><ul><li><a href="http://arduino.cc/en/Reference/HomePage">Arduino Language&nbsp;Reference</a></li><li><a href="http://dlnmh9ip6v2uc.cloudfront.net/learn/materials/8/Arduino_Cheat_Sheet.pdf">Arduino Cheat&nbsp;Sheet</a></li><li><a href="http://www.freeduino.org/">The World Famous Index of Arduino <span class="amp">&amp;</span> Freeduino&nbsp;Knowledge</a></li><li><a href="https://dafd4a86-a-62cb3a1a-s-sites.googlegroups.com/site/mechatronicsguy/arduinocheatsheet/Arduino%20cheat%20sheet%20v02c.png?attachauth=ANoY7cqNlrBTz55OdAqyKZbGYz82HJDLeBlGIbR3oPAe6cBuQc2wNntvNZqgY-_InrvuseNhJa7aa645ZXlgk3fgL6t-obHAcE28IqUFGv3IH8tdOzyC0UYzgTkjoaorrYTiAGi7xTBDk3Niy_E5fGs3oy3nwWHXlR5eF8B1_q83SFxMrg0x9ivR8l8alqMkxpgyJauaLXkH6zfGiADUn_8KT5M-AB5_TSm6K9fPVVX8xgbI0kTBgJjVtIyOICdf28IoYnAL_iBx&amp;attredirects=0">Arduino Cheat&nbsp;Sheet</a></li><li><a href="http://learn.sparkfun.com/resources/Handouts/ProtoSnap/ProtoSnap%20Handout.pdf">Basic Arduino Reference&nbsp;Sheet</a></li></ul></ul>
+
+<p><a href="http://jeffskinnerbox.files.wordpress.com/2012/10/arduinouno_r3_pinouts.png"><img class="aligncenter size-full wp-image-386" title="ArduinoUno_R3_Pinouts" alt="Arduino Pinout" src="http://jeffskinnerbox.files.wordpress.com/2012/10/arduinouno_r3_pinouts.png" width="545" height="419" /></a></p>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+            var disqus_identifier = 'getting-started-with-arduino';
+            var disqus_url = 'http://jeffskinnerbox.me/posts/2012/Sep/04/getting-started-with-arduino/';
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="http://jeffskinnerbox.me/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <a href="http://jeffskinnerbox.me/pages/about-me.html">
+                        <img class="img-rounded" src="http://jeffskinnerbox.me/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                    </a>
+                </div>
+
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+<li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
+                RPi Packages
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                Vim Cheat Sheet
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-puzzle-piece fa-lg"></i><span class="icon-label">Wiki Topics</span></h4>
+    <ul class="list-group" id="wiki">
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Project Ideas
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Things to Study
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">External Links</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://tiddlywiki.com/" target="_blank">
+                TiddlyWiki
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+    <ul class="list-group" id="social">
+        <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-github-square fa-lg"></i> Github
+        </a></li>
+        <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-twitter-square fa-lg"></i> Twitter
+        </a></li>
+        <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+            <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
+        </a></li>
+    </ul>
+</li>
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+<li class="list-group-item"><h4><i class="fa fa-thumbs-up fa-lg"></i><span class="icon-label">Reposted At</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://www.eeweb.com/websites/jeffs-skinner-box" target="_blank">
+                EEWeb.com
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-gears fa-lg"></i><span class="icon-label">Admin</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a43272292w73270397p83408137/" target="_blank">
+                Google Analytics
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io" target="_blank">
+                Web Site Source Code
+            </a>
+        </li>
+    </ul>
+</li>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://tiddlywiki.com/" target="_blank">TiddlyWiki</a>,
+            <a href="http://ipython.org/notebook.html" target="_blank">Python Notebook</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
+            <small>
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://jeffskinnerbox.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://jeffskinnerbox.me/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://jeffskinnerbox.me/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://jeffskinnerbox.me/theme/js/github.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-43272292-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>

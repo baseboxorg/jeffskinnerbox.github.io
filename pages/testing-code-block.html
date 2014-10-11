@@ -1,0 +1,511 @@
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Testing: Code Block - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="http://jeffskinnerbox.me/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Testing: Code Block"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/pages/testing-code-block.html"/>
+
+    <!-- Bootstrap -->
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
+
+        <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://jeffskinnerbox.me/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="deadend.html">Wiki</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+<!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content" class="body">
+        <h1 class="entry-title">Testing: Code Block</h1>
+        
+        <div class="entry-content" style="background-image: url('/home/jeff/blogging/content/images/banners-bkgrds/scratchpad-yellow-blueline.jpg'); background-repeat: repeat;">
+            <h2>The Back&nbsp;Story</h2>
+<p>In Pelican, Markdown support is provided by the Python Markdown package (installed seperately).
+Markdown comes with some basic code block capabilities.
+If you want some syntax highlighting, you&#8217;ll need to install Pygments (installed separately).
+The Pelican documentation will tell you that the Pygments package is baked right in,
+and it is kind-of.
+Something not made clear in the Pelican documentation is that
+much of the good stuff in Markdown, like Pygments and syntax highlighting, has to be explicitly&nbsp;activated. </p>
+<p>Python Markdown comes with several <a href="http://pythonhosted.org/Markdown/extensions/extra.html">extras</a>, and one of the extension supported is called <a href="https://pythonhosted.org/Markdown/extensions/code_hilite.html">CodeHilite</a>.
+To get this all to work, you must include something like this in your <code>pelicanconf.py</code> file:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># List of the extensions that the Markdown processor will use.
+MD_EXTENSIONS = [&#39;extra&#39;, &#39;codehilite(noclasses=True, pygments_style=manni, guess_lang=False)&#39;]
+</pre></div>
+
+
+<p>Keep in mind that, unless told otherwise
+the Pygment highlighting engine will try to guess the language within the code block
+and apply highlighting.
+This can create some unwanted highlighting, so I turn this option off
+(that is why <code>guess_lang=False</code>).
+Also, Pygment has a default style called <code>default</code> but this can be controlled via
+the <code>pygments_style</code> option.
+To see all the Pygment styles, go to <a href="http://pygments.org/demo/">Pygments online demo</a>.
+To make things even more interesting,
+it doesn&#8217;t appear that all Pygment styles are supported by Pelican,
+out of the box (at least when using CodeHilite).
+This <a href="http://docs.getpelican.com/en/3.3.0/faq.html#i-m-creating-my-own-theme-how-do-i-use-pygments-for-syntax-highlighting">link</a> provides some insight on how get other styles&nbsp;working.</p>
+<p>Give the above, there are a number of ways to indicate to
+Markdown that a something is to be treated as a code block.
+You can use indentation of 4 spaces, fences (i.e. string of &#8220;~~~~&#8221;),
+or box text with triple-backtick (e.g. <code><code>&lt;/code&gt;println("Hello World")&lt;code&gt;</code></code>).
+More detail is provided&nbsp;below.</p>
+<h2>Standard Markdown Code&nbsp;Blocks</h2>
+<p>Standard Markdown converts text with four spaces at the beginning of each line into a code block.
+This first example is using just&nbsp;indenting:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># Example using simply indentation
+
+#!/bin/bash
+
+usage() {
+    echo &quot;Usage: $0 filename&quot;
+    exit 1
+}
+
+# define is_file_exits function 
+# $f -&gt; store argument passed to the script
+is_file_exits() {
+    local f=&quot;$1&quot;
+    [[ -f &quot;$f&quot; ]] &amp;&amp; return 0 || return 1
+}
+</pre></div>
+
+
+<p>The above example is likley to have some highlighting with red boxes.
+This is most likely because its assuming a language within the block and it highlighting&nbsp;errors.</p>
+<h2>GitHub Formated Markdown Code&nbsp;Block</h2>
+<p>Pelican also supports <a href="https://help.github.com/articles/github-flavored-markdown">GitHub Flavored Markdown (<span class="caps">GFM</span>)</a> style code blocks,
+known as <a href="https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks">Fenced Blocks</a> via the Markdown extention CodeHilite.
+Just wrap your code in three back-ticks <code>```</code> and you won&#8217;t need to indent it by four spaces.
+<em>(<strong><span class="caps">NOTE</span>:</strong> Although fenced code blocks don&#8217;t have to be preceded by a blank line—unlike indented code blocks, it is recommend placing a blank line before them to make the raw Markdown easier to&nbsp;read.)</em></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># Example using Fenced Blocks
+
+#!/bin/bash
+
+usage() {
+    echo &quot;Usage: $0 filename&quot;
+    exit 1
+}
+
+# define is_file_exits function 
+# $f -&gt; store argument passed to the script
+is_file_exits() {
+    local f=&quot;$1&quot;
+    [[ -f &quot;$f&quot; ]] &amp;&amp; return 0 || return 1
+}
+</pre></div>
+
+
+<p>A feature of CodeHilite is that it will do automatic syntax detection by looking at the first line of code.
+This is done without the assistance of Pygments, so the turning off automatic detection in Pygment
+does not surpress this feature.
+Below is an example (with no language given in the fenced&nbsp;block):</p>
+<table class="codehilitetable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/bin/bash</span>
+
+usage<span style="color: #555555">()</span> <span style="color: #555555">{</span>
+    <span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;Usage: $0 filename&quot;</span>
+    <span style="color: #336666">exit </span>1
+<span style="color: #555555">}</span>
+
+<span style="color: #0099FF; font-style: italic"># define is_file_exits function </span>
+<span style="color: #0099FF; font-style: italic"># $f -&gt; store argument passed to the script</span>
+is_file_exits<span style="color: #555555">()</span> <span style="color: #555555">{</span>
+    <span style="color: #336666">local </span><span style="color: #003333">f</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;$1&quot;</span>
+    <span style="color: #555555">[[</span> -f <span style="color: #CC3300">&quot;$f&quot;</span> <span style="color: #555555">]]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #006699; font-weight: bold">return </span>0 <span style="color: #555555">||</span> <span style="color: #006699; font-weight: bold">return </span>1
+<span style="color: #555555">}</span>
+</pre></div>
+</td></tr></table>
+
+<h2>Syntax&nbsp;Highlighting</h2>
+<p>Code blocks can be taken a step further by adding syntax highlighting.
+In your fenced block, add an optional language identifier and we&#8217;ll run it through syntax highlighting.
+You can find out which keywords are valid as language identifiers by
+ perusing the GitHub&#8217;s Language Savant <a href="http://pythonhosted.org/Markdown/extensions/extra.html">languages.yml</a> file.
+For example, to syntax highlight Ruby code, start the block with <code>```ruby</code> to&nbsp;get:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">require</span> <span style="color: #CC3300">&#39;redcarpet&#39;</span>
+markdown <span style="color: #555555">=</span> <span style="color: #336600">Redcarpet</span><span style="color: #555555">.</span>new(<span style="color: #CC3300">&quot;Hello World!&quot;</span>)
+<span style="color: #336666">puts</span> markdown<span style="color: #555555">.</span>to_html
+</pre></div>
+
+
+<p>Or using  <code>```bash</code> gets&nbsp;you:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># this is a comment line</span>
+mkdir /mnt/backup
+chmod a+rwx /mnt/backup
+chmod o-w /mnt/backup
+</pre></div>
+
+
+<p>If you choose to uses <code>~~~~</code> as it means to identify a code block,
+you&#8217;ll need to use a slightly different format.
+For example, to syntax highlight C++ code, start the block with <code>~~~~.cpp</code> to&nbsp;get:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">// Hello.cc</span>
+<span style="color: #0099FF; font-style: italic">//   how to compile: either  </span>
+<span style="color: #0099FF; font-style: italic">//     make Hello</span>
+<span style="color: #0099FF; font-style: italic">//   or  </span>
+<span style="color: #0099FF; font-style: italic">//     g++     Hello.cc   -o Hello</span>
+<span style="color: #0099FF; font-style: italic">//   usage:</span>
+<span style="color: #0099FF; font-style: italic">//     Hello</span>
+<span style="color: #0099FF; font-style: italic">//   features:</span>
+<span style="color: #0099FF; font-style: italic">//     uses cout to write text</span>
+
+<span style="color: #009999">#include &lt;iostream&gt;</span>
+<span style="color: #009999">#include &lt;cstdlib&gt;</span>
+
+<span style="color: #006699; font-weight: bold">using</span> <span style="color: #006699; font-weight: bold">namespace</span> std;
+
+<span style="color: #007788; font-weight: bold">int</span> <span style="color: #CC00FF">main</span>(<span style="color: #007788; font-weight: bold">int</span> argc, <span style="color: #007788; font-weight: bold">char</span><span style="color: #555555">*</span> argv[]) {
+    cout <span style="color: #555555">&lt;&lt;</span> <span style="color: #CC3300">&quot;:-) hello world&quot;</span> <span style="color: #555555">&lt;&lt;</span> endl ;
+}
+</pre></div>
+
+
+<p>When you use the <code>~~~~</code> Fenced Blocks, you can also emphasized certain lines of code.
+You can do this by telling Markdown what lines to highlight in the first fence.
+In the example below, lines 4 and 9 are emphasized (e.g. <code>~~~~{.python hl_lines="4 9"}</code>).</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/usr/bin/python</span>
+
+<span style="color: #0099FF; font-style: italic"># Dictionaries map keys to values.</span>
+<span style="background-color: #ffffcc">fred <span style="color: #555555">=</span> { <span style="color: #CC3300">&#39;mike&#39;</span>: <span style="color: #FF6600">456</span>, <span style="color: #CC3300">&#39;bill&#39;</span>: <span style="color: #FF6600">399</span>, <span style="color: #CC3300">&#39;sarah&#39;</span>: <span style="color: #FF6600">521</span> }
+</span>
+<span style="color: #0099FF; font-style: italic"># Subscripts.</span>
+<span style="color: #006699; font-weight: bold">try</span>:
+    <span style="color: #006699; font-weight: bold">print</span> fred
+<span style="background-color: #ffffcc">    <span style="color: #006699; font-weight: bold">print</span> fred[<span style="color: #CC3300">&#39;bill&#39;</span>]
+</span>    <span style="color: #006699; font-weight: bold">print</span> fred[<span style="color: #CC3300">&#39;nora&#39;</span>]
+    <span style="color: #006699; font-weight: bold">print</span> <span style="color: #CC3300">&quot;Won&#39;t see this!&quot;</span>
+<span style="color: #006699; font-weight: bold">except</span> <span style="color: #CC0000; font-weight: bold">KeyError</span>, rest:
+    <span style="color: #006699; font-weight: bold">print</span> <span style="color: #CC3300">&quot;Lookup failed:&quot;</span>, rest
+<span style="color: #006699; font-weight: bold">print</span>
+
+<span style="color: #0099FF; font-style: italic"># Entries can be added, udated, or deleted.</span>
+fred[<span style="color: #CC3300">&#39;bill&#39;</span>] <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;Sopwith Camel&#39;</span>
+fred[<span style="color: #CC3300">&#39;wilma&#39;</span>] <span style="color: #555555">=</span> <span style="color: #FF6600">2233</span>
+<span style="color: #006699; font-weight: bold">del</span> fred[<span style="color: #CC3300">&#39;mike&#39;</span>]
+<span style="color: #006699; font-weight: bold">print</span> fred
+</pre></div>
+
+
+<p>Python&#8217;s Markdown also has the <a href="http://pythonhosted.org//Markdown/extensions/code_hilite.html">CodeHilite</a> extension which adds code/syntax
+highlighting to code blocks using <a href="http://pygments.org/">Pygments</a>.
+In this case, the text must all be tabbed in 4 spaces, including the fenced block, which is <code>:::</code>.
+For the example below, indent the text but begin with <code>:::java hl_lines="9 10 11 12 13"</code>.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">/* CallingMethodsInSameClass.java</span>
+<span style="color: #0099FF; font-style: italic">*</span>
+<span style="color: #0099FF; font-style: italic">* illustrates how to call static methods a class</span>
+<span style="color: #0099FF; font-style: italic">* from a method in the same class</span>
+<span style="color: #0099FF; font-style: italic">*/</span>
+
+<span style="color: #006699; font-weight: bold">public</span> <span style="color: #006699; font-weight: bold">class</span> <span style="color: #00AA88; font-weight: bold">CallingMethodsInSameClass</span>
+<span style="color: #555555">{</span>
+<span style="background-color: #ffffcc">    <span style="color: #006699; font-weight: bold">public</span> <span style="color: #006699; font-weight: bold">static</span> <span style="color: #007788; font-weight: bold">void</span> <span style="color: #CC00FF">main</span><span style="color: #555555">(</span>String<span style="color: #555555">[]</span> args<span style="color: #555555">)</span> <span style="color: #555555">{</span>
+</span><span style="background-color: #ffffcc">        printOne<span style="color: #555555">();</span>
+</span><span style="background-color: #ffffcc">        printOne<span style="color: #555555">();</span>
+</span><span style="background-color: #ffffcc">        printTwo<span style="color: #555555">();</span>
+</span><span style="background-color: #ffffcc">    <span style="color: #555555">}</span>
+</span>
+    <span style="color: #006699; font-weight: bold">public</span> <span style="color: #006699; font-weight: bold">static</span> <span style="color: #007788; font-weight: bold">void</span> <span style="color: #CC00FF">printOne</span><span style="color: #555555">()</span> <span style="color: #555555">{</span>
+        System<span style="color: #555555">.</span><span style="color: #330099">out</span><span style="color: #555555">.</span><span style="color: #330099">println</span><span style="color: #555555">(</span><span style="color: #CC3300">&quot;Hello World&quot;</span><span style="color: #555555">);</span>
+    <span style="color: #555555">}</span>
+
+    <span style="color: #006699; font-weight: bold">public</span> <span style="color: #006699; font-weight: bold">static</span> <span style="color: #007788; font-weight: bold">void</span> <span style="color: #CC00FF">printTwo</span><span style="color: #555555">()</span> <span style="color: #555555">{</span>
+        printOne<span style="color: #555555">();</span>
+        printOne<span style="color: #555555">();</span>
+    <span style="color: #555555">}</span>
+<span style="color: #555555">}</span>
+</pre></div>
+
+
+<h2>Using Gist For Code&nbsp;Blocks</h2>
+<p>The posting &#8220;<a href="http://www.restlessprogrammer.com/2013/02/adding-code-snippets-to-your-blog.html">Adding code snippets to your blog</a>&#8221;
+show you how to use <a href="https://gist.github.com/">GitHug Gist</a> to add code listings to your blog.
+The example below is a code snippits from <a href="https://gist.github.com/jeffskinnerbox/6663095">here</a>.</p>
+<!&#8212; &#8212;&#8212;&#8212;&#8212; Start: Gist Code Snippit &#8212;&#8212;&#8212;&#8212;- &#8212;>
+
+<p><style="padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); font-size: 12px; line-height: 14px; width: 90%;">
+    <script src="https://gist.github.com/jeffskinnerbox/6663095.js"></script>
+</style>
+<!&#8212; &#8212;&#8212;&#8212;&#8212;- End: Gist Code Snippit &#8212;&#8212;&#8212;&#8212;&#8212; &#8212;> </p>
+<p>The file content to create this is as&nbsp;follows:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">&lt;!-- -------- Start: Gist Code Snippit --------- --&gt; 
+&lt;style=&quot;padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); font-size: 12px; line-height: 14px; width: 90%;&quot;&gt;
+    &lt;script src=&quot;https://gist.github.com/jeffskinnerbox/6663095.js&quot;&gt;&lt;/script&gt;
+&lt;/style&gt;
+&lt;!-- --------- End: Gist Code Snippit ---------- --&gt; 
+</pre></div>
+        </div>
+    </section>
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="http://jeffskinnerbox.me/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <a href="http://jeffskinnerbox.me/pages/about-me.html">
+                        <img class="img-rounded" src="http://jeffskinnerbox.me/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                    </a>
+                </div>
+
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+<li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
+                RPi Packages
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                Vim Cheat Sheet
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-puzzle-piece fa-lg"></i><span class="icon-label">Wiki Topics</span></h4>
+    <ul class="list-group" id="wiki">
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Project Ideas
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Things to Study
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">External Links</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://tiddlywiki.com/" target="_blank">
+                TiddlyWiki
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+    <ul class="list-group" id="social">
+        <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-github-square fa-lg"></i> Github
+        </a></li>
+        <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-twitter-square fa-lg"></i> Twitter
+        </a></li>
+        <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+            <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
+        </a></li>
+    </ul>
+</li>
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+<li class="list-group-item"><h4><i class="fa fa-thumbs-up fa-lg"></i><span class="icon-label">Reposted At</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://www.eeweb.com/websites/jeffs-skinner-box" target="_blank">
+                EEWeb.com
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-gears fa-lg"></i><span class="icon-label">Admin</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a43272292w73270397p83408137/" target="_blank">
+                Google Analytics
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io" target="_blank">
+                Web Site Source Code
+            </a>
+        </li>
+    </ul>
+</li>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://tiddlywiki.com/" target="_blank">TiddlyWiki</a>,
+            <a href="http://ipython.org/notebook.html" target="_blank">Python Notebook</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
+            <small>
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://jeffskinnerbox.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://jeffskinnerbox.me/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://jeffskinnerbox.me/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://jeffskinnerbox.me/theme/js/github.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-43272292-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>

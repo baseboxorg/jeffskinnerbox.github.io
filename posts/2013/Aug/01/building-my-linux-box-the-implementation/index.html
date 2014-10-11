@@ -1,0 +1,822 @@
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Building My Linux Box...The Implementation - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="http://jeffskinnerbox.me/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Building My Linux Box...The Implementation"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/posts/2013/Aug/01/building-my-linux-box-the-implementation/"/>
+            <meta property="og:description" content="In this posting, I show how I implemented my plans to build my custom made Linux system. I review where I deviated from my plans, and give some of the details on software configration."/>
+
+    <!-- Bootstrap -->
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
+
+        <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://jeffskinnerbox.me/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="deadend.html">Wiki</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+<!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://jeffskinnerbox.me/posts/2013/Aug/01/building-my-linux-box-the-implementation/"
+                       rel="bookmark"
+                       title="Permalink to Building My Linux Box...The Implementation">
+                        Building My Linux Box...The Implementation
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-08-01T00:01:00"> Thursday&nbsp;&nbsp;&nbsp;&nbsp;August 01, 2013</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/linux/">Linux</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/ubuntu/">Ubuntu</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/squeeze-box/">Squeeze Box</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/harmony-remote/">Harmony Remote</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/chrome/">Chrome</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/xbindkeys/">Xbindkeys</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/keepass/">KeePass</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/wine/">Wine</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/raid/">RAID</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p><img class="img-rounded" style="margin: 0px 8px; float: left" alt="Ubuntu 13.04 Raring Ringtail" src="/images/ubuntu-13-04-raring-ringtail.jpg" width="15%" height="15%" />
+In an earlier post, I outlined <a href="http://jeffskinnerbox.me/posts/2013/Apr/28/building-my-linux-box-the-plan/">my plan for building a Linux Box</a>.  Here I will post how that plan was ultimately implemented. Life has taught me that all good planning is ultimately undone, and at some point, you must improvise.  That has also proven true for this quest to up grade my computation.  Specifically:
+<ul>
+<ul>
+    <li>After ordering all the hardware, it came to me that it was dumb to attempt to reuse my old semi-reliable, slow <span class="caps">CD</span> drive.  So I purchase the <span class="caps">HP</span> 24X Multiformat <span class="caps">DVD</span>/<span class="caps">CD</span> Writer (dvd1260i) at Best Buy for 40&nbsp;dollars.</li>
+    <li>I discovered that the my old <span class="caps">PC</span> had <a href="http://www.webopedia.com/TERM/A/ATA.html"><span class="caps">ATA</span></a> hard drives (commonly called an <span class="caps">IDE</span> drive) and my new Mobo only supports <a href="http://www.webopedia.com/TERM/S/Serial_ATA.html"><span class="caps">SATA</span></a> (<span class="caps">SATA</span> 3Gb/s <span class="amp">&amp;</span> <span class="caps">6GB</span>/s and it includes an external eSATA port).   This blows my plan to reuse my existing hard drives &#8230; stupid me, I should have checked.  I did a quick scan for <span class="caps">ATA</span> controller cards and found a few (not many) for 15 to 30 dollars.  I could buy the card and make this work but it doesn&#8217;t seem like a good investment.  The drives are 400G drives and has a maximum data transfer rate of about <span class="caps">133MB</span>/s (i.e. <span class="caps">ATA</span>/66).  The maximum data transfer rates of <span class="caps">SATA</span> <span class="caps">II</span> and <span class="caps">SATA</span> <span class="caps">III</span> are 300 <span class="caps">MB</span>/s and 600 <span class="caps">MB</span>/s, respectively.  I can buy a Seagate - Barracuda <span class="caps">500GB</span> <span class="caps">SATA</span> <span class="caps">II</span> Internal Hard Drive for $70.  Given my objective to increase the performance of my computing experience, buying a new <span class="caps">SATA</span> <span class="caps">III</span> hard drive should have been part of&nbsp;the original plan.</li>
+    <li>After <a href="http://www.cyberciti.biz/tips/raid-hardware-vs-raid-software.html">reading up on <span class="caps">RAID</span></a> and the Intel Rapid Storage Technology (<span class="caps">RST</span>), I concluded that it would be best to do a Software Raid and not use <span class="caps">RST</span>.</li>
+    <li>While I assumed in my original plan that I would dual boot the box with Linux and <span class="caps">MS</span> Windows, the <a href="http://jeffskinnerbox.wordpress.com/2013/04/28/building-my-linux-box-the-plan/">comment from armahillo@gmail.com </a>convinced me of what I suspected I should do; and that was to make <a href="http://www.winehq.org/">wine</a>, <a href="http://www.mono-project.com/Main_Page">mono</a>, and <a href="http://www.playonlinux.com/">PlayOnLinux</a> work for me.  While I haven&#8217;t stressed them, so far so good.  I have not installed VirtualBox and I suspect I will not &#8230; unless I get&nbsp;desperate.</li>
+    <li>I was planning to reuse my old keyboard and mouse, but you know, I hated that keyboard and the mouse was already acting badly and about to die on me.  So I ended up replacing them with sometime worthy of my new&nbsp;system.</li>
+</ul>
+</ul>
+<h2>Configuring&nbsp;Ubuntu</h2>
+You&#8217;ll find many recommendations on how to jazz up a newlly install Ubuntu system.  I found some of these suggestions useful:
+<ul>
+<ul>
+    <li><a href="http://debianhelp.wordpress.com/2012/09/28/to-do-list-after-installing-ubuntu-13-04-aka-raring-ringtail-operating-system/">To Do List After installing Ubuntu 13.04 aka Raring Ringtail <span class="caps">OS</span></a></li>
+    <li><a href="http://www.noobslab.com/2013/04/tweaksthings-to-do-after-install-of.html">Things/Tweaks to do after Install of Ubuntu 13.04 Raring&nbsp;Ringtail</a></li>
+    <li><a href="http://mambochimbo.blogspot.com/2013/05/to-do-top-things-to-do-after-installing.html">Top things to do after installing Ubuntu&nbsp;13.04</a></li>
+</ul>
+</ul>
+<h2>Installing &#8220;dot&#8221;&nbsp;Files</h2>
+Like may, over the years I have made a large time investment in tuning my <code>.bashrc</code>, <code>.vimrc</code>, and other such resource files.  I installed my beloved &#8220;dot&#8221; files from my <a href="https://github.com/jeffskinnerbox">Git repository</a>.
+<h2>Installing Google Chrome’s Native <span class="caps">PDF</span> Reader in&nbsp;Chromium</h2>
+Chromium is a fully open-source version of Google&#8217;s Chrome, and for licensing reasons, it doesn&#8217;t come packaged with the integrated Flash or a native <span class="caps">PDF</span> reader.  Lucky, there is a work around and that is documented here: <a href="http://www.omgubuntu.co.uk/2010/07/use-google-chrome%E2%80%99s-native-pdf-reader-in-chromium">Use Google Chrome’s Native <span class="caps">PDF</span> reader in Chromium</a>.
+<h2>Installing My Squeeze&nbsp;Box</h2>
+I have a <a href="http://www.mysqueezebox.com/index/Home">SqueezeBox</a> device in my workshop for playing music.
+Specifically, I have the Squeezebox Classic (<a href="http://www.logitech.com/assets/32377/squeezeboxclassic-ownersguide.pdf">Owner&#8217;s Guide</a>).
+On my old <span class="caps">PC</span>, I had installed the SlimServer which would provide the music stream.  I want to now reestablish that capability on the Linux box. The post <a href="http://www.ehow.com/how_7314755_use-squeezebox-ubuntu.html">How to Use Squeezebox With Ubuntu</a> and the <a href="http://wiki.slimdevices.com/index.php/DebianPackage">Logitech SqueezeBox Wiki</a> gives you all the information you should&nbsp;need.</p>
+<p>The Ubuntu (Debian) software for the <a href="http://wiki.slimdevices.com/index.php/Logitech_Media_Server">SqueezeCenter</a> or now called the Logitech Media Server (formerly known as SlimServer) is maintained by Logitech, and therefore, will not be installed via <code>get-apt</code>.  To make it part of the package resource list (used to locate archives of the package distribution system in use on the system), you need to update the <a href="http://linux.die.net/man/5/sources.list"><code>/etc/apt/sources.list</code></a> file.  To do this, do the&nbsp;following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo vim /etc/apt/sources.list
+</pre></div>
+
+
+<p>Scroll to the bottom of the file and enter the following information and then&nbsp;save:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># This software is not part of Ubuntu, but is offered by Logitech for the</span>
+<span style="color: #0099FF; font-style: italic"># Logitech Media Server (formerly known as SqueezeCenter or SlimServer).</span>
+deb http://debian.slimdevices.com stable main
+</pre></div>
+
+
+<p>Now do the&nbsp;following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get remove --purge logitechmediaserver
+sudo apt-get update
+sudo apt-get install logitechmediaserver
+</pre></div>
+
+
+<p>Now open a browser and type &#8220;<code>http://desktop:9000</code>&#8221; as the <span class="caps">URL</span>, where &#8220;desktop&#8221; is the name of your Linux system.  This brings you to a Squeezebox interface to configure the&nbsp;system.</p>
+<p>If you want to start/stop Logitech Media Server manually you can run:
+<code>sudo /etc/init.d/logitechmediaserver stop</code>,
+<code>sudo /etc/init.d/logitechmediaserver start</code>,
+and
+<code>sudo /etc/init.d/logitechmediaserver restart</code>.</p>
+<p>Keep in mind that the Squeeze Box Server uses port 9000.
+Make sure the port is open with the following:
+<code>netstat -an | grep 9000</code>.
+If the you don&#8217;t get any output or the line doesn&#8217;t contain &#8220;<span class="caps">LISTEN</span>&#8221;,
+then the port is closed or there is no process (i.e <code>squeezeboxserver</code>) listening to it.
+Use these procedures to <a href="http://www.tixati.com/optimize/open-ports-linux.html">open ports on a Linux firewall</a>.</p>
+<p><strong>Note:</strong> Because of a bug (conflict with the version of Perl I&#8217;m using),
+    I had to install a beta version directly&nbsp;using</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># See http://forums.slimdevices.com/showthread.php?101237-Logitech-Media-Server-7-8-0-now-available!</span>
+<span style="color: #0099FF; font-style: italic"># Download the Debian package from http://downloads.slimdevices.com/nightly/?ver=7.8</span>
+sudo dpkg -i logitechmediaserver_7.8.1~1411629722_all.deb
+</pre></div>
+
+
+<h2>Configuring Samsung <span class="caps">SCX</span>-4521F&nbsp;Printer/Scanner</h2>
+
+<p>When it comes to printers and scanners, Ubuntu advices that you should simply plug it in and try!
+Ubuntu claims that if it&#8217;s a newer model <span class="caps">USB</span> scanner / printer,
+it is likely that it will work immediately without any further driver or software installations.
+I did this with my multifunction <a href="http://www.samsung.com/levant/consumer/computers-peripherals/printers/mono-multi-function/SCX-4521F/XSG">Samsung <span class="caps">SCX</span>-4521F</a>, which is a printer / scanner combination,
+and the printer function worked but the scanner did&nbsp;not.</p>
+<p>After a bit of research, I discovered that Ubuntu uses
+<a href="https://help.ubuntu.com/13.10/serverguide/cups.html">Common <span class="caps">UNIX</span> Printing System (<span class="caps">CUPS</span>)</a> for printer management.
+<span class="caps">CUPS</span> is the standards-based,
+open source printing system developed by Apple for <span class="caps">OS</span> X and other <span class="caps">UNIX</span>-like operating systems.
+Assuming <span class="caps">CUPS</span> is installed (and it appeares to be with the Ubuntu package),
+you can use a web browser to access it features.
+To do this, open your web browser and got to <a href="http://localhost:631/"><code>http://localhost:631/</code></a>.
+You&#8217;ll find there an overview of <span class="caps">CUPS</span>, administrative functions, and even command-line&nbsp;utilities.</p>
+<p>I also discovered that <a href="http://www.sane-project.org/"><span class="caps">SANE</span> (Scanner Access Now Easy)</a> is the Linux way of scanning.
+<span class="caps">SANE</span> supports a great many scanners, and the community around <span class="caps">SANE</span> adds support for more scanners all the time.
+They claim, by and large, you should simple plug them in and your ready to scan.
+However, some scanners, like mine, require more&nbsp;effort.</p>
+<p><span class="caps">SANE</span> isn&#8217;t typically installed with the Ubuntu distribution,
+but you can install <span class="caps">SANE</span>&nbsp;via</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install sane xsane libsane-extras
+</pre></div>
+
+
+<p><span class="caps">SANE</span> supplies a utility called
+<a href="http://linux.about.com/library/cmd/blcmdl1_scanimage.htm"><code>scanimage</code></a> that is a command-line interface to control image acquisition
+devices such as flatbed scanners or cameras.
+When I ran it, I got the following&nbsp;results</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">$ scanimage --list-devices
+
+No scanners were identified. If you were expecting something different,
+check that the scanner is plugged in, turned on and detected by the
+sane-find-scanner tool (if appropriate). Please read the documentation
+which came with this software (README, FAQ, manpages).
+</pre></div>
+
+
+<p>Some more web research told me that my printer is a <a href="http://www.bchemnet.com/suldr/supported.html">Xerox manufactured product</a>
+and I needed to install the Samsung Unified Linux Driver.
+I did the repository setup and package install recommended at
+<a href="http://www.bchemnet.com/suldr/index.html">The Samsung Unified Linux Driver Repository</a>.
+The install I did&nbsp;was</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install suld-driver-4.00.39 suld-configurator-2-qt4
+</pre></div>
+
+
+<p>I then added my login user to the <code>scanner</code> group via <code>sudo usermod -a -G scanner jeff</code>.
+I ran the command <code>sane-find-scanner</code> to see if I&#8217;m now able to detect the scanner,
+and I got the following disappointing&nbsp;results.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">$ sudo sane-find-scanner
+
+  # sane-find-scanner will now attempt to detect your scanner. If the
+  # result is different from what you expected, first make sure your
+  # scanner is powered up and properly connected to your computer.
+
+  # No SCSI scanners found. If you expected something different, make sure that
+  # you have loaded a kernel SCSI driver for your SCSI adapter.
+
+could not fetch string descriptor: Pipe error
+could not fetch string descriptor: Pipe error
+  # No USB scanners found. If you expected something different, make sure that
+  # you have loaded a kernel driver for your USB host controller and have setup
+  # the USB system correctly. See man sane-usb for details.
+
+  # Not checking for parallel port scanners.
+
+  # Most Scanners connected to the parallel port or other proprietary ports
+  # can&#39;t be detected by this program.
+</pre></div>
+
+
+<p>At this point, I did some back tracking and discovered the following article:
+<a href="http://askubuntu.com/questions/231778/how-do-i-get-the-scanner-to-work-on-a-samsung-scx-4521f-multi-function-printer">How do I get the scanner to work on a Samsung <span class="caps">SCX</span> 4521F Multi function printer?</a>
+The work already done above covers step 1 of this article
+and step 2 isn&#8217;t relevant (since I can already print).
+I need to perform step 3, that&nbsp;is</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install samsungmfp-scanner
+</pre></div>
+
+
+<p>Now I re-ran the command <code>scanimage --list-devices</code> and got the&nbsp;following</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">$ scanimage --list-devices
+device `smfp:SAMSUNG SCX-4x21 Series on USB:0&#39; is a SAMSUNG SCX-4x21 Series on USB:0 Scanner
+</pre></div>
+
+
+<p>but the <code>sudo sane-find-scanner</code> got the same
+&#8220;could not fetch string descriptor: Pipe error&#8221; error message when done&nbsp;earlier.</p>
+<p>After some more research and using <code>lsusb | grep Samsung</code> and <code>cat /lib/udev/rules.d/40-libsane.rules | grep 3419</code>,
+I discover there is no udev rule for the <span class="caps">SCX</span>-4521F scanner.
+Therefore, I place the following lines in <code>/lib/udev/rules.d/40-libsane.rules</code></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># Samsung SCX-4521F
+ATTRS{idVendor}==&quot;04e8&quot;, ATTRS{idProduct}==&quot;3419&quot;, ENV{libsane_matched}=&quot;yes&quot;
+</pre></div>
+
+
+<p>This still didn&#8217;t give me a good run for <code>sudo sane-find-scanner</code>
+but the command <code>scanimage --test</code> did give passing results.
+Given this, I proceeded to using <a href="http://linux.about.com/library/cmd/blcmdl1_xsane.htm"><code>xsane</code></a> to test out some scanning (it worked!).
+xsane is a X Window application and produces it output in <a href="http://en.wikipedia.org/wiki/Netpbm_format"><span class="caps">PNM</span> format</a>.
+You can convert this format to <span class="caps">PDF</span> (and many other formats) via the utility <a href="http://www.imagemagick.org/script/convert.php``"><code>convert</code></a>
+(e.g. <code>convert outfile.pnm outfile.pdf</code>).</p>
+<h2>iPod&nbsp;Support</h2>
+
+<p>Ubuntu comes with <a href="https://wiki.gnome.org/Apps/Rhythmbox">Rhythmbox</a> as its music playing application and can be used to synch with a iPod. 
+Also, you&#8217;ll want to install several Rhythmbox <a href="http://www.webupd8.org/2012/08/rhythmbox-third-party-plugins-ubuntu-ppa.html">plugins</a>.
+That can be done&nbsp;via</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo add-apt-repository ppa:fossfreedom/rhythmbox-plugins
+sudo add-apt-repository ppa:phw/musicbrainz
+sudo apt-get update
+sudo apt-get install rhythmbox-plugin-complete
+</pre></div>
+
+
+<p>After installing any of the above Rhythmbox plugins, enable them from the main menu: Rhythmbox &gt;&nbsp;Plugins.</p>
+<h2>Setting-Up Harmony&nbsp;Remote</h2>
+
+<p>I have the <a href="http://www.logitech.com/en-us/product/harmony-remote-650">Logitech Harmony 650 Universal Remote Control</a> for my home theater system.  To program the device, it must be tethered to a web site via a Windows or Mac <span class="caps">PC</span>.  The Harmony web site does reference some <a href="http://forums.logitech.com/t5/Harmony-Remotes/Harmony-Linux-support/td-p/294061">Linux support done by others</a>.  The posting &#8220;<a href="http://openattitude.com/2011/01/27/how-to-set-up-a-harmony-remote-using-linux/">How to set up a Harmony remote using Linux</a>&#8221; and &#8220;<a href="http://madabar.com/techblog/2011/09/09/logitech-harmony-universal-remote-linux-software-support/">Logitech Harmony Universal Remote Linux Software Support</a>&#8221; give you the basics of what you need to do.  Within these sites you lean about the utilities <a href="http://www.phildev.net/harmony/"><code>concordance</code></a> and <code><a href="http://sourceforge.net/projects/congruity/">congruity</a></code>. The first utility provides most of the functionality of the Windows software provided by Logitech and the second is a <span class="caps">GUI</span> application for programming Logitech Harmony remote using concordance.  To install these utilities, do the&nbsp;following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install concordance
+sudo apt-get install congruity
+</pre></div>
+
+
+<p>You also have to configure the web browser to ask what to do with download links. It is best to use Firefox and you can configure downloads via: Edit-&gt;Preferences-&gt;General-&gt;Downloads-&gt;Always ask me where to save&nbsp;files.</p>
+<p>Now plug the remote into the <span class="caps">PC</span> using the provided cable, and enter the command: <code>sudo concordance -i -v</code>.  You should get a bunch of data and the word &#8220;Success&#8221;, verifying that you can talk to the&nbsp;device.</p>
+<p>Now go through the following process:
+<ol>
+<ol>
+    <li>Plug in the remote via the provided <span class="caps">USB</span>&nbsp;cable.</li>
+    <li>Visit the Harmony Remote&#8217;s member site <a href="http://members.harmonyremote.com/EasyZapper/New/Main.asp?WebProcessAction=Start&amp;ClassId=HarmonyProcess%2EProcLogin&amp;RelativePath=ProcLogin%2F&amp;ReturnUrl=%2FEasyZapper%2FUserHome%2Easp&amp;AccountType=Normal&amp;Error=&amp;UserName=&amp;Password=&amp;BrowserType=Mozilla%2F5%2E0%20%28X11%3B%20Linux%20i686%29%20AppleWebKit%2F537%2E22%20%28KHTML%2C%20like%20Gecko%29%20Ubuntu%20Chromium%2F25%2E0%2E1364%2E160%20Chrome%2F25%2E0%2E1364%2E160%20Safari%2F537%2E22"><span class="caps">URL</span></a>.  This appears to be a legacy support site and Logitech site listed in the documentation with the device will not work under&nbsp;Linux.</li>
+    <li>Create an account or login into your existing&nbsp;account.</li>
+    <li>Skip/ignore the “you need to update your software” steps, and eventually a download prompt&nbsp;appears.</li>
+    <li>Choosing ‘open’ rather than ‘save’ impressively results in the Congruity graphical setup up&nbsp;launching.</li>
+    <li>Step through the setup boxes as&nbsp;prompted.</li>
+</ol>
+</ol>
+<h2>Setting-Up Keyboard <span class="amp">&amp;</span>&nbsp;Mouse</h2>
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/06/logitech-wireless-illuminated-keyboard-k800.jpg">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="Logitech Wireless Illuminated Keyboard K800" src="/images/logitech-wireless-illuminated-keyboard-k800.jpg?w=150" width="150" height="70" />
+</a>
+ To improve my driving experience, I purchased the
+<a href="http://www.logitech.com/en-us/product/wireless-illuminated-keyboard-k800">Logitech Wireless Illuminated Keyboard K800</a>
+and the
+<a href="http://www.logitech.com/en-us/product/wireless-mouse-m510">Logitech M510 Wireless Mouse</a>.
+These devices use the <a href="http://www.logitech.com/en-us/promotions/6072">Logitech Unifying wireless technology</a>, which allows a single wireless receiver to connect with multiple Unifying devices.  I plugged in the mouse&#8217;s receiver  and in short order the mouse was working.
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/06/logitech-m510-wireless-mouse.jpg">
+    <img class="img-rounded" style="margin: 0px 8px; float: right" alt="Logitech M510 Wireless Mouse" src="/images/logitech-m510-wireless-mouse.jpg" width="75" height="57" />
+</a>
+I was a bit concerned about the ability of the receiver to support multiple device (i.e. the keyboard) simultaneously under Linux.
+Doing a quick search I found a post discussing how to do the <a href="http://askubuntu.com/questions/113984/is-logitechs-unifying-receiver-supported">device pairing under Linux</a>.  <a href="https://lekensteyn.nl/logitech-unifying.html#ltunify">To install</a> the <a href="https://git.lekensteyn.nl/ltunify/"><code>ltunify</code></a> pairing software, and do the pairing, do the&nbsp;following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">cd</span> ~/src
+git clone https://git.lekensteyn.nl/ltunify.git
+<span style="color: #336666">cd </span>ltunify
+make install-home
+</pre></div>
+
+
+<ul>
+<li>To list the devices that are paired: <code>sudo ltunify list</code></li>
+<li>To pair a device: <code>sudo ltunify pair</code>, then turn your wireless device off and on to start&nbsp;pairing.</li>
+<li>To unpair a device: <code>sudo ltunify unpair mouse</code></li>
+<li>To get help: <code>sudo ltunity --help</code></li>
+</ul>
+<h2>Mouse&nbsp;Xbindkeys</h2>
+
+<p>The M510 mouse has extra buttons on its left side and the scroll wheel  has a side-to-side click, but out of the box,the don&#8217;t do anything under Linux.  It would be nice to make use of these extra buttons.  To address this problem, I found pointers in these posts: <a href="http://ubuntuforums.org/showthread.php?t=1957300">How to get all those extra mouse buttons to work</a>, <a href="http://askubuntu.com/questions/24916/how-do-i-remap-certain-keys">How do I remap certain keys</a>,  <a href="http://blog.hanschen.org/2009/10/13/mouse-shortcuts-with-xbindkeys/">Mouse shortcuts with xbindkeys</a>, and <a href="http://forums.logitech.com/t5/Mice-and-Pointing-Devices/Guide-for-setup-Performance-MX-mouse-on-Linux-with-KDE/td-p/517167">Guide for setup Performance <span class="caps">MX</span> mouse on Linux (with <span class="caps">KDE</span>)</a>.</p>
+<p>Basically, using<a href="http://www.nongnu.org/xbindkeys/#utilisation"> Xbindkeys</a>, I want to map the mouse buttons with desired actions. I want to setup the M510 mouse extra buttons as follows:
+<ul>
+<ul>
+    <li><strong>Left-side Button</strong>: <strong>up</strong> mapped to <strong>Page Up</strong> and <strong>down</strong> mapped to <strong>Page&nbsp;Down</strong></li>
+    <li><strong>Scroll Wheel</strong>: <strong>move left</strong> mapped to <strong>Copy</strong> and <strong>move right</strong> mapped to <strong>Paste</strong></li>
+    <li><strong>Scroll Wheel</strong>: <strong>press</strong> mapped to <strong>Paste</strong></li>
+</ul>
+</ul>
+<a href="http://linux.die.net/man/1/xev"><code>xev</code></a> prints the contents of X events by creating a window and then asks the X Server to send it events whenever anything happens to the window.  It&#8217;s sort of a keyboard and mouse events sniffer.  If we know what event name the X Server gives to our buttons, then we can remap them. Using this program, we find out the following:
+<ul>
+<ul>
+    <li><strong>Left-side Button</strong>: <strong>up</strong> is known by the X Server as <strong>button&nbsp;9</strong></li>
+    <li><strong>Left-side Button</strong>: <strong>down</strong> is known by the X Server as <strong>button&nbsp;8
+</strong></li>
+    <li><strong>Scroll Wheel</strong>: <strong>move left</strong> is known by the X Server as <strong>button&nbsp;6</strong></li>
+    <li><strong>Scroll Wheel</strong>: <strong>move right</strong> is known by the X Server as <strong>button&nbsp;7</strong></li>
+    <li><strong>Scroll Wheel</strong>: <strong>press</strong> is known by the X Server as <strong>button&nbsp;2</strong></li>
+</ul>
+</ul>
+Now we need a mechanism to re-map mouse (or keyboard) button inputs.  <a href="https://wiki.archlinux.org/index.php/Xbindkeys"><code>Xbindkeys</code></a> is is a X Windows program that enables us to bind commands to certain keys or key combinations on the keyboard and it will also work for the mouse.  The file  <code>~/.xbindkeysrc</code> is what <code>xbindkeys</code> uses as a configuration file to link a command to a key/button on your keyboard/mouse.  There is also <code>xbindkeys_config</code> is an easy to use gtk program for configuring <code>xbindkeys</code>. To install these tools, do the&nbsp;following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install xautomation xbindkeys xbindkeys-config
+</pre></div>
+
+
+<p>To create your initial xbindkeys configuration file, just run the following&nbsp;command:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">xbindkeys --defaults &amp;gt; <span style="color: #003333">$HOME</span>/.xbindkeysrc
+</pre></div>
+
+
+<p>The syntax of the contents of .xbindskesrc is simple and is illustrated&nbsp;below:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># short comment</span>
+    <span style="color: #CC3300">&quot;command to start&quot;</span>
+        associated key
+</pre></div>
+
+
+<p>The <code>"command to start"</code> is simply a shell command (that you can run from a terminal),  and <code>"associated key"</code> is the key or&nbsp;button.</p>
+<p>Now, using an editor, update the <code>.xbindkeysrc</code> file to include the&nbsp;following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># Do a Page Down when mouse left-side down button is pressed
+&quot;xte &#39;key Page_Down&#39;&quot;
+    b:8
+# Do a Page Up when mouse left-side up button is pressed
+&quot;xte &#39;key Page_Up&#39;&quot;
+    b:9
+# Move scroll wheel to the left to copy text
+&quot;xte &#39;keydown Control_L&#39; &#39;keydown Shift_L&#39; &#39;key c&#39; &#39;keyup Control_L&#39; &#39;keyup Shift_L&#39;&quot;
+    b:6
+# Move scroll wheel to the right to paste text
+&quot;xte &#39;keydown Control_L&#39; &#39;keydown Shift_L&#39; &#39;key v&#39; &#39;keyup Control_L&#39; &#39;keyup Shift_L&#39;&quot;
+    b:7
+# Press scroll wheel to paste text
+&quot;xte &#39;keydown Control_L&#39; &#39;keydown Shift_L&#39; &#39;key v&#39; &#39;keyup Control_L&#39; &#39;keyup Shift_L&#39;&quot;
+    b:2
+</pre></div>
+
+
+<p>To activate any modification of the <code>.xbindkeysrc</code> configuration file, your have to restart xbindkeys.   This can be done&nbsp;via:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">pkill xbindkeys
+xbindkeys
+</pre></div>
+
+
+<p>Other useful resources are:
+<ul>
+<ul>
+    <li><code>xte</code> is a program that generates fake input using the XTest&nbsp;extension</li>
+    <li><code>xvkbd</code> is a virtual (graphical) keyboard program for X Window System which provides facility to enter characters onto other X clients by clicking on a keyboard displayed on the&nbsp;screen.</li>
+    <li><code>xbindkeys_show</code> is a program to show the grabbing keys used in&nbsp;xbindkeys</li>
+    <li><a href="https://wiki.archlinux.org/index.php/Xmodmap"><code>xmodmap</code></a> is a utility for modifying keymaps and pointer button mappings in <a href="https://wiki.archlinux.org/index.php/Xorg">Xorg</a>.</li>
+</ul>
+</ul>
+<h2>Moving from SplashID to&nbsp;KeePass</h2>
+I have been using the <span class="caps">MS</span> Windows based <a href="https://www.splashid.com/">SplashID</a> to store passwords, credit cards, account numbers, etc. securely on my <span class="caps">PC</span> and cell phone.  I got it to work under <a href="http://www.winehq.org/">Wine</a> but I&#8217;m considering Linux alternatives.  I&#8217;m growing tired of purchasing SplashID licenses and the user interface looks like it was designed in the 1970&#8217;s.  I came across &#8220;<a href="http://lifehacker.com/5529133/five-best-password-managers">Five Best Password Managers</a>&#8221; which gave me the incentive to check out <a href="http://keepass.info/">KeePass</a>.  KeePass is a cross platform, open source password manager.  It is extendable via its plugin framework, where additional functionality can be added.  It looks like I can use <a href="https://www.dropbox.com/install?os=lnx">Dropbox</a> and <a href="http://www.keepassdroid.com/">KeePassDroid</a> to get the data on my cell phone.  I found these sites useful to get the job done:
+<ul>
+<ul>
+    <li><a href="http://www.androidpolice.com/2011/03/30/tutorial-sync-passwords-across-computers-and-android-with-keepass/">Sync Passwords Across Computers And Android With&nbsp;KeePass</a></li>
+    <li><a href="http://lifehacker.com/5063176/how-to-use-dropbox-as-the-ultimate-password-syncer">How to Use Dropbox as the Ultimate Password&nbsp;Syncer</a></li>
+</ul>
+</ul>
+The first step was to get KeePass installed in Ubuntu.  I found it on the <a href="http://en.wikipedia.org/wiki/Ubuntu_Software_Center">Ubuntu Software Center</a> or you can&nbsp;use:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install keepass2 keepass2-doc
+</pre></div>
+
+
+<p>I then exported the contents of my SplashID database to a <a href="http://en.wikipedia.org/wiki/Comma-separated_values"><span class="caps">CSV</span> file</a> and imported it into keepass2.  I set up the KeePass2 database within my Dropbox folder.  This way, it can be scych&#8217;ed with my cell phone. I then installed KeePassDroid on my cell phone, pointing it at the database with the cell phones Dropbox.  <a href="http://www.keepassdroid.com/">KeePassDroid</a> is a port of the KeePass password safe for the Android&nbsp;platform.</p>
+<p>There is some cleanup of the fields within the KeePass2 database, but the data is now accessable on both my <span class="caps">PC</span> and my cell phone.
+<h2>Installing&nbsp;Wine</h2>
+<a href="http://www.winehq.org/">Wine</a> allows you to run many Windows programs on Linux. Instead of simulating internal Windows logic like a virtual machine or emulator, Wine translates Windows <span class="caps">API</span> calls into Linux calls.  I used the following to install&nbsp;Wine:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo add-apt-repository ppa:ubuntu-wine/ppa
+sudo apt-get update
+sudo apt-get install wine
+</pre></div>
+
+
+<p>Using Wine on Windows programs can be as simple  or complex, it all depends on the program.  <a href="https://help.ubuntu.com/community/Wine">Ubuntu provides some guidance on how to use Wine</a>, also check out <a href="http://www.winehq.org/site/documentation">Wine Documentation</a> and <a href="http://wiki.winehq.org/HowTo">Wine HowTo</a>.</p>
+<p>As of this writing of the post, the only thing I loaded via Wine was SplashID, which worked without any challenges.
+<h2>Installing&nbsp;PlayOnLinux</h2>
+<a href="http://www.playonlinux.com/en">PlayOnLinux</a> is based on Wine, and so profits from all its features, yet it keeps the user from having to deal with all its complexity.  I also install this package, in part because it comes pre-configured to load some popular tools.  I used it to install Internet Explore (sometimes its the only browser you can get to work on a site), and Kindle.
+<h2>Installing <span class="caps">RAID</span></h2>
+<span class="caps">RAID</span> is an acronym for Redundant Array of Independent Disks and <span class="caps">RAID</span> as the first tier in your data protection strategy. It uses multiple hard disks storing the same data to protect against some degree of physical disk failure. The amount of protection it affords depends upon the type of <span class="caps">RAID</span> used.  I&#8217;m not going to go into all the types of <span class="caps">RAID</span>, nor their benefits, but you can find much of this information, and much more, in the following links:
+<ul>
+<ul>
+    <li><a href="https://wiki.ubuntu.com/Raid">Raid</a></li>
+    <li><a href="https://help.ubuntu.com/community/FakeRaidHowto">FakeRaidHowto</a></li>
+    <li><a href="http://augmentedtrader.wordpress.com/2012/05/13/10-things-raid/">10 Surprising Facts About <span class="caps">RAID</span></a></li>
+    <li><a href="http://en.wikipedia.org/wiki/Mdadm">Mdadm</a></li>
+</ul>
+</ul>
+In my case, I had an existing disk drive (non-<span class="caps">RAID</span>), loaded with data, and I wanted to add an additional drive to make it a <span class="caps">RAID</span>.  This presents some challenges since you&#8217;re attempting to preserve the data.  In this regard, I found the following links helpful:
+<ul>
+<ul>
+    <li><a href="http://ascend4.org/Installing_Raid_1_on_Existing_Ubuntu_Server">Installing Raid 1 on Existing Ubuntu&nbsp;Server</a></li>
+    <li><a href="http://ubuntuforums.org/showthread.php?t=1703904">Using <span class="caps">MDADM</span> to add <span class="caps">RAID</span> 1 setup to existing data&nbsp;drive</a></li>
+    <li><a href="https://wiki.archlinux.org/index.php/Convert_a_single_drive_system_to_RAID">Convert a single drive system to <span class="caps">RAID</span> </a></li>
+    <li><a href="http://feeding.cloud.geek.nz/posts/setting-up-raid-on-existing/">Setting up <span class="caps">RAID</span> on an existing Debian/Ubuntu&nbsp;installation</a></li>
+    <li><a href="http://linuxconfig.org/linux-software-raid-1-setup#h1-introduction">Software Raid 1&nbsp;Setup</a></li>
+    <li><a href="http://linhost.info/2012/05/configure-a-software-raid1-array-in-linux/">Configure Software <span class="caps">RAID1</span> Array In&nbsp;Linux</a></li>
+</ul>
+</ul>
+I had already installed one <a href="http://en.wikipedia.org/wiki/Solid-state_drive"><span class="caps">SSD</span></a> and one <a href="http://en.wikipedia.org/wiki/Hard_disk_drive"><span class="caps">HHD</span></a> disk drives in my system.  I then installed a third drive that matched the <span class="caps">HHD</span> drive.  My <span class="caps">128GB</span> <span class="caps">SSD</span> has the device name of <code>/dev/sda1</code> and mounted as <code>/boot</code>.  The currently installed <span class="caps">1TB</span> <span class="caps">SATA</span> <span class="caps">HDD</span> has the device name of <code>/dev/sdb1</code> and mounted as /home.  The newly install <span class="caps">1TB</span> <span class="caps">SATA</span> <span class="caps">HDD</span> has the device name of <code>/dev/sdc</code>.</p>
+<p>Description of the procedures I used to create the <span class="caps">RAID</span> is as follows:
+<ul>
+<ul>
+    <li>Physically install the additional hard&nbsp;drive.</li>
+    <li>Install <a href="http://en.wikipedia.org/wiki/Mdadm">mdadm</a>, which is the Linux utility used to manage software <span class="caps">RAID</span>&nbsp;devices.</li>
+</ul>
+</ul></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install mdadm
+</pre></div>
+
+
+<ul>
+<ul>
+    <li>Partition the newly installed disk. Use the following inputs: n to establish a logic partition, p to make it a primary partition, 1  should be the partition number, use the same sectors as the currently installed drive, t to set the partition type, fd hex code type, p to print what the partition table will look like, w to write all of the changes to&nbsp;disk.</li>
+</ul>
+</ul>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo fdisk /dev/sdc
+</pre></div>
+
+
+<ul>
+<ul>
+    <li>Create a single-disk <span class="caps">RAID</span>-1 array (aka degraded array) with the existing hard drive. (Note the &#8220;missing&#8221; keyword is specified as one of the devices. We are going to fill this missing device later with the new&nbsp;drive.)</li>
+</ul>
+</ul>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 missing /dev/sdc1
+</pre></div>
+
+
+<ul>
+<ul>
+    <li>At this point, if you do a <code>sudo fdisk -l | grep '^Disk'</code>, you see a new disk, that being <code>/dev/md0</code>.  This is the <span class="caps">RAID</span> but not yet fully&nbsp;created.</li>
+    <li>Make the file system (ext3 type like the currently installed hard drive) on the <span class="caps">RAID</span> device.</li>
+</ul>
+</ul>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo mkfs -t ext3 -j -L RAID-ONE /dev/md0
+</pre></div>
+
+
+<ul>
+<ul>
+    <li>Make a mount point for the <span class="caps">RAID</span> and mount the&nbsp;device.</li>
+</ul>
+</ul>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo mkdir /mnt/raid1
+sudo mount /dev/md0 /mnt/raid1&lt;/code&gt;&lt;/p&gt;
+</pre></div>
+
+
+<ul>
+<ul>
+    <li>Copy over the files form the original hard drive to the new hard drive using <a href="http://en.wikipedia.org/wiki/Rsync">rsync</a>.</li>
+</ul>
+</ul>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -avxHAXS --delete --progress /home/* /mnt/raid1
+</pre></div>
+
+
+<ul>
+<ul>
+    <li>Just  in case of a disaster, copy the original hard drive to the <span class="caps">SSD</span> <code>/dev/sda1</code> root file system as /<code>home_backup.</code></li>
+</ul>
+</ul>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -avxHAXS --delete --progress /home /home_backup
+</pre></div>
+
+
+<ul>
+<ul>
+    <li>After the copy, to see the status of the <span class="caps">RAID</span>, use the command <code>sudo mdadm --detail /dev/md0</code>.  What you see is that the <code>/dev/sdc1</code> drives is in &#8220;active sync &#8221; state but no reference to the other drive.  When you do <code>cat /proc/mdstat</code> you see &#8220;<code>md0 : active raid1 sdc1[1]</code>&#8221; but again no reference to the other&nbsp;drive.</li>
+    <li>Edit your <code>/etc/fstab</code> file and edit all references of <code>/dev/sdb1</code> to <code>/dev/md0</code> and reboot the system.  With this, <code>/dev/md0</code> will be used as <code>/home</code> on the next boot. This will free up the existing hard drive so it can be made ready for the <span class="caps">RAID</span>.</li>
+    <li>With fdisk, re-partition /dev/sdb1 with a partition of type fd. Use the following inputs: n to establish a logic partition, p to make it a primary partition, 1  should be the partition number, use the same sectors as the currently installed drive, t to set the partition type, fd hex code type, p to print what the partition table will look like, w to write all of the changes to&nbsp;disk.</li>
+</ul>
+</ul>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo fdisk /dev/sdb1
+</pre></div>
+
+
+<ul>
+<ul>
+    <li>Add <code>/dev/sdb1</code> to your existing <span class="caps">RAID</span>&nbsp;array.</li>
+</ul>
+</ul>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">mdadm /dev/md0 --add /dev/sdb1
+</pre></div>
+
+
+<ul>
+<ul>
+    <li>The <span class="caps">RAID</span> array will now start to rebuild so that the two drives have the same data. Use the following command to check the status of the&nbsp;rebuild.</li>
+</ul>
+</ul>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo mdadm -D /dev/md0
+</pre></div>
+
+
+<ul>
+<ul>
+    <li>For Ubuntu, it seems it is also necessary to update the <code>/etc/mdadm/mdadm.conf</code> file. If this is not done, the <span class="caps">RAID</span> device will not be mounted when you reboot the system. The solution is to run the following command on your system, once the <span class="caps">RAID</span> drive has been&nbsp;configured:</li>
+</ul>
+</ul>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo cp /etc/mdadm/mdadm.conf /etc/mdadm/mdadm.conf_backup
+sudo mdadm --detail --scan &gt;&gt; /etc/mdadm/mdadm.conf
+</pre></div>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+            var disqus_identifier = 'building-my-linux-box-the-implementation';
+            var disqus_url = 'http://jeffskinnerbox.me/posts/2013/Aug/01/building-my-linux-box-the-implementation/';
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="http://jeffskinnerbox.me/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <a href="http://jeffskinnerbox.me/pages/about-me.html">
+                        <img class="img-rounded" src="http://jeffskinnerbox.me/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                    </a>
+                </div>
+
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+<li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
+                RPi Packages
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                Vim Cheat Sheet
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-puzzle-piece fa-lg"></i><span class="icon-label">Wiki Topics</span></h4>
+    <ul class="list-group" id="wiki">
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Project Ideas
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Things to Study
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">External Links</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://tiddlywiki.com/" target="_blank">
+                TiddlyWiki
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+    <ul class="list-group" id="social">
+        <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-github-square fa-lg"></i> Github
+        </a></li>
+        <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-twitter-square fa-lg"></i> Twitter
+        </a></li>
+        <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+            <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
+        </a></li>
+    </ul>
+</li>
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+<li class="list-group-item"><h4><i class="fa fa-thumbs-up fa-lg"></i><span class="icon-label">Reposted At</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://www.eeweb.com/websites/jeffs-skinner-box" target="_blank">
+                EEWeb.com
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-gears fa-lg"></i><span class="icon-label">Admin</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a43272292w73270397p83408137/" target="_blank">
+                Google Analytics
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io" target="_blank">
+                Web Site Source Code
+            </a>
+        </li>
+    </ul>
+</li>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://tiddlywiki.com/" target="_blank">TiddlyWiki</a>,
+            <a href="http://ipython.org/notebook.html" target="_blank">Python Notebook</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
+            <small>
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://jeffskinnerbox.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://jeffskinnerbox.me/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://jeffskinnerbox.me/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://jeffskinnerbox.me/theme/js/github.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-43272292-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>
