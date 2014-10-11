@@ -815,7 +815,7 @@ To do the install, you need to follow these steps:
         * **USB ID** = `0bda:8176`
         * **Description** = `Realtek Semiconductor RTL8188CUS 802.11n WLAN Adapter`
     * The USB ID is listed as one of the [Tiny Core Linux supported WiFi chips][28].  Knowing this, we can install the suite of applications and firmware required to get the WiFi Adapter operational.  I install the following extensions via TCL `Apps` application (OnBoot):
-        * wifi.tcz
+        * wifi.tcz 
         * firmware-rtlwifi.tcz
         * wpa_supplicant.tcz
         * wireless_tools.tcz
