@@ -454,7 +454,7 @@ For example, when <code>lightdm</code> starts X you can run a command or script,
 
 <p>A potentially even more granular way to configure the Unity envirnment is via
 minimpulating the <a href="https://developer.gnome.org/gio/2.39/GSettings.html"><code>GSettings</code></a> classes, which is a <span class="caps">API</span> for application settings.
-To support this, there is <a href="https://developer.gnome.org/gio/2.39/gsettings-tool.html"><code>gsettings</code></a> which offers a simple commandline interface to <code>GSettings</code>.
+To support this, there is <a href="https://developer.gnome.org/gio/2.39/gsettings-tool.html"><code>gsettings</code></a> which offers a simple command line interface to <code>GSettings</code>.
 <code>GSettings</code> is a GLib implementation of the <a href="http://en.wikipedia.org/wiki/Dconf">DConf spec</a>, which stores its data in a binary database.
 The <code>gsettings</code> command line tool is simply a tool to access or modify settings via the <code>GSettings</code> <span class="caps">API</span>.</p>
 <p>Applications using <code>GSettings</code>/DConf install allication configuration data or schemas. 
@@ -790,9 +790,10 @@ If an X server is available, and a text-only boot was not requested, X is&nbsp;s
 </ul>
 </li>
 <li>
-<p><strong>Install and Activate <span class="caps">SSH</span></strong></p>
+<p><strong>Install and Activate <span class="caps">SSH</span></strong>
+<br/>
+I used &#8220;<a href="http://firewallengineer.wordpress.com/2012/04/01/how-to-install-and-configure-openssh-ssh-server-in-tiny-core-linux/">How to install and configure OpenSSH (<span class="caps">SSH</span> Server) in Tiny Core Linux</a>&#8221; as my guide for this&nbsp;work. </p>
 <ul>
-<li>I used &#8220;<a href="http://firewallengineer.wordpress.com/2012/04/01/how-to-install-and-configure-openssh-ssh-server-in-tiny-core-linux/">How to install and configure OpenSSH (<span class="caps">SSH</span> Server) in Tiny Core Linux</a>&#8221; as my guide for this&nbsp;work. </li>
 <li>Click on Apps and install<ul>
 <li>openssh.tcz</li>
 </ul>
@@ -809,43 +810,46 @@ If an X server is available, and a text-only boot was not requested, X is&nbsp;s
 <li><code>etc/group</code></li>
 </ul>
 </li>
-<li>Test the installation by using ssh to login <span class="caps">TCL</span> from another&nbsp;system.</li>
+<li>Test the installation by using ssh to login <span class="caps">TCL</span> from another system using <code>ssh tc@XT</code>.</li>
 <li>To permanently save changes to the hard drive, execute <code>filetool.sh -b</code> in a terminal window.
 <br/><br/></li>
 </ul>
 </li>
 <li>
-<p><strong>Activate&nbsp;WiFi</strong></p>
+<p><strong>Activate WiFi</strong>
+<br/>
+Getting clear and up to date information on <span class="caps">TCL</span> WiFi isn&#8217;t easy,
+but <a href="ttp://wiki.tinycorelinux.net/wiki:setting_up_wifi">Easy Way: wicd</a> and <a href="http://distro.ibiblio.org/tinycorelinux/5.x/armv7/GK802/README-wifi.txt">How to get wireless working</a> proved to be the best&nbsp;sources.</p>
 <ul>
-<li><a href="http://wiki.tinycorelinux.net/wiki:setting_up_wifi">Easy Way:&nbsp;wicd</a></li>
-<li><a href="http://distro.ibiblio.org/tinycorelinux/5.x/armv7/GK802/README-wifi.txt">How to get wireless&nbsp;working</a></li>
 <li>Install the following extensions via <span class="caps">TCL</span> <code>Apps</code> application (OnBoot):<ul>
 <li>usb-utils.tcz</li>
 </ul>
 </li>
 <li>To download the latest <span class="caps">USB</span> device information by executing <code>sudo update-usbids.sh</code>.</li>
-<li>Now lets detect the type of WiFi <span class="caps">USB</span> Adapter that is plugged into the Laptop.  In my case, this WiFi Adapter is detected via <code>lsusb</code> as<ul>
+<li>Now lets detect the type of WiFi <span class="caps">USB</span> adapter that is plugged into the Laptop.  In my case, this WiFi adapter is detected via <code>lsusb</code> as<ul>
 <li><strong><span class="caps">USB</span> <span class="caps">ID</span></strong> = <code>0bda:8176</code></li>
 <li><strong>Description</strong> = <code>Realtek Semiconductor RTL8188CUS 802.11n WLAN Adapter</code></li>
 </ul>
 </li>
-<li>The <span class="caps">USB</span> <span class="caps">ID</span> is listed as one of the <a href="http://wiki.tinycorelinux.net/wiki:list_of_supported_wifi_devices">Tiny Core Linux supported WiFi chips</a>.  Knowing this, we can install the suite of applications and firmware required to get the WiFi Adapter operational.  I install the following extensions via <span class="caps">TCL</span> <code>Apps</code> application (OnBoot):<ul>
-<li>wifi.tcz </li>
+<li>The <span class="caps">USB</span> <span class="caps">ID</span> is listed as one of the <a href="http://wiki.tinycorelinux.net/wiki:list_of_supported_wifi_devices">Tiny Core Linux supported WiFi chips</a>.  Knowing this, we can install the suite of applications and firmware required to get the WiFi adapter operational.  I install the following extensions via <span class="caps">TCL</span> <code>Apps</code> application (OnBoot):<ul>
+<li><span class="caps">NOT</span> <span class="caps">SURE</span> <span class="caps">YOU</span> <span class="caps">NEED</span> <span class="caps">THIS</span>:&nbsp;wifi.tcz</li>
 <li>firmware-rtlwifi.tcz</li>
 <li>wpa_supplicant.tcz</li>
 <li>wireless_tools.tcz</li>
 </ul>
 </li>
-<li>Remove the Ethernet cable so you can test the&nbsp;WiFi.</li>
-<li><strong><span class="caps">NOTE</span>:</strong> see <a href="http://wiki.tinycorelinux.net/wiki:setting_up_wifi">Connecting to a <span class="caps">WPA</span>-<span class="caps">PSK</span> secured access&nbsp;point</a></li>
-<li>At this point you may verify the WiFi device with <code>iwconfig</code>.  You should see that <code>wlan0</code> is&nbsp;operational.</li>
-<li>Execute the program <code>sudo wpa_passphrase &lt;YourSSID&gt; &lt;YourPassword&gt; &gt; /etc/wpa_supplicant.conf</code>.  This will place the network credentials in a&nbsp;file.</li>
-<li><strong>Not Needed</strong> Execute the program <code>sudo wifi.sh</code> on the&nbsp;commandline.</li>
-<li>On the commandline, execute the <span class="caps">WPA2</span> utility<sup id="fnref:I"><a class="footnote-ref" href="#fn:I" rel="footnote">9</a></sup> <code>sudo wpa_supplicant -Dwext -iwlan0 -c/etc/wpa_supplicant.conf -B</code>.</li>
-<li>On the commandline, execute <span class="caps">DHCP</span> client program<sup id="fnref:J"><a class="footnote-ref" href="#fn:J" rel="footnote">10</a></sup> <code>sudo udhcpc -iwlan0 -p/var/run/udcpc.wlan0.pid</code>.</li>
+<li>Now pull the Ethernet connection and reboot (<span class="caps">TCL</span> seems to get confused when you try to operate with both Ethernet and WiFi&nbsp;connections).</li>
+<li>At this point you may verify the WiFi device with <a href="http://www.linuxcommand.org/man_pages/iwconfig8.html"><code>iwconfig</code></a>.  You should see that <code>wlan0</code> is&nbsp;operational.</li>
+<li>Execute the program <code>sudo wpa_passphrase &lt;YourSSID&gt; &lt;YourPassword&gt; &gt; /opt/wpa_supplicant.conf</code>.  This will place the network credentials in a&nbsp;file.</li>
+<li>On the command line, execute the <span class="caps">WPA2</span> utility<sup id="fnref:I"><a class="footnote-ref" href="#fn:I" rel="footnote">9</a></sup> <code>sudo wpa_supplicant -Dwext -iwlan0 -c/opt/wpa_supplicant.conf -B</code>.</li>
+<li>On the command line, execute <span class="caps">DHCP</span> client program<sup id="fnref:J"><a class="footnote-ref" href="#fn:J" rel="footnote">10</a></sup> <code>sudo udhcpc -iwlan0 -p/var/run/udcpc.wlan0.pid</code>.</li>
+<li>Now see if you can <a href="http://linux.about.com/od/commands/l/blcmdl8_ping.htm"><code>ping</code></a> from and to the&nbsp;laptop.</li>
 <li>To permanently save changes to the hard drive, execute <code>filetool.sh -b</code> in a terminal&nbsp;window.</li>
-<li>Now pull the Ethernet connection, reboot, and try out the WiFi.
+<li>As a final test, reboot and try out the WiFi.<ul>
+<li>After a reboot, I found that WiFi wouldn&#8217;t work (i.e. <code>iwconfig</code> didn&#8217;t detect the WiFi adapter). I had to pull the WiFi adapter and reinstall it into the <span class="caps">USB</span>.  I then executed <code>sudo wpa_supplicant -Dwext -iwlan0 -c/opt/wpa_supplicant.conf -B</code> and <code>sudo udhcpc -iwlan0 -p/var/run/udcpc.wlan0.pid</code>.
 <br/><br/></li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
@@ -914,6 +918,17 @@ usr/local/etc/asound.state
 </pre></div>
 
 
+<p>The program <code>sudo wpa_passphrase &lt;YourSSID&gt; &lt;YourPassword&gt;</code> was used to
+created the network <span class="caps">WPA2</span> WiFi credentials and placed in the file
+<code>/opt/wpa_supplicant.conf</code>.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #003333">network</span><span style="color: #555555">={</span>
+    <span style="color: #003333">ssid</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;74LL5&quot;</span>
+    <span style="color: #0099FF; font-style: italic">#psk=&quot;dfjgrigreiodjdeghry&quot;</span>
+    <span style="color: #003333">psk</span><span style="color: #555555">=</span>8477c7110cf5edex3e07aa82345fxefc4f2da4sd9x8fcc4ad3x83fef6d2416df
+<span style="color: #555555">}</span>
+</pre></div>
+
+
 <p>The <code>.xsession</code> file sets up the default background,
 starts any X-dependant programs you’ve configured,
 and starts up the configured window manager.
@@ -976,7 +991,7 @@ tc@XT:~<span style="color: #003333">$ </span>version
 
 <h3>Once Installed, How Do You Manage the X&nbsp;Terminal</h3>
 <p>To kill the Xvesa X Server on <span class="caps">TCL</span>, press the <code>Ctrl+Alt+Del</code> key combination,
-and you will get the <span class="caps">TCL</span> commandline&nbsp;prompt.</p>
+and you will get the <span class="caps">TCL</span> command line&nbsp;prompt.</p>
 <p>To start the X Winodw System, do the&nbsp;following</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># start the X Window System and brings up the Xvesa X Server using the remote Display Manager</span>
 . ./.xsession

@@ -161,7 +161,18 @@ My fix is in <code>content/extra/custom.css</code> and is listed&nbsp;blow:</p>
 implementation.
 This posting gives you some idea on how <a href="http://stackoverflow.com/questions/16099153/table-not-render-when-use-redcarpet-in-jekyll-github-pages">tables should be supported</a>
 and see the <a href="http://pythonhosted.org//Markdown/extensions/tables.html">Python Table extension</a>.
-You combine this, with the <code>custom.css</code> discussed above, and you can get the&nbsp;following:</p>
+You combine this, with the <code>custom.css</code> discussed above, and&nbsp;this</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">| Default Justified | Left Justified | Right Justified | Centered Justified |
+| ----------------- |:-------------- | ---------------:|:------------------:|
+| row 1, col 1 | row 1, col 2     | row 1, col 3 | _this should be italics_   |
+| row 2, col 1 | **this should be bold** | row 2, col 3 | row 2, col 4     |
+| row 3, col 1 | row 3, col 2     | $\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}}$ | row 3, col 4     |
+| `this should be code` | row 4, col 2     | row 4, col 3 | row 4, col 4     |
+| row 5, col 1 | row 5, col 2     | row 5, col 3 | row 5, col 4     |
+</pre></div>
+
+
+<p>you get the&nbsp;following:</p>
 <table>
 <thead>
 <tr>
