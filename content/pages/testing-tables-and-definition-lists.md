@@ -91,7 +91,19 @@ Tables aren't part of the core Markdown spec, but are part of Python / Pelican
 implementation.
 This posting gives you some idea on how [tables should be supported][01]
 and see the [Python Table extension][02].
-You combine this, with the `custom.css` discussed above, and you can get the following:
+You combine this, with the `custom.css` discussed above, and this
+
+```
+| Default Justified | Left Justified | Right Justified | Centered Justified |
+| ----------------- |:-------------- | ---------------:|:------------------:|
+| row 1, col 1 | row 1, col 2     | row 1, col 3 | _this should be italics_   |
+| row 2, col 1 | **this should be bold** | row 2, col 3 | row 2, col 4     |
+| row 3, col 1 | row 3, col 2     | $\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}}$ | row 3, col 4     |
+| `this should be code` | row 4, col 2     | row 4, col 3 | row 4, col 4     |
+| row 5, col 1 | row 5, col 2     | row 5, col 3 | row 5, col 4     |
+```
+
+you get the following:
 
 | Default Justified | Left Justified | Right Justified | Centered Justified |
 | ----------------- |:-------------- | ---------------:|:------------------:|
@@ -99,7 +111,7 @@ You combine this, with the `custom.css` discussed above, and you can get the fol
 | row 2, col 1 | **this should be bold** | row 2, col 3 | row 2, col 4     |
 | row 3, col 1 | row 3, col 2     | $\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}}$ | row 3, col 4     |
 | `this should be code` | row 4, col 2     | row 4, col 3 | row 4, col 4     |
-| row 5, col 1 | row 5, col 2     | row 5, col 3 | row 5, col 4     |o
+| row 5, col 1 | row 5, col 2     | row 5, col 3 | row 5, col 4     |
 
 Test of inline MathJax: $\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}}$
 

@@ -23,7 +23,7 @@
 * [WRTnode Wiki](http://wiki.wrtnode.com/index.php?title=Main_Page)
     * [WRTnode Getting Started Guide](http://wiki.wrtnode.com/index.php?title=Starting)
     * [Refresh the Firmware](http://wiki.wrtnode.com/index.php?title=Refresh_the_firmware)
-* []()
+* [Quick Mesh Project](http://qmp.cat/Experimenting_with_the_WRTnode)
 
 # HLK-RM04 Serial-to-WiFi Module
 * [First Impression on HLK-RM04 Serial-to-WiFi Module](http://rayshobby.net/?p=9592)

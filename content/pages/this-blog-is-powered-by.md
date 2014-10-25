@@ -6,7 +6,7 @@ Status: hidden
 :   **Pelican** is a Python-powered static web site generator. You can design the look / layout of your site using CSS and Jinja2 templates, and write your content in reStructuredText, Markdown, or AsciiDoc formats.  Pelican compiles the contents into HTML output suitable for the blog.
 
 [![TiddlyWiki Logo](/images/logos/thumbnail/tiddlywiki_logo.png)](http://tiddlywiki.com/)
-:   **TiddlyWiki** is a versatile note-taking (aka personal wiki) web application you can download for free, store wherever you like, customise however you wish, and use to take / organise / share your notes in ways that word processors and other note-taking tools cannot. TiddlyWiki is designed to be non-linear, structuring content with stories, tags, hyperlinks, and other features.
+:   **TiddlyWiki** is a versatile note-taking (aka personal wiki) web application you can download for free, store wherever you like, customise however you wish, and use to take / organise / share your notes in ways that word processors and other note-taking tools cannot. TiddlyWiki is designed to be non-linear, structuring content with stories, tags, hyperlinks, and other features. 
 
 [![IPython Logo](/images/logos/thumbnail/ipython_notebook_logo.png)](http://ipython.org/notebook.html)
 :   **IPython Notebook** is a web-based interactive computational environment where you can combine code execution, text, mathematics, plots and rich media into a single document. These notebooks are normal files that can be shared with colleagues, converted to other formats such as HTML or PDF, etc. 

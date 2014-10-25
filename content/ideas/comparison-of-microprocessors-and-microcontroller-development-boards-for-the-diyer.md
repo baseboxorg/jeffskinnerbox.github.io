@@ -6,6 +6,37 @@ Slug: comparison-of-microprocessors-and-microcontroller-development-boards-for-t
 Author: Jeff Irland
 Summary: bla bla bla
 
+Are you feeling confined by the Arduino's limited environment, peripherals, and power?
+You're beginning to look around for other options, but your finding there are too many choices?
+There are microcontrollers from dozens of vendors in 8-bit, 16-bit, and 32-bit flavors,
+each requiring its own compilers and programmers, which could add up to a fortune.
+Is there no cheap and viable alternative for the little blue board
+that has captured your imagination?
+
+## AVR
+The [AVR][01] is a modified Harvard architecture 8-bit RISC single chip microcontroller
+which was developed by Atmel in 1996. 
+The megaAVR chips became extremely popular after they were designed into the
+8-bit Arduino platform in 2005.
+
+## PIC
+PIC is a family of modified Harvard architecture microcontrollers made by [Microchip Technology][04] but,
+originally developed by General Instrument's Microelectronics Division.
+The name PIC initially referred to "Peripheral Interface Controller" now it is "PIC" only.
+
+## ARM
+[ARM][03] is a family of instruction set architectures for computer processors based
+on a reduced instruction set computing (RISC)
+architecture developed by British company [ARM Holdings][02].
+The ARM Cortex-M is a group of 32-bit RISC ARM processor cores licensed by ARM Holdings.
+The cores are intended for microcontroller use, and consist of the Cortex-M0, M0+, M1, M3, M4, and M7.
+ARM Cortex M series of 32-bit microcontrollers
+
+* [Teensy 3.1](https://www.pjrc.com/teensy/)
+
+
+
+
 Maybe this is all you need for this post:
 
 * [Open Source Hardware](http://au.mouser.com/applications/open-source-hardware/)
@@ -47,13 +78,16 @@ Parameters include processor type and speed; number of analog and digital inputs
 * [Radxa](http://radxa.com/)
 * [CuBox](http://www.solid-run.com/product/cubox-i2/)
 * [pcDuino3](http://www.pcduino.com/pcduino-v3/)
-* [Teensy 3.1](https://www.pjrc.com/teensy/)
 * [Freedom](http://mbed.org/platforms/FRDM-KL46Z/)
 * [WaRP](http://www.warpboard.org/)
 * [RIoTboard](http://www.riotboard.org/)
 * [Wandboard](http://www.wandboard.org/)
 * [WRTnode](http://wrtnode.com/)
 * []()
+
+| Board | Processor | Flash Memory | RAM Memory | EEPROM | I/O | Analog In | PWM | UART, I2C, SPI |
+|:------|:---------:|:------------:|:----------:|:------:|:---:|:---------:|:---:|:------------:|
+|Teensy 3.1|MK20DX25, 32 bit ARM Cortex-M4, 72 MHz|262144|65536|2048|34, 3.3V, 5V|21|12|32, 2, 1|
 
 Wireless Enabled
 
@@ -69,4 +103,15 @@ Wireless Enabled
 * [Moteino](https://lowpowerlab.com/shop/index.php?_route_=Moteino-R4)
 * [Energia](http://www.element14.com/community/people/janisalnis/blog/2014/09/13/energia-is-out-there-for-cc3200)
 * []()
+
+[01]:http://en.wikipedia.org/wiki/Atmel_AVR
+[02]:http://en.wikipedia.org/wiki/ARM_Holdings
+[03]:http://en.wikipedia.org/wiki/ARM_architecture
+[04]:http://en.wikipedia.org/wiki/Microchip_Technology
+[05]:
+[06]:
+[07]:
+[08]:
+[09]:
+[10]:
 

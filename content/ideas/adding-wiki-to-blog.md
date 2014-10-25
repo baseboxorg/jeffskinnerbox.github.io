@@ -21,10 +21,9 @@ but this solution make for a cold and lifeless wiki with no interactivity and se
 TiddlyWiki does support an alternative where the pages
 are delivered via a server using [Node.js][06][^A].
 This provides the interactivity I want, but I can password protect its editing.
-This [web post][] provides some good insights and motivation for the use of Node.js.
 In addition, individual tiddlers are stored in separate files,
 instead of a single HTML file, so you can organise them as you wish accross mutiple wiki.
-Also, it gives me an excuse to learn more about Node.js!
+Also, it gives me an excuse to [learn more about Node.js][^B]!
 
 [^A]:
     [Node.js is a platform][08] built on Chrome's JavaScript runtime for event-driven, non-blocking I/O model.
@@ -37,6 +36,22 @@ Also, it gives me an excuse to learn more about Node.js!
     instead of working overtime to interpret it as bytecode, giving Node.js its speed. 
     This speed, combined with asynchronous programming,
     are the twin powerhouses that make Node.js so responsive.
+    The web posts [Way Node.js is Becoming the Go-To Technology in the Enterprise][10],
+    [What is Node.JS and Why Should I Care?][11], and
+    [Why The Hell Would I Use Node.js? A Case-by-Case Tutorial][12]
+    provides some good insights and motivation for the use of Node.js.
+
+[^B]:
+    Node.js shines in real-time web applications employing push technology over websockets.
+    What is so revolutionary about that? Well, after over 20 years of stateless-web
+    based on the stateless request-response paradigm,
+    we finally have web applications with real-time, two-way connections,
+    where both the client and server can initiate communication,
+    allowing them to exchange data freely.
+    This is in stark contrast to the typical web response paradigm,
+    where the client always initiates communication.
+    Additionally, it’s all based on the open web stack (HTML, CSS and JS)
+    running over the standard port 80.
 
 ## Installation
 Install Node.js via `apt-get`.
@@ -113,6 +128,9 @@ So node.js applications won't run on github pages.
 * [Introduction to Heroku - YouTube](https://www.youtube.com/watch?v=VuydqVmRvrs)
 * [What is Heroku? Explained through Analogy - YouTube](https://www.youtube.com/watch?v=J9dWpxLdeko)
 
+## Learning TiddlyWiki
+* [Tiddler Toddler: an absolute beginner's guide to TiddlyWiki](http://tiddlertoddler.tiddlyspot.com/)
+
 ## Quickly Building a Prototype
 This show you a simple way to get your project setup so that you can talk to it and control it via the interwebs. 
 * [Anatomy of a web application using node.js, ExpressJS, MongoDB & Backbone.js](http://www.amazon.com/gp/product/B00HRME7NA/ref=kinw_myk_ro_title)
@@ -131,9 +149,9 @@ This show you a simple way to get your project setup so that you can talk to it 
 [07]:http://en.wikipedia.org/wiki/V8_(JavaScript_engine)
 [08]:http://readwrite.com/2013/11/07/what-you-need-to-know-about-nodejs#feed=%2Fhack&awesm=~oD2cgDlOnKEfSp
 [09]:http://www.appdynamics.com/blog/nodejs/what-is-node-js-and-why-should-i-care-an-operations-guy-searches-for-answers/
-[10]:
-[11]:
-[12]:
+[10]:http://www.nearform.com/nodecrunch/node-js-becoming-go-technology-enterprise/
+[11]:http://www.makeuseof.com/tag/what-is-node-js-and-why-should-i-care-web-development/
+[12]:http://www.toptal.com/nodejs/why-the-hell-would-i-use-node-js
 [13]:
 [14]:
 [15]:
