@@ -30,6 +30,17 @@
 * [Hi-Link HLK-RM04 - OpenWrt Wiki](http://wiki.openwrt.org/toh/hilink/hlk-rm04)
 * []()
 
+# Wi-Fi Direct
+[Wi-Fi Direct](http://en.wikipedia.org/wiki/Wi-Fi_Direct),
+initially called Wi-Fi P2P,
+is a Wi-Fi standard that enables devices to connect easily with each other
+without requiring a wireless access point and to communicate at
+typical Wi-Fi speeds for everything from file transfer to Internet connectivity.
+
+* [Wi-Fi Direct: what it is and why you should care](http://www.techradar.com/us/news/phone-and-communications/mobile-phones/wi-fi-direct-what-it-is-and-why-you-should-care-1065449)
+* [How Wi-Fi Direct Works As A Gateway To The Internet Of Things](http://readwrite.com/2013/09/10/what-is-wi-fi-direct)
+* []()
+
 # Cloud Platforms
 * [ThingSpeak](https://thingspeak.com/)
 * []()

@@ -13,28 +13,59 @@ each requiring its own compilers and programmers, which could add up to a fortun
 Is there no cheap and viable alternative for the little blue board
 that has captured your imagination?
 
-## AVR
-The [AVR][01] is a modified Harvard architecture 8-bit RISC single chip microcontroller
+## AVR / Atmel
+The [AVR][01] is a [modified Harvard architecture][05] 8-bit RISC single chip microcontroller
 which was developed by Atmel in 1996. 
 The megaAVR chips became extremely popular after they were designed into the
 8-bit Arduino platform in 2005.
 
-## PIC
+* [Arduino](http://arduino.cc/en/Main/Products)
+
+## PIC / Microchip Technology
 PIC is a family of modified Harvard architecture microcontrollers made by [Microchip Technology][04] but,
 originally developed by General Instrument's Microelectronics Division.
 The name PIC initially referred to "Peripheral Interface Controller" now it is "PIC" only.
 
-## ARM
+## ARM / ARM Holding
 [ARM][03] is a family of instruction set architectures for computer processors based
 on a reduced instruction set computing (RISC)
 architecture developed by British company [ARM Holdings][02].
 The ARM Cortex-M is a group of 32-bit RISC ARM processor cores licensed by ARM Holdings.
 The cores are intended for microcontroller use, and consist of the Cortex-M0, M0+, M1, M3, M4, and M7.
-ARM Cortex M series of 32-bit microcontrollers
+The latest generation of chips, [Cortex-M7][07],
+is a 32-bit processor that provides double the compute performance
+and digital signal processing (DSP) capability of the previous generation of ARM-based microcontrollers.
+
+In addition, ARM has [announced][08]
+a new software platform and free operating system to simplify
+and speed up the creation and deployment of Internet of Things (IoT) products
+called the [ARM mbed™ IoT Device Platform][09].
 
 * [Teensy 3.1](https://www.pjrc.com/teensy/)
+* [BeagleBone](http://beagleboard.org/bone)
+* [Freedom](http://mbed.org/platforms/FRDM-KL46Z/)
 
+## Intel
+* [Intel Edison Module](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html)
 
+## Feescale
+* [UDOO](http://www.udoo.org/)
+* [Wandboard](http://www.wandboard.org/)
+* [RIoTboard](http://www.riotboard.org/)
+* [WaRP](http://www.warpboard.org/)
+
+## Other Processors
+* [WRTnode](http://wrtnode.com/) - 
+The MT7620 router-on-a-chip includes an 802.11n MAC and baseband,
+a 2.4 GHz radio, a 580 MHz CPU, a 5-port 10/100 switch
+and two Reduced Gigabit Media Independent Interface (RGMII).
+The CPU can process advanced
+applications such as routing, security, and VoIP.
+The MT7620 also includes a selection of interfaces to support a variety of applications,
+such as a USB port for accessing external storage.
+* [pcDuino3](http://www.pcduino.com/pcduino-v3/) -
+Allwinner Technology is a China-based fabless semiconductor company that designs
+mixed-signal [SoC][06] and provides total system solution.
 
 
 Maybe this is all you need for this post:
@@ -53,7 +84,6 @@ The new site is project oriented, allowing developers to sort and select paramet
 
 Parameters include processor type and speed; number of analog and digital inputs; wireless options including WiFi and Bluetooth; USB ports including host, client, and/or OTG; video connectivity; and more.
 
-* [Intel Edison Module](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html)
 * [Processor Boards for IoT](https://iotdc.hackpad.com/Processor-Boards-for-IoT-jBHdtN5BRrZ)
 * [Embedded Linux board comparison chart and more!](http://www.adafruit.com/blog/2014/05/06/embedded-linux-board-comparison-chart-and-more/)
 * [Fubarino SD Development Board](http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&nodeId=1406&dDocName=en566210)
@@ -66,10 +96,8 @@ Parameters include processor type and speed; number of analog and digital inputs
 * [HummingBoard](http://imx.solid-run.com/wiki/index.php?title=HummingBoard_Hardware)
 * [CuBox-i](http://cubox-i.com/)
 * [chipKIT Uno32](https://digilentinc.com/Products/Detail.cfm?NavPath=2,892,893&Prod=CHIPKIT-UNO32)
-* [UDOO](http://www.udoo.org/)
 * [BananaPi](http://bananapi.org/)
 * [CubieTruck](http://www.cubietruck.com/)
-* [BeagleBone](http://beagleboard.org/bone)
 * [Tiva C Series Connected LaunchPad](http://www.automationworld.com/control/prototype-internet-things-apps-20)
 * [Tiniest Linux COM yet - OpenWRT Linux on a MIPS-based Ralink RT5350 SoC](http://linuxgizmos.com/tiniest-linux-com-yet/)
 * [WeIO - Tiny open-source module aims to make IoT apps easy](http://linuxgizmos.com/tiny-open-source-module-aims-to-make-iot-apps-easy/)
@@ -77,13 +105,6 @@ Parameters include processor type and speed; number of analog and digital inputs
 * [ARM-BMW, The Open Hardware Cortex-M0 Development Board](http://theanine.io/projects/arm-bmw/)
 * [Radxa](http://radxa.com/)
 * [CuBox](http://www.solid-run.com/product/cubox-i2/)
-* [pcDuino3](http://www.pcduino.com/pcduino-v3/)
-* [Freedom](http://mbed.org/platforms/FRDM-KL46Z/)
-* [WaRP](http://www.warpboard.org/)
-* [RIoTboard](http://www.riotboard.org/)
-* [Wandboard](http://www.wandboard.org/)
-* [WRTnode](http://wrtnode.com/)
-* []()
 
 | Board | Processor | Flash Memory | RAM Memory | EEPROM | I/O | Analog In | PWM | UART, I2C, SPI |
 |:------|:---------:|:------------:|:----------:|:------:|:---:|:---------:|:---:|:------------:|
@@ -108,10 +129,11 @@ Wireless Enabled
 [02]:http://en.wikipedia.org/wiki/ARM_Holdings
 [03]:http://en.wikipedia.org/wiki/ARM_architecture
 [04]:http://en.wikipedia.org/wiki/Microchip_Technology
-[05]:
-[06]:
-[07]:
-[08]:
-[09]:
+[05]:http://en.wikipedia.org/wiki/Modified_Harvard_architecture
+[06]:http://en.wikipedia.org/wiki/System_on_a_chip
+[07]:http://venturebeat.com/2014/09/23/arm-aims-to-put-real-brains-in-devices-for-internet-of-things/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+Venturebeat+VentureBeat
+[08]:http://www.arm.com/about/newsroom/arm-announces-device-platform-and-free-os-to-accelerate-internet-of-things-deployment.php
+[09]:http://mbed.org/
+[10]:
 [10]:
 
