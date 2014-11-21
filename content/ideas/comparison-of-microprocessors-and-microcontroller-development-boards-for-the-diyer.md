@@ -13,6 +13,35 @@ each requiring its own compilers and programmers, which could add up to a fortun
 Is there no cheap and viable alternative for the little blue board
 that has captured your imagination?
 
+## Microcontroller vs Microprocessor
+A microcontroller differs from a microprocessor in many ways.
+The first and most important difference is its functionality.
+In order that the microprocessor may be used,
+other components such as memory must be added to it.
+Even though the microprocessors are considered to be powerful computing machines,
+their weak point is that they are not adjusted to communicating to peripheral equipment.
+In order to communicate with peripheral environment,
+the microprocessor must use specialized circuits added as external chips.
+In short microprocessors are the pure heart of the computers.
+
+On the other hand, the microcontroller is designed to be all of that in one.
+No other specialized external components are needed for its application
+because all necessary circuits which otherwise belong to peripherals are already built into it.
+It saves the time and space needed to design a device.
+Also, microcontroller is a processor that has its program and data memory built in.
+These chips are intended for small embedded control applications,
+so leaving the pins for I/O and not requiring a external memory bus.
+
+The distinction between a SoC or "single chip solution" 
+and a microcontoller may be a bit fuzzy.
+In essence, a SoC is a single chip that does everything that used to take up multiple chips. 
+The SoC in a cell phone might have a 32-bit ARM processor running Android
+and any apps that the user has installed.
+In addition it would have a GPU, the wireless transceiver and modem,
+the video and audio decoders for streaming video, GPS, controllers for the accelerometer,
+controllers for battery management, and who knows what else.
+As a result, there could be multiple microcontrollers in a SoC.
+
 ## AVR / Atmel
 The [AVR][01] is a [modified Harvard architecture][05] 8-bit RISC single chip microcontroller
 which was developed by Atmel in 1996. 
@@ -22,9 +51,12 @@ The megaAVR chips became extremely popular after they were designed into the
 * [Arduino](http://arduino.cc/en/Main/Products)
 
 ## PIC / Microchip Technology
-PIC is a family of modified Harvard architecture microcontrollers made by [Microchip Technology][04] but,
+PIC or PICmicro is a family of modified Harvard architecture microcontrollers
+made by [Microchip Technology][04] but,
 originally developed by General Instrument's Microelectronics Division.
 The name PIC initially referred to "Peripheral Interface Controller" now it is "PIC" only.
+Given that there is nearly 2000 different models of PIC microcontrollers,
+Microchip provides a [Product Selector Tool][11].
 
 ## ARM / ARM Holding
 [ARM][03] is a family of instruction set architectures for computer processors based
@@ -40,10 +72,21 @@ In addition, ARM has [announced][08]
 a new software platform and free operating system to simplify
 and speed up the creation and deployment of Internet of Things (IoT) products
 called the [ARM mbed™ IoT Device Platform][09].
+The operating system consists of a [device-side OS that runs on ARM’s M-class designs][10]
+and a server side piece of software called mbed Device Server.
+The Device Server will run in virtualized environments and other types of chips.
+The OS design means that constrained and relatively “dumb” devices
+can communicate back to smarter ones running higher power operating systems.
+The OS contains security, communication and device management features
+and supports Wi-Fi, Bluetooth, 6LoWPAN and Thread, but not Z-wave or Zigbee.
+It can support both IPv4 and IPv6 as well.
+The mbed OS is free, will be available to ARM’s partners and developers in 4Q14.
 
 * [Teensy 3.1](https://www.pjrc.com/teensy/)
 * [BeagleBone](http://beagleboard.org/bone)
 * [Freedom](http://mbed.org/platforms/FRDM-KL46Z/)
+* [BananaPi](http://bananapi.org/) - ARM Cortex-A7 dual-core
+* [Raspberry Pi](http://www.raspberrypi.org/) - Broadcom BCM2835 system on a chip (SoC), which includes an ARM11
 
 ## Intel
 * [Intel Edison Module](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html)
@@ -53,6 +96,7 @@ called the [ARM mbed™ IoT Device Platform][09].
 * [Wandboard](http://www.wandboard.org/)
 * [RIoTboard](http://www.riotboard.org/)
 * [WaRP](http://www.warpboard.org/)
+* [CuBox](http://www.solid-run.com/product/cubox-i2/)
 
 ## Other Processors
 * [WRTnode](http://wrtnode.com/) - 
@@ -96,7 +140,6 @@ Parameters include processor type and speed; number of analog and digital inputs
 * [HummingBoard](http://imx.solid-run.com/wiki/index.php?title=HummingBoard_Hardware)
 * [CuBox-i](http://cubox-i.com/)
 * [chipKIT Uno32](https://digilentinc.com/Products/Detail.cfm?NavPath=2,892,893&Prod=CHIPKIT-UNO32)
-* [BananaPi](http://bananapi.org/)
 * [CubieTruck](http://www.cubietruck.com/)
 * [Tiva C Series Connected LaunchPad](http://www.automationworld.com/control/prototype-internet-things-apps-20)
 * [Tiniest Linux COM yet - OpenWRT Linux on a MIPS-based Ralink RT5350 SoC](http://linuxgizmos.com/tiniest-linux-com-yet/)
@@ -104,7 +147,6 @@ Parameters include processor type and speed; number of analog and digital inputs
 * [P-Star 25K50 Micro](http://www.pololu.com/product/3150)
 * [ARM-BMW, The Open Hardware Cortex-M0 Development Board](http://theanine.io/projects/arm-bmw/)
 * [Radxa](http://radxa.com/)
-* [CuBox](http://www.solid-run.com/product/cubox-i2/)
 
 | Board | Processor | Flash Memory | RAM Memory | EEPROM | I/O | Analog In | PWM | UART, I2C, SPI |
 |:------|:---------:|:------------:|:----------:|:------:|:---:|:---------:|:---:|:------------:|
@@ -134,6 +176,15 @@ Wireless Enabled
 [07]:http://venturebeat.com/2014/09/23/arm-aims-to-put-real-brains-in-devices-for-internet-of-things/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+Venturebeat+VentureBeat
 [08]:http://www.arm.com/about/newsroom/arm-announces-device-platform-and-free-os-to-accelerate-internet-of-things-deployment.php
 [09]:http://mbed.org/
-[10]:
-[10]:
+[10]:https://gigaom.com/2014/10/01/to-combat-fragmentation-arm-built-a-new-type-of-os-for-the-internet-of-things/
+[11]:http://www.microchip.com/maps/microcontroller.aspx
+[12]:
+[13]:
+[14]:
+[15]:
+[16]:
+[17]:
+[18]:
+[19]:
+[20]:
 

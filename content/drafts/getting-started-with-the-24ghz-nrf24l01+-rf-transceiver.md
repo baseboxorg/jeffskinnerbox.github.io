@@ -1,3 +1,4 @@
+Status: draft
 Title: Getting Started with the 2.4Ghz nRF24L01+ RF Transceiver
 Date: 2100-01-01 00:00
 Category: Electronics

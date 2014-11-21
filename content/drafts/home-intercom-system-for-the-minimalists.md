@@ -1,3 +1,4 @@
+Status: draft
 Title: Home Intercom System for the Minimalists
 Date: 2100-01-01 00:00
 Category: Electronics

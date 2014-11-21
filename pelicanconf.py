@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
-#
+
 # All the setting identifiers must be set in all-caps, otherwise they will not
 # be processed.  Setting values that are numbers (5, 20, etc.), booleans
 # (True, False, None, etc.), dictionaries, or tuples should not be enclosed in
@@ -15,11 +15,16 @@
 from __future__ import unicode_literals
 
 # Default language to be used in articles
-#DEFAULT_LANG = u'en'
+DEFAULT_LANG = u'en'
 
 DATE_FORMATS = {'en': '%A&nbsp;&nbsp;&nbsp;&nbsp;%B %d, %Y'}
-TIMEZONE = 'America/New_York'
-#DEFAULT_DATE = (2012, 3, 2, 14, 1, 1)
+TIMEZONE = "America/New_York"
+#DEFAULT_DATE = (2100, 3, 2, 14, 1, 1)
+DEFAULT_DATE = None
+
+# If False, content with dates in the future will have "Status: draft",
+# and therefore will not be generated
+WITH_FUTURE_DATES = True
 
 # Default author of articles
 AUTHOR = u'Jeff Irland'
@@ -62,13 +67,13 @@ RECENT_POST_COUNT = 5
 
 # generate a tag cloud with all your tags (Note: The a TAG_CLOUD_STEPS
 # value greater than 4 requires a custom CSS file.  See extra/custom.css)
-TAG_CLOUD_STEPS = 8
-TAG_CLOUD_MAX_ITEMS = 100
+TAG_CLOUD_STEPS = 8         # Count of different font sizes in the tag cloud.
+TAG_CLOUD_MAX_ITEMS = 100   # Maximum number of tags in the cloud.
 
 # Comment out SITEURL during development, which will essentially give you
 # root-relative URLs. Preview the site locally via python -m SimpleHTTPServer.
 # When deploying to production, uncomment SITEURL, generate, and deploy.
-#SITEURL = ''
+SITEURL = ''
 RELATIVE_URLS = True        # always set to False when you're ready to publish
 
 # Specify the Pelican theme to be used
@@ -85,16 +90,15 @@ BOOTSTRAP_NAVBAR_INVERSE = False
 GITHUB_RIBBON = True
 GITHUB_RIBBON_LEFT = False
 GITHUB_USER = 'jeffskinnerbox'
-GITHUB_URL = 'https://github.com/jeffskinnerbox/\
-jeffskinnerbox.github.io/tree/source'
+GITHUB_URL = 'https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source'   # NOQA
 
 COPYRIGHT = 'Copyright Jeffrey C. Irland, 2014'
 
 # A list of tuples (Title, URL) for additional menu items to appear
 # at the beginning of the main menu.
-MENUITEMS = (('About Me', '/pages/about-me.html'),
+MENUITEMS = (('About Me', '/pages/about-me/'),
             ('Wiki', 'http://127.0.0.1:8080'),
-            ('Open Notebook', '/pages/open-notebook.html'),)
+            ('Open Notebook', '/pages/open-notebook/'),)
 
 # Provide Google Analytics Tracking ID (i.e. ‘UA-XXXX-YYYY’)
 # and turn-off Google Analytics will testing
@@ -128,7 +132,8 @@ TRANSLATION_FEED_ATOM = None
 CUSTOM_CSS = 'static/custom.css'
 
 # static paths will be copied without parsing their contents
-STATIC_PATHS = ['images', 'extra', 'notebooks', 'extra/custom.css', ]
+STATIC_PATHS = ['images', 'extra', 'notebooks',
+                'extra/custom.css', 'extra/CNAME', ]
 
 # path-specific metadata,
 # files will be moved to web site root (and some renamed)
@@ -145,11 +150,13 @@ EXTRA_PATH_METADATA = {
 REPOSTS = (('EEWeb.com', 'http://www.eeweb.com/websites/jeffs-skinner-box'),)
 
 # Links to appear in the "admin" section of the sidebar
-ADMIN = (('Google Analytics', 'https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a43272292w73270397p83408137/'),
-         ('Web Site Source Code', 'https://github.com/jeffskinnerbox/jeffskinnerbox.github.io',))
+ADMIN = (('Google Analytics', 'https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a43272292w73270397p83408137/'), # NOQA
+         ('Web Site Source Code',
+          'https://github.com/jeffskinnerbox/jeffskinnerbox.github.io',))
 
 # Links to appear in the "links" section of the sidebar
-PAGE = (('RPi Packages', '/pages/linux-and-python-packages-for-my-raspberry-pi.html'),
+PAGE = (('RPi Packages',
+         '/pages/linux-and-python-packages-for-my-raspberry-pi.html'),
         ('Vim Cheat Sheet', '/pages/vim-cheat-sheet.html'),)
 WIKI = (('Project Ideas', 'http://127.0.0.1:8080/#Potential Projects'),
         ('Things to Study', 'http://127.0.0.1:8080/#Topics for Study'),)
@@ -176,14 +183,10 @@ DELETE_OUTPUT_DIRECTORY = True
 # into the generated HTML via the Typogrify
 TYPOGRIFY = True
 
-# If False, content with dates in the future will have "Status: draft",
-# and therefore will not be generated
-WITH_FUTURE_DATES = True
-
 #LOGOIMAGE = '/theme/macdrifter-logo-art/macdrifter-logo_280px.png'
 
 # Specify the Pelican plugins to be used when formating content
-PLUGIN_PATH = 'pelican-plugins/'
+PLUGIN_PATHS = ['pelican-plugins/', ]
 PLUGINS = ['latex', ]
 
 # List of the extensions that the Markdown processor will use.
@@ -203,17 +206,18 @@ PYGMENTS_STYLE = 'default'
 
 # Paths to find content from which it can be served
 PATH = 'content'
-PAGE_DIR = 'pages'
-ARTICLE_DIR = 'articles'
-ARTICLE_EXCLUDES = ('drafts', 'TBD',)
+PAGE_PATHS = ['pages', 'test', ]
+ARTICLE_PATHS = ['articles', 'drafts', ]
+ARTICLE_EXCLUDES = ['ideas', ]
+PAGE_EXCLUDES = []
 
 # List of directories to exclude when looking for pages.
-PAGE_EXCLUDES = ('drafts', 'TBD',)
+PAGE_EXCLUDES = ['drafts', 'TBD', ]
 
 # Locations where files will be saved in output directory.
 OUTPUT_PATH = 'output/'
-PAGE_URL = 'pages/{slug}.html'
-PAGE_SAVE_AS = 'pages/{slug}.html'
+PAGE_URL = 'pages/{slug}/'
+PAGE_SAVE_AS = 'pages/{slug}/index.html'
 ARTICLE_URL = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html'
 
@@ -227,5 +231,12 @@ TAG_SAVE_AS = "tag/{slug}/index.html"
 YEAR_ARCHIVE_SAVE_AS = 'archives/{date:%Y}/index.html'
 MONTH_ARCHIVE_SAVE_AS = 'archives/{date:%Y}/{date:%b}/index.html'
 
-DEFAULT_PAGINATION = 10
-PAGINATED_DIRECT_TEMPLATES = ('index',)
+# List of templates that are used directly to render content.
+# Typically direct templates are used to generate index pages for collections
+# of content (e.g., tags and category index pages).
+DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives')
+
+# Provides the direct templates that should be paginated.
+PAGINATED_DIRECT_TEMPLATES = ('index', )
+DEFAULT_PAGINATION = 10     # NOQA The maximum number of articles to include on a page, not including orphans.
+DEFAULT_ORPHANS = 4         # NOQA The minimum number of articles allowed on the last page.

@@ -17,7 +17,7 @@ endif
 PYTHONOPTS =
 
 # These options will be passed to "pelican".
-PELICANOPTS += $(DEBUG_PELICANOPTS)
+PELICANOPTS += $(DEBUG_PELICANOPTS) --ignore-cache
 
 # These are the locations where temporary files will be stored.
 TMP = $(HOME)/tmp
@@ -62,6 +62,7 @@ help:
 	@echo 'Usage:'
 	@echo '   make draft TITLE="<str>"       starting with a file in /ideas, '
 	@echo '                                    create a file for /drafts with title <str>'
+	@echo '   make upgrade                   upgrade the Pelican package'
 	@echo '   make article                   pick a file in /drafts to move to /articles'
 	@echo '   make html                      generate content for local server'
 	@echo '   make clean                     remove the generated HTML files'
@@ -69,8 +70,8 @@ help:
 	@echo '   make regenerate                regenerate files upon modification'
 	@echo '   make publish                   generate content for production server'
 	@echo '   make serve [PORT=8000]         serve site at http://localhost:8000'
-	@echo '   make startserver [PORT=8000]   start/restart develop_server.sh'
-	@echo '   make stopserver                stop the local server'
+	@echo '   make start [PORT=8000]         start/restart local server'
+	@echo '   make stop                      stop the local server'
 	@echo '   make backup                    create a backup of the blogs content and tools'
 	@echo '   make github [COMMENT="<str>"]  upload the content to production server'
 	@echo ' '
@@ -136,8 +137,8 @@ html:
 
 
 clean:
-	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
-	rm -rf $(BASEDIR)/*.pyc $(BASEDIR)/.pelican.pid $(BASEDIR)/.srv.pid
+	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)/*
+	rm -rf $(BASEDIR)/*.pyc
 
 
 regenerate:
@@ -151,35 +152,35 @@ else
 	cd $(OUTPUTDIR) && python $(PYTHONOPTS) -m pelican.server
 endif
 
+start: startwiki startserver
+
+stop: stopwiki stopserver
 
 # This runs in the background, Pelican and a HTTP Server.  As updates are made to
 # the blog pages and articles, the blog can be view at "http://localhost:8000/" using a browser.
-startserver: startwiki
+startserver:
 ifdef PORT
 	$(BASEDIR)/develop_server.sh restart $(PORT)
 else
 	$(BASEDIR)/develop_server.sh restart
 endif
-	@echo 'Started Pelican and SimpleHTTPServer processes running in background.'
 
 
 # This stops the Pelican and HTTP Server running in the background.
-stopserver: stopwiki
-	kill -9 `cat .pelican.pid`
-	kill -9 `cat .srv.pid`
-	@echo 'Stopped Pelican and SimpleHTTPServer processes running in background.'
+stopserver:
+	$(BASEDIR)/develop_server.sh stop
 
 
 # This starts the TiddlyWiki server process required for TiddlyWiki server.
 # http://tiddlywiki.com/#ServerCommand
 startwiki:
-	tiddlywiki wiki --server & echo "$$!" > .tiddlywiki.pid
+	tiddlywiki wiki --server & echo "$$!" > tiddlywiki.pid
 	@echo 'Started TiddlyWiki server processes running in background.'
 
 
 # This stops the TiddlyWiki server process required for TiddlyWiki server.
 stopwiki:
-	kill -9 `cat .tiddlywiki.pid`
+	kill -9 `cat tiddlywiki.pid` && rm -rf tiddlywiki.pid
 	@echo 'Stopped TiddlyWiki server processes running in background.'
 
 
@@ -217,5 +218,15 @@ else
 endif
 	git push origin master:source
 
+# Versions of tools bening used
+version:
+	@echo -n 'Current version of Pelican is ' ; pelican --version
+	@echo -n 'Current version of TiddlyWiki is ' ; tiddlywiki --version
+
+# upgrade the Pelican package
+upgrade: version
+	pip install --upgrade Pelican
+	#pip install --upgrade Markdown
+	#sudo npm update -g tiddlywiki
 
 .PHONY: draft article html help clean regenerate serve startserver publish backup process github

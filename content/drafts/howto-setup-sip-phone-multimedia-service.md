@@ -1,3 +1,4 @@
+Status: draft
 Title: HOWTO: Setup SIP Phone/Multimedia Service
 Date: 2100-01-01 00:00
 Category: HowTo, Software
@@ -7,6 +8,7 @@ Author: Jeff Irland
 Image: how-too.jpg
 Summary: bla bla bla
 
+* [Softphone in OpenWrt](http://h-wrt.com/en/doc/phone)
 * [HOWTO: GSM Base Station with the BeagleBone Black, Debian GNU/Linux and a USRP](http://discourse.criticalengineering.org/t/howto-gsm-base-station-with-the-beaglebone-black-debian-gnu-linux-and-a-usrp/56)
 * [Obtaining a SIM](https://learn.adafruit.com/adafruit-fona-mini-gsm-gprs-cellular-phone-module/obtaining-a-sim)
 * [IHU is a Voice over IP (VoIP)](http://ihu.sourceforge.net/) application for Linux (using Qt), that creates an audio stream between two computers easily and with the minimal traffic on the network.

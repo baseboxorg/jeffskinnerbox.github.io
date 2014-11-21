@@ -1,7 +1,9 @@
 created: 20140920002220363
-modified: 20140927031259784
+modified: 20141102221400389
 tags: study
 title: Topics for Study
 type: text/vnd.tiddlywiki
 
 <<list-links filter:"[tag[study]]">>
+
+* [[Antenna Basics|http://www.rohde-schwarz-usa.com/rs/rohdeschwarz/images/8GE01_Antenna_Basics.pdf]]

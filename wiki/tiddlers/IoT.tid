@@ -1,5 +1,5 @@
 created: 20140920020658891
-modified: 20140920191406960
+modified: 20141110021147310
 tags: definition
 title: IoT
 type: text/vnd.tiddlywiki
@@ -11,10 +11,17 @@ A thing, in the Internet of Things, can be a person with a heart monitor implant
 ''Source'':
 http://whatis.techtarget.com/definition/Internet-of-Things
 
+!!A View on IoT
 [img[http://2oqz471sa19h3vbwa53m33yj.wpengine.netdna-cdn.com/wp-content/uploads/2014/07/postscapes-harbor-iot-infographics.jpg]]
 
 ''Source'':http://www.visualcapitalist.com/what-is-internet-things/
 
+!!Intel's VIew of IoT
 [img[http://cloudtweaks.com/wp-content/uploads/2014/08/internet-things.jpg]]
 
 ''Source'':http://cloudtweaks.com/wp-content/uploads/2014/08/internet_of_things_forprint.pdf
+
+!!Mindmap of IoT Technologies
+[img[IoT_Mindmap 3_Technologies.pdf]]
+
+''Source:'' IoT-A

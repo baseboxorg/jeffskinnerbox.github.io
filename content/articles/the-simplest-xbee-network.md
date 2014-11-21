@@ -3,12 +3,12 @@ Date: 2013-03-20 00:01
 Category: Electronics
 Tags: XBee
 Slug: the-simplest-xbee-network
-Image: 2013-03-20-21-14-05.jpg
+Image: simplest-xbee-network.jpg
 Author: Jeff Irland
 Summary: What I do here is list some simple, proof of concept programs that I used to create a network with a Arduino and Raspberry Pi (RPi) using XBee radios.
 
-<a href="http://jeffskinnerbox.files.wordpress.com/2013/03/2013-03-20-21-14-05.jpg">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="SAMSUNG" src="/images/2013-03-20-21-14-05.jpg?w=500" width="250" height="188" />
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/03/simplest-xbee-network.jpg">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="SAMSUNG" src="/images/simplest-xbee-network.jpg?w=500" width="250" height="188" />
 </a>
 As I continue my investigation of the XBee radio, I'm impressed by the functionality compressed into the the small package, but I have been frustrated by one fact.  It has been a hard road to understand the device and to make it do something useful.  There is a confusing mass of commands and options that can be used.  To make things more difficult for me, it is my nature to study my subject at depth, and understand it well, before I commit myself to a project.  The XBee radios are proving to be a deep subject.  I have been struggling to get a simple 802.15.4 network up and working, at least one that is sufficiently complex to be useful for my needs.
 

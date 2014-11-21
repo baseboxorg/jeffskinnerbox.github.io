@@ -4,21 +4,21 @@ Category: Electronics
 Tags: Linux, Raspberry Pi, X Window System
 Slug: a-better-mobile-display-for-the-raspberry-pi
 Author: Jeff Irland
-Image: 2013-04-10-20-37-23.png
+Image: issh-on-ipad.png
 Summary: I found a comprehensive VT100 / xterm terminal emulator, integrated with a tunneled X server, that gives me a mobile display for the Raspberry Pi via my iPad.
 
-<a href="http://jeffskinnerbox.files.wordpress.com/2013/04/2013-04-10-20-37-23.png">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="2013-04-10 20.37.23" src="/images/2013-04-10-20-37-23.png?w=225" width="225" height="300" />
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/04/issh-on-ipad.png">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="issh-on-ipad" src="/images/issh-on-ipad.png?w=225" width="225" height="300" />
 </a>
 As I described in an <a href="http://jeffskinnerbox.wordpress.com/2012/10/04/establishing-an-x-window-system-environment-for-my-pc-and-raspberry-pi/">earlier post</a>, I run my Raspberry Pi (RPi) as a <a href="http://en.wikipedia.org/wiki/Headless_system">headless system</a>, using <a href="http://x.cygwin.com/">Cygwin/X</a>'s xterm for command line interaction with the RPi, with my PC being my X server to support any X Window applications.  I can move files between the PC and the RPi via my <a href="http://jeffskinnerbox.wordpress.com/2012/11/11/dropbox-for-the-raspberry-pi-sort-of/">pseudo-Dropbox</a>.  I really recommend this configuration and its working perfectly for me.
 
 This configuration gives me a great deal of utility but no mobility .... I'm still tied to my desktop PC.  Maybe I should consider replacing the desktop PC with a laptop but I don't want to spend the money.  I have seen some small,  inexpensive <a href="http://www.adafruit.com/products/922">keyboards</a> and <a href="http://www.adafruit.com/products/947">displays</a> that could be connected directly to the RPi, and you could <a href="http://www.raspberrypi.org/archives/2848">cobble together a mobile unit</a>, or the more elegant <a href="http://news.idg.no/cw/art.cfm?id=9662DBB2-013A-069C-759851E179CD3D16">Kindle version</a>, but this still doesn't give me the mobility look &amp; feel I would like.
 
-iPad to the rescue (assuming you have one ....)!   I found a great app call <a href="http://www.zinger-soft.com/iSSH_features.html">iSSH</a> by Zingersoft.  Its claims that it is a "comprehensive VT100, VT102, VT220, ANSI, xterm, and xterm-color terminal emulator over SSH and telnet, integrated with a tunneled X server, RDP and VNC client. "   I installed it, configured it quickly, and got  a terminal connection to the RPi without reading the documentation .... Impressive since successfully configuring ssh, Xserver, etc. can be challenging sometimes.  (Note: The easy of this was largely due to setting up RPi environment properly in the first place. See the <a href="http://jeffskinnerbox.wordpress.com/2012/10/04/establishing-an-x-window-system-environment-for-my-pc-and-raspberry-pi/">earlier post</a>).  To top it off, iSSH has a slick look &amp; feel.
+iPad to the rescue (assuming you have one ....)!   I found a great app called <a href="http://www.zinger-soft.com/iSSH_features.html">iSSH</a> by Zingersoft.  Its claims that it is a "comprehensive VT100, VT102, VT220, ANSI, xterm, and xterm-color terminal emulator over SSH and telnet, integrated with a tunneled X server, RDP and VNC client. "   I installed it, configured it quickly, and got  a terminal connection to the RPi without reading the documentation .... Impressive since successfully configuring ssh, Xserver, etc. can be challenging sometimes.  (Note: The easy of this was largely due to setting up RPi environment properly in the first place. See the <a href="http://jeffskinnerbox.wordpress.com/2012/10/04/establishing-an-x-window-system-environment-for-my-pc-and-raspberry-pi/">earlier post</a>).  To top it off, iSSH has a slick look &amp; feel.
 
 <h2>Configuring iSSH</h2>
-<a href="http://jeffskinnerbox.files.wordpress.com/2013/04/2013-04-10-20-34-06.png">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="iSSH X Server Session" src="/images//2013-04-10-20-34-06.png?w=225" width="225" height="300" />
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/04/issh-on-ipad-x-server.png">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="iSSH X Server Session" src="/images/issh-on-ipad-x-server.png?w=225" width="225" height="300" />
 </a>
 Zingersoft's <a href="http://www.zinger-soft.com/support1.html">documentation on configuring iSSH</a> is easy to follow and requires just a few steps.  I had no problem getting an terminal session working to the RPi but I did have problems with graphics programs (i.e. X Window client programs).  It appears that iSSH's terminal isn't really <a href="http://invisible-island.net/xterm/xterm.faq.html">xterm</a> but a terminal emulation (secured via <a href="http://en.wikipedia.org/wiki/Secure_Shell">ssh</a>).  The iSSH terminal doesn't use the X server.  In fact, while in the terminal session,  to see the X server display (i.e. to see graphics applications rendered via the RPi X client) you must hit the button at the top right of the iPad display.
 

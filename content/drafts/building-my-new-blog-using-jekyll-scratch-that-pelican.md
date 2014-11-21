@@ -1,3 +1,4 @@
+Status: draft
 Title: Building My New Blog Using Jekyll...Scratch That...Pelican
 Date: 2100-01-01 00:00
 Category: Blogging

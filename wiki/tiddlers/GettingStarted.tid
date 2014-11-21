@@ -1,0 +1,27 @@
+created: 20141102160206239
+modified: 20141107203521697
+title: GettingStarted
+type: text/vnd.tiddlywiki
+
+Welcome to TiddlyWiki, the non-linear personal web notebook.
+
+To get started, first verify that you can save changes successfully - see http://tiddlywiki.com/ for detailed instructions.
+
+Then you can:
+
+* Create new tiddlers using the 'plus' button in the sidebar
+* Visit the [[control panel|$:/ControlPanel]] using the 'cog' button in the sidebar to customise your wiki
+** Stop this message appearing by changing the default tiddlers under the ''Basics'' tab
+* Save changes using the 'download' button in the sidebar
+* Learn more about [[WikiText|http://tiddlywiki.com/static/WikiText.html]]
+* [[Generating Static Sites with TiddlyWiki|http://tiddlywiki.com/#Generating%20Static%20Sites%20with%20TiddlyWiki]]
+* [[How to build a TiddlyWiki5 from individual tiddlers|http://tiddlywiki.com/#Generating%20Static%20Sites%20with%20TiddlyWiki]]
+
+Learning TiddlyWiki
+
+* [[ TiddlyWikiTutorial|http://blogoehlert.typepad.com/eclippings/files/eclippingstiddlywiki.html]]
+* [[TiddlyWiki for the rest of us|http://www.giffmex.org/twfortherestofus.html]]
+* [[Tiddler Toddler  an absolute beginner's guide to TiddlyWiki|http://tiddlertoddler.tiddlyspot.com/]]
+* [[TiddlyStyles - collection of TiddlyWiki tips and information|http://www.checkettsweb.com/oldindex.html]]
+* [[TIDDLYWIKI CHEAT SHEET|http://www.tcm.phy.cam.ac.uk/~mdt26/PWT/hints.pdf]]
+* [[MicroContent with TiddlyWiki|http://www.phusewiki.org/docs/2006/PD02.pdf]]

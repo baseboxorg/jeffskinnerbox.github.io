@@ -1,5 +1,5 @@
 created: 20141026183516175
-modified: 20141026185256971
+modified: 20141102162948719
 title: Device Cloud Platform
 type: text/vnd.tiddlywiki
 
@@ -10,6 +10,8 @@ Device Cloud Platforms manages the communication between enterprise applications
 and remote device assets, regardless of location or network.
 It makes connecting remote assets easy, providing all of the tools to connect,
 manage, store and move information across the near and far reaches of the enterprise.
+
+[[also check out this|https://www.cbinsights.com/blog/internet-of-things-periodic-table/]]
 
 Examples of Device Cloud Platforms are
 

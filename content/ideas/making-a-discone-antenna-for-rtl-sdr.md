@@ -9,10 +9,20 @@ Summary: bla bla bla
 
 Need a SMA Panel Jack connector
 
-[understanding antennas](http://www.antenna-theory.com/)
-[The Electromagnetic Spectrum](http://cnx.org/content/m42444/latest/?collection=col11406/1.7)
-[ antennavis - Antenna Visualization Toolkit](http://manpages.ubuntu.com/manpages/trusty/man1/antennavis.1.html)
-[Understanding and Using Antenna Radiation Patterns](http://www.astronwireless.com/topic-archives-antenna-radiation-patterns.asp)
+* [Antenna Basics](http://www.rohde-schwarz-usa.com/rs/rohdeschwarz/images/8GE01_Antenna_Basics.pdf)
+* [understanding antennas](http://www.antenna-theory.com/)
+* [The Electromagnetic Spectrum](http://cnx.org/content/m42444/latest/?collection=col11406/1.7)
+* [ antennavis - Antenna Visualization Toolkit](http://manpages.ubuntu.com/manpages/trusty/man1/antennavis.1.html)
+* [Understanding and Using Antenna Radiation Patterns](http://www.astronwireless.com/topic-archives-antenna-radiation-patterns.asp)
+
+The white paper [Antenna Basics][63] instructs you in the functionality of antennas
+starting with Hertz’s Antenna Model and review the fundamentals of wave propagation.
+It introduces the definitions of antenna characteristics
+and the principle parameters of antenna specifications.
+There are also example characteristics of several popular antennas shown
+with a discussion on the trade-offs and benefits of each design.
+
+------
 
 Like all radio devices, to make optimal use of the RTL-SDR, a good antenna is need.
 The 145mm [monopole antenna][41] that comes with my [NooElec R820T SDR & DVB-T][40] dongle
@@ -434,5 +444,6 @@ Cabling Require:
 [60]:http://en.wikipedia.org/wiki/RJ45_(telecommunications)#RJ45
 [61]:http://media.digikey.com/pdf/Data%20Sheets/General%20Cable%20PDFs/RG_174U_Type.pdf
 [62]:http://en.wikipedia.org/wiki/SMA_connector
+[63]:http://www.rohde-schwarz-usa.com/rs/rohdeschwarz/images/8GE01_Antenna_Basics.pdf
 []:
 []:

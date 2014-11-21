@@ -4,6 +4,7 @@
 * [First Impression on the ESP8266 Serial-to-WiFi Module](http://rayshobby.net/?p=9734)
 * [ESP8266 Distance Testing](http://openlab.com.au/esp8266-distance-testing/)
 * [Using the ESP8266 module](http://www.instructables.com/id/Using-the-ESP8266-module/?ALLSTEPS)
+* [An SDK for the ESP8266 WiFi Chip](http://hackaday.com/2014/10/25/an-sdk-for-the-esp8266-wifi-chip/)
 * [ESP8266 Retro Browser](http://hackaday.io/project/3072/instructions)
 * [GCC for the ESP8266 WiFi Module](http://hackaday.com/2014/10/02/gcc-for-the-esp8266-wifi-module/)
 * [ESP8266 Wifi Temperature Logger](http://www.instructables.com/id/ESP8266-Wifi-Temperature-Logger/?ALLSTEPS)
@@ -54,6 +55,7 @@ typical Wi-Fi speeds for everything from file transfer to Internet connectivity.
 * [Weather Underground](http://www.wunderground.com/weather/api/)
 * [OpenWeatherMap](http://openweathermap.org/api)
 * [26 Weather APIs, 12 Support JSON](http://www.programmableweb.com/news/26-weather-apis-12-support-json/2012/01/11)
+* [Connecting the Pi to a weather station](http://www.weather.dragontail.co.uk/index.php?page=station_setup)
 
 [freegeoip.net](http://freegeoip.net/)
 is a public REST API for searching geolocation of IP addresses and host names.

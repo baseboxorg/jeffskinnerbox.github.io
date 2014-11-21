@@ -1,12 +1,13 @@
 created: 20140919014920863
-modified: 20141012183452634
+modified: 20141107022547039
 tags: projects
 title: Sound Synthesizer
 type: text/vnd.tiddlywiki
 
-*[[Csound is an incredibly powerful signal processor.|http://www.csounds.com/]]
-*[[An Introductory Guide to Csound on the BeagleBone and the Raspberry Pi, as well other Linux-powered tinyware|http://www.csounds.com/journal/issue18/beagle_pi.html]]
-*[[SuperCollider - real-time audio synthesis and algorithmic composition|http://supercollider.sourceforge.net/]]
+* [[Sonic Pi - Audible Computing|http://sonic-pi.net/]]
+* [[Csound is an incredibly powerful signal processor.|http://www.csounds.com/]]
+* [[An Introductory Guide to Csound on the BeagleBone and the Raspberry Pi, as well other Linux-powered tinyware|http://www.csounds.com/journal/issue18/beagle_pi.html]]
+* [[SuperCollider - real-time audio synthesis and algorithmic composition|http://supercollider.sourceforge.net/]]
 
 [[Freesound|http://www.freesound.org/]]
 aims to create a huge collaborative database of audio snippets, samples, recordings, bleeps, ... released under Creative Commons licenses that allow their reuse.
