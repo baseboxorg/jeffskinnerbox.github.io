@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Testing: Tables and Definition Lists - Jeff's Skinner Box</title>
+    <title>Testing: Markdown Cheatsheet - Jeff's Skinner Box</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -13,8 +13,8 @@
 
     <!-- Open Graph tags -->
             <meta property="og:type" content="article"/>
-            <meta property="og:title" content="Testing: Tables and Definition Lists"/>
-            <meta property="og:url" content="http://jeffskinnerbox.me/pages/testing-tables-and-definition-lists.html"/>
+            <meta property="og:title" content="Testing: Markdown Cheatsheet"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/pages/testing-markdown-cheatsheet/"/>
 
     <!-- Bootstrap -->
         <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
@@ -48,9 +48,9 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="/pages/about-me/">About Me</a></li>
                     <li><a href="deadend.html">Wiki</a></li>
-                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+                    <li><a href="/pages/open-notebook/">Open Notebook</a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
@@ -70,171 +70,347 @@ Jeff's Skinner Box&nbsp;            </a>
         <div class="col-sm-9">
 
     <section id="content" class="body">
-        <h1 class="entry-title">Testing: Tables and Definition Lists</h1>
+        <h1 class="entry-title">Testing: Markdown Cheatsheet</h1>
         
         <div class="entry-content" style="background-image: url('/home/jeff/blogging/content/images/banners-bkgrds/scratchpad-yellow-blueline.jpg'); background-repeat: repeat;">
             <h2>The Back&nbsp;Story</h2>
-<p>Out of the box, the table formating of Python Markdown sucks!
-It has no borders, no header formating, no padding in cells, etc.
-This can be fixed with a little custom <span class="caps">CSS</span>.
-My fix is in <code>content/extra/custom.css</code> and is listed&nbsp;blow:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">/* This allows for a wider range of font sizes for the Tag Cloud.</span>
-<span style="color: #0099FF; font-style: italic"> * Make sure to change the TAG_CLOUD_STEPS value in pelicanconf.py</span>
-<span style="color: #0099FF; font-style: italic"> * to to the number of tags here (i.e. 8) */</span>
-<span style="color: #00AA88; font-weight: bold">.tag-1</span> {
-    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">20pt</span>;
-}
+<p>This is intended as a quick reference and showcase. For more complete info, see <a href="http://daringfireball.net/projects/markdown/">John Gruber&#8217;s original spec</a> and the <a href="http://github.github.com/github-flavored-markdown/">Github-flavored Markdown info page</a>.</p>
+<p>This cheatsheet is specifically <em>Markdown Here&#8217;s</em> version of Github-flavored Markdown. This differs slightly in styling and syntax from what Github uses, so what you see below might vary a little from what you get in a <em>Markdown Here</em> email, but it should be pretty&nbsp;close.</p>
+<p>You can play around with Markdown on our <a href="http://www.markdown-here.com/livedemo.html">live demo page</a>.</p>
+<p>(If you&#8217;re not a Markdown Here user, check out the <a href="./Markdown-Cheatsheet">Markdown Cheatsheet</a> that is not specific to <span class="caps">MDH</span>. But, really, you should also use Markdown Here, because it&#8217;s awesome.&nbsp;http://markdown-here.com)</p>
+<h5>Table of&nbsp;Contents</h5>
+<p><a href="#headers">Headers</a><br />
+<a href="#emphasis">Emphasis</a><br />
+<a href="#lists">Lists</a><br />
+<a href="#links">Links</a><br />
+<a href="#images">Images</a><br />
+<a href="#code">Code and Syntax Highlighting</a><br />
+<a href="#tables">Tables</a><br />
+<a href="#blockquotes">Blockquotes</a><br />
+<a href="#html">Inline <span class="caps">HTML</span></a><br />
+<a href="#hr">Horizontal Rule</a><br />
+<a href="#lines">Line Breaks</a><br />
+<a href="#videos">Youtube&nbsp;videos</a>  </p>
+<h2>Headers</h2>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
 
-<span style="color: #00AA88; font-weight: bold">.tag-2</span> {
-    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">18pt</span>;
-}
+Alternatively, for H1 and H2, an underline-ish style:
 
-<span style="color: #00AA88; font-weight: bold">.tag-3</span> {
-    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">16pt</span>;
-}
+Alt-H1
+======
 
-<span style="color: #00AA88; font-weight: bold">.tag-4</span> {
-    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">14pt</span>;
-}
-
-<span style="color: #00AA88; font-weight: bold">.tag-5</span> {
-    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">12pt</span>;
-}
-
-<span style="color: #00AA88; font-weight: bold">.tag-6</span> {
-    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">10pt</span>;
-}
-
-<span style="color: #00AA88; font-weight: bold">.tag-7</span> {
-    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">8pt</span>;
-}
-
-<span style="color: #00AA88; font-weight: bold">.tag-8</span> {
-    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">6pt</span>;
-}
-
-<span style="color: #0099FF; font-style: italic">/* This will provide some visual improvements to Markdown&#39;s formating of tables */</span>
-<span style="color: #330099; font-weight: bold">table</span><span style="color: #555555">,</span> <span style="color: #330099; font-weight: bold">th</span><span style="color: #555555">,</span> <span style="color: #330099; font-weight: bold">td</span> {
-    <span style="color: #006699; font-weight: bold">margin-left</span><span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">auto</span>; 
-    <span style="color: #006699; font-weight: bold">margin-right</span><span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">auto</span>;
-    <span style="color: #006699; font-weight: bold">border</span><span style="color: #555555">:</span> <span style="color: #FF6600">1px</span> <span style="color: #006699; font-weight: bold">solid</span> <span style="color: #336666">black</span>;
-}
-
-<span style="color: #330099; font-weight: bold">table</span> {
-    box<span style="color: #555555">-</span>shadow<span style="color: #555555">:</span> <span style="color: #FF6600">5px</span> <span style="color: #FF6600">5px</span> <span style="color: #FF6600">10px</span> <span style="color: #FF6600">#888888</span>;
-}
-
-<span style="color: #330099; font-weight: bold">th</span> {
-    <span style="color: #006699; font-weight: bold">padding-top</span><span style="color: #555555">:</span> <span style="color: #FF6600">5px</span>;
-    <span style="color: #006699; font-weight: bold">padding-bottom</span><span style="color: #555555">:</span> <span style="color: #FF6600">5px</span>;
-    <span style="color: #006699; font-weight: bold">padding-right</span><span style="color: #555555">:</span> <span style="color: #FF6600">15px</span>;
-    <span style="color: #006699; font-weight: bold">padding-left</span><span style="color: #555555">:</span> <span style="color: #FF6600">15px</span>;
-    <span style="color: #006699; font-weight: bold">background-color</span><span style="color: #555555">:</span> <span style="color: #FF6600">#B8B8B8</span>;
-    <span style="color: #006699; font-weight: bold">color</span><span style="color: #555555">:</span> <span style="color: #336666">black</span>;
-}
-
-<span style="color: #330099; font-weight: bold">td</span> {
-    <span style="color: #006699; font-weight: bold">padding-top</span><span style="color: #555555">:</span> <span style="color: #FF6600">5px</span>;
-    <span style="color: #006699; font-weight: bold">padding-bottom</span><span style="color: #555555">:</span> <span style="color: #FF6600">5px</span>;
-    <span style="color: #006699; font-weight: bold">padding-right</span><span style="color: #555555">:</span> <span style="color: #FF6600">15px</span>;
-    <span style="color: #006699; font-weight: bold">padding-left</span><span style="color: #555555">:</span> <span style="color: #FF6600">15px</span>;
-    <span style="color: #006699; font-weight: bold">background-color</span><span style="color: #555555">:</span> <span style="color: #FF6600">#FFFFFF</span>;
-    <span style="color: #006699; font-weight: bold">color</span><span style="color: #555555">:</span> <span style="color: #336666">black</span>;
-}
-
-<span style="color: #0099FF; font-style: italic">/* This will make the in-text code more aesthetically appealing */</span>
-<span style="color: #330099; font-weight: bold">code</span> {
-    <span style="color: #006699; font-weight: bold">font-family</span><span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">monospace</span><span style="color: #555555">,</span> <span style="color: #006699; font-weight: bold">monospace</span>;
-    <span style="color: #006699; font-weight: bold">color</span><span style="color: #555555">:</span> <span style="color: #336666">black</span>;
-}
-
-<span style="color: #0099FF; font-style: italic">/* This will make the code blocks more aesthetically appealing */</span>
-<span style="color: #00AA88; font-weight: bold">.codehilite</span> {
-    <span style="color: #006699; font-weight: bold">border</span><span style="color: #555555">-</span>radius<span style="color: #555555">:</span> <span style="color: #FF6600">5px</span>;
-    box<span style="color: #555555">-</span>shadow<span style="color: #555555">:</span> <span style="color: #FF6600">5px</span> <span style="color: #FF6600">5px</span> <span style="color: #FF6600">10px</span> <span style="color: #FF6600">#888888</span>;
-}
+Alt-H2
+------
 </pre></div>
 
 
+<h1>H1</h1>
+<h2>H2</h2>
+<h3>H3</h3>
+<h4>H4</h4>
+<h5>H5</h5>
+<h6>H6</h6>
+<p>Alternatively, for H1 and H2, an underline-ish&nbsp;style:</p>
+<h1>Alt-H1</h1>
+<h2>Alt-H2</h2>
+<h2>Emphasis</h2>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Emphasis, aka italics, with *asterisks* or _underscores_.
+
+Strong emphasis, aka bold, with **asterisks** or __underscores__.
+
+Combined emphasis with **asterisks and _underscores_**.
+
+Strikethrough uses two tildes. ~~Scratch this.~~
+</pre></div>
+
+
+<p>Emphasis, aka italics, with <em>asterisks</em> or <em>underscores</em>.</p>
+<p>Strong emphasis, aka bold, with <strong>asterisks</strong> or <strong>underscores</strong>.</p>
+<p>Combined emphasis with <strong>asterisks and <em>underscores</em></strong>.</p>
+<p>Strikethrough uses two tildes. ~~Scratch&nbsp;this.~~</p>
+<h2>Lists</h2>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">1. First ordered list item
+2. Another item
+  * Unordered sub-list. 
+1. Actual numbers don&#39;t matter, just that it&#39;s a number
+  1. Ordered sub-list
+4. And another item.  
+
+   Some text that should be aligned with the above item.
+
+* Unordered list can use asterisks
+- Or minuses
++ Or pluses
+</pre></div>
+
+
+<ol>
+<li>First ordered list&nbsp;item</li>
+<li>Another&nbsp;item</li>
+<li>Unordered&nbsp;sub-list. </li>
+<li>Actual numbers don&#8217;t matter, just that it&#8217;s a&nbsp;number</li>
+<li>Ordered&nbsp;sub-list</li>
+<li>And another&nbsp;item.  </li>
+</ol>
+<p>Some text that should be aligned with the above&nbsp;item.</p>
+<ul>
+<li>Unordered list can use&nbsp;asterisks</li>
+<li>Or&nbsp;minuses</li>
+<li>Or&nbsp;pluses</li>
+</ul>
+<h2>Links</h2>
+<p>There are two ways to create&nbsp;links.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">[I&#39;m an inline-style link](https://www.google.com)
+
+[I&#39;m a reference-style link][Arbitrary case-insensitive reference text]
+
+[You can use numbers for reference-style link definitions][1]
+
+Or leave it empty and use the [link text itself]
+
+Some text to show that the reference links can follow later.
+
+[arbitrary case-insensitive reference text]: https://www.mozilla.org
+[1]: http://slashdot.org
+[link text itself]: http://www.reddit.com
+</pre></div>
+
+
+<p><a href="https://www.google.com">I&#8217;m an inline-style&nbsp;link</a></p>
+<p><a href="https://www.mozilla.org">I&#8217;m a reference-style&nbsp;link</a></p>
+<p><a href="http://slashdot.org">You can use numbers for reference-style link&nbsp;definitions</a></p>
+<p>Or leave it empty and use the <a href="http://www.reddit.com">link text&nbsp;itself</a></p>
+<p>Some text to show that the reference links can follow&nbsp;later.</p>
+<h2>Images <a name="images"></a></h2>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Here&#39;s our logo (hover to see the title text):
+
+Inline-style: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png &quot;Logo Title Text 1&quot;)
+
+Reference-style: 
+![alt text][logo]
+
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png &quot;Logo Title Text 2&quot;
+</pre></div>
+
+
+<p>Here&#8217;s our logo (hover to see the title&nbsp;text):</p>
+<p>Inline-style: 
+<img alt="alt text" src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" title="Logo Title Text 1" /></p>
+<p>Reference-style: 
+<img alt="alt text" src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" title="Logo Title Text 2" /></p>
+<h2>Code and Syntax&nbsp;Highlighting</h2>
+<p>Code blocks are part of the Markdown spec, but syntax highlighting isn&#8217;t. However, many renderers &#8212; like Github&#8217;s and <em>Markdown Here</em> &#8212; support syntax highlighting. <em>Markdown Here</em> supports highlighting for dozens of languages (and not-really-languages, like diffs and <span class="caps">HTTP</span> headers); to see the complete list, and how to write the language names, see the <a href="http://softwaremaniacs.org/media/soft/highlight/test.html">highlight.js demo page</a>.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Inline `code` has `back-ticks around` it.
+</pre></div>
+
+
+<p>Inline <code>code</code> has <code>back-ticks around</code> it.</p>
+<p>Blocks of code are either fenced by lines with three back-ticks <code>```</code>, or are indented with four spaces. I recommend only using the fenced code blocks &#8212; they&#8217;re easier and only they support syntax&nbsp;highlighting.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"> ```javascript
+ var s = &quot;JavaScript syntax highlighting&quot;;
+ alert(s);
+ ```
+
+ ```python
+ s = &quot;Python syntax highlighting&quot;
+ print s
+ ```
+
+ ```
+ No language indicated, so no syntax highlighting. 
+ But let&#39;s throw in a &lt;b&gt;tag&lt;/b&gt;.
+ ```
+</pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #006699; font-weight: bold">var</span> s <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;JavaScript syntax highlighting&quot;</span>;
+alert(s);
+</pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">s <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;Python syntax highlighting&quot;</span>
+<span style="color: #006699; font-weight: bold">print</span> s
+</pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">No language indicated, so no syntax highlighting in Markdown Here (varies on Github). 
+But let&#39;s throw in a &lt;b&gt;tag&lt;/b&gt;.
+</pre></div>
+
+
+<p>(Github Wiki pages don&#8217;t seem to support syntax highlighting, so the above won&#8217;t be colourful (the strings are not red, for example). Try it out in a <em>Markdown Here</em> email or a Github Markdown <span class="caps">README</span> or Github Issue &#8212; you can preview a new Issue without submitting&nbsp;it.)</p>
+<p>Again, to see what languages are available for highlighting, and how to write those language names, see the <a href="http://softwaremaniacs.org/media/soft/highlight/test.html">highlight.js demo page</a>.</p>
 <h2>Tables</h2>
-<p>Tables aren&#8217;t part of the core Markdown spec, but are part of Python / Pelican
-implementation.
-This posting gives you some idea on how <a href="http://stackoverflow.com/questions/16099153/table-not-render-when-use-redcarpet-in-jekyll-github-pages">tables should be supported</a>
-and see the <a href="http://pythonhosted.org//Markdown/extensions/tables.html">Python Table extension</a>.
-You combine this, with the <code>custom.css</code> discussed above, and&nbsp;this</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">| Default Justified | Left Justified | Right Justified | Centered Justified |
-| ----------------- |:-------------- | ---------------:|:------------------:|
-| row 1, col 1 | row 1, col 2     | row 1, col 3 | _this should be italics_   |
-| row 2, col 1 | **this should be bold** | row 2, col 3 | row 2, col 4     |
-| row 3, col 1 | row 3, col 2     | $\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}}$ | row 3, col 4     |
-| `this should be code` | row 4, col 2     | row 4, col 3 | row 4, col 4     |
-| row 5, col 1 | row 5, col 2     | row 5, col 3 | row 5, col 4     |
+<p>Tables aren&#8217;t part of the core Markdown spec, but they are part of <span class="caps">GFM</span> and <em>Markdown Here</em> supports them. They are an easy way of adding tables to your email &#8212; a task that would otherwise require copy-pasting from another&nbsp;application.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Colons can be used to align columns.
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+The outer pipes (|) are optional, and you don&#39;t need to make the raw Markdown line up prettily. You can also use inline Markdown.
+
+Markdown | Less | Pretty
+--- | --- | ---
+*Still* | `renders` | **nicely**
+1 | 2 | 3
 </pre></div>
 
 
-<p>you get the&nbsp;following:</p>
+<p>Colons can be used to align&nbsp;columns.</p>
 <table>
 <thead>
 <tr>
-<th>Default Justified</th>
-<th align="left">Left Justified</th>
-<th align="right">Right Justified</th>
-<th align="center">Centered Justified</th>
+<th>Tables</th>
+<th align="center">Are</th>
+<th align="right">Cool</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>row 1, col 1</td>
-<td align="left">row 1, col 2</td>
-<td align="right">row 1, col 3</td>
-<td align="center"><em>this should be italics</em></td>
+<td>col 3 is</td>
+<td align="center">right-aligned</td>
+<td align="right">$1600</td>
 </tr>
 <tr>
-<td>row 2, col 1</td>
-<td align="left"><strong>this should be bold</strong></td>
-<td align="right">row 2, col 3</td>
-<td align="center">row 2, col 4</td>
+<td>col 2 is</td>
+<td align="center">centered</td>
+<td align="right"><mathjax>$12</td>
 </tr>
 <tr>
-<td>row 3, col 1</td>
-<td align="left">row 3, col 2</td>
-<td 1="1" align="right"><mathjax>$\frac</td>
-<td align="center">row 3, col 4</td>
-</tr>
-<tr>
-<td><code>this should be code</code></td>
-<td align="left">row 4, col 2</td>
-<td align="right">row 4, col 3</td>
-<td align="center">row 4, col 4</td>
-</tr>
-<tr>
-<td>row 5, col 1</td>
-<td align="left">row 5, col 2</td>
-<td align="right">row 5, col 3</td>
-<td align="center">row 5, col 4</td>
+<td>zebra stripes</td>
+<td align="center">are neat</td>
+<td align="right">$</mathjax>1</td>
 </tr>
 </tbody>
 </table>
-<p>Test of inline MathJax: $</mathjax>\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25&nbsp;\pi}}$</p>
-<h2>Definition&nbsp;Lists</h2>
-<p>The <a href="http://pythonhosted.org/Markdown/extensions/definition_lists.html">Definition Lists</a> extension adds the ability to create definition lists in Markdown documents.
-For example, here are defintions of two&nbsp;fruits:</p>
+<p>The outer pipes (|) are optional, and you don&#8217;t need to make the raw Markdown line up prettily. You can also use inline&nbsp;Markdown.</p>
+<table>
+<thead>
+<tr>
+<th>Markdown</th>
+<th>Less</th>
+<th>Pretty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Still</em></td>
+<td><code>renders</code></td>
+<td><strong>nicely</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2>Blockquotes</h2>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">&gt; Blockquotes are very handy in email to emulate reply text.
+&gt; This line is part of the same quote.
+&gt; &gt; Nested quote
+&gt;
+&gt; Back to the first level
+
+Quote break.
+
+&gt; This is a very long line that will still be quoted properly when it wraps. Oh boy let&#39;s keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote. 
+</pre></div>
+
+
+<blockquote>
+<p>Blockquotes are very handy in email to emulate reply text.
+This line is part of the same&nbsp;quote.</p>
+<blockquote>
+<p>Nested&nbsp;quote</p>
+</blockquote>
+<p>Back to the first&nbsp;level</p>
+</blockquote>
+<p>Quote&nbsp;break.</p>
+<blockquote>
+<p>This is a very long line that will still be quoted properly when it wraps. Oh boy let&#8217;s keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can <em>put</em> <strong>Markdown</strong> into a&nbsp;blockquote. </p>
+</blockquote>
+<h2>Inline <span class="caps">HTML</span></h2>
+<p>You can also use raw <span class="caps">HTML</span> in your Markdown, and it&#8217;ll mostly work pretty&nbsp;well. </p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">&lt;dl&gt;
+  &lt;dt&gt;Definition list&lt;/dt&gt;
+  &lt;dd&gt;Is something people use sometimes.&lt;/dd&gt;
+
+  &lt;dt&gt;Markdown in HTML&lt;/dt&gt;
+  &lt;dd&gt;Does *not* work **very** well. Use HTML &lt;em&gt;tags&lt;/em&gt;.&lt;/dd&gt;
+&lt;/dl&gt;
+</pre></div>
+
+
 <dl>
-<dt>Apple</dt>
-<dd>Pomaceous fruit of plants of the genus Malus in 
-the family&nbsp;Rosaceae.</dd>
-<dt>Orange</dt>
-<dd>The fruit of an evergreen tree of the genus&nbsp;Citrus.</dd>
+  <dt>Definition&nbsp;list</dt>
+  <dd>Is something people use&nbsp;sometimes.</dd>
+
+  <dt>Markdown in <span class="caps">HTML</span></dt>
+  <dd>Does *not* work **very** well. Use <span class="caps">HTML</span> <em>tags</em>.</dd>
 </dl>
-<p>You can also add multiple definitions (if you add some spacing between&nbsp;items):</p>
-<dl>
-<dt>Apple</dt>
-<dd>Pomaceous fruit of plants of the genus Malus in 
-the family&nbsp;Rosaceae.</dd>
-<dd>An American computer&nbsp;company.</dd>
-<dt>Orange</dt>
-<dd>The fruit of an evergreen tree of the genus&nbsp;Citrus.</dd>
-</dl><script type= "text/javascript">
+
+<h2>Horizontal&nbsp;Rule</h2>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Three or more...
+
+---
+
+Hyphens
+
+***
+
+Asterisks
+
+___
+
+Underscores
+</pre></div>
+
+
+<p>Three or&nbsp;more&#8230;</p>
+<hr />
+<p>Hyphens</p>
+<hr />
+<p>Asterisks</p>
+<hr />
+<p>Underscores</p>
+<h2>Line&nbsp;Breaks</h2>
+<p>My basic recommendation for learning how line breaks work is to experiment and discover &#8212; hit &lt;Enter&gt; once (i.e., insert one newline), then hit it twice (i.e., insert two newlines), see what happens. You&#8217;ll soon learn to get what you want. &#8220;Markdown Toggle&#8221; is your&nbsp;friend. </p>
+<p>Here are some things to try&nbsp;out:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Here&#39;s a line for us to start with.
+
+This line is separated from the one above by two newlines, so it will be a *separate paragraph*.
+
+This line is also a separate paragraph, but...
+This line is only separated by a single newline, so it&#39;s a separate line in the *same paragraph*.
+</pre></div>
+
+
+<p>Here&#8217;s a line for us to start&nbsp;with.</p>
+<p>This line is separated from the one above by two newlines, so it will be a <em>separate paragraph</em>.</p>
+<p>This line is also begins a separate paragraph, but&#8230;<br />
+This line is only separated by a single newline, so it&#8217;s a separate line in the <em>same paragraph</em>.</p>
+<p>(Technical note: <em>Markdown Here</em> uses <span class="caps">GFM</span> line breaks, so there&#8217;s no need to use <span class="caps">MD</span>&#8217;s two-space line&nbsp;breaks.)</p>
+<h2>Youtube&nbsp;videos</h2>
+<p>They can&#8217;t be added directly but you can add an image with a link to the video like&nbsp;this:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">&lt;a href=&quot;http://www.youtube.com/watch?feature=player_embedded&amp;v=YOUTUBE_VIDEO_ID_HERE
+&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg&quot; 
+alt=&quot;IMAGE ALT TEXT HERE&quot; width=&quot;240&quot; height=&quot;180&quot; border=&quot;10&quot; /&gt;&lt;/a&gt;
+</pre></div>
+
+
+<p>Or, in pure Markdown, but losing the image sizing and&nbsp;border:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+</pre></div><script type= "text/javascript">
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
         var mathjaxscript = document.createElement('script');
         mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -290,7 +466,7 @@ the family&nbsp;Rosaceae.</dd>
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
 
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook/index.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
 
 <li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
     <ul class="list-group" id="links">
@@ -380,7 +556,7 @@ the family&nbsp;Rosaceae.</dd>
         </li>
     </ul>
 </li>
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by/index.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
 
         </ul>
     </section>

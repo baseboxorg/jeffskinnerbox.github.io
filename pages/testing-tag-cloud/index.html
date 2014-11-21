@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Testing: Random Stuff - Jeff's Skinner Box</title>
+    <title>Testing: Tag Cloud - Jeff's Skinner Box</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -13,8 +13,8 @@
 
     <!-- Open Graph tags -->
             <meta property="og:type" content="article"/>
-            <meta property="og:title" content="Testing: Random Stuff"/>
-            <meta property="og:url" content="http://jeffskinnerbox.me/pages/testing-random-stuff.html"/>
+            <meta property="og:title" content="Testing: Tag Cloud"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/pages/testing-tag-cloud/"/>
 
     <!-- Bootstrap -->
         <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
@@ -48,9 +48,9 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="/pages/about-me/">About Me</a></li>
                     <li><a href="deadend.html">Wiki</a></li>
-                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+                    <li><a href="/pages/open-notebook/">Open Notebook</a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
@@ -70,33 +70,56 @@ Jeff's Skinner Box&nbsp;            </a>
         <div class="col-sm-9">
 
     <section id="content" class="body">
-        <h1 class="entry-title">Testing: Random Stuff</h1>
+        <h1 class="entry-title">Testing: Tag Cloud</h1>
         
         <div class="entry-content" style="background-image: url('/home/jeff/blogging/content/images/banners-bkgrds/scratchpad-yellow-blueline.jpg'); background-repeat: repeat;">
             <h2>The Back&nbsp;Story</h2>
-<p><a href="http://en.wikipedia.org/wiki/Emoji">Emoji</a> (絵文字 or えもじ; Japanese pronunciation: [emodʑi])
-are the ideograms or smileys used in Japanese electronic messages and webpages,
-whose use is spreading outside Japan.
-The characters are used much like <span class="caps">ASCII</span> emoticons or kaomoji,
-but a wider range is provided, and the icons are standardized and built into the&nbsp;handsets.</p>
-<p>I found this <a href="https://github.com/muan/emoji/blob/gh-pages/README.md">here</a>.</p>
-<h4>Emoji&nbsp;finder</h4>
-<p>:heart: me some emojis. Go to&nbsp;http://emoji.muan.co/</p>
-<p><img alt="emoji" src="https://f.cloud.github.com/assets/1153134/1609791/b29e53ea-5559-11e3-8697-aee235cd9338.gif" /></p>
-<p>:octopus: :zap: :cat: = :octocat:<br />
-Find the emoji that echoes your heart using&nbsp;keywords </p>
-<p>:raised_hands::gun::moneybag::police_car::boom::hospital::syringe::skull:<br />
-Queue the emojis up to tell a&nbsp;story</p>
-<p>:oden::spaghetti::cookie::stew::ice_cream::icecream::sushi::curry::custard::dango::pizza::ramen::fried_shrimp::fries::chocolate_bar::hamburger:<br />
-View emojis in groups and food-attack hungry&nbsp;people </p>
-<h4>Please contribute&nbsp;:pray:</h4>
-<p>There are almost 900 emojis, more keywords let you find emojis more easily. Go to <a href="https://github.com/muan/emoji/blob/gh-pages/emojis.json"><code>emojis.json</code></a> for the list of emoji <span class="amp">&amp;</span>&nbsp;keywords.</p>
-<h4>Block&nbsp;Quotes</h4>
-<p>Here is an example of a block&nbsp;quote:</p>
-<blockquote>
-<p><em>An operant conditioning chamber permits experimenters to study behavior conditioning (training) by teaching a subject animal to perform certain actions (like pressing a lever) in response to specific stimuli, such as a light or sound signal. When the subject correctly performs the behavior, the chamber mechanism delivers food or another reward. In some cases, the mechanism delivers a punishment for incorrect or missing responses. For instance, to test how operant conditioning works for certain invertebrates, psychologists use a device known as a &#8220;heat box&#8221;.</em>
-<footer><a href="http://en.wikipedia.org/wiki/Skinner_box" title="Description of the Classic Skinner Box">Wikipedia</a></footer></p>
-</blockquote>
+<p>To sort tags in alphabetical order,&nbsp;use</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">{% for tag in tag_cloud|sort) %}
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-xs&quot;&gt;
+    &lt;a class=&quot;tag-{{ tag.1 }}&quot; href=&quot;{{ SITEURL }}/{{ tag.0.url }}&quot;&gt;
+        {{ tag.0 }}
+    &lt;/a&gt;
+    &lt;/button&gt;
+    {% if not loop.last %}
+        &amp;nbsp;
+    {% endif %}
+{% endfor %}
+</pre></div>
+
+
+<p _="%" endfor="endfor">{% for tag in tag_cloud|sort) %}
+    <button type="button" class="btn btn-primary btn-xs">
+    <a class="tag-{{ tag.1 }}" href="{{ SITEURL }}/{{ tag.0.url }}">
+        {{ tag.0 }}
+    </a>
+    </button>
+    {% if not loop.last %}
+        &nbsp;
+    {% endif&nbsp;%}</p>
+<p>To sort by number of articles in&nbsp;tag</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">{% for tag in tag_cloud|sort(attribute=&#39;1&#39;) %}
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-xs&quot;&gt;
+    &lt;a class=&quot;tag-{{ tag.1 }}&quot; href=&quot;{{ SITEURL }}/{{ tag.0.url }}&quot;&gt;
+        {{ tag.0 }}
+    &lt;/a&gt;
+    &lt;/button&gt;
+    {% if not loop.last %}
+        &amp;nbsp;
+    {% endif %}
+{% endfor %}
+</pre></div>
+
+
+<p _="%" endfor="endfor">{% for tag in tag_cloud|sort(attribute=&#8216;1&#8217;) %}
+    <button type="button" class="btn btn-primary btn-xs">
+    <a class="tag-{{ tag.1 }}" href="{{ SITEURL }}/{{ tag.0.url }}">
+        {{ tag.0 }}
+    </a>
+    </button>
+    {% if not loop.last %}
+        &nbsp;
+    {% endif&nbsp;%}</p>
         </div>
     </section>
         </div>
@@ -122,7 +145,7 @@ View emojis in groups and food-attack hungry&nbsp;people </p>
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
 
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook/index.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
 
 <li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
     <ul class="list-group" id="links">
@@ -212,7 +235,7 @@ View emojis in groups and food-attack hungry&nbsp;people </p>
         </li>
     </ul>
 </li>
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by/index.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
 
         </ul>
     </section>

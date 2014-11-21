@@ -14,7 +14,7 @@
     <!-- Open Graph tags -->
             <meta property="og:type" content="article"/>
             <meta property="og:title" content="Testing: Images and Footnotes"/>
-            <meta property="og:url" content="http://jeffskinnerbox.me/pages/testing-images-and-footnotes.html"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/pages/testing-images-and-footnotes/"/>
 
     <!-- Bootstrap -->
         <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
@@ -48,9 +48,9 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="/pages/about-me/">About Me</a></li>
                     <li><a href="deadend.html">Wiki</a></li>
-                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+                    <li><a href="/pages/open-notebook/">Open Notebook</a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
@@ -95,7 +95,7 @@ It uses a similar syntax for images,&nbsp;like</p>
 </pre></div>
 
 
-<p><img alt="Wolf Trap" src="http://jeffskinnerbox.me/images/wolf_trap.jpg" title="Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182" /></p>
+<p><img alt="Wolf Trap" src="{filename}/images/wolf_trap.jpg" title="Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182" /></p>
 <p>Here is an another example using a file from the web
 (also hover the mouse over the image to see the&nbsp;text):</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Full image is placed here
@@ -179,20 +179,20 @@ Lorem ipsum dolor sit amet, ....
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
 <p>Now lets do a image that is stored within <code>content/images</code>:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;margin: 0px 8px; float: left&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot;</span> <span style="color: #330099">alt=</span><span style="color: #CC3300">&quot;Wolf Trap&quot;</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;/images/wolf_trap.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099; font-weight: bold">/&gt;</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;margin: 0px 8px; float: left&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot;</span> <span style="color: #330099">alt=</span><span style="color: #CC3300">&quot;Wolf Trap&quot;</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;{filename}/images/wolf_trap.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099; font-weight: bold">/&gt;</span>
 Lorem ipsum dolor sit amet, ....
 </pre></div>
 
 
-<p><img class="img-rounded" style="margin: 0px 8px; float: left" title="Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182" alt="Wolf Trap" src="/images/wolf_trap.jpg" width="150" height="150" />
+<p><img class="img-rounded" style="margin: 0px 8px; float: left" title="Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182" alt="Wolf Trap" src="{filename}/images/wolf_trap.jpg" width="150" height="150" />
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
 <p>Now trying some tricks from the&nbsp;web:</p>
-<p><img alt="Wolf Trap" src="http://jeffskinnerbox.me/images/wolf_trap.jpg" title="=200x200 &quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot;" />
+<p><img alt="Wolf Trap" src="{filename}/images/wolf_trap.jpg" title="=200x200 &quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot;" />
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
 <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-<p><img alt="Wolf Trap" src="http://jeffskinnerbox.me/images/wolf_trap.jpg" title="Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182" /> { margin: 0px 8px; float: left; width: 200px height: 200px; }
+<p><img alt="Wolf Trap" src="{filename}/images/wolf_trap.jpg" title="Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182" /> { margin: 0px 8px; float: left; width: 200px height: 200px; }
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
 <p><span class="caps">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span></p>
@@ -303,7 +303,7 @@ multiple&nbsp;lines.</p>
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
 
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook/index.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
 
 <li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
     <ul class="list-group" id="links">
@@ -393,7 +393,7 @@ multiple&nbsp;lines.</p>
         </li>
     </ul>
 </li>
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by/index.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
 
         </ul>
     </section>

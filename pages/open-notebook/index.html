@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Testing: Embedding commandlinefu.com - Jeff's Skinner Box</title>
+    <title>Open Notebook - Jeff's Skinner Box</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -13,8 +13,8 @@
 
     <!-- Open Graph tags -->
             <meta property="og:type" content="article"/>
-            <meta property="og:title" content="Testing: Embedding commandlinefu.com"/>
-            <meta property="og:url" content="http://jeffskinnerbox.me/pages/testing-embedding-commandlinefu.html"/>
+            <meta property="og:title" content="Open Notebook"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/pages/open-notebook/"/>
 
     <!-- Bootstrap -->
         <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
@@ -48,9 +48,9 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="/pages/about-me/">About Me</a></li>
                     <li><a href="deadend.html">Wiki</a></li>
-                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+                    <li><a href="/pages/open-notebook/">Open Notebook</a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
@@ -70,37 +70,86 @@ Jeff's Skinner Box&nbsp;            </a>
         <div class="col-sm-9">
 
     <section id="content" class="body">
-        <h1 class="entry-title">Testing: Embedding commandlinefu.com</h1>
+        <h1 class="entry-title">Open Notebook</h1>
         
         <div class="entry-content" style="background-image: url('/home/jeff/blogging/content/images/banners-bkgrds/scratchpad-yellow-blueline.jpg'); background-repeat: repeat;">
-            <h2>The Back&nbsp;Story</h2>
-<p><a href="http://www.commandlinefu.com/">Commandlinefu.com</a> is an online repository for recording commandline gems,
-that you can return to again and again. 
-If you&#8217;re an avid user of the Linux command line, this site is for you
-since it contains a huge collection of user contributed commandline solutions.
-You can quickly browse through the list using its search facility (&#8220;grep the archive&#8221;).
-You can also contribute your own commands and create your favorites&nbsp;list.</p>
-<p><a href="http://www.commandlinefu.com/site/widget">Embedding your commands in your blog/homepage</a>
-<a href="http://pmoghadam.com/homepage/HTML/commandlinefu-downloader.html">Download entire commandlinefu.com in a single txt&nbsp;file</a></p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">&lt;script type=&quot;text/javascript&quot; src=&quot;http://www.commandlinefu.com/commands/by/jeffskinnerbox/json/clfwidget/&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-    function clfwidget(commands) {
-        var commandsHtml = [];
-        for (var i=0; i&lt;Math.min(5, commands.length); ++i) {
-            var command = commands[i].command;
-            var summary = commands[i].summary;
-            var url = commands[i].url;
-            commandsHtml.push(&#39;&lt;li&gt;&lt;a href=&quot;&#39;+url+&#39;&quot;&gt;&#39;+summary+&#39;&lt;/a&gt;&lt;br/&gt;&lt;code&gt;$ &#39;+command+&#39;&lt;/code&gt;&lt;/li&gt;&#39;);
-        }
-        var listHtml = &#39;&lt;ul&gt;&#39;+commandsHtml.join(&#39;&#39;)+&#39;&lt;/ul&gt;&#39;;
-        var widgetHtml = listHtml+&#39;&lt;p&gt;&lt;a href=&quot;http://www.commandlinefu.com&quot;&gt;commandlinefu.com&lt;/a&gt;&lt;/p&gt;&#39;;
-        document.getElementById(&#39;commandlinefu_list&#39;).innerHTML = widgetHtml;
-    }
-&lt;/script&gt;
-
-&lt;div id=&quot;commandlinefu_list&quot;&gt;
-&lt;/div&gt;
+            <p>Your standard web page creation tool is woefully unprepared to capture complex technical concepts
+that require data, math, and graphs, but that is exactly what I would like to do.
+I started playing around with <a href="http://ipython.org/notebook.html">IPython Notebook</a> with <a href="http://github.com/ipython/nbconvert">nbconvert</a>
+as a way to document complex ideas on my website that required a mixture of 
+prose, mathematics, algorithms, and graphs.
+I got inspired by the blogs of
+<a href="http://carlboettiger.info/2012/09/28/Welcome-to-my-lab-notebook.html">Carl Boettiger</a>, <a href="http://www.davidketcheson.info/2012/10/11/blogging_ipython_notebooks_with_jekyll.html">David Ketcheson</a>, <a href="http://www.bendmorris.com/2013/05/blogging-with-ipython-distances-in.html">Ben Morris</a>, <a href="http://blog.fperez.org/2012/09/blogging-with-ipython-notebook.html">Fernando Perez</a>,
+and others who are already doing it.
+I believe that IPython Notebook will prove to be an unqualified success,
+so I’m assembling all my technical notes&nbsp;here</p>
+<ul>
+<li><strong>Notes for IPython Notebook</strong><ul>
+<li><a href="/notebooks/configuring-ipython.html">Configuring&nbsp;IPython</a></li>
+<li><a href="/notebooks/formating-ipython-notebook-with-markdown.html">Formating IPython Notebook with&nbsp;Markdown</a></li>
+<li><a href="/notebooks/typesetting-math-using-mathjax.html">Typesetting Math Using&nbsp;MathJax</a></li>
+<li><a href="/notebooks/running-code-in-the-ipython-notebook.html">Running Code in the IPython&nbsp;Notebook</a></li>
+<li><a href="/notebooks/running-scripts-from-ipython.html">Running Scripts from&nbsp;IPython</a></li>
+<li><a href="/notebooks/ipython's-rich-display-system.html">IPython&#8217;s Rich Display&nbsp;System</a></li>
+</ul>
+</li>
+<li><strong>Using Matplotlib with IPython Notebook</strong><ul>
+<li><a href="/notebooks/tips-and-tricks-for-matplotlib.html">Tips and Tricks for&nbsp;Matplotlib</a></li>
+<li><a href="/notebooks/javascript-viewer-for-matplotlib-animations.html">Javascript Viewer for Matplotlib&nbsp;Animations</a></li>
+<li><a href="/notebooks/matplotlib-2d-and-3d-plotting-in-ipython.html">Matplotlib - 2D and 3D Plotting in&nbsp;IPython</a></li>
+</ul>
+</li>
+<li><strong>Notes for Digital Signal Processing</strong><ul>
+<li><a href="/notebooks/physical-meaning-of-a-complex-signal.html">Physical Meaning of a Complex&nbsp;Signal</a></li>
+<li><a href="/notebooks/understanding-the-fast-fourier-transform.html">Understanding the Fast Fourier&nbsp;Transform</a></li>
+<li><a href="/notebooks/working-with-fast-fourier-transform.html">Working with Fast Fourier&nbsp;Transform</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>Several mistakes in the formating (particurally in Markdown and MathJax) &#8230; more work&nbsp;required.</strong></p>
+<hr />
+<h3>Converting Notebooks to <span class="caps">HTML</span></h3>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">ipython nbconvert <span style="color: #CC3300">&quot;Configuring IPython.ipynb&quot;</span> --to html
 </pre></div>
+
+
+<ul>
+<li><a href="http://www.davidketcheson.info/2012/10/11/blogging_ipython_notebooks_with_jekyll.html">Blogging an iPython notebook with&nbsp;Jekyll</a></li>
+<li><a href="http://ipython.org/ipython-doc/stable/interactive/nbconvert.html">Converting notebooks to other&nbsp;formats</a></li>
+<li><a href="http://frenticb.blogspot.com/2013/02/exporting-ipython-notebooks.html">Exporting IPython&nbsp;Notebooks</a></li>
+<li><a href="http://technicaltidbit.blogspot.com/2013/07/nbconvert-pdf-from-ipython-notebook.html">nbconvert: <span class="caps">PDF</span> from iPython&nbsp;Notebook</a></li>
+<li><a href="http://technicaltidbit.blogspot.com/2013/07/quick-link-to-download-nbconvert_15.html">Quick link to download&nbsp;nbconvert</a></li>
+</ul>
+<h3>A Gallery of Interesting IPython Notebooks and&nbsp;Questions</h3>
+<ul>
+<li>https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks</li>
+<li>http://nbviewer.ipython.org/</li>
+<li>http://stackoverflow.com/questions/tagged/ipython-notebook?sort=votes&amp;pagesize=50</li>
+</ul>
+<h3>Blogging with the IPython&nbsp;Notebook</h3>
+<ul>
+<li><a href="http://www.davidketcheson.info/2012/10/11/blogging_ipython_notebooks_with_jekyll.html">Blogging an iPython notebook with&nbsp;Jekyll</a></li>
+<li><a href="http://home.badc.rl.ac.uk/spascoe/blog/blogging-with-ipython-notebook.html">Blogging with&nbsp;IPython-notebook</a></li>
+<li><a href="http://www.bendmorris.com/2013/05/blogging-with-ipython-distances-in.html">Ben Morris&#8217; lab&nbsp;notebook</a></li>
+<li><a href="http://carlboettiger.info/2012/09/28/Welcome-to-my-lab-notebook.html">Welcome to my Lab Notebook -&nbsp;Reloaded</a></li>
+<li><a href="http://blog.fperez.org/2012/09/blogging-with-ipython-notebook.html">Blogging with the IPython&nbsp;notebook</a></li>
+<li><a href="http://jakevdp.github.io/blog/2012/10/04/blogging-with-ipython/">Blogging with IPython in&nbsp;Octopress</a></li>
+</ul>
+<h3>Other Bloggers Using IPython&nbsp;Notebook</h3>
+<ul>
+<li><a href="http://blog.fperez.org/2012/09/blogging-with-ipython-notebook.html">Blogging with the IPython&nbsp;Notebook</a></li>
+<li><a href="http://www.bendmorris.com/2013/05/blogging-with-ipython-distances-in.html">Blogging with IPython: distances in higher&nbsp;dimensions</a></li>
+<li><a href="http://www.randalolson.com/2012/05/12/a-short-demo-on-how-to-use-ipython-notebook-as-a-research-notebook/">short demo on how to use IPython Notebook as a research&nbsp;notebook</a></li>
+<li><a href="http://jakevdp.github.io/blog/2012/10/04/blogging-with-ipython">Blogging with IPython in&nbsp;Octopress</a></li>
+<li><a href="http://www.davidketcheson.info/2012/10/11/blogging_ipython_notebooks_with_jekyll.html">Blogging an iPython notebook with&nbsp;Jekyll</a></li>
+<li><a href="http://home.badc.rl.ac.uk/spascoe/blog/blogging-with-ipython-notebook.html">Blogging with&nbsp;IPython-notebook</a></li>
+<li><a href="http://carlboettiger.info/2012/09/28/Welcome-to-my-lab-notebook.html">Welcome to my Lab Notebook -&nbsp;Reloaded</a></li>
+<li><a href="http://python-for-signal-processing.blogspot.com/">Python for Signal&nbsp;Processing</a></li>
+</ul>
+<h3>Scientific&nbsp;Python</h3>
+<ul>
+<li><a href="http://scipy-lectures.github.io/">Python Scientific Lecture&nbsp;Notes</a></li>
+</ul>
         </div>
     </section>
         </div>
@@ -126,7 +175,7 @@ You can also contribute your own commands and create your favorites&nbsp;list.</
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
 
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook/index.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
 
 <li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
     <ul class="list-group" id="links">
@@ -216,7 +265,7 @@ You can also contribute your own commands and create your favorites&nbsp;list.</
         </li>
     </ul>
 </li>
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by/index.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
 
         </ul>
     </section>

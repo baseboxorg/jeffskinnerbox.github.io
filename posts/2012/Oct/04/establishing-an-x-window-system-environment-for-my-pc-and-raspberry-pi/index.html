@@ -49,9 +49,9 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="/pages/about-me/">About Me</a></li>
                     <li><a href="deadend.html">Wiki</a></li>
-                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+                    <li><a href="/pages/open-notebook/">Open Notebook</a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
@@ -86,7 +86,7 @@ Jeff's Skinner Box&nbsp;            </a>
                     <div class="panel-body">
 <footer class="post-info">
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2012-10-04T00:01:00"> Thursday&nbsp;&nbsp;&nbsp;&nbsp;October 04, 2012</time>
+        <i class="fa fa-calendar"></i><time datetime="2012-10-04T00:01:00-04:00"> Thursday&nbsp;&nbsp;&nbsp;&nbsp;October 04, 2012</time>
     </span>
 
 
@@ -161,15 +161,15 @@ mintty --position 600,500 --size 80,25 --exec ssh -X pi@raspberrypi.local
 
 <p>This will open up two xterm windows for your in the left hand corner of the screen and a thrid xterm window in the center of the screen.  This third screen is automatically logging in to the RPi as user pi and will wait four you to enter the&nbsp;password.</p>
 <p>Also make sure that you export your <code>DISPLAY</code> for the X server on your <span class="caps">PC</span>.  You can do this by placing the following in your <code>.bashrc</code> file:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># environment variables required by X Window System
-export DISPLAY=:0.0
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># environment variables required by X Window System</span>
+<span style="color: #336666">export </span><span style="color: #003333">DISPLAY</span><span style="color: #555555">=</span>:0.0
 </pre></div>
 
 
 <h2>Configuring&nbsp;RPi</h2>
 
 <p>Not much needs to be done to the RPi to prepare for the X applications.  You may wish to launch some X Window System application upon logging in.  You can do this by adding the X applications to your .bash_profile.  For example, add the following line to launch the <span class="caps">LXDE</span> file&nbsp;manager:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># execute X Window System programs
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># execute X Window System programs</span>
 pcmanfm &amp;
 </pre></div>
 
@@ -248,7 +248,7 @@ Much of what is provided here was lifted from the following sources:
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
 
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook/index.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
 
 <li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
     <ul class="list-group" id="links">
@@ -338,7 +338,7 @@ Much of what is provided here was lifted from the following sources:
         </li>
     </ul>
 </li>
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by/index.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
 
         </ul>
     </section>

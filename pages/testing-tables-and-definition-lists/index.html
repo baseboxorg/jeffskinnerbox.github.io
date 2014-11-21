@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Testing: Tag Cloud - Jeff's Skinner Box</title>
+    <title>Testing: Tables and Definition Lists - Jeff's Skinner Box</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -13,8 +13,8 @@
 
     <!-- Open Graph tags -->
             <meta property="og:type" content="article"/>
-            <meta property="og:title" content="Testing: Tag Cloud"/>
-            <meta property="og:url" content="http://jeffskinnerbox.me/pages/testing-tag-cloud.html"/>
+            <meta property="og:title" content="Testing: Tables and Definition Lists"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/pages/testing-tables-and-definition-lists/"/>
 
     <!-- Bootstrap -->
         <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
@@ -48,9 +48,9 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="/pages/about-me/">About Me</a></li>
                     <li><a href="deadend.html">Wiki</a></li>
-                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+                    <li><a href="/pages/open-notebook/">Open Notebook</a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
@@ -70,56 +70,201 @@ Jeff's Skinner Box&nbsp;            </a>
         <div class="col-sm-9">
 
     <section id="content" class="body">
-        <h1 class="entry-title">Testing: Tag Cloud</h1>
+        <h1 class="entry-title">Testing: Tables and Definition Lists</h1>
         
         <div class="entry-content" style="background-image: url('/home/jeff/blogging/content/images/banners-bkgrds/scratchpad-yellow-blueline.jpg'); background-repeat: repeat;">
             <h2>The Back&nbsp;Story</h2>
-<p>To sort tags in alphabetical order,&nbsp;use</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">{% for tag in tag_cloud|sort) %}
-    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-xs&quot;&gt;
-    &lt;a class=&quot;tag-{{ tag.1 }}&quot; href=&quot;{{ SITEURL }}/{{ tag.0.url }}&quot;&gt;
-        {{ tag.0 }}
-    &lt;/a&gt;
-    &lt;/button&gt;
-    {% if not loop.last %}
-        &amp;nbsp;
-    {% endif %}
-{% endfor %}
+<p>Out of the box, the table formating of Python Markdown sucks!
+It has no borders, no header formating, no padding in cells, etc.
+This can be fixed with a little custom <span class="caps">CSS</span>.
+My fix is in <code>content/extra/custom.css</code> and is listed&nbsp;blow:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">/* This allows for a wider range of font sizes for the Tag Cloud.</span>
+<span style="color: #0099FF; font-style: italic"> * Make sure to change the TAG_CLOUD_STEPS value in pelicanconf.py</span>
+<span style="color: #0099FF; font-style: italic"> * to to the number of tags here (i.e. 8) */</span>
+<span style="color: #00AA88; font-weight: bold">.tag-1</span> {
+    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">20pt</span>;
+}
+
+<span style="color: #00AA88; font-weight: bold">.tag-2</span> {
+    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">18pt</span>;
+}
+
+<span style="color: #00AA88; font-weight: bold">.tag-3</span> {
+    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">16pt</span>;
+}
+
+<span style="color: #00AA88; font-weight: bold">.tag-4</span> {
+    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">14pt</span>;
+}
+
+<span style="color: #00AA88; font-weight: bold">.tag-5</span> {
+    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">12pt</span>;
+}
+
+<span style="color: #00AA88; font-weight: bold">.tag-6</span> {
+    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">10pt</span>;
+}
+
+<span style="color: #00AA88; font-weight: bold">.tag-7</span> {
+    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">8pt</span>;
+}
+
+<span style="color: #00AA88; font-weight: bold">.tag-8</span> {
+    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">6pt</span>;
+}
+
+<span style="color: #0099FF; font-style: italic">/* This will provide some visual improvements to Markdown&#39;s formating of tables */</span>
+<span style="color: #330099; font-weight: bold">table</span><span style="color: #555555">,</span> <span style="color: #330099; font-weight: bold">th</span><span style="color: #555555">,</span> <span style="color: #330099; font-weight: bold">td</span> {
+    <span style="color: #006699; font-weight: bold">margin-left</span><span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">auto</span>; 
+    <span style="color: #006699; font-weight: bold">margin-right</span><span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">auto</span>;
+    <span style="color: #006699; font-weight: bold">border</span><span style="color: #555555">:</span> <span style="color: #FF6600">1px</span> <span style="color: #006699; font-weight: bold">solid</span> <span style="color: #336666">black</span>;
+}
+
+<span style="color: #330099; font-weight: bold">table</span> {
+    box<span style="color: #555555">-</span>shadow<span style="color: #555555">:</span> <span style="color: #FF6600">5px</span> <span style="color: #FF6600">5px</span> <span style="color: #FF6600">10px</span> <span style="color: #FF6600">#888888</span>;
+}
+
+<span style="color: #330099; font-weight: bold">th</span> {
+    <span style="color: #006699; font-weight: bold">padding-top</span><span style="color: #555555">:</span> <span style="color: #FF6600">5px</span>;
+    <span style="color: #006699; font-weight: bold">padding-bottom</span><span style="color: #555555">:</span> <span style="color: #FF6600">5px</span>;
+    <span style="color: #006699; font-weight: bold">padding-right</span><span style="color: #555555">:</span> <span style="color: #FF6600">15px</span>;
+    <span style="color: #006699; font-weight: bold">padding-left</span><span style="color: #555555">:</span> <span style="color: #FF6600">15px</span>;
+    <span style="color: #006699; font-weight: bold">background-color</span><span style="color: #555555">:</span> <span style="color: #FF6600">#B8B8B8</span>;
+    <span style="color: #006699; font-weight: bold">color</span><span style="color: #555555">:</span> <span style="color: #336666">black</span>;
+}
+
+<span style="color: #330099; font-weight: bold">td</span> {
+    <span style="color: #006699; font-weight: bold">padding-top</span><span style="color: #555555">:</span> <span style="color: #FF6600">5px</span>;
+    <span style="color: #006699; font-weight: bold">padding-bottom</span><span style="color: #555555">:</span> <span style="color: #FF6600">5px</span>;
+    <span style="color: #006699; font-weight: bold">padding-right</span><span style="color: #555555">:</span> <span style="color: #FF6600">15px</span>;
+    <span style="color: #006699; font-weight: bold">padding-left</span><span style="color: #555555">:</span> <span style="color: #FF6600">15px</span>;
+    <span style="color: #006699; font-weight: bold">background-color</span><span style="color: #555555">:</span> <span style="color: #FF6600">#FFFFFF</span>;
+    <span style="color: #006699; font-weight: bold">color</span><span style="color: #555555">:</span> <span style="color: #336666">black</span>;
+}
+
+<span style="color: #0099FF; font-style: italic">/* This will make the in-text code more aesthetically appealing */</span>
+<span style="color: #330099; font-weight: bold">code</span> {
+    <span style="color: #006699; font-weight: bold">font-family</span><span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">monospace</span><span style="color: #555555">,</span> <span style="color: #006699; font-weight: bold">monospace</span>;
+    <span style="color: #006699; font-weight: bold">color</span><span style="color: #555555">:</span> <span style="color: #336666">black</span>;
+}
+
+<span style="color: #0099FF; font-style: italic">/* This will make the code blocks more aesthetically appealing */</span>
+<span style="color: #00AA88; font-weight: bold">.codehilite</span> {
+    <span style="color: #006699; font-weight: bold">border</span><span style="color: #555555">-</span>radius<span style="color: #555555">:</span> <span style="color: #FF6600">5px</span>;
+    box<span style="color: #555555">-</span>shadow<span style="color: #555555">:</span> <span style="color: #FF6600">5px</span> <span style="color: #FF6600">5px</span> <span style="color: #FF6600">10px</span> <span style="color: #FF6600">#888888</span>;
+}
 </pre></div>
 
 
-<p _="%" endfor="endfor">{% for tag in tag_cloud|sort) %}
-    <button type="button" class="btn btn-primary btn-xs">
-    <a class="tag-{{ tag.1 }}" href="{{ SITEURL }}/{{ tag.0.url }}">
-        {{ tag.0 }}
-    </a>
-    </button>
-    {% if not loop.last %}
-        &nbsp;
-    {% endif&nbsp;%}</p>
-<p>To sort by number of articles in&nbsp;tag</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">{% for tag in tag_cloud|sort(attribute=&#39;1&#39;) %}
-    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-xs&quot;&gt;
-    &lt;a class=&quot;tag-{{ tag.1 }}&quot; href=&quot;{{ SITEURL }}/{{ tag.0.url }}&quot;&gt;
-        {{ tag.0 }}
-    &lt;/a&gt;
-    &lt;/button&gt;
-    {% if not loop.last %}
-        &amp;nbsp;
-    {% endif %}
-{% endfor %}
+<h2>Tables</h2>
+<p>Tables aren&#8217;t part of the core Markdown spec, but are part of Python / Pelican
+implementation.
+This posting gives you some idea on how <a href="http://stackoverflow.com/questions/16099153/table-not-render-when-use-redcarpet-in-jekyll-github-pages">tables should be supported</a>
+and see the <a href="http://pythonhosted.org//Markdown/extensions/tables.html">Python Table extension</a>.
+You combine this, with the <code>custom.css</code> discussed above, and&nbsp;this</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">| Default Justified | Left Justified | Right Justified | Centered Justified |
+| ----------------- |:-------------- | ---------------:|:------------------:|
+| row 1, col 1 | row 1, col 2     | row 1, col 3 | _this should be italics_   |
+| row 2, col 1 | **this should be bold** | row 2, col 3 | row 2, col 4     |
+| row 3, col 1 | row 3, col 2     | $\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}}$ | row 3, col 4     |
+| `this should be code` | row 4, col 2     | row 4, col 3 | row 4, col 4     |
+| row 5, col 1 | row 5, col 2     | row 5, col 3 | row 5, col 4     |
 </pre></div>
 
 
-<p _="%" endfor="endfor">{% for tag in tag_cloud|sort(attribute=&#8216;1&#8217;) %}
-    <button type="button" class="btn btn-primary btn-xs">
-    <a class="tag-{{ tag.1 }}" href="{{ SITEURL }}/{{ tag.0.url }}">
-        {{ tag.0 }}
-    </a>
-    </button>
-    {% if not loop.last %}
-        &nbsp;
-    {% endif&nbsp;%}</p>
+<p>you get the&nbsp;following:</p>
+<table>
+<thead>
+<tr>
+<th>Default Justified</th>
+<th align="left">Left Justified</th>
+<th align="right">Right Justified</th>
+<th align="center">Centered Justified</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row 1, col 1</td>
+<td align="left">row 1, col 2</td>
+<td align="right">row 1, col 3</td>
+<td align="center"><em>this should be italics</em></td>
+</tr>
+<tr>
+<td>row 2, col 1</td>
+<td align="left"><strong>this should be bold</strong></td>
+<td align="right">row 2, col 3</td>
+<td align="center">row 2, col 4</td>
+</tr>
+<tr>
+<td>row 3, col 1</td>
+<td align="left">row 3, col 2</td>
+<td 1="1" align="right"><mathjax>$\frac</td>
+<td align="center">row 3, col 4</td>
+</tr>
+<tr>
+<td><code>this should be code</code></td>
+<td align="left">row 4, col 2</td>
+<td align="right">row 4, col 3</td>
+<td align="center">row 4, col 4</td>
+</tr>
+<tr>
+<td>row 5, col 1</td>
+<td align="left">row 5, col 2</td>
+<td align="right">row 5, col 3</td>
+<td align="center">row 5, col 4</td>
+</tr>
+</tbody>
+</table>
+<p>Test of inline MathJax: $</mathjax>\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25&nbsp;\pi}}$</p>
+<h2>Definition&nbsp;Lists</h2>
+<p>The <a href="http://pythonhosted.org/Markdown/extensions/definition_lists.html">Definition Lists</a> extension adds the ability to create definition lists in Markdown documents.
+For example, here are defintions of two&nbsp;fruits:</p>
+<dl>
+<dt>Apple</dt>
+<dd>Pomaceous fruit of plants of the genus Malus in 
+the family&nbsp;Rosaceae.</dd>
+<dt>Orange</dt>
+<dd>The fruit of an evergreen tree of the genus&nbsp;Citrus.</dd>
+</dl>
+<p>You can also add multiple definitions (if you add some spacing between&nbsp;items):</p>
+<dl>
+<dt>Apple</dt>
+<dd>Pomaceous fruit of plants of the genus Malus in 
+the family&nbsp;Rosaceae.</dd>
+<dd>An American computer&nbsp;company.</dd>
+<dt>Orange</dt>
+<dd>The fruit of an evergreen tree of the genus&nbsp;Citrus.</dd>
+</dl><script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+		? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js'
+		: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+
         </div>
     </section>
         </div>
@@ -145,7 +290,7 @@ Jeff's Skinner Box&nbsp;            </a>
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
 
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook/index.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
 
 <li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
     <ul class="list-group" id="links">
@@ -235,7 +380,7 @@ Jeff's Skinner Box&nbsp;            </a>
         </li>
     </ul>
 </li>
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by/index.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
 
         </ul>
     </section>

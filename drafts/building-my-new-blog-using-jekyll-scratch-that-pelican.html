@@ -1,0 +1,842 @@
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Building My New Blog Using Jekyll...Scratch That...Pelican - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="http://jeffskinnerbox.me/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Building My New Blog Using Jekyll...Scratch That...Pelican"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/drafts/building-my-new-blog-using-jekyll-scratch-that-pelican.html"/>
+            <meta property="og:description" content="This article give a "how I setup Pelican" outline from start to finish. It shows you how to install Pelican, add supporting tools like Markdown, Disqus, Google Analytics, Bootstrap, etc. It also show you how to use tools Make and GitHub to create a easy to maintain workflow."/>
+
+    <!-- Bootstrap -->
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
+
+        <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://jeffskinnerbox.me/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/pages/about-me/">About Me</a></li>
+                    <li><a href="deadend.html">Wiki</a></li>
+                    <li><a href="/pages/open-notebook/">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+<!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://jeffskinnerbox.me/drafts/building-my-new-blog-using-jekyll-scratch-that-pelican.html"
+                       rel="bookmark"
+                       title="Permalink to Building My New Blog Using Jekyll...Scratch That...Pelican">
+                        Building My New Blog Using Jekyll...Scratch That...Pelican
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2100-01-01T00:00:00-05:00"> Friday&nbsp;&nbsp;&nbsp;&nbsp;January 01, 2100</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/jekyll/">Jekyll</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/pelican/">Pelican</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/blog/">Blog</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/bootstrap/">Bootstrap</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Search for <span class="caps">XXXX</span> <span class="caps">FINISH</span> <span class="caps">THIS</span> <span class="caps">XXXX</span> and make&nbsp;updates.</p>
+<ul>
+<li><a href="http://jakevdp.github.io/blog/2013/05/07/migrating-from-octopress-to-pelican/">Migrating from Octopress to&nbsp;Pelican</a></li>
+<li><a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/">How I setup&nbsp;Pelican</a></li>
+</ul>
+<p>Prior to setting up this blog, I initially started with <a href="https://wordpress.org/">WordPress</a>,
+I felt limited by it and then  I discovered that many tech-savvy people were
+using static site generators like <a href="http://jekyllrb.com/">Jekyll</a> or <a href="http://docs.getpelican.com/en/3.3.0/">Pelican</a>.
+Static web site don&#8217;t generate web pages upon request, like WordPress.
+Instead, software on your local machine creates webpages and then these pages are uploaded to the webhost.
+The webpages have fixed content, hence the description &#8220;static site.&#8221;
+For a personal blog, a static site can makes a lot of sense because it more secure, 
+there is no maintenance of web server software,
+your can write the blog in friendly language like <a href="http://daringfireball.net/projects/markdown/">Markdown</a>,
+you can easily control versioning of you content with tools like Git,
+and you blog is easily ported to any other&nbsp;site.</p>
+<p>My orginal plan was to port <a href="http://jeffskinnerbox.wordpress.com/">my WordPress blog</a> to GitHub and use <a href="http://jekyllrb.com/">Jekyll</a>.
+I did this, and I used it for several months, but felt less and less satisfied with my choose.
+I then read the post &#8220;<a href="http://arunrocks.com/moving-blogs-to-pelican/">Moving Blogs to Pelican</a>&#8221; and I resounated with nearly ever word.
+As a result, I have now change my direction, and ported my blog from Jekyll to <a href="http://docs.getpelican.com/en/3.3.0/">Pelican</a>.
+Like Jekyll, Pelican is a static site generator requiring no database or server-side logic,
+but it makes use of Python, Make, and Shell, not Ruby.
+This was an important factor, I never had a need to use Ruby and why should my blog force the&nbsp;issue?</p>
+<p>The contents of a Pelican  blog is either a post (in Pelican terminalogy, an article) or a page.
+The raw, unprocessed content (e.g. pages, articles, drafts, images, etc.)
+is contained in a directory called <code>content</code>.
+Both articles and pages can be written in
+<a href="http://daringfireball.net/projects/markdown/">Markdown</a>, <a href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>, <a href="http://www.methods.co.nz/asciidoc/index.html">AsciiDoc</a>, or even raw <a href="http://www.w3.org/TR/html5/"><span class="caps">HTML</span></a>.
+Both articles and pages can have meta-data at the top of the document containing such things as
+title, publication date, tags, etc. and even arbitrary custom&nbsp;meta-data.</p>
+<p>The processed, ready to be published materials are contained in a directory called <code>output</code>.
+It is this directory that will be pushed to your web server.
+Their are other things that make up a Pelican blog,
+such as plugins, themes, make files, and other publishing tools.
+More on this&nbsp;later.</p>
+<p>To create this posting, I leveraged the <a href="http://blog.getpelican.com/">Pelican Development Blog</a>,
+which provide much of the detail documentation needed
+but to get started I followed the advice of the <a href="http://hackercodex.com/guide/pelican-static-site-generator-install/">Tutorial: Generating Static Sites with Pelican</a>,
+<a href="http://docs.getpelican.com/en/3.3.0/getting_started.html">Pelican Getting Started Guide</a>, and <a href="http://martinbrochhaus.com/pelican2.html">Pelican and Github Pages</a> very useful.
+Also, reading <a href="http://vuongnguyen.com/creating-blog-python-virtualenv-pelican.html">Creating a Blog with Python Pelican</a> and <a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/">How I setup Pelican</a> prove very helpful.
+You can find the latest Pelican code, along with its <a href="https://github.com/getpelican">themes and plugins on GitHub</a>.
+You might find more information on <a href="https://github.com/getpelican/pelican/tree/master/docs">Pelican&#8217;s GetHub</a> and <a href="https://github.com/getpelican/pelican/wiki/Tips-n-Tricks">Pelican&#8217;s Tips <span class="amp">&amp;</span> Tricks</a>.</p>
+<h5>Installing Pelican and Creating a Python&nbsp;Virtualenv</h5>
+<p>Pelican is a <a href="https://www.python.org/">Python</a> based tool.
+To assure I have a clean Python envirnment to work in, that doesn&#8217;t conflict with other Python work,
+create a virtual environment using <code>virtualenv[49]</code>.
+To install Pelican and other Python package dependencies in a virtual environment,
+I roughly followed the instructions in the <a href="http://docs.getpelican.com/en/3.2/getting_started.html#installing-pelican">official Pelican documentation</a>.
+See&nbsp;below:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">cd</span> ~
+virtualenv --python python2.7 --no-site-packages blogging
+<span style="color: #336666">cd </span>blogging
+<span style="color: #336666">source </span>bin/activate
+pip install <span style="color: #003333">Pelican</span><span style="color: #555555">==</span>3.3
+pip install Markdown
+pip install typogrify
+pip install ghp-import
+deactivate
+</pre></div>
+
+
+<p><strong>Note:</strong> Don&#8217;t use <code>sudo</code> when installing these Python packages in a virtual environment,
+otherwise you&#8217;ll end up installing them globally,
+which defeats the purpose of using virtual&nbsp;environments.</p>
+<h4>Run Quickstart&nbsp;Pelican</h4>
+<p>Pelican comes with a quickstart command that will create a skeleton directory structure for your project.
+When running the command will ask you a series of questions.
+See the posting <a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/">How I setup Pelican</a> for recommendations on how to answer the questions.
+I (more or less) followed what was done in this&nbsp;article.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">pelican-quickstart
+</pre></div>
+
+
+<p>At this point, running the command <code>pelican -s pelicanconf.py</code> in the <code>blogging</code>
+directory would generate all static files for the blog using the
+default Pelican theme <code>notmyidea</code> into the <code>output/</code> directory.
+You can no serve this directory as you would any other static html files.
+You can test this out by doing the&nbsp;following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">make html
+make serve
+</pre></div>
+
+
+<p>Then using a browser, enter <code>localhost:8000</code>.
+Nothing much will be there since not content has been created but you see the shell for
+your <code>notmyidea</code> themed&nbsp;blog.</p>
+<h4>Fork <span class="amp">&amp;</span> Clone Pelican Themes and&nbsp;Plugins</h4>
+<p>I wanted to leverage the official <a href="https://github.com/getpelican/pelican-themes">Pelican themes</a> and <a href="https://github.com/getpelican/pelican-plugins">Pelican plugins</a>,
+and have them under version control,
+so I performed the standard procedure of <a href="https://help.github.com/articles/fork-a-repo">forking/cloning the GitHub</a>.
+First step is to fork these repositories on GitHub.
+I did the&nbsp;following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">cd</span> ~/blogging/pelican-plugins
+git clone https://github.com/jeffskinnerbox/pelican-plugins.git
+git remote add upstream https://github.com/jeffskinnerbox/pelican-plugins.git
+git fetch upstream
+
+<span style="color: #336666">cd</span> ~/blogging/pelican-themes
+git clone https://github.com/jeffskinnerbox/pelican-themes.git
+git remote add upstream https://github.com/jeffskinnerbox/pelican-themes.git
+git fetch upstream
+</pre></div>
+
+
+<h4>Set Up&nbsp;Git</h4>
+<p>With what has been done so far,
+you have the beginings of a project structure and you should initiate a Git repository to control it.
+Do the <code>git init</code> and create a rudimentary <code>.gitignore</code> file:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">git init
+vi .gitignore
+
+<span style="color: #0099FF; font-style: italic"># Content of the .gitignore file:</span>
+*.pid
+*.pyc
+*.swp
+output/
+</pre></div>
+
+
+<p><span class="caps">XXXX</span> <span class="caps">FINISH</span> <span class="caps">THIS</span> <span class="caps">XXXX</span>
+I have posted a final and more complete version of <code>.gitignore</code> <a href="https://gist.github.com/jeffskinnerbox/9612119">on Gist</a>.</p>
+<h4>Pelican Configuration&nbsp;File</h4>
+<p>Pelican is configurable via setting is a Python module called <code>pelicanconf.py</code>.
+The settings you define in this configuration file will be used within the Pelican
+templates that are part of the themes and to control Pelican processing.
+The basic idea is that, via the configuration files,
+you can point Pelican at the template files in your
+<code>pelican-themes/&lt;theme&gt;/templates/</code> directory to generate all static html&nbsp;files.</p>
+<p>Think of Pelican as having two primary modes of operation:
+local development and production deployment (i.e., <code>pelicanconf.py</code> and <code>publishconf.py</code>, respectively).
+When developing locally, settings for things like Google Analytics and Disqus
+are deliberately left out of <code>pelicanconf.py</code> by design.
+Including those settings in local testing can have adverse effects:
+inaccurate site statistics, spurious comment threads, and other unanticipated side&nbsp;effects.</p>
+<p>When it is time to publish your site,
+then of course you want those settings to be included.
+The way to do that is to ensure your <code>publishconf.py</code> is being referenced at publish time:
+<code>pelican content -s publishconf.py</code>.
+I posted my <code>pelicanconf.py</code> and <code>publishconf.py</code> files on Gist here and here.  <span class="caps">XXXX</span> <span class="caps">FINISH</span> <span class="caps">THIS</span> <span class="caps">XXXX</span></p>
+<p>Pelican uses <a href="http://jinja.pocoo.org/">Jinja</a> for its templating language.
+In these templates, you should have access to all variables from <code>pelicanconf.py</code>
+as well as template-specific variables (See “<a href="http://docs.getpelican.com/en/3.3.0/themes.html#templates-and-variables">Template and Variables</a>”
+section of the Pelican documentation).
+The specifics of what variables are supported and what they mean are documented
+in the <code>README.md</code> file.</p>
+<h3>Creating the Pelican&nbsp;Theme</h3>
+<p>Pelican Themes allow you to seperate the contents of your blog from its look-and-feel.
+You can find images of the available themes at <a href="http://pelicanthemes.com/">Pelican Themes</a>.
+This is accomplished in part via use of <a href="http://jinja.pocoo.org/">Jinja</a> template engine to render Pelican pages and articles. 
+Pelican makes it easy to make your own themes but clearly it is easiest when
+you start with a theme that is close to what you want.
+I started with <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3">pelican-bootstrap3</a> to creat my&nbsp;theme.</p>
+<p>On top of this Pelican Theme, is layered <a href="http://getbootstrap.com/">Bootstrap 3</a>,
+a front-end framework for developing <a href="http://www.onextrapixel.com/2012/11/12/how-to-use-twitter-bootstrap-to-create-a-responsive-website-design/">responsive web sites</a>.
+Bootstrap is a popular web framework, and as a result of its growing popularity,
+it has created uniformity between many websites.
+<a href="http://bootswatch.com/">Bootswatch</a> was created to somewhat combate this trend,
+enable developers, still using Bootstrap to try on a new look,
+without investing much time or energy.
+I used the Bootswatch Bootstrap theme called <a href="http://bootswatch.com/flatly/">flatly</a> 
+I then made modifications as required to create my web site&nbsp;style.</p>
+<h1>Customizing Bootstrap/Bootwatch via&nbsp;custom.css</h1>
+<p>Dispite all the careful selection of a Bootstrap and Pelicanthemes,
+your going to want to make some modifications.
+In my case, I wanted to change how tables are displayed, the formatting of tag clouds,
+font color of inline code, among other things.
+You could make the modifcations to the <code>bootstrap.css</code> file
+but this isn&#8217;t <a href="http://stackoverflow.com/questions/8596794/customizing-bootstrap-css-template">best practice</a>.
+What you should do is create your own css file and
+have it overwrite whenever you want original bootstrap stuff.
+You can use <code>pelicanconf.py</code> variable <code>CUSTOM_CSS</code> to point to your <code>custom.css</code> file.
+The specfics for this topic can be found in the <code>README.md</code> file.</p>
+<h4>Pelican&#8217;s&nbsp;Markdown</h4>
+<p>Pelican will support <a href="http://daringfireball.net/projects/markdown/">Markdown</a>, <a href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>, and <a href="http://www.methods.co.nz/asciidoc/index.html">AsciiDoc</a>
+for the creation of content.
+I plan to only use Markdown to write my blog posts.
+By default, Pelican uses a flavor of Markdown that comes with some <a href="http://pythonhosted.org/Markdown/extensions/extra.html">extentions</a>.
+I especially like using the footnotes and Pygments extension.
+The specifics on how to make this happen are in the <code>README.md</code> file.</p>
+<h4>Creating&nbsp;Content</h4>
+<p>Pelican considers “articles” to be chronological content, such as posts on a blog,
+and thus associated with a date (e.g. a web posting about some project underway).
+Pelican also supports “pages” that are usually not temporal in nature
+and are used for content that does not change very often (e.g. “About Me” page).
+Also like Jekyll, each of the content files contain metadata about the file.
+When using Markdown, that metadata looks&nbsp;like:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Title: My Super Title For My Super Post
+Date: 2010-12-03 10:20
+Category: Blog
+Tags: Pelican, Python
+Slug: my-super-post
+Author: Jeff Irland
+Image: DRAFT_stamp.svg
+Summary: Short discription that will appear in a listing of all articles on the home page.
+</pre></div>
+
+
+<p>This metadata is placed as a header for the article or page.
+From there you can use your favorate editor to write your content in Markdown.
+The next section shows you how to process this content and see it formated for the web&nbsp;site.</p>
+<p>I added to my Pelican driven web site support for IPython Notebook.
+The purpose of the IPython Notbook formated pages is to capture content that is
+best expressed in mathamatics, algorthmic code, or graphical format.
+This comes quite painlessly thanks to <a href="http://ipython.org/">IPython</a>
+and its compainion tool <a href="http://ipython.org/ipython-doc/rel-1.0.0/interactive/nbconvert.html">nbconvert</a>.
+These IPython Notebooks are stored in <code>content/notebooks</code>.
+The are formated by Pelican as pages and I have created a root page
+called &#8220;Open Notebook&#8221; accessable on the navigation&nbsp;bar.</p>
+<h4>Processing&nbsp;Content</h4>
+<p>Pelican support several automation tools for the processing of content and publishing.
+It supports <a href="http://www.linuxforu.com/2012/06/gnu-make-in-detail-for-beginners/">make</a> and <a href="http://docs.fabfile.org/en/1.8/">fabric</a> build tools, but I&#8217;ll only cover make here.
+Make can be used to automate the creation, editing, and processing of content. 
+A Makefile is automatically created during the pelican-quickstart process,
+but I modified for my&nbsp;needs.</p>
+<p>The <code>REDME.md</code> file documents how the Makefile can be used, but at its heart,
+the processing of Pelican content involves these&nbsp;steps:</p>
+<ol>
+<li>Create the content in <code>content/articles</code>, <code>content/pages</code>, or <code>content/drafts</code>.</li>
+<li>Process your content by converting the Markdown to <span class="caps">HTML</span>.  You do this by running <code>pelican -s pelicanconf.py -o output content</code> in the root of the blogs directory system (or <code>pelican --autoreload -s pelicanconf.py -o output content</code> to&nbsp;autoprocess).</li>
+<li>To serve up as a web page, change directory to <code>output</code> and run <code>python -m SimpleHTTPServer</code>.</li>
+<li>To see your web site, place <code>localhost:8000</code> in your&nbsp;browser.</li>
+<li>Once yoru happy with how the content is formated, you push the content to you GitHub hosted web&nbsp;site.</li>
+</ol>
+<h5>Pelican&#8217;s File&nbsp;Structure</h5>
+<p>Jekyll expects your website directory to be laid out like&nbsp;so:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># not correct .... XXXX FINISH THIS XXXX
+|-- _config.yml
+|-- _includes
+|-- _layouts
+|   |-- default.html
+|   |-- post.html
+|-- _posts
+|   |-- 20011-10-25-open-source-is-good.markdown
+|   |-- 20011-04-26-hello-world.markdown
+|-- _site
+|-- index.html
+|-- assets
+    |-- css
+        |-- style.css
+    |-- javascripts
+</pre></div>
+
+
+<p><span class="caps">XXXX</span> <span class="caps">FINISH</span> <span class="caps">THIS</span> <span class="caps">XXXX</span> 
+Theme
+    : xxx
+static
+    : contains all the static assets, which will be copied to the output theme folder. I’ve put the <span class="caps">CSS</span> and image folders here, but they are just examples. Put what you need here.
+templates
+    :contains all the templates that will be used to generate the content. I’ve just put the mandatory templates here; you can define your own if it helps you keep things organized while creating your&nbsp;theme.</p>
+<p>index.html
+    : This is the home page of your blog, generated at output/index.html.
+author.html
+    : This template will be processed for each of the existing authors, with output generated at output/author/author_name.html.
+category.html
+    : This template will be processed for each of the existing categories, with output generated at output/category/category_name.html.
+article.html
+    : This template will be processed for each article, with .html files saved as output/article_name.html. Here are the specific variables it gets.
+page.html
+    : This template will be processed for each page, with corresponding .html files saved as output/page_name.html.
+tag.html
+    : This template will be processed for each tag, with corresponding .html files saved as&nbsp;output/tag/tag_name.html.</p>
+<p><span class="caps">XXXX</span> <span class="caps">FINISH</span> <span class="caps">THIS</span> <span class="caps">XXXX</span> </p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">├── static
+│   ├── css
+│   └── images
+└── templates
+    ├── archives.html         // to display archives
+    ├── period_archives.html  // to display time-period archives
+    ├── article.html          // processed for each article
+    ├── author.html           // processed for each author
+    ├── authors.html          // must list all the authors
+    ├── categories.html       // must list all the categories
+    ├── category.html         // processed for each category
+    ├── index.html            // the index. List all the articles
+    ├── page.html             // processed for each page
+    ├── tag.html              // processed for each tag
+    └── tags.html             // must list all the tags. Can be a tag cloud.
+</pre></div>
+
+
+<p><span class="caps">XXXX</span> <span class="caps">FINISH</span> <span class="caps">THIS</span> <span class="caps">XXXX</span> </p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">├── AUTHORS.md
+├── LICENSE
+├── README.md
+├── static
+│   ├── css
+│   │   ├── bootstrap.amelia.min.css
+│   │   ├── bootstrap.cerulean.min.css
+│   │   ├── bootstrap.cosmo.min.css
+│   │   ├── bootstrap.cyborg.min.css
+│   │   ├── bootstrap.flatly.min.css
+│   │   ├── bootstrap.journal.min.css
+│   │   ├── bootstrap.min.css
+</pre></div>
+
+
+<h3>Basic Workflow With&nbsp;Pelican</h3>
+<p>The workflow required to mange the blog is simple, fully under your control,
+and very natural for anyone who is accustom to software development
+since you&#8217;ll be using your development tools.
+It goes like&nbsp;this:</p>
+<p>Launch Terminal
+    : You open your favorate terminal tool and change directory to your Jekyll directory. In my case it <code>cd ~/myblog</code>.
+Generate  Post
+    : To create a new post in the _posts directory, you type following command
+Use Your Favorite Editor
+    : Launch your favorite editor to write the post. This is the best part of all.  Your using a very fimilar editor to create the post.  In my case, this is done with <code>vim _post/"title of the post"</code>.
+Add Proper Front Matter
+    : I have customized my Jekyll blog a lot and now it supports a lot of varibles, I’m including some variables below with some sample data, for my own reference.
+Generating Post in <code>_site</code> Directory
+    : To generate the post so I can inspect its formatting, I run following command in terminal
+Deploying the Website
+    : If you use GitHub Pages for your website, here again, you can use some very farmilar tools.  You simply need to push the code to&nbsp;GitHub.</p>
+<h4>Search&nbsp;Function</h4>
+<p>Check out what this Pelican web site might have used:&nbsp;http://terriyu.info/blog/search.html</p>
+<h4>Atom and <span class="caps">RSS</span>&nbsp;Feeds</h4>
+<p>Web <a href="http://en.wikipedia.org/wiki/Web_syndication">content syndication</a> is the process of pushing your blog, site, or
+video content out into third-party sites, either as a full article, snippet, link, or thumbnail.
+Two popular syndication <span class="caps">XML</span>-based file format are <a href="http://atomenabled.org/">Atom</a>, which was
+developed as an alternative to <a href="http://en.wikipedia.org/wiki/RSS"><span class="caps">RSS</span></a> because of its perceived shortcomings.
+When you put content into <span class="caps">RSS</span> or Atom and send that content to other people or websites,
+it&#8217;s called a <a href="http://www.press-feed.com/howitworks/rss_tutorial.php">feed</a>.</p>
+<h4>Web Robots.txt and Sitemap&nbsp;Files</h4>
+<p>Some obsure <a href="https://github.com/getpelican/pelican/wiki/Tips-n-Tricks#generate-sitemapxml">Pelican documentation</a> gives a bit of guidance on Web Robots and Sitemaps.
+<a href="http://en.wikipedia.org/wiki/Internet_bot">Web Robots</a> (also known as Web Crawlers or Web Spiders),
+are programs that traverse the Web automatically.
+Search engines, such as Google, use them to index the web content.
+Web site owners use the <code>robots.txt</code> file to give instructions about their site to web robots.
+This is called The <a href="http://www.robotstxt.org/orig.html">Robots Exclusion Protocol</a>.
+Before a web robot visits a we bsite, it firsts checks for <code>robots.txt</code>
+in the top-level directory of your web&nbsp;server.</p>
+<p>I put the following in <code>robot.txt</code>:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">User-agent: *
+Disallow: /drafts/
+</pre></div>
+
+
+<p>The <code>User-agent: *</code> means this section applies to all robots.
+The <code>Disallow: /draft/</code> tells the robot that it should not
+visit any pages within the <code>drafts</code> directory.
+There are also two important considerations when using <code>robots.txt</code>:</p>
+<ul>
+<li>robots can ignore your&nbsp;/robots.txt</li>
+<li>the /robots.txt file is a publicly readable&nbsp;file</li>
+</ul>
+<p>Sitemaps are a way to inform search engines about pages on your sites that are available for crawling.
+In its simplest form, a Sitemap is an <span class="caps">XML</span> file that lists URLs
+for a site along with additional metadata about each <span class="caps">URL</span>
+(when it was last updated, how often it usually changes, and how important it is,
+relative to other URLs in the site) so that search engines can more intelligently crawl the&nbsp;site.</p>
+<h4>Setting Up Error&nbsp;Pages</h4>
+<p>Pelican&#8217;s documentation does not provide much insight on implement we <a href="https://en.wikipedia.org/wiki/Http_404">error pages</a>,
+but I did fine the posting &#8220;<a href="http://bertelsen.ca/setup/how-to-setup-error-pages-with-pelican/">How to setup error pages with Pelican</a>&#8220;.
+This involves the creation of a <code>.htaccess</code> file in the root directory of you web site.
+To better understand what this is all about, check out &#8220;<a href="http://www.freewebmasterhelp.com/tutorials/htaccess/">.htaccess Tutorial</a>&#8221;
+and &#8220;<a href="http://www.thesitewizard.com/archive/custom404.shtml">How to Set Up A Custom 404 File Not Found Page</a>&#8220;.
+I placed both htaccess and the error files in the Pelcian <code>content/extra</code> directory
+and used the <code>pelicanconfig.py</code> configuration file
+to move them to there proper destination for publishing
+(see <code>EXTRA_PATH_METADATA</code> in the <code>pelicancong.py</code> file).</p>
+<h4>Setting Up Google Analytics and&nbsp;Disqus</h4>
+<ul>
+<li><a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/#fn:2">Setup Google Analytics/Piwik and&nbsp;Disqus</a></li>
+<li><a href="http://blog.kissmetrics.com/google-analytics-resources-2013/">54 Google Analytics Resources – The 2013&nbsp;Edition</a></li>
+</ul>
+<h4>Git and GitHub&nbsp;Setup</h4>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">git init
+git config --global user.name <span style="color: #CC3300">&quot;jeffskinnerbox&quot;</span>
+git config --global user.email jeff.irland@verizon.net
+git config --global core.editor vim
+git config --global merge.tool vimdiff
+git add --all
+git commit -m <span style="color: #CC3300">&quot;first commit&quot;</span>
+git remote add origin https://github.com/jeffskinnerbox/jeffskinnerbox.github.io.git
+</pre></div>
+
+
+<h4>Publishing to GitHub&nbsp;Page</h4>
+<p><a href="http://pages.github.com/">GitHub can create a websites from a repository</a> and this is call GitHub Pages.
+There are <a href="https://help.github.com/articles/user-organization-and-project-pages">two types of GitHub Pages</a>: Project Pages and User Pages.
+We are using User Pages here.
+Check out <a href="http://www.thinkful.com/learn/a-guide-to-using-github-pages/">A guide to using Github Pages</a> for more&nbsp;information.</p>
+<p>In the case of User Pages, if we create a repository with the name <code>&lt;username&gt;.github.io</code>,
+whatever is created in the master branch of <code>&lt;username&gt;.github.io</code>, will be published.
+The website will be the same name (you can provide a custom name, more on this below).
+Therefore, for our purpose, just the output generated by Pelican needs to pushed to GitHub
+to create the website.
+We&#8217;ll also use GitHub to version control the source for the website,
+but that will be via a seperate&nbsp;repository.</p>
+<p>To publish a Pelican site in the form of User Pages,
+you need to push the content of the <code>output</code> directory (i.e. the <span class="caps">HTML</span> created for the website)
+generated by Pelican to the master branch of your <code>&lt;username&gt;.github.io</code> repository on GitHub.
+We&#8217;ll use the utility <code>[ghp-import][31]</code> to make this easy.
+We&#8217;ll also use the <code>publishconf.py</code> Pelican configuration file,
+which will import the <code>pelicanconf.py</code> file but override anything needed specifically for&nbsp;publishing.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">pelican content -o output -s publishconf.py
+ghp-import output
+git push origin gh-pages:master
+</pre></div>
+
+
+<p>The <code>git push</code> command pushes the local <code>gh-pages</code> branch
+(freshly updated by the <code>ghp-import</code> command) to the <code>&lt;username&gt;.github.io</code>
+repository’s <code>master</code> branch on GitHub.
+Using <code>ghp-import</code> will over write your local <code>gh-pages</code> branch and the remote GitHub <code>master</code> branch.
+In effect, GitHub&#8217;s <code>master</code> branch will maintain the website&#8217;s current content, but no&nbsp;history.</p>
+<p>I do want maintain a historical record of the website&#8217;s source materials (i.e. the markdown files).
+To place the source materials for the website into GitHub,
+I&#8217;ll use standard git procedures (i.e. no use of <code>ghp-import</code>).
+See below for the procedure&nbsp;used:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">git add --all
+git commit -m <span style="color: #CC3300">&quot;&lt;comment&gt;&quot;</span>
+git push origin master:source
+</pre></div>
+
+
+<p>The <code>git push</code> command pushes the local <code>master</code> branch
+(which contains the source materials for the website) to the <code>&lt;username&gt;.github.io</code>
+repository’s <code>source</code> branch on&nbsp;GitHub.</p>
+<p>If you&#8217;re having trouble getting Github to publish your site,
+go to Settings for your repository and make sure that the <code>master</code> branch is the default&nbsp;branch.</p>
+<h5>Custom Domain&nbsp;Name</h5>
+<p>To use a custom domain with GitHub Pages,
+you need to put the domain of your site (e.g., www.jeffskinnerbox.me)
+inside a <code>CNAME</code> file at the root of your site.
+To do this, add the <code>CNAME</code> file to the <code>content/extras/</code>.
+Then use the configuration variable <code>STATIC_PATHS</code> setting to tell Pelican
+to copy this file to your output directory. For&nbsp;example:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">STATIC_PATHS <span style="color: #555555">=</span> [ <span style="color: #CC3300">&#39;images&#39;</span>, <span style="color: #CC3300">&#39;extra/CNAME&#39;</span> ]
+EXTRA_PATH_METADATA <span style="color: #555555">=</span> { <span style="color: #CC3300">&#39;extra/CNAME&#39;</span>: { <span style="color: #CC3300">&#39;path&#39;</span>: <span style="color: #CC3300">&#39;CNAME&#39;</span> }, }
+</pre></div>
+
+
+<h4>Set Up for Your Domain Name&nbsp;Provider</h4>
+<p>An importiant issue for me was my domain name.
+I didn&#8217;t want my <span class="caps">URL</span> changing to <code>jeffskinnerbox.github.io</code>.
+I have purchased the domain name <code>www.jeffskinnerbox.me</code> <a href="https://www.namecheap.com/">Namecheap</a> and I want to make use of it.
+Github know this and they have provided a super easy method to let you use your own domain.
+Follow the advice at the GitHub page &#8220;<a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages">Setting up a Custom Domain with GitHub Pages</a>&#8220;.</p>
+<p>I created a <code>CNAME</code> file in the top level of your github repository for your site.
+In my case this is <code>$(HOME)/blogging/output</code> directory.
+In the <code>CNAME</code> file you will see it just contains <code>jeffskinnerbox.me</code>.
+That&#8217;s all there is need within you Pelican web&nbsp;site. </p>
+<p>As for how to set things up with your <span class="caps">DNS</span> provider,
+as an example, mine now looks like&nbsp;this:</p>
+<table>
+<thead>
+<tr>
+<th align="center"><span class="caps">HOST</span> <span class="caps">NAME</span></th>
+<th align="center"><span class="caps">IP</span> <span class="caps">ADDRESS</span>/<span class="caps">URL</span></th>
+<th align="center"><span class="caps">RECORD</span> <span class="caps">TYPE</span></th>
+<th align="center"><span class="caps">MX</span> <span class="caps">PREF</span></th>
+<th align="center"><span class="caps">TTL</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">@</td>
+<td align="center">204.232.175.78</td>
+<td align="center">A (Address)</td>
+<td align="center">n/a</td>
+<td align="center">1800</td>
+</tr>
+<tr>
+<td align="center">www</td>
+<td align="center">jeffskinnerbox.github.io.</td>
+<td align="center"><span class="caps">CNAME</span> (Alias)</td>
+<td align="center">n/a</td>
+<td align="center">1800</td>
+</tr>
+</tbody>
+</table>
+<p>And that&#8217;s it; just give your <span class="caps">DNS</span> time to update and away you&nbsp;go.</p>
+<p>You can use the <code>[dig][59]</code> command to confirm that you have set it correctly.
+In my case, I run this command <code>dig www.jeffskinnerbox.me +nostats +nocomments +nocmd</code>
+to perform a <span class="caps">DNS</span> lookup and got the following&nbsp;results:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #003333">$ </span>dig www.jeffskinnerbox.me +nostats +nocomments +nocmd
+
+; &lt;&lt;&gt;&gt; DiG 9.9.3-rpz2+rl.13214.22-P2-Ubuntu-1:9.9.3.dfsg.P2-4ubuntu1.1 &lt;&lt;&gt;&gt; www.jeffskinnerbox.me +nostats +nocomments +nocmd
+;; global options: +cmd
+;www.jeffskinnerbox.me.         IN  A
+www.jeffskinnerbox.me.    <span style="color: #FF6600">772</span>   IN  CNAME   jeffskinnerbox.github.io.
+jeffskinnerbox.github.io. <span style="color: #FF6600">2572</span>  IN  CNAME   github.map.fastly.net.
+github.map.fastly.net.    <span style="color: #FF6600">8</span>     IN  A       199.27.76.133
+</pre></div>
+
+
+<h4>Upgrading&nbsp;Packages</h4>
+<p>If you installed a stable Pelican, Markdown, or other package release via pip or easy_install
+and wish to upgrade to the latest stable release,
+you can do so by adding <code>--upgrade</code> to the relevant command.
+For Pelican, that would&nbsp;be:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">pip install --upgrade pelican
+</pre></div>
+
+
+<p>To upgrade Bootstrap, Bootwatch,&nbsp;&#8230;..</p>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+            var disqus_identifier = 'building-my-new-blog-using-jekyll-scratch-that-pelican';
+            var disqus_url = 'http://jeffskinnerbox.me/drafts/building-my-new-blog-using-jekyll-scratch-that-pelican.html';
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="http://jeffskinnerbox.me/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <a href="http://jeffskinnerbox.me/pages/about-me.html">
+                        <img class="img-rounded" src="http://jeffskinnerbox.me/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                    </a>
+                </div>
+
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook/index.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+<li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
+                RPi Packages
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                Vim Cheat Sheet
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-puzzle-piece fa-lg"></i><span class="icon-label">Wiki Topics</span></h4>
+    <ul class="list-group" id="wiki">
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Project Ideas
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Things to Study
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">External Links</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://tiddlywiki.com/" target="_blank">
+                TiddlyWiki
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+    <ul class="list-group" id="social">
+        <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-github-square fa-lg"></i> Github
+        </a></li>
+        <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-twitter-square fa-lg"></i> Twitter
+        </a></li>
+        <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+            <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
+        </a></li>
+    </ul>
+</li>
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+<li class="list-group-item"><h4><i class="fa fa-thumbs-up fa-lg"></i><span class="icon-label">Reposted At</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://www.eeweb.com/websites/jeffs-skinner-box" target="_blank">
+                EEWeb.com
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-gears fa-lg"></i><span class="icon-label">Admin</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a43272292w73270397p83408137/" target="_blank">
+                Google Analytics
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io" target="_blank">
+                Web Site Source Code
+            </a>
+        </li>
+    </ul>
+</li>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by/index.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://tiddlywiki.com/" target="_blank">TiddlyWiki</a>,
+            <a href="http://ipython.org/notebook.html" target="_blank">Python Notebook</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
+            <small>
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://jeffskinnerbox.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://jeffskinnerbox.me/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://jeffskinnerbox.me/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://jeffskinnerbox.me/theme/js/github.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-43272292-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>

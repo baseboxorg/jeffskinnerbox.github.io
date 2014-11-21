@@ -1,0 +1,467 @@
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>HOWTO: Setup SIP Phone/Multimedia Service - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="http://jeffskinnerbox.me/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="HOWTO: Setup SIP Phone/Multimedia Service"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/drafts/howto-setup-sip-phone-multimedia-service.html"/>
+            <meta property="og:description" content="bla bla bla"/>
+
+    <!-- Bootstrap -->
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
+
+        <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://jeffskinnerbox.me/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/pages/about-me/">About Me</a></li>
+                    <li><a href="deadend.html">Wiki</a></li>
+                    <li><a href="/pages/open-notebook/">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+<!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://jeffskinnerbox.me/drafts/howto-setup-sip-phone-multimedia-service.html"
+                       rel="bookmark"
+                       title="Permalink to HOWTO: Setup SIP Phone/Multimedia Service">
+                        HOWTO: Setup SIP Phone/Multimedia Service
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2100-01-01T00:00:00-05:00"> Friday&nbsp;&nbsp;&nbsp;&nbsp;January 01, 2100</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/voip/">VoIP</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/sip/">SIP</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/multimedia/">Multimedia</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <ul>
+<li><a href="http://h-wrt.com/en/doc/phone">Softphone in&nbsp;OpenWrt</a></li>
+<li><a href="http://discourse.criticalengineering.org/t/howto-gsm-base-station-with-the-beaglebone-black-debian-gnu-linux-and-a-usrp/56"><span class="caps">HOWTO</span>: <span class="caps">GSM</span> Base Station with the BeagleBone Black, Debian <span class="caps">GNU</span>/Linux and a <span class="caps">USRP</span></a></li>
+<li><a href="https://learn.adafruit.com/adafruit-fona-mini-gsm-gprs-cellular-phone-module/obtaining-a-sim">Obtaining a <span class="caps">SIM</span></a></li>
+<li><a href="http://ihu.sourceforge.net/"><span class="caps">IHU</span> is a Voice over <span class="caps">IP</span> (VoIP)</a> application for Linux (using Qt), that creates an audio stream between two computers easily and with the minimal traffic on the&nbsp;network.</li>
+<li><a href="http://res.sys-con.com/session/2207/Keith_McFarlane.pdf">The True Meaning of the VoiceEnabled Web</a><ul>
+<li><a href="http://en.wikipedia.org/wiki/WebRTC">WebRTC</a></li>
+<li><a href="http://www.webrtc.org/">WebRTC</a></li>
+</ul>
+</li>
+</ul>
+<p>The <a href="http://en.wikipedia.org/wiki/Session_Initiation_Protocol">Session Initiation Protocol (<span class="caps">SIP</span>)</a> is a signaling communications protocol,
+widely used for controlling multimedia communication sessions such as
+voice (VoIP), video calls, instant messaging (<span class="caps">IM</span>), presence information,
+and other media over Internet Protocol (<span class="caps">IP</span>) networks.
+It is an application layer protocol designed to be independent of the underlying transport layer.
+it can run on Transmission Control Protocol (<span class="caps">TCP</span>), User Datagram Protocol (<span class="caps">UDP</span>)
+or Stream Control Transmission Protocol (<span class="caps">SCTP</span>).
+It is a text-based protocol,
+incorporating many elements of the Hypertext Transfer Protocol (<span class="caps">HTTP</span>)
+and the Simple Mail Transfer Protocol (<span class="caps">SMTP</span>).
+<span class="caps">SIP</span> works in conjunction with several other protocols, such as the
+Real-time Transport Protocol (<span class="caps">RTP</span>) and Real-time Transport Protocol (<span class="caps">RTP</span>),
+that identify and carry the session for the media.
+To establish a <span class="caps">SIP</span> enabled application, you&#8217;ll need to stand-up a <span class="caps">SIP</span> Server
+or subscribe to a <a href="http://en.wikipedia.org/wiki/SIP_provider"><span class="caps">SIP</span> Service Provider</a>.</p>
+<p>In this article, I will first show how to leverage a <span class="caps">SIP</span> Service Provider
+to support your voice/multimedia&nbsp;application.</p>
+<h2>Establishing a <span class="caps">SIP</span> Account With Service&nbsp;Provider</h2>
+<p>I&#8217;m using <span class="caps">SIP2SIP</span> as my service provider (<a href="http://wiki.sip2sip.info/projects/sip2sip">wiki here</a> and <a href="https://mdns.sipthor.net/register_sip_account.phtml">registration here</a>).
+<span class="caps">SIP2SIP</span> supports audio, video, presence, chat, file transfer, and multiparty conferencing
+based on <span class="caps">SIP</span> signaling and related media protocols (<span class="caps">RTP</span>, <span class="caps">MSRP</span> and <span class="caps">XCAP</span>).
+Many <span class="caps">SIP</span> Service Providers only support VoIP, but that not the case with <span class="caps">SIP2SIP</span>.
+The service is free to use based on a fair-use policy and federates with external <span class="caps">SIP</span> and <span class="caps">XMPP</span>&nbsp;domains.</p>
+<p>Registering with <span class="caps">SIP2SIP</span> is simple to do and requires no instructions here.
+I established multiple <span class="caps">SIP</span> accounts so that I could test&nbsp;conferancing.</p>
+<h2>Installing <span class="caps">SIP</span>&nbsp;Client</h2>
+<p>As an initial test, I&#8217;ll install a <span class="caps">SIP</span> client on my Linux desktop and
+another client&nbsp;on </p>
+<h4>Blink</h4>
+<p>There are many [<span class="caps">SIP</span> clients]<sup id="fnref:A"><a class="footnote-ref" href="#fn:A" rel="footnote">1</a></sup> that I could choose from.
+<span class="caps">SIP2SIP</span> recommends <a href="http://icanblink.com/">Blink</a> for its client.
+The <a href="http://projects.ag-projects.com/projects/documentation/wiki/Repositories">Linux version of Blink</a> comes in executable and source code<sup id="fnref:B"><a class="footnote-ref" href="#fn:B" rel="footnote">2</a></sup>
+and has a sparce amount of <a href="http://icanblink.com/help-qt.phtml">documentation</a>.
+Blink supports VoIP, chat, and file transfer, but not video.
+Blink is not part of the standard software packages on my Linux box,
+so I need to add the package archive location into my Linux package resource list.
+To make it part of the package resource list, you need to update the <code>/etc/apt/sources.list</code> file.
+To do this, do the&nbsp;following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo vim /etc/apt/sources.list
+</pre></div>
+
+
+<p>Scroll to the bottom of the file and enter the following information and then&nbsp;save:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">## The SIP client Blink is not part of Ubuntu archives, but is offered by AG Projects</span>
+deb http://ag-projects.com/ubuntu saucy main 
+</pre></div>
+
+
+<p>Install <span class="caps">AG</span> Projects software signing&nbsp;key:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">wget http://download.ag-projects.com/agp-debian-gpg.key 
+sudo apt-key add agp-debian-gpg.key
+</pre></div>
+
+
+<p>Now install the Blink software&nbsp;package:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get update
+sudo apt-get install blink
+</pre></div>
+
+
+<h4>Getting Linphone&nbsp;Operational</h4>
+<p>On the Unbuntu Linux systems <code>desktop</code></p>
+<ul>
+<li><strong>Install WebCam -</strong> Using a Logitech QuickCam Sphere <span class="caps">MP</span> (aka QuickCam Orbit <span class="caps">MP</span>). This device has a microphone but no&nbsp;speaker.</li>
+<li><strong>Test Speaker -</strong> Test the speaker out by <code>speaker-test -t sine -f 440 -c 2 -s 1</code>.</li>
+<li><strong>Test WebCam -</strong> Test the webcam&#8217;s video and microphone by recording a short video with (see [post][23] to find the audio device, [man page][25] and [documentation][24]). Once recorded, play the video and make sure its captured and it has audio. You can record a video&nbsp;with:</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">avconv -f video4linux2 -r <span style="color: #FF6600">25</span> -i /dev/video0 -f alsa -i plughw:U0x46d0x994,0 -ar <span style="color: #FF6600">22050</span> -ab 64k -strict experimental -acodec aac -vcodec mpeg4 -y ~/tmp/webcam_test.mp4
+</pre></div>
+
+
+<blockquote>
+<p><span class="caps">NOTE</span>: For the Logitech QuickCam Pro 9000, the replace <code>plughw:U0x46d0x994,0</code> with <code>plughw:Q9000,0</code>.</p>
+</blockquote>
+<ul>
+<li><strong>Install Linphone -</strong> You can install the linphone software via <code>sudo apt-get install linphone</code></li>
+<li><strong>Standalone Linphone Test&nbsp;-</strong></li>
+</ul>
+<p>On the Raspberry Pi system <code>BlackRPi</code> </p>
+<ul>
+<li><strong>Install Tools -</strong> The <code>avconv</code> tool needs to be installed via <code>sudo apt-get install ffmpeg</code>. THe video play can be installed with <code>sudo apt-get install omxplayer</code>.</li>
+<li><strong>Install Speaker -</strong> Plug in a speak into the audio jack of the&nbsp;RPi.</li>
+<li><strong>Test Speaker -</strong> Test the speaker out by <code>speaker-test -t sine -f 440 -c 2 -s 1</code>.</li>
+<li><strong>Install WebCam -</strong> Using a Logitech QuickCam Pro 9000. This device has a microphone but no&nbsp;speaker.</li>
+<li><strong>Test WebCam -</strong> Using the same procedure as above for recording a video but replace <code>plughw:U0x46d0x994,0</code> with <code>plughw:Q9000,0</code>. To play back this recording, use the&nbsp;following:</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">mplayer ~/tmp/webcam_test.mp4
+</pre></div>
+
+
+<blockquote>
+<p><span class="caps">NOTE</span>: I did get complaints from mplayer that the harware was too slow for the video&nbsp;format.</p>
+<p><span class="caps">NOTE</span>: For playing the video out the <span class="caps">HDMI</span> port on the Raspberry Pi, use <code>omxplayer -o hdmi ~/tmp/webcam_test.mp4</code>.</p>
+</blockquote>
+<ul>
+<li><strong>Install Linphone -</strong> You can install the linphone software via <code>sudo apt-get install linphone</code></li>
+<li><strong>Standalone Linphone Test&nbsp;-</strong></li>
+</ul>
+<h2>Zeroconf plugin for&nbsp;sipwitch</h2>
+<p>This plugin activates zeroconf network services for sipwitch and publishes sipwitch as a sip service. In theory zeroconf aware <span class="caps">SIP</span> user agents should then be able to automatically connect to sipwitch without configuration.&nbsp;http://packages.ubuntu.com/lucid/sipwitch-plugin-zeroconf</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:A">
+<p>A <span class="caps">SIP</span> client is a <span class="caps">RTC</span> (real-time communications) client that uses <span class="caps">SIP</span> (Session Initiation Protocol)
+to establish and maintain <span class="caps">RTC</span> sessions via a <span class="caps">SIP</span> server.&#160;<a class="footnote-backref" href="#fnref:A" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:B">
+<p>They also supply <a href="http://sipsimpleclient.org/"><span class="caps">SIP</span> <span class="caps">SIMPLE</span> client Software Development Kit (<span class="caps">SDK</span>)</a>
+for easy development of <span class="caps">SIP</span> multimedia end-points with features beyond VoIP
+like Session based Instant Messaging, File Transfers, Desktop Sharing and Presence.&#160;<a class="footnote-backref" href="#fnref:B" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+            var disqus_identifier = 'howto-setup-sip-phone-multimedia-service';
+            var disqus_url = 'http://jeffskinnerbox.me/drafts/howto-setup-sip-phone-multimedia-service.html';
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="http://jeffskinnerbox.me/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <a href="http://jeffskinnerbox.me/pages/about-me.html">
+                        <img class="img-rounded" src="http://jeffskinnerbox.me/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                    </a>
+                </div>
+
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook/index.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+<li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
+                RPi Packages
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                Vim Cheat Sheet
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-puzzle-piece fa-lg"></i><span class="icon-label">Wiki Topics</span></h4>
+    <ul class="list-group" id="wiki">
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Project Ideas
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Things to Study
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">External Links</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://tiddlywiki.com/" target="_blank">
+                TiddlyWiki
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+    <ul class="list-group" id="social">
+        <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-github-square fa-lg"></i> Github
+        </a></li>
+        <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-twitter-square fa-lg"></i> Twitter
+        </a></li>
+        <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+            <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
+        </a></li>
+    </ul>
+</li>
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+<li class="list-group-item"><h4><i class="fa fa-thumbs-up fa-lg"></i><span class="icon-label">Reposted At</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://www.eeweb.com/websites/jeffs-skinner-box" target="_blank">
+                EEWeb.com
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-gears fa-lg"></i><span class="icon-label">Admin</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a43272292w73270397p83408137/" target="_blank">
+                Google Analytics
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io" target="_blank">
+                Web Site Source Code
+            </a>
+        </li>
+    </ul>
+</li>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by/index.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://tiddlywiki.com/" target="_blank">TiddlyWiki</a>,
+            <a href="http://ipython.org/notebook.html" target="_blank">Python Notebook</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
+            <small>
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://jeffskinnerbox.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://jeffskinnerbox.me/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://jeffskinnerbox.me/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://jeffskinnerbox.me/theme/js/github.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-43272292-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>

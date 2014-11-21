@@ -1,0 +1,662 @@
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Getting Started with the 2.4Ghz nRF24L01+ RF Transceiver - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="http://jeffskinnerbox.me/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Getting Started with the 2.4Ghz nRF24L01+ RF Transceiver"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/drafts/getting-started-with-the-2.4ghz-nrf24l01-rf-transceiver.html"/>
+            <meta property="og:description" content="bla bla bla"/>
+
+    <!-- Bootstrap -->
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
+
+        <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://jeffskinnerbox.me/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/pages/about-me/">About Me</a></li>
+                    <li><a href="deadend.html">Wiki</a></li>
+                    <li><a href="/pages/open-notebook/">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+<!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://jeffskinnerbox.me/drafts/getting-started-with-the-2.4ghz-nrf24l01-rf-transceiver.html"
+                       rel="bookmark"
+                       title="Permalink to Getting Started with the 2.4Ghz nRF24L01+ RF Transceiver">
+                        Getting Started with the 2.4Ghz nRF24L01+ RF Transceiver
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2100-01-01T00:00:00-05:00"> Friday&nbsp;&nbsp;&nbsp;&nbsp;January 01, 2100</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/nrf24l01/">nRF24L01</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/wireless/">Wireless</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Check out
+<em> <a href="http://www.mysensors.org/">MySensors</a>
+</em> <a href="http://mosquitto.org/">Mosquitto</a>.
+<em> <a href="http://hackaday.com/2014/03/07/using-an-nrf24l01-for-air-bootloading/">Using an <span class="caps">NRF24L01</span> for Air Bootloading</a>
+</em> <a href="http://ncrmnt.org/wp/2014/05/20/rf24boot-v0-2-released/#more-1792">rf24boot v0.2 released!</a>
+<em> <a href="http://hackaday.com/2013/05/30/raspberry-pi-helps-with-2-4ghz-home-automation/">Raspberry Pi helps with 2.4GHz home automation</a>
+</em> <a href="http://hackaday.com/2014/08/05/sniffing-nrf24l01-traffic-with-wireshark/">Sniffing nRF24L01+ Traffic with Wireshark</a>
+<em> <a href="http://hackaday.com/2014/06/12/the-development-of-a-lightweight-wireless-protocol/">The Development Of A Lightweight Wireless Protocol</a>
+</em> <a href="http://www.embeddedrelated.com/showarticle/605.php">A wireless door monitor based on the <span class="caps">BANO</span> framework</a>
+<em> <a href=""></a>
+</em> <a href=""></a>
+* <a href=""></a></p>
+<p><img alt="nRF24L01+" src="/img/posts/jekyll-posts/nRF24L01P+.jpg" />
+<a href="http://www.nordicsemi.com/eng/Products/2.4GHz-RF">Nordic Semiconductor offers a family</a> of ultra low power 2.4 GHz <span class="caps">ISM</span> band wireless solution device.
+One of their latest modules is the ultra low power (<span class="caps">ULP</span>) 2Mbps <span class="caps">RF</span> transceiver called the <a href="http://www.nordicsemi.com/eng/Products/2.4GHz-RF/nRF24L01P">nRF24L01+</a>.
+(There is also the <a href="http://www.nordicsemi.com/eng/Products/2.4GHz-RF/nRF24LU1P">nRF24LU1+</a>, 2.4GHz <span class="caps">RF</span> System-on-Chip (SoC) with Flash and <span class="caps">USB</span>.
+The nRF24LU1+ integrates an nRF24L01+ transceiver core with a 16MHz 8-bit 8051-compatible <span class="caps">CPU</span>, amoung other things.)
+To design a radio system with the nRF24L01+,
+you simply need a microcontroller and a few external passive components.
+The configuration I purchased is is board mounted with the passive components
+(e.g. crystal), built in antenna, etc. to support basic operation.
+The high air data rate combined with two power saving modes make the
+nRF24L01+ very suitable for ultra low power designs.
+In addition, the nRF24L01+ is drop-in compatible with nRF24L01
+and on-air compatible with Nordoc Semiconductor&#8217;s nRF2401A, nRF2402, nRF24E1 and nRF24E2&nbsp;radios.</p>
+<p>I paid less than $9 for two of them (and it appears you can get them even cheaper)
+and are highly recommended for simple but reliable wireless solutions.
+By reading the <a href="http://www.nordicsemi.com/eng/content/download/2726/34069/file/nRF24L01P_Product_Specification_1_0.pdf">nRF24L01+ Product Specification v1.0</a> and other sources,
+you can discover the following facts about this&nbsp;device:</p>
+<ul>
+<li>You can operate and configure the nRF24L01+ through a 4-wire Serial Peripheral Interface (<span class="caps">SPI</span>) bus.  The register map, which is accessible through the <span class="caps">SPI</span>, contains all configuration registers in the&nbsp;nRF24L01+.</li>
+<li>The device  handles all the high speed link layer operations via the Enhanced Shock-Burst protocol engine.  It features automatic packet assembly and timing, automatic acknowledgement, packet loss detection, and retransmissions of packets.  (The data-link layer has responsibility of transferring datagram from one node to adjacent node over a&nbsp;link.)</li>
+<li>It has user configurable parameters like frequency channel, output power and air data rate.  nRF24L01+ supports an air data rate of 250 kbps, 1 Mbps and 2Mbps with 126 <span class="caps">RF</span> channels within the 2.4GHz <span class="caps">ISM</span> band.  The high air data rate combined with two power saving modes make makes the device suitable for ultra low power&nbsp;solutions.</li>
+<li>The Enhanced ShockBurst protocol engine accepts a 1 to 32 bytes dynamic payload length, automatic packet handling, and maximum of 6 data pipe to support 1-to-6 star&nbsp;networks.</li>
+<li>Each radio can receive packets on up to six different addresses. This allows us to implement features such as selective packet broadcasting without sacrificing other&nbsp;functionality.</li>
+</ul>
+<h2>Usage</h2>
+<p>The Enhanced ShockBurst features enable significant improvements of power efficiency for
+bi-directional and uni-directional systems,
+without adding complexity on the host controller side.
+In Enhanced ShockBurst it is possible to configure parameters such as the maximum number
+of retransmits and the delay from one transmission to the next retransmission.
+All automatic handling is done without the involvement of the <span class="caps">MCU</span>.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p><strong>What is Enhanced ShockBurst?</strong> Using Enhanced Shockburst is a lot like using <span class="caps">TCP</span>,
+where regular Shockburst is like using <span class="caps">UDP</span>.
+While Enhanced Shockburst doesn’t handle setting up and closing a connection like <span class="caps">TCP</span> does (<span class="caps">AKA</span> sockets),
+it does give you some sort of semi-guarantee that your packet will get through.
+Similar to <span class="caps">TCP</span>, Enhanced Shockburst will try so many times to send a packet that is not acknowledged
+(also handled by Enhanced Shockburst at the receiver) before it just gives up and flags an&nbsp;interrupt.</p>
+<p>The setup / assumptions for Enhanced Shockburst is very simple.
+First, you need to make sure that at the <span class="caps">TX</span> device,
+your pipe 0 <span class="caps">RX</span> address (RX_ADDR_P0 register) is the same as your <span class="caps">TX</span> address (TX_ADDR register).
+This is because auto-acknowledgements are received on pipe 0 of the <span class="caps">TX</span> device.
+Next, you would enable auto-acknowledgements on pipe 0 of the <span class="caps">TX</span> and whatever pipe(s) you are using at the <span class="caps">RX</span>.
+Finally, you would set up the maximum number of retries and the retry delay in the
+SETUP_RETR register (<span class="caps">ARC</span> and <span class="caps">ARD</span> fields, respectively) of the <span class="caps">TX</span>&nbsp;device.</p>
+<p><strong>What is a Pipe?</strong> The radio has 6 pipes, and each pipe is essentially
+just an address that you can receive data on (when in <span class="caps">RX</span> mode).
+This means that any nRF24L01+ can actually act as 6 different receivers at the same time! 
+So what good is this?
+You could set up one pipe to be a data channel and another to be a control channel.
+You might also have a receiver that did several different functions,
+and would do the task that corresponds to the channel it received data&nbsp;on. </p>
+<p>keep these things in mind.
+Pipes use the same <span class="caps">RF</span> channel (whatever the channel is set in the RF_CH register).
+If you are using Enhanced Shockburst, the transmitter’s <span class="caps">TX</span> address and pipe 0 receive
+address (TX_ADDR and RX_ADDR_P0, respectively) must be the same to get autoacknowledgements properly.
+This can be a pain since every time you want to send data to a different address you have to change two&nbsp;addresses.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>An nRF24L01 configured as primary <span class="caps">RX</span> (<span class="caps">PRX</span>) will be able to receive data trough 6 different data pipes, as in the figure below.
+A data pipe will have a unique address but share the same frequency channel.
+This means that up to 6 different nRF24L01 configured as primary <span class="caps">TX</span> (<span class="caps">PTX</span>)
+can communicate with one nRF24L01 configured as <span class="caps">PRX</span>,
+and the nRF24L01 configured as <span class="caps">PRX</span> will be able to distinguish between&nbsp;them.</p>
+<p><img alt="nRF24L01_figure04" src="img/posts/jekyll-posts/nRF24L01P_figure04.jpg" /></p>
+<p>Data pipe 0 has a unique 40 bit configurable address.
+Each of data pipe 1-5 has an 8 bit unique address and shares the 32 most significant address bits.
+All data pipes can perform full Enhanced ShockBurst functionality.
+nRF24L01 will use the data pipe address when acknowledging a received packet.
+This means that nRF24L01 will transmit <span class="caps">ACK</span> with the same address as it receives payload&nbsp;at.</p>
+<p>An nRF24L01 configured as <span class="caps">PTX</span> with Enhanced ShockBurst enabled,
+will use the ShockBurst feature to send a packet whenever the microcontroller wants to.
+After the packet has been transmitted, nRF24L01 will switch on its receiver
+and expect an acknowledgement to arrive from the terminating part.
+If this acknowledgement fails to arrive,
+nRF24L01 will retransmit the same packet until it receives an acknowledgement
+or the number of retries exceeds the number of allowed retries given in the SETUP_RETR_ARC register.
+If the number of retries exceeds the number of allowed retries,
+this will show in the <span class="caps">STATUS</span> register bit MAX_RT and gives an interrupt.
+Whenever an acknowledgement is received by an nRF24L01 it will consider the last transmitted packet as delivered.
+It will then be cleared from the <span class="caps">TX</span> <span class="caps">FIFO</span>, and the TX_DS <span class="caps">IRQ</span> source will be set&nbsp;high. </p>
+<h2>Documenation</h2>
+<p>The nRF24l01+ transceiver is also simple to use, in part to its simple design philosophy,
+but also thanks to some great&nbsp;libraries:</p>
+<ul>
+<li><a href="https://github.com/aaronds/arduino-nrf24l01">Mirf Library</a> and its <a href="http://playground.arduino.cc/InterfacingWithHardware/Nrf24L01">documentation</a></li>
+<li><a href="https://github.com/maniacbug/RF24"><span class="caps">RF24</span> Library</a> and its <a href="http://maniacbug.github.io/RF24/index.html">documentation</a></li>
+<li><a href="https://github.com/maniacbug/RF24Network"><span class="caps">RF24</span> Network Library</a> and its <a href="http://maniacbug.github.io/RF24Network/">documentation</a></li>
+</ul>
+<p>And to top it off, the website <a href="http://blog.diyembedded.com/"><span class="caps">DIY</span> embedded</a>,
+which seems to specialize in the Nordic Semiconductor nRF24L01,
+and has multiple nRF24L01 tutorials on it home&nbsp;page.</p>
+<ul>
+<li><a href="http://www.diyembedded.com/tutorials/nrf24l01_0/nrf24l01_tutorial_0.pdf">Tutorial 0: Everything You Need to Know about the nRF24L01 and&nbsp;MiRF-v2 </a></li>
+<li><a href="http://read.pudn.com/downloads144/sourcecode/embed/626756/nrf24l01_tutorial_1_pic18.pdf">Tutorial 1: Getting a Simple Link Going with the nRF24L01 and the nRF24L01 C&nbsp;Library</a></li>
+<li><a href="http://read.pudn.com/downloads144/sourcecode/embed/626770/nrf24l01_tutorial_2_pic18.pdf">Tutorial 2: A Sweet Hardware Link Layer with Enhanced&nbsp;Shockburst</a></li>
+<li><a href="http://read.pudn.com/downloads164/sourcecode/book/750274/nrf24l01_tutorial_3.pdf">Tutorial 3: Working with Multiple&nbsp;Pipes </a></li>
+<li><a href="http://www.diyembedded.com/tutorials/nrf24l01_4/nrf24l01_tutorial_4.pdf">Tutorial 4: Cryptography with <span class="caps">ARC4</span></a></li>
+</ul>
+<h2>Key&nbsp;Features</h2>
+<p>Key features of the nRF24L01+ are (source: <a href="http://www.nordicsemi.com/eng/Products/2.4GHz-RF/nRF24L01P">nRF24L01+ data sheet</a>):</p>
+<ul>
+<li>Worldwide 2.4GHz <span class="caps">ISM</span> band, <span class="caps">GFSK</span> modulation, 1 or 2MHz&nbsp;bandwidth</li>
+<li>0, -6, -12, and -18dBm programmable <span class="caps">TX</span> output&nbsp;power</li>
+<li>configurable 250 kbps, 1 Mbps and 2 Mbps on air data&nbsp;rates</li>
+<li><span class="caps">RX</span> sensitivity of -94dBm at 250kbps, -82dBm at 2Mbps, and -85dBm at&nbsp;1Mbps</li>
+<li>The radio front end uses Gaussian Frequency-Shift Keying (<span class="caps">GFSK</span>) modulation with a programmable transmit power of 0, -6, -12 or -18dBm and 11.3mA at 0dBm.  When receiving, it has -82dBm sensitivity at 2Mbps, -85dBm sensitivity at 1Mbps, and -94dBm sensitivity at 250kbps with 13.5mA at&nbsp;2Mbps.</li>
+<li>Ultra low power (11.3 mA Tx with 1 mW (0dBm) output power, 13.3mA Radio <span class="caps">RX</span> at 2Mbps on-air data-rate, down to 26 μA in standby-I and 900 nA deep sleep&nbsp;mode)</li>
+<li><span class="caps">VCC</span> (i.e. supply voltage) is range of 1.9 – 3.6V, with 5V tolerant input pins (<strong>Supply voltage is really up to 3.6V. Using a supply voltage of 5V will destroy the module!</strong>)</li>
+<li>Except of <span class="caps">VCC</span> and <span class="caps">GND</span>，the other pins can be direct connected to 5V Microprocessor&#8217;s <span class="caps">IO</span>, without the need for level&nbsp;converter.</li>
+<li>Automatic acknowledge sending with automatic&nbsp;retries</li>
+<li><span class="caps">RX</span> and <span class="caps">TX</span> <span class="caps">FIFO</span>’s with <span class="caps">ACK</span> user data&nbsp;possibility</li>
+<li>Dynamic payload length of 1 to 32&nbsp;Bytes</li>
+<li>Up to 6 data pipes/addresses for simplified star&nbsp;network</li>
+<li>Simple 8 pin (7 pin without <span class="caps">IRQ</span>) 10Mbps <span class="caps">SPI</span> interface: <span class="caps">VCC</span>, <span class="caps">GND</span>, <span class="caps">CE</span>, <span class="caps">CSN</span>, <span class="caps">SCK</span>, <span class="caps">MISO</span>, <span class="caps">MOSI</span> and optional <span class="caps">IRQ</span>.</li>
+</ul>
+<p>Below is the nRF24L01 Block Diagram (Source: Nordic Semiconductor Data Sheet <a href="http://www.general-files.org/download/gs56bb2066h32i0/nRF24L01P_Product_Specification_1_0.pdf.html">nRF24L01P_Product_Specification_1_0.pdf</a>)
+<center>
+<img alt="block diagram" src="/img/posts/jekyll-posts/nrf24l01-block-diagram.png" />
+</center></p>
+<h2>Pin&nbsp;Connections</h2>
+<p>On the board containing the nRF24L01+, you have eight pins to interface with,
+and these are Vcc, <span class="caps">GND</span>, <span class="caps">IRQ</span>, <span class="caps">CE</span>, and the four <span class="caps">SPI</span>-related pins (<span class="caps">CSN</span>, <span class="caps">SCK</span>, <span class="caps">MISO</span>, and <span class="caps">MOSI</span>).
+The boards pin out is illustrated below:
+<center>
+<img alt="block diagram" src="/img/posts/jekyll-posts/nRF24L01P+-pin-out.jpg" />
+</center></p>
+<ol>
+<li><strong><span class="caps">GND</span>:</strong>&nbsp;Ground.</li>
+<li><strong><span class="caps">VCC</span>:</strong> 3.3V power input. This pin is connected to the input of a voltage regulator on the&nbsp;board.</li>
+<li><strong><span class="caps">CE</span>:</strong> This pin is always an input with respect to the 24L01. This pin has different meanings depending on what mode the 24L01 is in at a given time.<ul>
+<li>If the <strong>device is a receiver</strong>, having <span class="caps">CE</span> high allows the 24L01 to monitor the air and receive packets.  <span class="caps">CE</span> being low puts the chip in standby and it no longer monitors the&nbsp;air.</li>
+<li>If the <strong>device is a transmitter</strong>, <span class="caps">CE</span> is always held low except when the user wants to transmit a packet.  This is done by loading the <span class="caps">TX</span> <span class="caps">FIFO</span> and then toggling the <span class="caps">CE</span> pin (low-to-high transition, leave high for at least 10 uS, then back to&nbsp;low).</li>
+</ul>
+</li>
+<li><strong><span class="caps">CSN</span>:</strong> Chip Select Not.  This is the enable pin for the <span class="caps">SPI</span> bus, and it is active low (hence the “not” in the name). You always want to keep this pin high except when you are sending the device an <span class="caps">SPI</span> command or getting data on the <span class="caps">SPI</span> bus from the&nbsp;chip.</li>
+<li><strong><span class="caps">SCK</span>:</strong> <span class="caps">SPI</span> Shift Clock, up to 10 MHz.  When you configure your <span class="caps">SPI</span> bus, <span class="caps">SCK</span> should stay low normally (rising edges are active), and the clock samples data in the middle of data&nbsp;bits.</li>
+<li><strong><span class="caps">MOSI</span>:</strong> Master-Out-Slave-In.  From both the microcontroller’s and the 24L01’s perspectives, the master is the microcontroller and the slave is the 24L01. This is because the 24L01 never sends data without first being requested by the microcontroller. Essentially, this pin is the side of the bus on which the master (the microcontroller) sends data to the slave (the 24L01). It is also connected to the <span class="caps">MOSI</span> pin on your microcontroller’s <span class="caps">SPI</span>&nbsp;interface.</li>
+<li><strong><span class="caps">MISO</span>:</strong> Master-In-Slave-Out.  This pin is like the <span class="caps">MOSI</span> pin, but backwards. This pin is the side of the bus on which the slave (the 24L01) sends data to the master (the microcontroller). As you can see, <span class="caps">SPI</span> is a full-duplex bus, meaning that you can send data in both ways at once, but on separate&nbsp;lines.</li>
+<li><strong><span class="caps">IRQ</span>:</strong> Optional Interrupt Request pin.  The interrupt pin is to signal your microcontroller that something interesting has happened. You can set interrupts for any combination of the following events: data received, data transmitted, and maximum number of transmit retries reached. If you’re not using interrupts, this pin isn’t required because you can poll the 24L01’s <span class="caps">STATUS</span> register over <span class="caps">SPI</span> to see if any interrupt has occurred, but it’s still faster (in general) to check the status of an <span class="caps">IO</span> pin than to send an <span class="caps">SPI</span> command and then wait for the response. <span class="caps">NOTE</span>: the <span class="caps">IRQ</span> pin is <span class="caps">ACTIVE</span>-<span class="caps">LOW</span>. It is normally high, but when an interrupt is asserted, the pin will go&nbsp;low. </li>
+</ol>
+<h2>Bit and Byte&nbsp;Order</h2>
+<p>The <span class="caps">SPI</span> needs to be configured to send the <strong>Most Significant Bit First</strong>. within a byte.
+For multiple data bytes, the <strong>Least Significant Byte needs to be shifted first</strong>.</p>
+<h2>Establishing My Code&nbsp;Base</h2>
+<p>I&#8217;m using the blog posting <a href="http://arduino-for-beginners.blogspot.com/2013/02/setup-nordic-nrf24l01-rf-modules-to.html?goback=%2Egde_1268377_member_217339050#%21">Setup Nordic nRF24L01 <span class="caps">RF</span> modules to both Arduino <span class="caps">UNO</span> and Raspberry Pi</a>
+and <a href="http://arduino-for-beginners.blogspot.com/2013_03_01_archive.html">Migrated <span class="caps">RF24</span> codes to github</a>
+for guiding me in the development of my wireless sensor network.
+I&#8217;m also using the code associated with this post, listed on GitHub
+and called <a href="https://github.com/stanleyseow/RF24">Arduino <span class="amp">&amp;</span> Raspberry Pi Driver for nRF24L01+ 2.4GHz Wireless Transceiver</a>.
+I also took the <code>rpi_hub_arduino</code> program from the GitHub site from which this apparently was forked
+(<a href="https://github.com/maniacbug/RF24">maniacbug&#8217;s library</a>)
+and made some changes on the use of <span class="caps">RPI</span> <span class="caps">GPIO</span> pins.
+All this was needed since the documentation and code seemed to be out of synch.
+Never the less, the <a href="https://github.com/maniacbug/RF24"><span class="caps">RF24</span> Library&#8217;s</a> <a href="http://maniacbug.github.io/RF24/index.html">documentation</a> appears to capture&nbsp;functionality.</p>
+<p>I downloaded the library and example files into <code>~/src</code>
+on my Raspberry Pi using <code>git clone https://github.com/stanleyseow/RF24.git</code>.
+I then made multiple modifications to the code and the Makefiles.
+My objective is to have a single instance of code, when conditionally compiled,
+create the required libraries to support the Raspberry Pi or the Arduino.
+I&#8217;m attempting to make simpler the maintenance of a RPi/Arduino wireless network with a single code&nbsp;base.</p>
+<h3>Arduino&nbsp;Hardware</h3>
+<p>Arduino Uno connections to the nRF24L01&nbsp;modules:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Arduino Uno</th>
+<th align="center">nRF24L01+</th>
+<th align="center">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Pin 12</td>
+<td align="center">Pin 7</td>
+<td align="center"><span class="caps">MISO</span></td>
+</tr>
+<tr>
+<td align="center">Pin 11</td>
+<td align="center">Pin 6</td>
+<td align="center"><span class="caps">MOSI</span></td>
+</tr>
+<tr>
+<td align="center">Pin 13</td>
+<td align="center">Pin 5</td>
+<td align="center"><span class="caps">SCK</span></td>
+</tr>
+<tr>
+<td align="center">Pin 9</td>
+<td align="center">Pin 4</td>
+<td align="center"><span class="caps">CSN</span></td>
+</tr>
+<tr>
+<td align="center">Pin 8</td>
+<td align="center">Pin 3</td>
+<td align="center"><span class="caps">CE</span></td>
+</tr>
+<tr>
+<td align="center">3.3V</td>
+<td align="center">Pin 2</td>
+<td align="center"><span class="caps">VCC</span>/3.3V</td>
+</tr>
+<tr>
+<td align="center"><span class="caps">GND</span></td>
+<td align="center">Pin 1</td>
+<td align="center"><span class="caps">GND</span></td>
+</tr>
+</tbody>
+</table>
+<p>The pin assignment for <span class="caps">CE</span> and <span class="caps">CSN</span> are configurable, in that you could use other pins on the Arduino.
+<span class="caps">RF</span> Module Pin 8 (<span class="caps">IRQ</span>) is not connected since our application isn&#8217;t using an&nbsp;interupt.</p>
+<p>Optional :- Connect a small buzzer to digital Pin 2 to hear a beep when the packet is returned to&nbsp;sender.</p>
+<p><img alt="Raspberry Pi (Revision 1) GPIO Pin Out" src="/img/posts/jekyll-posts/raspberry-pi-rev-1-gpio-pin-out.jpg" /></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p><strong>Note:</strong> Resetting the Arduino doesn’t necessarily reset the radio, which can prevent the radio from initializing properly.  Neil&#8217;s Log Book]<a href="http://nrqm.ca/mechatronics-lab-guide/lab-guide-using-the-radio/">16</a> states you can avoid this problem by wiring the radio’s Vcc pin to an Arduino digital output pin.  At program startup, set that pin low for 100 ms and then high before calling Radio_Init().  This will reset the radio, ensuring that it is ready to be&nbsp;reinitialized.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3>Arduino&nbsp;Software</h3>
+<p>Make sure the Arduino <span class="caps">IDE</span> is installed on the Ubuntu platfrom via <code>sudo apt-get install arduino arduino-core arduino-mk</code>.
+The program required for the Ardunio is within <code>~/src/RF24/examples/nRF24_sendto_hub</code>.
+From the directory <code>~/src/RF24</code>,
+I had to copy <code>nRF24L01.h  RF24_config.h  RF24.cpp  RF24.h</code> to the current&nbsp;directory.</p>
+<p>Compile and upload to the&nbsp;Arduino</p>
+<h2>Setting Up Raspberry&nbsp;Pi</h2>
+<h3>Raspberry Pi&nbsp;Hardware</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Raspberry Pi</th>
+<th align="center">nRF24L01+</th>
+<th align="center">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span class="caps">GPIO</span> 9 / <span class="caps">MISO</span> (Pin 21)</td>
+<td align="center">Pin 7</td>
+<td align="center"><span class="caps">MISO</span></td>
+</tr>
+<tr>
+<td align="center"><span class="caps">GPIO</span> 10 / <span class="caps">MOSI</span> (Pin 19)</td>
+<td align="center">Pin 6</td>
+<td align="center"><span class="caps">MOSI</span></td>
+</tr>
+<tr>
+<td align="center"><span class="caps">GPIO</span> 11 / <span class="caps">SCKL</span> (Pin 23)</td>
+<td align="center">Pin 5</td>
+<td align="center"><span class="caps">SCK</span></td>
+</tr>
+<tr>
+<td align="center"><span class="caps">GPIO</span> 8 / <span class="caps">CE0</span> (Pin 24)</td>
+<td align="center">Pin 4</td>
+<td align="center"><span class="caps">CSN</span></td>
+</tr>
+<tr>
+<td align="center"><span class="caps">GPIO</span> 25 (Pin 22)</td>
+<td align="center">Pin 3</td>
+<td align="center"><span class="caps">CE</span></td>
+</tr>
+<tr>
+<td align="center">3.3V (Pin 1)</td>
+<td align="center">Pin 2</td>
+<td align="center"><span class="caps">VCC</span>/3.3V</td>
+</tr>
+<tr>
+<td align="center">Gnd (Pin 25)</td>
+<td align="center">Pin 1</td>
+<td align="center"><span class="caps">GND</span></td>
+</tr>
+</tbody>
+</table>
+<h3>Raspberry Pi&nbsp;Software</h3>
+<p>I downloaded the library and example files into <code>~/src</code>
+on my Raspberry Pi using <code>git clone https://github.com/stanleyseow/RF24.git</code>.
+I then proceeded to build the required libraries and executables doing the&nbsp;following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cd ~/src/RF24/librf24-rpi/librf24
+make
+sudo make install
+sudo ldconfig -v | grep librf
+</pre></div>
+
+
+<p>Now build the example&nbsp;programs:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cd ~/src/RF24/librf24-rpi/librf24/examples
+make
+</pre></div>
+
+
+<h2>Sources</h2>
+<ul>
+<li><a href="http://p24bredo.wordpress.com/2013/05/21/nrf24l01-transmitting-from-raspberry-pi-to-arduino/"><span class="caps">NRF24L01</span>+ transmitting from Raspberry pi to&nbsp;Arduino</a></li>
+<li><a href="https://github.com/kevinmehall/nRF24L01-buspirate">Python code to interface with Nordic nRF24L01+ radio over <span class="caps">SPI</span> through&nbsp;BusPirate</a></li>
+<li><a href="http://hack.lenotta.com/arduino-raspberry-pi-switching-light-with-nrf24l01/"><span class="caps">ARDUINO</span> + <span class="caps">RASPBERRY</span> <span class="caps">PI</span> Switching light with&nbsp;NRF24l01+</a></li>
+<li><a href="http://mcuoneclipse.com/2013/07/20/tutorial-ultra-low-cost-2-4-ghz-wireless-transceiver-with-the-frdm-board/">Tutorial: Ultra Low Cost 2.4 GHz Wireless Transceiver with the <span class="caps">FRDM</span>&nbsp;Board</a></li>
+<li><a href="http://arduino-for-beginners.blogspot.com/2013/02/setup-nordic-nrf24l01-rf-modules-to.html?goback=%2Egde_1268377_member_217339050#%21">Setup Nordic nRF24L01 <span class="caps">RF</span> modules to both Arduino <span class="caps">UNO</span> and Raspberry&nbsp;Pi</a></li>
+<li><a href="http://gizmosnack.blogspot.com/2013/04/tutorial-nrf24l01-and-avr.html">Tutorial - nRF24L01 and <span class="caps">AVR</span></a></li>
+<li><a href="http://gizmosnack.blogspot.com/2013/05/raspberry-pi-nrf24l01-and-tcp.html">Raspberry pi: nRF24L01 and <span class="caps">TCP</span></a></li>
+<li><a href="http://www.insidegadgets.com/2012/08/22/using-the-nrf24l01-wireless-module/">Using the nRF24L01 wireless&nbsp;module</a></li>
+<li><a href="http://maniacbug.wordpress.com/2011/11/02/getting-started-rf24/">Getting Started with nRF24L01+ on&nbsp;Arduino</a></li>
+<li><a href="http://arduino-info.wikispaces.com/Nrf24L01-2.4GHz-HowTo">nRF24L01 2.4GHz Radio/Wireless Transceivers&nbsp;How-To</a></li>
+<li><a href="http://arduino-info.wikispaces.com/nRF24L01-RF24-Examples">nRF24L01 Examples using the <span class="caps">RF24</span>&nbsp;Libraries</a></li>
+<li><a href="http://www.elecfreaks.com/wiki/index.php?title=NRF24L01_Series">ElectFreaks <span class="caps">NRF24L01</span>&nbsp;Series</a></li>
+<li><a href="http://nrqm.ca/nrf24l01/">Neil&#8217;s Log&nbsp;Book</a></li>
+</ul>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+            var disqus_identifier = 'getting-started-with-the-2.4ghz-nrf24l01-rf-transceiver';
+            var disqus_url = 'http://jeffskinnerbox.me/drafts/getting-started-with-the-2.4ghz-nrf24l01-rf-transceiver.html';
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="http://jeffskinnerbox.me/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <a href="http://jeffskinnerbox.me/pages/about-me.html">
+                        <img class="img-rounded" src="http://jeffskinnerbox.me/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                    </a>
+                </div>
+
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook/index.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+<li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
+                RPi Packages
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                Vim Cheat Sheet
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-puzzle-piece fa-lg"></i><span class="icon-label">Wiki Topics</span></h4>
+    <ul class="list-group" id="wiki">
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Project Ideas
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="deadend.html" target="_blank">
+                Things to Study
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">External Links</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://tiddlywiki.com/" target="_blank">
+                TiddlyWiki
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+    <ul class="list-group" id="social">
+        <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-github-square fa-lg"></i> Github
+        </a></li>
+        <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-twitter-square fa-lg"></i> Twitter
+        </a></li>
+        <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+            <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
+        </a></li>
+    </ul>
+</li>
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+<li class="list-group-item"><h4><i class="fa fa-thumbs-up fa-lg"></i><span class="icon-label">Reposted At</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://www.eeweb.com/websites/jeffs-skinner-box" target="_blank">
+                EEWeb.com
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-gears fa-lg"></i><span class="icon-label">Admin</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a43272292w73270397p83408137/" target="_blank">
+                Google Analytics
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io" target="_blank">
+                Web Site Source Code
+            </a>
+        </li>
+    </ul>
+</li>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by/index.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://tiddlywiki.com/" target="_blank">TiddlyWiki</a>,
+            <a href="http://ipython.org/notebook.html" target="_blank">Python Notebook</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
+            <small>
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://jeffskinnerbox.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://jeffskinnerbox.me/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://jeffskinnerbox.me/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://jeffskinnerbox.me/theme/js/github.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-43272292-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>

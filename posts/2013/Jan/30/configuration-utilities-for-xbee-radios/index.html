@@ -49,9 +49,9 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="/pages/about-me/">About Me</a></li>
                     <li><a href="deadend.html">Wiki</a></li>
-                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+                    <li><a href="/pages/open-notebook/">Open Notebook</a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
@@ -86,7 +86,7 @@ Jeff's Skinner Box&nbsp;            </a>
                     <div class="panel-body">
 <footer class="post-info">
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-01-30T00:01:00"> Wednesday&nbsp;&nbsp;&nbsp;&nbsp;January 30, 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-01-30T00:01:00-05:00"> Wednesday&nbsp;&nbsp;&nbsp;&nbsp;January 30, 2013</time>
     </span>
 
 
@@ -271,8 +271,8 @@ The XBeeTerm utility will  easily configure the XBee radios for <span class="ca
 <p><script src="https://gist.github.com/jeffskinnerbox/6663187.js"></script></p>
 
 <p>As they stand right now, these files could not be processed by <code>XBeeTerm.py</code> because of the comments (included to make the contents understandable).  To clean this up, the command <code>sed '/^#/d; s/([^$])#.<em>/\1/'</code>will remove all shell type comments from a file and <code>sed 's/[ \t]</em>$//'</code>will remove unneeded white space.  Putting this all together and you can use this to prepare the above files for <code>XBeeTerm.py</code>:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sed &#39;/^#/d; s/\([^$]\)#.*/\1/&#39; Config-Coordinator.txt | sed &#39;s/[ \t]*$//&#39; &gt; coord.txt
-sed &#39;/^#/d; s/\([^$]\)#.*/\1/&#39; Config-End-Device.txt | sed &#39;s/[ \t]*$//&#39; &gt; endd.txt
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sed <span style="color: #CC3300">&#39;/^#/d; s/\([^$]\)#.*/\1/&#39;</span> Config-Coordinator.txt | sed <span style="color: #CC3300">&#39;s/[ \t]*$//&#39;</span> &gt; coord.txt
+sed <span style="color: #CC3300">&#39;/^#/d; s/\([^$]\)#.*/\1/&#39;</span> Config-End-Device.txt | sed <span style="color: #CC3300">&#39;s/[ \t]*$//&#39;</span> &gt; endd.txt
 </pre></div>
 
 
@@ -280,7 +280,7 @@ sed &#39;/^#/d; s/\([^$]\)#.*/\1/&#39; Config-End-Device.txt | sed &#39;s/[ \t]*
 <p><a href="http://jeffskinnerbox.files.wordpress.com/2013/01/xbeeterm-script.jpg"><img class="aligncenter size-full wp-image-1262" alt="XBeeTerm Script" src="http://jeffskinnerbox.files.wordpress.com/2013/01/xbeeterm-script.jpg" width="500" height="205" /></a></p>
 <p>The yellow text is responses back from the XBee serial terminal and the red text is from the XBee radio itself.  Since all the red text is &#8220;<span class="caps">OK</span>&#8221;, all the commands took and the XBee radio is now configured as a Coordinator.  Now repeat this for the End Device XBee&nbsp;radio.</p>
 <p>In this example, I have one End Device but what if you have multiple devices, do you need a <code>Config-End-Device.txt </code>file for each end device?  The only change within the configuration file is the radio&#8217;s address, which is established via the <span class="caps">ATMY</span> command.  Here is a trick to avoid the need for multiple files.  First, configure all your End Devices using the configuration file.  Then, for each radio, modify the <span class="caps">ATMY</span> use the&nbsp;following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">echo -e &quot;baudrate 9600\nserial /dev/ttyUSB0\n+++\nATMY AAA1\nATWR\nATFR\nexit&quot; | python XBeeTerm.py
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">echo</span> -e <span style="color: #CC3300">&quot;baudrate 9600\nserial /dev/ttyUSB0\n+++\nATMY AAA1\nATWR\nATFR\nexit&quot;</span> | python XBeeTerm.py
 </pre></div>
 
 
@@ -363,7 +363,7 @@ General Documentation
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
 
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook/index.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
 
 <li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
     <ul class="list-group" id="links">
@@ -453,7 +453,7 @@ General Documentation
         </li>
     </ul>
 </li>
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by/index.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
 
         </ul>
     </section>

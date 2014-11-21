@@ -49,9 +49,9 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="/pages/about-me/">About Me</a></li>
                     <li><a href="deadend.html">Wiki</a></li>
-                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+                    <li><a href="/pages/open-notebook/">Open Notebook</a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
@@ -86,7 +86,7 @@ Jeff's Skinner Box&nbsp;            </a>
                     <div class="panel-body">
 <footer class="post-info">
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-10-06T00:01:00"> Sunday&nbsp;&nbsp;&nbsp;&nbsp;October 06, 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-10-06T00:01:00-04:00"> Sunday&nbsp;&nbsp;&nbsp;&nbsp;October 06, 2013</time>
     </span>
 
 
@@ -147,7 +147,7 @@ sudo pip install virtualenvwrapper
 
 <h3>Step 2: Create a&nbsp;Virtualenv</h3>
 <p>The following command creates a clean virtualenv devoid of any packages in a directory called <code>_notebook</code>.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">$ virtualenv --no-site-packages _notebook
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #003333">$ </span>virtualenv --no-site-packages _notebook
 New python executable in _notebook/bin/python
 Installing Setuptools........................................done.
 Installing Pip...............................................done.
@@ -155,7 +155,7 @@ Installing Pip...............................................done.
 
 
 <p>The way virtualenv works is that it creates the directory <code>_notebook</code> symlinks to your global python installation, as you can see clearly using the tree&nbsp;utility.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">$ tree -d _notebook
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #003333">$ </span>tree -d _notebook
 _notebook
 ├── bin
 ├── include
@@ -184,10 +184,10 @@ _notebook
 │           ├── setuptools
 │           │   ├── _backport
 │           │   │   └── hashlib
-│           │   ├── command
+│           │   ├── <span style="color: #336666">command</span>
 │           │   └── tests
 │           └── setuptools-0.9.8-py2.7.egg-info
-└── local
+└── <span style="color: #336666">local</span>
     ├── bin -&gt; /home/jeff/myblog/_notebook/bin
     ├── include -&gt; /home/jeff/myblog/_notebook/include
     └── lib -&gt; /home/jeff/myblog/_notebook/lib
@@ -201,21 +201,21 @@ Do you want this virtualenv to use packages from your system site-packages, if n
 pass in the <code>-–no-site-packages</code> switch when creating your&nbsp;virtualenv.</p>
 <h3>Step 3: Use the&nbsp;Environment</h3>
 <p>So we now have a new virtualenv, it now has to be activated. To do this, change to the virtualenv directory you just created and source the activation script from the bin directory in your&nbsp;virtualenv:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">~/myblog$ cd _notebook
-~/myblog/_notebook$ source bin/activate
-(_notebook)~/myblog/_notebook$ 
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">~/myblog<span style="color: #003333">$ </span><span style="color: #336666">cd </span>_notebook
+~/myblog/_notebook<span style="color: #003333">$ </span><span style="color: #336666">source </span>bin/activate
+<span style="color: #555555">(</span>_notebook<span style="color: #555555">)</span>~/myblog/_notebook<span style="color: #003333">$ </span>
 </pre></div>
 
 
 <p>Notice that the command prompt is modified after the sourcing.
 When you activate a virtualenv, it modifies your current prompt to prepend the name of the virtualenv in parentheses so that you know at a glance you have it active.
 Other than the prompt change, the main changes the activate script makes&nbsp;are:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">VIRTUAL_ENV=&quot;/home/jeff/myblog/_notebook&quot;
-export VIRTUAL_ENV
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #003333">VIRTUAL_ENV</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;/home/jeff/myblog/_notebook&quot;</span>
+<span style="color: #336666">export </span>VIRTUAL_ENV
 
-_OLD_VIRTUAL_PATH=&quot;$PATH&quot;
-PATH=&quot;$VIRTUAL_ENV/bin:$PATH&quot;
-export PATH
+<span style="color: #003333">_OLD_VIRTUAL_PATH</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;</span><span style="color: #003333">$PATH</span><span style="color: #CC3300">&quot;</span>
+<span style="color: #003333">PATH</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;</span><span style="color: #003333">$VIRTUAL_ENV</span><span style="color: #CC3300">/bin:</span><span style="color: #003333">$PATH</span><span style="color: #CC3300">&quot;</span>
+<span style="color: #336666">export </span>PATH
 </pre></div>
 
 
@@ -225,10 +225,10 @@ This means through the magic of the Python site module the site-packages in your
 <h3>Step 4: Installing Packages in&nbsp;Virtualenv</h3>
 <p>Now that we are in the virtual envirnment, if you list the installed python packages,
 you&#8217;ll find very&nbsp;little:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">(_notebook)~/myblog/_notebook$ pip freeze
-argparse==1.2.1
-wsgiref==0.1.2
-(_notebook)~/myblog/_notebook$
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">(</span>_notebook<span style="color: #555555">)</span>~/myblog/_notebook<span style="color: #003333">$ </span>pip freeze
+<span style="color: #003333">argparse</span><span style="color: #555555">==</span>1.2.1
+<span style="color: #003333">wsgiref</span><span style="color: #555555">==</span>0.1.2
+<span style="color: #555555">(</span>_notebook<span style="color: #555555">)</span>~/myblog/_notebook<span style="color: #AA0000; background-color: #FFAAAA">$</span>
 </pre></div>
 
 
@@ -246,12 +246,12 @@ easy_install yolk
 <p>To install the basemap for matplotlib, you&#8217;ll need to <a href="http://matplotlib.org/basemap/users/installing.html">download</a> the source from Matplotlib Org website.
 Basemap is an add-on toolkit for matplotlib that lets you plot data on map projections with coastlines, lakes, rivers and political&nbsp;boundaries.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">tar -zxvf basemap-1.0.7.tar.gz
-cd basemap-1.0.7
-cd geos-3.3.3
-export GEOS_DIR=&quot;/home/jeff/myblog/_notebook/lib&quot;
-./configure --prefix=$GEOS_DIR
+<span style="color: #336666">cd </span>basemap-1.0.7
+<span style="color: #336666">cd </span>geos-3.3.3
+<span style="color: #336666">export </span><span style="color: #003333">GEOS_DIR</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;/home/jeff/myblog/_notebook/lib&quot;</span>
+./configure --prefix<span style="color: #555555">=</span><span style="color: #003333">$GEOS_DIR</span>
 make; make install
-cd ..
+<span style="color: #336666">cd</span> ..
 python setup.py install
 </pre></div>
 
@@ -262,8 +262,8 @@ These dependencies should be load automatically, but in case there are problems,
 they are <a href="http://ipython.org/ipython-doc/stable/install/install.html">documented on the IPython website</a>.
 You can download the latest IPython package from the <a href="https://pypi.python.org/pypi/ipython">Python Org website</a>.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">unzip ipython-1.1.0.zip 
-cd ipython-1.1.0
-easy_install ipython[all]
+<span style="color: #336666">cd </span>ipython-1.1.0
+easy_install ipython<span style="color: #555555">[</span>all<span style="color: #555555">]</span>
 </pre></div>
 
 
@@ -344,7 +344,7 @@ got the warning message&nbsp;below:</p>
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
 
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook/index.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
 
 <li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
     <ul class="list-group" id="links">
@@ -434,7 +434,7 @@ got the warning message&nbsp;below:</p>
         </li>
     </ul>
 </li>
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by/index.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
 
         </ul>
     </section>

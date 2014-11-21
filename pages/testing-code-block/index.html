@@ -14,7 +14,7 @@
     <!-- Open Graph tags -->
             <meta property="og:type" content="article"/>
             <meta property="og:title" content="Testing: Code Block"/>
-            <meta property="og:url" content="http://jeffskinnerbox.me/pages/testing-code-block.html"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/pages/testing-code-block/"/>
 
     <!-- Bootstrap -->
         <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
@@ -48,9 +48,9 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="/pages/about-me/">About Me</a></li>
                     <li><a href="deadend.html">Wiki</a></li>
-                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+                    <li><a href="/pages/open-notebook/">Open Notebook</a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
@@ -170,15 +170,15 @@ Below is an example (with no language given in the fenced&nbsp;block):</p>
 13</pre></div></td><td class="code"><div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/bin/bash</span>
 
 usage<span style="color: #555555">()</span> <span style="color: #555555">{</span>
-    <span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;Usage: $0 filename&quot;</span>
+    <span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;Usage: </span><span style="color: #003333">$0</span><span style="color: #CC3300"> filename&quot;</span>
     <span style="color: #336666">exit </span>1
 <span style="color: #555555">}</span>
 
 <span style="color: #0099FF; font-style: italic"># define is_file_exits function </span>
 <span style="color: #0099FF; font-style: italic"># $f -&gt; store argument passed to the script</span>
 is_file_exits<span style="color: #555555">()</span> <span style="color: #555555">{</span>
-    <span style="color: #336666">local </span><span style="color: #003333">f</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;$1&quot;</span>
-    <span style="color: #555555">[[</span> -f <span style="color: #CC3300">&quot;$f&quot;</span> <span style="color: #555555">]]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #006699; font-weight: bold">return </span>0 <span style="color: #555555">||</span> <span style="color: #006699; font-weight: bold">return </span>1
+    <span style="color: #336666">local </span><span style="color: #003333">f</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;</span><span style="color: #003333">$1</span><span style="color: #CC3300">&quot;</span>
+    <span style="color: #555555">[[</span> -f <span style="color: #CC3300">&quot;</span><span style="color: #003333">$f</span><span style="color: #CC3300">&quot;</span> <span style="color: #555555">]]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #006699; font-weight: bold">return</span> <span style="color: #FF6600">0</span> <span style="color: #555555">||</span> <span style="color: #006699; font-weight: bold">return</span> 1
 <span style="color: #555555">}</span>
 </pre></div>
 </td></tr></table>
@@ -325,7 +325,7 @@ The example below is a code snippits from <a href="https://gist.github.com/jeffs
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
 
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook/index.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
 
 <li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
     <ul class="list-group" id="links">
@@ -415,7 +415,7 @@ The example below is a code snippits from <a href="https://gist.github.com/jeffs
         </li>
     </ul>
 </li>
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by/index.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
 
         </ul>
     </section>

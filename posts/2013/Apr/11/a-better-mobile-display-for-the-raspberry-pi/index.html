@@ -49,9 +49,9 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="/pages/about-me/">About Me</a></li>
                     <li><a href="deadend.html">Wiki</a></li>
-                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+                    <li><a href="/pages/open-notebook/">Open Notebook</a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
@@ -86,7 +86,7 @@ Jeff's Skinner Box&nbsp;            </a>
                     <div class="panel-body">
 <footer class="post-info">
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-04-11T00:01:00"> Thursday&nbsp;&nbsp;&nbsp;&nbsp;April 11, 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-04-11T00:01:00-04:00"> Thursday&nbsp;&nbsp;&nbsp;&nbsp;April 11, 2013</time>
     </span>
 
 
@@ -101,16 +101,16 @@ Jeff's Skinner Box&nbsp;            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p><a href="http://jeffskinnerbox.files.wordpress.com/2013/04/2013-04-10-20-37-23.png">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="2013-04-10 20.37.23" src="/images/2013-04-10-20-37-23.png?w=225" width="225" height="300" />
+                <p><a href="http://jeffskinnerbox.files.wordpress.com/2013/04/issh-on-ipad.png">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="issh-on-ipad" src="/images/issh-on-ipad.png?w=225" width="225" height="300" />
 </a>
 As I described in an <a href="http://jeffskinnerbox.wordpress.com/2012/10/04/establishing-an-x-window-system-environment-for-my-pc-and-raspberry-pi/">earlier post</a>, I run my Raspberry Pi (RPi) as a <a href="http://en.wikipedia.org/wiki/Headless_system">headless system</a>, using <a href="http://x.cygwin.com/">Cygwin/X</a>&#8216;s xterm for command line interaction with the RPi, with my <span class="caps">PC</span> being my X server to support any X Window applications.  I can move files between the <span class="caps">PC</span> and the RPi via my <a href="http://jeffskinnerbox.wordpress.com/2012/11/11/dropbox-for-the-raspberry-pi-sort-of/">pseudo-Dropbox</a>.  I really recommend this configuration and its working perfectly for&nbsp;me.</p>
 <p>This configuration gives me a great deal of utility but no mobility &#8230;. I&#8217;m still tied to my desktop <span class="caps">PC</span>.  Maybe I should consider replacing the desktop <span class="caps">PC</span> with a laptop but I don&#8217;t want to spend the money.  I have seen some small,  inexpensive <a href="http://www.adafruit.com/products/922">keyboards</a> and <a href="http://www.adafruit.com/products/947">displays</a> that could be connected directly to the RPi, and you could <a href="http://www.raspberrypi.org/archives/2848">cobble together a mobile unit</a>, or the more elegant <a href="http://news.idg.no/cw/art.cfm?id=9662DBB2-013A-069C-759851E179CD3D16">Kindle version</a>, but this still doesn&#8217;t give me the mobility look <span class="amp">&amp;</span> feel I would&nbsp;like.</p>
-<p>iPad to the rescue (assuming you have one &#8230;.)!   I found a great app call <a href="http://www.zinger-soft.com/iSSH_features.html">iSSH</a> by Zingersoft.  Its claims that it is a &#8220;comprehensive <span class="caps">VT100</span>, <span class="caps">VT102</span>, <span class="caps">VT220</span>, <span class="caps">ANSI</span>, xterm, and xterm-color terminal emulator over <span class="caps">SSH</span> and telnet, integrated with a tunneled X server, <span class="caps">RDP</span> and <span class="caps">VNC</span> client. &#8221;   I installed it, configured it quickly, and got  a terminal connection to the RPi without reading the documentation &#8230;. Impressive since successfully configuring ssh, Xserver, etc. can be challenging sometimes.  (Note: The easy of this was largely due to setting up RPi environment properly in the first place. See the <a href="http://jeffskinnerbox.wordpress.com/2012/10/04/establishing-an-x-window-system-environment-for-my-pc-and-raspberry-pi/">earlier post</a>).  To top it off, iSSH has a slick look <span class="amp">&amp;</span>&nbsp;feel.</p>
+<p>iPad to the rescue (assuming you have one &#8230;.)!   I found a great app called <a href="http://www.zinger-soft.com/iSSH_features.html">iSSH</a> by Zingersoft.  Its claims that it is a &#8220;comprehensive <span class="caps">VT100</span>, <span class="caps">VT102</span>, <span class="caps">VT220</span>, <span class="caps">ANSI</span>, xterm, and xterm-color terminal emulator over <span class="caps">SSH</span> and telnet, integrated with a tunneled X server, <span class="caps">RDP</span> and <span class="caps">VNC</span> client. &#8221;   I installed it, configured it quickly, and got  a terminal connection to the RPi without reading the documentation &#8230;. Impressive since successfully configuring ssh, Xserver, etc. can be challenging sometimes.  (Note: The easy of this was largely due to setting up RPi environment properly in the first place. See the <a href="http://jeffskinnerbox.wordpress.com/2012/10/04/establishing-an-x-window-system-environment-for-my-pc-and-raspberry-pi/">earlier post</a>).  To top it off, iSSH has a slick look <span class="amp">&amp;</span>&nbsp;feel.</p>
 <h2>Configuring&nbsp;iSSH</h2>
 
-<p><a href="http://jeffskinnerbox.files.wordpress.com/2013/04/2013-04-10-20-34-06.png">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="iSSH X Server Session" src="/images//2013-04-10-20-34-06.png?w=225" width="225" height="300" />
+<p><a href="http://jeffskinnerbox.files.wordpress.com/2013/04/issh-on-ipad-x-server.png">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="iSSH X Server Session" src="/images/issh-on-ipad-x-server.png?w=225" width="225" height="300" />
 </a>
 Zingersoft&#8217;s <a href="http://www.zinger-soft.com/support1.html">documentation on configuring iSSH</a> is easy to follow and requires just a few steps.  I had no problem getting an terminal session working to the RPi but I did have problems with graphics programs (i.e. X Window client programs).  It appears that iSSH&#8217;s terminal isn&#8217;t really <a href="http://invisible-island.net/xterm/xterm.faq.html">xterm</a> but a terminal emulation (secured via <a href="http://en.wikipedia.org/wiki/Secure_Shell">ssh</a>).  The iSSH terminal doesn&#8217;t use the X server.  In fact, while in the terminal session,  to see the X server display (i.e. to see graphics applications rendered via the RPi X client) you must hit the button at the top right of the iPad&nbsp;display.</p>
 <p>Frankly, the fact that the X application didn&#8217;t work the first time wasn&#8217;t a big surprise to me.  I have been struggling with getting my X Window configuration set up to work reliably for some time.  What I was observing was that X would work fine for sometime but at some point I would get the error message &#8220;couldn&#8217;t connect to&nbsp;display&#8221;.</p>
@@ -329,7 +329,7 @@ plt<span style="color: #555555">.</span>show()
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
 
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook/index.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
 
 <li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
     <ul class="list-group" id="links">
@@ -419,7 +419,7 @@ plt<span style="color: #555555">.</span>show()
         </li>
     </ul>
 </li>
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by/index.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
 
         </ul>
     </section>

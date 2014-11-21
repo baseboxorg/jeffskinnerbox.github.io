@@ -49,9 +49,9 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="/pages/about-me/">About Me</a></li>
                     <li><a href="deadend.html">Wiki</a></li>
-                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+                    <li><a href="/pages/open-notebook/">Open Notebook</a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
@@ -86,7 +86,7 @@ Jeff's Skinner Box&nbsp;            </a>
                     <div class="panel-body">
 <footer class="post-info">
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-03-20T00:01:00"> Wednesday&nbsp;&nbsp;&nbsp;&nbsp;March 20, 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-03-20T00:01:00-04:00"> Wednesday&nbsp;&nbsp;&nbsp;&nbsp;March 20, 2013</time>
     </span>
 
 
@@ -97,8 +97,8 @@ Jeff's Skinner Box&nbsp;            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p><a href="http://jeffskinnerbox.files.wordpress.com/2013/03/2013-03-20-21-14-05.jpg">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="SAMSUNG" src="/images/2013-03-20-21-14-05.jpg?w=500" width="250" height="188" />
+                <p><a href="http://jeffskinnerbox.files.wordpress.com/2013/03/simplest-xbee-network.jpg">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="SAMSUNG" src="/images/simplest-xbee-network.jpg?w=500" width="250" height="188" />
 </a>
 As I continue my investigation of the XBee radio, I&#8217;m impressed by the functionality compressed into the the small package, but I have been frustrated by one fact.  It has been a hard road to understand the device and to make it do something useful.  There is a confusing mass of commands and options that can be used.  To make things more difficult for me, it is my nature to study my subject at depth, and understand it well, before I commit myself to a project.  The XBee radios are proving to be a deep subject.  I have been struggling to get a simple 802.15.4 network up and working, at least one that is sufficiently complex to be useful for my&nbsp;needs.</p>
 <p>I stumbled into the realization that I don&#8217;t have to master 802.15.4 and a large set of XBee commands to make a very simple but potentially useful network.  It&#8217;s a very basic observation about all radio devices like the XBee.  You see, at its core the XBee radio is  a <a href="http://en.wikipedia.org/wiki/Modem">modem</a>.  It encodes digital information, transmits its digits via electromagnetism, within a specific frequency band, to be received by another XBee, and  then converted back to digital information.  The use of packet data, the 802.15.4 protocol, and all the <span class="caps">AT</span> commands are layers on top of the XBee&#8217;s  modem capability.  The modem, the core communications sub-component, is a serial communications device with a Universal Asynchronous Receiver/Transmitter (<span class="caps">UART</span>) as examined in an <a href="http://jeffskinnerbox.wordpress.com/2012/12/05/raspberry-pi-serial-communication/">earlier blog</a>.  So why not we just treat the XBee radio as a simple serial communication device?  Drop the idea of packetized data and 802.15.4 protocol and just do&nbsp;raw serial communications.</p>
@@ -108,21 +108,21 @@ As I continue my investigation of the XBee radio, I&#8217;m impressed by the f
 I&#8217;ll be using a Arduino and a RPis for for my network, each with a XBee radio thought which they can communicate. I&#8217;ll establish terminal interface into each device so I can enter text for the device to transmit and the terminal will also show what messages where revived. All  terminals will be within windows on my <span class="caps">PC</span> using PuTTY, Xterm, or the Arduino&#8217;s serial monitor screen.
 <h2>Initializing the XBee&nbsp;Radios</h2>
 First step is to make sure all the XBee radios that will be part of your network are properly configured.  Specifically, you need to make sure the <span class="caps">PAN</span> <span class="caps">ID</span> and Channel <span class="caps">ID</span> of the XBee radio&#8217;s are identical.  To accomplish this, I used the <code>XBeeTerm.py</code> utility I posted in my earlier blog titled <a href="http://jeffskinnerbox.wordpress.com/2013/01/30/configuration-utilities-for-xbee-radios/">Configuration Utilities for XBee Radios</a>.  I&#8217;m going to setup my network with two XBee radios (but you can use as many as you wish) and I used the configuration file below on both&nbsp;radios:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># To remove comments, white spaces, and blank lines, use the following:
-#       sed &#39;/^#/d; s/\([^$]\)#.*/\1/&#39; Modem-Device.txt | sed &#39;s/[ \t]*$//&#39; &amp;gt; modemd.txt
-# Run this script to configure the XBee radio using the following:
-#       ./XBeeTerm.py modemd.txt
-#
-baudrate 9600       # (XBeeTerm command) set the baudrate used to comm. with the XBee
-serial /dev/ttyUSB0 # (XBeeTerm command) serial device which has the XBee radio
-+++             # (XBee command) enter AT command mode on the XBee
-ATRE            # (XBee command) restore XBee to factory settings
-ATID B000       # (XBee command) Set the PAN ID to eight byte hex (all XBee&#39;s must have this same value)
-ATCH 0E         # (XBee command) set the Channel ID to a four byte hex (all XBee&#39;s must have same value)
-ATPL 0          # (XBee command) power level at which the RF module transmits (0 lowest / 4 highest)
-ATWR            # (XBee command) write all the changes to the XBee non-volatile memory
-ATFR            # (XBee command) reboot XBee radio
-exit            # (XBeeTerm command) exit python shell
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># To remove comments, white spaces, and blank lines, use the following:</span>
+<span style="color: #0099FF; font-style: italic">#       sed &#39;/^#/d; s/\([^$]\)#.*/\1/&#39; Modem-Device.txt | sed &#39;s/[ \t]*$//&#39; &amp;gt; modemd.txt</span>
+<span style="color: #0099FF; font-style: italic"># Run this script to configure the XBee radio using the following:</span>
+<span style="color: #0099FF; font-style: italic">#       ./XBeeTerm.py modemd.txt</span>
+<span style="color: #0099FF; font-style: italic">#</span>
+baudrate <span style="color: #FF6600">9600</span>       <span style="color: #0099FF; font-style: italic"># (XBeeTerm command) set the baudrate used to comm. with the XBee</span>
+serial /dev/ttyUSB0 <span style="color: #0099FF; font-style: italic"># (XBeeTerm command) serial device which has the XBee radio</span>
++++             <span style="color: #0099FF; font-style: italic"># (XBee command) enter AT command mode on the XBee</span>
+ATRE            <span style="color: #0099FF; font-style: italic"># (XBee command) restore XBee to factory settings</span>
+ATID B000       <span style="color: #0099FF; font-style: italic"># (XBee command) Set the PAN ID to eight byte hex (all XBee&#39;s must have this same value)</span>
+ATCH 0E         <span style="color: #0099FF; font-style: italic"># (XBee command) set the Channel ID to a four byte hex (all XBee&#39;s must have same value)</span>
+ATPL <span style="color: #FF6600">0</span>          <span style="color: #0099FF; font-style: italic"># (XBee command) power level at which the RF module transmits (0 lowest / 4 highest)</span>
+ATWR            <span style="color: #0099FF; font-style: italic"># (XBee command) write all the changes to the XBee non-volatile memory</span>
+ATFR            <span style="color: #0099FF; font-style: italic"># (XBee command) reboot XBee radio</span>
+<span style="color: #336666">exit</span>            <span style="color: #0099FF; font-style: italic"># (XBeeTerm command) exit python shell</span>
 </pre></div>
 
 
@@ -244,7 +244,7 @@ SoftwareSerial XBeeSerial <span style="color: #555555">=</span>  SoftwareSerial(
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
 
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook/index.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
 
 <li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
     <ul class="list-group" id="links">
@@ -334,7 +334,7 @@ SoftwareSerial XBeeSerial <span style="color: #555555">=</span>  SoftwareSerial(
         </li>
     </ul>
 </li>
-            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by/index.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
 
         </ul>
     </section>
