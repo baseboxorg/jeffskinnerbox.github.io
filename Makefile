@@ -28,6 +28,7 @@ BASEDIR = $(HOME)/blogging
 METADATA = $(BASEDIR)/metadata
 INPUTDIR = $(BASEDIR)/content
 OUTPUTDIR = $(BASEDIR)/output
+CACHEDIR = $(BASEDIR)/cache
 ARTICLESDIR = $(INPUTDIR)/articles
 DRAFTSDIR = $(INPUTDIR)/drafts
 EXTRADIR = $(INPUTDIR)/extra
@@ -137,7 +138,8 @@ html:
 
 
 clean:
-	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)/*
+	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
+	[ ! -d $(CACHEDIR) ] || rm -rf $(CACHEDIR)
 	rm -rf $(BASEDIR)/*.pyc
 
 

@@ -15,8 +15,13 @@
             {% endif %}
 
             {% if DISPLAY_TESTS_ON_SIDEBAR %}
-            <li class="list-group-item"><a href="{{ SITEURL }}/pages/testing-zone/index.html"><h4><i class="fa fa-exclamation-triangle fa-lg"></i><span class="icon-label">Testing Zone</span></h4></a>
-            </li>
+            <font color=#990000>
+                <li class="list-group-item"><a href="{{ SITEURL }}/pages/"><h4><i class="fa fa-exclamation-triangle fa-lg"></i><span class="icon-label">Testing Zone</span></h4></a>
+                </li>
+
+                <li class="list-group-item"><a href="{{ SITEURL }}/drafts/"><h4><i class="fa fa-edit fa-lg"></i><span class="icon-label">Draft Articles</span></h4></a>
+                </li>
+            </font>
             {% endif %}
 
             <li class="list-group-item"><a href="{{ SITEURL }}/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>

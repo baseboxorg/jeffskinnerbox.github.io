@@ -9,6 +9,7 @@
 bin/
 lib/
 local/
+cache/
 output/
 include/
 .ropeproject/
