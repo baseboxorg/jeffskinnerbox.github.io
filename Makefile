@@ -216,7 +216,7 @@ github: backup publish
 ifdef COMMENT
 	git commit -m "$(COMMENT)"
 else
-	git commit -m "Created $(shell date)"
+	git commit -m "Modified $(shell date)"
 endif
 	git push origin master:source
 

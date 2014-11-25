@@ -163,10 +163,12 @@ WIKI = (('Project Ideas', 'http://127.0.0.1:8080/#Potential Projects'),
 LINKS = (('TiddlyWiki', 'http://tiddlywiki.com/'),)
 
 # Links to appear in the "social" section of the sidebar
-SOCIAL = (('Github', 'https://github.com/jeffskinnerbox'),
-          ('Twitter', 'https://twitter.com/jeffskinnerbox'),
-          ('Flickr', 'https://www.flickr.com/photos/104241758@N03/'),
-          ('Linkedin', 'https://linkedin.com/in/jeffreyirland'),)
+SOCIAL = (('Github', 'fa-github', 'https://github.com/jeffskinnerbox'),
+          ('Twitter', 'fa-twitter', 'https://twitter.com/jeffskinnerbox'),
+          ('Flickr',  'fa-flickr','https://www.flickr.com/photos/104241758@N03/'),  # NOQA
+          ('Delicious', 'fa-delicious', 'https://delicious.com/jeffskinnerbox'),    # NOQA
+          ('Pocket', 'fa-chevron-circle-down', 'http://getpocket.com/a/queue/'),    # NOQA
+          ('Linkedin', 'fa-linkedin', 'https://linkedin.com/in/jeffreyirland'),)    # NOQA
 TWITTER_USERNAME = 'jeffskinnerbox'
 
 # When you don’t specify a category in your post metadata,
