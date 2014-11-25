@@ -165,6 +165,7 @@ LINKS = (('TiddlyWiki', 'http://tiddlywiki.com/'),)
 # Links to appear in the "social" section of the sidebar
 SOCIAL = (('Github', 'https://github.com/jeffskinnerbox'),
           ('Twitter', 'https://twitter.com/jeffskinnerbox'),
+          ('Flickr', 'https://www.flickr.com/photos/104241758@N03/'),
           ('Linkedin', 'https://linkedin.com/in/jeffreyirland'),)
 TWITTER_USERNAME = 'jeffskinnerbox'
 

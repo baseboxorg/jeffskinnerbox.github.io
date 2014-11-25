@@ -2,7 +2,7 @@
     <ul class="list-group" id="social">
         {% for name, link in SOCIAL %}
         <li class="list-group-item"><a href="{{ link }}" target="_blank">
-            <i class="fa fa-{{ name|lower|replace('+','-plus') }}-square fa-lg"></i> {{ name }}
+            <i class="fa fa-{{ name|lower|replace('+','-plus') }} fa-lg"></i> {{ name }}
         </a></li>
         {% endfor %}
     </ul>

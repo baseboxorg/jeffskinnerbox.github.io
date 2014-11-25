@@ -144,6 +144,21 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 _Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
 _Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
 
+## Using Flickr
+<img class="img-rounded" style="margin: 0px 8px; float: left" title="HP Omni Book XE3 being used as a X Terminal using Tiny Core Linux" alt="Laptop X Terminal" src="https://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg" width="25%" height="25%"/>
+I store some of my blog photos on Flickr.
+To [get the URL of a Flickr photo][12]:
+
+1. Click on the photo you want to share to open it.
+1. Click the **Download icon**.
+1. Click **View all sizes**.
+1. Select the size of photo you want.
+1. Right-click the image | select **Copy image URL**.
+
+_Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
+_Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
+
+
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 [<img src="http://www.google.com.au/images/nav_logo7.png">](http://google.com.au/)
@@ -202,3 +217,4 @@ See [here][02] if you wish to control the footnotes location.
 [02]:http://pythonhosted.org/Markdown/extensions/footnotes.html
 [10]:http://docs.getpelican.com/en/3.3.0/
 [11]:http://jeffskinnerbox.wordpress.com/
+[12]:https://help.yahoo.com/kb/flickr/SLN15714.html

@@ -1133,8 +1133,7 @@ Xvesa -query desktop -br -screen 1024x768x32 -shadow
 To make this persistent, put `tc/.xsession` in the `/opt/.filetool.lst`.
 
 
-<img class="img-rounded" style="margin: 0px 8px; float: left" title="HP Omni Book XE3 being used as a X Terminal using Tiny Core Linux" alt="WABAC Pic" src="/images/summary/x-terminal.jpg" width="25%" height="25%" />
-
+<img class="img-rounded" style="margin: 0px 8px; float: left" title="HP Omni Book XE3 being used as a X Terminal using Tiny Core Linux" alt="Laptop X Terminal" src="https://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg" width="25%" height="25%"/>
 
 
 [01]:https://help.ubuntu.com/community/Lubuntu/GetLubuntu

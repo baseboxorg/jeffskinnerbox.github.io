@@ -37,6 +37,8 @@ compares Bluetooth low-energy, ANT, ANT+, ZigBee, ZigBee RF4CE, Wi-Fi, Nike+, Ir
 * []()
 * []()
 
+* [RFToy 1.0](http://rayshobby.net/?p=9938)
+
 Checkout LowPowerLab for some nice microcontroller + radio combinations (the [Moteino][01]).
 
 
