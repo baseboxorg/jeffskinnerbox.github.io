@@ -5,7 +5,7 @@ Tags: Linux, Ubuntu, Squeeze Box, Harmony Remote, Chrome, Xbindkeys, KeePass, Wi
 Slug: building-my-linux-box-the-implementation
 Author: Jeff Irland
 Image: ubuntu-13-04-raring-ringtail.jpg
-Summary: In this posting, I show how I implemented my plans to build my custom made Linux system.  I review where I deviated from my plans, and give some of the details on software configration.
+Summary: In this posting, I show how I implemented my plans to build my custom made Linux system.  I review where I deviated from my plans, and give some of the details on software configuration.
 
 <img class="img-rounded" style="margin: 0px 8px; float: left" alt="Ubuntu 13.04 Raring Ringtail" src="/images/ubuntu-13-04-raring-ringtail.jpg" width="15%" height="15%" />
 In an earlier post, I outlined [my plan for building a Linux Box][11].  Here I will post how that plan was ultimately implemented. Life has taught me that all good planning is ultimately undone, and at some point, you must improvise.  That has also proven true for this quest to up grade my computation.  Specifically:
