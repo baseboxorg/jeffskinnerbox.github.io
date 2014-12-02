@@ -1,5 +1,5 @@
 created: 20140919014920863
-modified: 20141107022547039
+modified: 20141128231153173
 tags: projects
 title: Sound Synthesizer
 type: text/vnd.tiddlywiki
@@ -11,3 +11,8 @@ type: text/vnd.tiddlywiki
 
 [[Freesound|http://www.freesound.org/]]
 aims to create a huge collaborative database of audio snippets, samples, recordings, bleeps, ... released under Creative Commons licenses that allow their reuse.
+
+The [[BTC Sound Encoder|http://www.romanblack.com/picsound.htm]]
+is software I have written for the purpose of converting sound (in wave files) to a
+[[1-bit format|http://www.romanblack.com/BTc_alg.htm]]
+that can be played back on very cheap hardware, like a microprocessor chip

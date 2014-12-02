@@ -1,3 +1,5 @@
+![WRTnode](http://photos-h.ak.instagram.com/hphotos-ak-xap1/10802493_381146012045023_126183938_n.jpg "In early November 2014, I got from Seeed Studio the WRTNode. WRTnode is based on WiFi WiFi Access Point System on a Chip, is an open source development board hardware using the Mediatek MT7620n chip.")
+
 In early November 2014, I got from [Seeed Studio][21] the [WRTNode][22].
 WRTnode is based on WiFi WiFi Access Point System on a Chip (SoC),
 is an open source development board hardware using the [Mediatek][23] [MT7620n chip][24].

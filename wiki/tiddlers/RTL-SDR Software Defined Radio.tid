@@ -1,5 +1,5 @@
 created: 20140919015727086
-modified: 20140919020443904
+modified: 20141128235955213
 tags: projects
 title: RTL-SDR Software Defined Radio
 type: text/vnd.tiddlywiki
@@ -27,6 +27,7 @@ type: text/vnd.tiddlywiki
 !!Wideband Spectrum Analyser
 
 *[[RTLSDR Scanner|http://eartoearoak.com/software/rtlsdr-scanner]]
+*[[RTL SDR As A Spectrum Analyzer|http://hackaday.com/2014/11/19/rtl-sdr-as-a-spectrum-analyzer/]]
 
 !!The Innards of the RTL-SDR
 
@@ -74,6 +75,7 @@ type: text/vnd.tiddlywiki
 *[[ACARS decoder|http://acarsdec.sourceforge.net/]]
 *[[PlanePlotter|http://www.nicstorey.co.uk/planeplotter/sdrscanner]]
 *[[acarsd - ACARS Decoder for Linux & Windows|http://www.acarsd.org/]]
+* [[The Pi Plane Project tracks planes the fly over my house|http://simonaubury.com/the-pi-plane-project1-introduction/]]
 
 !!Aircraft Transponders / ADS-B
 
@@ -97,6 +99,7 @@ type: text/vnd.tiddlywiki
 *[[How to build a satellite receiving station using a Raspberry Pi|http://carpcomm.com/ref/]]
 *[[Quadrifilar Helix (QFH) Antenna|http://www.youtube.com/watch?v=fopnIkYnFPI]]
 *[[FM Receiver Gnuradio block using  RTL2832U dongle|http://zr6aic.blogspot.com/2012/08/gnuradio-with-rtl2832u-dongle.html]]
+*[[SatNOGS : Global Network of Ground Stations|http://hackaday.io/project/1340-satnogs-global-network-of-ground-stations]]
 
 !!Other SDR Solutions
 

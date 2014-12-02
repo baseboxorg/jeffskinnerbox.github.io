@@ -12,6 +12,7 @@ or even [camera remote control][08],
 [emergency phone][07],
 [garage/workshop intercom][09],
 [home automation remote][10],
+combine with [PID controller][18] and make a [Telepresence Robot][17],
 internet radio,
 portable media player,
 or a simple alarm clock.
@@ -81,8 +82,8 @@ Other stuff
 [14]:https://play.google.com/store
 [15]:http://en.wikipedia.org/wiki/Android_version_history#Android_2.2.E2.80.932.2.3_Froyo_.28API_level_8.29
 [16]:http://www.samsung.com/us/mobile/cell-phones/SGH-I897ZKAATT-specs
-[17]:
-[18]:
+[17]:http://hackaday.com/2014/11/26/telepresence-robot-demo-unit-breaks-free-of-its-confinement/
+[18]:http://hackaday.com/2014/01/17/piddybot-a-self-balancing-teaching-tool/#more-112629
 [19]:
 [10]:
 [20]:

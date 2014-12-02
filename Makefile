@@ -227,7 +227,7 @@ version:
 
 # upgrade the Pelican package
 upgrade: version
-	pip install --upgrade Pelican
+	#pip install --upgrade Pelican
 	#pip install --upgrade Markdown
 	#sudo npm update -g tiddlywiki
 

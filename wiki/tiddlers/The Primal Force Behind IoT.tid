@@ -1,23 +1,70 @@
 created: 20140926030534164
-modified: 20140927031103147
+modified: 20141202033354609
 tags: pontifications
 title: The Primal Force Behind IoT
 type: text/vnd.tiddlywiki
 
-You have to wonder why is the phnomana of the Industrial Internet and the Internet of Things is happening.
-What is the driving force?
-I believe its rooted in our faith in the value of data,
-and the datification of our world.
+''//The Internet of Things isn't about things at all.
+It's about harvesting hidden data from our physical world
+and putting it to good use.//''
 
-!Datification is the primal force behind IoT
-[[Datification|http://www.business2community.com/big-data/the-datification-of-our-daily-lives-video-0560916#!86hej]] is about taking an event, process, or activity,
+You have to wonder why the phenomena of the Industrial Internet of Things (IIoT)
+and the Internet of Things (IoT) is happening.
+What are the driving forces?
+Do a quick search and you'll find many things given credit for IoT, such as:
+
+* The cost of sensors, wireless radios, and our ability to connect them to the Internet is coming down.
+* The ever expanding connectivity of the Internet into all our devices.
+* The mainstreaming of cloud computing enables the IoT architecture with powerful analytics and user experience.
+* Inexpensive microcontrollers and systems on a chip enable "fog" computing (i.e. smart things at the networks edge)
+
+I believe there is a more fundamental,
+a primal force, behind this movement.
+I believe its rooted in the ever increasing datification of our world and our faith in the value of that data.
+
+!Datification
+[[Datification|http://www.business2community.com/big-data/the-datification-of-our-daily-lives-video-0560916#!86hej]]
+is about taking an event, process, or activity,
 often that was previously invisible, and turning it into data.
 That data can then be tracked, monitored, and optimized, leading to new opportunities — and new challenges.
-The Industrial Internet and IoT is just the natural evolvutoion of this long occruing tread.
 
-It is interesting that those evalgulest who talk about datfication
+Cheap sensors, a ubiquitous network, and powerful processors make datification  possible,
+but its our desire to digitize our world that is at the heart of it all.
+We wish to convert our every physical event, thought, relationship, etc.
+into data that can be stored, transported, and manipulated.
+
+It is interesting that those evangelist who talk about datfication
 (and they roll into the discussion big data)
-give the very same examples as those who talk about IoT and the Industrial Internet.
-They talk about it as a driving force, anlogius to electification influance on the 20th century.
+give the very same examples as those who talk about IoT and IIoT.
+They talk about it as a driving force, analogous to electrification influence on the 20^^th^^ century.
 The emphasis is on how data can be used to make good decision,
-agnologious on how electricity can be converted to do useful physcial work.
+analogies on how electricity can be converted to do useful physical work.
+
+!Faith in Data
+We have a strong belief, maybe at times
+[[irrational belief|Our Irrational Faith in Data]],
+that by harvesting raw data from our things,
+or environment, or our very beings,
+we can make some good use of it.
+I would be the first one to say that data-driven decision-making can lead us to better outcomes,
+but datifications drives use to the extreme.
+We collect large volumes of data,
+in the hopes that patterns and correlations will be discovered.
+The tools data sciences sometimes help us tease out meaningful
+information from the data,
+but its sparked by a hunch, a belief that we can harvest useful things from the data we happen to be collecting.
+
+!The Oppertunity
+You can rightful attribute the IoT and IIoT to many technology trends, but the
+[[first cause|http://www.britannica.com/EBchecked/topic/208087/first-cause]]
+is the fact that we are obsessed with creating data
+that we believe might contain hidden information.
+Inexpensive sensors, processors, and networks alone would not
+give us IoT and IIoT.
+
+We now live in an age where businesses have started
+feed on the massive body of facts and behaviors encoded
+within the cracks and crevices of the Internet's virtual world.
+IoT and IIoT will harvest similar data but now it can include the physical world.
+This will also profoundly change businesses and is illustrested via the Accenture white paper
+"[[Driving Unconventional Growth through the Industrial Internet of Things|http://www.accenture.com/SiteCollectionDocuments/PDF/Accenture-Driving-Unconventional-Growth-through-IIoT.pdf]]".

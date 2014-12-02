@@ -1,5 +1,5 @@
-Title: Testing: Tables and Definition Lists
-Slug: testing-tables-and-definition-lists
+Title: Testing: Tables
+Slug: testing-tables
 Status: hidden
 
 ## The Back Story
@@ -115,32 +115,10 @@ you get the following:
 
 Test of inline MathJax: $\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}}$
 
-## Definition Lists
-The [Definition Lists][03] extension adds the ability to create definition lists in Markdown documents.
-For example, here are defintions of two fruits:
- 
-Apple
-:   Pomaceous fruit of plants of the genus Malus in 
-    the family Rosaceae.
-
-Orange
-:   The fruit of an evergreen tree of the genus Citrus.
-
-You can also add multiple definitions (if you add some spacing between items):
-
-Apple
-:   Pomaceous fruit of plants of the genus Malus in 
-    the family Rosaceae.
-:   An American computer company.
-
-Orange
-:    The fruit of an evergreen tree of the genus Citrus.
-
-
 
 [01]:http://stackoverflow.com/questions/16099153/table-not-render-when-use-redcarpet-in-jekyll-github-pages
 [02]:http://pythonhosted.org//Markdown/extensions/tables.html
-[03]:http://pythonhosted.org/Markdown/extensions/definition_lists.html
+[03]:
 [04]:
 [05]:
 [06]:

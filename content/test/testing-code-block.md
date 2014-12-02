@@ -58,9 +58,6 @@ This first example is using just indenting:
 	    [[ -f "$f" ]] && return 0 || return 1
     }
 
-The above example is likley to have some highlighting with red boxes.
-This is most likely because its assuming a language within the block and it highlighting errors.
-
 ## GitHub Formated Markdown Code Block
 Pelican also supports [GitHub Flavored Markdown (GFM)][08] style code blocks,
 known as [Fenced Blocks][09] via the Markdown extention CodeHilite.
@@ -106,11 +103,11 @@ is_file_exits() {
 }
 ```
 
-## Syntax Highlighting
+## Specifying the Syntax Highlighting
 Code blocks can be taken a step further by adding syntax highlighting.
 In your fenced block, add an optional language identifier and we'll run it through syntax highlighting.
 You can find out which keywords are valid as language identifiers by
- perusing the GitHub's Language Savant [languages.yml][10] file.
+perusing the GitHub's Language Savant [languages.yml][10] file.
 For example, to syntax highlight Ruby code, start the block with <code>```ruby</code> to get:
 
 ```ruby

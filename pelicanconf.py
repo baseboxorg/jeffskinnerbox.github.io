@@ -170,6 +170,7 @@ SOCIAL = (('Github', 'fa-github', 'https://github.com/jeffskinnerbox'),
           ('Pinterest', 'fa-pinterest', 'https://www.pinterest.com/jeffskinnerbox/my-electronics-projects-and-other-diversions/'),    # NOQA
           ('Pocket', 'fa-chevron-circle-down', 'http://getpocket.com/a/queue/'),    # NOQA
           ('Tumblr', 'fa-tumblr', 'http://jeffskinnerbox.tumblr.com/'),
+          ('Instagram', 'fa-instagram', 'http://instagram.com/jeffskinnerbox'),
           ('Facebook', 'fa-facebook', 'https://www.facebook.com/jeff.irland'),      # NOQA
           ('Linkedin', 'fa-linkedin', 'https://linkedin.com/in/jeffreyirland'),)    # NOQA
 TWITTER_USERNAME = 'jeffskinnerbox'
