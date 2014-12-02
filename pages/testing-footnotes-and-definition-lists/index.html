@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>RTL-SDR - Jeff's Skinner Box</title>
+    <title>Testing: Footnotes and Definition Lists - Jeff's Skinner Box</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -12,10 +12,9 @@
     <link href="http://jeffskinnerbox.me/favicon.ico" rel="icon">
 
     <!-- Open Graph tags -->
-            <meta property="og:type" content="website"/>
-            <meta property="og:title" content="Jeff's Skinner Box"/>
-            <meta property="og:url" content="http://jeffskinnerbox.me"/>
-            <meta property="og:description" content="Jeff's Skinner Box"/>
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Testing: Footnotes and Definition Lists"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/pages/testing-footnotes-and-definition-lists/"/>
 
     <!-- Bootstrap -->
         <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
@@ -70,25 +69,111 @@ Jeff's Skinner Box&nbsp;            </a>
     <div class="row">
         <div class="col-sm-9">
 
-            <article>
-                <h2><a href="http://jeffskinnerbox.me/posts/2013/Jul/08/gnu-radio-and-gqrx-srd-receiver/">GNU Radio and Gqrx SDR Receiver</a></h2>
-                <h6><i class="fa fa-calendar"></i><time datetime="2013-07-08T00:01:00-04:00"> Monday&nbsp;&nbsp;&nbsp;&nbsp;July 08, 2013</time></h6>
-                <img class="img-rounded" style="margin: 0px 8px; float: left;" alt="Summary Image" src="/images/summary/thumbnail/gnu_radio_logo.png"/>
-                <div class="summary"><p>GNU Radio is a free, open-source software development toolkit that provides signal processing blocks to implement software defined radios. It can be used with external RF hardware to create software-defined radios, or without hardware in a simulation-like environment.</p>
-                    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/posts/2013/Jul/08/gnu-radio-and-gqrx-srd-receiver/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://jeffskinnerbox.me/posts/2013/May/26/rtl-sdr-software-defined-radio-SDR-for-20/">RTL-SDR Software Defined Radio (SDR) for $20</a></h2>
-                <h6><i class="fa fa-calendar"></i><time datetime="2013-05-26T00:01:00-04:00"> Sunday&nbsp;&nbsp;&nbsp;&nbsp;May 26, 2013</time></h6>
-                <img class="img-rounded" style="margin: 0px 8px; float: left;" alt="Summary Image" src="/images/summary/thumbnail/NooElec_TV28T.jpg"/>
-                <div class="summary"><p>RTL-SDR is a very cheap software defined radio that uses a TV tuner dongle based on the RTL2832U chipset. Essentially, this means that a cheap $20 TV tuner can be used as a computer based radio scanner.  A scanner capability that would have cost hundreds of dollars just a few years ago.</p>
-                    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/posts/2013/May/26/rtl-sdr-software-defined-radio-SDR-for-20/">more ...</a>
-                </div>
-            </article>
-            <hr/>
+    <section id="content" class="body">
+        <h1 class="entry-title">Testing: Footnotes and Definition Lists</h1>
+        
+        <div class="entry-content" style="background-image: url('/home/jeff/blogging/content/images/banners-bkgrds/scratchpad-yellow-blueline.jpg'); background-repeat: repeat;">
+            <h2>The Back&nbsp;Story</h2>
+<h2>Footnote&nbsp;Formatting</h2>
+<p>Python-Markdown’s Footnote syntax generally follows the community at large version of
+Markdown but provides some extra‘s such as footnotes. 
+For&nbsp;example:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">[^a]: This is a footnote content.
+[^@#$%]: A footnote on the label: &quot;@#$%&quot;.
+[^2]: 
+    The first paragraph of the definition.
 
+    Paragraph two of the definition.
+
+    &gt; A blockquote with
+    &gt; multiple lines.
+
+        a code block
+
+    A final paragraph.
+</pre></div>
+
+
+<p>Footnotes<sup id="fnref:a"><a class="footnote-ref" href="#fn:a" rel="footnote">1</a></sup> have a label<sup id=&#8221;fnref:@#<mathjax>$%"><a class="footnote-ref" href="#fn:@#$</mathjax>%&#8221; rel=&#8221;footnote&#8221;>2</a></sup> and the footnote&#8217;s content.
+And you can have formating within the footnote<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">3</a></sup>.
+The text to create the footnotes can appear anywhere in the Markdown file,
+but by default, they will be rendered at the end of the page or article.
+See <a href="http://pythonhosted.org/Markdown/extensions/footnotes.html">here</a> if you wish to control the footnotes&nbsp;location.</p>
+<h2>Definition&nbsp;Lists</h2>
+<p>The <a href="http://pythonhosted.org/Markdown/extensions/definition_lists.html">Definition Lists</a> extension adds the ability to create definition lists in Markdown documents.
+For example, here are defintions of two&nbsp;fruits:</p>
+<dl>
+<dt>Apple</dt>
+<dd>Pomaceous fruit of plants of the genus Malus in 
+the family&nbsp;Rosaceae.</dd>
+<dt>Orange</dt>
+<dd>The fruit of an evergreen tree of the genus&nbsp;Citrus.</dd>
+</dl>
+<p>You can also add multiple definitions (if you add some spacing between&nbsp;items):</p>
+<dl>
+<dt>Apple</dt>
+<dd>Pomaceous fruit of plants of the genus Malus in 
+the family&nbsp;Rosaceae.</dd>
+<dd>An American computer&nbsp;company.</dd>
+<dt>Orange</dt>
+<dd>The fruit of an evergreen tree of the genus&nbsp;Citrus.</dd>
+</dl>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:a">
+<p>This is a footnote content.&#160;<a class="footnote-backref" href="#fnref:a" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id=&#8221;fn:@#<mathjax>$%">
+<p>A footnote on the label: "@#$</mathjax>%&#8221;.&#160;<a class="footnote-backref" href="#fnref:@#$%" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>The first paragraph of the&nbsp;definition.</p>
+<p>Paragraph two of the&nbsp;definition.</p>
+<blockquote>
+<p>A blockquote with
+multiple&nbsp;lines.</p>
+</blockquote>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">a code block
+</pre></div>
+
+
+<p>A final paragraph.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div><script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+		? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js'
+		: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+
+        </div>
+    </section>
         </div>
         <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
 
