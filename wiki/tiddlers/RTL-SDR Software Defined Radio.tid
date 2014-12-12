@@ -1,5 +1,5 @@
 created: 20140919015727086
-modified: 20141128235955213
+modified: 20141212020941371
 tags: projects
 title: RTL-SDR Software Defined Radio
 type: text/vnd.tiddlywiki
@@ -103,4 +103,7 @@ type: text/vnd.tiddlywiki
 
 !!Other SDR Solutions
 
-*[[Building A Software Defined Radio With A Teensy|http://hackaday.com/2014/04/25/building-a-software-defined-radio-with-a-teensy/]]
+* [[Building A Software Defined Radio With A Teensy|http://hackaday.com/2014/04/25/building-a-software-defined-radio-with-a-teensy/]]
+* [[HackRF One|https://greatscottgadgets.com/hackrf/]]
+* [[HackRF Blue|http://hackrfblue.com/]]
+* [[RF Analyzer - Display for HackRF on an Android Device|http://tech.mantz-it.com/2014/10/rf-analyzer-explore-frequency-spectrum.html]]

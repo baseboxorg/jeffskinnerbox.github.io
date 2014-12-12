@@ -1,8 +1,11 @@
 created: 20140920001203411
-modified: 20140927031308574
+modified: 20141212025219900
 tags: projects
 title: Potential Projects
 type: text/vnd.tiddlywiki
+
+Projects that sparked my interest, but honestly,
+I'll never have time to do but a few of these.
 
 <<list-links filter:"[tag[projects]]">>
 <<list-links filter:"[tag[meters & monitoring]]">>

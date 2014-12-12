@@ -1,6 +1,6 @@
 created: 20141031233756558
-modified: 20141031233814328
-title: service abstraction
+modified: 20141211220609402
+title: Service Abstraction
 type: text/vnd.tiddlywiki
 
 Service abstraction helps insulate the implementation and infrastructure details from service consumers.

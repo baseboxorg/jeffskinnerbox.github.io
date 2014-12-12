@@ -25,6 +25,7 @@ TMPFILE = "$(TMP)/temp_file_$(shell date +%H%M%S)"
 
 # Directory structure of the blogging directory (at least what's required for this work flow).
 BASEDIR = $(HOME)/blogging
+BINDIR = $(BASEDIR)/bin
 METADATA = $(BASEDIR)/metadata
 INPUTDIR = $(BASEDIR)/content
 OUTPUTDIR = $(BASEDIR)/output
@@ -154,9 +155,9 @@ else
 	cd $(OUTPUTDIR) && python $(PYTHONOPTS) -m pelican.server
 endif
 
-start: startwiki startserver
+start: startserver startwiki
 
-stop: stopwiki stopserver
+stop: stopserver stopwiki
 
 # This runs in the background, Pelican and a HTTP Server.  As updates are made to
 # the blog pages and articles, the blog can be view at "http://localhost:8000/" using a browser.
