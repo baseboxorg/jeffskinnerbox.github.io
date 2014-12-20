@@ -14,7 +14,7 @@
     <!-- Open Graph tags -->
             <meta property="og:type" content="article"/>
             <meta property="og:title" content="Repurposing a Vintage Laptop to Create a X Terminal"/>
-            <meta property="og:url" content="http://jeffskinnerbox.me/drafts/repurposing-a-vintage-laptop-to-create-a-x-terminal.html"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/posts/2014/Dec/19/repurposing-a-vintage-laptop-to-create-a-x-terminal/"/>
             <meta property="og:description" content="This project proved more challenging and complex a journey than originally anticipated, but I learned a great deal. since, I had to master Tiny Core Linux, X Window System, Ubuntu Unity, and even wireless LAN security all in the context of an ancient piece of hardware. I review my learnings and then provide the details on how to create the X Terminal."/>
 
     <!-- Bootstrap -->
@@ -74,7 +74,7 @@ Jeff's Skinner Box&nbsp;            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://jeffskinnerbox.me/drafts/repurposing-a-vintage-laptop-to-create-a-x-terminal.html"
+                    <a href="http://jeffskinnerbox.me/posts/2014/Dec/19/repurposing-a-vintage-laptop-to-create-a-x-terminal/"
                        rel="bookmark"
                        title="Permalink to Repurposing a Vintage Laptop to Create a X Terminal">
                         Repurposing a Vintage Laptop to Create a X Terminal
@@ -86,7 +86,7 @@ Jeff's Skinner Box&nbsp;            </a>
                     <div class="panel-body">
 <footer class="post-info">
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2100-01-01T00:00:00-05:00"> Friday&nbsp;&nbsp;&nbsp;&nbsp;January 01, 2100</time>
+        <i class="fa fa-calendar"></i><time datetime="2014-12-19T22:24:00-05:00"> Friday&nbsp;&nbsp;&nbsp;&nbsp;December 19, 2014</time>
     </span>
 
 
@@ -518,7 +518,7 @@ unity-reset
 </pre></div>
 
 
-<p>You can find more examples of configuring Unity via <code>gsettings</code> and othr tools in the&nbsp;postings:</p>
+<p>You can find more examples of configuring Unity via <code>gsettings</code> and other tools in the&nbsp;postings:</p>
 <ul>
 <li><a href="http://www.noobslab.com/2013/10/tweaksthings-to-do-after-install-of.html">Tweaks/Things to do after install of Ubuntu 13.10 Saucy&nbsp;Salamander</a></li>
 <li><a href="http://www.noobslab.com/2014/04/thingstweaks-to-do-after-install-of.html">Things/Tweaks To Do After Install Of Ubuntu 14.04 Trusty&nbsp;Tahr</a></li>
@@ -646,12 +646,12 @@ And of course, if your really ambitious, you can read the book &#8220;<a href="h
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="It is common networking knowledge that there really is no excuse to not use any encryption method other than WPA2. In all but the oldest wireless devices, just about all modern wireless clients support it." alt="Wireless Security Logo" src="/images/wifi-security.png" width="100" height="100" />
 </a>
 As stated earlier, the <span class="caps">XDMCP</span> protocol used to support the X Terminal isn&#8217;t encrypted<sup id="fnref:G"><a class="footnote-ref" href="#fn:G" rel="footnote">7</a></sup>.
-So using the X Terminal outside of ones secure <span class="caps">LAN</span> or <span class="caps">WAN</span>, saw across the internet, is risky business.
+So using the X Terminal outside of ones secure <span class="caps">LAN</span> or <span class="caps">WAN</span>, say across the internet, is risky business.
 Any passwords or credit cards will be passed as plan text.
 But in my case, I&#8217;ll be using this only on my home network.
 So the key here is making sure you have good firewall protection on your router and
 strong encryption on you wireless network.
-I&#8217;m using a route supplied by my internet provider,
+I&#8217;m using a router supplied by my internet provider,
 and by default, <a href="http://www.howtogeek.com/howto/38858/how-to-make-your-verizon-fios-router-1000-more-secure/">its configured for old encryption standards</a> and not the more secure <span class="caps">WPA2</span>.</p>
 <p>I have to admit that, up until this project,
 I haven&#8217;t been thinking much about the latest <span class="caps">WAN</span> encryption recommendations.
@@ -666,25 +666,21 @@ at best, might support <span class="caps">WEP</span>.
 but you can support all three security mechanisms on a single physical Wi-Fi network.
 However, client devices must find a protocol match on the APs to which they associate.
 In other words, <span class="caps">WEP</span> has to talk to <span class="caps">WEP</span>; it can’t talk to <span class="caps">WPA</span> or <span class="caps">WPA2</span>.</p>
-<p>The way you accommodate this is by divvying up the network into separate logical “security networks.”
-Most of the enterprise-class access point makers support all three protocols at the high end,
-as well as the ability to create separate service set identifiers (<span class="caps">SSID</span>)
-associated with corresponding virtual LANs (VLANs) to accommodate each protocol.
-So, in other words, on one physical WiFi network,
-you could have three logical security networks: a <span class="caps">WEP</span> network, a <span class="caps">WPA</span> network, and a <span class="caps">WPA2</span> network<sup id="fnref:H"><a class="footnote-ref" href="#fn:H" rel="footnote">8</a></sup>.</p>
-<ul>
-<li><a href="http://www.splashofstyle.com/archives/2010/12/03/how-to-change-verizon-fios-router-from-wep-to-wpa2-plus-other-security-adjustments/">How to Change Verizon Fios Router from <span class="caps">WEP</span> to <span class="caps">WPA2</span>, Plus Other Security&nbsp;Adjustments</a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-</ul>
+<p>In the end, I bit the bullet and converted my home WiFi to <span class="caps">WPA2</span>.
+I followed the proceedures outlined here:
+<a href="http://www.splashofstyle.com/archives/2010/12/03/how-to-change-verizon-fios-router-from-wep-to-wpa2-plus-other-security-adjustments/">How to Change Verizon Fios Router from <span class="caps">WEP</span> to <span class="caps">WPA2</span>, Plus Other Security Adjustments</a>.</p>
 <h1>Establishing the X Terminal&nbsp;Solution</h1>
-<p>To create the X Terminal solution, and therefore install the Tiny Core Linux (<span class="caps">TCL</span>),
+<p><div style="float: left">
+    <a href="http://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg">
+        <img class="img-rounded" style="margin: 0px 8px" title="HP Omni Book XE3 being used as a X Terminal using Tiny Core Linux" alt="Laptop X Terminal" src="http://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg" width="70" height="70">
+    </a>
+</div>
+To create the X Terminal solution, and therefore install the Tiny Core Linux (<span class="caps">TCL</span>),
 its good to have a firm undersatanding of <span class="caps">TCL</span> and how its differes from an typical Linux install.
 Reading the <a href="http://www.tinycorelinux.net/corebook.pdf"><span class="caps">TCL</span> book</a> is a good idea and so is watching
 <a href="https://www.youtube.com/channel/UCZuZ4D4WGmyCLlWkgXvqqEg">JoeNobody010101</a> (your going to love this guy)
 who provides a series of videos titled &#8220;How to install and configure TinyCore&nbsp;Linux&#8221;.</p>
-<h3>Installing Tiny Core Linux on Local Computer (<span class="caps">TCL</span> Vintage&nbsp;Laptop)</h3>
+<h3>Installing Tiny Core Linux on Local&nbsp;Computer</h3>
 <p>Before starting the step-by-step installation procedures,
 here are some important things to&nbsp;know.</p>
 <h4>Mount Mode&nbsp;Install</h4>
@@ -841,8 +837,8 @@ but <a href="ttp://wiki.tinycorelinux.net/wiki:setting_up_wifi">Easy Way: wicd</
 <li>Now pull the Ethernet connection and reboot (<span class="caps">TCL</span> seems to get confused when you try to operate with both Ethernet and WiFi&nbsp;connections).</li>
 <li>At this point you may verify the WiFi device with <a href="http://www.linuxcommand.org/man_pages/iwconfig8.html"><code>iwconfig</code></a>.  You should see that <code>wlan0</code> is&nbsp;operational.</li>
 <li>Execute the program <code>sudo wpa_passphrase &lt;YourSSID&gt; &lt;YourPassword&gt; &gt; /opt/wpa_supplicant.conf</code>.  This will place the network credentials in a&nbsp;file.</li>
-<li>On the command line, execute the <span class="caps">WPA2</span> utility<sup id="fnref:I"><a class="footnote-ref" href="#fn:I" rel="footnote">9</a></sup> <code>sudo wpa_supplicant -Dwext -iwlan0 -c/opt/wpa_supplicant.conf -B</code>.</li>
-<li>On the command line, execute <span class="caps">DHCP</span> client program<sup id="fnref:J"><a class="footnote-ref" href="#fn:J" rel="footnote">10</a></sup> <code>sudo udhcpc -iwlan0 -p/var/run/udcpc.wlan0.pid</code>.</li>
+<li>On the command line, execute the <span class="caps">WPA2</span> utility<sup id="fnref:I"><a class="footnote-ref" href="#fn:I" rel="footnote">8</a></sup> <code>sudo wpa_supplicant -Dwext -iwlan0 -c/opt/wpa_supplicant.conf -B</code>.</li>
+<li>On the command line, execute <span class="caps">DHCP</span> client program<sup id="fnref:J"><a class="footnote-ref" href="#fn:J" rel="footnote">9</a></sup> <code>sudo udhcpc -iwlan0 -p/var/run/udcpc.wlan0.pid</code>.</li>
 <li>Now see if you can <a href="http://linux.about.com/od/commands/l/blcmdl8_ping.htm"><code>ping</code></a> from and to the&nbsp;laptop.</li>
 <li>To permanently save changes to the hard drive, execute <code>filetool.sh -b</code> in a terminal&nbsp;window.</li>
 <li>As a final test, reboot and try out the WiFi.<ul>
@@ -853,13 +849,6 @@ but <a href="ttp://wiki.tinycorelinux.net/wiki:setting_up_wifi">Easy Way: wicd</
 </ul>
 </li>
 </ol>
-<p>wifi.db in home&nbsp;directory</p>
-<ul>
-<li><a href="http://forum.tinycorelinux.net/index.php?topic=15535.0">no wireless extensions using usb-wlan adapter with chipset&nbsp;rtl8192cu </a></li>
-<li><a href="http://wiki.tinycorelinux.net/wiki:list_of_supported_wifi_devices">List of Supported Wifi&nbsp;Devices</a></li>
-<li><a href="http://wiki.tinycorelinux.net/wiki:setting_up_wifi">Setting Up&nbsp;WiFi</a></li>
-<li><a href="http://tinycorelinux.net/4.x/armv7/README/README-wifi.txt">How to get wireless working when no other network access is&nbsp;available</a></li>
-</ul>
 <h3>Tiny Core Linux&nbsp;Files</h3>
 <p>Once successfully installed, the Tiny Core Linux (<span class="caps">TCL</span>) files should be look like&nbsp;this:</p>
 <p>The backup is controlled by two files <code>/opt/.filetool.lst</code> lists
@@ -998,11 +987,6 @@ and you will get the <span class="caps">TCL</span> command line&nbsp;prompt.</p>
 </pre></div>
 
 
-<p>To log in from a remote&nbsp;terminal</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">
-</pre></div>
-
-
 <h3>Configuring Remote Computer (Ubuntu&nbsp;Desktop)</h3>
 <p>On the remote-computer (in my case, a Ubuntu desktop runing <code>lightdm</code> Display Manager),
 you need to tell the Display Manager to accept logins from a remote X Server.
@@ -1038,63 +1022,7 @@ sudo apt-get install fluxbox fbdesk
 </pre></div>
 
 
-<p>After a bit of online research, I establish the following Fluxbox configuration&nbsp;files.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># startup file</span>
-</pre></div>
-
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># menu file</span>
-</pre></div>
-
-
-<p>Add thing to menu - http://www.wikihow.com/Configure-Fluxbox
-http://fluxbox.org/help/man-fluxbox-menu.php&nbsp;http://www.linuxquestions.org/questions/linux-newbie-8/fbdesk-for-fluxbox-autostartup-318343/</p>
-<h3>Configuring Local Computer (<span class="caps">TCL</span> Vintage&nbsp;Laptop)</h3>
-<p>If you log into <span class="caps">TCL</span> in text mode then start a X Window <span class="caps">GUI</span> session with
-<code>xinit</code> or with the wrapper script <code>startx</code>, then <code>xinit</code> does the following things:
-Start an X Server,
-usually run some scripts (typically /etc/X11/xinit/xinitrc),
-run <code>~/.xinitrc</code>,
-and when <code>~/.xinitrc</code> terminates, kill the X Server.
-If you log in in using a X Display Manager, what is executed after you log in is some scripts in <code>~/.xsession</code>.
-It&#8217;s supposed to perform the initial startup of your session (e.g. define environment variables),
-then launch programs specific to the <span class="caps">GUI</span> (usually at least window&nbsp;manager).</p>
-<p>I install the following extensions via <span class="caps">TCL</span> <code>Apps</code> application&nbsp;(OnBoot):</p>
-<ul>
-<li>openssl-1.0.0.tcz</li>
-</ul>
-<h3>Tiny Core Linux Boot&nbsp;Sequence</h3>
-<p>init -&gt; tc-config -&gt; init -&gt; /root/.profile -&gt; /home/tc/.profile -&gt; /home/tc/.xsession
-<a href="http://forum.tinycorelinux.net/index.php?topic=1924.0"> Boot sequence - what starts xvesa&nbsp;xserver?</a></p>
-<p><a href="http://antoine.ginies.free.fr/xnest/#id2477891"><span class="caps">HOWTO</span> Xnest, secure Xnest</a>
-<a href="https://www.youtube.com/watch?v=BSYmajttVDw">Xnest - Create a new Display in a Window -&nbsp;Linux</a></p>
-<p><a href="https://wiki.ubuntu.com/xdmcp">xdmcp</a>
-<a href="http://www.omgubuntu.co.uk/2012/09/ubuntu-12-10-login-screen-adds-remote-desktop-access">Ubuntu 12.10 Login Screen Adds Remote Desktop Access</a>
-<a href="http://danilodellaquila.com/blog/how-to-remote-login-via-xdmcp-in-ubuntu">How to Remote Login via <span class="caps">XDMCP</span> in Ubuntu</a>
-<a href="http://pzuk.wordpress.com/2011/10/21/how-to-enable-remote-access-to-xserver-on-ubuntu-11-04-and-ubuntu-11-10/">How to enable remote access to Xserver on Ubuntu 11.04 and Ubuntu 11.10</a>
-<a href="http://www.faqs.org/docs/Linux-mini/XDM-Xterm.html"><span class="caps">XDM</span> and X Terminal mini-<span class="caps">HOWTO</span></a>
-<a href="http://development.gbdirect.co.uk/xterminal.html">Building X terminals with Linux</a>
-<a href="https://groups.google.com/forum/#!topic/linux.debian.user/nUguTStjRkU">setting up x terminal workstation</a>
-<a href="http://linuxtutorial.info/modules.php?name=MContent&amp;pageid=45">Remote&nbsp;Access</a></p>
-<p><a href="http://www.spencerstirling.com/computergeek/xterminal.html">X terminals in Linux (Running X programs remotely using <span class="caps">SSH</span>, <span class="caps">XDMCP</span>, or&nbsp;Sterminal)</a></p>
-<p><a href="http://blog.linuxacademy.com/linux/ubuntu-secure-remote-desktop-connectivity/">Ubuntu – Secure Remote Desktop Connectivity</a>
-<a href="http://www.linuxjournal.com/article/6713">Linux-Based X Terminals with <span class="caps">XDMCP</span></a>
-<a href="http://zweije.home.xs4all.nl/xauth-9.html">Setting Up an X&nbsp;Terminal</a></p>
-<p><a href="http://www.phoronix.com/scan.php?page=news_item&amp;px=MTU2NzA">The Tiny X Server Fork Is Still Being&nbsp;Maintained</a></p>
-<p><a href="http://askubuntu.com/questions/60364/can-i-run-a-remote-x-session-in-windowed-mode">Can I run a remote X session in windowed&nbsp;mode?</a></p>
-<p><a href="http://www.answeredubuntu.com/175902/remote_x_server_with_ssh_x#sthash.ifsk3uxx.dpbs">Remote x-server with ssh -X</a>
-<a href="http://ptspts.blogspot.com/2010/02/how-to-try-gdm-login-screen-in-many.html">How to try the <span class="caps">GDM</span> login screen in many resolutions</a>
-<a href="http://x.cygwin.com/docs/ug/using-remote-session.html">Remote sessions via <span class="caps">XDMCP</span></a>
-<a href="http://wiki.gentoo.org/wiki/X_without_Display_Manager">X without Display&nbsp;Manager</a></p>
-<p><a href="https://www.centos.org/docs/5/html/5.2/Installation_Guide/s2-trouble-remotex.html">Remote Graphical Desktops and <span class="caps">XDMCP</span></a>
-<a href="http://forums.opensuse.org/showthread.php/466709-Starting-a-Remote-X-session-using-XDMCP">Starting a Remote X session using <span class="caps">XDMCP</span></a>
-<a href="http://support.attachmate.com/techdocs/1818.html">Starting a <span class="caps">UNIX</span>/Linux Desktop Using <span class="caps">SSH</span></a></p>
-<p><a href="http://askubuntu.com/questions/11189/how-to-use-xdmcpgdm-and-xnest">How to use <span class="caps">XDMCP</span>+<span class="caps">GDM</span> and Xnest?</a>
-<a href="https://wiki.ubuntu.com/xdmcp">xdmcp</a>
-<a href="http://unix.stackexchange.com/questions/20385/windows-managers-vs-login-managers-vs-display-managers-vs-desktop-environment">Windows Managers vs Login Managers Vs Display Managers Vs Session Manager Vs Desktop Environment</a>
-<a href="http://en.wikibooks.org/wiki/Multiseat_Configuration/Xnest">Multiseat&nbsp;Configuration/Xnest</a></p>
 <h3>Xvesa X&nbsp;Server</h3>
-<p><a href="http://www.linuxquestions.org/questions/linux-newbie-8/how-safe-unsafe-is-xvesa-161055/">How safe/unsafe is&nbsp;Xvesa?</a></p>
 <p>Xvesa X Server is <span class="caps">NOT</span> a normal <a href="http://www.xfree86.org/">XFree86</a> X Server.
 It is part of the <a href="http://www.xfree86.org/current/TinyX.1.html">TinyX series of X Servers</a>.
 Xvesa accepts all the <a href="http://www.xfree86.org/current/Xserver.1.html">standard options accepted by all X Servers</a>,
@@ -1116,7 +1044,6 @@ file, like their bigger&nbsp;brothers.</p>
 <li><strong>-I</strong> ignore all remaining&nbsp;arguments</li>
 </ul>
 <p>To make this persistent, put <code>tc/.xsession</code> in the <code>/opt/.filetool.lst</code>.</p>
-<p><img class="img-rounded" style="margin: 0px 8px; float: left" title="HP Omni Book XE3 being used as a X Terminal using Tiny Core Linux" alt="Laptop X Terminal" src="https://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg" width="25%" height="25%"/></p>
 <div class="footnote">
 <hr />
 <ol>
@@ -1228,22 +1155,17 @@ However, the lack of compression can make <span class="caps">XDMCP</span> provid
 but since this would need to be supported on Tiny Core Linux (which it is not),
 this will not help me.&#160;<a class="footnote-backref" href="#fnref:G" rev="footnote" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
-<li id="fn:H">
-<p>You can add more logical networks for other security reasons.
-For example, you may wish to further segregate the network logically based on other criteria,
-such as putting all voice on one logical network, guest user access on another, and so forth. &#160;<a class="footnote-backref" href="#fnref:H" rev="footnote" title="Jump back to footnote 8 in the text">&#8617;</a></p>
-</li>
 <li id="fn:I">
 <p><code>wpa_supplicant</code> is a free software implementation of an <span class="caps">IEEE</span> 802.11i supplicant for Linux.
 Included with the supplicant are a <span class="caps">GUI</span> and a command-line utility for interacting with the running supplicant.
 From either of these interfaces it is possible to review a list of currently visible networks,
 select one of them, provide any additional security information needed to authenticate with the network
-(for example, a passphrase, or username and password).&#160;<a class="footnote-backref" href="#fnref:I" rev="footnote" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+(for example, a passphrase, or username and password).&#160;<a class="footnote-backref" href="#fnref:I" rev="footnote" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 <li id="fn:J">
 <p>Udhcpc is a very small <span class="caps">DHCP</span> client program geared towards embedded systems.
 The letters are an abbreviation for Micro - <span class="caps">DHCP</span> - Client (µDHCPc).
-The program tries to be fully functional and <span class="caps">RFC</span> 2131 compliant.&#160;<a class="footnote-backref" href="#fnref:J" rev="footnote" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+The program tries to be fully functional and <span class="caps">RFC</span> 2131 compliant.&#160;<a class="footnote-backref" href="#fnref:J" rev="footnote" title="Jump back to footnote 9 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -1257,7 +1179,7 @@ The program tries to be fully functional and <span class="caps">RFC</span> 2131 
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
             var disqus_identifier = 'repurposing-a-vintage-laptop-to-create-a-x-terminal';
-            var disqus_url = 'http://jeffskinnerbox.me/drafts/repurposing-a-vintage-laptop-to-create-a-x-terminal.html';
+            var disqus_url = 'http://jeffskinnerbox.me/posts/2014/Dec/19/repurposing-a-vintage-laptop-to-create-a-x-terminal/';
             var disqus_config = function () {
                 this.language = "en";
             };

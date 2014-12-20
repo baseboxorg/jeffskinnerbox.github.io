@@ -1,5 +1,1072 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Jeff's Skinner Box</title><link href="http://jeffskinnerbox.me/" rel="alternate"></link><link href="http://jeffskinnerbox.me/feeds/jeff-irland.atom.xml" rel="self"></link><id>http://jeffskinnerbox.me/</id><updated>2014-05-12T12:42:00-04:00</updated><entry><title>Conky for Ubuntu</title><link href="http://jeffskinnerbox.me/posts/2014/May/12/conky-for-ubuntu/" rel="alternate"></link><updated>2014-05-12T12:42:00-04:00</updated><author><name>"Jeff Irland"</name></author><id>tag:jeffskinnerbox.me,2014-05-12:posts/2014/May/12/conky-for-ubuntu/</id><summary type="html">&lt;p&gt;Over a Year ago, I created a &lt;a href="http://jeffskinnerbox.me/posts/2012/Nov/02/conky-for-the-raspberry-pi/"&gt;Conky configuration file for the Raspberry Pi&lt;/a&gt;.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Jeff's Skinner Box</title><link href="http://jeffskinnerbox.me/" rel="alternate"></link><link href="http://jeffskinnerbox.me/feeds/jeff-irland.atom.xml" rel="self"></link><id>http://jeffskinnerbox.me/</id><updated>2014-12-19T22:24:00-05:00</updated><entry><title>Repurposing a Vintage Laptop to Create a X Terminal</title><link href="http://jeffskinnerbox.me/posts/2014/Dec/19/repurposing-a-vintage-laptop-to-create-a-x-terminal/" rel="alternate"></link><updated>2014-12-19T22:24:00-05:00</updated><author><name>"Jeff Irland"</name></author><id>tag:jeffskinnerbox.me,2014-12-19:posts/2014/Dec/19/repurposing-a-vintage-laptop-to-create-a-x-terminal/</id><summary type="html">&lt;p&gt;&lt;a href="http://television.cosmicbooknews.com/content/wayback-machine-wabac-machine"&gt;
+    &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="WABAC (pronounced “wayback”) machine of Peabody's Improbable History, an ongoing feature of the 1960s cartoon series The Rocky and Bullwinkle Show" alt="WABAC Pic" src="https://upload.wikimedia.org/wikipedia/en/3/3f/Waybackmachine3.png" width="200" height="200" /&gt;
+&lt;/a&gt;
+On a whim, I visited a web auction site dealing in surplus government property. 
+I spotted two very old laptops, which claimed to be still operational,
+and I placed a bid of $40.
+A few days later, I received an email saying I was the proud owner of two 
+&lt;span class="caps"&gt;HP&lt;/span&gt; Omni Book &lt;span class="caps"&gt;XE3&lt;/span&gt; loaded with a Celeron&lt;sup id="fnref:A"&gt;&lt;a class="footnote-ref" href="#fn:A" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; 32bit&amp;nbsp;processor!&lt;/p&gt;
+&lt;p&gt;By todays standards, the &lt;span class="caps"&gt;HP&lt;/span&gt; Omni Book &lt;span class="caps"&gt;XE3&lt;/span&gt; isn&amp;#8217;t exactly a race horse with its
+1066 MHz clock, 128M of &lt;span class="caps"&gt;RAM&lt;/span&gt; running at 100 MHz, and 10/100 Ethernet &lt;span class="caps"&gt;LAN&lt;/span&gt; communications.
+These laptops&lt;sup id="fnref:B"&gt;&lt;a class="footnote-ref" href="#fn:B" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt; date back to 2000, the early days of the Internet,
+and are unashamedly equipped with a built in phone jack / modem, &lt;a href="http://en.wikipedia.org/wiki/PC_Card"&gt;&lt;span class="caps"&gt;PCMCIA&lt;/span&gt; card slots&lt;/a&gt;,
+a 1.44-&lt;span class="caps"&gt;MB&lt;/span&gt; floppy disk drive, and proudly hosting Microsoft Windows 98 Second&amp;nbsp;Edition!&lt;/p&gt;
+&lt;p&gt;The installed 10G drive was wiped clean but the laptops did come with the ordinal recovery disk.
+Using the recovery disk, I quickly got the Microsoft Windows 98 operating system installed.
+There was no login prompt / password required &amp;#8230; wow, not much security&amp;nbsp;here.&lt;/p&gt;
+&lt;p&gt;I activated the browser, that being Microsoft Internet Explorer 6.0.
+During the activation, it asked if I wished to access the Internet via a modem
+&lt;em&gt;&amp;#8230; Ahhhh, nooo!  It&amp;#8217;s the ghost of Internet past!&lt;/em&gt;
+Initially, this old browser only partly worked.
+I then set it to accept all cookies and it behave much better and was usable,
+but it would hang sometime and it wasn&amp;#8217;t at all&amp;nbsp;pretty.&lt;/p&gt;
+&lt;p&gt;With the browser and the slow Internet connection,
+I figured that I could then down load the Linux distribution that I needed, and boot it from the disk.
+My plan is to get a light-weight Linux distro installed and use it as X Server with my desktop
+Linux system as its X Client, that is, turn the laptop into a X Terminal&lt;sup id="fnref:C"&gt;&lt;a class="footnote-ref" href="#fn:C" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt;.
+I was hoping to use &lt;a href="http://lubuntu.net/"&gt;Lubuntu&lt;/a&gt; as my Linux distro.
+This &lt;a href="https://help.ubuntu.com/community/Lubuntu/Alternate_ISO"&gt;alternate version of Ubuntu&lt;/a&gt; is for computers with less than 700 &lt;span class="caps"&gt;MB&lt;/span&gt; of &lt;span class="caps"&gt;RAM&lt;/span&gt;,
+so I&amp;#8217;m hoping it will do the&amp;nbsp;job.&lt;/p&gt;
+&lt;p&gt;What I shortly discovered is that the antique hardware and &lt;span class="caps"&gt;OS&lt;/span&gt; (Microsoft Windows 98)
+got in the way.
+All the method I tried to install Lubuntu ran into walls.
+First, the &lt;a href="http://en.wikipedia.org/wiki/ISO_image"&gt;&lt;span class="caps"&gt;ISO&lt;/span&gt; image&lt;/a&gt; was to large to burn to a &lt;span class="caps"&gt;CD&lt;/span&gt;-&lt;span class="caps"&gt;ROM&lt;/span&gt;, it required a &lt;span class="caps"&gt;DVD&lt;/span&gt;,
+but this old laptop isn&amp;#8217;t &lt;span class="caps"&gt;DVD&lt;/span&gt; equipped.
+Booting the &lt;span class="caps"&gt;ISO&lt;/span&gt; from a &lt;span class="caps"&gt;USB&lt;/span&gt; thumb drive wasn&amp;#8217;t possible with the old laptop &lt;span class="caps"&gt;BIOS&lt;/span&gt;.
+When I attempted to load the &lt;span class="caps"&gt;ISO&lt;/span&gt; image from the hard disk using methods found at
+&lt;a href="https://help.ubuntu.com/community/Lubuntu/GetLubuntu"&gt;Downloading Lubuntu 13.10&lt;/a&gt;, &lt;a href="https://help.ubuntu.com/community/Lubuntu/InstallingLubuntu"&gt;Installing Lubuntu&lt;/a&gt;, and &lt;a href="https://help.ubuntu.com/community/Installation/FromWindows"&gt;Installation/FromWindows&lt;/a&gt;,
+I found that these tools and methods wouldn&amp;#8217;t work within Windows&amp;nbsp;98.&lt;/p&gt;
+&lt;h1&gt;Testing Light-Weight Linux&amp;nbsp;Distributions&lt;/h1&gt;
+&lt;p&gt;I concluded that it would be best to burn the Linux distro onto a &lt;span class="caps"&gt;CD&lt;/span&gt;-&lt;span class="caps"&gt;ROM&lt;/span&gt; using
+my current desktop computer and boot the laptop with the &lt;span class="caps"&gt;CD&lt;/span&gt;-&lt;span class="caps"&gt;ROM&lt;/span&gt; as a &lt;a href="http://en.wikipedia.org/wiki/Live_CD"&gt;live system&lt;/a&gt;.
+It was still my desire is to use Lubuntu, but give the limitations of this laptop,
+I&amp;#8217;ll also try out Damn Small Linux (&lt;span class="caps"&gt;DSL&lt;/span&gt;), Puppy Linux, and Tiny Core&amp;nbsp;Linux.&lt;/p&gt;
+&lt;h3&gt;Damn Small Linux (&lt;span class="caps"&gt;DSL&lt;/span&gt;)&lt;/h3&gt;
+&lt;p&gt;For my first trial, I choose to install &lt;a href="http://www.damnsmalllinux.org/"&gt;Damn Small Linux (&lt;span class="caps"&gt;DSL&lt;/span&gt;)&lt;/a&gt;.
+&lt;span class="caps"&gt;DSL&lt;/span&gt; (based on the Debian distro)&lt;sup id="fnref:D"&gt;&lt;a class="footnote-ref" href="#fn:D" rel="footnote"&gt;4&lt;/a&gt;&lt;/sup&gt; was released in 2003 to specifically create a
+Linux operating system for &lt;a href="http://www.osnews.com/story/24936/Damn_Small_Linux_Still_Damn_Fun"&gt;older hardware&lt;/a&gt;.
+&lt;span class="caps"&gt;DSL&lt;/span&gt; supports older machines with minimal memory by disabling all unnecessary daemons or services.
+&lt;span class="caps"&gt;DSL&lt;/span&gt; gives you a tool to individually load and manage daemons,
+and you can load bundled applications designed with stingy resource use.
+&lt;span class="caps"&gt;DSL&lt;/span&gt; was designed, tested, and runs on old computers by retains support for many old&amp;nbsp;devices. &lt;/p&gt;
+&lt;p&gt;The installation of &lt;span class="caps"&gt;DSL&lt;/span&gt; on the laptop happened without any difficulties.
+I followed the excellent instructions give in the article
+&lt;a href="http://voices.yahoo.com/how-download-install-dsl-linux-5947706.html?cat=15"&gt;How to Download and Install &lt;span class="caps"&gt;DSL&lt;/span&gt; Linux&lt;/a&gt;.
+Every thing came up&amp;nbsp;nicely.&lt;/p&gt;
+&lt;p&gt;But there are problems.
+A major short coming of this distro is that
+&lt;span class="caps"&gt;DSL&lt;/span&gt; development seemed to be at a &lt;a href="http://en.wikipedia.org/wiki/Damn_Small_Linux"&gt;standstill for a long time&lt;/a&gt;.
+This, and the fact that I can&amp;#8217;t find much documentation on how to support WiFi with &lt;span class="caps"&gt;DSL&lt;/span&gt;,
+gives me major concerns about using it.
+Never the less, the good news is that
+I now know I can get some version of Linux operational on this old&amp;nbsp;laptop.&lt;/p&gt;
+&lt;h3&gt;Lubuntu&lt;/h3&gt;
+&lt;p&gt;My next test install was &lt;a href="http://lubuntu.net/"&gt;Lubuntu&lt;/a&gt;.
+The article &amp;#8220;&lt;a href="http://www.osnews.com/story/24476/Lubuntu_Finally_a_Lightweight_Ubuntu_"&gt;Lubuntu: Finally, a Lightweight Ubuntu&lt;/a&gt;&amp;#8221;
+claims that Lubuntu has snappy responsiveness on older computers.
+This seems to be dependent on having a Pentium &lt;span class="caps"&gt;III&lt;/span&gt; processor
+and 128M or more of memory.
+This laptop seems to just meet this criteria and so I pushed&amp;nbsp;forward.&lt;/p&gt;
+&lt;p&gt;I down loaded the Alternate version of Lubuntu from the site
+&lt;a href="https://help.ubuntu.com/community/Lubuntu/Alternate_ISO"&gt;Lubuntu Alternate ISOs for low-&lt;span class="caps"&gt;RAM&lt;/span&gt; PCs&lt;/a&gt;, created the &lt;span class="caps"&gt;CD&lt;/span&gt;-&lt;span class="caps"&gt;ROM&lt;/span&gt;, and booted the laptop with the &lt;span class="caps"&gt;CD&lt;/span&gt;-&lt;span class="caps"&gt;ROM&lt;/span&gt;.
+The install started smoothly but slowed down and took several hours &amp;#8230; bad sign.
+Once installed, it hung during boot up.
+Looks like Lubuntu is out of the running.
+It appears the 128M of &lt;span class="caps"&gt;RAM&lt;/span&gt; is just too small for&amp;nbsp;Lubuntu.&lt;/p&gt;
+&lt;h3&gt;Puppy&amp;nbsp;Linux&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://puppylinux.org/main/Overview%20and%20Getting%20Started.htm"&gt;Puppy Linux&lt;/a&gt; is a popular light-weight Linux distro.
+I successfully installed Puppy Linux, but once installed,
+it performed badly when I fired up applications like a browser.
+A closer reading of the Puppy Linux documentation informed me that
+the Linux Kernel is going to require 100M of &lt;span class="caps"&gt;RAM&lt;/span&gt;.
+So any reasonable size application will cause performance&amp;nbsp;problems.&lt;/p&gt;
+&lt;h3&gt;Tiny Core Linux (&lt;span class="caps"&gt;TCL&lt;/span&gt;)&lt;/h3&gt;
+&lt;p&gt;My final attempt was &lt;a href="http://tinycorelinux.net/"&gt;Tiny Core Linux (&lt;span class="caps"&gt;TCL&lt;/span&gt;)&lt;/a&gt;, which comes in three &lt;span class="caps"&gt;ISO&lt;/span&gt; images,
+include CorePlus which is the installation image I required.
+I download the CorePlus, image, burned it to a &lt;span class="caps"&gt;CD&lt;/span&gt;-&lt;span class="caps"&gt;ROM&lt;/span&gt;, booted it,
+and selected &amp;#8220;&lt;code&gt;Boot Core with X/GUI (TineCore) + Installation Extentions&lt;/code&gt;&amp;#8221; from the boot menu. 
+This will enable you to perform a hard drive install of &lt;span class="caps"&gt;TCL&lt;/span&gt;.
+See the &lt;a href="http://tinycorelinux.net/install.html"&gt;Tiny Core Linux installation documentation for procedures&lt;/a&gt;.
+(You can also do a &lt;a href="http://tinycorelinux.net/install_manual.html"&gt;manual install&lt;/a&gt;,
+with a reformating of the disk, if you boot directory is screwed up form previous&amp;nbsp;installs.)&lt;/p&gt;
+&lt;p&gt;&lt;span class="caps"&gt;TCL&lt;/span&gt; install without a hitch and ran very nicely.
+It has a very smaller &lt;span class="caps"&gt;RAM&lt;/span&gt; footprint like &lt;span class="caps"&gt;DSL&lt;/span&gt; but is actively supported,
+well documented, including a book call &lt;a href="http://www.tinycorelinux.net/corebook.pdf"&gt;Into the Core: A look at Tiny Core Linux&lt;/a&gt;.
+Given all this, &lt;span class="caps"&gt;TCL&lt;/span&gt; seems like a good choose for my X Terminal&amp;nbsp;plans.&lt;/p&gt;
+&lt;h1&gt;Getting to Know Your X&amp;nbsp;Environment&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://en.wikipedia.org/wiki/X_Window_System"&gt;
+    &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="The X Window System (X11, X, and sometimes informally X-Windows) is a windowing system for bitmap displays, common on UNIX-like operating systems. X provides the basic framework for a GUI environment: drawing and moving windows on the display device and interacting with a mouse and keyboard. X does not mandate the user interface, this is handled by individual programs." alt="X Logo" src="/images/x-logo.png" width="100" height="100" /&gt;
+&lt;/a&gt;
+As stated earlier, my objective is to use the &lt;span class="caps"&gt;TCL&lt;/span&gt; laptop as a
+&lt;a href="http://en.wikipedia.org/wiki/X_terminal"&gt;X Terminal&lt;/a&gt; with my desktop Linux as the remote system.
+To do this successfully, you need to understand the X Window System as it will operate
+on the X Terminal and the remote system.
+The beauty of X is the flexibility it gives you in creating a graphics applications
+and distribute them across a network.
+On the other hand, this flexibility creates its own complexity
+and makes it challenging to understand how X&amp;nbsp;operates.&lt;/p&gt;
+&lt;p&gt;To clarify this, a typical X Window System consists of the following components:
+&lt;a href="http://en.wikipedia.org/wiki/X_Window_System_protocols_and_architecture"&gt;
+    &lt;img class="img-rounded" style="margin: 0px 8px; float: right" title="X Window Client Server Architecture" alt="X Architecture" src="/images/x-windows-client-server-architecture.png" width="210" height="356" /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;X Window System (aka X, X11, X-Windows)&lt;/strong&gt; - &lt;a href="http://en.wikipedia.org/wiki/X11"&gt;X Window System&lt;/a&gt; provides the basic &lt;a href="http://en.wikipedia.org/wiki/X_Window_System_protocols_and_architecture"&gt;framework, primitives, and protocals&lt;/a&gt; for a graphical user interface (&lt;span class="caps"&gt;GUI&lt;/span&gt;) environment.  X does not mandate the user interface — this is handled by individual programs.  As such, the visual styling of X-based environments varies greatly; different programs may present radically different interfaces.  There are several implementation of X, including &lt;a href="http://www.x.org/wiki/"&gt;X.Org&lt;/a&gt;, &lt;a href="http://xfree86.sourceforge.net/"&gt;XFree86&lt;/a&gt;, &lt;a href="http://x.cygwin.com/"&gt; Cygwin/X&lt;/a&gt;, and many&amp;nbsp;more.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;X Server (aka X Display Server)&lt;/strong&gt; - This creates the graphical environment on a graphical display device using the X Display Protocol.  An X Server program runs on a computer with a graphical display and communicates with various X client programs, along with peripherals like the keyboard and mice. Examples of X servers are &lt;a href="http://www.straightrunning.com/XmingNotes/"&gt;Xming&lt;/a&gt; and &lt;a href="http://www.x.org/wiki/XServer/"&gt;XServer&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;X Client (aka X Application)&lt;/strong&gt; - An X client is an application program that displays on an X Server but which is otherwise independent of that server.  X Clients are built using software libraries that support the X Window System&amp;nbsp;framework.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;X Window Manager&lt;/strong&gt; - The Window Manager perfroms the tasks of managing how you interact with your application windows. Window Manager&amp;#8217;s are often designed to be highly customizable via configuration files.  The Window Manager takes care of deciding the position of windows, placing the decorative border around them, handling icons, handling mouse clicks outside windows (on the “background”), handling certain keystrokes, etc.  Examples are &lt;a href="http://en.wikipedia.org/wiki/Window_Maker"&gt;WindowMaker&lt;/a&gt;, &lt;a href="http://en.wikipedia.org/wiki/Sawfish_(window_manager)"&gt;sawfish&lt;/a&gt;, and &lt;a href="http://en.wikipedia.org/wiki/FVWM"&gt;fvwm&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;X Session Manager&lt;/strong&gt; - The session Manager automatically starts a set of applications, setting up, and restoring a working desktop environment.  More precisely, it is the set of applications managing these windows and the information that allow these applications to restore the condition of their managed windows if required.  The X session manager saves and restores the state of&amp;nbsp;sessions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;X Display Manager (aka Login Manager)&lt;/strong&gt; - This program shows the graphical login prompt in the X Window System.  This is the first X program run by the system if the system (not the user) is starting X and allows you to log on to the local system, or network systems.  More generally, a Display Manager runs one or more X Servers on the local computer and accepts incoming connections from X Servers running on remote computers.  The local servers are started by the Display Manager, which then connects to them to present the user the login&amp;nbsp;screen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Desktop Environment&lt;/strong&gt; - A desktop environment such as &lt;a href="http://lxde.org/"&gt;&lt;span class="caps"&gt;LXDE&lt;/span&gt;&lt;/a&gt;, &lt;a href="http://www.xfce.org/"&gt;&lt;span class="caps"&gt;XFCE&lt;/span&gt;&lt;/a&gt;, &lt;a href="http://www.kde.org/"&gt;&lt;span class="caps"&gt;KDE&lt;/span&gt;&lt;/a&gt;, &lt;a href="http://www.gnome.org/"&gt;&lt;span class="caps"&gt;GNOME&lt;/span&gt;&lt;/a&gt;, or Ubuntu&amp;#8217;s &lt;a href="https://unity.ubuntu.com/about/"&gt;Unity&lt;/a&gt; are a suite of applications, fonts, icons, configuration files, and design patterns used to integrate all the above X Window System components to provide a consistent user experience. Display Environments typically provide a handful of applications bundled together to accomplish tasks in a graphical manner as opposed to using the command line. They often come with a desktop shell, which is a place to hold your fancy shortcut icons, as well as other tools such as file&amp;nbsp;managers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Given all this, starting an X session is typically done in one of two&amp;nbsp;ways:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The X session is started via a &lt;a href="http://en.wikipedia.org/wiki/X_display_manager_(program_type)"&gt;X Display Manager&lt;/a&gt;, which provides the user login prompts on a &lt;span class="caps"&gt;GUI&lt;/span&gt; screen. In this case, the &lt;a href="http://www.x.org/wiki/"&gt;Xorg&lt;/a&gt; process is started at boot time along with the X Display&amp;nbsp;Manager.&lt;/li&gt;
+&lt;li&gt;If Xorg wasn&amp;#8217;t started at boot time, the user starts X manually after logging in to a text console. This is typically done with the &lt;a href="http://www.xfree86.org/current/startx.1.html"&gt;&lt;code&gt;startx&lt;/code&gt;&lt;/a&gt;command, which is a simple shell script wrapper for &lt;a href="http://www.x.org/archive/X11R6.8.1/doc/xinit.1.html"&gt;&lt;code&gt;xinit&lt;/code&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href="http://en.wikipedia.org/wiki/X_display_manager_(program_type)"&gt;
+    &lt;img class="img-rounded" style="margin: 0px 8px; float: right" title="In the X Window System, the X server runs on the computer in front of the user. The X server may connect to a display manager running on another computer, starting a session which may comprise a variety of programs running on that other computer." alt="X Display Manager Pic" src="http://upload.wikimedia.org/wikipedia/commons/1/16/Xserver_and_display_manager.svg" width=25% height=25% /&gt;
+&lt;/a&gt;
+In either case, X runs with root privileges since it needs raw access to hardware devices.
+In the X Window System,
+the X Display Manager runs as a program that allows the starting of a session
+on an X Server from the same or another computer.
+A Display Manager presents the user with a login screen which prompts for a username and password.
+A session starts when the user successfully enters a valid combination of username and password.
+The X Display Manager function was established, in part, to support standalone X&amp;nbsp;Terminals.&lt;/p&gt;
+&lt;p&gt;A Display Manager can run on the local computer where the user sits or on a remote one.
+When local, the Display Manager starts one or more X Servers,
+displaying the login screen.
+When the Display Manager is remote, the Display Manager works according to the
+&lt;a href="http://www.x.org/releases/X11R7.7/doc/libXdmcp/xdmcp.html"&gt;X Display Manager Control Protocol (&lt;span class="caps"&gt;XDMCP&lt;/span&gt;)&lt;/a&gt;&lt;sup id="fnref:E"&gt;&lt;a class="footnote-ref" href="#fn:E" rel="footnote"&gt;5&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;span class="caps"&gt;XDMCP&lt;/span&gt; protocol mandates that the X Server starts autonomously and connects to the Display Manager.
+You configure an &lt;span class="caps"&gt;XDMCP&lt;/span&gt; Chooser program running on the local computer (or X Terminal)
+to connect to a specific remote X Display Manager
+or to display a list of suitable hosts (if configured to do so) that the user can choose from. 
+When the user selects a host from the list,
+the &lt;span class="caps"&gt;XDMCP&lt;/span&gt; Chooser running on the local machine will send a message
+to the selected remote computer&amp;#8217;s Display Manager
+and instruct it to connect the X Server on the local computer or&amp;nbsp;terminal.&lt;/p&gt;
+&lt;p&gt;Note that unlike &lt;a href="http://blog.worldlabel.com/2009/turn-your-old-laptop-into-a-powerful-linux-workhorse.html"&gt;vncviewer&lt;/a&gt;, which just duplicates a hosts current screen on a remote system,
+&lt;span class="caps"&gt;XDMCP&lt;/span&gt; allows several different users to login and run different X sessions at the same time.
+Your not sharing a desktop screen image, your starting seperate X Window session on the remote&amp;nbsp;machine.&lt;/p&gt;
+&lt;p&gt;If your Linux box boots into a graphical login screen, like my Ubuntu desktop system,
+you are already running a Display Manager. 
+Specifically, my desktop Linux box is using &lt;a href="http://www.freedesktop.org/wiki/Software/LightDM/"&gt;&lt;code&gt;lightdm&lt;/code&gt;&lt;/a&gt; as its X Display Manager.
+You can determine this by running &lt;code&gt;cat /etc/X11/default-display-manager&lt;/code&gt;
+or &lt;code&gt;ps -A | grep dm&lt;/code&gt;.
+On the other hand, when I install &lt;span class="caps"&gt;TCL&lt;/span&gt; on the vintage laptop, you see no graphical login screen.
+So you know that &lt;span class="caps"&gt;TCL&lt;/span&gt; isn&amp;#8217;t using a X Display&amp;nbsp;Manager.&lt;/p&gt;
+&lt;p&gt;For my &lt;a href="http://en.wikipedia.org/wiki/Desktop_environment"&gt;desktop Linux environment&lt;/a&gt;, I&amp;#8217;m using Ubuntu&amp;#8217;s default environment.
+That is the &lt;a href="http://lxde.org/"&gt;Unity Lightweight X11 Desktop Environment (&lt;span class="caps"&gt;LXDE&lt;/span&gt;)&lt;/a&gt;.
+It consists&amp;nbsp;of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Window Manager&lt;/strong&gt; - &lt;a href="http://openbox.org/"&gt;Openbox&lt;/a&gt;, the default window manager of &lt;span class="caps"&gt;LXDE&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Display Manager&lt;/strong&gt; - &lt;a href="http://wiki.lxde.org/en/LXDM"&gt;&lt;span class="caps"&gt;LXDM&lt;/span&gt;&lt;/a&gt; is the Display Manager for &lt;span class="caps"&gt;LXDE&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Session Manager&lt;/strong&gt; - &lt;a href="http://wiki.lxde.org/en/LXSession"&gt;LXSession&lt;/a&gt; is the standard session manager used by &lt;span class="caps"&gt;LXDE&lt;/span&gt; and it&amp;#8217;s desktop-independent and can be used with any Window&amp;nbsp;Manager.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What is happening when you start up Unity on the desktop system and &lt;a href="http://www.tldp.org/HOWTO/XWindow-User-HOWTO/runningx.html"&gt;run X&lt;/a&gt;?
+The following is an abbreviated &lt;a href="http://askubuntu.com/questions/150487/what-happens-under-the-covers-to-log-me-in-and-start-up-the-unity-graphics-user?r"&gt;summary of startup activites&lt;/a&gt;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The kernel starts the &lt;code&gt;init&lt;/code&gt; process as process number 1, and it is responsible for starting all other&amp;nbsp;processes.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;init&lt;/code&gt; starts the &lt;span class="caps"&gt;LXDE&lt;/span&gt; Display Manager &lt;code&gt;/usr/sbin/lightdm&lt;/code&gt; fairly late in the init process (the system dbus, filesystem and the graphics display system all must be&amp;nbsp;ready).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lightdm&lt;/code&gt; creates an xauthority file and then starts X, starting it on virtual terminal&amp;nbsp;7&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;unity-greeter&lt;/code&gt; get&amp;#8217;s the names of potential Window Managers, and in my case that would be &lt;code&gt;ubnutu&lt;/code&gt; and so it uses  &lt;code&gt;/usr/share/xsessions/ubuntu.desktop&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Once logged in, the files from &lt;code&gt;/usr/share/xsessions/ubunutu.desktop&lt;/code&gt; now determine the rest of the startup&amp;nbsp;sequence.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;/usr/sbin/lightdm-session&lt;/code&gt; shell script is run with the arguments &lt;code&gt;gnome-session --session=ubuntu&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/usr/sbin/lightdm-session&lt;/code&gt; then runs &lt;code&gt;$HOME/.profile&lt;/code&gt;, loads &lt;code&gt;$HOME/.Xresources&lt;/code&gt;, &lt;code&gt;$HOME/.Xmodmap&lt;/code&gt;, runs scripts in &lt;code&gt;/etc/X11/xinit/xinitrc.d&lt;/code&gt;, runs the Xsession scripts in &lt;code&gt;/etc/X11/Xsession.d/*&lt;/code&gt;, using the options in &lt;code&gt;/etc/X11/Xsession&lt;/code&gt;.options.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lightdm-session&lt;/code&gt; starts a Window Manager, or for Unity, starts the &lt;code&gt;gnome-session&lt;/code&gt; Session Manager. The Window Manager uses the Unity &lt;code&gt;/usr/share/xsessions/ubuntu.desktop&lt;/code&gt; configuration&amp;nbsp;file.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gnome-session&lt;/code&gt; starts the specified program from &lt;code&gt;/usr/share/gnome-session/sessions/&lt;/code&gt; and starts applications from &lt;code&gt;~/.config/autostart/&lt;/code&gt; and &lt;code&gt;/etc/xdg/autostart&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So now you have some small insight into what the X Window System is doing,
+but what are the important things one should take away from all&amp;nbsp;this?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The remote, that is my Linux desktop system, must use a Display Manager and it needs to be configured to accept logins from network terminals. This means configuration files must be set to accept the login request and the &lt;span class="caps"&gt;XDMCP&lt;/span&gt; protocol must be operational. That is, &lt;a href="http://zweije.home.xs4all.nl/xauth-9.html"&gt;configuring X Display Manager as an &lt;span class="caps"&gt;XDMCP&lt;/span&gt; Server&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The X Server on the local system, that is the vintage &lt;span class="caps"&gt;PC&lt;/span&gt;, must be configured to use the &lt;span class="caps"&gt;XDMCP&lt;/span&gt; protocol, be directed to log into the remote system, and not establish its own local desktop environment. That is, &lt;a href="http://zweije.home.xs4all.nl/xauth-9.html"&gt;configuring X Server as an &lt;span class="caps"&gt;XDMCP&lt;/span&gt; Client&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As to the mechanics of making this happen, the following articles do a good job of explaining what needs to be done
+(and I&amp;#8217;ll provide the detail steps&amp;nbsp;later):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.tldp.org/HOWTO/XDMCP-HOWTO/"&gt;Linux &lt;span class="caps"&gt;XDMCP&lt;/span&gt; &lt;span class="caps"&gt;HOWTO&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.linuxdoc.org/HOWTO/XDM-Xterm/index.html"&gt;&lt;span class="caps"&gt;XDM&lt;/span&gt; and X Terminal mini-&lt;span class="caps"&gt;HOWTO&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://blog.joseluisperezdiaz.com/linux-based-x-terminals-with-xdmcp/"&gt;Linux-Based X Terminals with &lt;span class="caps"&gt;XDMCP&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;What is My Window&amp;nbsp;Manager&lt;/h3&gt;
+&lt;p&gt;You can configure Ubuntu to run different Window Managers within any given Desktop Environment.
+This makes it a bit of a challenge in knowing what window manager your using.
+Detecting which Window Manager your using require you to sort of know what to look&amp;nbsp;for.&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# detect the window manager you are using&lt;/span&gt;
+ps -ef | egrep &lt;span style="color: #CC3300"&gt;&amp;quot;xfwm|twm|metacity|beryl|compiz&amp;quot;&lt;/span&gt; | grep -v egrep
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;What is the Display Manager being used?
+The Display Manager runs before you log in, and as such, it&amp;#8217;s by the system is configured. 
+On a Ubuntu system, you can find the Display Manager being used&amp;nbsp;via&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# print our the Display Manager being used&lt;/span&gt;
+cat /etc/X11/default-display-manager
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Compositing Window Manager&amp;nbsp;Compiz&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://en.wikipedia.org/wiki/Compositing_window_manager"&gt;Compositing Window Managers&lt;/a&gt; process the on-screen rendering of application windows
+by using a special off-screen buffer to handle sweet effects and eye candy.
+Basically, you can stack your application windows with added effects
+like drop shadows, transparencies, and 2D / 3D animated effects.
+The Window Manager composites the window buffers into an image representing
+the screen and writes the result into the display memory.
+The Ubuntu default Window Manger, &lt;a href="http://www.compiz.org/"&gt;Compiz&lt;/a&gt;, is just such a solution.
+In fact, the Unity interface, is written as a &lt;a href="http://askubuntu.com/questions/13073/is-unity-just-a-plugin-of-compiz"&gt;plugin for Compiz&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As I experimented with &lt;span class="caps"&gt;TCL&lt;/span&gt; running as a X Terminal
+and my Linux desktop as my Display Manager connected via &lt;span class="caps"&gt;XDMCP&lt;/span&gt;,
+but I had significant Window Manager problems.
+Basically, it would not start when I logged in.
+I discovered this via this&amp;nbsp;script:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# detect the window manager you are using&lt;/span&gt;
+ps -ef | egrep &lt;span style="color: #CC3300"&gt;&amp;quot;xfwm|twm|metacity|beryl|compiz|fluxbox&amp;quot;&lt;/span&gt; | grep -v egrep
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Given the age of this vintage laptop (around year 2000)
+and the fact that Compiz&amp;#8217;s inital release was in 2006,
+I concluding that Compiz would never run on this hardware.
+Time to try another Window&amp;nbsp;Manager.&lt;/p&gt;
+&lt;h3&gt;X Window Remote&amp;nbsp;Application&lt;/h3&gt;
+&lt;p&gt;There are a few ways to run X windows applications remotely
+(i.e. running an X Windows application on a remote computer and having the graphical part show up on your local computer).
+For something quick, use the &lt;a href="https://help.ubuntu.com/community/SSH/OpenSSH/Configuring"&gt;&lt;span class="caps"&gt;SSH&lt;/span&gt; method&lt;/a&gt; in an &lt;code&gt;xterm&lt;/code&gt; window:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;ssh -X login@remote-computer
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will give a terminal session within the &lt;code&gt;xterm&lt;/code&gt; window on the remote computer.
+The &lt;code&gt;-X&lt;/code&gt; switch says to export graphics from the remote computer (remote-computer)
+to the computer you at actually sitting on (i.e. the local-computer).
+For many uses, this works fine, but it doesn&amp;#8217;t give you the full login experience on the remote computer.
+Specifically, the desktop is still the local computer,
+so picking any desktop icon or menu will result in a local X client.
+This isn&amp;#8217;t what I want &amp;#8230; I want access to the remote&amp;nbsp;desktop.&lt;/p&gt;
+&lt;p&gt;To do this, you could leverage the &lt;a href="http://www.ltsp.org/"&gt;Linux Terminal Server Project (&lt;span class="caps"&gt;LTSP&lt;/span&gt;)&lt;/a&gt;
+&lt;a href="http://www.spencerstirling.com/computergeek/xterminal.html"&gt;Sterminal&lt;/a&gt;, or even consider &lt;a href="http://blog.worldlabel.com/2009/turn-your-old-laptop-into-a-powerful-linux-workhorse.html"&gt;Virtual Network Computing (&lt;span class="caps"&gt;VNC&lt;/span&gt;)&lt;/a&gt;,
+but these have too heavy a memory footprint for the vintage laptop I&amp;#8217;m using.
+And in the case of &lt;span class="caps"&gt;VNC&lt;/span&gt;, your really sharing an existing screen, not creating a new session.
+I&amp;#8217;ll need to use the less secure classical method of using &lt;span class="caps"&gt;XDMCP&lt;/span&gt;.
+Basically, on the remote computer (remote-computer)
+I need to be running a special daemon that answers requests to login from a X Server.
+To establish this, I&amp;#8217;ll need to do the&amp;nbsp;following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;On the remote computer&lt;/strong&gt; - Configure the Display Manager to accept logins from a remote X&amp;nbsp;Server&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;On the local computer&lt;/strong&gt; - Configure the local Display Manager to use the remote Display Manager. This amounts to configuring the Display Manager to run &amp;#8220;&lt;span class="caps"&gt;XDMCP&lt;/span&gt; Chooser&amp;#8221;.  An alternative is to establish a X session and then log into the remote via &lt;a href="http://en.wikipedia.org/wiki/Xnest"&gt;&lt;code&gt;Xnest&lt;/code&gt;&lt;/a&gt;. Xnest can be used to locally display the desktop of a remote&amp;nbsp;computer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Getting to Know Ubuntu&amp;nbsp;Unity&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://unity.ubuntu.com/"&gt;
+    &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="Unity is the Desktop Environment that is shippped as the default Ubuntu installation, and claims it's focus is on simplicity and consistency across multiple devices (e.g. across TV, mobile, tablet, and desktop)" alt="Ubuntu Unity Logo" src="/images/ubuntu-unity-logo.png" width="100" height="100" /&gt;
+&lt;/a&gt;
+&lt;a href="https://unity.ubuntu.com/"&gt;Unity&lt;/a&gt; is the Desktop Environment that is shipped as the default Ubuntu installation,
+and claims it&amp;#8217;s focus is on simplicity and consistency across multiple devices
+(e.g. across &lt;span class="caps"&gt;TV&lt;/span&gt;, mobile, tablet, and desktop).
+Several years ago, Ubuntu moved from &lt;a href="http://www.gnome.org/"&gt;&lt;span class="caps"&gt;GNOME&lt;/span&gt;&lt;/a&gt; to Unity, never the less,
+the Unity interface should run all &lt;span class="caps"&gt;GNOME&lt;/span&gt;-based applications without modification.
+I guess that is why Unity is often introduced as a desktop shell for &lt;span class="caps"&gt;GNOME&lt;/span&gt;.
+This is not the same as a totally new desktop environment.
+A desktop shell is the interface that you use.
+Unity will still use the same &lt;span class="caps"&gt;GNOME&lt;/span&gt; apps and libraries that the any &lt;span class="caps"&gt;GNOME&lt;/span&gt; desktop does.
+In this way, &lt;span class="caps"&gt;GNOME&lt;/span&gt; can be thought as an example of another shell for &lt;span class="caps"&gt;GNOME&lt;/span&gt;.
+The &lt;a href="https://www.youtube.com/watch?v=SZU9XzJBgVc"&gt;debate concerning &lt;span class="caps"&gt;GNOME&lt;/span&gt; vs Unity&lt;/a&gt; inciting a lot of reactions from&amp;nbsp;users.&lt;/p&gt;
+&lt;p&gt;Although Unity is a single graphical experience, you can think of it in three broad&amp;nbsp;buckets:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Design –&lt;/strong&gt; the visual design and interaction&amp;nbsp;experience&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Platform –&lt;/strong&gt; the core Unity platform&amp;nbsp;software&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Services –&lt;/strong&gt; a set of functions that Unity makes available to applications for integration and for content to be&amp;nbsp;viewed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The &lt;a href="http://www.howtoforge.com/introduction-to-the-ubuntu-unity-desktop"&gt;Unity user interface consists of several components&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Top Menu Bar –&lt;/strong&gt; is a global application menus not located in the application’s windows, they’re located on the top menu bar. You see the application’s menu when you mouse over the top  of a&amp;nbsp;window.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Launcher –&lt;/strong&gt; is at the left side of the screen is where you’ll launch frequently used applications and switch between running&amp;nbsp;applications.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dash –&lt;/strong&gt; an overlay that allows the user to search quickly for information both locally (installed applications, recent files, bookmarks, etc.) and remotely (Twitter, Google Docs, etc.) and displays previews of results. Open the Dash by clicking the Ubuntu icon at the top left corner of the screen. You can also press the Super key to open the launcher (the Super key is also known as the Windows&amp;nbsp;key).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Quicklist –&lt;/strong&gt; the accessible menu of launcher&amp;nbsp;items&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Head-Up Display (&lt;span class="caps"&gt;HUD&lt;/span&gt;) –&lt;/strong&gt; allows hotkey searching for top menu bar items from the keyboard, without the need for using the mouse, by pressing and releasing the Alt&amp;nbsp;key.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Indicators –&lt;/strong&gt; a notification area containing displays for the clock, network and battery status, sound volume,&amp;nbsp;etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# Just notes&lt;/span&gt;
+
+&lt;span style="color: #0099FF; font-style: italic"&gt;# make sure the last entry of the .xsessionrc file is run in the background&lt;/span&gt;
+
+&lt;span style="color: #0099FF; font-style: italic"&gt;# to restart Unity&lt;/span&gt;
+setsid unity
+&lt;span style="color: #0099FF; font-style: italic"&gt;# or should you use&lt;/span&gt;
+setsid unity --replace
+
+&lt;span style="color: #0099FF; font-style: italic"&gt;# to logout via the terminal&lt;/span&gt;
+gnome-session-quit
+
+&lt;span style="color: #0099FF; font-style: italic"&gt;# restart X without rebooting&lt;/span&gt;
+/etc/init.d/gdm restart         &lt;span style="color: #0099FF; font-style: italic"&gt;# kill your graphical interface using&lt;/span&gt;
+sudo service lightdm restart    &lt;span style="color: #0099FF; font-style: italic"&gt;# restart your session manager&lt;/span&gt;
+
+&lt;span style="color: #0099FF; font-style: italic"&gt;# see this &lt;/span&gt;
+http://manpages.ubuntu.com/manpages/lucid/en/man1/gnome-wm.1.html
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Like many desktop envirnments, Ubuntu Unity can change its look &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; feel by changing the &lt;a href="http://itsfoss.com/best-themes-ubuntu-1310/"&gt;themes&lt;/a&gt;.
+These alternative theme files are extracted to &lt;code&gt;~/.themes&lt;/code&gt; or &lt;code&gt;/user/share/themes&lt;/code&gt; directores. 
+Once a theme is established, it can udergo additional tuning via the
+&lt;a href="http://www.techrepublic.com/blog/linux-and-open-source/six-must-have-ubuntu-unity-tweaks/"&gt;Unity Tweak Tool&lt;/a&gt;, which is a settings manager for the Unity desktop. 
+This configuration tool provides users access to features and configuration options,
+and brings them all together in a polished &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; easy-to-use interface.
+To install this tool,&amp;nbsp;use&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get install unity-tweak-tool
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The most transparent and precise way to configure the Unity envirnment is to modify the file
+&lt;code&gt;/etc/lightdm/lightdm.conf&lt;/code&gt;.
+The post &amp;#8220;&lt;a href="http://www.mattfischer.com/blog/?p=343"&gt;Understanding lightdm.conf&lt;/a&gt;&amp;#8221; is a good read to better understand &lt;code&gt;lightdm.conf&lt;/code&gt;
+but keep in mind that some utilities it suggest are no more. 
+As of Ubuntu Trusy 14.04,
+the command line utility &lt;code&gt;lightdm-set-defaults&lt;/code&gt; is &lt;a href="http://askubuntu.com/questions/251041/how-to-install-lightdm-set-defaults"&gt;no longer available&lt;/a&gt;.
+This is because &lt;code&gt;lightdm&lt;/code&gt; now using a configuration directory &lt;code&gt;/etc/lightdm/lightdm.conf.d/&lt;/code&gt;
+rather than a single configuration file.
+The files in this directory can be edited by hand, new files can be added, or files can be removed. 
+There is no manpage for &lt;code&gt;lighdm.conf&lt;/code&gt;, but there is an example that lists all the options
+and a bit about what they do, just look in &lt;code&gt;/usr/share/doc/lightdm/lightdm.conf.gz&lt;/code&gt;
+(If you use vim, you can just edit the file and it will be automagically ungzipped for&amp;nbsp;you).&lt;/p&gt;
+&lt;p&gt;While there are many things you can set within &lt;code&gt;lightdm.conf&lt;/code&gt;,
+running a command When X starts, when the greeter starts, or when the user session starts
+may be the more useful for our purposes.
+For example, when &lt;code&gt;lightdm&lt;/code&gt; starts X you can run a command or script, like &lt;code&gt;xset&lt;/code&gt; perhaps.&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;display-setup-script=[script|command]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can do something similar when the greeter&amp;nbsp;starts:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;greeter-setup-script=[script|command]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;or when the user session&amp;nbsp;starts:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;session-setup-script=[script|command]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;A potentially even more granular way to configure the Unity envirnment is via
+minimpulating the &lt;a href="https://developer.gnome.org/gio/2.39/GSettings.html"&gt;&lt;code&gt;GSettings&lt;/code&gt;&lt;/a&gt; classes, which is a &lt;span class="caps"&gt;API&lt;/span&gt; for application settings.
+To support this, there is &lt;a href="https://developer.gnome.org/gio/2.39/gsettings-tool.html"&gt;&lt;code&gt;gsettings&lt;/code&gt;&lt;/a&gt; which offers a simple command line interface to &lt;code&gt;GSettings&lt;/code&gt;.
+&lt;code&gt;GSettings&lt;/code&gt; is a GLib implementation of the &lt;a href="http://en.wikipedia.org/wiki/Dconf"&gt;DConf spec&lt;/a&gt;, which stores its data in a binary database.
+The &lt;code&gt;gsettings&lt;/code&gt; command line tool is simply a tool to access or modify settings via the &lt;code&gt;GSettings&lt;/code&gt; &lt;span class="caps"&gt;API&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Applications using &lt;code&gt;GSettings&lt;/code&gt;/DConf install allication configuration data or schemas. 
+A schema is basically is a list of the available settings for that application.
+There are two types of schemas, standard and relocatable schemas.
+Important to understand that for relocatable schemas we need to provide a
+path on top of the normal schema name like &lt;code&gt;org.gnome.login-screen&lt;/code&gt;.
+An application does not need to know where or how the data is stored,
+just how to access that data and recieve a notification if and when the data&amp;nbsp;changes.&lt;/p&gt;
+&lt;p&gt;To list all the available schemas&lt;sup id="fnref:F"&gt;&lt;a class="footnote-ref" href="#fn:F" rel="footnote"&gt;6&lt;/a&gt;&lt;/sup&gt;,&amp;nbsp;enter&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;gsettings list-schemas
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now that we have a list of the schemas we can look at what keys they provide.
+Keys are the actual settings we manipulate.
+We can list them with &lt;code&gt;gsettings list-keys &amp;lt;schema name&amp;gt;&lt;/code&gt;.
+For&amp;nbsp;example,&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;gsettings list-keys org.gnome.login-screen
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can also list both the keys and their current values by running &lt;code&gt;gsettings list-recursively &amp;lt;schema&amp;gt;&lt;/code&gt;.
+For&amp;nbsp;example,&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;gsettings list-recursively org.gnome.login-screen
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;As mentioned before relocatable schemas need an aditional path before we can list and manipulate the keys.
+Other than the path we treat the the two types of schemas the same way from the command line.
+The location of the relocatable schemas are within the path and not in the default location.
+For example we added a colon followed by the&amp;nbsp;path:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;gsettings list-recursively org.gnome.login-screen:/org/mate/panel/objects/object_0/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You&amp;#8217;ll find other uses for &lt;code&gt;gsettings&lt;/code&gt; on &lt;a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/gsettings.1.html"&gt;its manual page&lt;/a&gt;.
+For example,
+Unity desktop comes with overlay scrollbars enabled by default. 
+You can disable overlay scroll-bars, if you don&amp;#8217;t like them.
+Enter the following command in a terminal to disable overlay&amp;nbsp;scrollbar:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;gsettings set com.canonical.desktop.interface scrollbar-mode normal
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you want to get back overlay bars, enter following&amp;nbsp;command:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;gsettings reset com.canonical.desktop.interface scrollbar-mode
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;With all these oppertunities to reconfigure Unity, the possibilities of screwing thing up are very high.
+In case some settings are messed up and you want to &lt;a href="http://www.webupd8.org/2012/10/how-to-reset-compiz-and-unity-in-ubuntu.html"&gt;reset Unity and Compiz&lt;/a&gt; to their default settings,
+the standard way is to&amp;nbsp;use&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# Careful ... this will reset all Unity &amp;amp; Compiz to their default options&lt;/span&gt;
+unity-reset
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To restart Unity after running the above command (or restart it any time), use the&amp;nbsp;command&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;setsid unity
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can find more examples of configuring Unity via &lt;code&gt;gsettings&lt;/code&gt; and other tools in the&amp;nbsp;postings:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.noobslab.com/2013/10/tweaksthings-to-do-after-install-of.html"&gt;Tweaks/Things to do after install of Ubuntu 13.10 Saucy&amp;nbsp;Salamander&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.noobslab.com/2014/04/thingstweaks-to-do-after-install-of.html"&gt;Things/Tweaks To Do After Install Of Ubuntu 14.04 Trusty&amp;nbsp;Tahr&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Getting to Know the &lt;span class="caps"&gt;TCL&lt;/span&gt; Operating&amp;nbsp;System&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://tinycorelinux.net/"&gt;
+    &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="Tiny Core Linux is a 12 MB graphical Linux desktop. It is based on a recent Linux kernel, BusyBox, Tiny X, Fltk, and Flwm." alt="Tiny Core Linux Logo" src="/images/tiny-core-linux.jpg" width="118" height="45" /&gt;
+&lt;/a&gt;
+As stated earlier, it appears that Tiny Core Linux (&lt;span class="caps"&gt;TCL&lt;/span&gt;) will be my best choose
+for this vintage laptop conversion into a X Terminal.
+Like Damn Small Linux, &lt;a href="http://tinycorelinux.net/"&gt;Tiny Core Linux (&lt;span class="caps"&gt;TCL&lt;/span&gt;)&lt;/a&gt; is a minimal Linux operating system
+initially using &lt;a href="http://www.busybox.net/"&gt;BusyBox&lt;/a&gt; as its core system,
+but latter replace with &lt;a href="http://en.wikipedia.org/wiki/GNU_Core_Utilities"&gt;&lt;span class="caps"&gt;GNU&lt;/span&gt;&amp;#8217;s Coreutils&lt;/a&gt;.
+Tiny Core is exactly what the name suggests,
+a tiny core of an operating system which boots to a fully functional graphics desktop
+called &lt;a href="http://www.fltk.org/index.php"&gt;Fast Light Toolkit (&lt;span class="caps"&gt;FLTK&lt;/span&gt;)&lt;/a&gt;, pronounced &amp;#8220;fulltick&amp;#8221;,
+which includes the &lt;a href="http://flwm.sourceforge.net/"&gt;Fast Light Window Manager (flwm)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Tiny core can be run on new, high performance computers.
+It can also be run on older, slower computers.
+Minimum performance requirements depend on which programs you install in Tiny Core.
+Most programs will run on a computer with 256 mb of ram.
+Tiny core can be run on a computer with 128 mb of ram, with selected programs.
+It may not be worthwhile for most people to run Tiny Core on a computer with less than 128 mb of ram,
+as even less programs will run.
+The absolute minimum to run Tiny Core is 48 mb of&amp;nbsp;ram.&lt;/p&gt;
+&lt;p&gt;Tiny Core is designed to run entirely from a &lt;span class="caps"&gt;RAM&lt;/span&gt; copy created at boot time.
+While you can do a traditional hard drvie install,
+Tiny Core is designed to
+run from a &lt;span class="caps"&gt;RAM&lt;/span&gt; copy created at boot time. Besides being fast, this
+protects system files from changes and ensures a pristine system on
+every reboot.
+Easy, fast, and simple renew-ability and stability is a principle goal of Tiny Core. 
+The core system provides most of what you need for a working environment,
+which they can then tweak from there via loadable&amp;nbsp;applications.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://tinycorelinux.net/install_manual.html"&gt;Frugal&lt;/a&gt; is the typical installation method for Tiny Core.
+That is, it is not a traditional hard drive installation,
+which we call &amp;#8220;scatter mode&amp;#8221;,
+because all the files of the system are scattered all about the disk.
+With frugal, you basically have the system in two files,
+vmlinuz and core.gz, whose location is specified by the boot loader.
+Therefore, the &lt;span class="caps"&gt;TCL&lt;/span&gt; Live &lt;span class="caps"&gt;CD&lt;/span&gt; &lt;span class="caps"&gt;ISO&lt;/span&gt; image consists of four&amp;nbsp;components:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Bootloader (&lt;code&gt;/boot/extlinux&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Linux Kernel (&lt;code&gt;/boot/vmlinuz&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Core initrd (&lt;code&gt;/boot/core.gz&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Extensions (&lt;code&gt;/tce/onboot.lst&lt;/code&gt;, &lt;code&gt;/tce/optional&lt;/code&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The default bootloader used by &lt;span class="caps"&gt;TCL&lt;/span&gt; is &lt;a href="http://www.syslinux.org/wiki/index.php/EXTLINUX"&gt;&lt;code&gt;extlinux&lt;/code&gt;&lt;/a&gt; but others can be installed (such as grub).
+You find extlinux&amp;#8217;s configuration file in &lt;code&gt;/mnt/sda1/tce/boot/extlinux/extlinux.conf&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Tiny Core consists of a small kernel and initial &lt;span class="caps"&gt;RAM&lt;/span&gt; disk,
+which ultimately boots into a basic &lt;span class="caps"&gt;FLTK&lt;/span&gt; graphical environment.
+The computer’s hardware is configured on boot and should mostly work out of the box.
+&lt;span class="caps"&gt;TCL&lt;/span&gt; is &lt;span class="caps"&gt;RAM&lt;/span&gt; based - the &amp;#8220;core&amp;#8221; utilities are packed into the &lt;code&gt;core.gz&lt;/code&gt; file
+which is then unpacked into &lt;span class="caps"&gt;RAM&lt;/span&gt; when the system boots and forms our primary filing system.
+After that &lt;span class="caps"&gt;TCL&lt;/span&gt; searches any attached storage for the directory &lt;code&gt;tce&lt;/code&gt;.
+This directory holds optional extensions to the operating system such as the graphical desktop
+and anything else we care to add.
+The extension files are actually compressed filing systems,
+read-only &lt;code&gt;tgz&lt;/code&gt; files,
+and Tiny Core mounts these individually under &lt;code&gt;/tmp/tcloop/&amp;lt;application_name&amp;gt;&lt;/code&gt;
+and then merges them with the main filing&amp;nbsp;system.&lt;/p&gt;
+&lt;p&gt;Given that applications are load freash on each boot,
+how do we handle application&amp;#8217;s configuration file that need to be preserved?
+This is where Tiny Core&amp;#8217;s user editable &lt;code&gt;/opt/.filetool.lst&lt;/code&gt; file comes into play.
+This contains a list of all (potentially changed) &lt;span class="caps"&gt;RAM&lt;/span&gt;-based files
+or directories that we want to persist across reboots (which logically has to include itself).
+Tiny Core handles this with the &lt;code&gt;filetool.sh&lt;/code&gt; script.
+When run with the &lt;code&gt;-b&lt;/code&gt; option this packages up all these files into a single compressed file (&lt;code&gt;mydata.tgz&lt;/code&gt;)
+that it saves in the &lt;code&gt;tce&lt;/code&gt; directory.
+When the script is run with the &lt;code&gt;-r&lt;/code&gt; option it does the reverse and restores the saved files.
+The restore happens automatically as the system boots. 
+By default the &lt;code&gt;/opt/filetool.lst&lt;/code&gt; file includes the &lt;code&gt;/home&lt;/code&gt; and &lt;code&gt;/opt&lt;/code&gt; directories.
+Remove this entries if you wish (e.g. when backup take a long&amp;nbsp;time).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTE&lt;/span&gt;:&lt;/strong&gt; You can do backups from &lt;span class="caps"&gt;GUI&lt;/span&gt; or on command line via &lt;code&gt;filetool.sh -b&lt;/code&gt;.  This will backup files to the &lt;code&gt;/etc/sysconfig/tcedir/mydata.tcz&lt;/code&gt;. This way, a poweroff or reboot will not undo your&amp;nbsp;work.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Many options, such as a choice of either an &lt;span class="caps"&gt;ALSA&lt;/span&gt; or &lt;span class="caps"&gt;OSS&lt;/span&gt; sound server, are left up to the user.
+Once inside the environment, the user is then able to connect to the online repositories
+in order to install the applications they desire and configure their system. 
+&lt;span class="caps"&gt;TCL&lt;/span&gt; has a very simple package manager that provides a list of available packages to install.
+The user need only select a package and the manager will download it with all
+required dependencies and install them to the&amp;nbsp;system.&lt;/p&gt;
+&lt;p&gt;&lt;span class="caps"&gt;TLC&lt;/span&gt;&amp;#8217;s package manager, the &lt;code&gt;Apps&lt;/code&gt; tool, has several methods of installing applications
+Tiny Core uses the &lt;code&gt;Apps&lt;/code&gt; tool to place application extensions in the
+tce/ directory and to flag them as either &amp;#8220;OnBoot&amp;#8221; (mount at boot)
+or &amp;#8220;On Demand&amp;#8221; (do not mount at boot, but create a special menu
+section for easy access and display an icon if available).
+(For my purposes of creating a X Terminal, I see no for any of these options other than&amp;nbsp;OnBoot).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;OnBoot -&lt;/strong&gt; This is the default method. This extension will be installed, and added to the onboot list, to be mounted on the following&amp;nbsp;boots. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OnDemand -&lt;/strong&gt; A loading script will be generated for this extension.  Instead of being loaded on boot, the icon/menu entry for this extension will load the extension when you first need it.  This option speeds up your boot time, at the cost of making the first start of the application&amp;nbsp;slower.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Download + Load -&lt;/strong&gt; The extension will be downloaded and installed for this session only.  It will reside within the directory sytem, but since it is not added to the onboot list, it will not be loaded after a&amp;nbsp;reboot.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Download Only -&lt;/strong&gt; The extension will only be downloaded, nothing more will be&amp;nbsp;done.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the default configuration of &lt;span class="caps"&gt;TCL&lt;/span&gt;, anything written to &lt;code&gt;/opt&lt;/code&gt; and &lt;code&gt;/home&lt;/code&gt;
+directory trees will be written to the hard disk and so are persistent.
+Any files created elsewhere are volatile and need to be added to the file &lt;code&gt;/opt/.filetool.lst&lt;/code&gt;
+if we want them to persist across&amp;nbsp;reboots.&lt;/p&gt;
+&lt;p&gt;Tiny Core doesn’t actually install anything onto the system in a traditional way.
+Instead it stores the binary packages in memory which are then laid over the top of the existing system.
+These packages are actually called extensions and when the system boots each and every time it will load these extensions from a location you&amp;nbsp;specify.&lt;/p&gt;
+&lt;p&gt;Tiny Core provides two different types of extensions: &lt;span class="caps"&gt;TCE&lt;/span&gt; and &lt;span class="caps"&gt;TCZ&lt;/span&gt;.
+The former is a compressed tarball which is extracted into &lt;span class="caps"&gt;RAM&lt;/span&gt; over the booted system environment.
+The disadvantage of this method is that it uses up more &lt;span class="caps"&gt;RAM&lt;/span&gt; the more programs you have installed.
+The latter is more efficient as it actually &lt;a href="http://en.wikipedia.org/wiki/Loop_device"&gt;loop mounts&lt;/a&gt; the packages onto the system,
+rather than extracting them into &lt;span class="caps"&gt;RAM&lt;/span&gt;.
+This means that they are only loaded into memory when you actually use them,
+similar to that of a more traditional install where they sit on a hard drive.
+If you’re going to have many applications installed, this is the better&amp;nbsp;option.&lt;/p&gt;
+&lt;p&gt;&lt;span class="caps"&gt;TCL&lt;/span&gt; has the ability to save your data and restore it on boot.
+You can also change system files and on boot these will also be restored,
+just after the extensions are loaded.
+So if you do want to customise a package, you can do so and have it stay that way each time you boot.
+The system also takes mount point arguments at boot time,
+so users can specify a partition to use as their &lt;code&gt;/home&lt;/code&gt; directory, for&amp;nbsp;instance.&lt;/p&gt;
+&lt;p&gt;To investigate futher on the interworkings of &lt;span class="caps"&gt;TCL&lt;/span&gt;,
+the article &amp;#8220;&lt;a href="http://www.linux-mag.com/id/7457/"&gt;Tiny Core: The Little Distro That Could&lt;/a&gt;&amp;#8221;
+gives a good, quick introduction to Tiny Core,
+and this &lt;a href="https://www.youtube.com/watch?v=lFxXeDKgymM"&gt;video&lt;/a&gt; provides an excellent introduction to
+&lt;a href="https://www.youtube.com/watch?v=lFxXeDKgymM"&gt;Tiny Core Linux File Architecture and Boot Process&lt;/a&gt;.
+The &lt;a href="http://www.parkytowers.me.uk/thin/Linux/Tinycore.shtml"&gt;Thin Client&lt;/a&gt; website has a section on Tiny Core Linux.
+And of course, if your really ambitious, you can read the book &amp;#8220;&lt;a href="http://www.tinycorelinux.net/corebook.pdf"&gt;Into the Core: A look at Tiny Core Linux&lt;/a&gt;&amp;#8220;.&lt;/p&gt;
+&lt;h1&gt;Getting to Know Your Network Security&amp;nbsp;Options&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://www.wi-fi.org/discover-wi-fi/security"&gt;
+    &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="It is common networking knowledge that there really is no excuse to not use any encryption method other than WPA2. In all but the oldest wireless devices, just about all modern wireless clients support it." alt="Wireless Security Logo" src="/images/wifi-security.png" width="100" height="100" /&gt;
+&lt;/a&gt;
+As stated earlier, the &lt;span class="caps"&gt;XDMCP&lt;/span&gt; protocol used to support the X Terminal isn&amp;#8217;t encrypted&lt;sup id="fnref:G"&gt;&lt;a class="footnote-ref" href="#fn:G" rel="footnote"&gt;7&lt;/a&gt;&lt;/sup&gt;.
+So using the X Terminal outside of ones secure &lt;span class="caps"&gt;LAN&lt;/span&gt; or &lt;span class="caps"&gt;WAN&lt;/span&gt;, say across the internet, is risky business.
+Any passwords or credit cards will be passed as plan text.
+But in my case, I&amp;#8217;ll be using this only on my home network.
+So the key here is making sure you have good firewall protection on your router and
+strong encryption on you wireless network.
+I&amp;#8217;m using a router supplied by my internet provider,
+and by default, &lt;a href="http://www.howtogeek.com/howto/38858/how-to-make-your-verizon-fios-router-1000-more-secure/"&gt;its configured for old encryption standards&lt;/a&gt; and not the more secure &lt;span class="caps"&gt;WPA2&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;I have to admit that, up until this project,
+I haven&amp;#8217;t been thinking much about the latest &lt;span class="caps"&gt;WAN&lt;/span&gt; encryption recommendations.
+My concern was, amid the alphabet soup of what security standards,
+how do you merge support for a mix of client devices that support the range of WiFi security protocols?
+The solution was to get myself the strongest available security by using a
+wireless access point (&lt;span class="caps"&gt;AP&lt;/span&gt;) equipment that supports all the &lt;a href="http://www.howtogeek.com/167783/htg-explains-the-difference-between-wep-wpa-and-wpa2-wireless-encryption-and-why-it-matters/"&gt;802.11i-standards&lt;/a&gt;:
+Wired Equivalent Privacy (&lt;span class="caps"&gt;WEP&lt;/span&gt;), Wireless Protected Access (&lt;span class="caps"&gt;WPA&lt;/span&gt;), and Wireless Protected Access-2 (&lt;span class="caps"&gt;WPA2&lt;/span&gt;).
+Like many people, I have some devices that don’t yet support &lt;span class="caps"&gt;WPA2&lt;/span&gt; or &lt;span class="caps"&gt;WPA&lt;/span&gt; and,
+at best, might support &lt;span class="caps"&gt;WEP&lt;/span&gt;.
+&lt;span class="caps"&gt;WPA2&lt;/span&gt;, the strongest security, is not backward-compatible with &lt;span class="caps"&gt;WPA&lt;/span&gt; or &lt;span class="caps"&gt;WEP&lt;/span&gt;,
+but you can support all three security mechanisms on a single physical Wi-Fi network.
+However, client devices must find a protocol match on the APs to which they associate.
+In other words, &lt;span class="caps"&gt;WEP&lt;/span&gt; has to talk to &lt;span class="caps"&gt;WEP&lt;/span&gt;; it can’t talk to &lt;span class="caps"&gt;WPA&lt;/span&gt; or &lt;span class="caps"&gt;WPA2&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;In the end, I bit the bullet and converted my home WiFi to &lt;span class="caps"&gt;WPA2&lt;/span&gt;.
+I followed the proceedures outlined here:
+&lt;a href="http://www.splashofstyle.com/archives/2010/12/03/how-to-change-verizon-fios-router-from-wep-to-wpa2-plus-other-security-adjustments/"&gt;How to Change Verizon Fios Router from &lt;span class="caps"&gt;WEP&lt;/span&gt; to &lt;span class="caps"&gt;WPA2&lt;/span&gt;, Plus Other Security Adjustments&lt;/a&gt;.&lt;/p&gt;
+&lt;h1&gt;Establishing the X Terminal&amp;nbsp;Solution&lt;/h1&gt;
+&lt;p&gt;&lt;div style="float: left"&gt;
+    &lt;a href="http://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg"&gt;
+        &lt;img class="img-rounded" style="margin: 0px 8px" title="HP Omni Book XE3 being used as a X Terminal using Tiny Core Linux" alt="Laptop X Terminal" src="http://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg" width="70" height="70"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+To create the X Terminal solution, and therefore install the Tiny Core Linux (&lt;span class="caps"&gt;TCL&lt;/span&gt;),
+its good to have a firm undersatanding of &lt;span class="caps"&gt;TCL&lt;/span&gt; and how its differes from an typical Linux install.
+Reading the &lt;a href="http://www.tinycorelinux.net/corebook.pdf"&gt;&lt;span class="caps"&gt;TCL&lt;/span&gt; book&lt;/a&gt; is a good idea and so is watching
+&lt;a href="https://www.youtube.com/channel/UCZuZ4D4WGmyCLlWkgXvqqEg"&gt;JoeNobody010101&lt;/a&gt; (your going to love this guy)
+who provides a series of videos titled &amp;#8220;How to install and configure TinyCore&amp;nbsp;Linux&amp;#8221;.&lt;/p&gt;
+&lt;h3&gt;Installing Tiny Core Linux on Local&amp;nbsp;Computer&lt;/h3&gt;
+&lt;p&gt;Before starting the step-by-step installation procedures,
+here are some important things to&amp;nbsp;know.&lt;/p&gt;
+&lt;h4&gt;Mount Mode&amp;nbsp;Install&lt;/h4&gt;
+&lt;p&gt;This &lt;span class="caps"&gt;TCL&lt;/span&gt; install will be in Mount Mode.
+This means applications are stored locally in a directory named tce on a persistent store,
+e.g. a supported disk partition (ext2, ext3, ext4, vfat).
+Applications are mounted on reboot when present in &lt;code&gt;/mnt/sda1/tce/onboot.lst&lt;/code&gt;.&lt;/p&gt;
+&lt;h4&gt;Persistent File&amp;nbsp;Storage&lt;/h4&gt;
+&lt;p&gt;Tiny Core also supports persistent/permanent file storage.
+You will back-up at power down and restored at reboot the directories
+or files listed in the file &lt;code&gt;/opt/.filetool.lst&lt;/code&gt;.
+By default, this file contains the &lt;code&gt;/home&lt;/code&gt; and &lt;code&gt;/opt&lt;/code&gt; directories.
+The list may be changed manually (using vi or other text editor) to include other files or directories.
+Also, you can do the exclusion of particular files by listing them in &lt;code&gt;/opt/.xfiletool.lst&lt;/code&gt;.
+You can also backup and restore of these files anytime by using the utility &lt;code&gt;filetools.sh&lt;/code&gt;.
+Specifically, files are backed up by &lt;code&gt;filetool.sh -b&lt;/code&gt; to persistent&amp;nbsp;disk.&lt;/p&gt;
+&lt;h4&gt;Boot Time&amp;nbsp;Processes&lt;/h4&gt;
+&lt;p&gt;To start processes at boot time,
+&lt;code&gt;/opt/bootsync.sh&lt;/code&gt; is the file where you should list the shell script.
+The boot process will waits for them to complete.
+If you need network access later, this might be a good place to wait for the network to come up.
+&lt;code&gt;/opt/bootlocal.sh&lt;/code&gt; is the is the file for all items that don’t need to be waited for.
+This may include loading some non-essential module
+(&lt;span class="caps"&gt;ISA&lt;/span&gt; sound cards, for example), or starting some&amp;nbsp;server. &lt;/p&gt;
+&lt;p&gt;Once &lt;code&gt;/opt/bootsync.sh&lt;/code&gt; is complete (and while &lt;code&gt;/opt/bootlocal.sh&lt;/code&gt;  runs in the background)
+&lt;code&gt;init&lt;/code&gt; regains control.
+As the boot is now complete from &lt;code&gt;init&lt;/code&gt; point of view,
+it launches a terminal configured to do an automatic login to root and runs a script.
+Root’s login script is setup to do one of two things:
+it passes the control up to our regular user, named &lt;code&gt;tc&lt;/code&gt; by default.
+The &lt;code&gt;tc&lt;/code&gt; login script does nothing out of the ordinary.
+If an X server is available, and a text-only boot was not requested, X is&amp;nbsp;started.&lt;/p&gt;
+&lt;h4&gt;&lt;span class="caps"&gt;TCL&lt;/span&gt; Install&amp;nbsp;Steps&lt;/h4&gt;
+&lt;p&gt;To do the install, you need to follow these&amp;nbsp;steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Boot &lt;span class="caps"&gt;TCL&lt;/span&gt; Image from &lt;span class="caps"&gt;CD&lt;/span&gt;-&lt;span class="caps"&gt;ROM&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Go to the &lt;a href="http://tinycorelinux.net/"&gt;Tiny Core Linux (&lt;span class="caps"&gt;TCL&lt;/span&gt;) website&lt;/a&gt; and find the &lt;span class="caps"&gt;IOS&lt;/span&gt; image that includes CorePlus.  I download the CorePlus, image, burned it to a &lt;span class="caps"&gt;CD&lt;/span&gt;-&lt;span class="caps"&gt;ROM&lt;/span&gt; booting it on the Laptop.
+&lt;br/&gt;&lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Configure the &lt;span class="caps"&gt;TCL&lt;/span&gt; Image for&amp;nbsp;Installation&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Put the &lt;span class="caps"&gt;CD&lt;/span&gt;-&lt;span class="caps"&gt;ROM&lt;/span&gt; in the Laptop&amp;#8217;s drive, connect it via Ethernet to the Internet, and turn on the&amp;nbsp;power.&lt;/li&gt;
+&lt;li&gt;When it boots up, selected “Boot Core with X/&lt;span class="caps"&gt;GUI&lt;/span&gt; (TineCore) + Installation Extensions” from the boot menu. This will automatically install the &lt;code&gt;TC_Install&lt;/code&gt; program for installing&amp;nbsp;apps. &lt;/li&gt;
+&lt;li&gt;Select &amp;#8220;Apps&amp;#8221; icon on the bottom and install the following application packages to &amp;#8220;OnBoot&amp;#8221;&lt;ul&gt;
+&lt;li&gt;cfdisk.tcz&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Now open a terminal and enter &amp;#8220;cfdisk&amp;#8221;.  This will be used to format and partition the hard drive. I created a &lt;code&gt;sda1&lt;/code&gt; bootable drive with 9500Mb and a &lt;code&gt;sda2&lt;/code&gt; swap drive with 555.94Mb. Write to the disk and&amp;nbsp;quit.&lt;/li&gt;
+&lt;li&gt;Now run &lt;code&gt;TC_Install&lt;/code&gt;. Select Frugal, Whole Disk, Install boot loader, and high-light &lt;code&gt;sda&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Still in &lt;code&gt;TC_Install&lt;/code&gt;, click the next arrow at the bottom and then select &lt;code&gt;ext4&lt;/code&gt; file&amp;nbsp;format.&lt;/li&gt;
+&lt;li&gt;Still in &lt;code&gt;TC_Install&lt;/code&gt;, click the next arrow at the bottom and the boot options list will appear.  You&amp;#8217;ll select from this list by writing what you want on entry line.  Enter the following: &lt;code&gt;tce=sda1 swapfile=sda2 restore=sda1 home=sda1 opt=sda1 local=sda1 vga=792 host=XT xvera=1024x768x32&lt;/code&gt;. (&lt;span class="caps"&gt;NOTE&lt;/span&gt;: These parameters are placed within the file &lt;code&gt;/mnt/sda1/tce/boot/extlinux/extlinux.conf&lt;/code&gt; if you wish to exit them&amp;nbsp;later.)&lt;/li&gt;
+&lt;li&gt;Still in &lt;code&gt;TC_Install&lt;/code&gt;, click the next arrow at the bottom and select&lt;ul&gt;
+&lt;li&gt;Core and X/&lt;span class="caps"&gt;GUI&lt;/span&gt;&amp;nbsp;Desktop&lt;/li&gt;
+&lt;li&gt;WiFi&amp;nbsp;Support&lt;/li&gt;
+&lt;li&gt;Wireless&amp;nbsp;Firmware&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Still in &lt;code&gt;TC_Install&lt;/code&gt;, click the next arrow at the bottom and select Proceed.  The disk will now be formated, partitioned, and software loaded as specified.
+&lt;br/&gt;&lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Boot &lt;span class="caps"&gt;TCL&lt;/span&gt; Image from Hard&amp;nbsp;Disk&lt;/strong&gt; &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Now its time to reboot the system, making sure to remove the &lt;span class="caps"&gt;CD&lt;/span&gt;.  To do this, go to a terminal window and execute these commands&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;umount /mnt/hdc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;eject /dev/hdc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;reboot&lt;/code&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Activate Filewall, File Manager, and&amp;nbsp;Sound&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Once you booted up from the disk, click on Apps and install&lt;ul&gt;
+&lt;li&gt;fluff.tcz&lt;/li&gt;
+&lt;li&gt;iptables.tcz&lt;/li&gt;
+&lt;li&gt;alsa.tcz&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Activate the firewall (now and on all subsequent reboots) and sound by running the following commands in a terminal&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sudo /usr/local/sbin/basic-firewall&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Using fluff file manager, open &lt;code&gt;/opt/bootlocal.sh&lt;/code&gt; and place in it&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/usr/local/sbin/basic-firewall noprompt&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Using fluff file manager, open &lt;code&gt;/opt/bootlocal.sh&lt;/code&gt; and place in it&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;opt/alas&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;etc/modprobe.conf&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;usr/local/etc/asound.state&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;To permanently save changes to the hard drive, execute &lt;code&gt;filetool.sh -b&lt;/code&gt; in a terminal window.
+&lt;br/&gt;&lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install and Activate &lt;span class="caps"&gt;SSH&lt;/span&gt;&lt;/strong&gt;
+&lt;br/&gt;
+I used &amp;#8220;&lt;a href="http://firewallengineer.wordpress.com/2012/04/01/how-to-install-and-configure-openssh-ssh-server-in-tiny-core-linux/"&gt;How to install and configure OpenSSH (&lt;span class="caps"&gt;SSH&lt;/span&gt; Server) in Tiny Core Linux&lt;/a&gt;&amp;#8221; as my guide for this&amp;nbsp;work. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Click on Apps and install&lt;ul&gt;
+&lt;li&gt;openssh.tcz&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Go to the ssh configuration files with &lt;code&gt;cd /usr/local/etc/ssh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo cp sshd_config.example sshd_config&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Using &lt;code&gt;vi&lt;/code&gt;, place the line &lt;code&gt;usr/local/etc/ssh&lt;/code&gt; in the &lt;code&gt;/opt/.xfiletool.lst&lt;/code&gt; file.&lt;/li&gt;
+&lt;li&gt;Start the OpenSSH service via &lt;code&gt;sudo /usr/local/etc/init.d/openssh start&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Using &lt;code&gt;vi&lt;/code&gt;, place the line &lt;code&gt;/usr/local/etc/init.d/openssh start&lt;/code&gt; in the &lt;code&gt;/opt/bootlocal.sh&lt;/code&gt; file.&lt;/li&gt;
+&lt;li&gt;Establish a password on the &lt;code&gt;tc&lt;/code&gt; account by using the command &lt;code&gt;passwd&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Make the password permininate by putting the following lines in the &lt;code&gt;/opt/.xfiletool.lst&lt;/code&gt; file.&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;etc/passwd&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;etc/shadow&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;etc/group&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Test the installation by using ssh to login &lt;span class="caps"&gt;TCL&lt;/span&gt; from another system using &lt;code&gt;ssh tc@XT&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;To permanently save changes to the hard drive, execute &lt;code&gt;filetool.sh -b&lt;/code&gt; in a terminal window.
+&lt;br/&gt;&lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Activate WiFi&lt;/strong&gt;
+&lt;br/&gt;
+Getting clear and up to date information on &lt;span class="caps"&gt;TCL&lt;/span&gt; WiFi isn&amp;#8217;t easy,
+but &lt;a href="ttp://wiki.tinycorelinux.net/wiki:setting_up_wifi"&gt;Easy Way: wicd&lt;/a&gt; and &lt;a href="http://distro.ibiblio.org/tinycorelinux/5.x/armv7/GK802/README-wifi.txt"&gt;How to get wireless working&lt;/a&gt; proved to be the best&amp;nbsp;sources.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Install the following extensions via &lt;span class="caps"&gt;TCL&lt;/span&gt; &lt;code&gt;Apps&lt;/code&gt; application (OnBoot):&lt;ul&gt;
+&lt;li&gt;usb-utils.tcz&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;To download the latest &lt;span class="caps"&gt;USB&lt;/span&gt; device information by executing &lt;code&gt;sudo update-usbids.sh&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Now lets detect the type of WiFi &lt;span class="caps"&gt;USB&lt;/span&gt; adapter that is plugged into the Laptop.  In my case, this WiFi adapter is detected via &lt;code&gt;lsusb&lt;/code&gt; as&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;span class="caps"&gt;USB&lt;/span&gt; &lt;span class="caps"&gt;ID&lt;/span&gt;&lt;/strong&gt; = &lt;code&gt;0bda:8176&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Description&lt;/strong&gt; = &lt;code&gt;Realtek Semiconductor RTL8188CUS 802.11n WLAN Adapter&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;The &lt;span class="caps"&gt;USB&lt;/span&gt; &lt;span class="caps"&gt;ID&lt;/span&gt; is listed as one of the &lt;a href="http://wiki.tinycorelinux.net/wiki:list_of_supported_wifi_devices"&gt;Tiny Core Linux supported WiFi chips&lt;/a&gt;.  Knowing this, we can install the suite of applications and firmware required to get the WiFi adapter operational.  I install the following extensions via &lt;span class="caps"&gt;TCL&lt;/span&gt; &lt;code&gt;Apps&lt;/code&gt; application (OnBoot):&lt;ul&gt;
+&lt;li&gt;&lt;span class="caps"&gt;NOT&lt;/span&gt; &lt;span class="caps"&gt;SURE&lt;/span&gt; &lt;span class="caps"&gt;YOU&lt;/span&gt; &lt;span class="caps"&gt;NEED&lt;/span&gt; &lt;span class="caps"&gt;THIS&lt;/span&gt;:&amp;nbsp;wifi.tcz&lt;/li&gt;
+&lt;li&gt;firmware-rtlwifi.tcz&lt;/li&gt;
+&lt;li&gt;wpa_supplicant.tcz&lt;/li&gt;
+&lt;li&gt;wireless_tools.tcz&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Now pull the Ethernet connection and reboot (&lt;span class="caps"&gt;TCL&lt;/span&gt; seems to get confused when you try to operate with both Ethernet and WiFi&amp;nbsp;connections).&lt;/li&gt;
+&lt;li&gt;At this point you may verify the WiFi device with &lt;a href="http://www.linuxcommand.org/man_pages/iwconfig8.html"&gt;&lt;code&gt;iwconfig&lt;/code&gt;&lt;/a&gt;.  You should see that &lt;code&gt;wlan0&lt;/code&gt; is&amp;nbsp;operational.&lt;/li&gt;
+&lt;li&gt;Execute the program &lt;code&gt;sudo wpa_passphrase &amp;lt;YourSSID&amp;gt; &amp;lt;YourPassword&amp;gt; &amp;gt; /opt/wpa_supplicant.conf&lt;/code&gt;.  This will place the network credentials in a&amp;nbsp;file.&lt;/li&gt;
+&lt;li&gt;On the command line, execute the &lt;span class="caps"&gt;WPA2&lt;/span&gt; utility&lt;sup id="fnref:I"&gt;&lt;a class="footnote-ref" href="#fn:I" rel="footnote"&gt;8&lt;/a&gt;&lt;/sup&gt; &lt;code&gt;sudo wpa_supplicant -Dwext -iwlan0 -c/opt/wpa_supplicant.conf -B&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;On the command line, execute &lt;span class="caps"&gt;DHCP&lt;/span&gt; client program&lt;sup id="fnref:J"&gt;&lt;a class="footnote-ref" href="#fn:J" rel="footnote"&gt;9&lt;/a&gt;&lt;/sup&gt; &lt;code&gt;sudo udhcpc -iwlan0 -p/var/run/udcpc.wlan0.pid&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Now see if you can &lt;a href="http://linux.about.com/od/commands/l/blcmdl8_ping.htm"&gt;&lt;code&gt;ping&lt;/code&gt;&lt;/a&gt; from and to the&amp;nbsp;laptop.&lt;/li&gt;
+&lt;li&gt;To permanently save changes to the hard drive, execute &lt;code&gt;filetool.sh -b&lt;/code&gt; in a terminal&amp;nbsp;window.&lt;/li&gt;
+&lt;li&gt;As a final test, reboot and try out the WiFi.&lt;ul&gt;
+&lt;li&gt;After a reboot, I found that WiFi wouldn&amp;#8217;t work (i.e. &lt;code&gt;iwconfig&lt;/code&gt; didn&amp;#8217;t detect the WiFi adapter). I had to pull the WiFi adapter and reinstall it into the &lt;span class="caps"&gt;USB&lt;/span&gt;.  I then executed &lt;code&gt;sudo wpa_supplicant -Dwext -iwlan0 -c/opt/wpa_supplicant.conf -B&lt;/code&gt; and &lt;code&gt;sudo udhcpc -iwlan0 -p/var/run/udcpc.wlan0.pid&lt;/code&gt;.
+&lt;br/&gt;&lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Tiny Core Linux&amp;nbsp;Files&lt;/h3&gt;
+&lt;p&gt;Once successfully installed, the Tiny Core Linux (&lt;span class="caps"&gt;TCL&lt;/span&gt;) files should be look like&amp;nbsp;this:&lt;/p&gt;
+&lt;p&gt;The backup is controlled by two files &lt;code&gt;/opt/.filetool.lst&lt;/code&gt; lists
+everything to include,
+and &lt;code&gt;/opt/.xfiletool.lst&lt;/code&gt; lists everything to exclude.
+Exclusions will override inclusions.
+My &lt;code&gt;/opt/.filetool.lst&lt;/code&gt; file looks like&amp;nbsp;this&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;opt
+home
+usr/local/etc/ssh
+etc/passwd
+etc/shadow
+etc/group
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;My &lt;code&gt;/opt/.xfiletool.lst&lt;/code&gt; file looks like&amp;nbsp;this&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;Cache
+cache
+.cache
+XUL.mfasl
+XPC.mfasl
+mnt
+.adobe/Flash_Player/AssetCache
+.macromedia/Flash_Player
+.opera/opcache
+.opera/cache4
+.Xauthority
+.wmx
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;bootsync.sh&lt;/code&gt; is the entry point for all items you need to run on boot,
+while the boot waits for them to complete.
+My &lt;code&gt;/opt/bootsync.sh&lt;/code&gt; file looks like&amp;nbsp;this&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;#!/bin/sh&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;# put other system startup commands here, the boot process will wait until they complete.&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;# Use bootlocal.sh for system startup commands that can run in the background &lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;# and therefore not slow down the boot process.&lt;/span&gt;
+/usr/bin/sethostname box
+/opt/bootlocal.sh &amp;amp;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;bootlocal.sh&lt;/code&gt; is the entry point for all items that don’t need to be waited for.
+This may include loading some non-essential module or starting some server.
+My &lt;code&gt;/opt/bootlocal.sh&lt;/code&gt; file looks like&amp;nbsp;this&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;#!/bin/sh&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;# put other system startup commands here&lt;/span&gt;
+/usr/local/sbin/basic-firewall noprompt 
+/usr/local/etc/init.d/openssh start
+/usr/local/sbin/basic-firewall noprompt
+opt/alas
+etc/modprobe.conf
+usr/local/etc/asound.state
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The program &lt;code&gt;sudo wpa_passphrase &amp;lt;YourSSID&amp;gt; &amp;lt;YourPassword&amp;gt;&lt;/code&gt; was used to
+created the network &lt;span class="caps"&gt;WPA2&lt;/span&gt; WiFi credentials and placed in the file
+&lt;code&gt;/opt/wpa_supplicant.conf&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #003333"&gt;network&lt;/span&gt;&lt;span style="color: #555555"&gt;={&lt;/span&gt;
+    &lt;span style="color: #003333"&gt;ssid&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;74LL5&amp;quot;&lt;/span&gt;
+    &lt;span style="color: #0099FF; font-style: italic"&gt;#psk=&amp;quot;dfjgrigreiodjdeghry&amp;quot;&lt;/span&gt;
+    &lt;span style="color: #003333"&gt;psk&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;8477c7110cf5edex3e07aa82345fxefc4f2da4sd9x8fcc4ad3x83fef6d2416df
+&lt;span style="color: #555555"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The &lt;code&gt;.xsession&lt;/code&gt; file sets up the default background,
+starts any X-dependant programs you’ve configured,
+and starts up the configured window manager.
+My &lt;code&gt;/home/tc/.xsession&lt;/code&gt; file looks like&amp;nbsp;this&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# This script will start a local X Window envirnment or use a remote Display Manager&lt;/span&gt;
+
+&lt;span style="color: #0099FF; font-style: italic"&gt;# Set to 1 if your wish to use remote Display Manager&lt;/span&gt;
+&lt;span style="color: #003333"&gt;REMOTE&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;1
+
+&lt;span style="color: #006699; font-weight: bold"&gt;if&lt;/span&gt; &lt;span style="color: #555555"&gt;[&lt;/span&gt; &lt;span style="color: #003333"&gt;$REMOTE&lt;/span&gt; &lt;span style="color: #555555"&gt;==&lt;/span&gt; &lt;span style="color: #FF6600"&gt;1&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt;;
+&lt;span style="color: #006699; font-weight: bold"&gt;then&lt;/span&gt;
+    Xvesa -query desktop -br -screen 1024x768x32 -shadow -3button -mouse /dev/input/mice,5 -I &amp;gt;/dev/null 2&amp;gt;&amp;amp;&lt;span style="color: #FF6600"&gt;1&lt;/span&gt; &amp;amp;
+    &lt;span style="color: #336666"&gt;export &lt;/span&gt;&lt;span style="color: #003333"&gt;XPID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #003333"&gt;$!&lt;/span&gt;
+    waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; ! &lt;span style="color: #336666"&gt;echo &lt;/span&gt;failed in waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; &lt;span style="color: #336666"&gt;exit&lt;/span&gt;
+    &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$DESKTOP&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt; 2&amp;gt;/tmp/wm_errors &amp;amp;
+    &lt;span style="color: #336666"&gt;export &lt;/span&gt;&lt;span style="color: #003333"&gt;WM_PID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #003333"&gt;$!&lt;/span&gt;
+    &lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground 
+    &lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &amp;amp;
+    &lt;span style="color: #555555"&gt;[&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;which &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$ICONS&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;.sh&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;ICONS&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;.sh &amp;amp;
+    &lt;span style="color: #555555"&gt;[&lt;/span&gt; -d &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;&lt;span style="color: #CC3300"&gt;/.X.d&amp;quot;&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; find &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;&lt;span style="color: #CC3300"&gt;/.X.d&amp;quot;&lt;/span&gt; -type f -print | &lt;span style="color: #006699; font-weight: bold"&gt;while&lt;/span&gt; &lt;span style="color: #336666"&gt;read &lt;/span&gt;F; &lt;span style="color: #006699; font-weight: bold"&gt;do&lt;/span&gt; . &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$F&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;; &lt;span style="color: #006699; font-weight: bold"&gt;done&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;else&lt;/span&gt;
+    Xvesa -br -screen 1024x768x32 -shadow -3button -mouse /dev/input/mice,5 -nolisten tcp -I &amp;gt;/dev/null 2&amp;gt;&amp;amp;&lt;span style="color: #FF6600"&gt;1&lt;/span&gt; &amp;amp;
+    &lt;span style="color: #336666"&gt;export &lt;/span&gt;&lt;span style="color: #003333"&gt;XPID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #003333"&gt;$!&lt;/span&gt;
+    waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; ! &lt;span style="color: #336666"&gt;echo &lt;/span&gt;failed in waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; &lt;span style="color: #336666"&gt;exit&lt;/span&gt;
+    &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$DESKTOP&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt; 2&amp;gt;/tmp/wm_errors &amp;amp;
+    &lt;span style="color: #336666"&gt;export &lt;/span&gt;&lt;span style="color: #003333"&gt;WM_PID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #003333"&gt;$!&lt;/span&gt;
+    &lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground 
+    &lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &amp;amp;
+    &lt;span style="color: #555555"&gt;[&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;which &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$ICONS&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;.sh&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;ICONS&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;.sh &amp;amp;
+    &lt;span style="color: #555555"&gt;[&lt;/span&gt; -d &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;&lt;span style="color: #CC3300"&gt;/.X.d&amp;quot;&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; find &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;&lt;span style="color: #CC3300"&gt;/.X.d&amp;quot;&lt;/span&gt; -type f -print | &lt;span style="color: #006699; font-weight: bold"&gt;while&lt;/span&gt; &lt;span style="color: #336666"&gt;read &lt;/span&gt;F; &lt;span style="color: #006699; font-weight: bold"&gt;do&lt;/span&gt; . &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$F&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;; &lt;span style="color: #006699; font-weight: bold"&gt;done&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;My &lt;code&gt;/home/tc/.local/bin/localX.sh&lt;/code&gt; file looks like&amp;nbsp;this&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# This script will start a local X Window envirnment&lt;/span&gt;
+
+Xvesa -br -screen 1024x768x32 -shadow -3button -mouse /dev/input/mice,5 -nolisten tcp -I &amp;gt;/dev/null 2&amp;gt;&amp;amp;&lt;span style="color: #FF6600"&gt;1&lt;/span&gt; &amp;amp;
+&lt;span style="color: #336666"&gt;export &lt;/span&gt;&lt;span style="color: #003333"&gt;XPID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #003333"&gt;$!&lt;/span&gt;
+waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; ! &lt;span style="color: #336666"&gt;echo &lt;/span&gt;failed in waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; &lt;span style="color: #336666"&gt;exit&lt;/span&gt;
+&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$DESKTOP&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt; 2&amp;gt;/tmp/wm_errors &amp;amp;
+&lt;span style="color: #336666"&gt;export &lt;/span&gt;&lt;span style="color: #003333"&gt;WM_PID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #003333"&gt;$!&lt;/span&gt;
+&lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground 
+&lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &amp;amp;
+&lt;span style="color: #555555"&gt;[&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;which &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$ICONS&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;.sh&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;ICONS&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;.sh &amp;amp;
+&lt;span style="color: #555555"&gt;[&lt;/span&gt; -d &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;&lt;span style="color: #CC3300"&gt;/.X.d&amp;quot;&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; find &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;&lt;span style="color: #CC3300"&gt;/.X.d&amp;quot;&lt;/span&gt; -type f -print | &lt;span style="color: #006699; font-weight: bold"&gt;while&lt;/span&gt; &lt;span style="color: #336666"&gt;read &lt;/span&gt;F; &lt;span style="color: #006699; font-weight: bold"&gt;do&lt;/span&gt; . &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$F&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;; &lt;span style="color: #006699; font-weight: bold"&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Tiny Core Linux&amp;nbsp;Commands&lt;/h3&gt;
+&lt;p&gt;To find the linux kernel version for the &lt;span class="caps"&gt;TCL&lt;/span&gt; your runing &lt;code&gt;uname -or&lt;/code&gt;.
+To check the running version of &lt;span class="caps"&gt;TCL&lt;/span&gt;, you can run the &lt;code&gt;version&lt;/code&gt; command.
+For&amp;nbsp;example:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;tc@XT:~&lt;span style="color: #003333"&gt;$ &lt;/span&gt;uname -or
+3.8.13-tinycore GNU/Linux
+tc@XT:~&lt;span style="color: #003333"&gt;$ &lt;/span&gt;version
+5.2
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Once Installed, How Do You Manage the X&amp;nbsp;Terminal&lt;/h3&gt;
+&lt;p&gt;To kill the Xvesa X Server on &lt;span class="caps"&gt;TCL&lt;/span&gt;, press the &lt;code&gt;Ctrl+Alt+Del&lt;/code&gt; key combination,
+and you will get the &lt;span class="caps"&gt;TCL&lt;/span&gt; command line&amp;nbsp;prompt.&lt;/p&gt;
+&lt;p&gt;To start the X Winodw System, do the&amp;nbsp;following&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# start the X Window System and brings up the Xvesa X Server using the remote Display Manager&lt;/span&gt;
+. ./.xsession
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Configuring Remote Computer (Ubuntu&amp;nbsp;Desktop)&lt;/h3&gt;
+&lt;p&gt;On the remote-computer (in my case, a Ubuntu desktop runing &lt;code&gt;lightdm&lt;/code&gt; Display Manager),
+you need to tell the Display Manager to accept logins from a remote X Server.
+This is easily done by configuring the file &lt;code&gt;/etc/lightdm/lightdm.conf&lt;/code&gt; so it&amp;nbsp;contains &lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;[SeatDefaults]
+user-session=ubuntu
+autologin-user=false
+xserver-allow-tcp=true
+greeter-session=unity-greeter
+
+[xdmcp]
+Enable=true
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The key parameter to be added is &lt;code&gt;xserver-allow-tcp&lt;/code&gt;.
+There is no manpage for &lt;code&gt;lighdm.conf&lt;/code&gt;, but there is an example that lists all the options
+and a bit about what they do, just look in &lt;code&gt;/usr/share/doc/lightdm/lightdm.conf.gz&lt;/code&gt;
+For a more complete list of configuration parameters for lightDM Display Manager,
+see the article &amp;#8220;&lt;a href="http://hmontoliu.blogspot.com/2011/10/disable-guest-sesson-in-ubuntu-1110.html"&gt;Disable guest session in Ubuntu 11.10&lt;/a&gt;&amp;#8221; and
+&lt;a href="http://www.mattfischer.com/blog/?p=343"&gt;Understanding lightdm.conf&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Picking a New Window Manager for Remote Computer (Ubuntu&amp;nbsp;Desktop)&lt;/h3&gt;
+&lt;p&gt;Given my problems with Compiz stated earlier, I want to pick a simpler,
+lightweight Window Manger that could run on my ancient hardware.
+I researched my options with the aid of the articles
+&amp;#8220;&lt;a href="http://www.engadget.com/2012/10/30/how-to-picking-a-window-manager-linux/"&gt;How-to: Picking a Window Manager in Linux&lt;/a&gt;&amp;#8221; and
+&amp;#8220;&lt;a href="http://www.junauza.com/2008/08/20-most-nimble-and-simple-x-window.html"&gt;20 Most Nimble and Simple X Window Managers for Linux&lt;/a&gt;&amp;#8220;.
+I choose &lt;a href="http://fluxbox.org/"&gt;Fluxbox&lt;/a&gt; as my replacement Window Manger because of its simplicity and it widely praised. 
+You &lt;a href="http://fluxbox.sourceforge.net/docbook/en/html/book1.html"&gt;Fluxbox Documentation&lt;/a&gt; will give most of what you need to configure this Window Manager.
+To install Fluxbox, and a companion tool for supporting desktop icons called fbdesk, use the&amp;nbsp;following:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# install Fluxbox&lt;/span&gt;
+sudo apt-get install fluxbox fbdesk
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Xvesa X&amp;nbsp;Server&lt;/h3&gt;
+&lt;p&gt;Xvesa X Server is &lt;span class="caps"&gt;NOT&lt;/span&gt; a normal &lt;a href="http://www.xfree86.org/"&gt;XFree86&lt;/a&gt; X Server.
+It is part of the &lt;a href="http://www.xfree86.org/current/TinyX.1.html"&gt;TinyX series of X Servers&lt;/a&gt;.
+Xvesa accepts all the &lt;a href="http://www.xfree86.org/current/Xserver.1.html"&gt;standard options accepted by all X Servers&lt;/a&gt;,
+along with some specail options.
+They are part of the XFree86 package, but they are very different.
+They are designed for low memory use.
+It also turns out that they work better for some video chips than the normal
+&lt;span class="caps"&gt;XF86&lt;/span&gt;&amp;nbsp;xservers.&lt;/p&gt;
+&lt;p&gt;But one very important thing is they do &lt;span class="caps"&gt;NOT&lt;/span&gt; use the XF86Config
+file, like their bigger&amp;nbsp;brothers.&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;Xvesa -query desktop -br -screen 1024x768x32 -shadow
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;-nolisten trans-type&lt;/strong&gt; disables a transport type. For example, &lt;span class="caps"&gt;TCP&lt;/span&gt;/&lt;span class="caps"&gt;IP&lt;/span&gt; connections can be disabled with -nolisten tcp. This option may be issued multiple times to disable listening to different transport&amp;nbsp;types.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-br&lt;/strong&gt; sets the default root window to solid black instead of the standard root weave&amp;nbsp;pattern.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-shadow&lt;/strong&gt; use a shadow framebuffer even if it is not strictly necessary. This may dramatically improve performance on some&amp;nbsp;hardware.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-I&lt;/strong&gt; ignore all remaining&amp;nbsp;arguments&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To make this persistent, put &lt;code&gt;tc/.xsession&lt;/code&gt; in the &lt;code&gt;/opt/.filetool.lst&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:A"&gt;
+&lt;p&gt;Celeron is a brand name given by Intel Corp. to a number of different microprocessor models
+targeted at budget personal computers.
+&lt;a href="http://en.wikipedia.org/wiki/Celeron"&gt;Introduced in April 1998&lt;/a&gt;, the first Celeron branded &lt;span class="caps"&gt;CPU&lt;/span&gt; was based on the Pentium &lt;span class="caps"&gt;II&lt;/span&gt; branded core.
+Subsequent Celeron branded CPUs were based on the Pentium &lt;span class="caps"&gt;III&lt;/span&gt;, Pentium 4, Pentium M,
+and Intel Core branded processors. 
+With Damn Small Linux loaded and running &lt;code&gt;cat /proc/cpuinfo&lt;/code&gt;,
+it shows the processor is of Intel &lt;span class="caps"&gt;CPU&lt;/span&gt; family 6 and model 11.
+This maps to Intel product code 80530, which &lt;a href="http://en.wikipedia.org/wiki/List_of_Intel_microprocessors"&gt;makes it a Pentium &lt;span class="caps"&gt;III&lt;/span&gt; (codename Tualatin)&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:A" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:B"&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align="center"&gt;Feature&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;&lt;span class="caps"&gt;CPU&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;1066-MHz Intel Mobile Celeron processor&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;Cache&lt;/td&gt;
+&lt;td&gt;&lt;span class="caps"&gt;128KB&lt;/span&gt; internal L2 cache, &lt;span class="caps"&gt;32KB&lt;/span&gt; internal L1 cache&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;Memory&lt;/td&gt;
+&lt;td&gt;&lt;span class="caps"&gt;128MB&lt;/span&gt; of 100MHz &lt;span class="caps"&gt;SDRAM&lt;/span&gt; standard (&lt;span class="caps"&gt;PC100&lt;/span&gt;), &lt;span class="caps"&gt;512MB&lt;/span&gt; maximum system memory (two slots available only for memory modules)(144-pin/3.3V; 1.25-in slots)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;Mass Storage&lt;/td&gt;
+&lt;td&gt;&lt;span class="caps"&gt;10GB&lt;/span&gt; Enhanced-&lt;span class="caps"&gt;IDE&lt;/span&gt; hard drive, Built-in 3.5-inch 1.44-&lt;span class="caps"&gt;MB&lt;/span&gt; floppy disk drive, Built-in 24X maximum-speed &lt;span class="caps"&gt;CD&lt;/span&gt;-&lt;span class="caps"&gt;ROM&lt;/span&gt; drive&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;Display&lt;/td&gt;
+&lt;td&gt;13.3-inch diagonal 1024 × 768 &lt;span class="caps"&gt;XGA&lt;/span&gt; &lt;span class="caps"&gt;TFT&lt;/span&gt; display with 16 million colors&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;Video&lt;/td&gt;
+&lt;td&gt;S3 Savage/1X graphics controller, 2X &lt;span class="caps"&gt;AGP&lt;/span&gt; graphics, 128-bit single-cycle 3D architecture video graphics controller, &lt;span class="caps"&gt;8MB&lt;/span&gt; of embedded video &lt;span class="caps"&gt;SGRAM&lt;/span&gt;, external video resolutions/maximum colors/refresh rates: 800 × 600/16M colors/85Hz, 1024 × 768/16M colors/85Hz, 1280 × 1024/16M colors/85Hz, 1600 × 1200/64K colors/85Hz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;Audio&lt;/td&gt;
+&lt;td&gt;16-bit Sound Blaster Pro–compatible stereo sound (&lt;span class="caps"&gt;ESS&lt;/span&gt; Allegra), Stereo sound via headphone-out, microphone-in port, Polk Audio speakers, 3D-enhanced &lt;span class="caps"&gt;PCI&lt;/span&gt; bus audio, Supports &lt;span class="caps"&gt;CD&lt;/span&gt;-play while system is off, Built-in microphone&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;Ports&lt;/td&gt;
+&lt;td&gt;Two Universal Serial Bus (&lt;span class="caps"&gt;USB&lt;/span&gt;) ports, Serial port: 9-pin, 115,200 bps, Parallel port: 25-pin bi-directional &lt;span class="caps"&gt;ECP&lt;/span&gt; and &lt;span class="caps"&gt;EPP&lt;/span&gt;, 4-Mbps IrDA-compliant infrared port, &lt;span class="caps"&gt;PS&lt;/span&gt;/2 keyboard/mouse port, &lt;span class="caps"&gt;VGA&lt;/span&gt;: 15-pin, Composite &lt;span class="caps"&gt;TV&lt;/span&gt;-out, &lt;span class="caps"&gt;RJ&lt;/span&gt;-11 modem jack, &lt;span class="caps"&gt;RJ&lt;/span&gt;-45 jack, Headphone-out, microphone-in ports&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;Communications&lt;/td&gt;
+&lt;td&gt;Integrated 56Kbps, v.90-compatible, worldwide capable modem + 10/100 &lt;span class="caps"&gt;LAN&lt;/span&gt; combo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;Power&lt;/td&gt;
+&lt;td&gt;Universal &lt;span class="caps"&gt;AC&lt;/span&gt; adapter: 100 to 240 Vac input; 19-Vdc, 3.16-A output, Built-in rechargeable 9-cell Lithium-Ion battery (with up to 4-hour run time)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;&lt;span class="caps"&gt;PC&lt;/span&gt; Card Slots&lt;/td&gt;
+&lt;td&gt;One Type &lt;span class="caps"&gt;III&lt;/span&gt; or two Type &lt;span class="caps"&gt;II&lt;/span&gt; &lt;span class="caps"&gt;PC&lt;/span&gt; Card slots, CardBus-enabled (&lt;span class="caps"&gt;TI&lt;/span&gt; 1420)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;Weight&lt;/td&gt;
+&lt;td&gt;7.2lb with 13.3-in display&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;Dimensions&lt;/td&gt;
+&lt;td&gt;13.03 × 10.76 × 1.59in&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;Operating System&lt;/td&gt;
+&lt;td&gt;Microsoft Windows 98, Second Edition&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a class="footnote-backref" href="#fnref:B" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:C"&gt;
+&lt;p&gt;Generally, a &lt;a href="http://en.wikipedia.org/wiki/X_terminal"&gt;X Terminal&lt;/a&gt;, a predecessor to todays &lt;a href="http://en.wikipedia.org/wiki/Thin_client"&gt;thin client&lt;/a&gt;, is a low-powered,
+diskless, quieter, and more reliable than desktop computers
+because they do not have any moving parts.
+I can&amp;#8217;t say this about this vintage laptop.&amp;#160;&lt;a class="footnote-backref" href="#fnref:C" rev="footnote" title="Jump back to footnote 3 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:D"&gt;
+&lt;p&gt;Damn Small Linux also uses by default &lt;a href="http://www.busybox.net/"&gt;Busybox&lt;/a&gt;.
+BusyBox provides several stripped-down Unix tools in a single executable file. 
+Its originally aim was to provide a complete bootable system on a single floppy
+that would serve both as a rescue disk and as an installer for the Debian distribution.
+Busybox&amp;#8217;s use now is more focused on embedded operating systems with very limited resources.&amp;#160;&lt;a class="footnote-backref" href="#fnref:D" rev="footnote" title="Jump back to footnote 4 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:E"&gt;
+&lt;p&gt;&lt;span class="caps"&gt;XDMCP&lt;/span&gt; is inherently insecure as it does not encrypt your traffic.
+Therefore, only use &lt;span class="caps"&gt;XDMCP&lt;/span&gt; on a wired network that you you trust or a solidly secure wireless network.
+Also, consider using alternatives that feature security (and often compression) such as &lt;a href="https://help.ubuntu.com/community/FreeNX"&gt;FreeNX&lt;/a&gt;.
+&lt;span class="caps"&gt;XDMCP&lt;/span&gt; also uses a large amount of bandwidth because it uses no compression.
+A 100Mb network may be necessary.
+However, the lack of compression can make &lt;span class="caps"&gt;XDMCP&lt;/span&gt; provide very fast graphics when the bandwidth is available.&amp;#160;&lt;a class="footnote-backref" href="#fnref:E" rev="footnote" title="Jump back to footnote 5 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:F"&gt;
+&lt;p&gt;An alternative is to use the graphics configuration editor &lt;code&gt;dconf-editor&lt;/code&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:F" rev="footnote" title="Jump back to footnote 6 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:G"&gt;
+&lt;p&gt;There appears to be some efforts to create a secure solution using a tool call &lt;a href="http://ayesha.phys.virginia.edu/~bryan/projects/knoppix/sterminal/"&gt;S-Terminal&lt;/a&gt;,
+but since this would need to be supported on Tiny Core Linux (which it is not),
+this will not help me.&amp;#160;&lt;a class="footnote-backref" href="#fnref:G" rev="footnote" title="Jump back to footnote 7 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:I"&gt;
+&lt;p&gt;&lt;code&gt;wpa_supplicant&lt;/code&gt; is a free software implementation of an &lt;span class="caps"&gt;IEEE&lt;/span&gt; 802.11i supplicant for Linux.
+Included with the supplicant are a &lt;span class="caps"&gt;GUI&lt;/span&gt; and a command-line utility for interacting with the running supplicant.
+From either of these interfaces it is possible to review a list of currently visible networks,
+select one of them, provide any additional security information needed to authenticate with the network
+(for example, a passphrase, or username and password).&amp;#160;&lt;a class="footnote-backref" href="#fnref:I" rev="footnote" title="Jump back to footnote 8 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:J"&gt;
+&lt;p&gt;Udhcpc is a very small &lt;span class="caps"&gt;DHCP&lt;/span&gt; client program geared towards embedded systems.
+The letters are an abbreviation for Micro - &lt;span class="caps"&gt;DHCP&lt;/span&gt; - Client (µDHCPc).
+The program tries to be fully functional and &lt;span class="caps"&gt;RFC&lt;/span&gt; 2131 compliant.&amp;#160;&lt;a class="footnote-backref" href="#fnref:J" rev="footnote" title="Jump back to footnote 9 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</summary><category term="Tiny Core Linux"></category><category term="X Terminal"></category><category term="X Window System"></category></entry><entry><title>Conky for Ubuntu</title><link href="http://jeffskinnerbox.me/posts/2014/May/12/conky-for-ubuntu/" rel="alternate"></link><updated>2014-05-12T12:42:00-04:00</updated><author><name>"Jeff Irland"</name></author><id>tag:jeffskinnerbox.me,2014-05-12:posts/2014/May/12/conky-for-ubuntu/</id><summary type="html">&lt;p&gt;Over a Year ago, I created a &lt;a href="http://jeffskinnerbox.me/posts/2012/Nov/02/conky-for-the-raspberry-pi/"&gt;Conky configuration file for the Raspberry Pi&lt;/a&gt;.
 I final got around to tailoring it for my desktop Linux box.
 You find both version on &lt;a href="https://github.com/jeffskinnerbox/dotconky"&gt;GitHub&lt;/a&gt;.
 Screen shot is at the&amp;nbsp;bottom.&lt;/p&gt;
