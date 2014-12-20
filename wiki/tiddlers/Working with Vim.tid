@@ -1,5 +1,5 @@
 created: 20140916015804477
-modified: 20140921023949623
+modified: 20141213040521097
 tags: study
 title: Working with Vim
 type: text/vnd.tiddlywiki
@@ -10,4 +10,5 @@ type: text/vnd.tiddlywiki
 
 !!Vim and Browser
 *[[wasavi (VI editor for any web page)|http://appsweets.net/wasavi/]]
+* [[CodeMirror|http://codemirror.net/]]
 *[[TextAid|http://lalashan.mcmaster.ca/theobio/projects/index.php/TextAid]]

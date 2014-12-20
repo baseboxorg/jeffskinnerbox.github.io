@@ -36,7 +36,7 @@ Here is an another example using a file from the web
 ```md
 Full image is placed here
 ![alt text](http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg "Skinner Box:  operant conditioning cage")
-Lorem ipsum dolor sit amet, ....
+_Lorem ipsum dolor sit amet, ....
 ```
 
 _Full image is placed here_
@@ -47,9 +47,9 @@ _Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
 You can also access some of the HTML features
 
 ```html
-Lorem ipsum dolor sit amet, ....
+_Lorem ipsum dolor sit amet, ....
 [<img src="http://www.google.com.au/images/nav_logo7.png">](http://google.com.au/)
-Lorem ipsum dolor sit amet, ....
+_Lorem ipsum dolor sit amet, ....
 ```
 
 _[Lorem ipsum][01] dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
@@ -59,7 +59,7 @@ _[Lorem ipsum][01] dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
 And now for something different
 
 ```html
-Lorem ipsum dolor sit amet, ....
+_Lorem ipsum dolor sit amet, ....
 [![Foo](http://www.google.com.au/images/nav_logo7.png)](http://google.com.au/)
 ```
 
@@ -72,7 +72,7 @@ You can also use standard HTML image syntax, which allows you to scale the width
 ```html
 100 x 100 pixel image is here
 <img src="http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg" title="Some text for you" width="100" height="100">
-Lorem ipsum dolor sit amet, ....
+_Lorem ipsum dolor sit amet, ....
 ```
 
 _100 x 100 pixel image is here_
@@ -87,7 +87,7 @@ By using some more HTML mojo, you float the image left or right.
 <div style="float: left">
     <img src="http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg" width="200" height="200">
 </div>
-Lorem ipsum dolor sit amet, ....
+_Lorem ipsum dolor sit amet, ....
 ```
 
 <div style="float: left">
@@ -95,6 +95,9 @@ Lorem ipsum dolor sit amet, ....
 </div>
 _Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
 _Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
+
+>>**NOTE:** The width and height parameters in the img tag must be in absolute terms.
+width="20%" height="20%" will not work!
 
 ### Selectable Image
 And using a little more HTML mojo, you can make the image take you to a URL (select the image below with the mouse):
@@ -105,7 +108,7 @@ And using a little more HTML mojo, you can make the image take you to a URL (sel
         <img src="http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg" width="200" height="200">
     </a>
 </div>
-Lorem ipsum dolor sit amet, ....
+_Lorem ipsum dolor sit amet, ....
 ```
 
 <div style="float: right">
@@ -116,20 +119,42 @@ Lorem ipsum dolor sit amet, ....
 _Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
 _Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
 
+Now moving to the left, adding a hyperlink, and a few other bells & whistles:
+
+```html
+_Lorem ipsum dolor sit amet, ....
+<div style="float: left">
+    <a href="http://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg">
+        <img class="img-rounded" style="margin: 0px 8px" title="HP Omni Book XE3 being used as a X Terminal using Tiny Core Linux" alt="Laptop X Terminal" src="http://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg" width="70" height="70">
+    </a>
+</div>
+_Lorem ipsum dolor sit amet, ....
+```
+
+_Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
+<div style="float: left">
+    <a href="http://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg">
+        <img class="img-rounded" style="margin: 0px 8px" title="HP Omni Book XE3 being used as a X Terminal using Tiny Core Linux" alt="Laptop X Terminal" src="http://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg" width="70" height="70">
+    </a>
+</div>
+_Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
+
 ### Adding Formating Features to the Image
 You can also add additional features to the image, like rounded corners
 
 ```html
 <div style="float: right">
     <a href="http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/">
-        <img class="img-rounded" title="Seagate Backup Plus" alt="Backup Plus Pic" src="http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg" width="200" height="200" /></a>
+        <img class="img-rounded" title="Seagate Backup Plus" alt="Backup Plus Pic" src="http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg" width="200" height="200">
+    </a>
 </div>
-Lorem ipsum dolor sit amet, ....
+_Lorem ipsum dolor sit amet, ....
 ```
 
 <div style="float: right">
     <a href="http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/">
-        <img class="img-rounded" title="Seagate Backup Plus" alt="Backup Plus Pic" src="http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg" width="200" height="200" /></a>
+        <img class="img-rounded" title="Seagate Backup Plus" alt="Backup Plus Pic" src="http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg" width="200" height="200">
+    </a>
 </div>
 _Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
 _Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
@@ -139,7 +164,7 @@ Now lets place somes border space around the image so the text isn't touching it
 ```html
 <a href="http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Seagate Backup Plus" alt="Backup Plus Pic" src="http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg" width="150" height="150" /></a>
-Lorem ipsum dolor sit amet, ....
+_Lorem ipsum dolor sit amet, ....
 ```
 
 <a href="http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/">
@@ -152,7 +177,7 @@ Now lets do a image that is stored within the directory `content/images`:
 
 ```html
 <img class="img-rounded" style="margin: 0px 8px; float: left" title="Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182" alt="Wolf Trap" src="{filename}/images/wolf_trap.jpg" width="150" height="150" />
-Lorem ipsum dolor sit amet, ....
+_Lorem ipsum dolor sit amet, ....
 ```
 
 <img class="img-rounded" style="margin: 0px 8px; float: left" title="Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182" alt="Wolf Trap" src="{filename}/images/wolf_trap.jpg" width="150" height="150" />
@@ -163,7 +188,7 @@ Now trying some tricks from the web, but using Markdown:
 
 ```markdown
 ![Wolf Trap]({filename}/images/wolf_trap.jpg =200x200 "Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182")
-Lorem ipsum dolor sit amet, ....
+_Lorem ipsum dolor sit amet, ....
 ```
 
 ![Wolf Trap]({filename}/images/wolf_trap.jpg =200x200 "Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182")
@@ -174,7 +199,7 @@ Now pull the image file for the blogs directory system and modify it default for
 
 ```markdown
 ![Wolf Trap]({filename}/images/wolf_trap.jpg "Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182" { margin: 0px 8px; float: left; width: 200px height: 200px; })
-Lorem ipsum dolor sit amet, ....
+_Lorem ipsum dolor sit amet, ....
 ```
 
 ![Wolf Trap]({filename}/images/wolf_trap.jpg "Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182" { margin: 0px 8px; float: left; width: 200px height: 200px; })

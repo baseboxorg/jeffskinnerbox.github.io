@@ -126,7 +126,7 @@ article:
             	;; \
         	*) \
             	echo "You picked the file $$file" ; \
-				sed 's/Date: 2100-01-01 00:00/Date: $(DATETIME)/' $$file > $(ARTICLESDIR)/$$file ; \
+				sed '{ s/Date: 2100-01-01 00:00/Date: $(DATETIME)/ ; /Status: draft/d }' $$file > $(ARTICLESDIR)/$$file ; \
 				mv $$file $(TMPFILE) ; \
             	break ; \
             	;; \

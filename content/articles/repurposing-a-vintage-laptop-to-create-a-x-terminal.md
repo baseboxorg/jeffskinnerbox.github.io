@@ -1,6 +1,5 @@
-Status: draft
 Title: Repurposing a Vintage Laptop to Create a X Terminal
-Date: 2100-01-01 00:00
+Date: 2014-12-19 22:24
 Category: Software
 Tags: Tiny Core Linux, X Terminal, X Window System
 Slug: repurposing-a-vintage-laptop-to-create-a-x-terminal
@@ -514,7 +513,7 @@ To restart Unity after running the above command (or restart it any time), use t
 setsid unity
 ```
 
-You can find more examples of configuring Unity via `gsettings` and othr tools in the postings:
+You can find more examples of configuring Unity via `gsettings` and other tools in the postings:
 
 * [Tweaks/Things to do after install of Ubuntu 13.10 Saucy Salamander](http://www.noobslab.com/2013/10/tweaksthings-to-do-after-install-of.html)
 * [Things/Tweaks To Do After Install Of Ubuntu 14.04 Trusty Tahr](http://www.noobslab.com/2014/04/thingstweaks-to-do-after-install-of.html)
@@ -653,12 +652,12 @@ And of course, if your really ambitious, you can read the book "[Into the Core: 
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="It is common networking knowledge that there really is no excuse to not use any encryption method other than WPA2. In all but the oldest wireless devices, just about all modern wireless clients support it." alt="Wireless Security Logo" src="/images/wifi-security.png" width="100" height="100" />
 </a>
 As stated earlier, the XDMCP protocol used to support the X Terminal isn't encrypted[^G].
-So using the X Terminal outside of ones secure LAN or WAN, saw across the internet, is risky business.
+So using the X Terminal outside of ones secure LAN or WAN, say across the internet, is risky business.
 Any passwords or credit cards will be passed as plan text.
 But in my case, I'll be using this only on my home network.
 So the key here is making sure you have good firewall protection on your router and
 strong encryption on you wireless network.
-I'm using a route supplied by my internet provider,
+I'm using a router supplied by my internet provider,
 and by default, [its configured for old encryption standards][79] and not the more secure WPA2.
 
 [^G]:
@@ -680,31 +679,23 @@ but you can support all three security mechanisms on a single physical Wi-Fi net
 However, client devices must find a protocol match on the APs to which they associate.
 In other words, WEP has to talk to WEP; it can’t talk to WPA or WPA2.
 
-The way you accommodate this is by divvying up the network into separate logical “security networks.”
-Most of the enterprise-class access point makers support all three protocols at the high end,
-as well as the ability to create separate service set identifiers (SSID)
-associated with corresponding virtual LANs (VLANs) to accommodate each protocol.
-So, in other words, on one physical WiFi network,
-you could have three logical security networks: a WEP network, a WPA network, and a WPA2 network[^H].
-
-[^H]:
-    You can add more logical networks for other security reasons.
-    For example, you may wish to further segregate the network logically based on other criteria,
-    such as putting all voice on one logical network, guest user access on another, and so forth. 
-
-* [How to Change Verizon Fios Router from WEP to WPA2, Plus Other Security Adjustments](http://www.splashofstyle.com/archives/2010/12/03/how-to-change-verizon-fios-router-from-wep-to-wpa2-plus-other-security-adjustments/)
-* []()
-* []()
-* []()
+In the end, I bit the bullet and converted my home WiFi to WPA2.
+I followed the proceedures outlined here:
+[How to Change Verizon Fios Router from WEP to WPA2, Plus Other Security Adjustments][101].
 
 # Establishing the X Terminal Solution
+<div style="float: left">
+    <a href="http://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg">
+        <img class="img-rounded" style="margin: 0px 8px" title="HP Omni Book XE3 being used as a X Terminal using Tiny Core Linux" alt="Laptop X Terminal" src="http://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg" width="70" height="70">
+    </a>
+</div>
 To create the X Terminal solution, and therefore install the Tiny Core Linux (TCL),
 its good to have a firm undersatanding of TCL and how its differes from an typical Linux install.
 Reading the [TCL book][26] is a good idea and so is watching
 [JoeNobody010101][69] (your going to love this guy)
 who provides a series of videos titled "How to install and configure TinyCore Linux".
 
-### Installing Tiny Core Linux on Local Computer (TCL Vintage Laptop)
+### Installing Tiny Core Linux on Local Computer
 Before starting the step-by-step installation procedures,
 here are some important things to know.
 
@@ -843,13 +834,6 @@ but [Easy Way: wicd][98] and [How to get wireless working][99] proved to be the 
     Udhcpc is a very small DHCP client program geared towards embedded systems.
     The letters are an abbreviation for Micro - DHCP - Client (µDHCPc).
     The program tries to be fully functional and RFC 2131 compliant.
-
-wifi.db in home directory
-
-* [no wireless extensions using usb-wlan adapter with chipset rtl8192cu ](http://forum.tinycorelinux.net/index.php?topic=15535.0)
-* [List of Supported Wifi Devices](http://wiki.tinycorelinux.net/wiki:list_of_supported_wifi_devices)
-* [Setting Up WiFi](http://wiki.tinycorelinux.net/wiki:setting_up_wifi)
-* [How to get wireless working when no other network access is available](http://tinycorelinux.net/4.x/armv7/README/README-wifi.txt)
 
 ### Tiny Core Linux Files
 Once successfully installed, the Tiny Core Linux (TCL) files should be look like this:
@@ -992,11 +976,6 @@ To start the X Winodw System, do the following
 . ./.xsession
 ```
 
-To log in from a remote terminal
-
-```bash
-```
-
 ### Configuring Remote Computer (Ubuntu Desktop)
 On the remote-computer (in my case, a Ubuntu desktop runing `lightdm` Display Manager),
 you need to tell the Display Manager to accept logins from a remote X Server.
@@ -1035,80 +1014,7 @@ To install Fluxbox, and a companion tool for supporting desktop icons called fbd
 sudo apt-get install fluxbox fbdesk
 ```
 
-After a bit of online research, I establish the following Fluxbox configuration files.
-
-```bash
-# startup file
-```
-
-```bash
-# menu file
-```
-
-Add thing to menu - http://www.wikihow.com/Configure-Fluxbox
-http://fluxbox.org/help/man-fluxbox-menu.php
-http://www.linuxquestions.org/questions/linux-newbie-8/fbdesk-for-fluxbox-autostartup-318343/
-
-### Configuring Local Computer (TCL Vintage Laptop)
-If you log into TCL in text mode then start a X Window GUI session with
-`xinit` or with the wrapper script `startx`, then `xinit` does the following things:
-Start an X Server,
-usually run some scripts (typically /etc/X11/xinit/xinitrc),
-run `~/.xinitrc`,
-and when `~/.xinitrc` terminates, kill the X Server.
-If you log in in using a X Display Manager, what is executed after you log in is some scripts in `~/.xsession`.
-It's supposed to perform the initial startup of your session (e.g. define environment variables),
-then launch programs specific to the GUI (usually at least window manager).
-
-I install the following extensions via TCL `Apps` application (OnBoot):
-
-* openssl-1.0.0.tcz
-
-### Tiny Core Linux Boot Sequence
-init -> tc-config -> init -> /root/.profile -> /home/tc/.profile -> /home/tc/.xsession
-[ Boot sequence - what starts xvesa xserver?](http://forum.tinycorelinux.net/index.php?topic=1924.0)
-
-[HOWTO Xnest, secure Xnest](http://antoine.ginies.free.fr/xnest/#id2477891)
-[Xnest - Create a new Display in a Window - Linux](https://www.youtube.com/watch?v=BSYmajttVDw)
-
-[xdmcp](https://wiki.ubuntu.com/xdmcp)
-[Ubuntu 12.10 Login Screen Adds Remote Desktop Access](http://www.omgubuntu.co.uk/2012/09/ubuntu-12-10-login-screen-adds-remote-desktop-access)
-[How to Remote Login via XDMCP in Ubuntu](http://danilodellaquila.com/blog/how-to-remote-login-via-xdmcp-in-ubuntu)
-[How to enable remote access to Xserver on Ubuntu 11.04 and Ubuntu 11.10](http://pzuk.wordpress.com/2011/10/21/how-to-enable-remote-access-to-xserver-on-ubuntu-11-04-and-ubuntu-11-10/)
-[XDM and X Terminal mini-HOWTO](http://www.faqs.org/docs/Linux-mini/XDM-Xterm.html)
-[Building X terminals with Linux](http://development.gbdirect.co.uk/xterminal.html)
-[setting up x terminal workstation](https://groups.google.com/forum/#!topic/linux.debian.user/nUguTStjRkU)
-[Remote Access](http://linuxtutorial.info/modules.php?name=MContent&pageid=45)
-
-[X terminals in Linux (Running X programs remotely using SSH, XDMCP, or Sterminal)](http://www.spencerstirling.com/computergeek/xterminal.html)
-
-[Ubuntu – Secure Remote Desktop Connectivity](http://blog.linuxacademy.com/linux/ubuntu-secure-remote-desktop-connectivity/)
-[Linux-Based X Terminals with XDMCP](http://www.linuxjournal.com/article/6713)
-[Setting Up an X Terminal](http://zweije.home.xs4all.nl/xauth-9.html)
-
-[The Tiny X Server Fork Is Still Being Maintained](http://www.phoronix.com/scan.php?page=news_item&px=MTU2NzA)
-
-[Can I run a remote X session in windowed mode?](http://askubuntu.com/questions/60364/can-i-run-a-remote-x-session-in-windowed-mode)
-
-[Remote x-server with ssh -X](http://www.answeredubuntu.com/175902/remote_x_server_with_ssh_x#sthash.ifsk3uxx.dpbs)
-[How to try the GDM login screen in many resolutions](http://ptspts.blogspot.com/2010/02/how-to-try-gdm-login-screen-in-many.html)
-[Remote sessions via XDMCP](http://x.cygwin.com/docs/ug/using-remote-session.html)
-[X without Display Manager](http://wiki.gentoo.org/wiki/X_without_Display_Manager)
-
-
-[Remote Graphical Desktops and XDMCP](https://www.centos.org/docs/5/html/5.2/Installation_Guide/s2-trouble-remotex.html)
-[Starting a Remote X session using XDMCP](http://forums.opensuse.org/showthread.php/466709-Starting-a-Remote-X-session-using-XDMCP)
-[Starting a UNIX/Linux Desktop Using SSH](http://support.attachmate.com/techdocs/1818.html)
-
-
-[How to use XDMCP+GDM and Xnest?](http://askubuntu.com/questions/11189/how-to-use-xdmcpgdm-and-xnest)
-[xdmcp](https://wiki.ubuntu.com/xdmcp)
-[Windows Managers vs Login Managers Vs Display Managers Vs Session Manager Vs Desktop Environment](http://unix.stackexchange.com/questions/20385/windows-managers-vs-login-managers-vs-display-managers-vs-desktop-environment)
-[Multiseat Configuration/Xnest](http://en.wikibooks.org/wiki/Multiseat_Configuration/Xnest)
-
 ### Xvesa X Server
-[How safe/unsafe is Xvesa?](http://www.linuxquestions.org/questions/linux-newbie-8/how-safe-unsafe-is-xvesa-161055/)
-
 Xvesa X Server is NOT a normal [XFree86][47] X Server.
 It is part of the [TinyX series of X Servers][45].
 Xvesa accepts all the [standard options accepted by all X Servers][46],
@@ -1131,10 +1037,6 @@ Xvesa -query desktop -br -screen 1024x768x32 -shadow
 * **-I** ignore all remaining arguments
 
 To make this persistent, put `tc/.xsession` in the `/opt/.filetool.lst`.
-
-
-<img class="img-rounded" style="margin: 0px 8px; float: left" title="HP Omni Book XE3 being used as a X Terminal using Tiny Core Linux" alt="Laptop X Terminal" src="https://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg" width="25%" height="25%"/>
-
 
 [01]:https://help.ubuntu.com/community/Lubuntu/GetLubuntu
 [02]:https://help.ubuntu.com/community/Installation/FromWindows
@@ -1236,13 +1138,4 @@ To make this persistent, put `tc/.xsession` in the `/opt/.filetool.lst`.
 [98]:ttp://wiki.tinycorelinux.net/wiki:setting_up_wifi
 [99]:http://distro.ibiblio.org/tinycorelinux/5.x/armv7/GK802/README-wifi.txt
 [100]:http://www.linuxcommand.org/man_pages/iwconfig8.html
-[101]:
-[102]:
-[103]:
-[104]:
-[105]:
-[106]:
-[107]:
-[108]:
-[109]:
-[110]:
+[101]:http://www.splashofstyle.com/archives/2010/12/03/how-to-change-verizon-fios-router-from-wep-to-wpa2-plus-other-security-adjustments/

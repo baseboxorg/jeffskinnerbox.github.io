@@ -1,5 +1,5 @@
 created: 20140927200307351
-modified: 20140927205157265
+modified: 20141214175410289
 title: IoT Sensing Options
 type: text/vnd.tiddlywiki
 
@@ -13,7 +13,7 @@ type: text/vnd.tiddlywiki
 * ''Gas'' - Gas-sensing applications detect the quantity and level of gas in the environment, including toxic gases, oxygen, carbon dioxide, methane, and carbon monoxide. Air quality in health and safety applications are becoming an important factor especially in the building automation and automotive markets.
 * ''Humidty'' - Humidity sensors determine the amount of water vapor / moisture in the air. Because relative humidity is a function of temperature, humidity sensors also usually include integrated temperature sensors.
 * ''Light'' - Light sensing is the measurement of the properties of light such as intensity and spectrum.
-* ''Material COmposition'' - Composition sensing/detection is used to uniquely determine the type, amount, or size of conductors, non-conductors, liquids, and other materials.
+* ''Material Composition'' - Composition sensing/detection is used to uniquely determine the type, amount, or size of conductors, non-conductors, liquids, and other materials.
 * ''Occupancy'' - Occupancy detection is the ability to determine the presence of an object or person. Sensing the physical presence allows for decisions and actions to be made including conserving power through automatically controlling lights, increasing safety by enabling passenger airbags, or increasing responsiveness during an emergency by knowing building occupancy.
 * ''Position / Motion'' - Position/motion sensing is used to determine the location and lateral/linear, rotational, or axial motion of any moving object or component in a system.
 * ''Pressure'' - Pressure sensors are used to measure the pressure of gases and liquids. Pressure measurements typically are made as: pressure relative to a vacuum (Absolute), pressure relative to atmospheric pressure (Gauge), and pressure difference between two inputs (Differential).

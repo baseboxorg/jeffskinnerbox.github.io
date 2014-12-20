@@ -78,8 +78,9 @@ Status: hidden
 :   **Make** is a utility that automatically builds executable programs and libraries from source code by reading files called makefiles which specify how to derive the target program. Besides building programs, Make can be used to manage any project where some files must be updated automatically from others whenever the others change.
 
 [![Vim Logo](/images/logos/thumbnail/vim_editor_logo.png)](http://www.vim.org/)
-:   **Vim** is highly configurable text editor built to enable efficient text editing, with the power of the [de-facto Unix editor 'Vi'][01] and a more complete feature set. Vim is often called a "programmer's editor," and so useful for programming that many consider it an entire Integrated Development Environment (IDE).
+:   **Vim** is highly configurable, but [often misunderstood][02], text editor built to enable efficient text editing, with the power of the [de-facto Unix editor 'Vi'][01] and a more complete feature set. Vim is often called a "programmer's editor" and so useful for programming that many consider it an entire Integrated Development Environment (IDE).
 
 
 
 [01]:http://www.slate.com/articles/technology/bitwise/2014/05/oldest_software_rivalry_emacs_and_vi_two_text_editors_used_by_programmers.html
+[02]:http://www.viemu.com/a-why-vi-vim.html

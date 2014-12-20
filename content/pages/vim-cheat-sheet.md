@@ -359,6 +359,7 @@ Note: the Vim commands marked with (V) work in visual mode, when you've selected
 * [Modern vim plugin management – Pathogen vs Vundle](http://rmitc.org/2013/04/modern-vim-plugin-management-pathogen-vs-vundle/)
 * [Jonathan Oxer's Cheat Sheets](http://jon.oxer.com.au/cheatsheet/vim)
 * [Graphical vi-vim Cheat Sheet and Tutorial](http://www.glump.net/howto/desktop/vim-graphical-cheat-sheet-and-tutorial)
+* [Graphical vi-vim Cheat Sheet and Tutorial](http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html)
     
 
 
