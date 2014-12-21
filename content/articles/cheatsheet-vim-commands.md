@@ -1,11 +1,16 @@
-Title: Vim Cheat Sheet
-Slug: vim-cheat-sheet
-Status: hidden
+Title: CheatSheet: Vim Commands
+Date: 2014-12-21 17:10
+Category: CheatSheet
+Tags: Vim
+Slug: cheatsheet-vim-commands
+Author: xxx
+Image: cheat-sheet.jpg
+Summary: I'm creating a Vi/Vim cheat sheet that is workable for me.  I know that there hundreds vi/vim cheat sheets online, but none organized the way I want. This posting assures that I have what I need close at hand.
 
-Using Vim's scripting language (and a great deal of insight and tools from others),
-I have setup Vim on my local machine to be an effective development environment for my needs.
-Also, using [GitHub][01],
-I can replicate this Vim environment across the multiple systems I'm presently use.
+Vi was one of the first text editors I learned (and still my favorite)
+but I still need need a cheat sheet to help me with a command from time to time.
+I know that there hundreds vi/vim cheat sheets online,
+but none organized the way I want.
 
 ## Working with files
 | Vim Command | Action|
@@ -75,7 +80,7 @@ These Vim commands and keys work both in command mode and visual mode.
 ## Deleting text
 | Vim Command | Action|
 |:-----------:|:------| 
-| <Del> | Delete characters under the cursor. |
+| Del-key | Delete characters under the cursor. |
 | x | Delete characters under the cursor. |
 | X | Delete characters before the cursor. |
 | dd or :d | Delete the current line. |
@@ -100,7 +105,7 @@ Note that "* and "+ work both ways. So if you have selected some text in ano
 | Vim Command | Action|
 |:-----------:|:------| 
 | p | Put after the position or after the line |
-| P | Put before the poition or before the line |
+| P | Put before the position or before the line |
 
 ## Changing Text
 | Vim Command | Action|
@@ -337,7 +342,15 @@ Note: the Vim commands marked with (V) work in visual mode, when you've selected
 | [z | move to start of open fold |
 | ]z | move to end of open fold |
 
+## Vim Resource File
+Using Vim's scripting language (and a great deal of insight and tools from others),
+I have setup Vim on my local machine to be an effective development environment for my needs.
+Also, using GitHub to [store my vi resource file][01],
+I can replicate this Vim environment across the multiple systems I'm presently use.
+
 ## Sources
+These are the sources for the commands documented above in the tables.
+
 * [100 Vim commands every programmer should know](http://www.catswhocode.com/blog/100-vim-commands-every-programmer-should-know)
 * [How to Use Vim's Spellchecker](http://tips.webdesign10.com/vim/how-use-vims-spellchecker)
 * [Vim 101: A Gentle Introduction to Macros](http://usevim.com/2012/08/10/macros/)
@@ -347,21 +360,29 @@ Note: the Vim commands marked with (V) work in visual mode, when you've selected
 * [How to copy text from vim to an external program?](http://unix.stackexchange.com/questions/12535/how-to-copy-text-from-vim-to-an-external-program)
 
 ## Requires More Research
+These links should be explored to see it additional information
+could be gathered for this cheat sheet.
+
+* [Another Vim Cheat Sheet](http://www.terminally-incoherent.com/blog/reference/vim-cheat-sheet/)
+* [Vim Cheatsheet](http://www.terminally-incoherent.com/blog/2008/10/27/vim-cheatsheet/)
+* [Jonathan Oxer's Cheat Sheets](http://jon.oxer.com.au/cheatsheet/vim)
+* [Graphical vi-vim Cheat Sheet and Tutorial](http://www.glump.net/howto/desktop/vim-graphical-cheat-sheet-and-tutorial)
+* [Graphical vi-vim Cheat Sheet and Tutorial](http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html)
 * [Vim tips: Visual Search](http://amix.dk/blog/post/19334)
 * [The Ultimate vimrc](https://github.com/amix/vimrc)
 * [check out Jedi for auto completion](https://github.com/davidhalter/jedi-vim)
 * [NERD Commenter Command](http://jaredforsyth.com/projects/vim-debug/)
 * [A python debugger for vim](http://j605.wordpress.com/2011/10/08/a-python-debugger-for-vim/)
-* [Another Vim Cheat Sheet](http://www.terminally-incoherent.com/blog/reference/vim-cheat-sheet/)
-* [Vim Cheatsheet](http://www.terminally-incoherent.com/blog/2008/10/27/vim-cheatsheet/)
 * [A Byte of Vim](http://files.swaroopch.com/vim/byte_of_vim_v051.pdf)
 * [Vundle vs Pathogen](http://lepture.com/work/vundle-vs-pathogen)
 * [Modern vim plugin management – Pathogen vs Vundle](http://rmitc.org/2013/04/modern-vim-plugin-management-pathogen-vs-vundle/)
-* [Jonathan Oxer's Cheat Sheets](http://jon.oxer.com.au/cheatsheet/vim)
-* [Graphical vi-vim Cheat Sheet and Tutorial](http://www.glump.net/howto/desktop/vim-graphical-cheat-sheet-and-tutorial)
-* [Graphical vi-vim Cheat Sheet and Tutorial](http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html)
-    
+* [Working with Vim and IPython](http://petro.tanrei.ca/2010/8/working-with-vim-and-ipython.html)
+* [vim-ipython - A two-way integration between Vim and IPython](http://github.com/ivanov/vim-ipython)
+* [wasavi (VI editor for any web page)](http://appsweets.net/wasavi/)
+* [CodeMirror](http://codemirror.net/)
+* [TextAid](http://lalashan.mcmaster.ca/theobio/projects/index.php/TextAid)
+* [Working Productively in Bash's Vi Command Line Editing Mode (with Cheat Sheet)](http://www.catonmat.net/blog/bash-vi-editing-mode-cheat-sheet/)
+
 
 
 [01]:https://github.com/jeffskinnerbox/dotvim
-

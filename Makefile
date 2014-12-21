@@ -144,8 +144,7 @@ clean:
 	rm -rf $(BASEDIR)/*.pyc
 
 
-regenerate:
-	pelican -r $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+regenerate: clean process html
 
 
 serve:

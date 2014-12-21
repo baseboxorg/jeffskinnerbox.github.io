@@ -1,5 +1,5 @@
 created: 20141102160206239
-modified: 20141107203521697
+modified: 20141221213448361
 title: GettingStarted
 type: text/vnd.tiddlywiki
 
@@ -16,6 +16,18 @@ Then you can:
 * Learn more about [[WikiText|http://tiddlywiki.com/static/WikiText.html]]
 * [[Generating Static Sites with TiddlyWiki|http://tiddlywiki.com/#Generating%20Static%20Sites%20with%20TiddlyWiki]]
 * [[How to build a TiddlyWiki5 from individual tiddlers|http://tiddlywiki.com/#Generating%20Static%20Sites%20with%20TiddlyWiki]]
+
+You can check what version of TiddlyWiki your running with the command:
+
+```
+tiddlywiki --version
+```
+If you've installed [[TiddlyWiki on Node.js|http://tiddlywiki.com/#TiddlyWiki%20on%20Node.js]] on the usual way, when a new version is released you can upgrade it with this command:
+
+```
+sudo npm update -g tiddlywiki
+```
+
 
 Learning TiddlyWiki
 

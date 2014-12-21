@@ -1,6 +1,6 @@
 Title: HowTo: Using Xephyr to Create a New Display in a Window
 Date: 2014-04-29 22:54
-Category: Software
+Category: HowTo
 Tags: X Window System, Xnest, Xephyr
 Slug: howto-using-xephyr-to-create-a-new-display-in-a-window
 Author: "Jeff Irland"

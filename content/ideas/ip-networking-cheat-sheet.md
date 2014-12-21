@@ -7,6 +7,7 @@ Author: Jeff Irland
 Image: DRAFT_stamp.png
 Summary: bla bla bla
 
+# What Devices Are Connected to Your Network
 WiFi networks are desirable target for wannabe hackers.
 Ever wondered if someone might be taking advantage of your WiFi network?
 I do.
@@ -56,6 +57,13 @@ check to see what services are running on a box
 * [How to use Kismet: A free Wi-Fi network-monitoring tool](http://searchsecurity.techtarget.com/video/How-to-use-Kismet-A-free-Wi-Fi-network-monitoring-tool?videoId=8eb0fc2d1aa26410VgnVCM1000000d01c80aRCRD)
 
 
+# Arbitrary Network Packets
+* [HOWTO: Crafting arbitrary network packets with socat](http://discourse.criticalengineering.org/t/howto-crafting-arbitrary-network-packets-with-socat/51/last)
+* [socat: Linux / UNIX TCP Port Forwarder](http://www.cyberciti.biz/faq/linux-unix-tcp-port-forwarding/)
+* []()
+* []()
+* []()
+* []()
 
 
 [01]:http://www.linux.com/learn/tutorials/290879-beginners-guide-to-nmap

@@ -157,7 +157,7 @@ ADMIN = (('Google Analytics', 'https://www.google.com/analytics/web/?hl=en#repor
 # Links to appear in the "links" section of the sidebar
 PAGE = (('RPi Packages',
          '/pages/linux-and-python-packages-for-my-raspberry-pi'),
-        ('Vim Cheat Sheet', '/pages/vim-cheat-sheet'),)
+        ('Cheat Sheets', '/posts/2014/Dec/21/cheatsheet-vim-commands'),)
 WIKI = (('Project Ideas', 'http://127.0.0.1:8080/#Potential Projects'),
         ('Things to Study', 'http://127.0.0.1:8080/#Topics for Study'),)
 LINKS = (('TiddlyWiki', 'http://tiddlywiki.com/'),)
