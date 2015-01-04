@@ -50,7 +50,7 @@ Jeff's Skinner Box&nbsp;            </a>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                     <li><a href="/pages/about-me/">About Me</a></li>
-                    <li><a href="deadend.html">Wiki</a></li>
+                    <li><a href="http://jeffskinnerbox-wiki.herokuapp.com/">Wiki</a></li>
                     <li><a href="/pages/open-notebook/">Open Notebook</a></li>
             </ul>
             <ul class="nav navbar-nav">
@@ -98,6 +98,8 @@ Jeff's Skinner Box&nbsp;            </a>
     <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/pelican/">Pelican</a>
         &nbsp;
     <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/blog/">Blog</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/wiki/">Wiki</a>
         &nbsp;
     <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/bootstrap/">Bootstrap</a>
     
@@ -147,16 +149,17 @@ You can find the latest Pelican code, along with its <a href="https://github.com
 You might find more information on <a href="https://github.com/getpelican/pelican/tree/master/docs">Pelican&#8217;s GetHub</a> and <a href="https://github.com/getpelican/pelican/wiki/Tips-n-Tricks">Pelican&#8217;s Tips <span class="amp">&amp;</span> Tricks</a>.</p>
 <h5>Installing Pelican and Creating a Python&nbsp;Virtualenv</h5>
 <p>Pelican is a <a href="https://www.python.org/">Python</a> based tool.
-To assure I have a clean Python envirnment to work in, that doesn&#8217;t conflict with other Python work,
-create a virtual environment using <code>virtualenv[49]</code>.
+To assure I have a clean Python environment to work in, that doesn&#8217;t conflict with other Python work,
+create a virtual environment using <a href="http://www.virtualenv.org/en/latest/"><code>virtualenv</code></a>.
 To install Pelican and other Python package dependencies in a virtual environment,
-I roughly followed the instructions in the <a href="http://docs.getpelican.com/en/3.2/getting_started.html#installing-pelican">official Pelican documentation</a>.
+I roughly followed the instructions in the <a href="http://pelican.readthedocs.org/en/3.5.0/quickstart.html">official Pelican documentation</a>.
 See&nbsp;below:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">cd</span> ~
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># procedure for creating an envirnment for Pelican</span>
+<span style="color: #336666">cd</span> ~
 virtualenv --python python2.7 --no-site-packages blogging
 <span style="color: #336666">cd </span>blogging
 <span style="color: #336666">source </span>bin/activate
-pip install <span style="color: #003333">Pelican</span><span style="color: #555555">==</span>3.3
+pip install <span style="color: #003333">Pelican</span><span style="color: #555555">==</span>3.5
 pip install Markdown
 pip install typogrify
 pip install ghp-import
@@ -195,11 +198,13 @@ and have them under version control,
 so I performed the standard procedure of <a href="https://help.github.com/articles/fork-a-repo">forking/cloning the GitHub</a>.
 First step is to fork these repositories on GitHub.
 I did the&nbsp;following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">cd</span> ~/blogging/pelican-plugins
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># creater the repository of Pelican plugins</span>
+<span style="color: #336666">cd</span> ~/blogging/pelican-plugins
 git clone https://github.com/jeffskinnerbox/pelican-plugins.git
 git remote add upstream https://github.com/jeffskinnerbox/pelican-plugins.git
 git fetch upstream
 
+<span style="color: #0099FF; font-style: italic"># creater the repository of Pelican themes</span>
 <span style="color: #336666">cd</span> ~/blogging/pelican-themes
 git clone https://github.com/jeffskinnerbox/pelican-themes.git
 git remote add upstream https://github.com/jeffskinnerbox/pelican-themes.git
@@ -596,11 +601,22 @@ github.map.fastly.net.    <span style="color: #FF6600">8</span>     IN  A       
 and wish to upgrade to the latest stable release,
 you can do so by adding <code>--upgrade</code> to the relevant command.
 For Pelican, that would&nbsp;be:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">pip install --upgrade pelican
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># upgrade to the latest stable release of Pelican</span>
+pip install --upgrade pelican
 </pre></div>
 
 
 <p>To upgrade Bootstrap, Bootwatch,&nbsp;&#8230;..</p>
+<h1>LinkChecker</h1>
+<ul>
+<li><a href="http://wummel.github.io/linkchecker/">LinkChecker - Check websites for broken&nbsp;links</a></li>
+<li><a href="http://wummel.github.io/linkchecker/man1/linkchecker.1.html">LinkChecker Manual&nbsp;Page</a></li>
+<li><a href="https://github.com/wummel/linkchecker/tree/master/doc/examples">Checkout&nbsp;examples</a></li>
+<li><a href="http://fossies.org/linux/www/LinkChecker-9.3.tar.gz/LinkChecker-9.3/doc/html/logo128x128.png">LinkChecker&nbsp;Logo</a></li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># install the package</span>
+sudo apt-get install linkchecker
+</pre></div>
             </div>
             <!-- /.entry-content -->
     <hr />
@@ -675,12 +691,12 @@ For Pelican, that would&nbsp;be:</p>
 <li class="list-group-item"><h4><i class="fa fa-puzzle-piece fa-lg"></i><span class="icon-label">Wiki Topics</span></h4>
     <ul class="list-group" id="wiki">
         <li class="list-group-item">
-            <a href="deadend.html" target="_blank">
+            <a href="http://jeffskinnerbox-wiki.herokuapp.com/#Potential Projects" target="_blank">
                 Project Ideas
             </a>
         </li>
         <li class="list-group-item">
-            <a href="deadend.html" target="_blank">
+            <a href="http://jeffskinnerbox-wiki.herokuapp.com/#Topics for Study" target="_blank">
                 Things to Study
             </a>
         </li>

@@ -1,0 +1,783 @@
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Adding a Wiki to My Blog - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="http://jeffskinnerbox.me/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Adding a Wiki to My Blog"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/drafts/adding-a-wiki-to-my-blog.html"/>
+            <meta property="og:description" content="bla bla bla bla bla bla"/>
+
+    <!-- Bootstrap -->
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
+
+        <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://jeffskinnerbox.me/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/pages/about-me/">About Me</a></li>
+                    <li><a href="http://jeffskinnerbox-wiki.herokuapp.com/">Wiki</a></li>
+                    <li><a href="/pages/open-notebook/">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+<!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://jeffskinnerbox.me/drafts/adding-a-wiki-to-my-blog.html"
+                       rel="bookmark"
+                       title="Permalink to Adding a Wiki to My Blog">
+                        Adding a Wiki to My Blog
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2100-01-01T00:00:00-05:00"> Friday&nbsp;&nbsp;&nbsp;&nbsp;January 01, 2100</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/tiddlywiki/">TiddlyWiki</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/blog/">Blog</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/wiki/">Wiki</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/heruko/">Heruko</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/nodejs/">Node.js</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>I find myself with a multitude of ancillary information,
+some of it related to this blog but not all related.
+I need a place to adequately organize and store it.
+Creating a page or post on the blog will be over kill.
+May of the topic are interrelated and should be searchable and&nbsp;cross-linked.</p>
+<p>What I need is a <a href="http://en.wikipedia.org/wiki/Microblogging">microblog</a> or a <a href="http://en.wikipedia.org/wiki/Personal_wiki">personal wiki</a>.
+There seems to be many of them but I have found <a href="http://tiddlywiki.com/">TiddlyWiki</a>
+offering the most inviting solution.
+I particularly like the fact that you can use it with just a browser
+(must be at least somewhat <a href="http://html5test.com/"><span class="caps">HTML5</span> complatable</a>, like <a href="https://www.google.com/intl/en/chrome/browser/#brand=CHMB&amp;utm_campaign=en&amp;utm_source=en-ha-na-us-sk&amp;utm_medium=ha">Chrome</a>).
+All you need is a browser and you maintain the wiki via a locally stored <span class="caps">HTML</span> file.
+The file is loaded with <a href="http://www.w3schools.com/js/">JavaScript</a> to support the editing of the wiki.
+TiddlyWiki&#8217;s fundamental units of information is the &#8220;<a href="http://tiddlywiki.com/#Tiddlers">tiddler</a>&#8220;,
+which is to capture a small, self contain thought, idea, or&nbsp;concept.</p>
+<p>My initial thought was just to add the wiki&#8217;s <span class="caps">HTML</span> file to my blog
+as a page addressable from the header menu.
+This approach would make the wiki editable by anyone, something I didn&#8217;t want.
+TiddlyWiki does support the rendering of a static <span class="caps">HTML</span> file, which is what I want,
+but this solution make for a cold and lifeless wiki with no interactivity and searching&nbsp;capabilities.</p>
+<p>TiddlyWiki does support an alternative where the pages
+are delivered via a server using <a href="http://nodejs.org/">Node.js</a><sup id="fnref:A"><a class="footnote-ref" href="#fn:A" rel="footnote">1</a></sup>.
+This provides the interactivity I want, and I can password protect its editing.
+In addition, individual tiddlers are stored in separate files,
+instead of a single <span class="caps">HTML</span> file, so you can organise them as you wish across multiple wiki.
+Also, it gives me an excuse to [learn more about Node.js]<sup id="fnref:B"><a class="footnote-ref" href="#fn:B" rel="footnote">2</a></sup>!</p>
+<h2>Installation</h2>
+<p>Install Node.js via <code>apt-get</code>.
+Because of a conflict with another package (amateur radio node package,
+the executable from the Ubuntu repositories is called <code>nodejs</code> instead of <code>node</code>. 
+Node.js package manager and other programs will want to call it &#8220;node&#8221;,
+so you&#8217;ll need to set up a symbolic link between <code>nodejs</code> and <code>node</code>.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># install the Node.js engine and its package manager</span>
+sudo apt-get install nodejs npm
+
+<span style="color: #0099FF; font-style: italic"># create symbolic link</span>
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+</pre></div>
+
+
+<p>You can install the wiki, TiddlyWiki, via the Node.js package manager, <code>[npm][15]</code>:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># install TiddlyWiki, the &#39;-g&#39; option installs it globally</span>
+sudo npm install -g tiddlywiki
+
+<span style="color: #0099FF; font-style: italic"># check its version</span>
+tiddlywiki --version
+</pre></div>
+
+
+<p>When a new version of TiddlyWiki is released, you can easily upgrade it with this&nbsp;command:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># upgrade TiddlyWiki</span>
+sudo npm update -g tiddlywiki
+</pre></div>
+
+
+<h2>Creating a&nbsp;Wiki</h2>
+<p>At this point, you should be ready to create a test&nbsp;wiki.</p>
+<ul>
+<li>change directory to where you want the wiki to be&nbsp;stored</li>
+<li><code>tiddlywiki mynewwiki --init server</code> will create a folder called <code>mynewwiki</code> for a new wiki that includes server-related&nbsp;components</li>
+<li><code>tiddlywiki mynewwiki --server</code> to start TiddlyWiki&nbsp;server</li>
+<li>With your browser, visit <code>http://127.0.0.1:8080/</code></li>
+<li>Try editing and creating tiddlers.  The Tiddles will be maintained in individual files in the <code>tiddlers</code> directory.</li>
+</ul>
+<p>Check the <a href="http://tiddlywiki.com/">TiddlyWiki website documentation</a> to find out more about the capabilities of&nbsp;TiddlyWiki.</p>
+<h2>Creation of Wiki for&nbsp;Blog</h2>
+<p>Create the wiki&nbsp;via</p>
+<ul>
+<li>change directories into blogging and execute <code>tiddlywiki wiki --init server</code>.</li>
+<li>Modify <code>pelicanconf.py</code> to&nbsp;include</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># A list of tuples (Title, URL) for additional menu items to appear</span>
+<span style="color: #0099FF; font-style: italic"># at the beginning of the main menu.</span>
+MENUITEMS <span style="color: #555555">=</span> ((<span style="color: #CC3300">&#39;About Me&#39;</span>, <span style="color: #CC3300">&#39;/pages/about-me.html&#39;</span>),
+            (<span style="color: #CC3300">&#39;Wiki&#39;</span>, <span style="color: #CC3300">&#39;http://127.0.0.1:8080/&#39;</span>),
+            (<span style="color: #CC3300">&#39;Open Notebook&#39;</span>, <span style="color: #CC3300">&#39;/pages/open-notebook.html&#39;</span>),)
+</pre></div>
+
+
+<ul>
+<li><code>tiddlywiki wiki --server</code> to start TiddlyWiki&nbsp;server</li>
+</ul>
+<h2>Hosting&nbsp;TiddlyWiki</h2>
+<p>TiddlyWiki recommends some methods for
+<a href="http://tiddlywiki.com/#TiddlyWiki%20in%20the%20Sky%20for%20TiddlyWeb">hosting your TiddlyWiki on the web</a>.</p>
+<p>GitHub Pages host only static <span class="caps">HTML</span> pages.
+No server side technology is supported.
+So node.js applications won&#8217;t run on GitHub Pages.
+Never the less, I wanted the easy deployment strategy I get with GitHub&nbsp;Pages.</p>
+<h3>Hosting TiddlyWiki on&nbsp;Heroku</h3>
+<p>After establishing a free Heroku account,
+you are taken to &#8220;<a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction">Getting Started with Node.js on Heroku</a>&#8220;.
+This provides an excellent tutoral on how to get a demo Node.js app running.
+&#8220;<a href="https://devcenter.heroku.com/articles/deploying-nodejs">Deploying Node.js Apps on Heroku</a>&#8221; does the same for an existing application.
+The real secrete in getting it to work was found in the post &#8220;<a href="https://groups.google.com/forum/#!topic/tiddlywiki/XDFW_tcSbf0">Installing TiddlyWiki5 on Heroku</a>&#8220;.
+Learning from these documents, the installation steps I formulated are the&nbsp;following:</p>
+<ul>
+<li>
+<p>The first step is for you to install the <a href="https://toolbelt.heroku.com/">Heroku Toolbelt</a>.
+This provides you access to the Heroku Command Line utility,
+as well as Git and Foreman, tools you’ll use in later steps.
+(No need to install these tools within blogs Python&#8217;s <a href="http://www.virtualenv.org/en/latest/"><code>virtualenv</code></a>.
+In fact, the will automatically be install within
+<code>~/.heroku</code>, <code>/usr/local/heroku</code>, and <code>/usr/bin/heroku</code>.)</p>
+</li>
+<li>
+<p>Establish your Heroku Toolbelt&nbsp;account:</p>
+</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #003333">$ </span>heroku login
+Enter your Heroku credentials.
+Email: jeffskinnerbox@yahoo.com
+Password <span style="color: #555555">(</span>typing will be hidden<span style="color: #555555">)</span>: 
+Authentication successful.
+<span style="color: #AA0000; background-color: #FFAAAA">$</span>
+</pre></div>
+
+
+<ul>
+<li>Change directory to where you application resides
+and initialize things for use with Heroku.
+The command <code>npm init</code> will walk you through creating a <code>package.json</code> file.
+You can skip any of the prompts by leaving them&nbsp;blank.</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># move to your Wiki directory</span>
+<span style="color: #336666">cd</span> ~/blog/wiki
+
+<span style="color: #0099FF; font-style: italic"># initialize the application for Heroku</span>
+npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sane defaults.
+
+See <span style="color: #CC3300">`</span>npm <span style="color: #336666">help </span>json<span style="color: #CC3300">`</span> <span style="color: #006699; font-weight: bold">for</span> definitive documentation on these fields
+and exactly what they <span style="color: #006699; font-weight: bold">do</span>.
+
+Use <span style="color: #CC3300">`</span>npm install &lt;pkg&gt; --save<span style="color: #CC3300">`</span> afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any <span style="color: #336666">time </span>to quit.
+name: <span style="color: #555555">(</span>wiki<span style="color: #555555">)</span> jeffskinnerbox.wiki
+version: <span style="color: #555555">(</span>0.0.0<span style="color: #555555">)</span> 1.0.0
+description: Personal Wiki <span style="color: #006699; font-weight: bold">for</span> the website www.jeffskinnerbox.me
+entry point: <span style="color: #555555">(</span>index.js<span style="color: #555555">)</span> 
+<span style="color: #336666">test command</span>: 
+git repository: 
+keywords: heroku tiddlywiki
+author: Jeff Irland
+license: <span style="color: #555555">(</span>BSD-2-Clause<span style="color: #555555">)</span> MIT
+About to write to /home/jeff/blogging/wiki/package.json:
+
+<span style="color: #555555">{</span>
+  <span style="color: #CC3300">&quot;name&quot;</span>: <span style="color: #CC3300">&quot;jeffskinnerbox.wiki&quot;</span>,
+  <span style="color: #CC3300">&quot;version&quot;</span>: <span style="color: #CC3300">&quot;1.0.0&quot;</span>,
+  <span style="color: #CC3300">&quot;description&quot;</span>: <span style="color: #CC3300">&quot;Personal Wiki for the website www.jeffskinnerbox.me&quot;</span>,
+  <span style="color: #CC3300">&quot;main&quot;</span>: <span style="color: #CC3300">&quot;index.js&quot;</span>,
+  <span style="color: #CC3300">&quot;scripts&quot;</span>: <span style="color: #555555">{</span>
+    <span style="color: #CC3300">&quot;test&quot;</span>: <span style="color: #CC3300">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>
+  <span style="color: #555555">}</span>,
+  <span style="color: #CC3300">&quot;keywords&quot;</span>: <span style="color: #555555">[</span>
+    <span style="color: #CC3300">&quot;heroku&quot;</span>,
+    <span style="color: #CC3300">&quot;tiddlywiki&quot;</span>
+  <span style="color: #555555">]</span>,
+  <span style="color: #CC3300">&quot;author&quot;</span>: <span style="color: #CC3300">&quot;Jeff Irland&quot;</span>,
+  <span style="color: #CC3300">&quot;license&quot;</span>: <span style="color: #CC3300">&quot;MIT&quot;</span>
+<span style="color: #555555">}</span>
+
+Is this ok? <span style="color: #555555">(</span>yes<span style="color: #555555">)</span> yes
+</pre></div>
+
+
+<ul>
+<li>To install dependencies, use <code>npm install &lt;pkg&gt; --save</code>.
+This will install the package and also add it as a dependency in the <code>package.json</code> file. </li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># create the dependencies</span>
+<span style="color: #003333">$ </span>npm install tiddlywiki --save
+npm WARN package.json jeffskinnerbox.wiki@1.0.0 No repository field.
+npm WARN package.json jeffskinnerbox.wiki@1.0.0 No README data
+npm http GET https://registry.npmjs.org/tiddlywiki
+npm http <span style="color: #FF6600">304</span> https://registry.npmjs.org/tiddlywiki
+tiddlywiki@5.1.7 node_modules/tiddlywiki
+
+<span style="color: #0099FF; font-style: italic"># list the package.json file to see the results</span>
+<span style="color: #003333">$ </span>cat package.json 
+<span style="color: #555555">{</span>
+  <span style="color: #CC3300">&quot;name&quot;</span>: <span style="color: #CC3300">&quot;jeffskinnerbox.wiki&quot;</span>,
+  <span style="color: #CC3300">&quot;version&quot;</span>: <span style="color: #CC3300">&quot;1.0.0&quot;</span>,
+  <span style="color: #CC3300">&quot;description&quot;</span>: <span style="color: #CC3300">&quot;Personal Wiki for the website www.jeffskinnerbox.me&quot;</span>,
+  <span style="color: #CC3300">&quot;main&quot;</span>: <span style="color: #CC3300">&quot;index.js&quot;</span>,
+  <span style="color: #CC3300">&quot;scripts&quot;</span>: <span style="color: #555555">{</span>
+    <span style="color: #CC3300">&quot;test&quot;</span>: <span style="color: #CC3300">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>
+  <span style="color: #555555">}</span>,
+  <span style="color: #CC3300">&quot;keywords&quot;</span>: <span style="color: #555555">[</span>
+    <span style="color: #CC3300">&quot;heroku&quot;</span>,
+    <span style="color: #CC3300">&quot;tiddlywiki&quot;</span>
+  <span style="color: #555555">]</span>,
+  <span style="color: #CC3300">&quot;author&quot;</span>: <span style="color: #CC3300">&quot;Jeff Irland&quot;</span>,
+  <span style="color: #CC3300">&quot;license&quot;</span>: <span style="color: #CC3300">&quot;MIT&quot;</span>,
+  <span style="color: #CC3300">&quot;dependencies&quot;</span>: <span style="color: #555555">{</span>
+    <span style="color: #CC3300">&quot;tiddlywiki&quot;</span>: <span style="color: #CC3300">&quot;~5.1.7&quot;</span>
+  <span style="color: #555555">}</span>
+<span style="color: #555555">}</span>
+</pre></div>
+
+
+<ul>
+<li>Using an editor, specifiy the <code>package.json</code> file the version of Node.js
+that will be used to run your application on Heroku.
+Also
+define the <code>scripts.start</code> in your <code>package.json</code> file.
+(If you do so, you don’t need to manually create a <code>Procfile</code> because it will be created automatically.)
+Using the commandline <code>cat package.json | python -mjson.tool | pygmentize -l javascript</code>,
+below is the&nbsp;listing:</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #AA0000; background-color: #FFAAAA">FINISH</span> <span style="color: #AA0000; background-color: #FFAAAA">FINISH</span> <span style="color: #AA0000; background-color: #FFAAAA">FINISH</span> <span style="color: #AA0000; background-color: #FFAAAA">FINISH</span>
+</pre></div>
+
+
+<ul>
+<li>So that the Wiki can run locally via <code>foreman start</code></li>
+<li>in the development enviment, create the <code>Procfile</code>:</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># Procfile contains the </span>
+<span style="color: #003333">$ </span>cat Procfile 
+FINISH FINISH FINISH FINISH
+</pre></div>
+
+
+<ul>
+<li>Using the <code>npm install</code> command,
+you can install the dependencies that you declared in your <code>package.json</code> file.
+The use <code>foreman</code> to test it out locally using a
+browser with the <span class="caps">URL</span> <code>http://localhost:5000/</code>. </li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># build the app</span>
+<span style="color: #003333">$ </span>npm install
+
+<span style="color: #0099FF; font-style: italic"># run the app locally</span>
+<span style="color: #003333">$ </span>foreman start
+19:39:53 web.1  | started with pid 12484
+19:39:55 web.1  | Serving on 127.0.0.1:8080
+19:39:55 web.1  | <span style="color: #555555">(</span>press ctrl-C to <span style="color: #336666">exit</span><span style="color: #555555">)</span>
+</pre></div>
+
+
+<ul>
+<li>Create a .gitignore file that looks something like&nbsp;this</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #003333">$ </span>cat .gitignore
+/node_modules
+npm-debug.log
+.DS_Store
+/*.env
+</pre></div>
+
+
+<ul>
+<li>Establish the <code>git</code> repository that will be used by this Heroku application,
+then add you first commit to the repository,
+and make sure exclude any ignore any unnecessary&nbsp;files.</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># initialize the git repoistory</span>
+git init
+
+<span style="color: #0099FF; font-style: italic"># make your commit</span>
+git add .
+git commit -m <span style="color: #CC3300">&quot;Initial commitment on December 29, 2014.&quot;</span>
+</pre></div>
+
+
+<ul>
+<li>Login into Heroku and create the initial instance of the Heroku application.
+Also, pick a name for the application and apply&nbsp;it.</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># enter your Heroku credentials</span>
+<span style="color: #003333">$ </span>heroku login
+Enter your Heroku credentials.
+Email: jeffskinnerbox@yahoo.com
+Password <span style="color: #555555">(</span>typing will be hidden<span style="color: #555555">)</span>: 
+Authentication successful.
+
+<span style="color: #0099FF; font-style: italic"># create the initial instance of the Heroku application</span>
+<span style="color: #003333">$ </span>heroku create
+Creating secure-sea-4842... <span style="color: #006699; font-weight: bold">done</span>, stack is cedar-14
+https://secure-sea-4842.herokuapp.com/ | https://git.heroku.com/secure-sea-4842.git
+Git remote heroku added
+
+<span style="color: #0099FF; font-style: italic"># rename the application</span>
+<span style="color: #003333">$ </span>heroku apps:rename jeffskinnerbox-wiki
+Renaming secure-sea-4842 to jeffskinnerbox-wiki... <span style="color: #006699; font-weight: bold">done</span>
+https://jeffskinnerbox-wiki.herokuapp.com/ | https://git.heroku.com/jeffskinnerbox-wiki.git
+Git remote heroku updated
+</pre></div>
+
+
+<ul>
+<li>Now it&#8217;s time to deploy the application to Heroku.
+Deploy to Heroku follows the standard <code>git</code> pattern:</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># deploy to Heroku</span>
+<span style="color: #003333">$ </span>git push heroku master
+Counting objects: 169, <span style="color: #006699; font-weight: bold">done</span>.
+Delta compression using up to <span style="color: #FF6600">4</span> threads.
+Compressing objects: 100% <span style="color: #555555">(</span>166/166<span style="color: #555555">)</span>, <span style="color: #006699; font-weight: bold">done</span>.
+Writing objects: 100% <span style="color: #555555">(</span>169/169<span style="color: #555555">)</span>, 15.86 MiB | 2.05 MiB/s, <span style="color: #006699; font-weight: bold">done</span>.
+Total <span style="color: #FF6600">169</span> <span style="color: #555555">(</span>delta 1<span style="color: #555555">)</span>, reused <span style="color: #FF6600">0</span> <span style="color: #555555">(</span>delta 0<span style="color: #555555">)</span>
+remote: Compressing <span style="color: #336666">source </span>files... <span style="color: #006699; font-weight: bold">done</span>.
+remote: Building <span style="color: #336666">source</span>:
+remote: 
+remote: -----&gt; Node.js app detected
+remote: -----&gt; Resetting git environment
+remote: -----&gt; Requested node range:  0.10.x
+remote: -----&gt; Resolved node version: 0.10.33
+remote: -----&gt; Downloading and installing node
+remote: -----&gt; Exporting config vars to environment
+remote: -----&gt; Installing dependencies
+remote:        tiddlywiki@5.1.7 node_modules/tiddlywiki
+remote: -----&gt; Caching node_modules directory <span style="color: #006699; font-weight: bold">for</span> future builds
+remote: -----&gt; Cleaning up node-gyp and npm artifacts
+remote: -----&gt; Building runtime environment
+remote: -----&gt; Discovering process types
+remote:        Procfile declares types -&gt; web
+remote: 
+remote: -----&gt; Compressing... <span style="color: #006699; font-weight: bold">done</span>, 39.8MB
+remote: -----&gt; Launching... <span style="color: #006699; font-weight: bold">done</span>, v3
+remote:        https://jeffskinnerbox-wiki.herokuapp.com/ deployed to Heroku
+remote: 
+remote: Verifying deploy... <span style="color: #006699; font-weight: bold">done</span>.
+To https://git.heroku.com/jeffskinnerbox-wiki.git
+ * <span style="color: #555555">[</span>new branch<span style="color: #555555">]</span>      master -&gt; master
+</pre></div>
+
+
+<ul>
+<li>Now check to see if everything is&nbsp;working</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># check that everything is working (at https://jeffskinnerbox-wiki.herokuapp.com/)</span>
+heroku open
+</pre></div>
+
+
+<ul>
+<li>Now that everything is established an initialized, the updating of the Heroku-based
+application follows a simple&nbsp;pattern:</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># make your commit</span>
+git add .
+git commit -m <span style="color: #CC3300">&quot;&lt;your commitment&gt;&quot;</span>
+
+<span style="color: #0099FF; font-style: italic"># enter your Heroku credentials</span>
+heroku login
+
+<span style="color: #0099FF; font-style: italic"># deploy to Heroku</span>
+git push heroku master
+</pre></div>
+
+
+<p>Unfortunately the only problem with running <span class="caps">TW5</span> on heroku is that they use what they call an ephemeral filesystem. That is, any time the dyno spins down (usually from being idle) and then spins up, all file system changes will be gone and it will only have what&#8217;s in the git repo. -&nbsp;https://groups.google.com/forum/#!topic/tiddlywiki/XDFW_tcSbf0</p>
+<p>Having only a single web dyno running will result in the dyno going to sleep after one hour of inactivity. This causes a delay of a few seconds for the first request upon waking. Subsequent requests will perform normally. -&nbsp;https://devcenter.heroku.com/articles/getting-started-with-nodejs#scale-the-app</p>
+<h6></h6>
+<p>To get a list of the Heroku applications you are managing: heroku&nbsp;apps</p>
+<p>To delete an application: heroku apps:destroy &#8212;app <the-application></p>
+<h6></h6>
+<ul>
+<li><a href="https://github.com/joyent/node/wiki/Node-Hosting">Hosting compatible with&nbsp;Node</a></li>
+<li>
+<p><a href="http://ericmiao.github.io/blog/2014/04/05/setup-personal-tiddlywiki-on-openshift/">Setup a personal TiddlyWiki on&nbsp;OpenShift</a></p>
+</li>
+<li>
+<p><a href="http://embeddedfun.blogspot.com/2011/11/heroku-nodejs-mongolab.html">Heroku + Node.js +&nbsp;MongoLab</a></p>
+</li>
+<li><a href="https://devcenter.heroku.com/start">Getting Started on&nbsp;Heroku</a></li>
+<li><a href="https://www.youtube.com/watch?v=VuydqVmRvrs">Introduction to Heroku -&nbsp;YouTube</a></li>
+<li><a href="https://www.youtube.com/watch?v=J9dWpxLdeko">What is Heroku? Explained through Analogy -&nbsp;YouTube</a></li>
+</ul>
+<h2>Learning&nbsp;TiddlyWiki</h2>
+<ul>
+<li><a href="http://tiddlertoddler.tiddlyspot.com/">Tiddler Toddler: an absolute beginner&#8217;s guide to&nbsp;TiddlyWiki</a></li>
+</ul>
+<h2>Quickly Building a&nbsp;Prototype</h2>
+<p>This show you a simple way to get your project setup so that you can talk to it and control it via the interwebs. 
+<em> <a href="http://www.amazon.com/gp/product/B00HRME7NA/ref=kinw_myk_ro_title">Anatomy of a web application using node.js, ExpressJS, MongoDB <span class="amp">&amp;</span> Backbone.js</a>
+</em> <a href="http://blog.microcasts.tv/2014/04/14/pi_express_bootstrap_angular/">µCast #16: Pi + Express + Bootstrap + Angular <span class="caps">FTW</span>!</a>
+* <a href="http://blog.microcasts.tv/2014/06/21/using-socket-io-to-control-the-raspberry-pi-remotely/">µCast #17: Control Hardware Remotely With Socket.<span class="caps">IO</span></a></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:A">
+<p><a href="http://readwrite.com/2013/11/07/what-you-need-to-know-about-nodejs#feed=%2Fhack&amp;awesm=~oD2cgDlOnKEfSp">Node.js is a platform</a> built on Chrome&#8217;s JavaScript runtime for event-driven, non-blocking I/O model.
+Unlike JavaScript applications running in a web browser,
+Node.js runs JavaScript by leveraging <a href="http://en.wikipedia.org/wiki/V8_(JavaScript_engine)">V8</a>,
+Google’s fast JavaScript engine designed for Chrome.
+This allows Node.js to create a runtime environment that pushes JavaScript
+from the server to the client quickly.
+V8 translates JavaScript into native machine language,
+instead of working overtime to interpret it as bytecode, giving Node.js its speed. 
+This speed, combined with asynchronous programming,
+are the twin powerhouses that make Node.js so responsive.
+The web posts <a href="http://www.nearform.com/nodecrunch/node-js-becoming-go-technology-enterprise/">Way Node.js is Becoming the Go-To Technology in the Enterprise</a>,
+<a href="http://www.makeuseof.com/tag/what-is-node-js-and-why-should-i-care-web-development/">What is Node.<span class="caps">JS</span> and Why Should I Care?</a>, and
+<a href="http://www.toptal.com/nodejs/why-the-hell-would-i-use-node-js">Why The Hell Would I Use Node.js? A Case-by-Case Tutorial</a>
+provides some good insights and motivation for the use of Node.js.&#160;<a class="footnote-backref" href="#fnref:A" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:B">
+<p>Node.js shines in real-time web applications employing push technology over websockets.
+What is so revolutionary about that? Well, after over 20 years of stateless-web
+based on the stateless request-response paradigm,
+we finally have web applications with real-time, two-way connections,
+where both the client and server can initiate communication,
+allowing them to exchange data freely.
+This is in stark contrast to the typical web response paradigm,
+where the client always initiates communication.
+Additionally, it’s all based on the open web stack (<span class="caps">HTML</span>, <span class="caps">CSS</span> and <span class="caps">JS</span>)
+running over the standard port 80.&#160;<a class="footnote-backref" href="#fnref:B" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+            var disqus_identifier = 'adding-a-wiki-to-my-blog';
+            var disqus_url = 'http://jeffskinnerbox.me/drafts/adding-a-wiki-to-my-blog.html';
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="http://jeffskinnerbox.me/pages/about-me/" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <a href="http://jeffskinnerbox.me/pages/about-me/">
+                        <img class="img-rounded" src="http://jeffskinnerbox.me/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                    </a>
+                </div>
+
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook/index.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+<li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="/pages/linux-and-python-packages-for-my-raspberry-pi/index.html" target="_blank">
+                RPi Packages
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="/posts/2014/Dec/21/cheatsheet-vim-commands/index.html" target="_blank">
+                Cheat Sheets
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-puzzle-piece fa-lg"></i><span class="icon-label">Wiki Topics</span></h4>
+    <ul class="list-group" id="wiki">
+        <li class="list-group-item">
+            <a href="http://jeffskinnerbox-wiki.herokuapp.com/#Potential Projects" target="_blank">
+                Project Ideas
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://jeffskinnerbox-wiki.herokuapp.com/#Topics for Study" target="_blank">
+                Things to Study
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">External Links</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://tiddlywiki.com/" target="_blank">
+                TiddlyWiki
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+    <ul class="list-group" id="social">
+        <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-github"></i> Github
+        </a></li>
+        <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-twitter"></i> Twitter
+        </a></li>
+        <li class="list-group-item"><a href="https://www.flickr.com/photos/104241758@N03/" target="_blank">
+            <i class="fa fa-flickr"></i> Flickr
+        </a></li>
+        <li class="list-group-item"><a href="https://delicious.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-delicious"></i> Delicious
+        </a></li>
+        <li class="list-group-item"><a href="https://www.pinterest.com/jeffskinnerbox/my-electronics-projects-and-other-diversions/" target="_blank">
+            <i class="fa fa-pinterest"></i> Pinterest
+        </a></li>
+        <li class="list-group-item"><a href="http://getpocket.com/a/queue/" target="_blank">
+            <i class="fa fa-chevron-circle-down"></i> Pocket
+        </a></li>
+        <li class="list-group-item"><a href="http://jeffskinnerbox.tumblr.com/" target="_blank">
+            <i class="fa fa-tumblr"></i> Tumblr
+        </a></li>
+        <li class="list-group-item"><a href="http://instagram.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-instagram"></i> Instagram
+        </a></li>
+        <li class="list-group-item"><a href="https://www.facebook.com/jeff.irland" target="_blank">
+            <i class="fa fa-facebook"></i> Facebook
+        </a></li>
+        <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+            <i class="fa fa-linkedin"></i> Linkedin
+        </a></li>
+    </ul>
+</li> 
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+<li class="list-group-item"><h4><i class="fa fa-thumbs-up fa-lg"></i><span class="icon-label">Reposted At</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://www.eeweb.com/websites/jeffs-skinner-box" target="_blank">
+                EEWeb.com
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-gears fa-lg"></i><span class="icon-label">Admin</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a43272292w73270397p83408137/" target="_blank">
+                Google Analytics
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io" target="_blank">
+                Web Site Source Code
+            </a>
+        </li>
+    </ul>
+</li>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by/index.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://tiddlywiki.com/" target="_blank">TiddlyWiki</a>,
+            <a href="http://ipython.org/notebook.html" target="_blank">Python Notebook</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
+            <small>
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://jeffskinnerbox.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://jeffskinnerbox.me/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://jeffskinnerbox.me/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://jeffskinnerbox.me/theme/js/github.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-43272292-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>
