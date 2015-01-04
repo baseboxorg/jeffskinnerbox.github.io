@@ -1,0 +1,11 @@
+created: 20141227155806256
+modified: 20141227160237048
+tags: [[Test Gear]]
+title: Electronic Test Equipment
+type: text/vnd.tiddlywiki
+
+Electronic test equipment (aka "test gear" or "bench top")
+is used to create signals and capture responses from electronic devices under test.
+
+* [[Oscilloscope]]
+* [[Bus Pirate]]

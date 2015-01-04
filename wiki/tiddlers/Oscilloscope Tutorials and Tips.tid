@@ -1,0 +1,26 @@
+created: 20141226143823014
+modified: 20150103183507132
+tags: [[Test Gear]]
+title: Oscilloscope Tutorials and Tips
+type: text/vnd.tiddlywiki
+
+!!Fundamentals
+* [[Digitizer/Oscilloscope Fundamentals|http://www.ni.com/white-paper/3408/en/]]
+* [[YouTube Videos Show You How to Use an Oscilloscope|http://www.edn.com/electronics-blogs/scope-insights/4413954/YouTube-Videos-Show-You-How-to-Use-an-Oscilloscope]]
+* [[NJARC Oscilloscope School (aka "Scopes for Dopes")|http://www.njarc.org/scopes4dopes/]]
+
+!!Primers & Tutorials
+* [[Adafruit Oscilloscope Tutorials|http://www.adafruit.com/blog/2011/12/16/analog-oscilloscope-tutorials/]]
+* [[XYZs of Oscilloscopes|http://ecee.colorado.edu/~mcclurel/txyzscopes.pdf]]
+* [[Tektronix Manuals and Documentation|http://www.tek.com/downloads]]
+
+!!Performance
+* [[Oscilloscope performance vs. specifications|https://www.youtube.com/watch?v=6CDJbi8E0UE]]
+
+!!Tips
+* [[Twelve tips for using the Rigol DS1052E Oscilloscope|http://www.righto.com/2013/07/tips-for-using-rigol-ds1052e.html]]
+
+!!Tools
+* [[Controlling a Rigol oscilloscope using Linux and Python|http://www.cibomahto.com/2010/04/controlling-a-rigol-oscilloscope-using-linux-and-python/]]
+* [[Four Rigol oscilloscope hacks with Python|http://www.righto.com/2013/07/rigol-oscilloscope-hacks-with-python.html]]
+* [[The LXI Primer|http://www.lxistandard.org/Documents/LXI%20Primer/The%20LXI%20Primer%20Final.pdf]]

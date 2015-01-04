@@ -1,5 +1,5 @@
 created: 20141125171042909
-modified: 20141125172553409
+modified: 20150104184057582
 tags: pontifications
 title: Three Observations About the Industrial Internet
 type: text/vnd.tiddlywiki
@@ -14,7 +14,7 @@ A few things from this conversation with John have made me ponder:
 
 # Cellular carriers are a natural service provider for IoT wireless networking services like Weightless, but cellular carriers have strong desire to leverage their investment in [[3GPP|http://www.3gpp.org/]] standards/technology and will take action to [[adapt their 3GPP investment|http://www.lightreading.com/spit-(service-provider-it)/bss-(inc-billing-revenue-assurance)/location-intelligence-is-the-new-black/a/d-id/706253]] using [[new platforms|http://www.sequans.com/press-release/sequans-introduces-colibri-lte-platform-internet-things/]]. They could look upon any alternatives as a threat and/or destine for the standards graveyard (therefore, will never mature).
 
-# The use of white space spectrum is a great opportunity because of its recent availability and the coveted 470 MHz to 790 MHz range. But this highly prized spectrum has potential non-IoT network uses, it availability is not uniform in all markets, and it will require new radio technology (some form of [[cognitive radio|http://en.wikipedia.org/wiki/Cognitive_radio]], among other things), and it will require regulatory approval.
+# The use of [[White Space Spectrum]] is a great opportunity because of its recent availability and the coveted 470 MHz to 790 MHz range. But this highly prized spectrum has potential non-IoT network uses, it availability is not uniform in all markets, and it will require new radio technology (some form of [[cognitive radio|http://en.wikipedia.org/wiki/Cognitive_radio]], among other things), and it will require regulatory approval.
 
 # A challenge for the Industrial Internet initiative is to make the value proposition truly tangible. Sure, connecting to things sounds valuable, and there are many neat examples, but how do you make its value obvious and within immediate reach?
 

@@ -43,3 +43,4 @@ The qMp firmware, based on OpenWrt, works on many embedded WiFi network devices.
 * [Tiniest Linux COM yet](http://linuxgizmos.com/tiniest-linux-com-yet/)
 * [TP-LINK TL-WR703N](http://www.cnx-software.com/development-kits/hackable-gadgets/)
 * [OpenWRT on TP-Link WR-703N](http://blog.thestateofme.com/2014/10/16/openwrt-on-tp-link-wr-703n/)
+* [OpenWRT on TP-Link TL-WR703N](http://wiki.openwrt.org/toh/tp-link/tl-wr703n)

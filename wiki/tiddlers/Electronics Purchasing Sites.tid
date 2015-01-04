@@ -1,53 +1,60 @@
 created: 20140927211819463
-modified: 20141219022242736
+modified: 20141231155200094
 title: Electronics Purchasing Sites
 type: text/vnd.tiddlywiki
 
 !New Products
+
 !!On The Web
-:*[[Pololu Robotics and Electronics|http://www.pololu.com/]]
-:*[[MDFLY Electronics|http://www.mdfly.com/]]
-:*[[Sparkfun Electronics|http://www.sparkfun.com/]]
-:*[[Digi-Key Electronics|http://www.digikey.com]]
-:*[[Adafruit Industries|http://www.adafruit.com/]]
-:*[[Jameco Electronics|http://www.jameco.com]]
-:*[[Mouser Electronics|http://www.mouser.com]]
-:*[[Parallax Inc|http://www.parallax.com/]]
-:*[[Seeed|http://www.seeedstudio.com/depot/]]
-:*[[Solutions Cubed Products|http://www.solutions-cubed.com/]]
-:*[[Electrodragon|http://www.electrodragon.com/]]
-:*[[LowPowerLab|http://lowpowerlab.com/]]
-:*[[EpicTinker|http://www.epictinker.com/]]
-:*[[Stock Drive Product / Sterling Instrument - SDP/SI|http://www.sdp-si.com/]]
-:*[[Amphenol Cables on Demand|http://www.cablesondemand.com/]]
-:*[[Monoprice|http://www.monoprice.com/]]
-:*[[Pasternack RF and Microwave Products|http://www.pasternack.com/]]
-:*[[newegg.com|http://www.newegg.com/Electronic-Components/Category/ID-342]]
-:*[[Joseph Fazzio Inc.|http://www.shopjfi.com/]]
-:*[[Nuts and Bolts|http://www.nutsandbolts.com/]]
-:*[[HobbyKing|https://www.hobbyking.com/hobbyking/store/index.asp]]
+:* [[Pololu Robotics and Electronics|http://www.pololu.com/]]
+:* [[MDFLY Electronics|http://www.mdfly.com/]]
+:* [[Sparkfun Electronics|http://www.sparkfun.com/]]
+:* [[Digi-Key Electronics|http://www.digikey.com]]
+:* [[Adafruit Industries|http://www.adafruit.com/]]
+:* [[Jameco Electronics|http://www.jameco.com]]
+:* [[Mouser Electronics|http://www.mouser.com]]
+:* [[Parallax Inc|http://www.parallax.com/]]
+:* [[Seeed|http://www.seeedstudio.com/depot/]]
+:* [[Solutions Cubed Products|http://www.solutions-cubed.com/]]
+:* [[Electrodragon|http://www.electrodragon.com/]]
+:* [[LowPowerLab|http://lowpowerlab.com/]]
+:* [[EpicTinker|http://www.epictinker.com/]]
+:* [[Stock Drive Product / Sterling Instrument - SDP/SI|http://www.sdp-si.com/]]
+:* [[Amphenol Cables on Demand|http://www.cablesondemand.com/]]
+:* [[Monoprice|http://www.monoprice.com/]]
+:* [[Pasternack RF and Microwave Products|http://www.pasternack.com/]]
+:* [[newegg.com|http://www.newegg.com/Electronic-Components/Category/ID-342]]
+:* [[Joseph Fazzio Inc.|http://www.shopjfi.com/]]
+:* [[Nuts and Bolts|http://www.nutsandbolts.com/]]
+:* [[HobbyKing|https://www.hobbyking.com/hobbyking/store/index.asp]]
 :*[[McMaster-Carr - Fastening, Joining, Gears|http://www.mcmaster.com/]]
-:*[[Inventables|https://www.inventables.com/]]
-:*[[Hobby Wireless|http://www.hobbywireless.com/]]
-:*[[Vernier - afforable scientific data collection|http://www.vernier.com/]]
-:*[[NooElec|http://www.nooelec.com/store/]]
-:*[[Phidgets|http://www.phidgets.com/]]
-:*[[Embedded Micro Make Technology|http://embeddedmicro.com/]]
+:* [[Inventables|https://www.inventables.com/]]
+:* [[Hobby Wireless|http://www.hobbywireless.com/]]
+:* [[Vernier - afforable scientific data collection|http://www.vernier.com/]]
+:* [[NooElec|http://www.nooelec.com/store/]]
+:* [[Phidgets|http://www.phidgets.com/]]
+:* [[Embedded Micro Make Technology|http://embeddedmicro.com/]]
+:* [[Batronix|http://www.batronix.com/shop/index.html]]
+
 !!Local Stores
-:*[[Hobby Hangar, 14014-D Sullyfield Circle, Chantilly, VA 20151|http://www.hhvastore.com/]]
-:*[[Micro Center, 3089 Nutley Street, Pan Am Plaza, Fairfax, VA 22031|http://www.microcenter.com/]]
+:* [[Hobby Hangar, 14014-D Sullyfield Circle, Chantilly, VA 20151|http://www.hhvastore.com/]]
+:* [[Micro Center, 3089 Nutley Street, Pan Am Plaza, Fairfax, VA 22031|http://www.microcenter.com/]]
+
 !Used / Surplus Product
+
 !!On The Web
-:*[[Apex Electronics|http://www.apexelectronic.com/]]
-:*[[Electronic Surplus|http://www.electronicsurplus.com/default.aspx]]
-:*[[Alltronics.com|http://www.alltronics.com/]]
-:*[[Public Surplus|http://www.publicsurplus.com/]]
+:* [[Apex Electronics|http://www.apexelectronic.com/]]
+:* [[Electronic Surplus|http://www.electronicsurplus.com/default.aspx]]
+:* [[Alltronics.com|http://www.alltronics.com/]]
+:* [[Public Surplus|http://www.publicsurplus.com/]]
+
 !Printed Circuit Board (PCB) / Electronics Design
+
 !!On The Web
-:*[[Dirt Cheap Dirty Boards|http://dirtypcbs.com/about.php]]
-:*[[CircuitMaker - free PCB design tool|http://circuitmaker.com/#why_circuitmaker]]
-:*[[Cloud-based Electronic-Design Tools Gain Traction|http://spectrum.ieee.org/geek-life/hands-on/cloudbased-electronicdesign-tools-gain-traction]]
-:*[[upconvert|http://blog.upverter.com/]]
-:*[[CircuitHub|https://circuithub.com/]]
-:*[[Schematics.com|http://schematics.com/]]
-:*[[Atanua - Real Time Logic Simulator|http://sol.gfxile.net/atanua/]]
+:* [[Dirt Cheap Dirty Boards|http://dirtypcbs.com/about.php]]
+:* [[CircuitMaker - free PCB design tool|http://circuitmaker.com/#why_circuitmaker]]
+:* [[Cloud-based Electronic-Design Tools Gain Traction|http://spectrum.ieee.org/geek-life/hands-on/cloudbased-electronicdesign-tools-gain-traction]]
+:* [[upconvert|http://blog.upverter.com/]]
+:* [[CircuitHub|https://circuithub.com/]]
+:* [[Schematics.com|http://schematics.com/]]
+:* [[Atanua - Real Time Logic Simulator|http://sol.gfxile.net/atanua/]]

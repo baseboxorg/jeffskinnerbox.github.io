@@ -1,5 +1,5 @@
-Title: NERD Commenter Cheat Sheet
-Slug: nerd-commenter-cheat-cheet
+Title: CheatSheet: NERD Commenter Commands
+Slug: cheatsheet-nerd-commenter-commands
 Status: hidden
 
 ## Command

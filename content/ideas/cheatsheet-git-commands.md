@@ -1,6 +1,3 @@
-Title: Git Cheat Sheet
-Slug: git-cheat-sheet
-Status: hidden
 
 ## Create and Clone
 | Git Command | Action |
@@ -50,8 +47,15 @@ Status: hidden
 | git checkout -- _filename_ | replace working copy with latest from HEAD |
 
 ## Sources
+These are the sources for the commands documented above in the tables.
+
 * [git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf)
 
+## Requires More Research
+These links should be explored to see it additional information
+could be gathered for this cheat sheet.
 
-## Research
 * [git - the simple guide](http://rogerdudler.github.io/git-guide/)
+* [Git Tutorial](https://www.atlassian.com/git/tutorial)
+* [Getting Git Right](https://www.atlassian.com/git/?utm_source=bitbucket&utm_medium=link&utm_campaign=homepage&utm_content=free_git_tutorials)
+* [Git Tutorial](http://www.tutorialspoint.com/git/index.htm)

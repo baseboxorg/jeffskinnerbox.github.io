@@ -12,8 +12,11 @@ from pelicanconf import *                                                       
 
 # A list of tuples (Title, URL) for additional menu items to appear
 # at the beginning of the main menu.
+#MENUITEMS = (('About Me', '/pages/about-me/'),
+#            ('Wiki', 'deadend.html'),
+#            ('Open Notebook', '/pages/open-notebook/'),)
 MENUITEMS = (('About Me', '/pages/about-me/'),
-            ('Wiki', 'deadend.html'),
+            ('Wiki', 'http://jeffskinnerbox-wiki.herokuapp.com/'),
             ('Open Notebook', '/pages/open-notebook/'),)
 
 # Domain name of the site (this will be placed in output/CNAME)
@@ -21,8 +24,10 @@ SITEURL = 'http://jeffskinnerbox.me'
 RELATIVE_URLS = False       # always set to False when you're ready to publish
 
 # Links to appear in the "links" section of the sidebar
-WIKI = (('Project Ideas', 'deadend.html'),
-       ('Things to Study', 'deadend.html'),)
+#WIKI = (('Project Ideas', 'deadend.html'),
+#       ('Things to Study', 'deadend.html'),)
+WIKI = (('Project Ideas', 'http://jeffskinnerbox-wiki.herokuapp.com/#Potential Projects'),  # NOQA
+       ('Things to Study', 'http://jeffskinnerbox-wiki.herokuapp.com/#Topics for Study'),)  # NOQA
 
 FEED_DOMAIN = SITEURL
 FEED_ALL_ATOM = 'feeds/all.atom.xml'

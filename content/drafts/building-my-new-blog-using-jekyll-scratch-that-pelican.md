@@ -2,7 +2,7 @@ Status: draft
 Title: Building My New Blog Using Jekyll...Scratch That...Pelican
 Date: 2100-01-01 00:00
 Category: Blogging
-Tags: Jekyll, Pelican, Blog, Bootstrap
+Tags: Jekyll, Pelican, Blog, Wiki, Bootstrap
 Slug: building-my-new-blog-using-jekyll-scratch-that-pelican
 Author: Jeff Irland
 Image: pelican_logo.png
@@ -57,18 +57,19 @@ You might find more information on [Pelican's GetHub][23] and [Pelican's Tips & 
 
 ##### Installing Pelican and Creating a Python Virtualenv
 Pelican is a [Python][48] based tool.
-To assure I have a clean Python envirnment to work in, that doesn't conflict with other Python work,
-create a virtual environment using `virtualenv[49]`.
+To assure I have a clean Python environment to work in, that doesn't conflict with other Python work,
+create a virtual environment using [`virtualenv`][49].
 To install Pelican and other Python package dependencies in a virtual environment,
 I roughly followed the instructions in the [official Pelican documentation][50].
 See below:
 
-```shell
+```bash
+# procedure for creating an envirnment for Pelican
 cd ~
 virtualenv --python python2.7 --no-site-packages blogging
 cd blogging
 source bin/activate
-pip install Pelican==3.3
+pip install Pelican==3.5
 pip install Markdown
 pip install typogrify
 pip install ghp-import
@@ -85,7 +86,7 @@ When running the command will ask you a series of questions.
 See the posting [How I setup Pelican][18] for recommendations on how to answer the questions.
 I (more or less) followed what was done in this article.
 
-```shell
+```bash
 pelican-quickstart
 ```
 
@@ -95,7 +96,7 @@ default Pelican theme `notmyidea` into the `output/` directory.
 You can no serve this directory as you would any other static html files.
 You can test this out by doing the following:
 
-```shell
+```bash
 make html
 make serve
 ```
@@ -111,12 +112,14 @@ so I performed the standard procedure of [forking/cloning the GitHub][14].
 First step is to fork these repositories on GitHub.
 I did the following:
 
-```shell
+```bash
+# creater the repository of Pelican plugins
 cd ~/blogging/pelican-plugins
 git clone https://github.com/jeffskinnerbox/pelican-plugins.git
 git remote add upstream https://github.com/jeffskinnerbox/pelican-plugins.git
 git fetch upstream
 
+# creater the repository of Pelican themes
 cd ~/blogging/pelican-themes
 git clone https://github.com/jeffskinnerbox/pelican-themes.git
 git remote add upstream https://github.com/jeffskinnerbox/pelican-themes.git
@@ -128,7 +131,7 @@ With what has been done so far,
 you have the beginings of a project structure and you should initiate a Git repository to control it.
 Do the `git init` and create a rudimentary `.gitignore` file:
 
-```shell
+```bash
 git init
 vi .gitignore
 
@@ -409,7 +412,7 @@ to move them to there proper destination for publishing
 
 #### Git and GitHub Setup
 
-```shell
+```bash
 git init
 git config --global user.name "jeffskinnerbox"
 git config --global user.email jeff.irland@verizon.net
@@ -441,7 +444,7 @@ We'll use the utility `[ghp-import][31]` to make this easy.
 We'll also use the `publishconf.py` Pelican configuration file,
 which will import the `pelicanconf.py` file but override anything needed specifically for publishing.
 
-```shell
+```bash
 pelican content -o output -s publishconf.py
 ghp-import output
 git push origin gh-pages:master
@@ -458,7 +461,7 @@ To place the source materials for the website into GitHub,
 I'll use standard git procedures (i.e. no use of `ghp-import`).
 See below for the procedure used:
 
-```shell
+```bash
 git add --all
 git commit -m "<comment>"
 git push origin master:source
@@ -510,7 +513,7 @@ You can use the `[dig][59]` command to confirm that you have set it correctly.
 In my case, I run this command `dig www.jeffskinnerbox.me +nostats +nocomments +nocmd`
 to perform a DNS lookup and got the following results:
 
-```shell
+```bash
 $ dig www.jeffskinnerbox.me +nostats +nocomments +nocmd
 
 ; <<>> DiG 9.9.3-rpz2+rl.13214.22-P2-Ubuntu-1:9.9.3.dfsg.P2-4ubuntu1.1 <<>> www.jeffskinnerbox.me +nostats +nocomments +nocmd
@@ -527,13 +530,24 @@ and wish to upgrade to the latest stable release,
 you can do so by adding `--upgrade` to the relevant command.
 For Pelican, that would be:
 
-```shell
+```bash
+# upgrade to the latest stable release of Pelican
 pip install --upgrade pelican
 ```
 
 To upgrade Bootstrap, Bootwatch, .....
 
 
+# LinkChecker
+* [LinkChecker - Check websites for broken links](http://wummel.github.io/linkchecker/)
+* [LinkChecker Manual Page](http://wummel.github.io/linkchecker/man1/linkchecker.1.html)
+* [Checkout examples](https://github.com/wummel/linkchecker/tree/master/doc/examples)
+* [LinkChecker Logo](http://fossies.org/linux/www/LinkChecker-9.3.tar.gz/LinkChecker-9.3/doc/html/logo128x128.png)
+
+```bash
+# install the package
+sudo apt-get install linkchecker
+```
 
 [01]:http://arunrocks.com/moving-blogs-to-pelican/
 [02]:http://blog.getpelican.com/
@@ -584,7 +598,7 @@ To upgrade Bootstrap, Bootwatch, .....
 [47]:https://wordpress.org/
 [48]:https://www.python.org/
 [49]:http://www.virtualenv.org/en/latest/
-[50]:http://docs.getpelican.com/en/3.2/getting_started.html#installing-pelican
+[50]:http://pelican.readthedocs.org/en/3.5.0/quickstart.html
 [51]:https://gist.github.com/jeffskinnerbox/9612119
 [52]:https://github.com/DandyDev/pelican-bootstrap3
 [53]:http://bootswatch.com/flatly/

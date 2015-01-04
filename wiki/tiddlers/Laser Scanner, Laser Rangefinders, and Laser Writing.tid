@@ -1,5 +1,5 @@
 created: 20140916014247854
-modified: 20140925005416123
+modified: 20150102185518049
 tags: projects
 title: Laser Scanner, Laser Rangefinders, and Laser Writing
 type: text/vnd.tiddlywiki
@@ -13,7 +13,7 @@ type: text/vnd.tiddlywiki
 !!Laser Rangefinder (aka LIght Detection And Ranging - LIDAR)
 
 *[[YEAH BITCH! LAZERS!|http://www.berryjam.eu/2014/06/oslrf-01/]]
-*[[Prototype of OSLRF01 Arduino Scanning LIDAR (Under $150)http://arduino-pi.blogspot.com/2014/03/prototype-of-oslrf01-arduino-scanning.html]]
+*[[Prototype of OSLRF01 Arduino Scanning LIDAR (Under $150)|http://arduino-pi.blogspot.com/2014/03/prototype-of-oslrf01-arduino-scanning.html]]
 *[[11 gram Arduino-powered laser rangefinder|http://diydrones.com/profiles/blogs/11-gram-arduino-powered-laser-rangefinder]]
 *[[Webcam Based DIY Laser Rangefinder|https://sites.google.com/site/todddanko/home/webcam_laser_ranger]]
 *[[Homemade Laser Rangefinder|http://letsmakerobots.com/node/2651]]
@@ -26,6 +26,7 @@ type: text/vnd.tiddlywiki
 *[[Hacking the Neato XV-11|http://xv11hacking.wikispaces.com/]]
 *[[Ultra Low-Cost Laser Rangefinders Actualized by Neato Robotics|http://www.hizook.com/blog/2009/12/20/ultra-low-cost-laser-rangefinders-actualized-neato-robotics]]
 *[[360 Degree Laser Scanner Development Kit (RPLIDAR)|http://www.dfrobot.com/index.php?route=product/product&product_id=1125#.U2vOZt_umam]]
+* [[Robot Vision: Detecting Obstacles with FPGAs and line lasers|http://hackaday.com/2014/12/12/robot-vision-detecting-obstacles-with-fpgas-and-line-lasers/]]
 
 !!Laser Writing
 

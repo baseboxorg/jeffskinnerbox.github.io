@@ -1,5 +1,5 @@
-Title: cURL Cheat Sheet
-Slug: curl-cheat-sheet
+Title: CheatSheet: cURL Commands
+Slug: cheatsheet-curl-commands
 Status: hidden
 
 See the following for more examples:

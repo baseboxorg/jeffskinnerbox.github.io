@@ -1,5 +1,5 @@
-Title: Python-Mode Cheat Sheet
-Slug: python-mode-cheat-sheet
+Title: CheatSheet: Python-Mode Commands
+Slug: cheatsheet-python-mode-commands
 Status: hidden
 
 ## Command

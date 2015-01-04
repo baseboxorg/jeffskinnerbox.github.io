@@ -1,10 +1,9 @@
 created: 20141026185521161
-modified: 20141026185729134
+modified: 20150103202954050
 title: IoT Protocols
 type: text/vnd.tiddlywiki
 
-[[IoT]] Protocols
-
+!!~IoT Relevant Protocols
 * [[Thread|http://www.threadgroup.org/Home.aspx]]
 * [[pubsubhubbub|http://readwrite.com/2009/09/28/real-time_web_protocol_pubsubhubbub_explained#awesm=~oDUkPl96eqUpe3]]
 * [[Message Queuing Telemetry Transport (MQTT)|http://mqtt.org/]]
@@ -16,9 +15,5 @@ type: text/vnd.tiddlywiki
 * [[MQTT and CoAP, IoT Protocols|http://www.eclipse.org/community/eclipse_newsletter/2014/february/article2.php]]
 * [[6LoWPAN -IPv6 over Low power Wireless Personal Area Networks|http://en.wikipedia.org/wiki/6LoWPAN]]
 
-Standards Body
-
-* [[HypeerCat - Government-backed consortium launches 'Internet of Things' specification|http://www.techradar.com/news/internet/cloud-services/government-backed-consortium-launches-open-internet-of-things-standard-1255196]]
-* [[Open Interconnect Consortium|http://www.openinterconnect.org/]]
-** [[Industry Leaders to Establish Open Interconnect Consortium to Advance Interoperability for Internet of Things|http://global.samsungtomorrow.com/?p=38503]]
-* [[Allseen Alliance / AllJoyn|https://allseenalliance.org/]]
+!!Standards Body
+* [[IoT Standards]]

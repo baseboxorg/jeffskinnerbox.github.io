@@ -345,7 +345,8 @@ http://wiki.wrtnode.com/index.php?title=Starting#Restore_Factory_Settings
 
 ## More
 http://wiki.wrtnode.com/index.php?title=Main_Page
-
+[The Pain of Connecting to WPA Wi-Fi on the Linux Command Line](http://www.sevenforge.com/2009/07/28/connecting-to-wpa-wifi-on-the-command-line/)
+[NetworkConfigurationCommandLine/Automatic](https://help.ubuntu.com/community/NetworkConfigurationCommandLine/Automatic)
 
 ####################
 `ping` (Packet Internet Gropper)
@@ -367,7 +368,6 @@ The arp command displays a table of translated hardware addresses in the cache.
 
 
 
-
 # WRTNode
 * [WRTnode](http://wrtnode.com/w/)
 * [wrthelp – a demo app for the WRTnode](http://blog.thestateofme.com/2014/09/21/wrthelp/)
@@ -378,6 +378,7 @@ The arp command displays a table of translated hardware addresses in the cache.
 * [Quick Mesh Project](http://qmp.cat/Experimenting_with_the_WRTnode)
 
 [Finding a device IP Address](http://www.cnx-software.com/2010/10/25/finding-a-device-ip-address/)
+
 
 
 [01]:http://askubuntu.com/questions/62166/siocsifflags-operation-not-possible-due-to-rf-kill

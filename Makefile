@@ -220,10 +220,13 @@ else
 endif
 	git push origin master:source
 
-# Versions of tools bening used
+# Versions of tools being used
 version:
-	@echo -n 'Current version of Pelican is ' ; pelican --version
-	@echo -n 'Current version of TiddlyWiki is ' ; tiddlywiki --version
+	@echo -n 'Current version of Pelican used locally ' ; pelican --version
+	@echo -n 'Current version of TiddlyWiki used locally ' ; tiddlywiki --version
+	@echo -n 'Current version of TiddlyWiki use in Heroku ' ; cat wiki/package.json | jq '.dependencies.tiddlywiki' | tr -d '"'
+	@echo -n 'Current version of Node used locally ' ; node --version
+	@echo -n 'Current version of Node use in Heroku ' ; cat wiki/package.json | jq '.engines.node' | tr -d '"'
 
 # upgrade the Pelican package
 upgrade: version

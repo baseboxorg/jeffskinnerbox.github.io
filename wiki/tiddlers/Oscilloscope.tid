@@ -1,0 +1,72 @@
+created: 20141225214402795
+modified: 20150102164329789
+tags: [[Test Gear]]
+title: Oscilloscope
+type: text/vnd.tiddlywiki
+
+''Research this - Rigol DS1052D'' - http://www.batronix.com/shop/oscilloscopes/Rigol-DS1052D.html
+[[The Oscilloscope Shop|http://www.theoscilloscopeshop.com/]]
+
+[[Oscilloscope performance vs. specifications|https://www.youtube.com/watch?v=6CDJbi8E0UE]]
+
+It's time to buy a scope.
+The Rigol DS1102E has become the work horse for the electronics enthusiast for several years,
+and has been my planned choose,
+but a new Rigol model, the DS1054Z, is about to eclipse it.
+
+!![[Rigol DS1054Z 50MHz Digital Oscilloscope|http://www.rigolna.com/products/digital-oscilloscopes/ds1000Z/ds1054z/]]
+[img[http://ecx.images-amazon.com/images/I/81egZgEChDL._SL1500_.jpg]]
+
+* 50MHz Bandwidth
+* 4 Analog channels plus external trigger
+* 12Mpts (Std.) and 24Mpts (Opt.) Memory Depth
+* 1GSa/s (Single-channel), 500MSa/s(Dual-channel), 250MSa/s(Fulll-channel) sample rate
+* 7 Inch WVGA (800x480), multiple intensity levels waveform display
+* [[UltraVision Technology|http://www.saelig.com/supplier/Rigol/ultra_vision_070214p.pdf]]
+
+Judging for the reviews and the price points
+(and assuming I can hack the scope to get 100MHz capabilities),
+The DS1054Z seems to be the easy prefered choose but for one thing.
+[[EEVblog|http://www.eevblog.com/]] investigates two very serious
+[[issues with jitter|https://www.youtube.com/watch?v=kcOdzFaIYNE]]
+on the Rigol DS1054Z
+Some sort of modulated sampling/trigger jitter problem at 5 microsecond intervals (the “5us jitter problem”).
+
+!![[Rigol DS1102E 100MHz Digital Oscilloscope|http://www.rigolna.com/products/digital-oscilloscopes/ds1000e/ds1102e/]]
+[img[http://geoffg.net/Images/DS1000E/FrontPanel.jpg]]
+
+* 100MHz Bandwidth
+* 2 Analog channels plus external trigger
+* 1 Million point deep memory
+* 1 GSa/s（each channel），500 MSa/s（dual channels）sample rate
+* 5.7” (320X240) with 64K color LCD backlit display
+
+!![[Siglent SDS1102CML 100MHz Digital Oscilloscope|http://www.siglent.eu/sds1102cml-100mhz.html]]
+[img[http://s24.postimg.org/eqinci7rp/Sig06_Front.jpg]]
+
+* 100MHz Bandwidth
+* 2 Analog channels plus external trigger
+* Typical Price: $360
+
+xxx
+
+!![[Tektronix 1052B 50MHz Digital Oscilloscope|http://randomthoughts.club/aws/itemPage.php?item=B00JPCV62U]]
+[img[http://ecx.images-amazon.com/images/I/51DD5ll3BjL.jpg]]
+
+* 50MHz Bandwidth
+* 2 Analog channels plus external trigger
+* 2 GSa/s Sampling on all channels
+* 7 inch WVGA (800x480) Active TFT Color Display
+
+xxx
+
+Reviews
+
+* [[EEVblog #674 - Rigol DS1054Z Teardown|https://www.youtube.com/watch?v=kb9P1Am9aFU]]
+* [[EEVblog #675 - How To Reverse Engineer A Rigol DS1054Z|https://www.youtube.com/watch?v=lJVrTV_BeGg]]
+* [[Rigol DS1054Z - Unlock all features|https://www.youtube.com/watch?v=NmJNOwcJh7Y]]
+* [[How To Get 50 More Zed From Your Rigol DS1054Z|http://hackaday.com/2014/11/12/how-to-get-50-more-zed-from-your-rigol-ds1054z/]]
+* [[EEVblog #451 - Rigol DS1052E vs DS2072 Oscilloscope|https://www.youtube.com/watch?v=_TSr9nFN1GU]]
+
+To learn more about using an Oscilloscope,
+see [[Oscilloscope Tutorials and Tips]].

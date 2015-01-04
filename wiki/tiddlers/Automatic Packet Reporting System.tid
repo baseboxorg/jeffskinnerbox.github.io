@@ -1,5 +1,5 @@
 created: 20140919015122660
-modified: 20141018023828114
+modified: 20141224182559476
 tags: projects
 title: Automatic Packet Reporting System
 type: text/vnd.tiddlywiki
@@ -19,3 +19,4 @@ Other prominent map features are weather stations, alerts and objects and other 
 *[[Automatic Packet Reporting System|http://www.aprs.org/]]
 *[[APRS.if real-time APRS map|http://aprs.fi/#!lat=39.17480&lng=-77.53260]]
 *[[MicroModem|http://unsigned.io/?p=77]]
+*[[Sending APRS messages to Twitter via the International Space Station|http://www.amateurradio.com/sending-aprs-messages-to-twitter-via-the-international-space-station/]]

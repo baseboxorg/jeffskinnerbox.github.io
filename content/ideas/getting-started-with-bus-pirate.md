@@ -13,8 +13,11 @@ since it can required breadboarding a circuit, writing code, or maybe even proto
 Getting it right on the first try is nearly a hopeless task, but the Bus Pirate provides some hope.
 The [Bus Pirate][01], created by [Dangerous Prototypes][02],
 is a [Microchip PIC24][17] embedded system which
-is a troubleshooting tool that communicates between a  terminal and any
-embedded device over most standard serial protocols, which include I2C, SPI, and asynchronous serial - all at voltages from 0-5.5VDC.
+is a troubleshooting tool that communicates between a terminal and any
+embedded device over most standard serial protocols, which include I2C, SPI, and asynchronous serial.
+The Bus Pirate can operate at 3.3V or 5V logic levels
+and controlling the Bus Pirate is as easy as hooking up a serial terminal program
+and plugging in a USB cable.
 
 The Bus Pirates main object is to reduce or eliminates early prototyping effort when working with new or unknown chips. 
 Type commands into a terminal on your computer, those commands are interpreted by the Bus Pirate and sent via the proper protocol.
@@ -178,6 +181,7 @@ This is not [all of the documentation][21], but the parts that will help get you
     * [Bus Pirate 102 tutorial](http://dangerousprototypes.com/docs/Bus_Pirate_102_tutorial)
     * [Bus Pirate Edu kit partlist](http://dangerousprototypes.com/docs/Bus_Pirate_Edu_kit_partlist)
     * [Sailing the I2Cs with the Bus Pirate](http://www.sharebrained.com/2013/02/26/sailing-the-i2cs-with-the-bus-pirate/)
+    * [Getting Started With an I2C LCD Using a Bus Pirate/](https://embeddedcode.wordpress.com/2014/12/06/getting-started-with-an-i2c-lcd-using-a-bus-pirate/)
 
 It should be no surprise that to really understand (and maybe some day master) the Bus Pirate,
 you'll need to work with the Bus Pirate and an attached device while reading the documentation.

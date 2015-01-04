@@ -279,9 +279,9 @@ E.164
     * []()
 * USB to WiFi Bridge (How can I connect any USB device to my computer wirelessly?)
     * [TP-Link TL-WN822N 300 Mbps Wireless N USB Adapter](http://www.amazon.com/dp/B00416Q5KI/?tag=googhydr-20&hvadid=34600705728&hvpos=1o1&hvexid=&hvnetw=g&hvrand=25551089692659868&hvpone=&hvptwo=&hvqmt=b&hvdev=t&ref=pd_sl_7pmo06p6a5_b)
+    * [OpenWRT on TP-Link TL-WR703N](http://wiki.openwrt.org/toh/tp-link/tl-wr703n)
     * [Edimax EW-7811Un 150 Mbps Wireless 11n Nano Size USB Adapter](http://www.amazon.com/Edimax-EW-7811Un-Wireless-Adapter-Wizard/dp/B003MTTJOY/ref=pd_bxgy_pc_text_y)
     * [Wireless USB Hub and Adapter Kit](http://www.iogear.com/product/GUWH204KIT/?ClickID=c7nlv4zxefsezzi7f7qz7f4k74aiianllzxz)
-    * []()
     * []()
 * Books, Tutorials, Specifications, etc.
     * [Multimedia Service Platform](http://www.ag-projects.com/)

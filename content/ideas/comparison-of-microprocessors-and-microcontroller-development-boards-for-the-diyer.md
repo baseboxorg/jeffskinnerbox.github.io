@@ -128,6 +128,7 @@ The new site is project oriented, allowing developers to sort and select paramet
 
 Parameters include processor type and speed; number of analog and digital inputs; wireless options including WiFi and Bluetooth; USB ports including host, client, and/or OTG; video connectivity; and more.
 
+* [Orange Pi SBC tempts Raspberry Pi clone fans](http://linuxgizmos.com/orange-pi-sbc-tempts-raspberry-pi-clone-fans/)
 * [Arietta G25 - Acme Systems Linux boards](http://www.acmesystems.it/arietta)
 * [Processor Boards for IoT](https://iotdc.hackpad.com/Processor-Boards-for-IoT-jBHdtN5BRrZ)
 * [Embedded Linux board comparison chart and more!](http://www.adafruit.com/blog/2014/05/06/embedded-linux-board-comparison-chart-and-more/)

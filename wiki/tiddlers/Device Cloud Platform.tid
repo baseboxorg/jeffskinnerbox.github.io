@@ -1,5 +1,5 @@
 created: 20141026183516175
-modified: 20141102162948719
+modified: 20150104205617150
 title: Device Cloud Platform
 type: text/vnd.tiddlywiki
 
@@ -13,8 +13,17 @@ manage, store and move information across the near and far reaches of the enterp
 
 [[also check out this|https://www.cbinsights.com/blog/internet-of-things-periodic-table/]]
 
-Examples of Device Cloud Platforms are
+Home Automation Platforms:
 
+* [[openHAB|http://www.openhab.org/index.html]]
+* [[IoT Eclipse|http://iot.eclipse.org/index.html]]
+* [[Eclipse Smarthome|https://eclipse.org/smarthome/]]
+* [[Tasker|https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&hl=en]]
+* [[Icontrol Networks|http://www.icontrol.com/]]
+
+Examples of Device Cloud Platforms:
+
+* [[ParStream|https://www.parstream.com/]]
 * [[TrackR|http://www.thetrackr.com/]] which uses [[Open Garden|http://opengarden.com/]]
 * [[Paho|http://www.eclipse.org/paho/]]
 * [[Nimbits|http://www.nimbits.com/index.jsp]]

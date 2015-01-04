@@ -1,21 +1,21 @@
 created: 20140919015250893
-modified: 20140919015514339
+modified: 20141224184247135
 tags: projects
 title: Video and Camera Processing
 type: text/vnd.tiddlywiki
 
 All Canon Powershots (such as the SD750) released after mid 2009 are not capable of remote control anymore.
 
-*[[cameras remotely controllable for capture|http://www.gphoto.org/doc/remote/]]
-*[[Simple timelapse camera using Raspberry Pi and a coffee tin|http://www.instructables.com/id/Simple-timelapse-camera-using-Raspberry-Pi-and-a-c/?ALLSTEPS]]
-*[[MEncoder is a free command line video decoding, encoding and filtering tool|http://en.wikipedia.org/wiki/MEncoder]]
-*[[The Webcam How-To|http://linux.about.com/od/wcm_howto/a/hwtwcm05t00.htm]]
-*[[Motion, a software motion detector|http://www.lavrsen.dk/foswiki/bin/view/Motion/WebHome]]
-*[[webcam - capture images and upload them|http://linux.about.com/od/commands/l/blcmdl1_webcam.htm]]
-*[[Use Your Digital Camera with Linux|http://www.linuxdevcenter.com/pub/a/linux/2005/01/06/digicam.html]]
-*[[How to Remote Control Your Camera with Darktable on Linux|http://www.linux.com/learn/tutorials/750195-how-to-remote-control-your-camera-with-darktable-on-linux-]]
-
-*[[Deep Belief image recognition framework|https://github.com/jetpacapp/DeepBeliefSDK/tree/master]]
-*[[Caffe: Convolutional Architecture for Fast Feature Embedding|https://github.com/BVLC/caffe]]
-*[[OverFeat is an image recognizer and feature extractor|http://cilvr.nyu.edu/doku.php?id=code:start]]
-*[[Hedgehog Pi Recipe|http://blog.pistuffing.co.uk/?p=3646]]
+* [[cameras remotely controllable for capture|http://www.gphoto.org/doc/remote/]]
+* [[Simple timelapse camera using Raspberry Pi and a coffee tin|http://www.instructables.com/id/Simple-timelapse-camera-using-Raspberry-Pi-and-a-c/?ALLSTEPS]]
+* [[MEncoder is a free command line video decoding, encoding and filtering tool|http://en.wikipedia.org/wiki/MEncoder]]
+* [[The Webcam How-To|http://linux.about.com/od/wcm_howto/a/hwtwcm05t00.htm]]
+* [[Motion, a software motion detector|http://www.lavrsen.dk/foswiki/bin/view/Motion/WebHome]]
+* [[webcam - capture images and upload them|http://linux.about.com/od/commands/l/blcmdl1_webcam.htm]]
+* [[Use Your Digital Camera with Linux|http://www.linuxdevcenter.com/pub/a/linux/2005/01/06/digicam.html]]
+* [[How to Remote Control Your Camera with Darktable on Linux|http://www.linux.com/learn/tutorials/750195-how-to-remote-control-your-camera-with-darktable-on-linux-]]
+* [[Deep Belief image recognition framework|https://github.com/jetpacapp/DeepBeliefSDK/tree/master]]
+* [[Caffe: Convolutional Architecture for Fast Feature Embedding|https://github.com/BVLC/caffe]]
+* [[OverFeat is an image recognizer and feature extractor|http://cilvr.nyu.edu/doku.php?id=code:start]]
+* [[Hedgehog Pi Recipe|http://blog.pistuffing.co.uk/?p=3646]]
+* [[A Year Long Time Lapse Camera|http://orbides.1gb.ru/lapse_camera.php?lng=eng]]

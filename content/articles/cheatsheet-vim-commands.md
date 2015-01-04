@@ -360,7 +360,7 @@ These are the sources for the commands documented above in the tables.
 * [How to copy text from vim to an external program?](http://unix.stackexchange.com/questions/12535/how-to-copy-text-from-vim-to-an-external-program)
 
 ## Requires More Research
-These links should be explored to see it additional information
+These links should be explored to see what additional information
 could be gathered for this cheat sheet.
 
 * [Another Vim Cheat Sheet](http://www.terminally-incoherent.com/blog/reference/vim-cheat-sheet/)

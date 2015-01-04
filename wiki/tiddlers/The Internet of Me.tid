@@ -1,5 +1,5 @@
 created: 20140927011730070
-modified: 20141210040431951
+modified: 20150103151733957
 tags: pontifications
 title: The Internet of Me
 type: text/vnd.tiddlywiki
@@ -45,6 +45,10 @@ Here are some example:
 *[[RECEIVING AND DECODING TIRE PRESSURE MONITOR SYSTEMS USING AN RTL-SDR|http://www.rtl-sdr.com/receiving-decoding-tire-pressure-monitor-systems-using-rtl-sdr/]]
 *[[Power a Car Diagnostics System with a Raspberry Pi|http://lifehacker.com/power-a-car-diagnostics-system-with-a-raspberry-pi-1598020131]]
 
+''Your Safety''
+
+* [[connected bike helmet|https://www.media.volvocars.com/us/en-us/media/pressreleases/155565/volvo-cars-and-poc-to-demonstrate-life-saving-wearable-cycling-tech-concept-at-international-ces-201]]
+
 ''Your Environment''
 
 *[[The Era of Ubiquitous Listening Dawns|http://www.technologyreview.com/news/517801/the-era-of-ubiquitous-listening-dawns/]]
@@ -77,6 +81,14 @@ Here are some example:
 *[[Fitbit|https://www.fitbit.com/]]
 *[[ShotStats|http://www.shot-stats.com/]]
 *[[Fuelband|http://www.nike.com/us/en_us/c/nikeplus-fuelband]]
+
+''Your Behavior''
+
+* [[A shock behavior-modifying wristband|http://pavlok.com/]]
+
+''Your Sun Exposure''
+
+* [[Sun-sensitive bracelet|https://www.netatmo.com/en-US/product/june]]
 
 ''Your Sports''
 
@@ -158,3 +170,7 @@ Some additional sources on the quantified self movement are:
 *[[Quantified Self|http://www.economist.com/node/21548493]]
 *[[Gary Wolf: The quantified self|http://www.ted.com/talks/gary_wolf_the_quantified_self]]
 *[[The Beginner’s Guide to Quantified Self (Plus, a List ofthe Best Personal Data Tools Out There)|http://technori.com/2013/04/4281-the-beginners-guide-to-quantified-self-plus-a-list-of-the-best-personal-data-tools-out-there/]]
+
+Of course, all of this has it down sides concerning privacy and security:
+
+* [[Pretty Much Every Smart Home Device You Can Think of Has Been Hacked|http://www.slate.com/blogs/future_tense/2014/12/30/the_internet_of_things_is_a_long_way_from_being_secure.html]]

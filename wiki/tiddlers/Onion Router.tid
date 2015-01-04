@@ -1,5 +1,5 @@
 created: 20141018214921455
-modified: 20141018221013700
+modified: 20141224181524594
 tags: projects
 title: Onion Router
 type: text/vnd.tiddlywiki
@@ -18,3 +18,9 @@ random nodes on the Tor network, rather than your computer.
 *[[Tor: The Anonymous Internet, and If It's Right for You|http://gizmodo.com/tor-the-anonymous-internet-and-if-its-right-for-you-1222400823]]
 *[[Web security everywhere|http://hackaday.io/project/2040-web-security-everywhere]]
 *[[Turning the Raspberry Pi into a onion router|https://www.youtube.com/watch?v=JvDx2TnfCVQ]]
+
+Other things to explore:
+
+* [[OpenWrt|https://openwrt.org/]]
+* [[Netduma|http://www.netduma.com/]]
+* [[Linksys WRT1900AC WiFi Router|http://www.cnet.com/products/linksys-wrt1900ac-wireless-router/]]
