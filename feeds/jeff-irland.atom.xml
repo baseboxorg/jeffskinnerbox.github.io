@@ -1668,7 +1668,7 @@ it is very important to unmount the filesystem before running&amp;nbsp;it.&lt;/e
 Unmount the filesystem, and then run &lt;code&gt;fsck&lt;/code&gt;.
 For example, if the filesystem in question is &lt;code&gt;/home&lt;/code&gt; (or its device named &lt;code&gt;/dev/sdh&lt;/code&gt;) then type&amp;nbsp;command:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;umount /home
-# or
+&lt;span style="color: #0099FF; font-style: italic"&gt;# or&lt;/span&gt;
 umount /dev/sdh
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1729,6 +1729,10 @@ programs can still successfully write to &lt;code&gt;/mnt&lt;/code&gt; directory
 In my case, I had my backup system using &lt;code&gt;/mnt/backup&lt;/code&gt; and it appear everything was find,
 but in reality, data wasn&amp;#8217;t going to the external drive
 but instead to the root filesystem under &lt;code&gt;/mnt&lt;/code&gt;, filling up the root&amp;nbsp;filesystem.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;To check for this, &lt;code&gt;umount&lt;/code&gt; any hard drives mounted to &lt;code&gt;/mnt&lt;/code&gt;.
+This should remove the filesystem.
+Now look for the filesystem, and if parts of it are still there,
+this could very well be the source of your file space&amp;nbsp;problem.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;A useful command for finding what&amp;#8217;s eating up all the space is the &lt;a href="http://linoxide.com/linux-command/linux-du-command/"&gt;&amp;#8220;disk usage&amp;#8221; command, &lt;code&gt;du&lt;/code&gt;&lt;/a&gt;.
 Running the following&amp;nbsp;command:&lt;/p&gt;
@@ -1744,15 +1748,15 @@ Don&amp;#8217;t worry if it takes a while to complete, it could take on the orde
 &lt;p&gt;Don&amp;#8217;t delete files without first knowing what they are, of course.
 But, in general, you won&amp;#8217;t break your system if you delete files in the following&amp;nbsp;directories:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;/tmp&lt;/code&gt; (user temp data &amp;#8212; these are commonly all deleted every reboot&amp;nbsp;anyway)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;/var/tmp&lt;/code&gt; (print spools, and other system temporary&amp;nbsp;data)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;/var/cache/*&lt;/code&gt; (this one can be dangerous, research&amp;nbsp;first!)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;/root&lt;/code&gt; (the root user&amp;#8217;s home&amp;nbsp;directory)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/tmp&lt;/code&gt; &amp;ensp;&amp;ensp;user temp data &amp;#8212; these are commonly all deleted every reboot&amp;nbsp;anyway&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/var/tmp&lt;/code&gt; &amp;ensp;&amp;ensp;print spools, and other system temporary&amp;nbsp;data&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/var/cache/*&lt;/code&gt; &amp;ensp;&amp;ensp;this one can be dangerous, research&amp;nbsp;first!&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/root&lt;/code&gt; &amp;ensp;&amp;ensp;the root user&amp;#8217;s home&amp;nbsp;directory&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;In addition to the locations above, the following locations are common&amp;nbsp;culprits:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;/opt&lt;/code&gt; (many third-party apps install here, and don&amp;#8217;t clean up after&amp;nbsp;themselves)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;/var/log&lt;/code&gt; (log files can eat up a lot of space if there are repetitive&amp;nbsp;errors)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/opt&lt;/code&gt; &amp;ensp;&amp;ensp;many third-party apps install here, and don&amp;#8217;t clean up after&amp;nbsp;themselves&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/var/log&lt;/code&gt; &amp;ensp;&amp;ensp;log files can eat up a lot of space if there are repetitive&amp;nbsp;errors&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4&gt;Deleted But Open&amp;nbsp;Files&lt;/h4&gt;
 &lt;p&gt;Another potential source of a full filesystem are large
@@ -1762,19 +1766,22 @@ When this happens, the file is essentially invisible to other processes,
 but it still takes on physical space on the drive.
 Tools like &lt;code&gt;du&lt;/code&gt; will not see&amp;nbsp;it.&lt;/p&gt;
 &lt;p&gt;To find these deleted but open files, run the utility &lt;a href="http://www.thegeekstuff.com/2012/08/lsof-command-examples/"&gt;lsof&lt;/a&gt;&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo lsof -nP | grep &amp;#39;(deleted)&amp;#39;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# list open but deleted files&lt;/span&gt;
+sudo lsof -nP | grep &lt;span style="color: #CC3300"&gt;&amp;#39;(deleted)&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;To find out how much space is taken up by these deleted but open files,&amp;nbsp;run:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo lsof -nP | awk &amp;#39;/deleted/ { sum+=$8 } END { print sum }&amp;#39;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# total space used by open but deleted files&lt;/span&gt;
+sudo lsof -nP | awk &lt;span style="color: #CC3300"&gt;&amp;#39;/deleted/ { sum+=$8 } END { print sum }&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;code&gt;lsof&lt;/code&gt; will list all open files,
 &lt;code&gt;awk&lt;/code&gt; then searches for the deleted files, and sums up the file sizes (in&amp;nbsp;bytes).&lt;/p&gt;
 &lt;p&gt;To get a list of process &lt;span class="caps"&gt;ID&lt;/span&gt; (&lt;span class="caps"&gt;PID&lt;/span&gt;) that own these file that are not redundant,&amp;nbsp;use&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo lsof -nP | grep &amp;#39;(deleted)&amp;#39; | awk &amp;#39;{ print $2 }&amp;#39; | sort | uniq
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# process IDs of open but deleted files&lt;/span&gt;
+sudo lsof -nP | grep &lt;span style="color: #CC3300"&gt;&amp;#39;(deleted)&amp;#39;&lt;/span&gt; | awk &lt;span style="color: #CC3300"&gt;&amp;#39;{ print $2 }&amp;#39;&lt;/span&gt; | sort | uniq
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1813,12 +1820,19 @@ to truncate the file to zero&amp;nbsp;bytes&lt;/p&gt;
 
 
 &lt;p&gt;You could automate all of the above with this command&amp;nbsp;line&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;ls -l | grep &amp;#39;(deleted)&amp;#39; | awk &amp;#39;{ print $9 }&amp;#39; | while read file; do :&amp;gt; /proc/2746/fd/$file; done
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# for all open but deleted files associated with process 2746, trunctate the file to 0 bytes&lt;/span&gt;
+&lt;span style="color: #003333"&gt;PID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #FF6600"&gt;2746&lt;/span&gt; ; &lt;span style="color: #336666"&gt;cd&lt;/span&gt; /proc/&lt;span style="color: #003333"&gt;$PID&lt;/span&gt;/fd ; ls -l | grep &lt;span style="color: #CC3300"&gt;&amp;#39;(deleted)&amp;#39;&lt;/span&gt; | awk &lt;span style="color: #CC3300"&gt;&amp;#39;{ print $9 }&amp;#39;&lt;/span&gt; | &lt;span style="color: #006699; font-weight: bold"&gt;while&lt;/span&gt; &lt;span style="color: #336666"&gt;read &lt;/span&gt;FILE; &lt;span style="color: #006699; font-weight: bold"&gt;do&lt;/span&gt; :&amp;gt; /proc/&lt;span style="color: #003333"&gt;$PID&lt;/span&gt;/fd/&lt;span style="color: #003333"&gt;$FILE&lt;/span&gt;; &lt;span style="color: #006699; font-weight: bold"&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Finally, it&amp;#8217;s a good idea to do a &lt;a href="http://www.cyberciti.biz/faq/linux-force-fsck-on-the-next-reboot-or-boot-sequence/"&gt;forced full file system check&lt;/a&gt; on the next&amp;nbsp;reboot.&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo touch /forcefsck
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# file system check on next reboot&lt;/span&gt;
+sudo touch /forcefsck
+
+&lt;span style="color: #0099FF; font-style: italic"&gt;# or&lt;/span&gt;
+
+&lt;span style="color: #0099FF; font-style: italic"&gt;# shutdown and do a file system check now&lt;/span&gt;
+shutdown -rF now
 &lt;/pre&gt;&lt;/div&gt;
 
 

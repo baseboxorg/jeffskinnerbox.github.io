@@ -119,6 +119,16 @@ All you need is a browser and you maintain the wiki via a locally stored <span c
 The file is loaded with <a href="http://www.w3schools.com/js/">JavaScript</a> to support the editing of the wiki.
 TiddlyWiki&#8217;s fundamental units of information is the &#8220;<a href="http://tiddlywiki.com/#Tiddlers">tiddler</a>&#8220;,
 which is to capture a small, self contain thought, idea, or&nbsp;concept.</p>
+<p>The really strong features for me are that
+TiddlyWiki is amazingly easy to use, portable across multiple operating systems,
+and highly configurable.
+What pushed me over the top are the facts that I could also use,
+via <a href="http://tiddlywiki.com/#Plugins">TiddlyWiki Plugins</a>,
+Markdown to format the content
+(althought TiddlyWiki supports it own  Markdown-like formating language which is more powerful) 
+and I can edit using Vim via CodeMirror.
+The post &#8220;<a href="http://blog.htmlfusion.com/tiddlywiki-evernote-with-vim-and-markdown/">TiddlyWiki, an open source Evernote with <span class="caps">VIM</span> and Markdown</a>&#8221;
+gives a good, quick discussion on this&nbsp;topic.</p>
 <p>My initial thought was just to add the wiki&#8217;s <span class="caps">HTML</span> file to my blog
 as a page addressable from the header menu.
 This approach would make the wiki editable by anyone, something I didn&#8217;t want.
@@ -144,7 +154,7 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 </pre></div>
 
 
-<p>You can install the wiki, TiddlyWiki, via the Node.js package manager, <code>[npm][15]</code>:</p>
+<p>You can install the wiki, TiddlyWiki, via the Node.js package manager, <a href="https://docs.npmjs.com/getting-started/what-is-npm"><code>npm</code></a>:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># install TiddlyWiki, the &#39;-g&#39; option installs it globally</span>
 sudo npm install -g tiddlywiki
 
@@ -169,6 +179,17 @@ sudo npm update -g tiddlywiki
 <li>Try editing and creating tiddlers.  The Tiddles will be maintained in individual files in the <code>tiddlers</code> directory.</li>
 </ul>
 <p>Check the <a href="http://tiddlywiki.com/">TiddlyWiki website documentation</a> to find out more about the capabilities of&nbsp;TiddlyWiki.</p>
+<h2>Configuring&nbsp;TiddlyWiki</h2>
+<ul>
+<li><strong>Setting a Favicon</strong> - Following the instructions outline in the <a href="http://tiddlywiki.com/#Setting%20a%20favicon">TiddlyWiki tiddler</a>,
+create a tiddler called <code>$:/favicon.ico</code> provide your <a href="http://en.wikipedia.org/wiki/Favicon">favicon</a>.
+(First you <a href="http://tiddlywiki.com/#ImportTiddlers">import the image</a> to create a tiddler and then rename that tiddler to <code>$:/favicon.ico</code>.)</li>
+<li><strong>Install Markdown Plugin</strong> - Follow the instructions given by TiddlyWiki plugin&#8217;s documentation to
+<a href="http://tiddlywiki.com/plugins/tiddlywiki/markdown/">install the Markdown plugin</a>.
+The key to getting TiddlyWiki to format Markdown text is to select <code>text/vnd.tiddlywiki</code>
+in the text type menu at the bottom of the tiddler when editing&nbsp;it.</li>
+<li><a href="http://tiddlywiki.com/plugins/tiddlywiki/codemirror/">CodeMirror</a></li>
+</ul>
 <h2>Creation of Wiki for&nbsp;Blog</h2>
 <p>Create the wiki&nbsp;via</p>
 <ul>
@@ -196,7 +217,7 @@ Never the less, I wanted the easy deployment strategy I get with GitHub&nbsp;Pag
 <h3>Hosting TiddlyWiki on&nbsp;Heroku</h3>
 <p>After establishing a free Heroku account,
 you are taken to &#8220;<a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction">Getting Started with Node.js on Heroku</a>&#8220;.
-This provides an excellent tutoral on how to get a demo Node.js app running.
+This provides an excellent tutorial on how to get a demo Node.js app running.
 &#8220;<a href="https://devcenter.heroku.com/articles/deploying-nodejs">Deploying Node.js Apps on Heroku</a>&#8221; does the same for an existing application.
 The real secrete in getting it to work was found in the post &#8220;<a href="https://groups.google.com/forum/#!topic/tiddlywiki/XDFW_tcSbf0">Installing TiddlyWiki5 on Heroku</a>&#8220;.
 Learning from these documents, the installation steps I formulated are the&nbsp;following:</p>
@@ -461,8 +482,17 @@ git push heroku master
 </pre></div>
 
 
-<p>Unfortunately the only problem with running <span class="caps">TW5</span> on heroku is that they use what they call an ephemeral filesystem. That is, any time the dyno spins down (usually from being idle) and then spins up, all file system changes will be gone and it will only have what&#8217;s in the git repo. -&nbsp;https://groups.google.com/forum/#!topic/tiddlywiki/XDFW_tcSbf0</p>
+<p>Unfortunately the only problem with running <span class="caps">TW5</span> on Heroku is that they use what they call an ephemeral filesystem. That is, any time the dyno spins down (usually from being idle) and then spins up, all file system changes will be gone and it will only have what&#8217;s in the git repo. -&nbsp;https://groups.google.com/forum/#!topic/tiddlywiki/XDFW_tcSbf0</p>
 <p>Having only a single web dyno running will result in the dyno going to sleep after one hour of inactivity. This causes a delay of a few seconds for the first request upon waking. Subsequent requests will perform normally. -&nbsp;https://devcenter.heroku.com/articles/getting-started-with-nodejs#scale-the-app</p>
+<ul>
+<li><a href="https://coderwall.com/p/u0x3nw/avoid-heroku-idling-with-new-relic-pings">Avoid Heroku idling with New Relic&nbsp;pings</a></li>
+</ul>
+<h3>Hosting TiddlyWiki on&nbsp;OpenShift</h3>
+<ul>
+<li><a href="https://www.openshift.com/">OpenShift</a>
+<strong> <a href="http://ericmiao.github.io/blog/2014/04/05/setup-personal-tiddlywiki-on-openshift/">Setup a personal TiddlyWiki on OpenShift</a>
+</strong> <a href="https://blog.openshift.com/10-reasons-openshift-is-the-best-place-to-host-your-nodejs-app/">10 Reasons OpenShift is the Best Place for Node.js&nbsp;Apps</a></li>
+</ul>
 <h6></h6>
 <p>To get a list of the Heroku applications you are managing: heroku&nbsp;apps</p>
 <p>To delete an application: heroku apps:destroy &#8212;app <the-application></p>
@@ -619,6 +649,9 @@ running over the standard port 80.&#160;<a class="footnote-backref" href="#fnref
     <ul class="list-group" id="social">
         <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
             <i class="fa fa-github"></i> Github
+        </a></li>
+        <li class="list-group-item"><a href="https://hackaday.io/jeffskinnerbox" target="_blank">
+            <i class="fa fa-hacker-news"></i> Hackaday
         </a></li>
         <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
             <i class="fa fa-twitter"></i> Twitter

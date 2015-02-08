@@ -371,7 +371,7 @@ it is very important to unmount the filesystem before running&nbsp;it.</em></p>
 Unmount the filesystem, and then run <code>fsck</code>.
 For example, if the filesystem in question is <code>/home</code> (or its device named <code>/dev/sdh</code>) then type&nbsp;command:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">umount /home
-# or
+<span style="color: #0099FF; font-style: italic"># or</span>
 umount /dev/sdh
 </pre></div>
 
@@ -432,6 +432,10 @@ programs can still successfully write to <code>/mnt</code> directory structure.
 In my case, I had my backup system using <code>/mnt/backup</code> and it appear everything was find,
 but in reality, data wasn&#8217;t going to the external drive
 but instead to the root filesystem under <code>/mnt</code>, filling up the root&nbsp;filesystem.</em></p>
+<p><em>To check for this, <code>umount</code> any hard drives mounted to <code>/mnt</code>.
+This should remove the filesystem.
+Now look for the filesystem, and if parts of it are still there,
+this could very well be the source of your file space&nbsp;problem.</em></p>
 </blockquote>
 <p>A useful command for finding what&#8217;s eating up all the space is the <a href="http://linoxide.com/linux-command/linux-du-command/">&#8220;disk usage&#8221; command, <code>du</code></a>.
 Running the following&nbsp;command:</p>
@@ -447,15 +451,15 @@ Don&#8217;t worry if it takes a while to complete, it could take on the order of
 <p>Don&#8217;t delete files without first knowing what they are, of course.
 But, in general, you won&#8217;t break your system if you delete files in the following&nbsp;directories:</p>
 <ul>
-<li><code>/tmp</code> (user temp data &#8212; these are commonly all deleted every reboot&nbsp;anyway)</li>
-<li><code>/var/tmp</code> (print spools, and other system temporary&nbsp;data)</li>
-<li><code>/var/cache/*</code> (this one can be dangerous, research&nbsp;first!)</li>
-<li><code>/root</code> (the root user&#8217;s home&nbsp;directory)</li>
+<li><code>/tmp</code> &ensp;&ensp;user temp data &#8212; these are commonly all deleted every reboot&nbsp;anyway</li>
+<li><code>/var/tmp</code> &ensp;&ensp;print spools, and other system temporary&nbsp;data</li>
+<li><code>/var/cache/*</code> &ensp;&ensp;this one can be dangerous, research&nbsp;first!</li>
+<li><code>/root</code> &ensp;&ensp;the root user&#8217;s home&nbsp;directory</li>
 </ul>
 <p>In addition to the locations above, the following locations are common&nbsp;culprits:</p>
 <ul>
-<li><code>/opt</code> (many third-party apps install here, and don&#8217;t clean up after&nbsp;themselves)</li>
-<li><code>/var/log</code> (log files can eat up a lot of space if there are repetitive&nbsp;errors)</li>
+<li><code>/opt</code> &ensp;&ensp;many third-party apps install here, and don&#8217;t clean up after&nbsp;themselves</li>
+<li><code>/var/log</code> &ensp;&ensp;log files can eat up a lot of space if there are repetitive&nbsp;errors</li>
 </ul>
 <h4>Deleted But Open&nbsp;Files</h4>
 <p>Another potential source of a full filesystem are large
@@ -465,19 +469,22 @@ When this happens, the file is essentially invisible to other processes,
 but it still takes on physical space on the drive.
 Tools like <code>du</code> will not see&nbsp;it.</p>
 <p>To find these deleted but open files, run the utility <a href="http://www.thegeekstuff.com/2012/08/lsof-command-examples/">lsof</a></p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo lsof -nP | grep &#39;(deleted)&#39;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># list open but deleted files</span>
+sudo lsof -nP | grep <span style="color: #CC3300">&#39;(deleted)&#39;</span>
 </pre></div>
 
 
 <p>To find out how much space is taken up by these deleted but open files,&nbsp;run:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo lsof -nP | awk &#39;/deleted/ { sum+=$8 } END { print sum }&#39;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># total space used by open but deleted files</span>
+sudo lsof -nP | awk <span style="color: #CC3300">&#39;/deleted/ { sum+=$8 } END { print sum }&#39;</span>
 </pre></div>
 
 
 <p><code>lsof</code> will list all open files,
 <code>awk</code> then searches for the deleted files, and sums up the file sizes (in&nbsp;bytes).</p>
 <p>To get a list of process <span class="caps">ID</span> (<span class="caps">PID</span>) that own these file that are not redundant,&nbsp;use</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo lsof -nP | grep &#39;(deleted)&#39; | awk &#39;{ print $2 }&#39; | sort | uniq
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># process IDs of open but deleted files</span>
+sudo lsof -nP | grep <span style="color: #CC3300">&#39;(deleted)&#39;</span> | awk <span style="color: #CC3300">&#39;{ print $2 }&#39;</span> | sort | uniq
 </pre></div>
 
 
@@ -516,12 +523,19 @@ to truncate the file to zero&nbsp;bytes</p>
 
 
 <p>You could automate all of the above with this command&nbsp;line</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">ls -l | grep &#39;(deleted)&#39; | awk &#39;{ print $9 }&#39; | while read file; do :&gt; /proc/2746/fd/$file; done
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># for all open but deleted files associated with process 2746, trunctate the file to 0 bytes</span>
+<span style="color: #003333">PID</span><span style="color: #555555">=</span><span style="color: #FF6600">2746</span> ; <span style="color: #336666">cd</span> /proc/<span style="color: #003333">$PID</span>/fd ; ls -l | grep <span style="color: #CC3300">&#39;(deleted)&#39;</span> | awk <span style="color: #CC3300">&#39;{ print $9 }&#39;</span> | <span style="color: #006699; font-weight: bold">while</span> <span style="color: #336666">read </span>FILE; <span style="color: #006699; font-weight: bold">do</span> :&gt; /proc/<span style="color: #003333">$PID</span>/fd/<span style="color: #003333">$FILE</span>; <span style="color: #006699; font-weight: bold">done</span>
 </pre></div>
 
 
 <p>Finally, it&#8217;s a good idea to do a <a href="http://www.cyberciti.biz/faq/linux-force-fsck-on-the-next-reboot-or-boot-sequence/">forced full file system check</a> on the next&nbsp;reboot.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo touch /forcefsck
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># file system check on next reboot</span>
+sudo touch /forcefsck
+
+<span style="color: #0099FF; font-style: italic"># or</span>
+
+<span style="color: #0099FF; font-style: italic"># shutdown and do a file system check now</span>
+shutdown -rF now
 </pre></div>
 
 
@@ -636,6 +650,9 @@ to truncate the file to zero&nbsp;bytes</p>
     <ul class="list-group" id="social">
         <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
             <i class="fa fa-github"></i> Github
+        </a></li>
+        <li class="list-group-item"><a href="https://hackaday.io/jeffskinnerbox" target="_blank">
+            <i class="fa fa-hacker-news"></i> Hackaday
         </a></li>
         <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
             <i class="fa fa-twitter"></i> Twitter
