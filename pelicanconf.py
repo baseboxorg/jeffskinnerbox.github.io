@@ -164,6 +164,7 @@ LINKS = (('TiddlyWiki', 'http://tiddlywiki.com/'),)
 
 # Links to appear in the "social" section of the sidebar
 SOCIAL = (('Github', 'fa-github', 'https://github.com/jeffskinnerbox'),
+          ('Hackaday', 'fa-hacker-news', 'https://hackaday.io/jeffskinnerbox'),
           ('Twitter', 'fa-twitter', 'https://twitter.com/jeffskinnerbox'),
           ('Flickr',  'fa-flickr','https://www.flickr.com/photos/104241758@N03/'),  # NOQA
           ('Delicious', 'fa-delicious', 'https://delicious.com/jeffskinnerbox'),    # NOQA

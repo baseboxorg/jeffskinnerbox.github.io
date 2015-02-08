@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tiddlywiki . --server $PORT $:/core/save/all text/plain text/html "" "" 0.0.0.0",
+    "start": "tiddlywiki . --server $PORT $:/core/save/all text/plain text/html \"\" \"\" 0.0.0.0",
     "postinstall": "npm install -g tiddlywiki"
   },
   "keywords": [

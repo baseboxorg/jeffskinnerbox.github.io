@@ -138,6 +138,14 @@ WiFi Configuration Via Command Line
 
 ####################
 
+# MAC Address and OUI Lookup
+* [OUI (MAC address) lookup script](http://www.backtrack-linux.org/forums/showthread.php?t=29819)
+* [Resolving MAC Address from IP Address](http://unix.stackexchange.com/questions/120153/resolving-mac-address-from-ip-address-in-linux)
+* [Change mac address with macchanger Linux command](http://linuxconfig.org/change-mac-address-with-macchanger-linux-command)
+* [Wireshark · OUI Lookup Tool](https://www.wireshark.org/tools/oui-lookup.html)
+
+####################
+
 
 # Establishing a Connection
 You can use `iw` to connect to an AP directly if and only if the AP has:

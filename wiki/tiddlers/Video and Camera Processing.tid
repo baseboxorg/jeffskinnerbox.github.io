@@ -1,6 +1,6 @@
 created: 20140919015250893
-modified: 20141224184247135
-tags: projects
+modified: 20150208023048070
+tags: Projects
 title: Video and Camera Processing
 type: text/vnd.tiddlywiki
 
@@ -19,3 +19,6 @@ All Canon Powershots (such as the SD750) released after mid 2009 are not capable
 * [[OverFeat is an image recognizer and feature extractor|http://cilvr.nyu.edu/doku.php?id=code:start]]
 * [[Hedgehog Pi Recipe|http://blog.pistuffing.co.uk/?p=3646]]
 * [[A Year Long Time Lapse Camera|http://orbides.1gb.ru/lapse_camera.php?lng=eng]]
+* [[Computer Vision with Raspberry Pi and the Camera Pi module|http://www.open-electronics.org/computer-vision-with-raspberry-pi-and-the-camera-pi-module/]]
+* [[Raspberry Pi and the Camera Pi module: face recognition tutorial|http://www.open-electronics.org/raspberry-pi-and-the-camera-pi-module-face-recognition-tutorial/]]
+* [[Arduino OpenMV Cam Open Source Advanced Machine Vision Board |https://www.geeky-gadgets.com/arduino-advanced-machine-vision-27-01-2015/]]

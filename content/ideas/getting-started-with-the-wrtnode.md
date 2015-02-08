@@ -50,12 +50,12 @@ busybox <applet> [arguments...]  # or
 
 You can get a listing of OpenWRT's supported applets via the `help` command.
 
-![alt text](downloads/openwrt-help-command.jpg "BusyBox commands support on OpenWRT")
+![alt text](/home/jeff/Downloads/openwrt-help-command.jpg "BusyBox commands support on OpenWRT")
 
 A symbolically linked command is the `ls` command.
 Using this, you can explort the file system to see some of the contents of OpenWRT.
 
-![alt text](downloads/openwrt-file-system.jpg "Some of OpenWRT's filesystem")
+![alt text](/home/jeff/Downloads/openwrt-file-system.jpg "Some of OpenWRT's filesystem")
 
 
 ## Helpful Tools
@@ -377,7 +377,29 @@ The arp command displays a table of translated hardware addresses in the cache.
     * [Refresh the Firmware](http://wiki.wrtnode.com/index.php?title=Refresh_the_firmware)
 * [Quick Mesh Project](http://qmp.cat/Experimenting_with_the_WRTnode)
 
-[Finding a device IP Address](http://www.cnx-software.com/2010/10/25/finding-a-device-ip-address/)
+* [Part 1 - Introduction to WRTNode what is it how to find info](https://www.youtube.com/watch?v=KGdhDl_uNz0)
+* [Part 2 - WRTnode how to connect and connect it to your network](https://www.youtube.com/watch?v=0wG2lg5omz8)
+* [Part 3 - WRTnode setup firewall to allow access from home network](https://www.youtube.com/watch?v=3az3SupnbhI)
+* [Part 4 - WRTnode setup usb camera and mjpg streamer](https://www.youtube.com/watch?v=HyCm2RXRB4E)
+
+* [Finding a device IP Address](http://www.cnx-software.com/2010/10/25/finding-a-device-ip-address/)
+
+# Broadband-Hamnet / HSMM-MESH
+[Broadband-Hamnet][02] (formerly called HSMM-Mesh) is a high speed, self discovering,
+self configuring, fault tolerant,
+wireless computer network that can run for days from a fully charged car battery,
+or indefinitely with the addition of a modest solar array or other supplemental power source.
+The focus is on emergency communications.
+In its current form it is built using the Linksys WRT54G/GL/GS wireless routers
+and operates on channels 1-6 of the 2.4GHz ISM band,
+which overlaps with the upper portion of the 13cm amateur radio band.
+Other platforms and bands are in development at this time.
+Next will be Ubiquiti equipment with others supported as development resources permit.
+
+* [1. Introduction To HSMM-MESH Or Broadband-Hamnet]()
+* [2. Setting up a MESH Node for Amateur Radio - WRT54G firmware install](https://www.youtube.com/watch?v=pryc8jIl6Xo)
+* [3. HSMM-MESH Update Firmware on a Remote Node](https://www.youtube.com/watch?v=vvFjK-Ihk9c)
+* [Cheat Sheet – HSMM](http://www.hdecommgrp.org/?p=223)
 
 
 

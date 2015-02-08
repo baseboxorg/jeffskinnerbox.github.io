@@ -1,9 +1,15 @@
-# baofeng uv-5r+ 136-174 400-480 mhz fm transceiver
-This is an inexpensive Chinese handheld radio,
-capable of transmitting and receiving on the 2-meter and 70-cm bands.
-Additionally, it can receive on standard commercial FM frequencies as well as weather band!
+# Open Source Mesh Projects
+http://battlemesh.org/BattleMeshV4/MeshGuide
 
-[Take it Apart][01]
+## BATMAN Mesh
+[B.A.T.M.A.N. Mesh Video Playlist](https://www.youtube.com/playlist?list=PLvgZ_9wT_LNdq7SdqJ6VSWspU3vlnEuV9)
+[B.A.T.M.A.N. Advanced](http://www.open-mesh.org/projects/batman-adv/wiki/)
+[]()
+[]()
+[]()
+
+## Babel
+Babel is a loop-avoiding distance-vector routing protocol for IPv6 and IPv4 with fast convergence properties.
 
 # Broadband-Hamnet / HSMM-MESH
 [Broadband-Hamnet][02] (formerly called HSMM-Mesh) is a high speed, self discovering,
@@ -22,9 +28,12 @@ Next will be Ubiquiti equipment with others supported as development resources p
 * [3. HSMM-MESH Update Firmware on a Remote Node](https://www.youtube.com/watch?v=vvFjK-Ihk9c)
 * [Cheat Sheet – HSMM](http://www.hdecommgrp.org/?p=223)
 
+# Tools
+* [Horst is a diagnostic tool that displays Layer 1 information about the link.](http://br1.einfach.org/tech/horst/)
+* [MTR (My Traceroute) is a tool that continuously runs traceroutes and shows the latency at each hop of the path.](http://www.bitwizard.nl/mtr/)
 
 
-[01]:https://www.takeitapart.com/guide/9
+[01]:
 [02]:http://www.broadband-hamnet.org/
 [03]:
 [04]:

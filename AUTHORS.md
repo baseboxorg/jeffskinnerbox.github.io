@@ -1,7 +1,7 @@
 # Authors
 This web site was created by the static site generators [Pelican][03].
 The Pelican Theme you see is based on [pelican-bootstrap3][01],
-whos primary authors are:
+and its primary authors are:
 
 - [Daan Debie](https://github.com/DandyDev) aka `DandyDev`
 - [Magnun Leno](https://github.com/magnunleno) aka `magnunleno`

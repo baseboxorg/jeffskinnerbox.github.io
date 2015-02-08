@@ -1,5 +1,5 @@
 created: 20141026183516175
-modified: 20150104205617150
+modified: 20150120013559801
 title: Device Cloud Platform
 type: text/vnd.tiddlywiki
 
@@ -23,6 +23,9 @@ Home Automation Platforms:
 
 Examples of Device Cloud Platforms:
 
+* [[Data Torrent|https://www.datatorrent.com/]]
+* [[IFTTT|https://ifttt.com/]]
+* [[Zapier|https://zapier.com/]]
 * [[ParStream|https://www.parstream.com/]]
 * [[TrackR|http://www.thetrackr.com/]] which uses [[Open Garden|http://opengarden.com/]]
 * [[Paho|http://www.eclipse.org/paho/]]

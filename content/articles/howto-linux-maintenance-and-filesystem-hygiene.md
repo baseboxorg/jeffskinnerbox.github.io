@@ -282,9 +282,11 @@ First take the system to [runlevel one (single user mode)][25].
 Unmount the filesystem, and then run `fsck`.
 For example, if the filesystem in question is `/home` (or its device named `/dev/sdh`) then type command:
 
-    umount /home
-    # or
-    umount /dev/sdh
+```bash
+umount /home
+# or
+umount /dev/sdh
+```
 
 Once `fsck` finished, remount the filesystem:
 
@@ -342,6 +344,11 @@ In my case, I had my backup system using `/mnt/backup` and it appear everything 
 but in reality, data wasn't going to the external drive
 but instead to the root filesystem under `/mnt`, filling up the root filesystem._
 
+>_To check for this, `umount` any hard drives mounted to `/mnt`.
+This should remove the filesystem.
+Now look for the filesystem, and if parts of it are still there,
+this could very well be the source of your file space problem._
+
 A useful command for finding what's eating up all the space is the ["disk usage" command, `du`][19].
 Running the following command:
 
@@ -356,15 +363,15 @@ Don't worry if it takes a while to complete, it could take on the order of minut
 Don't delete files without first knowing what they are, of course.
 But, in general, you won't break your system if you delete files in the following directories:
 
-* `/tmp` (user temp data -- these are commonly all deleted every reboot anyway)
-* `/var/tmp` (print spools, and other system temporary data)
-* `/var/cache/*` (this one can be dangerous, research first!)
-* `/root` (the root user's home directory)
+* `/tmp` &ensp;&ensp;user temp data -- these are commonly all deleted every reboot anyway
+* `/var/tmp` &ensp;&ensp;print spools, and other system temporary data
+* `/var/cache/*` &ensp;&ensp;this one can be dangerous, research first!
+* `/root` &ensp;&ensp;the root user's home directory
 
 In addition to the locations above, the following locations are common culprits:
 
-* `/opt` (many third-party apps install here, and don't clean up after themselves)
-* `/var/log` (log files can eat up a lot of space if there are repetitive errors)
+* `/opt` &ensp;&ensp;many third-party apps install here, and don't clean up after themselves
+* `/var/log` &ensp;&ensp;log files can eat up a lot of space if there are repetitive errors
 
 #### Deleted But Open Files
 Another potential source of a full filesystem are large
@@ -376,18 +383,27 @@ Tools like `du` will not see it.
 
 To find these deleted but open files, run the utility [lsof][22]
 
-    sudo lsof -nP | grep '(deleted)'
+```bash
+# list open but deleted files
+sudo lsof -nP | grep '(deleted)'
+```
 
 To find out how much space is taken up by these deleted but open files, run:
 
-    sudo lsof -nP | awk '/deleted/ { sum+=$8 } END { print sum }'
+```bash
+# total space used by open but deleted files
+sudo lsof -nP | awk '/deleted/ { sum+=$8 } END { print sum }'
+```
 
 `lsof` will list all open files,
 `awk` then searches for the deleted files, and sums up the file sizes (in bytes).
 
 To get a list of process ID (PID) that own these file that are not redundant, use
 
-    sudo lsof -nP | grep '(deleted)' | awk '{ print $2 }' | sort | uniq
+```bash
+# process IDs of open but deleted files
+sudo lsof -nP | grep '(deleted)' | awk '{ print $2 }' | sort | uniq
+```
 
 It's up to the filesystem driver to actually free the allocated space,
 and that will usually happen only once all file descriptors referring to that file are released.
@@ -425,11 +441,22 @@ to truncate the file to zero bytes
 
 You could automate all of the above with this command line
 
-    ls -l | grep '(deleted)' | awk '{ print $9 }' | while read file; do :> /proc/2746/fd/$file; done
+```bash
+# for all open but deleted files associated with process 2746, trunctate the file to 0 bytes
+PID=2746 ; cd /proc/$PID/fd ; ls -l | grep '(deleted)' | awk '{ print $9 }' | while read FILE; do :> /proc/$PID/fd/$FILE; done
+```
 
 Finally, it's a good idea to do a [forced full file system check][18] on the next reboot.
 
-    sudo touch /forcefsck
+```bash
+# file system check on next reboot
+sudo touch /forcefsck
+
+# or
+
+# shutdown and do a file system check now
+shutdown -rF now
+```
 
 ## Sources
 I primarily consulted the following sources to create this posting:

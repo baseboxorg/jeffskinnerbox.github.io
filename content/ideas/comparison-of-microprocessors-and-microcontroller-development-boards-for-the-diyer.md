@@ -128,10 +128,12 @@ The new site is project oriented, allowing developers to sort and select paramet
 
 Parameters include processor type and speed; number of analog and digital inputs; wireless options including WiFi and Bluetooth; USB ports including host, client, and/or OTG; video connectivity; and more.
 
+* [Raspberry Pi Comparison Chart](https://www.makershed.com/pages/raspberry-pi-comparison-chart?utm_medium=email&utm_campaign=Maker+Pro+Newsletter+-+020515&utm_content=Maker+Pro+Newsletter+-+020515+CID_23412c58008033119ffa4ad6b38d34f9&utm_source=email_campaign&utm_term=RaspberryPiComparisonChart)
 * [Orange Pi SBC tempts Raspberry Pi clone fans](http://linuxgizmos.com/orange-pi-sbc-tempts-raspberry-pi-clone-fans/)
 * [Arietta G25 - Acme Systems Linux boards](http://www.acmesystems.it/arietta)
 * [Processor Boards for IoT](https://iotdc.hackpad.com/Processor-Boards-for-IoT-jBHdtN5BRrZ)
 * [Embedded Linux board comparison chart and more!](http://www.adafruit.com/blog/2014/05/06/embedded-linux-board-comparison-chart-and-more/)
+* [Black Swift](http://www.open-electronics.org/black-swift-the-tiny-wireless-computer-is-on-kickstarter/)
 * [Fubarino SD Development Board](http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&nodeId=1406&dDocName=en566210)
 * [iMX233-OLinuXino-NANO](https://www.olimex.com/Products/OLinuXino/iMX233/iMX233-OLinuXino-NANO/)
 * [TE-TM4C123](http://community.arm.com/docs/DOC-8010)

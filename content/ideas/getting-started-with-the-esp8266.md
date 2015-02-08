@@ -119,6 +119,9 @@ Crosstool-NG provides a system to build a complete toolchain for the cross compi
 # setting up the Espressif SDK
 ```
 
+# List of ESP8266 AT Commands
+[List of ESP8266 AT Commands](http://www.electrodragon.com/w/Wi07c#Commands)
+
 # Wiring
 >**Note** The ESP operates on 3.3 Volts, so connecting this module to the 5V pin, and you can kiss it good-by!
 
@@ -130,6 +133,20 @@ Crosstool-NG provides a system to build a complete toolchain for the cross compi
 [FTDI Serial TTL-232 USB Cable][19]
 This is a USB to TTL serial cable, with a [FTDI FT232RL usb/serial chip][20] embedded in the head.
 It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RTS and CTS at 3V logic levels.
+
+<div style="float: left">
+    <a href="xxx">
+        <img class="img-rounded" style="margin: 0px 8px" title="xxx" src="http://www.extragsm.com/blog/wp-content/uploads/2014/12/esp8266_pinout_h-569x236.png" width="200" height="200">
+    </a>
+</div>
+
+<div style="float: left">
+    <a href="xxx">
+        <img class="img-rounded" style="margin: 0px 8px" title="xxx" src="http://www.extragsm.com/blog/wp-content/uploads/2014/12/WiFi-Serial-Transceiver-Module.jpg" width="200" height="200">
+    </a>
+</div>
+
+* [Connect ESP8266 to Raspberry Pi](http://www.extragsm.com/blog/2014/12/03/connect-esp8266-to-raspberry-pi/)
 
 # Sources
 * News Articles
@@ -150,6 +167,7 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
 * Toolchain and Development Boards
     * [Upgrading the firmware in the flash of an ESP8266 module](http://www.xess.com/blog/esp8266-reflash/)
     * [Shows how to update the ESP8266 firmware](http://blog.electrodragon.com/cloud-updating-your-wi07c-esp8266-now/)
+    * [change the module firmware via Raspberry Pi](http://www.extragsm.com/blog/2014/12/16/use-esp8266-module-as-a-wireless-switcher/)
     * [Seeed Studio's ESP8266 IoT SDK](http://www.seeedstudio.com/document/pdf/esp_iot_sdk_v0.6.zip)
     * [Micro Python Now Runs on the ESP8266](http://hackaday.com/2014/11/29/micro-python-now-runs-on-the-esp8266-contributors-wanted-to-get-wifi-working/)
     * [Compiling Your Own Programs for the ESP8266/](http://hackaday.com/2014/12/08/compiling-your-own-programs-for-the-esp8266/)
@@ -183,6 +201,7 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
     * [ESP8266 IoT](http://www.electrodragon.com/w/ESP8266_IoT)
     * [Investigating the ESP8266–Serial Killing](http://scargill.wordpress.com/2014/09/27/investigating-the-esp8266-serial-killing/)
     * [ESP8266 Now Working/Updated](http://scargill.wordpress.com/2014/10/05/esp8266-working/)
+    * [Connect ESP8266 to Raspberry Pi](http://www.extragsm.com/blog/2014/12/03/connect-esp8266-to-raspberry-pi/)
 
 * Projects Making Use of the ESP8266
     * [ESP8266 as an Access Point](http://scargill.wordpress.com/2014/10/08/esp8266-as-an-access-point/)
@@ -198,6 +217,7 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
     * [Checking eMail with the ESP8266/](http://hackaday.com/2014/11/03/checking-email-with-the-esp8266/)
     * [An ESP8266 Based Smartmeter/](http://hackaday.com/2014/11/02/an-esp8266-based-smartmeter/)
     * [Keep an Eye on Your Fermenting Beer with Brewmonitor/](http://hackaday.com/2014/10/11/keep-an-eye-on-your-fermenting-beer-with-brewmonitor/)
+    * [Making Something Useful With The ESP8266](http://hackaday.com/2015/01/05/making-something-useful-with-the-esp8266/)
 
 
 ## More

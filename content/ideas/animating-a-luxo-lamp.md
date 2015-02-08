@@ -31,6 +31,11 @@ This iconic lamp is still a staple at places like [Ikea][03] and [Staples][04].
 #### Face Tracking
 * [Pan / Tilt face tracking with the raspberry pi](http://www.instructables.com/id/Pan-Tilt-face-tracking-with-the-raspberry-pi/?ALLSTEPS)
 
+#### Emotions Analytics
+* [Emotions Analytics](http://en.wikipedia.org/wiki/Emotions_Analytics)
+* [Beyond Verbal Introduces The Empath App, Identifying And Tracking Emotional Wellbeing Via Smartphones](http://www.cbs8.com/story/27768964/beyond-verbal-introduces-the-empath-app-identifying-and-tracking-emotional-wellbeing-via-smartphones)
+* [Wellness API](http://www.beyondverbal.com/choose-solution/wellness/what-is-it/)
+
 #### Light Tracking
 * [Myra, an intelligent robotic lighting system for your living room](http://kawalabo.blogspot.jp/2014/01/myra-intelligent-robotic-lighting.html)
 

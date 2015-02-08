@@ -5,7 +5,7 @@ Tags: Tiny Core Linux, X Terminal, X Window System
 Slug: repurposing-a-vintage-laptop-to-create-a-x-terminal
 Author: "Jeff Irland"
 Image: x-terminal.jpg
-Summary: This project proved more challenging and complex a journey than originally anticipated, but I learned a great deal. since, I had to master Tiny Core Linux, X Window System, Ubuntu Unity, and even wireless LAN security all in the context of an ancient piece of hardware. I review my learnings and then provide the details on how to create the X Terminal. 
+Summary: This project proved more challenging and complex a journey than originally anticipated, but I learned a great deal. I had to master Tiny Core Linux, X Window System, Ubuntu Unity, and even wireless LAN security all in the context of an ancient piece of hardware. I review my learnings and then provide the details on how to create the X Terminal. 
 
 
 <a href="http://television.cosmicbooknews.com/content/wayback-machine-wabac-machine">

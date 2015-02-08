@@ -1,6 +1,6 @@
 created: 20140916014247854
-modified: 20150102185518049
-tags: projects
+modified: 20150208023604498
+tags: Projects
 title: Laser Scanner, Laser Rangefinders, and Laser Writing
 type: text/vnd.tiddlywiki
 
@@ -27,6 +27,8 @@ type: text/vnd.tiddlywiki
 *[[Ultra Low-Cost Laser Rangefinders Actualized by Neato Robotics|http://www.hizook.com/blog/2009/12/20/ultra-low-cost-laser-rangefinders-actualized-neato-robotics]]
 *[[360 Degree Laser Scanner Development Kit (RPLIDAR)|http://www.dfrobot.com/index.php?route=product/product&product_id=1125#.U2vOZt_umam]]
 * [[Robot Vision: Detecting Obstacles with FPGAs and line lasers|http://hackaday.com/2014/12/12/robot-vision-detecting-obstacles-with-fpgas-and-line-lasers/]]
+* [[LIDAR-Lite Laser Module|http://pulsedlight3d.com/products/lidar-lite]]
+** [[Sparkfun LIDAR Lite|https://www.sparkfun.com/products/13167?utm_source=SparkFun+Customer+Newsletter&utm_campaign=087a09e4d0-RegCustomerNews1-23-15&utm_medium=email&utm_term=0_fa5287abaf-087a09e4d0-7212537]]
 
 !!Laser Writing
 

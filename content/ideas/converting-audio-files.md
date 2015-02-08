@@ -106,26 +106,38 @@ there is a very easy approach give in this video: [How to Download youtube video
 Unfortanately, appears YouTube has caught on, and this no longer works.
 
 There is a commandline alternate, `youtube-dl`, documented here:
-[Youtube-dl: Perfect tool for downloading YouTube videos in Ubuntu][15].
-Despite its name, it claims to download videos from YouTube.com, Google Video,
-Photobucket, Facebook, Yahoo, and many more similar sites.
-youtube-dl also allows to choose specific avialable video quality format to download
+[Youtube-dl: Perfect tool for downloading YouTube videos in Ubuntu][15] and
+[Install YouTube-DL – A Command Line Video Download Tool for Linux][29].
+You can find the source and a complete listing of
+[`youtube-dl` command line options on Github][30].
+Despite its name, `youtube-dl` claims to download videos from not only YouTube.com
+but Google Video, Photobucket, Facebook, Yahoo, and many more similar sites.
+`youtube-dl` also allows to choose specific avialable video quality format to download
 (or let the program itself automatically download higher quality video)
 download user specified list, and much more.
 To install it, do the following:
 
-    sudo apt-get install youtube-dl
+```bash
+# install the video download tool
+sudo apt-get install youtube-dl
+```
 
 To download a video file, simply run the following command (with the approprate URL of course)
 
-    youtube-dl http://www.youtube.com/watch?v=nOMX3deeW6Q
+```bash
+# download the video to your current directory from this YouTube URL
+youtube-dl http://www.youtube.com/watch?v=nOMX3deeW6Q
+```
 
 The file is placed in your current directory and given an name similar to it title.
 For more options, checkout `man youtube-dl` or `youtube-dl --help`.
 
 If your interested in only the audio of a video file, `youtube-dl` can also help you here.
 
-    youtube-dl -k -x --audio-format wav http://www.youtube.com/watch?v=nOMX3deeW6Q
+```bash
+# download only the sound to your current directory from this YouTube URL
+youtube-dl -k -x --audio-format wav http://www.youtube.com/watch?v=nOMX3deeW6Q
+```
 
 > Did you do the above example? You want more floppy drive music?  Of Course you do!  Check out [Gigawipf][16].
 
@@ -177,4 +189,15 @@ Doesn't seem to work???
 [26]:http://en.wikipedia.org/wiki/ASCII
 [27]:http://en.wikipedia.org/wiki/IEEE_754
 [28]:http://en.wikipedia.org/wiki/Pulse-code_modulation
-[29]:
+[29]:http://www.tecmint.com/install-youtube-dl-command-line-video-download-tool/
+[30]:https://github.com/rg3/youtube-dl
+[31]:
+[32]:
+[33]:
+[34]:
+[35]:
+[36]:
+[37]:
+[38]:
+[39]:
+[40]:

@@ -24,6 +24,17 @@ The file is loaded with [JavaScript][05] to support the editing of the wiki.
 TiddlyWiki's fundamental units of information is the "[tiddler][14]",
 which is to capture a small, self contain thought, idea, or concept.
 
+The really strong features for me are that
+TiddlyWiki is amazingly easy to use, portable across multiple operating systems,
+and highly configurable.
+What pushed me over the top are the facts that I could also use,
+via [TiddlyWiki Plugins][22],
+Markdown to format the content
+(althought TiddlyWiki supports it own  Markdown-like formating language which is more powerful) 
+and I can edit using Vim via CodeMirror.
+The post "[TiddlyWiki, an open source Evernote with VIM and Markdown][21]"
+gives a good, quick discussion on this topic.
+
 My initial thought was just to add the wiki's HTML file to my blog
 as a page addressable from the header menu.
 This approach would make the wiki editable by anyone, something I didn't want.
@@ -80,7 +91,7 @@ sudo apt-get install nodejs npm
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 ```
 
-You can install the wiki, TiddlyWiki, via the Node.js package manager, `[npm][15]`:
+You can install the wiki, TiddlyWiki, via the Node.js package manager, [`npm`][15]:
 
 ```bash
 # install TiddlyWiki, the '-g' option installs it globally
@@ -108,6 +119,16 @@ At this point, you should be ready to create a test wiki.
 * Try editing and creating tiddlers.  The Tiddles will be maintained in individual files in the `tiddlers` directory.
 
 Check the [TiddlyWiki website documentation][02] to find out more about the capabilities of TiddlyWiki.
+
+## Configuring TiddlyWiki
+* **Setting a Favicon** - Following the instructions outline in the [TiddlyWiki tiddler][23],
+create a tiddler called `$:/favicon.ico` provide your [favicon][25].
+(First you [import the image][24] to create a tiddler and then rename that tiddler to `$:/favicon.ico`.)
+* **Install Markdown Plugin** - Follow the instructions given by TiddlyWiki plugin's documentation to
+[install the Markdown plugin][26].
+The key to getting TiddlyWiki to format Markdown text is to select `text/vnd.tiddlywiki`
+in the text type menu at the bottom of the tiddler when editing it.
+* [CodeMirror](http://tiddlywiki.com/plugins/tiddlywiki/codemirror/)
 
 ## Creation of Wiki for Blog
 Create the wiki via
@@ -137,7 +158,7 @@ Never the less, I wanted the easy deployment strategy I get with GitHub Pages.
 ### Hosting TiddlyWiki on Heroku
 After establishing a free Heroku account,
 you are taken to "[Getting Started with Node.js on Heroku][16]".
-This provides an excellent tutoral on how to get a demo Node.js app running.
+This provides an excellent tutorial on how to get a demo Node.js app running.
 "[Deploying Node.js Apps on Heroku][19]" does the same for an existing application.
 The real secrete in getting it to work was found in the post "[Installing TiddlyWiki5 on Heroku][20]".
 Learning from these documents, the installation steps I formulated are the following:
@@ -388,9 +409,16 @@ heroku login
 git push heroku master
 ```
 
-Unfortunately the only problem with running TW5 on heroku is that they use what they call an ephemeral filesystem. That is, any time the dyno spins down (usually from being idle) and then spins up, all file system changes will be gone and it will only have what's in the git repo. - https://groups.google.com/forum/#!topic/tiddlywiki/XDFW_tcSbf0
+Unfortunately the only problem with running TW5 on Heroku is that they use what they call an ephemeral filesystem. That is, any time the dyno spins down (usually from being idle) and then spins up, all file system changes will be gone and it will only have what's in the git repo. - https://groups.google.com/forum/#!topic/tiddlywiki/XDFW_tcSbf0
 
 Having only a single web dyno running will result in the dyno going to sleep after one hour of inactivity. This causes a delay of a few seconds for the first request upon waking. Subsequent requests will perform normally. - https://devcenter.heroku.com/articles/getting-started-with-nodejs#scale-the-app
+
+* [Avoid Heroku idling with New Relic pings](https://coderwall.com/p/u0x3nw/avoid-heroku-idling-with-new-relic-pings)
+
+### Hosting TiddlyWiki on OpenShift
+* [OpenShift](https://www.openshift.com/)
+** [Setup a personal TiddlyWiki on OpenShift](http://ericmiao.github.io/blog/2014/04/05/setup-personal-tiddlywiki-on-openshift/)
+** [10 Reasons OpenShift is the Best Place for Node.js Apps](https://blog.openshift.com/10-reasons-openshift-is-the-best-place-to-host-your-nodejs-app/)
 
 #####################
 
@@ -439,12 +467,12 @@ This show you a simple way to get your project setup so that you can talk to it 
 [18]:http://www.virtualenv.org/en/latest/
 [19]:https://devcenter.heroku.com/articles/deploying-nodejs
 [20]:https://groups.google.com/forum/#!topic/tiddlywiki/XDFW_tcSbf0
-[21]:
-[22]:
-[23]:
-[24]:
-[25]:
-[26]:
+[21]:http://blog.htmlfusion.com/tiddlywiki-evernote-with-vim-and-markdown/
+[22]:http://tiddlywiki.com/#Plugins
+[23]:http://tiddlywiki.com/#Setting%20a%20favicon
+[24]:http://tiddlywiki.com/#ImportTiddlers
+[25]:http://en.wikipedia.org/wiki/Favicon
+[26]:http://tiddlywiki.com/plugins/tiddlywiki/markdown/
 [27]:
 [28]:
 [29]:

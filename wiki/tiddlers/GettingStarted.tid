@@ -1,9 +1,10 @@
 created: 20141102160206239
-modified: 20141221213448361
+modified: 20150206211732438
 title: GettingStarted
 type: text/vnd.tiddlywiki
 
-Welcome to TiddlyWiki, the non-linear personal web notebook.
+Welcome to TiddlyWiki, the non-linear personal web notebook,
+and my favorite personal productivity tool.
 
 To get started, first verify that you can save changes successfully - see http://tiddlywiki.com/ for detailed instructions.
 
@@ -17,6 +18,8 @@ Then you can:
 * [[Generating Static Sites with TiddlyWiki|http://tiddlywiki.com/#Generating%20Static%20Sites%20with%20TiddlyWiki]]
 * [[How to build a TiddlyWiki5 from individual tiddlers|http://tiddlywiki.com/#Generating%20Static%20Sites%20with%20TiddlyWiki]]
 
+[[Quick Intro to TiddlyWiki|http://tiddlywiki.com/talkytalky/]]
+
 You can check what version of TiddlyWiki your running with the command:
 
 ```
@@ -28,7 +31,6 @@ If you've installed [[TiddlyWiki on Node.js|http://tiddlywiki.com/#TiddlyWiki%20
 sudo npm update -g tiddlywiki
 ```
 
-
 Learning TiddlyWiki
 
 * [[ TiddlyWikiTutorial|http://blogoehlert.typepad.com/eclippings/files/eclippingstiddlywiki.html]]
@@ -37,3 +39,47 @@ Learning TiddlyWiki
 * [[TiddlyStyles - collection of TiddlyWiki tips and information|http://www.checkettsweb.com/oldindex.html]]
 * [[TIDDLYWIKI CHEAT SHEET|http://www.tcm.phy.cam.ac.uk/~mdt26/PWT/hints.pdf]]
 * [[MicroContent with TiddlyWiki|http://www.phusewiki.org/docs/2006/PD02.pdf]]
+
+!!Printing Tiddlers
+Place mouse over the target tiddler, right button click on the mouse, and select "Print...".
+
+!!Suport for Markdown
+While TiddlyWiki has it own language,
+it can support HTML, plain text, and [[Markdown|Markdown Test]].
+The key to getting TiddlyWiki to format Markdown text
+is to select `text/vnd.tiddlywiki` in the text type menu at the bottom of the page.
+
+!!~TiddlyDesktop
+[[TiddlyDesktop|http://tiddlywiki.com/#TiddlyDesktop]]
+is a special purpose web browser for working with locally stored TiddlyWikis.
+
+!!Creating HTML File
+The [[TiddlyWiki website documents|http://tiddlywiki.com/static/Generating%2520Static%2520Sites%2520with%2520TiddlyWiki.html]]
+how to use `tiddlywiki` to generate static HTML representations
+of the tiddlers within a TiddlyWiki that don't need JavaScript.
+
+```bash
+#!/usr/bin/env bash
+
+# derived from https://github.com/Jermolene/TiddlyWiki5/issues/168
+# also see http://tiddlywiki.com/static/Generating%2520Static%2520Sites%2520with%2520TiddlyWiki.html
+
+TIDDLYWIKI=/home/jeff/blogging/wiki
+OUTPUT=/home/jeff/tmp/tiddly_wiki_html
+
+# render the tiddlers in seperate filew within a directory
+node /usr/local/lib/node_modules/tiddlywiki/tiddlywiki.js \
+    $TIDDLYWIKI \
+    --verbose \
+    --rendertiddlers [!is[system]] $:/core/templates/static.tiddler.html $OUTPUT/static text/plain \
+    --rendertiddler $:/core/templates/static.template.html $OUTPUT/index.html text/plain \
+    --rendertiddler $:/core/templates/static.template.css $OUTPUT/static/static.css text/plain \
+    || exit 1
+
+# render all the tiddlers in a single file
+node /usr/local/lib/node_modules/tiddlywiki/tiddlywiki.js \
+    $TIDDLYWIKI \
+    --verbose \
+    --rendertiddler $:/core/templates/alltiddlers.template.html $OUTPUT/all-tiddlers.html text/plain \
+    || exit 1
+```
