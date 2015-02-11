@@ -24,11 +24,22 @@ Here is an example when using a file stored within the pelican directory structu
 (also hover the mouse over the image to see the text):
 
 ```
-
 ![Wolf Trap]({filename}/images/wolf_trap.jpg "Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182")
 ```
 
 ![Wolf Trap]({filename}/images/wolf_trap.jpg "Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182")
+
+Can we change the size of the image?
+Now trying some tricks from the web that works for some version of Markdown:
+
+```markdown
+![Wolf Trap]({filename}/images/wolf_trap.jpg =50x50 "Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182")
+_Lorem ipsum dolor sit amet, ....
+```
+
+![Wolf Trap]({filename}/images/wolf_trap.jpg =50x50 "Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182")
+_Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
+_Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
 
 Here is an another example using a file from the web
 (also hover the mouse over the image to see the text):
@@ -181,17 +192,6 @@ _Lorem ipsum dolor sit amet, ....
 ```
 
 <img class="img-rounded" style="margin: 0px 8px; float: left" title="Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182" alt="Wolf Trap" src="{filename}/images/wolf_trap.jpg" width="150" height="150" />
-_Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
-_Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
-
-Now trying some tricks from the web, but using Markdown:
-
-```markdown
-![Wolf Trap]({filename}/images/wolf_trap.jpg =200x200 "Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182")
-_Lorem ipsum dolor sit amet, ....
-```
-
-![Wolf Trap]({filename}/images/wolf_trap.jpg =200x200 "Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182")
 _Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
 _Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum._
 

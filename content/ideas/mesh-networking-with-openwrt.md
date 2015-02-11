@@ -27,6 +27,7 @@ Next will be Ubiquiti equipment with others supported as development resources p
 * [2. Setting up a MESH Node for Amateur Radio - WRT54G firmware install](https://www.youtube.com/watch?v=pryc8jIl6Xo)
 * [3. HSMM-MESH Update Firmware on a Remote Node](https://www.youtube.com/watch?v=vvFjK-Ihk9c)
 * [Cheat Sheet – HSMM](http://www.hdecommgrp.org/?p=223)
+* [Mesh Networking Playlist](https://www.youtube.com/playlist?list=PLrIDWbyydDJCPIF5nN9mGa5aMU-ml4mdL)
 
 # Tools
 * [Horst is a diagnostic tool that displays Layer 1 information about the link.](http://br1.einfach.org/tech/horst/)

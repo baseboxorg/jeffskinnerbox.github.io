@@ -1,4 +1,4 @@
-![WRTnode](http://photos-h.ak.instagram.com/hphotos-ak-xap1/10802493_381146012045023_126183938_n.jpg "In early November 2014, I got from Seeed Studio the WRTNode. WRTnode is based on WiFi WiFi Access Point System on a Chip, is an open source development board hardware using the Mediatek MT7620n chip.")
+![WRTnode](http://photos-h.ak.instagram.com/hphotos-ak-xap1/10802493_381146012045023_126183938_n.jpg =100x100 "In early November 2014, I got from Seeed Studio the WRTNode. WRTnode is based on WiFi WiFi Access Point System on a Chip, is an open source development board hardware using the Mediatek MT7620n chip.")
 
 In early November 2014, I got from [Seeed Studio][21] the [WRTNode][22].
 WRTnode is based on WiFi WiFi Access Point System on a Chip (SoC),
@@ -8,14 +8,20 @@ a 580 MHz CPU core, a 5-port 10/100 switch and two
 [Reduced Gigabit Media Independent Interface (RGMII)][25].
 The MT7620 includes everything needed to build an AP router from a single chip. 
 
-OpenWrt, which is a distribution of embedded Linux, is the system of WRTnode.
-
-busybox version - http://unix.stackexchange.com/questions/15895/how-do-i-check-busybox-version-from-busybox
-WRT version -
-
-## OpenWRT
+# Components that Make Up WRTNode
+## OpenWrt
 OpenWrt is described as a Linux distribution for embedded devices,
 and primarily used on embedded devices to route network traffic.
+Like other Linux distributions,
+it offers a built-in package manager that allows you to install packages from a software repository.
+It can be used for anything that an embedded Linux system can be used for,
+including functioning as an SSH server, VPN, or [traffic-shaping][26] router.
+
+Most people will be happy with their router’s default firmware,
+while many power users will want a drop-in replacement firmware like [DD-WRT][27].
+OpenWrt is more flexible – it’s basically an embedded Linux distribution that
+can be installed on various routers.
+
 The main components are:
 
 * [Linux kernel][15] - manages input/output requests from software,
@@ -30,13 +36,22 @@ Also OpenWrt supports a framework to build an application without having to
 build a complete firmware around it and is fully customizable.
 
 ## BusyBox
-[BusyBox][11] combines tiny versions of many common UNIX utilities into a single small executable.
+[BusyBox][11] is a tool loaded into the OpenWrt envirnment.
+BusyBox combines tiny versions of many common UNIX utilities into a single small executable.
 It provides minimalist replacements for most of the utilities you usually find
-(including [`vi`][12]).
+in GNU fileutils, shellutils, includes [`vi`][12], etc.
 BusyBox is extremely configurable, allowing you to include only the components you need.
-Therefore, not all BusyBox installations have the same commands,
-and OpeWRT's impmentation has a limited set of utilities.
+The utilities in BusyBox generally have fewer options than their full-featured GNU cousins;
+however, the options that are included provide the expected functionality
+and behave very much like their GNU counterparts.
 
+BusyBox is extremely modular so you can easily include or exclude commands
+(or features) at compile time.
+This makes it easy to customize your embedded systems.
+To create a working system, just add some device nodes in `/dev`,
+a few configuration files in `/etc`, and a Linux kernel.
+
+For a listing of Busybox's utilities, check out the [Busybox Manual Page][28].
 [BusyBox is a multi-call binary][12]
 (i.e. a single binary acts like a large number of utilities).
 BusyBox has built-in utility programs (called applets)
@@ -48,14 +63,44 @@ busybox <applet> [arguments...]  # or
 <applet> [arguments...]          # if symlinked
 ```
 
-You can get a listing of OpenWRT's supported applets via the `help` command.
+## Bootloader
+The WRTNode incldues a customized [uboot][29] which is a popular [bootloader][30] that
+supports multiple architectures (ARM, MIPS, AVR32, Nios, Microblaze, 68K and x86)
+and filesystems (FAT32, ext2, ext3, ext4 and Cramfs).
 
-![alt text](/home/jeff/Downloads/openwrt-help-command.jpg "BusyBox commands support on OpenWRT")
+## WiFi Configuration Utilities
+WRTnode comes with some custom utilitiies (aps/vw/nr/ia) for `aplci`,
+the up-link part of the router inside of WRTnode.
+
+* `aps` is a WRTnode customized command which scans the WiFi SSIDs available.
+* You make the changes via the WRTnode customized command `vw` which changes `/etc/config/wireless`.
+* `nr` is a WRTnode customized command which will reset the network side.  After 5 seconds it is possible to connect again to WRTnode's SSID.
+* `ia`
+
+# LininoIO
+Linino is a Linux distribution, based on OpenWrt.
+The boards supported by Linino distribution are available on the webside http://www.linino.org.
+The binary of Linino distribution are available on http://download.linino.org
+
+LininoIO is a software framework able to integrate microcontroller
+features inside the microprocessor environment. You can simply write your application using Node.js, Python, Bash, etc., on linux side using LininoOS to control completely the board and all the devices attacched.
+
+http://www.linino.org/
+https://linino2013.wordpress.com/about/
+
+# WRTNode Commands and Helpful Tools
+These commands are part of Busybox or OpenWrt.
+
+to get busybox version - http://unix.stackexchange.com/questions/15895/how-do-i-check-busybox-version-from-busybox
+
+You can get a listing of OpenWrt's supported applets via the `help` command.
+
+![openwrt help command](/home/jeff/Downloads/openwrt-help-command.jpg "BusyBox commands support on OpenWrt")
 
 A symbolically linked command is the `ls` command.
-Using this, you can explort the file system to see some of the contents of OpenWRT.
+Using this, you can explort the file system to see some of the contents of OpenWrt.
 
-![alt text](/home/jeff/Downloads/openwrt-file-system.jpg "Some of OpenWRT's filesystem")
+![openwrt bin dir](/home/jeff/Downloads/openwrt-file-system.jpg "Some of OpenWrt's filesystem")
 
 
 ## Helpful Tools
@@ -83,20 +128,20 @@ To monitor what is going on, I found the following tools useful
     It displays information and statistics about all your network card such as packets,
     kilobytes per second, average packet sizes and more.
     **Example Usage:** `nicstat -i wlan0 1`
-* OpenWRT Console Connection
+* OpenWrt Console Connection
     * [`telnet`][] is a protocol which is part of the TCP/IP suite and used on the
     Internet or local area networks to provide a bidirectional interactive
     text-oriented communication facility using a virtual terminal connection.
     **Example Usage:** `telnet 192.168.8.1`
 
-# Getting WiFI Connected with WRTnode
+# Getting WiFi Connected with WRTnode
 
 ## Getting Connected with WRTnode Via GUI
-The easiest way to get connected with OpenWRT on Ubuntu is via
+The easiest way to get connected with OpenWrt on Ubuntu is via
 the [network menu in the menu bar][08].
 We know from the [WRTnode documentation][04] 
 that the SSID being broadcasted by the WRTNode is "WRTnodeXXXX",
-where the XXX is the last 4 digits of the OpenWRT's MAC address.
+where the XXX is the last 4 digits of the OpenWrt's MAC address.
 In my case its "WRTnode9976".
 The [WRTnode documentation][04] also says that the default WiFi password is "12345678".
 
@@ -183,12 +228,12 @@ sudo ifconfig wlan0 down
 sudo ifconfig wlan0 up
 ```
 
-# Login to OpenWRT
-The first time you connect to the OpenWRT,
+# Login to OpenWrt
+The first time you connect to the OpenWrt,
 you will do so via `telnet` in order to set the root password and start using `ssh`.
 
 ```bash
-# telnet into OpenWRT without a password
+# telnet into OpenWrt without a password
 telnet 192.168.8.1
 .
 .
@@ -200,18 +245,18 @@ passwd
 At this point, you must use `ssh` to login with your new password
 
 ```bash
-# secure login into OpenWRT
+# secure login into OpenWrt
 ssh root@192.168.8.1
 ```
 
-OpenWRT also supports a web user interface, called [LuCI][18],
+OpenWrt also supports a web user interface, called [LuCI][18],
 accessible via a browser via URL `192.168.8.1`.
 You'll login as root using the password created for the establishment of `ssh`.
 
 # Other Things
 So now that your logged into the WRTnode, now what?
 The [WRTnode Wiki][19] does give some good ideas.
-For starters, your going to want to connect with the Internet to load OpenWRT packages,
+For starters, your going to want to connect with the Internet to load OpenWrt packages,
 update firmware, etc.
 
 ## Scanning for Other Access Points
@@ -337,7 +382,7 @@ root@OpenWrt:~# ping www.google.com
 So now the WRTnode board is connected to the Internet through our home router.
 You can connect to the Internet start configure our WRTnode board.
 
-## Update OpenWRT Software Repository
+## Update OpenWrt Software Repository
 http://wiki.wrtnode.com/index.php?title=Starting#WRTnode_software_repository
 
 ## Restore Factory Settings
@@ -371,7 +416,7 @@ The arp command displays a table of translated hardware addresses in the cache.
 # WRTNode
 * [WRTnode](http://wrtnode.com/w/)
 * [wrthelp – a demo app for the WRTnode](http://blog.thestateofme.com/2014/09/21/wrthelp/)
-* [Getting Started with WRTnode OpenWRT Development Board](http://www.cnx-software.com/2014/09/18/wrtnode-quick-start-guide/)
+* [Getting Started with WRTnode OpenWrt Development Board](http://www.cnx-software.com/2014/09/18/wrtnode-quick-start-guide/)
 * [WRTnode Wiki](http://wiki.wrtnode.com/index.php?title=Main_Page)
     * [WRTnode Getting Started Guide](http://wiki.wrtnode.com/index.php?title=Starting)
     * [Refresh the Firmware](http://wiki.wrtnode.com/index.php?title=Refresh_the_firmware)
@@ -381,6 +426,7 @@ The arp command displays a table of translated hardware addresses in the cache.
 * [Part 2 - WRTnode how to connect and connect it to your network](https://www.youtube.com/watch?v=0wG2lg5omz8)
 * [Part 3 - WRTnode setup firewall to allow access from home network](https://www.youtube.com/watch?v=3az3SupnbhI)
 * [Part 4 - WRTnode setup usb camera and mjpg streamer](https://www.youtube.com/watch?v=HyCm2RXRB4E)
+* [WRTNode Playlist](https://www.youtube.com/playlist?list=PLrIDWbyydDJA6Nsva4Btflg9WWlABO6u_)
 
 * [Finding a device IP Address](http://www.cnx-software.com/2010/10/25/finding-a-device-ip-address/)
 
@@ -428,8 +474,18 @@ Next will be Ubiquiti equipment with others supported as development resources p
 [23]:http://www.mtk.com.tw/en/news-events/mediatek-news/mediatek-first-to-bring-80211ac-1t1r/
 [24]:http://www.anz.ru/files/mediatek/MT7620_Datasheet.pdf
 [25]:http://en.wikipedia.org/wiki/Media_Independent_Interface#Reduced_Media_Independent_Interface
-[26]:
-[27]:
-[28]:
-[29]:
-[30]:
+[26]:http://en.wikipedia.org/wiki/Traffic_shaping
+[27]:http://en.wikipedia.org/wiki/DD-WRT
+[28]:http://linux.die.net/man/1/busybox
+[29]:http://www.linuxjournal.com/content/handy-u-boot-trick
+[30]:http://www.addictivetips.com/mobile/what-is-bootloader-and-how-to-unlock-bootloader-on-android-phones-complete-guide/
+[31]:
+[32]:
+[33]:
+[34]:
+[35]:
+[36]:
+[37]:
+[38]:
+[39]:
+[40]:

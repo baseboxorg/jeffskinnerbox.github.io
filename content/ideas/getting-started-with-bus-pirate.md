@@ -182,6 +182,11 @@ This is not [all of the documentation][21], but the parts that will help get you
     * [Bus Pirate Edu kit partlist](http://dangerousprototypes.com/docs/Bus_Pirate_Edu_kit_partlist)
     * [Sailing the I2Cs with the Bus Pirate](http://www.sharebrained.com/2013/02/26/sailing-the-i2cs-with-the-bus-pirate/)
     * [Getting Started With an I2C LCD Using a Bus Pirate/](https://embeddedcode.wordpress.com/2014/12/06/getting-started-with-an-i2c-lcd-using-a-bus-pirate/)
+* Uses for the Bus Pirate
+    * [Bus Pirate Tips: Data Sniffer / Serial Bridge/ AVR & SPI Flash Programmer / JTAG](http://blog.allthingsgeek.com/article/index/index/id/26#.VNl1xdTN_MQ)
+    * [Using a Bus Pirate as a USB-TTL Serial Converter](http://haquesprojects.com/embedded-device-hacking/using-a-bus-pirate-as-a-usb-ttl-serial-converter/)
+    * [Bus Pirate as FTDI Cable](http://blog.zencoffee.org/2011/07/bus-pirate-as-ftdi-cable/)
+    * [Transparent UART bridge](http://dangerousprototypes.com/docs/UART#Transparent_UART_bridge)
 
 It should be no surprise that to really understand (and maybe some day master) the Bus Pirate,
 you'll need to work with the Bus Pirate and an attached device while reading the documentation.

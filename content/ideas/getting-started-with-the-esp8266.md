@@ -172,6 +172,7 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
     * [Micro Python Now Runs on the ESP8266](http://hackaday.com/2014/11/29/micro-python-now-runs-on-the-esp8266-contributors-wanted-to-get-wifi-working/)
     * [Compiling Your Own Programs for the ESP8266/](http://hackaday.com/2014/12/08/compiling-your-own-programs-for-the-esp8266/)
     * [A Development Board for the ESP8266-03](http://www.limpkin.fr/index.php?post/2014/11/27/A-Development-Board-for-the-ESP8266-03)
+    * [Hack allows ESP-01 to go to Deep Sleep](http://hackaday.com/2015/02/08/hack-allows-esp-01-to-go-to-deep-sleep/)
     * Using the Lua Programming Language
         * [Lua Programming Language](http://www.lua.org/)
         * [The.Lua.Tutorial](http://luatut.com/)
