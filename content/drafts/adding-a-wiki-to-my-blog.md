@@ -412,6 +412,7 @@ git push heroku master
 Unfortunately the only problem with running TW5 on Heroku is that they use what they call an ephemeral filesystem. That is, any time the dyno spins down (usually from being idle) and then spins up, all file system changes will be gone and it will only have what's in the git repo. - https://groups.google.com/forum/#!topic/tiddlywiki/XDFW_tcSbf0
 
 Having only a single web dyno running will result in the dyno going to sleep after one hour of inactivity. This causes a delay of a few seconds for the first request upon waking. Subsequent requests will perform normally. - https://devcenter.heroku.com/articles/getting-started-with-nodejs#scale-the-app
+Signup for a free [Pingdom](https://www.pingdom.com/free/) account and have it ping your instance on Heroku. This should help keep your Heroku instance awake and watching the world for you.
 
 * [Avoid Heroku idling with New Relic pings](https://coderwall.com/p/u0x3nw/avoid-heroku-idling-with-new-relic-pings)
 

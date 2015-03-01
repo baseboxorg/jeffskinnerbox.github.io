@@ -22,6 +22,8 @@ Next will be Ubiquiti equipment with others supported as development resources p
 * [3. HSMM-MESH Update Firmware on a Remote Node](https://www.youtube.com/watch?v=vvFjK-Ihk9c)
 * [Cheat Sheet – HSMM](http://www.hdecommgrp.org/?p=223)
 
+# Digital Ham Radio
+* [Griff's Digital Ham Radio Site](http://w5vwp.com/index.shtml)
 
 
 [01]:https://www.takeitapart.com/guide/9

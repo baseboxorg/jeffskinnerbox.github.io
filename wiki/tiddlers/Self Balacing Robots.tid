@@ -1,12 +1,13 @@
 created: 20140919013836507
-modified: 20150208023213187
+modified: 20150221015610928
 tags: Projects
 title: Self Balacing Robots
 type: text/vnd.tiddlywiki
 
-*[[PID Controllers Deep Dive - Nice Layman Description|http://hackaday.com/2014/07/07/droning-on-pid-controllers-and-bullet-connectors/]]
-*[[PIDDYBOT – A Self Balancing Teaching Tool|http://hackaday.com/2014/01/17/piddybot-a-self-balancing-teaching-tool/#more-112629]]
-*[[Self-balancing Arduino does it without an IMU|http://hackaday.com/2013/09/26/self-balancing-arduino-does-it-without-an-imu/]]
-*[[Self balancing Raspberry Pi OpenCV image processing Robot|http://roboticssamy.blogspot.pt/]]
-*[[Control Theory Seminar|http://focus.ti.com/docs/training/catalog/events/event.jhtml?sku=OLT214002&sp_rid_pod4=NzQ0MDMwMzkzNTMS1&sp_mid_pod4=45597282]]
-*[[Evolutionary optimization of PID parameters for empirically identified system|http://wemakethings.net/2013/12/01/pid_genetics/]]
+* [[PID Controllers Deep Dive - Nice Layman Description|http://hackaday.com/2014/07/07/droning-on-pid-controllers-and-bullet-connectors/]]
+* [[PIDDYBOT – A Self Balancing Teaching Tool|http://hackaday.com/2014/01/17/piddybot-a-self-balancing-teaching-tool/#more-112629]]
+* [[Self-balancing Arduino does it without an IMU|http://hackaday.com/2013/09/26/self-balancing-arduino-does-it-without-an-imu/]]
+* [[Self balancing Raspberry Pi OpenCV image processing Robot|http://roboticssamy.blogspot.pt/]]
+* [[Control Theory Seminar|http://focus.ti.com/docs/training/catalog/events/event.jhtml?sku=OLT214002&sp_rid_pod4=NzQ0MDMwMzkzNTMS1&sp_mid_pod4=45597282]]
+* [[Evolutionary optimization of PID parameters for empirically identified system|http://wemakethings.net/2013/12/01/pid_genetics/]]
+* [[Balance Wheel|http://hackaday.io/project/4267-balance-wheel]]

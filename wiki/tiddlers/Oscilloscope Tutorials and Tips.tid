@@ -1,18 +1,28 @@
 created: 20141226143823014
-modified: 20150103183507132
+modified: 20150221041308563
 tags: [[Test Gear]]
 title: Oscilloscope Tutorials and Tips
 type: text/vnd.tiddlywiki
 
+I purchased an [[Oscilloscope]],
+so its time to learn how to use it like a pro.
+
 !!Fundamentals
 * [[Digitizer/Oscilloscope Fundamentals|http://www.ni.com/white-paper/3408/en/]]
+* [[Scope Fundementals|http://circuitslab.case.edu/manuals/Oscilloscope_Fundamentals_-_Tektronix.pdf]]
 * [[YouTube Videos Show You How to Use an Oscilloscope|http://www.edn.com/electronics-blogs/scope-insights/4413954/YouTube-Videos-Show-You-How-to-Use-an-Oscilloscope]]
+* [[Oscilloscope Tutorial|https://www.valuetronics.com/Manuals/Oscilloscope_Tutorial.pdf]]
 * [[NJARC Oscilloscope School (aka "Scopes for Dopes")|http://www.njarc.org/scopes4dopes/]]
 
 !!Primers & Tutorials
 * [[Adafruit Oscilloscope Tutorials|http://www.adafruit.com/blog/2011/12/16/analog-oscilloscope-tutorials/]]
 * [[XYZs of Oscilloscopes|http://ecee.colorado.edu/~mcclurel/txyzscopes.pdf]]
+* [[Probe Fundamentals|http://www.ece.vt.edu/cel/docs/Probe_Fundamentals_Tektronix.pdf]]
+* [[Introduction to Oscilloscopes Lab Experiment|https://www.noisebridge.net/images/8/8d/Tektronix--IntroToOscilliscopesLab.pdf]]
+* [[Oscilloscope and Data Logger Application Notes|https://www.picotech.com/library/application-notes]]
+* [[Tektronix Oscilloscope Tutorial|http://www.tek.com/learning/oscilloscope-tutorial]]
 * [[Tektronix Manuals and Documentation|http://www.tek.com/downloads]]
+** [[Application Notes|http://www.afc-ingenieros.com/uploads/Afc/InfoTecn/Osciloscopios/pdf/]]
 
 !!Performance
 * [[Oscilloscope performance vs. specifications|https://www.youtube.com/watch?v=6CDJbi8E0UE]]

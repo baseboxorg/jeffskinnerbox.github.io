@@ -1,8 +1,8 @@
 <a href="https://www.apc.com/products/resource/include/techspec_index.cfm?base_sku=BN1080G&tab=documentation">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" title="APC Back-UPS 1080 Provides Battery Backup & Surge Protector for Electronics and Computers (Front Image)" alt="WABAC Pic" src="/home/jeff/Downloads/APC_Back-UPS_NS_1080_front.jpg" />
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="APC Back-UPS 1080 Provides Battery Backup & Surge Protector for Electronics and Computers (Front Image)" alt="WABAC Pic" src="/images/APC_Back-UPS_NS_1080_front.jpg" />
 </a>
 <a href="https://www.apc.com/products/resource/include/techspec_index.cfm?base_sku=BN1080G&tab=documentation">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" title="APC Back-UPS 1080 Provides Battery Backup & Surge Protector for Electronics and Computers (Back Image)" alt="WABAC Pic" src="/home/jeff/Downloads/APC_Back-UPS_NS_1080_back.jpg" />
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="APC Back-UPS 1080 Provides Battery Backup & Surge Protector for Electronics and Computers (Back Image)" alt="WABAC Pic" src="/images/APC_Back-UPS_NS_1080_back.jpg" />
 </a>
 I purchased a [APC Back-UPS NS 1080][05] to smooth out the power dips that
 are far too frequent in my home.

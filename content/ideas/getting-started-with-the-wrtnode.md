@@ -1,12 +1,25 @@
 ![WRTnode](http://photos-h.ak.instagram.com/hphotos-ak-xap1/10802493_381146012045023_126183938_n.jpg =100x100 "In early November 2014, I got from Seeed Studio the WRTNode. WRTnode is based on WiFi WiFi Access Point System on a Chip, is an open source development board hardware using the Mediatek MT7620n chip.")
 
 In early November 2014, I got from [Seeed Studio][21] the [WRTNode][22].
-WRTnode is based on WiFi WiFi Access Point System on a Chip (SoC),
+WRTnode is based on WiFi Access Point System on a Chip (SoC),
 is an open source development board hardware using the [Mediatek][23] [MT7620n chip][24].
 The MT7620 router-on-a-chip includes an 802.11n MAC and baseband, a 2.4 GHz radio,
-a 580 MHz CPU core, a 5-port 10/100 switch and two
+a 580 MHz [MIPS][37] CPU ([MIPS 24KEc][38]),
+a 5-port 10/100 switch and two
 [Reduced Gigabit Media Independent Interface (RGMII)][25].
 The MT7620 includes everything needed to build an AP router from a single chip. 
+
+The WRTnode oprates at 300Mbps, WiFi antenna integrated into the PCB board,
+has pins preconfigured for some of the LED indicators
+you would see on a conventional routers,
+four-port Ethernet hub, WAN port, some general-purpose GPIO, and serial console input.
+In total, there 78 pins GPIO, and from the picture below (take from the [WRTnode Wiki][04]),
+we can see the pinout each and every one of them.
+
+![WRTnode Pin Out](/images/WRTnode_pin_out_v0.2.png =570x374 "Pin out for WRTnode board")(http://wiki.wrtnode.com/images/0/0b/Saving3.png)
+
+> **Note:** In this diagram, WRTNode is photographed by the side of the welds,
+so when making connections, we must reverse the pinout.
 
 # Components that Make Up WRTNode
 ## OpenWrt
@@ -73,9 +86,9 @@ WRTnode comes with some custom utilitiies (aps/vw/nr/ia) for `aplci`,
 the up-link part of the router inside of WRTnode.
 
 * `aps` is a WRTnode customized command which scans the WiFi SSIDs available.
-* You make the changes via the WRTnode customized command `vw` which changes `/etc/config/wireless`.
+* `vw` is used to make changes to `/etc/config/wireless` where WiFi configuration information is stored, using the file editor `vi`.
 * `nr` is a WRTnode customized command which will reset the network side.  After 5 seconds it is possible to connect again to WRTnode's SSID.
-* `ia`
+* `ia` is the WRTnode equvilent to `ifconfig`, the Linux network interface configuration, control, and query tool.
 
 # LininoIO
 Linino is a Linux distribution, based on OpenWrt.
@@ -88,56 +101,10 @@ features inside the microprocessor environment. You can simply write your applic
 http://www.linino.org/
 https://linino2013.wordpress.com/about/
 
-# WRTNode Commands and Helpful Tools
-These commands are part of Busybox or OpenWrt.
+# Getting Connected with WRTnode
 
-to get busybox version - http://unix.stackexchange.com/questions/15895/how-do-i-check-busybox-version-from-busybox
-
-You can get a listing of OpenWrt's supported applets via the `help` command.
-
-![openwrt help command](/home/jeff/Downloads/openwrt-help-command.jpg "BusyBox commands support on OpenWrt")
-
-A symbolically linked command is the `ls` command.
-Using this, you can explort the file system to see some of the contents of OpenWrt.
-
-![openwrt bin dir](/home/jeff/Downloads/openwrt-file-system.jpg "Some of OpenWrt's filesystem")
-
-
-## Helpful Tools
-As I begain to play with the WRTNode, I ran into several problems,
-most of my own making.
-To monitor what is going on, I found the following tools useful
-
-* Tools for Monitoring WiFi
-    * [`wavemon`][02] is a ncurses-based monitoring application for wireless network devices.
-    It displays continuously updated information about signal levels, as well as,
-    wireless-specific and general network information. 
-    **Example Usage:** `wavemon wlan0`
-    * [`iwevent`][05] is another command line tool that displays wireless events
-    received through the [RTNetlink socket][06].
-    Each line displays the specific wireless event which describes
-    what has happened on the specified wireless interface.
-    **Example Usage:** `iwevent`
-* Tools for Monitoring NIC
-    * [`netstat`][10] (network statistics) is a command-line tool that displays
-    network connections for TCP (both incoming and outgoing),
-    routing tables, and a number of network interface and network protocol statistics.
-    **Example Usage:** `netstat -ie`
-    * [`nicstat`][09] prints network traffic, packets or Kb/s read and written.
-    Its a utility like `top` for network interface card (NIC).
-    It displays information and statistics about all your network card such as packets,
-    kilobytes per second, average packet sizes and more.
-    **Example Usage:** `nicstat -i wlan0 1`
-* OpenWrt Console Connection
-    * [`telnet`][] is a protocol which is part of the TCP/IP suite and used on the
-    Internet or local area networks to provide a bidirectional interactive
-    text-oriented communication facility using a virtual terminal connection.
-    **Example Usage:** `telnet 192.168.8.1`
-
-# Getting WiFi Connected with WRTnode
-
-## Getting Connected with WRTnode Via GUI
-The easiest way to get connected with OpenWrt on Ubuntu is via
+## Getting Connected with WRTnode Via WiFi
+The easiest way to get connected with WRTnode/OpenWrt on Ubuntu is via
 the [network menu in the menu bar][08].
 We know from the [WRTnode documentation][04] 
 that the SSID being broadcasted by the WRTNode is "WRTnodeXXXX",
@@ -145,91 +112,84 @@ where the XXX is the last 4 digits of the OpenWrt's MAC address.
 In my case its "WRTnode9976".
 The [WRTnode documentation][04] also says that the default WiFi password is "12345678".
 
-## Getting Connected with WRTnode Via Command Line
-It is sometimes useful to be able to
-[connect to a WiFi access point via the command line][03],
-without a heavyweight GUI.
-That is especially true when dealing with a simple but quirky device
-like the WRTnode where you want optimal control and visibility.
-I spent a while gathering the collective wisdom from various blog posts
-and assembled it here.
+To get this to work successfully, I had to turn off my Ethernet connection.
+It appears that the DHCP server via the Ethernet and via the WRTnode were
+not playing well together.
+Even with Ethernet turned off, in time,
+my connection to the WRTnode would slow down and then freeze.
+My guess is that Ubuntu has some WiFi management daemons runing
+that is getting in the way.
+If I had a seperate laptop or other WiFi enabled computer,
+I could have been successful.
 
-First thing is to do is turn on the WiFi[^A]
-and perfrom a scan to see if you can detect the WRTNode's broadcasted SSID.
+## Getting Connected with WRTnode Via Serial Console
+We do have an alternative to WiFi connectivity to WRTnode,
+that is, via the serial console port on the WRTnode board,
+and thus access via a terminal.
+This can be very useful, allowing you to access WRTnode as root,
+without entering the password.
+I will make this console connection using an [Adafruit FTDI Friend][32]
+(make sure to midify the jumper setting on the back for 3.3V logic and 3.3V VCC).
+This will allow me to connect my Linux box to the WRTnode via a USB port and a terminal emulator.
 
-[^A]:
-    When I first turned on the WiFI vis `sudo ifconfig wlan0 up`,
-    I got the error message: “Operation not possible due to RF-kill”.
-    Checkout the post “[SIOCSIFFLAGS: Operation not possible due to RF-kill][01]”
-    to see how to clear this problem with `sudo rfkill unblock wifi; sudo rfkill unblock all`.
-
-```bash
-# turn on your computers WiFi, if it isn't already
-sudo ifconfig wlan0 up
-
-# check WiFi network connection status, which should be "Not connected." at the point
-iw wlan0 link
-
-# perfrom a scan to get a list of WiFi networks in range
-# and then grep for the most relavent information
-sudo iwlist wlan0 scanning | egrep 'Cell |Encryption|IEEE|Quality|Last beacon|ESSID'
-```
-
-The last command should give you the SSID being broadcasted by the WRTNode,
-in my case its "WRTnode9976".
-Also, this will tell you that the encryption is on (see "Encryption key")
-and it uses WPA2 encryption (see "IEEE").
-
-Now we will generate a configuration file for `wpa_supplicant`
-that contains the pre-shared key (“passphrase“) for the WiFi network.
-We know from the [WRTnode documentation][04] that the default WiFi password is "12345678".
+### Make the USD Device Persistent
+The first thing I want to do is make this USB device have a [persistent device name][36].
+If this isn't done, the Linux kernel will automatically assign it a device name
+and you need to dance around to find the device.
+The first step in getting this solved is to the following:
 
 ```bash
-# generate the WPA2 pre-share key
-wpa_passphrase WRTnode9976 12345678 > ~/tmp/wpa.conf
+# find out what device the FTDI Friend has been assigned to
+$ lsusb | grep Future
+Bus 001 Device 019: ID 0403:6001 Future Technology Devices International, Ltd FT232 USB-Serial (UART) IC
 ```
 
-Now that we have the configuration file,
-we can use it to connect to the WiFi network (Data Link Layer, not Transport Layer).
-We will be using `wpa_supplicant to connect`.
-Use the following command
+This tells us the Bus FTDI Friend's VendorID:ProductID pair is `0403:6001`.
+This also tells us that the FTDI Friend has been assigned to bus 001 and device 014,
+which translate to the device `/dev/bus/usb/001/019`.
+No using `udevadm` command, you get the final piece of information required:
 
 ```bash
-# run in the forground
-# -D specifies the wireless driver and "wext" is the generic driver
-#sudo wpa_supplicant -D wext -i wlan0 -c ~/tmp/wpa.conf
-
-# run in the background
-sudo wpa_supplicant -B -D wext -i wlan0 -c ~/tmp/wpa.conf
-
-# check WiFi network connection status
-iw wlan0 link
+# get the serial number for of the device
+$ udevadm info -a -n /dev/bus/usb/001/019 | grep ATTR{serial}
+    ATTR{serial}=="A501E3BN"
 ```
 
-The work so far has connected the WiFi network, now we do the IP networking.
-To get a dynamic IP from a DHCP server built into the router,
-you'll use [`dhclient`][07]
+So now you know the serial number of the FTDI Friend you own is `A501E3BN`.
+Armed with this information and following guidance from [this post][34], I can now update the [UDEV rules][35].
+I'll create a UDEV rule set that’ll make a symbolic link, called `/dev/ftdifriend`, for the FDTI Friend.
+UDEV rules are located in the `/etc/udev/rules.d` directory.
+I'll create a new file called `jeffs.rules` within the `udev` rules directory
+and put in the following line:
 
-```bash
-# first release whatever IP leases you're still holding onto
-sudo dhclient -r wlan0
-
-# ask for a new IP lease 
-sudo dhclient wlan0
+```
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="A501E3BN", SYMLINK+="ftdifriend"
 ```
 
-As long as you have `wpa_supplicant` running, you can toggle the WiFi connection 
+Now unplug and then plug back in the FDTI Friend.
+If you do `ls -l /dev/ftdifriend`
+you'll see the device and its symbolic link.
+No more USB port dancing to find the FDTI Friend!
 
-```bash
-# turn off your WiFi connection
-sudo ifconfig wlan0 down
+### Pin Connections to Access Console
+[This web post][33] will provide some insight on 
+what pins to connect to on the WRTnode and access the console via the FTDI Friend.
+My diagram for pin connections are given below:
 
-# turn it back on
-sudo ifconfig wlan0 up
-```
+![console pins](/home/jeff/Downloads/junk.jpg "Pin connections to access the OpenWrt console and pwer the board")
 
-# Login to OpenWrt
-The first time you connect to the OpenWrt,
+>**Note: The FTDI Friend will not power the WRTnode.
+You still have to supply power via the micro USB plug.
+
+To test if the FDTI Friend console assess is working,
+use `microcom -p /dev/ftdifriend` and you should
+now have access to console without any password.
+It should be very responsive and you will not be clashing with
+your Linux boxes attempt to manage WiFi, as referenced earlier.
+
+# First Time Login to OpenWrt (via WiFi)
+The [first time you connect to OpenWrt][01] via WiFi,
+(none of this applies to login via console),
 you will do so via `telnet` in order to set the root password and start using `ssh`.
 
 ```bash
@@ -253,11 +213,26 @@ OpenWrt also supports a web user interface, called [LuCI][18],
 accessible via a browser via URL `192.168.8.1`.
 You'll login as root using the password created for the establishment of `ssh`.
 
-# Other Things
-So now that your logged into the WRTnode, now what?
-The [WRTnode Wiki][19] does give some good ideas.
-For starters, your going to want to connect with the Internet to load OpenWrt packages,
-update firmware, etc.
+# WRTNode Commands and Helpful Tools
+These commands are part of Busybox or OpenWrt,
+and can be very useful:
+
+* BusyBox box version - `busybox | head -1`
+* Linux kernel version - `uname -r` or `dmesg | grep Linux`
+* OpenWrt version - `cat /etc/banner`
+* syslog messages - `logread`
+* kernel messages - `dmesg`
+* OpenWrt packages installed - `opkg list`, see [OpenWrt documentation][03] for more commands
+* BusyBox commands - `help` provides a list of supported applets
+
+![openwrt help command](/images/openwrt-help-command.jpg "BusyBox commands support on OpenWrt")
+
+A symbolically linked command is the `ls` command.
+Using this, you can explort the file system to see some of the contents of OpenWrt.
+
+![openwrt bin dir](/images/openwrt-file-system.jpg "Some of OpenWrt's filesystem")
+
+check out http://wiki.openwrt.org/doc/howto/snippets
 
 ## Scanning for Other Access Points
 `aps` is a WRTnode customized command which scans the WiFi SSIDs available.
@@ -296,7 +271,22 @@ need to do this.
 
 Change the settings of `aplci` on WRTnode.
 `aplci` is the up-link part of the router inside of WRTnode.
-You make the changes via the WRTnode customized command `vw` which changes `/etc/config/wireless`.
+To see how things a initially configured,
+run the `ia` command, WRTnode equvilent to `ifconfig`:
+
+```bash
+root@OpenWrt:~# ia
+apcli0    Link encap:Ethernet  HWaddr 66:51:7E:32:99:76  
+          inet6 addr: fe80::6451:7eff:fe32:9976/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+```
+
+To establish connection to the Internet via your home router,
+make the changes via the WRTnode customized command `vw` which changes `/etc/config/wireless`.
 It is used the file editor `vi`.
 
 ```bash
@@ -361,7 +351,8 @@ After 5 seconds it is possible to connect again to WRTnode's SSID.
 root@OpenWrt:~# nr
 ```
 
-Now verify if WRTnode got an IP from router from your home WiFi Access point:
+Now verify if WRTnode got an IP from from your home WiFi Access point
+by using the `ia` command, WRTnode equvilent to `ifconfig`:
 
 ```bash
 root@OpenWrt:~# ia
@@ -382,6 +373,42 @@ root@OpenWrt:~# ping www.google.com
 So now the WRTnode board is connected to the Internet through our home router.
 You can connect to the Internet start configure our WRTnode board.
 
+## Helpful Tools
+As I begain to play with the WRTNode, I ran into several problems,
+most of my own making.
+To monitor what is going on with the WRTNode, I found the following tools useful
+
+* Tools for Monitoring WiFi
+    * [`wavemon`][02] is a ncurses-based monitoring application for wireless network devices.
+    It displays continuously updated information about signal levels, as well as,
+    wireless-specific and general network information. 
+    **Example Usage:** `wavemon wlan0`
+    * [`iwevent`][05] is another command line tool that displays wireless events
+    received through the [RTNetlink socket][06].
+    Each line displays the specific wireless event which describes
+    what has happened on the specified wireless interface.
+    **Example Usage:** `iwevent`
+* Tools for Monitoring NIC
+    * [`netstat`][10] (network statistics) is a command-line tool that displays
+    network connections for TCP (both incoming and outgoing),
+    routing tables, and a number of network interface and network protocol statistics.
+    **Example Usage:** `netstat -ie`
+    * [`nicstat`][09] prints network traffic, packets or Kb/s read and written.
+    Its a utility like `top` for network interface card (NIC).
+    It displays information and statistics about all your network card such as packets,
+    kilobytes per second, average packet sizes and more.
+    **Example Usage:** `nicstat -i wlan0 1`
+* OpenWrt Console Connection
+    * [`telnet`][31] is a protocol which is part of the TCP/IP suite and used on the
+    Internet or local area networks to provide a bidirectional interactive
+    text-oriented communication facility using a virtual terminal connection.
+    **Example Usage:** `telnet 192.168.8.1`
+# Other Things
+So now that your logged into the WRTnode, now what?
+The [WRTnode Wiki][19] does give some good ideas.
+For starters, your going to want to connect with the Internet to load OpenWrt packages,
+update firmware, etc.
+
 ## Update OpenWrt Software Repository
 http://wiki.wrtnode.com/index.php?title=Starting#WRTnode_software_repository
 
@@ -392,6 +419,8 @@ http://wiki.wrtnode.com/index.php?title=Starting#Restore_Factory_Settings
 http://wiki.wrtnode.com/index.php?title=Main_Page
 [The Pain of Connecting to WPA Wi-Fi on the Linux Command Line](http://www.sevenforge.com/2009/07/28/connecting-to-wpa-wifi-on-the-command-line/)
 [NetworkConfigurationCommandLine/Automatic](https://help.ubuntu.com/community/NetworkConfigurationCommandLine/Automatic)
+[OpenWrt Debricking Guide](http://wiki.openwrt.org/doc/howto/generic.debrick)
+[FAQ after Installation of OpenWrt](http://wiki.openwrt.org/doc/faq/after.installation)
 
 ####################
 `ping` (Packet Internet Gropper)
@@ -412,7 +441,6 @@ The arp command displays a table of translated hardware addresses in the cache.
 ####################
 
 
-
 # WRTNode
 * [WRTnode](http://wrtnode.com/w/)
 * [wrthelp – a demo app for the WRTnode](http://blog.thestateofme.com/2014/09/21/wrthelp/)
@@ -420,7 +448,8 @@ The arp command displays a table of translated hardware addresses in the cache.
 * [WRTnode Wiki](http://wiki.wrtnode.com/index.php?title=Main_Page)
     * [WRTnode Getting Started Guide](http://wiki.wrtnode.com/index.php?title=Starting)
     * [Refresh the Firmware](http://wiki.wrtnode.com/index.php?title=Refresh_the_firmware)
-* [Quick Mesh Project](http://qmp.cat/Experimenting_with_the_WRTnode)
+* [Become your own router with WRTNode - Controlling WRTNode through the serial console](http://www.peatonet.com/en/hazte-tu-propio-router-con-wrtnode-controlando-wrtnode-a-traves-del-puerto-serie-de-consola/)
+* [Become your own router with WRTNode - Adding four LAN ports and one WAN port](http://www.peatonet.com/en/hazte-tu-propio-router-con-wrtnode-anadiendo-cuatro-puertos-lan-y-un-puerto-wan/)
 
 * [Part 1 - Introduction to WRTNode what is it how to find info](https://www.youtube.com/watch?v=KGdhDl_uNz0)
 * [Part 2 - WRTnode how to connect and connect it to your network](https://www.youtube.com/watch?v=0wG2lg5omz8)
@@ -446,16 +475,17 @@ Next will be Ubiquiti equipment with others supported as development resources p
 * [2. Setting up a MESH Node for Amateur Radio - WRT54G firmware install](https://www.youtube.com/watch?v=pryc8jIl6Xo)
 * [3. HSMM-MESH Update Firmware on a Remote Node](https://www.youtube.com/watch?v=vvFjK-Ihk9c)
 * [Cheat Sheet – HSMM](http://www.hdecommgrp.org/?p=223)
+* [Griff's Digital Ham Radio Site](http://w5vwp.com/index.shtml)
 
 
 
-[01]:http://askubuntu.com/questions/62166/siocsifflags-operation-not-possible-due-to-rf-kill
+[01]:http://wiki.openwrt.org/doc/howto/firstlogin
 [02]:http://www.raspberrypi-spy.co.uk/2014/10/how-to-use-wavemon-to-monitor-your-wifi-connection/
-[03]:http://www.blackmoreops.com/2014/09/18/connect-to-wifi-network-from-command-line-in-linux/
+[03]:http://wiki.openwrt.org/doc/techref/opkg
 [04]:http://wiki.wrtnode.com/index.php?title=Starting
 [05]:http://linux.about.com/library/cmd/blcmdl8_iwevent.htm
 [06]:http://www.linuxjournal.com/article/8498
-[07]:https://calomel.org/dhclient.html
+[07]:
 [08]:https://help.ubuntu.com/14.04/ubuntu-help/net-wireless-connect.html
 [09]:http://www.cyberciti.biz/hardware/linux-install-nicstat-command-to-print-network-statistics-for-nics/
 [10]:http://www.binarytides.com/linux-netstat-command-examples/
@@ -479,13 +509,13 @@ Next will be Ubiquiti equipment with others supported as development resources p
 [28]:http://linux.die.net/man/1/busybox
 [29]:http://www.linuxjournal.com/content/handy-u-boot-trick
 [30]:http://www.addictivetips.com/mobile/what-is-bootloader-and-how-to-unlock-bootloader-on-android-phones-complete-guide/
-[31]:
-[32]:
-[33]:
-[34]:
-[35]:
-[36]:
-[37]:
-[38]:
+[31]:http://linux.die.net/man/1/telnet
+[32]:https://www.adafruit.com/products/284
+[33]:http://www.peatonet.com/en/hazte-tu-propio-router-con-wrtnode-controlando-wrtnode-a-traves-del-puerto-serie-de-consola/
+[34]:http://hackaday.com/2009/09/18/how-to-write-udev-rules/
+[35]:http://wiki.debian.org/udev
+[36]:http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/
+[37]:http://en.wikipedia.org/wiki/MIPS_instruction_set
+[38]:http://www.systemc-cpu-models.org/mips_models/24kec/
 [39]:
 [40]:

@@ -37,6 +37,11 @@ Summary: bla bla bla
 Quick Mesh Project (qMp) is a system for easily deploying Mesh/MANET networks using Wi-Fi technology.
 The qMp firmware, based on OpenWrt, works on many embedded WiFi network devices. 
 * [Quick Mesh Project (qMp)](http://qmp.cat/Home)
+    * [Quick deployment network using MANET](http://upcommons.upc.edu/pfc/bitstream/2099.1/14103/1/77789.pdf)
+
+## Long Range Repeater
+* [The Making of a Beast: WRT54G Mods, Part One](http://www.instructables.com/id/The-Making-of-a-Beast-WRT54G-Mods-Part-One/?ALLSTEPS)
+* [The Making of a Beast: Part Two, The BiQuad Antenna](http://www.instructables.com/id/The-Making-of-a-Beast-Part-Two-The-BiQuad-Antenn/?ALLSTEPS)
 
 ## Special Hardware
 * [WRTnode](http://wrtnode.com/)

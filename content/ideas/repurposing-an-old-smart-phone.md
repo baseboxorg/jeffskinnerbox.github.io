@@ -60,7 +60,7 @@ Other stuff
 * [How to make your smartphone as spy camera](http://www.instructables.com/id/how-to-make-your-smartphone-as-spy-camera/)
 * [HOWTO: GSM Base Station with the BeagleBone Black, Debian GNU/Linux and a USRP](http://discourse.criticalengineering.org/t/howto-gsm-base-station-with-the-beaglebone-black-debian-gnu-linux-and-a-usrp/56)
 * [Obtaining a SIM](https://learn.adafruit.com/adafruit-fona-mini-gsm-gprs-cellular-phone-module/obtaining-a-sim)
-* []()
+* [Turning Android into a Robotic Operating System](http://www.technolabsz.com/2012/03/ros-on-android-phone.html)
 * []()
 * []()
 

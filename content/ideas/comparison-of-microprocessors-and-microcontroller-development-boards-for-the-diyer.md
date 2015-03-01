@@ -98,15 +98,23 @@ The mbed OS is free, will be available to ARM’s partners and developers in 4Q1
 * [WaRP](http://www.warpboard.org/)
 * [CuBox](http://www.solid-run.com/product/cubox-i2/)
 
-## Other Processors
+## MIPS
+MIPS (originally an acronym for Microprocessor without Interlocked Pipeline Stages)
+is a reduced instruction set computer (RISC) instruction set (ISA)
+developed by MIPS Technologies.
+
 * [WRTnode](http://wrtnode.com/) - 
 The MT7620 router-on-a-chip includes an 802.11n MAC and baseband,
-a 2.4 GHz radio, a 580 MHz CPU, a 5-port 10/100 switch
+a 2.4 GHz radio,
+a 580 MHz [MIPS][37] CPU ([MIPS 24KEc][38]),
+a 5-port 10/100 switch
 and two Reduced Gigabit Media Independent Interface (RGMII).
 The CPU can process advanced
 applications such as routing, security, and VoIP.
 The MT7620 also includes a selection of interfaces to support a variety of applications,
 such as a USB port for accessing external storage.
+
+## Other Processors
 * [pcDuino3](http://www.pcduino.com/pcduino-v3/) -
 Allwinner Technology is a China-based fabless semiconductor company that designs
 mixed-signal [SoC][06] and provides total system solution.
@@ -192,3 +200,5 @@ Wireless Enabled
 [19]:
 [20]:
 
+[37]:http://en.wikipedia.org/wiki/MIPS_instruction_set
+[38]:http://www.systemc-cpu-models.org/mips_models/24kec/

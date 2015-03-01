@@ -26,7 +26,7 @@ The iproute2 collection contains the following command-line utilities:
 
 * Tools for Querying / Configuring IP Network
     * [`ip`][17] shows and manipulates routing, devices, policy routing, and tunnels
-    * [`ifconfig`][16] is a  network interface configuration, control, and query tool.
+    * [`ifconfig`][16] is a network interface configuration, control, and query tool.
     The `ifconfig` command is deprecated and you can replace `ifconfig` by `ip link`.
     * [`tc`][19] (traffic control) configures and controls the Linux kernel's
     network scheduler to show and manipulate network traffic control settings

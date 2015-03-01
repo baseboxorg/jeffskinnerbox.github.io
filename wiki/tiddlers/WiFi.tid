@@ -1,5 +1,6 @@
 created: 20141031234229646
-modified: 20141031235310025
+modified: 20150301162438240
+tags: WiFi
 title: WiFi
 type: text/vnd.tiddlywiki
 
@@ -12,4 +13,4 @@ If your Level 3 protocol is IP,
 then you can run any of several Level 4 protocols on top of that, such as TCP or UDP.
 The Level 4 protocols transfer data between specified "ports" (basically, just numerical addresses) on the hosts at the two ends, and they can do it very reliably, though with high overhead (connection oriented TCP), not reliably, but with low overhead (connection-less UDP), or in various other ways.
 
-''Note'': Bluetooth networks are kind of like LANs, but are not normally thought of in this model, because they are only used for point-to-point communication between devices close together (10 m). Bluetooth is really just a wireless replacement for a serial cable.
+''Note'': [[Bluetooth]] networks are kind of like LANs, but are not normally thought of in this model, because they are only used for point-to-point communication between devices close together (10 m). Bluetooth is really just a wireless replacement for a serial cable.
