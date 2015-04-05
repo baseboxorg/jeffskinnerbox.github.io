@@ -1,5 +1,5 @@
 created: 20150301154024781
-modified: 20150301203059337
+modified: 20150327023255510
 tags: WiFi
 title: WiFi Operating Modes
 type: text/vnd.tiddlywiki
@@ -10,7 +10,7 @@ or [[WDS with AP Mode|http://www.dlink.com/uk/en/support/faq/access-points-and-r
 of the six modes that 802.11 wireless cards can operate in:
 
 # [[Master / Access Point|AP Mode]] - acting as an access point (AP)
-# [[Managed / Station / STA / Access Point Client / Wireless Client|STA Mode]] - act as a client (also known as station, STA) to an access point
+# [[Managed / Station / STA / Access Point Client / Wireless Client / Client|STA Mode]] - act as a client to an access point
 # [[Ad-Hoc / Point-to-Point / Wireless Bridge|Ad-Hoc Mode]] - directly connecting two or more computers without an access point
 # [[Mesh / Point-to-Multipoint / Multi-point Bridge|Mesh Mode]] - decentralized interconnection with other wireless access points
 # [[Repeater / WDS|WDS Mode]] - wireless interconnection to other access points to form a single managed network

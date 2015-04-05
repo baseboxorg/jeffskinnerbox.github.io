@@ -1,0 +1,18 @@
+created: 20150314230118415
+modified: 20150327014838520
+tags: Networking
+title: Network Address Translation
+type: text/vnd.tiddlywiki
+
+Network address translation (NAT) is a methodology of remapping
+one [[IP address|IP Address]] space into another by modifying network address
+information in Internet Protocol (IP) datagram packet headers
+while they are in transit across a traffic routing device.
+
+Every router does NAT and has both an internal IP address and an external IP address.
+The external IP address is the one that connects that router to the [[Wide Area Network]] (WAN).
+Usually the WAN is the Internet.
+The internal IP address connects the router to the internal network.
+
+* [[How Network Address Translation Works|http://computer.howstuffworks.com/nat.htm]]
+* [[IP Masquerade and Network Address Translation|http://www.oreilly.com/openbook/linag2/book/ch11.html]]

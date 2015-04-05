@@ -1,16 +1,16 @@
 created: 20150301215008322
-modified: 20150301215441319
+modified: 20150314224711964
 tags: Networking WiFi
 title: Network Router
 type: text/vnd.tiddlywiki
 
-[[Routing|http://en.wikipedia.org/wiki/Routing]]
+[[Routing]]
 is the process of selecting best paths in a network.
 In packet switching networks,
 routing directs packet forwarding
 (the transit of logically addressed network packets from their source toward their ultimate destination)
 through intermediate nodes.
-Intermediate nodes are typically network hardware devices such as routers, [[bridges|Network Bridge]],
+Intermediate nodes are typically network hardware devices such as [[routers|Router]], [[bridges|Network Bridge]],
 [[gateways|Network Gateway]],
 [[firewalls|Network Firewall]], or
 [[switches|Network Switch]]. 

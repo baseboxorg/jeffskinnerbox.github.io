@@ -1,5 +1,5 @@
 created: 20150301214147772
-modified: 20150301215411743
+modified: 20150322002421049
 tags: WiFi Networking
 title: Network Bridge
 type: text/vnd.tiddlywiki
@@ -13,7 +13,7 @@ Bridging is distinct from [[routing|Network Router]],
 which allows multiple different networks to communicate independently while remaining separate.
 
 A network bridge is a network device that connects multiple network segments.
-In the [[OSI Model]],
+In the [[OSI Model|Open Systems Interconnection]],
 bridging is performed in the first two layers, below the network layer.
 
 There are four types of network bridging technologies:

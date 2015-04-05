@@ -1,5 +1,5 @@
 created: 20141125030141346
-modified: 20150221031026792
+modified: 20150404024451247
 title: Retro Technology
 type: text/vnd.tiddlywiki
 
@@ -8,6 +8,10 @@ type: text/vnd.tiddlywiki
 
 [[Harmonic Analyzer|https://www.youtube.com/watch?v=NAsM30MAHLg]]
 - A nineteenth century mechanical computer that performed Fourier analysis by using gears, springs and levers to calculate with sines and cosines.
+
+AT&T produced the video "[[Seeing the Digital Future|https://www.youtube.com/watch?v=avHo0-qU8xo]]" and
+brags about things like the Data-Phone which could transmit
+at up to a bit-rate of 110 bits per second.
 
 [[Mechanical Computer|https://www.youtube.com/watch?v=s1i-dnAH9Y4]]
 - Mathematical computation via mechanical form is discussed for fire control computer aboard Navy Ships.
@@ -39,3 +43,17 @@ was the brand for electronic kits ranging from test equipment, ~HiFis, amateur r
 A [[teleprinter|https://www.youtube.com/watch?v=HcMHam54EOI#t=516]]
 (teletypewriter, Teletype or TTY) is an electromechanical typewriter that can be used to send and receive typed messages from point to point and point to multipoint over various types of communications channels.
 Teleprinters were invented in order to send and receive messages without the need for operators trained in the use of Morse code.
+
+This training film on [[Basic Telephony|https://www.youtube.com/watch?v=BKfa27PTE_s#t=29]]
+(and it's [[part 2|https://www.youtube.com/watch?v=jKvllL2zxGo]])
+describes the common household telephone prior to todays digital telephony.
+
+The [[Semi-Automatic Ground Environment (SAGE) System|https://www.youtube.com/watch?v=06drBN8nlWg]],
+was designed and built in the 1950s to defend against the threat
+of Soviet bombers attacking the continental United States.
+
+The [[UNIX Operating System|https://www.youtube.com/watch?v=tc4ROCJYbm0]]
+was developed to make the job of creating software systems easier,
+and in general, make the interaction of computers with people easier.
+This productivity gain was taken further with the introduction of the
+[[Blit|https://www.youtube.com/watch?v=Pr1XXvSaVUQ]], an early windowed graphic interface for Unix.

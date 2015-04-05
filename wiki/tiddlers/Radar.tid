@@ -1,5 +1,5 @@
 created: 20140916012206395
-modified: 20150208023658160
+modified: 20150306221811872
 tags: Projects
 title: Radar
 type: text/vnd.tiddlywiki
@@ -34,4 +34,5 @@ type: text/vnd.tiddlywiki
 * [[Extremely Detailed FMCW Radar Build|http://hackaday.com/2014/12/03/extremely-detailed-fmcw-radar-build/]]
 
 !!Alternatives
-[[Laser Scanner, Laser Rangefinders, and Laser Writing]]
+* [[Laser Scanner, Laser Rangefinders, and Laser Writing]]
+* [[Introduction into Theory of Direction Finding|http://www.rohde-schwarz-usa.com/rs/rohdeschwarz/images/TheoryofDF.pdf?mkt_tok=3RkMMJWWfF9wsRoiu63IZKXonjHpfsXx6u0pWbHr08Yy0EZ5VunJEUWy24YISdQ/cOedCQkZHblFnV8KTq2gSqgNrqIK]]

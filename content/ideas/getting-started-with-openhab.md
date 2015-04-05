@@ -18,7 +18,9 @@
 
 
 # Other
+* [Twilio - SMS Messaging and more](https://www.twilio.com/)
 * [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&hl=en)
 * [Wit.ai - Natural Language for the Internet of Things](https://wit.ai/)
 * [Using The Wink Hub With OpenHAB](http://hackaday.com/2015/01/08/using-the-wink-hub-with-openhab/)
 * [WeatherBug](http://weatherbughome.com/tstat/)
+* [OpenEnergyMonitor](http://openenergymonitor.org/emon/)

@@ -8,13 +8,13 @@ In early September 2014, I [became aware][04] of a new
 has appeared in the market from China for $7.
 (**Note:** In [some places][06], you see this device refered to as the Wi07c.)
 Initially, [not much is know about this chip][02]
-but it does appear to have [TI CC3000][03] [like-functionality][05]
+but it does appear to have [TI CC3000][03] [like-functionality][05].
 
 The ESP8266 has builtin TCP/IP using [LwIP][11],
 supports the [802.11b/g/n standard][10],
 [WiFi Direct (P2P)][12],
 [SoftAP (aka virtual router)][13],
-and it can operate in three modes: [AP, STA and AP+STA][14]
+and it can operate in three modes: [AP, STA and AP+STA][14].
 
 The ESP8266 has the potential to be a game changer
 WiFi has always been expensive for small projects (e.g. Arduino Ethernet or WiFi board will cost you $35).
@@ -167,6 +167,8 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
 
 * Toolchain and Development Boards
     * [Upgrading the firmware in the flash of an ESP8266 module](http://www.xess.com/blog/esp8266-reflash/)
+    * [Flashing New Firmware via UART](http://www.esp8266.com/viewtopic.php?f=6&t=33)
+    * [The esptool.py site that contains information about uploading programs to the ESP8266 and alternative wiring schemes that can help with flashing](https://github.com/themadinventor/esptool/)
     * [Shows how to update the ESP8266 firmware](http://blog.electrodragon.com/cloud-updating-your-wi07c-esp8266-now/)
     * [change the module firmware via Raspberry Pi](http://www.extragsm.com/blog/2014/12/16/use-esp8266-module-as-a-wireless-switcher/)
     * [Seeed Studio's ESP8266 IoT SDK](http://www.seeedstudio.com/document/pdf/esp_iot_sdk_v0.6.zip)
@@ -174,6 +176,7 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
     * [Compiling Your Own Programs for the ESP8266/](http://hackaday.com/2014/12/08/compiling-your-own-programs-for-the-esp8266/)
     * [A Development Board for the ESP8266-03](http://www.limpkin.fr/index.php?post/2014/11/27/A-Development-Board-for-the-ESP8266-03)
     * [Hack allows ESP-01 to go to Deep Sleep](http://hackaday.com/2015/02/08/hack-allows-esp-01-to-go-to-deep-sleep/)
+    * [How to Directly Program an Inexpensive ESP8266 WiFi Module](http://hackaday.com/2015/03/18/how-to-directly-program-an-inexpensive-esp8266-wifi-module/)
     * Using the Lua Programming Language
         * [Lua Programming Language](http://www.lua.org/)
         * [The.Lua.Tutorial](http://luatut.com/)
@@ -224,8 +227,8 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
 
 
 ## More
-[The Pain of Connecting to WPA Wi-Fi on the Linux Command Line](http://www.sevenforge.com/2009/07/28/connecting-to-wpa-wifi-on-the-command-line/)
-[NetworkConfigurationCommandLine/Automatic](https://help.ubuntu.com/community/NetworkConfigurationCommandLine/Automatic)
+* [The Pain of Connecting to WPA Wi-Fi on the Linux Command Line](http://www.sevenforge.com/2009/07/28/connecting-to-wpa-wifi-on-the-command-line/)
+* [NetworkConfigurationCommandLine/Automatic](https://help.ubuntu.com/community/NetworkConfigurationCommandLine/Automatic)
 
 
 

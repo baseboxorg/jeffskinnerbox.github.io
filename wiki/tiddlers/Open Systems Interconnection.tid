@@ -1,6 +1,7 @@
 created: 20141031233607416
-modified: 20141031233644898
-title: Open Systems Interconnection (OSI)
+modified: 20150322001611913
+tags: Networking
+title: Open Systems Interconnection
 type: text/vnd.tiddlywiki
 
 Open Systems Interconnection (OSI) model is a conceptual model that characterizes and standardizes the internal functions of a communication system by partitioning it into abstraction layers. The model is a product of the Open Systems Interconnection project at the International Organization for Standardization (ISO), maintained by the identification ISO/IEC 7498-1.

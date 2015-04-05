@@ -1,5 +1,5 @@
 created: 20140919015516864
-modified: 20150208022315826
+modified: 20150321023815786
 tags: [[Metering & Monitoring]]
 title: Automatic Meter Reading
 type: text/vnd.tiddlywiki
@@ -16,3 +16,4 @@ type: text/vnd.tiddlywiki
 *[[DIY Water Usage Meter|http://electronics-diy.com/electronic_schematic.php?id=998]]
 *[[Low power wireless gas meter monitoring|http://perso.aquilenet.fr/~sven337/english/2014/03/18/Gas-meter-monitoring-wireless-battery-arduino.html]]
 *[[Electricity Monitoring with a Light-to-Voltage Sensor, MQTT and some Duct Tape|http://hackaday.com/2014/08/01/electricity-monitoring-with-a-light-to-voltage-sensor-mqtt-and-some-duct-tape/]]
+* [[detects whether water is flowing through a pipe|http://www.ohnitsch.net/2015/03/18/measuring-heart-rate-with-a-piezoelectric-vibration-sensor/]]

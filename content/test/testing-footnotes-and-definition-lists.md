@@ -67,6 +67,18 @@ Apple
 Orange
 :    The fruit of an evergreen tree of the genus Citrus.
 
+This was created via this block of Markdown text:
+
+```
+Apple
+:   Pomaceous fruit of plants of the genus Malus in 
+    the family Rosaceae.
+:   An American computer company.
+
+Orange
+:    The fruit of an evergreen tree of the genus Citrus.
+```
+
 
 
 [01]:http://pythonhosted.org/Markdown/extensions/footnotes.html

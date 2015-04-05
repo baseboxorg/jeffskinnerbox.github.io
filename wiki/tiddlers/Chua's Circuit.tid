@@ -1,5 +1,5 @@
 created: 20141212023135765
-modified: 20150208023248641
+modified: 20150304212954151
 tags: Projects
 title: Chua's Circuit
 type: text/vnd.tiddlywiki
@@ -11,3 +11,7 @@ They are considered to be a classic example of true chaos due to their design an
 * Three Steps to Chaos
 ** [[Part I: Evolution|http://www.eecs.berkeley.edu/~chua/papers/Kennedy93.pdf]]
 ** [[Part II: A Chua's Circuit Primer|http://www.eecs.berkeley.edu/~chua/papers/Kennedy93b.pdf]]
+
+Other chaotic systems:
+
+* [[Powered Double Pendulum is a Chaotic Display|http://hackaday.com/2015/02/25/powered-double-pendulum-is-a-chaotic-display/]]

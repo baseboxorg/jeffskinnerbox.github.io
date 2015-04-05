@@ -1,5 +1,5 @@
 created: 20141102160206239
-modified: 20150210022745922
+modified: 20150322003153807
 title: GettingStarted
 type: text/vnd.tiddlywiki
 
@@ -54,7 +54,7 @@ is to select `text/vnd.tiddlywiki` in the text type menu at the bottom of the pa
 
 !!~TiddlyDesktop
 [[TiddlyDesktop|http://tiddlywiki.com/#TiddlyDesktop]]
-is a special purpose web browser for working with locally stored TiddlyWikis.
+is a special purpose web browser for working with locally stored ~TiddlyWikis.
 
 !!Creating HTML File
 The [[TiddlyWiki website documents|http://tiddlywiki.com/static/Generating%2520Static%2520Sites%2520with%2520TiddlyWiki.html]]

@@ -1,5 +1,5 @@
 created: 20150110190138590
-modified: 20150110192906516
+modified: 20150303135034986
 tags: 
 title: Quantum Computer
 type: text/vnd.tiddlywiki
@@ -13,3 +13,4 @@ type: text/vnd.tiddlywiki
 * [[QCL - A Programming Language for Quantum Computers|http://tph.tuwien.ac.at/~oemer/qcl.html]]
 * [[Quantum Gate And Measurement Emulator|http://faculty.hampshire.edu/lspector/qgame.html]]
 * [[jQuantum - Quantum Computer Simulator|http://jquantum.sourceforge.net/]]
+* [[Quantum Simulator|http://www.bristol.ac.uk/physics/research/quantum/qcloud/simulator/]]

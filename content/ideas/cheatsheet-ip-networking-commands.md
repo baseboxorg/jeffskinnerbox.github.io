@@ -345,6 +345,90 @@ To check to see what services are running on a box
 sudo nmap -sV 192.168.1.1
 ```
 
+# Routing
+_Routing_ is a means of sending an IP packet from one point to another.
+In computer networking, a _router_ is a device responsible for forwarding network traffic. 
+On Linux and UNIX systems,
+information on how packets are to be forwarded is stored in a
+kernel structure called a _routing table_.
+In effect, a routing table is a set of rules,
+that is used to determine where data packets, traveling over an IP network, will be directed.
+All IP-enabled devices, including computer hosts, routers, and switches, use routing tables.
+
+Today, most of the multiuser systems (aka hosts) can be configured to act as a router.
+So, a common routing algorithm can be specified that can be used by the router as well as by a host.
+When a host can act like a router,
+it is generally said that the host has an _embedded router_ functionality.
+Such a host which has an embedded router functionality,
+should never forward datagrams until and unless configured to do so (i.e. configured to act like a router).
+
+The routing table can be used for both _static routing_ and _dynamic routing_.
+Dynamic routing consists of the kernel making decisions as to which route,
+out of multiple present routes, a packet should take.
+Static routing is a form of routing that occurs when a router
+uses a manually-configured routing entry,
+rather than information from a dynamic routing protocol to forward traffic. 
+
+The data in routing table contains the following main entries:
+
+Destination IP address
+:   This  field represents the IP address of the destination.
+    This IP address could be the address of a single host or could that be of a network.
+IP address of next router
+:   This entry gives the IP address of the next router which decides how to
+    further send an IP data gram received on its interface.
+Flags
+:   This field provides information like destination IP address (specified above)
+    is a host address or a network address or convey whether the next router
+    (specified above) is really a next router or a directly connected interface.
+Network interface specs
+:   Some specification about the network interface the datagram should
+    be passed for further transmission.
+
+For further information and education, see
+
+* [Introduction to Linux IP Routing Fundamentals (Part 1)](http://www.thegeekstuff.com/2012/04/ip-routing-intro/)
+
+## Display the Routing Table
+Each entry is nothing but an entry in the routing table (Linux kernel routing table).
+
+```bash
+# display the kernel routing table
+$ sudo route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.1.1     0.0.0.0         UG    0      0        0 eth1
+192.168.1.0     0.0.0.0         255.255.255.0   U     1      0        0 eth1
+
+# using netstat
+$ netstat -r
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+default         Wireless_Broadb 0.0.0.0         UG        0 0          0 eth1
+192.168.1.0     *               255.255.255.0   U         0 0          0 eth1
+
+# the -n option means that you want numerical IP addresses displayed
+$ netstat -rn
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+0.0.0.0         192.168.1.1     0.0.0.0         UG        0 0          0 eth1
+192.168.1.0     0.0.0.0         255.255.255.0   U         0 0          0 eth1
+```
+
+The output provides a detailed information in the destination IP addresses and their gateways.
+The flag ‘U’ suggests that the route is up,
+and the flag ‘G’ suggests that the router is to a gateway (router).
+If this flag is not set then it can be assumed that the destination is directly connected.
+
+```bash
+# using the iproute2 suite
+$ ip route list
+default via 192.168.1.1 dev eth1  proto static 
+192.168.1.0/24 dev eth1  proto kernel  scope link  src 192.168.1.4  metric 1
+```
+
+## Diagnosing Routing Problems
+http://www.coyotepoint.com/files/downloads/StaticRoutes.pdf
 
 # Definitions and Concepts
 All components that can connect into a wireless medium in a network are referred to as **stations**.
@@ -476,6 +560,10 @@ could be gathered for this cheat sheet.
 * [7 Things Wi-Fi Hackers Hope You Don't Know](http://www.nowiressecurity.com/articles/things_wi-fi_hackers_hope_you_dont_know.htm)
 * [First Linux Release of Wi-Fi app inSSIDer Available to Download](http://www.omgubuntu.co.uk/2011/01/wi-fi-app-inssider-2-linux-alpha-released)
 
+# Route
+* [Linux route Add Command Examples](http://www.cyberciti.biz/faq/linux-route-add/)
+* [The Linux ip Command – An Ostensive Overview](http://packetpushers.net/linux-ip-command-ostensive-definition/)
+
 # Nmap
 * [Beginner's Guide to Nmap](http://www.linux.com/learn/tutorials/290879-beginners-guide-to-nmap)
 * [Top 30 Nmap Command Examples For Sys/Network Admins](http://www.cyberciti.biz/networking/nmap-command-examples-tutorials/)
@@ -490,7 +578,6 @@ could be gathered for this cheat sheet.
 
 # Kismet
 * [How to use Kismet: A free Wi-Fi network-monitoring tool](http://searchsecurity.techtarget.com/video/How-to-use-Kismet-A-free-Wi-Fi-network-monitoring-tool?videoId=8eb0fc2d1aa26410VgnVCM1000000d01c80aRCRD)
-
 
 # Arbitrary Network Packets
 * [HOWTO: Crafting arbitrary network packets with socat](http://discourse.criticalengineering.org/t/howto-crafting-arbitrary-network-packets-with-socat/51/last)

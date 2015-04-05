@@ -1,11 +1,11 @@
 created: 20141031234229646
-modified: 20150301162438240
+modified: 20150322002356852
 tags: WiFi
 title: WiFi
 type: text/vnd.tiddlywiki
 
 WiFi, also spelled Wifi or Wi-Fi, is a local area wireless technology that allows an electronic device to exchange data or connect to the internet using 2.4 GHz UHF and 5 GHz SHF radio spectrum.
-WiFi implements [[OSI|Open Systems Interconnection model (OSI)]] Layers 1 and 2, and
+WiFi implements [[OSI|Open Systems Interconnection]] Layers 1 and 2, and
 once you have a Layer 1 and 2 infrastructure, you then have a local network (LAN).
 You can then run any Level 3 inter-networking protocol, such as IP, IPX, AppleTalk, etc. over the LAN.
 

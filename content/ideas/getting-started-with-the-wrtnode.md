@@ -23,6 +23,11 @@ so when making connections, we must reverse the pinout.
 
 # Components that Make Up WRTNode
 ## OpenWrt
+OpenWrt is a desendent of the firmware used for the classic [Linksys WRT54G][39] router.
+In fact, this classic Linksys series of routers lead to [DD-WRT][41], [OpenWrt][40], [Tomato][42],
+and countless other open-source firmwares. 
+Read "[The Open Source WRT54G Story][43]" if you want more of a history lesson.
+
 OpenWrt is described as a Linux distribution for embedded devices,
 and primarily used on embedded devices to route network traffic.
 Like other Linux distributions,
@@ -517,5 +522,15 @@ Next will be Ubiquiti equipment with others supported as development resources p
 [36]:http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/
 [37]:http://en.wikipedia.org/wiki/MIPS_instruction_set
 [38]:http://www.systemc-cpu-models.org/mips_models/24kec/
-[39]:
-[40]:
+[39]:http://en.wikipedia.org/wiki/Linksys_WRT54G_series
+[40]:https://openwrt.org/
+[41]:http://www.dd-wrt.com/site/index
+[42]:http://www.polarcloud.com/tomato
+[43]:http://www.wi-fiplanet.com/tutorials/article.php/3562391
+[44]:
+[45]:
+[46]:
+[47]:
+[48]:
+[48]:
+[50]:

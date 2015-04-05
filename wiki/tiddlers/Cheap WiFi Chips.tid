@@ -1,34 +1,66 @@
 created: 20141031210819253
-modified: 20150301162619079
+modified: 20150324022109976
 tags: WiFi Pontifications
 title: Cheap WiFi Chips
-type: text/vnd.tiddlywiki
+type: text/x-markdown
 
-!State of the Art
-!!~WiFi Radio
-Texas Instruments offering a WiFi chip solution to the IoT revolution with the introduction of the ~SimpleLink WiFi CC3000 module.
+In early September 2014, I [became aware][04] of a new
+(and potentially game changing)
+[WiFi transceiver breakout board with a ESP8266 SoC chip][01]
+that appeared in the market for $4 in small quantities.
+(**Note:** In [some places][06], you see this device referred to as the Wi07c.)
+Initially, [not much was know about this chip][02]
+but that has changed rapidly xxxxxx.
+
+The ESP8266 has builtin TCP/IP using [LwIP][11],
+supports the [802.11b/g/n standard][10],
+[WiFi Direct (P2P)][12],
+[SoftAP (aka virtual router)][13],
+and it can operate in three modes: [AP, STA and AP+STA][14].
+Sadly, no support for Ad-Hoc or Mesh modes.
+
+# So Why Should I Care?
+This is a lot of technical jargon ... what does it mean?
+
+Well, prior to the arrival of this chip, you would need to pay almost ten time as much money
+and still not have all the capabilities of this little WiFi breakout board.
+For example, Texas Instruments offering a WiFi chip solution to the IoT revolution with the introduction of the [SimpleLink WiFi CC3000 module][03].
 Enabling IoT devices to connected via WiFi on a headless devices
 (i.e. no keypads or input device) can be complicated.
 The CC3000 module features the SmartConfig technology,
- a WiFi configuration process developed by TI that allows multiple in-home devices without displays to connect to a ~WiFi network via a smartphone or tablet easily.
-The [[CC3000 is about $10| http://www.edn.com/electronics-products/readers--choice-2013--toyota-s-killer-firmware--epic-apple-fails--raspberry-pi--more/4404215/Self-contained-Wi-Fi-module-simplifies-Internet-connectivity]]
-and [[breakout board level implementations are about $35| http://www.adafruit.com/products/1469]].
+ a WiFi configuration process developed by TI that allows multiple in-home devices without displays to connect to a WiFi network via a smartphone or tablet easily.
+The [CC3000 chip is about $10][07] and a [breakout board level implementations are about $35][08].
 
-!!Other Low Cost Radios
+## Other Low Cost Radios
 There are non-WiFi radios that are even cheaper:
 
-#low power, small packet size, 2.4GHz [[Nordic nRF2401+|http://www.nordicsemi.com/eng/Products/2.4GHz-RF/nRF24L01P]] with a [[breakout board at about $1|http://www.amazon.com/2013newestseller-NRF24L01-Antenna-Wireless-Transceiver/dp/B00FDPTUC6/ref=sr_1_2?ie=UTF8&qid=1410530918&sr=8-2&keywords=nRF24L01%2B]] in volume.
-#RFM69 family of ~HopeRF Wireless Transceiver operate with multiple ISM bands and all cost about [[$4 per breakout board|http://www.ebay.com/sch/i.html?_sacat=0&_from=R40&_nkw=RFM69]].
+* low power, small packet size, 2.4GHz [Nordic nRF2401+][09] with a [breakout board at about $4][15] in small volume.
+* RFM69 family of HopeRF Wireless Transceiver operate with multiple ISM bands and all cost about [$4 per breakout board][16].
 
-!Emerging Tech
-A new [[WiFi breakout board with a ESP8266 chip| http://www.seeedstudio.com/depot/WiFi-Serial-Transceiver-Module-w-ESP8266-p-1994.html]] has appeared in the market from China for $7.
-As of early September 2014,
-[[not much is know about this chip| http://hackaday.com/2014/09/06/the-current-state-of-esp8266-development/]],
-but it does appear to have CC3000 like functionality.
+# Emerging Tech
+??
 
-!Impact
 Easy and cheap WiFi (i.e. TCP/IP) connectivity for IoT devices would be a game changer.
 It would bring down the price point of radios  to the range of the Nordic nRF2401+ and the ~HopeRF RFM69.
-Of course, these are not ~WiFi radios but wouldn't that be worth $6 more.
-Sure beats $34 extra for ~WiFi before the ESP8266.
+Of course, these are not WiFi radios but wouldn't that be worth $6 more.
+Sure beats $34 extra for WiFi before the ESP8266.
 More time and research is needed to make sure this true.
+
+
+
+[01]:http://www.seeedstudio.com/depot/WiFi-Serial-Transceiver-Module-w-ESP8266-p-1994.html
+[02]:http://hackaday.com/2014/09/06/the-current-state-of-esp8266-development/
+[03]:http://www.ti.com/lit/ds/symlink/cc3000.pdf
+[04]:http://hackaday.com/2014/08/26/new-chip-alert-the-esp8266-wifi-module-its-5/
+[05]:http://hackaday.com/2013/01/12/finally-ti-is-producing-simple-cheap-wifi-modules/
+[06]:http://www.electrodragon.com/product/esp8266-wi07c-wifi-module/
+[07]:http://www.edn.com/electronics-products/readers--choice-2013--toyota-s-killer-firmware--epic-apple-fails--raspberry-pi--more/4404215/Self-contained-Wi-Fi-module-simplifies-Internet-connectivity
+[08]:http://www.adafruit.com/products/1469
+[09]:http://www.nordicsemi.com/eng/Products/2.4GHz-RF/nRF24L01P
+[10]:http://compnetworking.about.com/cs/wireless80211/a/aa80211standard.htm
+[11]:http://lwip.wikia.com/wiki/LwIP_Wiki
+[12]:http://www.techradar.com/us/news/phone-and-communications/mobile-phones/wi-fi-direct-what-it-is-and-why-you-should-care-1065449
+[13]:http://en.wikipedia.org/wiki/SoftAP
+[14]:http://wireless.kernel.org/en/users/Documentation/modes
+[15]:http://www.amazon.com/2013newestseller-NRF24L01-Antenna-Wireless-Transceiver/dp/B00FDPTUC6/ref=sr_1_2?ie=UTF8&qid=1410530918&sr=8-2&keywords=nRF24L01%2B
+[16]:http://www.ebay.com/sch/i.html?_sacat=0&_from=R40&_nkw=RFM69
