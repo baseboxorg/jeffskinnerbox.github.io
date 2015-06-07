@@ -236,7 +236,7 @@ but none organized the way I&amp;nbsp;want.&lt;/p&gt;
 &lt;td align="left"&gt;Enter insert mode but replace characters rather than inserting.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align="center"&gt;&lt;Esc&gt;&lt;/td&gt;
+&lt;td align="center"&gt;Esc&lt;/td&gt;
 &lt;td align="left"&gt;Exit insert/overwrite mode and go back to command mode.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -1276,7 +1276,7 @@ and are unashamedly equipped with a built in phone jack / modem, &lt;a href="htt
 a 1.44-&lt;span class="caps"&gt;MB&lt;/span&gt; floppy disk drive, and proudly hosting Microsoft Windows 98 Second&amp;nbsp;Edition!&lt;/p&gt;
 &lt;p&gt;The installed 10G drive was wiped clean but the laptops did come with the ordinal recovery disk.
 Using the recovery disk, I quickly got the Microsoft Windows 98 operating system installed.
-There was no login prompt / password required &amp;#8230; wow, not much security&amp;nbsp;here.&lt;/p&gt;
+There was no login prompt or password required &amp;#8230; wow, not much security&amp;nbsp;here.&lt;/p&gt;
 &lt;p&gt;I activated the browser, that being Microsoft Internet Explorer 6.0.
 During the activation, it asked if I wished to access the Internet via a modem
 &lt;em&gt;&amp;#8230; Ahhhh, nooo!  It&amp;#8217;s the ghost of Internet past!&lt;/em&gt;
@@ -4265,6 +4265,10 @@ sudo dpkg -i logitechmediaserver_7.8.1~1411629722_all.deb
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;Someone at Logitech had the brilliant idea that MP3s and other audio files
+should be stored in an online service a while back,
+something that doesn&amp;#8217;t sit well with me, I prefer to keep them on my &lt;span class="caps"&gt;LAN&lt;/span&gt;.
+Consider this to &lt;a href="http://www.instructables.com/id/Wall-Mounted-SqueezePlayer-with-Raspberry-Pi/?ALLSTEPS"&gt;roll your own Squeezebox with a Raspberry Pi&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;Configuring Samsung &lt;span class="caps"&gt;SCX&lt;/span&gt;-4521F&amp;nbsp;Printer/Scanner&lt;/h2&gt;
 
 &lt;p&gt;When it comes to printers and scanners, Ubuntu advices that you should simply plug it in and try!

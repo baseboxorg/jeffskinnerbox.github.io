@@ -49,7 +49,7 @@ Jeff's Skinner Box&nbsp;            </a>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                     <li><a href="/pages/about-me/">About Me</a></li>
-                    <li><a href="http://jeffskinnerbox-wiki.herokuapp.com/">Wiki</a></li>
+                    <li><a href="http://jeffskinnerbox-wiki.herokuapp.com/">MicroContent</a></li>
                     <li><a href="/pages/open-notebook/">Open Notebook</a></li>
             </ul>
             <ul class="nav navbar-nav">
@@ -77,8 +77,14 @@ Jeff's Skinner Box&nbsp;            </a>
 <h2>Footnote&nbsp;Formatting</h2>
 <p>Python-Markdown’s Footnote syntax generally follows the community at large version of
 Markdown but provides some extra‘s such as footnotes. 
-For&nbsp;example:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">[^a]: This is a footnote content.
+For example,
+the the following block of&nbsp;text:</p>
+<p>Footnotes<sup id="fnref:a"><a class="footnote-ref" href="#fn:a" rel="footnote">1</a></sup> have a label<sup id=&#8221;fnref:@#<mathjax>$%"><a class="footnote-ref" href="#fn:@#$</mathjax>%&#8221; rel=&#8221;footnote&#8221;>2</a></sup> and the footnote&#8217;s content.
+And you can have formating within the footnote<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">3</a></sup>.</p>
+<p>This was created via this block of Markdown&nbsp;text:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Footnotes[^a] have a label[^@#$%] and the footnote&#39;s content.
+And you can have formating within the footnote[^2].
+[^a]: This is a footnote content.
 [^@#$%]: A footnote on the label: &quot;@#$%&quot;.
 [^2]: 
     The first paragraph of the definition.
@@ -94,9 +100,7 @@ For&nbsp;example:</p>
 </pre></div>
 
 
-<p>Footnotes<sup id="fnref:a"><a class="footnote-ref" href="#fn:a" rel="footnote">1</a></sup> have a label<sup id=&#8221;fnref:@#<mathjax>$%"><a class="footnote-ref" href="#fn:@#$</mathjax>%&#8221; rel=&#8221;footnote&#8221;>2</a></sup> and the footnote&#8217;s content.
-And you can have formating within the footnote<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">3</a></sup>.
-The text to create the footnotes can appear anywhere in the Markdown file,
+<p>The text to create the footnotes can appear anywhere in the Markdown file,
 but by default, they will be rendered at the end of the page or article.
 See <a href="http://pythonhosted.org/Markdown/extensions/footnotes.html">here</a> if you wish to control the footnotes&nbsp;location.</p>
 <h2>Definition&nbsp;Lists</h2>
@@ -135,8 +139,8 @@ Orange
 <li id="fn:a">
 <p>This is a footnote content.&#160;<a class="footnote-backref" href="#fnref:a" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
-<li id=&#8221;fn:@#<mathjax>$%">
-<p>A footnote on the label: "@#$</mathjax>%&#8221;.&#160;<a class="footnote-backref" href="#fnref:@#$%" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<li id="fn:@#$%">
+<p>A footnote on the label: &#8220;@#<mathjax>$%".&#160;<a class="footnote-backref" href="#fnref:@#$</mathjax>%&#8221; rev=&#8221;footnote&#8221; title=&#8221;Jump back to footnote 2 in the text&#8221;>&#8617;</a></p>
 </li>
 <li id="fn:2">
 <p>The first paragraph of the&nbsp;definition.</p>
@@ -224,7 +228,7 @@ multiple&nbsp;lines.</p>
         </li>
     </ul>
 </li>
-<li class="list-group-item"><h4><i class="fa fa-puzzle-piece fa-lg"></i><span class="icon-label">Wiki Topics</span></h4>
+<li class="list-group-item"><h4><i class="fa fa-puzzle-piece fa-lg"></i><span class="icon-label">MicroContent</span></h4>
     <ul class="list-group" id="wiki">
         <li class="list-group-item">
             <a href="http://jeffskinnerbox-wiki.herokuapp.com/#Potential Projects" target="_blank">

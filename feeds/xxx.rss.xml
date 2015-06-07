@@ -236,7 +236,7 @@ but none organized the way I&amp;nbsp;want.&lt;/p&gt;
 &lt;td align="left"&gt;Enter insert mode but replace characters rather than inserting.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align="center"&gt;&lt;Esc&gt;&lt;/td&gt;
+&lt;td align="center"&gt;Esc&lt;/td&gt;
 &lt;td align="left"&gt;Exit insert/overwrite mode and go back to command mode.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
