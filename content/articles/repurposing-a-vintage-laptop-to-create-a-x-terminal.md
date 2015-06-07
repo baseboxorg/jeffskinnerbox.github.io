@@ -53,7 +53,7 @@ a 1.44-MB floppy disk drive, and proudly hosting Microsoft Windows 98 Second Edi
 
 The installed 10G drive was wiped clean but the laptops did come with the ordinal recovery disk.
 Using the recovery disk, I quickly got the Microsoft Windows 98 operating system installed.
-There was no login prompt / password required ... wow, not much security here.
+There was no login prompt or password required ... wow, not much security here.
 
 I activated the browser, that being Microsoft Internet Explorer 6.0.
 During the activation, it asked if I wished to access the Internet via a modem

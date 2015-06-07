@@ -13,10 +13,10 @@ from pelicanconf import *                                                       
 # A list of tuples (Title, URL) for additional menu items to appear
 # at the beginning of the main menu.
 #MENUITEMS = (('About Me', '/pages/about-me/'),
-#            ('Wiki', 'deadend.html'),
+#            ('MicroContent', 'deadend.html'),
 #            ('Open Notebook', '/pages/open-notebook/'),)
 MENUITEMS = (('About Me', '/pages/about-me/'),
-            ('Wiki', 'http://jeffskinnerbox-wiki.herokuapp.com/'),
+            ('MicroContent', 'http://jeffskinnerbox-wiki.herokuapp.com/'),
             ('Open Notebook', '/pages/open-notebook/'),)
 
 # Domain name of the site (this will be placed in output/CNAME)

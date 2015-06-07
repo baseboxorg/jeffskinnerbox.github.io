@@ -15,7 +15,7 @@
 * [openHAB 2.0 and Eclipse SmartHome](http://kaikreuzer.blogspot.com/2014/06/openhab-20-and-eclipse-smarthome.html)
 * [IoT Eclipse](http://iot.eclipse.org/index.html)
 * [Eclipse Smarthome](https://eclipse.org/smarthome/)
-
+* [heimcontrol.js - Awesome home automation with Raspberry PI and Arduino using Node.js, MongoDB, HTML5 and Websockets.](http://ni-c.github.io/heimcontrol.js/) 
 
 # Other
 * [Twilio - SMS Messaging and more](https://www.twilio.com/)
@@ -24,3 +24,4 @@
 * [Using The Wink Hub With OpenHAB](http://hackaday.com/2015/01/08/using-the-wink-hub-with-openhab/)
 * [WeatherBug](http://weatherbughome.com/tstat/)
 * [OpenEnergyMonitor](http://openenergymonitor.org/emon/)
+* [How to root your WINK hub - Step by Step tutorial](http://arahuman.blogspot.de/2014/11/how-to-root-your-wink-hub-step-by-step.html)

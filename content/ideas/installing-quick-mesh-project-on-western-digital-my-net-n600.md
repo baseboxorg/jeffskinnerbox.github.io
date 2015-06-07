@@ -1,5 +1,8 @@
 ![qMp logo](/images/qmp_logo.png = 500x500 "Quick Mesh Project is a system for easily deploying Mesh/MANET networks using WiFi technology.")
 
+http://makezine.com/2014/11/26/how-meshnets-are-changing-the-face-of-the-web/
+http://hyperboria.net/
+
 * I plan to dive into [openHAB][20],
 loading it on a [Raspberry Pi][21],
 and create a sensor network for some home automation/monitoring devices.

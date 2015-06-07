@@ -29,8 +29,8 @@ My professional life hasn't been unfulfilled, far from it, but it does leave 
 **So this is my effort to return to the past and to feed my creative side.**
 
 ### The Spark
-<a href="http://www.swtpc.com/mholley/PopularElectronics/Jan1975/PE_Jan1975.htm">
-    <img class="img-rounded" style="margin: 0px 8px; float: right" title="Cover of January 1975 issue of Popular Electroncis magazine featuring the Altair 8800" alt="{{ site.author.name }}" src="http://www.swtpc.com/mholley/PopularElectronics/Jan1975/PE_Jan_1975_Cover.jpg" width="15%" height="15%" />
+<a href="http://www.americanradiohistory.com/Archive-Poptronics/70s/1975/Poptronics-1975-01.pdf">
+    <img class="img-rounded" style="margin: 0px 8px; float: right" title="Cover of January 1975 issue of Popular Electroncis magazine featuring the Altair 8800" alt="Popular Electroncis magazine" src="http://www.digibarn.com/collections/mags/pe-jan-1975/pe-1975-01-altair-cover.jpg" width="15%" height="15%" />
 </a>
 The release of the [Raspberry Pi][03] sparked a renewed interest in electronic,
 something that I tinkered with when I left college.
@@ -42,6 +42,10 @@ I ordered my Raspberry Pi in June 2012, it arrived in September, and I was hooke
 Temporally (I think, who knows how long),
 I have set aside my passion for working in wood and now return to electronics.
 
+The [maker movement][08], proliferation of cheap,
+[easy -to-use microprocessor boards][09]
+and the [current hype][10] around the [Internet of Things][11]
+have made electronics accessible to a wider audience than possibly ever before.
 I'll be using this website as my scratch pad to capture what I discover or relearn for the second time.
 It may have some use for others, but I can't promise that.
 Never the less, I hope you find it useful.
@@ -66,5 +70,9 @@ The common objective is to learn something new!
 [03]:http://www.raspberrypi.org/faqs
 [04]:http://en.wikipedia.org/wiki/Maker_culture
 [05]:http://oldcomputers.net/altair-8800.html
-[06]:http://www.swtpc.com/mholley/PopularElectronics/Jan1975/PE_Jan1975.htm
+[06]:http://www.americanradiohistory.com/Archive-Poptronics/70s/1975/Poptronics-1975-01.pdf
 [07]:http://www.jeffskinnerbox.me
+[08]:http://time.com/104210/maker-faire-maker-movement/
+[09]:https://learn.adafruit.com/embedded-linux-board-comparison/overview
+[10]:http://www.forbes.com/sites/gilpress/2014/08/18/its-official-the-internet-of-things-takes-over-big-data-as-the-most-hyped-technology/
+[11]:http://en.wikipedia.org/wiki/Internet_of_Things

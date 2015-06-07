@@ -23,6 +23,16 @@ which overlaps with the upper portion of the 13cm amateur radio band.
 Other platforms and bands are in development at this time.
 Next will be Ubiquiti equipment with others supported as development resources permit.
 
+# Meshing Raspberry Pi
+* [MESH NETWORKING WITH MULTIPLE RASPBERRY PI BOARDS](http://hackaday.com/2012/11/14/mesh-networking-with-multiple-raspberry-pi-boards/)
+* [Commotion Pi: Build an RPi MESH Node](https://commotionwireless.net/blog/2014/06/12/commotion-pi-build-rpi-mesh-node/)
+* [A Raspberry Pi based batman-adv Mesh network node](http://people.skolelinux.org/pere/blog/A_Raspberry_Pi_based_batman_adv_Mesh_network_node.html)
+* [Raspberry Pi Wireless Mesh: Scripts, Data, Plots – oh my!](http://lab.uchicago.edu/2013/09/27/raspberry-pi-wireless-mesh-scripts-data-plots-oh-my-part-1/)
+* [MicroMesh - IoT Mesh Network](https://hackaday.io/project/2492-micromesh-iot-mesh-network)
+* [How Meshnets Are Changing The Face Of The Web](http://makezine.com/2014/11/26/how-meshnets-are-changing-the-face-of-the-web/)
+* [Meshberry v0.2](https://nycmesh.net/meshberry/)
+* [Meshing Pis with Project Byzantium](https://getpocket.com/a/read/909311497)
+
 * [1. Introduction To HSMM-MESH Or Broadband-Hamnet](https://www.youtube.com/watch?v=hUeW2ju-RZk&list=PLvgZ_9wT_LNfPHrOWLGG3T_mHWql86afr)
 * [2. Setting up a MESH Node for Amateur Radio - WRT54G firmware install](https://www.youtube.com/watch?v=pryc8jIl6Xo)
 * [3. HSMM-MESH Update Firmware on a Remote Node](https://www.youtube.com/watch?v=vvFjK-Ihk9c)

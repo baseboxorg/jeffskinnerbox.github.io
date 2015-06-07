@@ -82,6 +82,7 @@ and supports Wi-Fi, Bluetooth, 6LoWPAN and Thread, but not Z-wave or Zigbee.
 It can support both IPv4 and IPv6 as well.
 The mbed OS is free, will be available to ARM’s partners and developers in 4Q14.
 
+* [Tessel 2](https://tessel.io/)
 * [Teensy 3.1](https://www.pjrc.com/teensy/)
 * [BeagleBone](http://beagleboard.org/bone)
 * [Freedom](http://mbed.org/platforms/FRDM-KL46Z/)
@@ -141,6 +142,7 @@ Parameters include processor type and speed; number of analog and digital inputs
 * [Arietta G25 - Acme Systems Linux boards](http://www.acmesystems.it/arietta)
 * [Processor Boards for IoT](https://iotdc.hackpad.com/Processor-Boards-for-IoT-jBHdtN5BRrZ)
 * [Embedded Linux board comparison chart and more!](http://www.adafruit.com/blog/2014/05/06/embedded-linux-board-comparison-chart-and-more/)
+* [Embedded Linux Board Comparison](https://learn.adafruit.com/embedded-linux-board-comparison/overview)
 * [ODROID-W](http://www.hardkernel.com/main/products/prdt_info.php?g_code=g140610189490)
 * [Black Swift](http://www.open-electronics.org/black-swift-the-tiny-wireless-computer-is-on-kickstarter/)
 * [Fubarino SD Development Board](http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&nodeId=1406&dDocName=en566210)

@@ -3,7 +3,7 @@ application follows a simple pattern:
 
 ```bash
 # make your commit
-git add .
+git add --all
 git commit -m "<your commitment>"
 
 # enter your Heroku credentials

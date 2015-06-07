@@ -1,6 +1,14 @@
-# HOWTO: Ripping CDs From the Command Line in Linux
+Status: draft
+Date: 2100-01-01 00:00
+Category: Software
+Tags: Ripping
+Slug: howto-ripping-cds-from-the-linux-command-line
+Author: Jeff Irland
+Image: how-to.jpg
+Summary: bla bla bla
+
 I have a habit of buying the [Compact Disc (CD)][06] albums of the music I love,
-ripping the CDs to my digital music library
+ripping the CDs to my digital music library,
 (i.e. on my desktop PC which is synched with or accessable by my Squeezebox, iPod, Smartphone, etc.)
 and then storing the CD away for safe keeping.
 I foresee the day when these little plastic disks may not be sold
@@ -21,7 +29,7 @@ In this great multi-part video tutorial,
 the author explain how to rip the audio tracks off a music CD,
 and then encode that data into ready to play format.
 This is all done from the command line using standard command line utilities like [cdparanoia][02]
-from the [Vorbis] [03]tool set.
+from the [Vorbis][03]tool set.
 cdparanoia retrieves audio tracks from CDROM drives.
 The data can be saved to a file or directed to standard output in WAV, AIFF, AIFF-C or raw format.
 (MPEG Audio Layer III, generally know as MP3,
@@ -29,14 +37,22 @@ is the most widely used encode scheme in use, but it is not open source,
 technically you need to provide a royalty fee to use the format.
 `[lame`][13] is a program which can be used to create MP3 file.)
 
-First, lets install all the tools you'll need and discribed below:
+But first, lets install all the tools you'll need and discribed below:
 
 ```bash
 sudo apt-get install cdparanoia sox cd-discid abcde ripit
 ```
 
+### Query the CD for Content
 You can see what is on the CD by querying and printing the table of contents with
-`cdparanoia -d /dev/cdrom --query`.
+the compact disc ripper [`cdparanoia`][15]
+
+```bash
+# print the CDs table of contents
+cdparanoia -d /dev/cdrom --query
+```
+
+### Rip the CD to Disk
 To begin the ripping process, do the following:
 
 ```bash
@@ -56,6 +72,7 @@ To do this, use the `sox` utility `play`.
 play track01.cdda.wav
 ```
 
+### Encoding to Desired Format
 To encode the WAV files in OGG format from [Vorbis][03], use the following command:
 
 ```bash
@@ -66,7 +83,16 @@ oggenc -q 10 track01.cdda.wav -o track01.ogg
 ogg123 track01.ogg
 ```
 
-Song tags can be added to the encode file
+Most media players depend on song tags or ID3 tags encoded onto the sound file.
+Song tags are small forms that contains the song’s title, artist, album,
+and other related information.
+When deciding how to sort, display, and categorize your music,
+media players like, Windows Media Player, reads those tags
+— not the songs’ filenames.
+Most portable music players, including the iPod, also rely on tags.
+
+Song tags can be added to the encode file via the tools used to create the sound file.
+For the OGG format:
 
 ```bash
 # encoding a wav to ogg with tags
@@ -85,7 +111,10 @@ oggenc -q 10 \
 -n "%t.ogg"
 ```
 
-## Getting Tags
+To convert one sound format to another,
+You can use the utility [`ffmpeg`][16].
+
+### Getting Tags
 This is great script, but you still need to manual provide the track titles, artist, etc.
 You may have observed that if you putting your CD into an Internet-enabled device,
 the computer is accessing an online database
@@ -125,9 +154,46 @@ cddb-tool read $SERVER 5 $USER $HOST $GENRE $CDDB_ID | grep TTITLE0 | sed 's/TTI
 ```
 
 ## Automating the Process
-[`ripit`][14] is a command line audio CD ripper that puts all the above steps into a nice script.
+I could take all of he above and create my own script.
+Luckly, this has already been done for me.
 
-[Rip Your CDs At The Command Line](http://www.maketecheasier.com/rip-cds-at-command-line/)
+### Ripit to the Rescue
+[`ripit`][14] is a command line audio CD ripper that puts all the above steps into a nice script,
+and you can find a short tutorials at
+"[Rip Your CDs At The Command Line][17]" and "[Ripping Audio CDs at the Command Line][18]".
+`ripit` is used to create MPEG-1 Layer 3 (mp3), Ogg Vorbis (ogg), Flac,
+Faac (m4a), audio lossless (als), Musepack (mpc), Wavpack (wv) and/or
+Wave (wav) audio files from an audio CD.
+With [`ffmpeg`][16] formats like Apple lossless audio (m4a) and other formats can be produced.
+`ripit` is a front-end written in perl, for these programs:
+
+* `cdparanoia`, `dagrab` etc. for ripping the audio CD tracks
+* `Lame`, `OggVorbis` `Flac`, `Faac`, `mp4als`, `Musepack`, `Wavpack` and `ffmpeg` for encoding the wav files to mp3, `ogg`, `flac`, `m4a` (`aac`), lossless `als`, `mpc`, `wv` or lossless `m4a` (`alac`).
+* `CDDB_get` or `WebService-MusicBrainz` perl modules for retrieval of CD information.
+
+`ripit` runs on the command line and does everything required to
+produce a set of mp3/ogg/flac/m4a/mpc/wv/... files without any user-intervention (if you choose).
+`ripit` does the following with an audio CD:
+
+* Get the audio CD album/artist/track information from CDDB
+* Rip the audio CD (using cdparanoia or other cdrippers)
+* Encode the files (using lame, oggenc, flac, faac, musepack etc.)
+* Tag them according to its format
+* Extracts possible hidden tracks
+* *Optional:* creates a playlist (M3U) file
+* *Optional:* prepares and sends a CDDB submission
+* *Optional:* saves the CDDB file
+* *Optional:* creates a toc, cue or inf files to burn a CD in DAO with text
+* *Optional:* anaylze the wavs for gaps and splits them into chunks
+* *Optional:* merges wavs for gapless encoding
+* *Optional:* creates a md5sum for each type of sound files
+* *Optional:* normalizes the wavs before encoding.
+* *Optional:* adds a coverart and album gain to the tags (provided a picture and if the format supports picture tags).
+* *Optional:* detection of Various Artists style and tagging according the level of detection.
+
+### My Scriipt for Ripping CDs
+```bash
+```
 
 ## Other Useful Tools
 [`id3`][] is an ID3 v1.1 tag editor.
@@ -161,9 +227,9 @@ http://gadgetweb.de/linux/cd-ripping-with-lame-cdda2wav-and-cddb-data.html
 [12]:http://www.mp3developments.com/article9.php
 [13]:http://lame.sourceforge.net/
 [14]:http://www.suwald.com/ripit/install.php
-[15]:
-[16]:
-[17]:
-[18]:
+[15]:https://www.xiph.org/paranoia/manual.html
+[16]:https://www.ffmpeg.org/
+[17]:http://www.maketecheasier.com/rip-cds-at-command-line/
+[18]:http://www.brighthub.com/computing/linux/articles/18332.aspx
 [19]:
 [20]:

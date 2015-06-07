@@ -1,5 +1,5 @@
 created: 20140916012206395
-modified: 20150306221811872
+modified: 20150525162433070
 tags: Projects
 title: Radar
 type: text/vnd.tiddlywiki
@@ -9,10 +9,12 @@ type: text/vnd.tiddlywiki
 * [[RADARduino Prototype Testing and Revision 2 Details|http://reactancelabs.com/?p=293]]
 * [[Homebuilt Ultra Wideband Impulse Radar|http://hackaday.com/2013/10/05/homebuilt-ultra-wideband-impulse-radar/]]
 * [[6 GHz Frequency Modulated Radar|http://hforsten.com/6-ghz-frequency-modulated-radar.html]]
+* [[Design of FMCW radars for active safety applications|http://embedded-computing.com/articles/design-fmcw-radars-active-safety-applications/#]]
 
 !!Synthetic Aperture Radar
 * [[Radar Imaging in your Garage: Synthetic Aperture Radar|http://hackaday.com/2014/03/17/radar-imaging-in-your-garage-synthetic-aperture-radar/#more-115727]]
 * [[High Resolution X-Band Linear Rail SAR Imaging System|http://glcharvat.com/Dr._Gregory_L._Charvat_Projects/$240_High_Res_Rail_SAR.html]]
+* [[Build a Phased-Array Radar in Your Garage that Sees Through Walls|http://hackaday.com/2015/04/07/build-a-phased-array-radar-in-your-garage-that-sees-through-walls/]]
 * [[Phased Array Speaker System|http://people.ece.cornell.edu/land/courses/ece4760/FinalProjects/s2012/tcj26_ecs227/tcj26_ecs227/index.html]]
 
 !!Coffee Can Radar

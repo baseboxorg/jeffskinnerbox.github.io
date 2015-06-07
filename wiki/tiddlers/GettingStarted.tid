@@ -1,114 +1,20 @@
 created: 20141102160206239
-modified: 20150322003153807
+modified: 20150605025021402
 title: GettingStarted
 type: text/vnd.tiddlywiki
 
-Welcome to TiddlyWiki, the non-linear personal web notebook,
-and my favorite personal productivity tool.
+[img[http://tiddlywiki.com/poster/images/TiddlyWiki_TiddlerPoster_en_L.png]]
 
-To get started, first verify that you can save changes successfully - see http://tiddlywiki.com/ for detailed instructions.
+Welcome to [[TiddlyWiki]], the non-linear personal web notebook, and my favorite personal productivity tool.
 
-Then you can:
-
-* Create new tiddlers using the 'plus' button in the sidebar
-* Visit the [[control panel|$:/ControlPanel]] using the 'cog' button in the sidebar to customise your wiki
-** Stop this message appearing by changing the default tiddlers under the ''Basics'' tab
-* Save changes using the 'download' button in the sidebar
-* Learn more about [[WikiText|http://tiddlywiki.com/static/WikiText.html]]
-* [[Generating Static Sites with TiddlyWiki|http://tiddlywiki.com/#Generating%20Static%20Sites%20with%20TiddlyWiki]]
-* [[How to build a TiddlyWiki5 from individual tiddlers|http://tiddlywiki.com/#Generating%20Static%20Sites%20with%20TiddlyWiki]]
-
-[[Quick Intro to TiddlyWiki|http://tiddlywiki.com/talkytalky/]]
-
-You can check what version of TiddlyWiki your running with the command:
-
-```
-tiddlywiki --version
-```
-If you've installed [[TiddlyWiki on Node.js|http://tiddlywiki.com/#TiddlyWiki%20on%20Node.js]] on the usual way, when a new version is released you can upgrade it with this command:
-
-```
-sudo npm update -g tiddlywiki
-```
-
-Learning TiddlyWiki
-
-* [[ TiddlyWikiTutorial|http://blogoehlert.typepad.com/eclippings/files/eclippingstiddlywiki.html]]
-* [[TiddlyWiki for the rest of us|http://www.giffmex.org/twfortherestofus.html]]
-* [[Tiddler Toddler  an absolute beginner's guide to TiddlyWiki|http://tiddlertoddler.tiddlyspot.com/]]
-* [[TiddlyStyles - collection of TiddlyWiki tips and information|http://www.checkettsweb.com/oldindex.html]]
-* [[TIDDLYWIKI CHEAT SHEET|http://www.tcm.phy.cam.ac.uk/~mdt26/PWT/hints.pdf]]
-* [[MicroContent with TiddlyWiki|http://www.phusewiki.org/docs/2006/PD02.pdf]]
-
-!!Printing Tiddlers
-Place mouse over the target tiddler, right button click on the mouse, and select "Print...".
-
-!!Suport for Markdown
-While TiddlyWiki has it own language,
-it can support HTML, plain text, and [[Markdown|Markdown Test]].
-The key to getting TiddlyWiki to format Markdown text
-is to select `text/vnd.tiddlywiki` in the text type menu at the bottom of the page.
-
-!!Support for Vim
-[[TiddlyWiki, an open source Evernote with VIM and Markdown|http://blog.htmlfusion.com/tiddlywiki-evernote-with-vim-and-markdown/]]
-
-!!~TiddlyDesktop
-[[TiddlyDesktop|http://tiddlywiki.com/#TiddlyDesktop]]
-is a special purpose web browser for working with locally stored ~TiddlyWikis.
-
-!!Creating HTML File
-The [[TiddlyWiki website documents|http://tiddlywiki.com/static/Generating%2520Static%2520Sites%2520with%2520TiddlyWiki.html]]
-how to use `tiddlywiki` to generate static HTML representations
-of the tiddlers within a TiddlyWiki that don't need JavaScript.
-
-!!!For Linux
-```bash
-#!/usr/bin/env bash
-
-# derived from https://github.com/Jermolene/TiddlyWiki5/issues/168
-# also see http://tiddlywiki.com/static/Generating%2520Static%2520Sites%2520with%2520TiddlyWiki.html
-
-TIDDLYWIKI=/home/jeff/blogging/wiki
-OUTPUT=/home/jeff/tmp/tiddly_wiki_html
-
-# render the tiddlers in seperate filew within a directory
-node /usr/local/lib/node_modules/tiddlywiki/tiddlywiki.js \
-    $TIDDLYWIKI \
-    --verbose \
-    --rendertiddlers [!is[system]] $:/core/templates/static.tiddler.html $OUTPUT/static text/plain \
-    --rendertiddler $:/core/templates/static.template.html $OUTPUT/index.html text/plain \
-    --rendertiddler $:/core/templates/static.template.css $OUTPUT/static/static.css text/plain \
-    || exit 1
-
-# render all the tiddlers in a single file
-node /usr/local/lib/node_modules/tiddlywiki/tiddlywiki.js \
-    $TIDDLYWIKI \
-    --verbose \
-    --rendertiddler $:/core/templates/alltiddlers.template.html $OUTPUT/all-tiddlers.html text/plain \
-    || exit 1
-```
-
-!!!For Windows
-```bash
-#!/usr/bin/env bash
-
-# derived from https://github.com/Jermolene/TiddlyWiki5/issues/168
-# also see http://tiddlywiki.com/static/Generating%2520Static%2520Sites%2520with%2520TiddlyWiki.html
-
-TIDDLYWIKI=/C/Users/jeffrey.c.irland/Documents/Industrial Internet/Comcast/Comcast-Wiki
-OUTPUT=/C/Users/jeffrey.c.irland/Downloads/tiddly_wiki_html
-
-# render all the tiddlers in seperate files within a directory
-tiddlywiki $TIDDLYWIKI \
-    --verbose \
-    --rendertiddlers [!is[system]] $:/core/templates/static.tiddler.html $OUTPUT/static text/plain \
-    --rendertiddler $:/core/templates/static.template.html $OUTPUT/index.html text/plain \
-    --rendertiddler $:/core/templates/static.template.css $OUTPUT/static/static.css text/plain \
-    || exit 1
-
-# render all the tiddlers in a single file
-tiddlywiki $TIDDLYWIKI \
-    --verbose \
-    --rendertiddler $:/core/templates/alltiddlers.template.html $OUTPUT/all-tiddlers.html text/plain \
-    || exit 1
-```
+* [[Quick Introduction to TiddlyWiki|GettingStartedIntro]]
+* [[Learn more about WikiText|GettingStartedWikiText]]
+* [[Setting Up TiddlyWiki|GettingStartedSettingUp]]
+* [[Suport for Markdown|GettingStartedMarkdown]]
+* [[Support for CodeMirror|GettingStartedCodeMirror]]
+* [[Support for Vim|GettingStartedVim]]
+* [[Working With TiddlyWiki on the Desktop|GettingStartedTiddlyDesktop]]
+* [[Creating HTML File for a TiddlyWiki Site|GettingStartedHTMLFile]]
+* [[Sites for Learning TiddlyWiki|GettingStartedLearning]]
+* [[Printing TiddlyWiki Tiddlers|GettingStartedPrinting]]
+* [[TiddlyWiki Tools and Tricks|GettingStartedToolsTricks]]

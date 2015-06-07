@@ -1,10 +1,14 @@
 
+Read this first:
+[Review: HUZZAH is the ESP8266 WiFi Setup You Need](http://hackaday.com/2015/05/01/review-huzzah-is-the-esp8266-wifi-setup-you-need/)
+[WIFI module ESP8266 for IoT](http://www.epanorama.net/newepa/2014/11/09/wifi-module-esp8266-for-iot/)
+
 ![ESP8266](http://www.seeedstudio.com/depot/bmz_cache/9/9f6470017d1ee80290eeddbe72d59d69.image.530x397.jpg "The ESP8266 offers a complete and self-contained WiFi networking solution, allowing it to either host the application or to offload all WiFi networking functions from another application processor.")
 ![ESP8266](/images/ESP8266.jpg "The ESP8266 offers a complete and self-contained WiFi networking solution, allowing it to either host the application or to offload all WiFi networking functions from another application processor.")
 
 In early September 2014, I [became aware][04] of a new
-(and potentially [game changing][link to TiddlyWiki])
-[WiFi transceiver breakout board with a ESP8266 SoC chip][01]
+(and potentially [game changing][01])
+[WiFi transceiver breakout board with a ESP8266 SoC chip][21]
 has appeared in the market from China for $7.
 (**Note:** In [some places][06], you see this device refered to as the Wi07c.)
 Initially, [not much is know about this chip][02]
@@ -34,6 +38,8 @@ Documentation and tools are appearing that will help one get started with this d
 Here is a reasonably robust list at the time of this posting:
 
 # Different Types of ESP8266 PCB
+* [ESP8266 modules hardware guide – gotta catch ’em all!](http://l0l.org.uk/2014/12/esp8266-modules-hardware-guide-gotta-catch-em-all/)
+
 There are several types of ESP8266 modules floating around out there,
 so to properly wire things up, you have to determine which your working with.
 I have yet to find a good reference source to understand all the types but
@@ -177,6 +183,7 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
     * [A Development Board for the ESP8266-03](http://www.limpkin.fr/index.php?post/2014/11/27/A-Development-Board-for-the-ESP8266-03)
     * [Hack allows ESP-01 to go to Deep Sleep](http://hackaday.com/2015/02/08/hack-allows-esp-01-to-go-to-deep-sleep/)
     * [How to Directly Program an Inexpensive ESP8266 WiFi Module](http://hackaday.com/2015/03/18/how-to-directly-program-an-inexpensive-esp8266-wifi-module/)
+    * [Review: HUZZAH is the ESP8266 WiFi Setup You Need](http://hackaday.com/2015/05/01/review-huzzah-is-the-esp8266-wifi-setup-you-need/)
     * Using the Lua Programming Language
         * [Lua Programming Language](http://www.lua.org/)
         * [The.Lua.Tutorial](http://luatut.com/)
@@ -186,9 +193,15 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
         * [Burning LuaFirmware](http://importhack.wordpress.com/2014/11/22/how-to-use-ep8266-esp-01-as-a-sensor-web-client/)
         * [Flash tool for NodeMCU](https://github.com/nodemcu/nodemcu-firmware)
         * [Command line interface for the ESP8266 module](https://www.npmjs.com/package/esp8266)
+        * ESP8266 based web configurable wifi general purpose control [Part 1](http://www.instructables.com/id/ESP8266-based-web-configurable-wifi-general-purpos/?ALLSTEPS) and [Part 2](http://www.instructables.com/id/ESP8266-based-web-configurable-wifi-general-purpos-1/?ALLSTEPS)
 
 * Tutorials
     * Video: [Hari Wiguna's "$3 WiFi Modual" YouTube Series](https://www.youtube.com/playlist?list=PL-xZsBalytNAFgyiDI8_lwXyeVE3R4hpx)
+    * Video: Raspberry Pi + ESP8266
+    [Demo](https://www.youtube.com/watch?v=ecnxMOie7PM),
+    [Wiring](https://www.youtube.com/watch?v=TkLOAvP5G1A&feature=em-uploademail),
+    [NodeMCU](https://www.youtube.com/watch?v=dBcDw-7uiS0&feature=em-uploademail),
+    [NodeJS](https://www.youtube.com/watch?v=pAEfXKABbI0&feature=em-uploademail)
     * Video: [5$ Arduino WiFi Module!? ESP8266 mini Tutorial/Review](https://www.youtube.com/watch?v=9QZkCQSHnko)
     * Video: [Cheap and Easy WiFi (IoT) Tutorial Part 1 - ESP8266](https://www.youtube.com/watch?v=qU76yWHeQuw)
     * Video: [ESP8266 AT Commands Tutorial (Wi-Fi Module)](https://www.youtube.com/watch?v=uznq8W9sOKQ)
@@ -207,6 +220,7 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
     * [Investigating the ESP8266–Serial Killing](http://scargill.wordpress.com/2014/09/27/investigating-the-esp8266-serial-killing/)
     * [ESP8266 Now Working/Updated](http://scargill.wordpress.com/2014/10/05/esp8266-working/)
     * [Connect ESP8266 to Raspberry Pi](http://www.extragsm.com/blog/2014/12/03/connect-esp8266-to-raspberry-pi/)
+    * [REDUCING ESP8266 POWER CONSUMPTION USING DEEP SLEEP](http://tinker.yeoman.com.au/2015/03/08/reducing-esp8266-power-consumption-using-deep-sleep/)
 
 * Projects Making Use of the ESP8266
     * [ESP8266 as an Access Point](http://scargill.wordpress.com/2014/10/08/esp8266-as-an-access-point/)
@@ -224,6 +238,8 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
     * [An ESP8266 Based Smartmeter/](http://hackaday.com/2014/11/02/an-esp8266-based-smartmeter/)
     * [Keep an Eye on Your Fermenting Beer with Brewmonitor/](http://hackaday.com/2014/10/11/keep-an-eye-on-your-fermenting-beer-with-brewmonitor/)
     * [Making Something Useful With The ESP8266](http://hackaday.com/2015/01/05/making-something-useful-with-the-esp8266/)
+    * [ESP8266 AND IOT: STREAMING SERIAL ACCELEROMETER DATA VIA MQTT](http://tinker.yeoman.com.au/2015/03/29/esp8266-and-iot-streaming-serial-accelerometer-data-via-mqtt/)
+    * [An Amazon Dash-Like Button For The ESP8266](http://hackaday.com/2015/05/13/an-amazon-dash-like-button-for-the-esp8266/)
 
 
 ## More
@@ -231,8 +247,7 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
 * [NetworkConfigurationCommandLine/Automatic](https://help.ubuntu.com/community/NetworkConfigurationCommandLine/Automatic)
 
 
-
-[01]:http://www.seeedstudio.com/depot/WiFi-Serial-Transceiver-Module-w-ESP8266-p-1994.html
+[01]:http://127.0.0.1:8080/#Cheap%20WiFi%20Chips%20on%20the%20Edge
 [02]:http://hackaday.com/2014/09/06/the-current-state-of-esp8266-development/
 [03]:http://www.ti.com/lit/ds/symlink/cc3000.pdf
 [04]:http://hackaday.com/2014/08/26/new-chip-alert-the-esp8266-wifi-module-its-5/
@@ -252,7 +267,7 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
 [18]:http://tminusarduino.blogspot.com/2014/09/experimenting-with-esp8266-5-wifi-module.html
 [19]:https://www.adafruit.com/datasheets/FT232_Model.pdf
 [20]:http://www.adafruit.com/datasheets/DS_FT232R.pdf
-[21]:
+[21]:http://www.seeedstudio.com/depot/WiFi-Serial-Transceiver-Module-w-ESP8266-p-1994.html
 [22]:
 [23]:
 [24]:

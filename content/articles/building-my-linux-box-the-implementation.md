@@ -82,6 +82,11 @@ Use these procedures to [open ports on a Linux firewall][13].
 sudo dpkg -i logitechmediaserver_7.8.1~1411629722_all.deb
 ```
 
+Someone at Logitech had the brilliant idea that MP3s and other audio files
+should be stored in an online service a while back,
+something that doesn't sit well with me, I prefer to keep them on my LAN.
+Consider this to [roll your own Squeezebox with a Raspberry Pi][14].
+
 <h2>Configuring Samsung SCX-4521F Printer/Scanner</h2>
 When it comes to printers and scanners, Ubuntu advices that you should simply plug it in and try!
 Ubuntu claims that if it's a newer model USB scanner / printer,
@@ -526,3 +531,4 @@ sudo mdadm --detail --scan >> /etc/mdadm/mdadm.conf
 [11]:http://jeffskinnerbox.me/posts/2013/Apr/28/building-my-linux-box-the-plan/
 [12]:http://www.logitech.com/assets/32377/squeezeboxclassic-ownersguide.pdf
 [13]:http://www.tixati.com/optimize/open-ports-linux.html
+[14]:http://www.instructables.com/id/Wall-Mounted-SqueezePlayer-with-Raspberry-Pi/?ALLSTEPS

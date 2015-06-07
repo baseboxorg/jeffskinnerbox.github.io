@@ -1,5 +1,5 @@
 created: 20140927211819463
-modified: 20150221020042619
+modified: 20150605015040778
 title: Electronics Purchasing Sites
 type: text/vnd.tiddlywiki
 
@@ -50,9 +50,13 @@ Supply sites for electronics and other products
 :* [[Public Surplus|http://www.publicsurplus.com/]]
 
 !Printed Circuit Board (PCB) / Electronics Design
+Your First Prototype: [[Fabrication Specifications and Gerber Files (Part 1/3)|http://www.proto2prod.com/proto2prod/2015/3/18/your-first-prototype-fab-specs-and-gerber-files-13]],
+[[Preparing Assembly Materials (Part 2/3)|http://www.proto2prod.com/proto2prod/2015/4/15/your-first-prototype-prepare-assembly-materials-23]],
+[[(Part 3/3)|]].
 
 !!On The Web
 :* [[Dirt Cheap Dirty Boards|http://dirtypcbs.com/about.php]]
+:* [[PCBWeb|http://www.pcbweb.com/]]
 :* [[CircuitMaker - free PCB design tool|http://circuitmaker.com/#why_circuitmaker]]
 :* [[Cloud-based Electronic-Design Tools Gain Traction|http://spectrum.ieee.org/geek-life/hands-on/cloudbased-electronicdesign-tools-gain-traction]]
 :* [[upconvert|http://blog.upverter.com/]]
@@ -60,3 +64,6 @@ Supply sites for electronics and other products
 :* [[Schematics.com|http://schematics.com/]]
 :* [[Atanua - Real Time Logic Simulator|http://sol.gfxile.net/atanua/]]
 :* [[OSH Park|https://oshpark.com/]]
+
+!3D Printing Services
+:* [[Shapeways|http://www.shapeways.com/]]

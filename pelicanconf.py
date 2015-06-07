@@ -97,7 +97,7 @@ COPYRIGHT = 'Copyright Jeffrey C. Irland, 2014'
 # A list of tuples (Title, URL) for additional menu items to appear
 # at the beginning of the main menu.
 MENUITEMS = (('About Me', '/pages/about-me/'),
-            ('Wiki', 'http://127.0.0.1:8080'),
+            ('MicroContent', 'http://127.0.0.1:8080'),
             ('Open Notebook', '/pages/open-notebook/'),)
 
 # Provide Google Analytics Tracking ID (i.e. ‘UA-XXXX-YYYY’)

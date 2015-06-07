@@ -75,7 +75,7 @@ These Vim commands and keys work both in command mode and visual mode.
 | C | Change the rest of the current line. |
 | r | Overwrite one character. After overwriting the single character, go back to command mode. |
 | R | Enter insert mode but replace characters rather than inserting. |
-| <Esc> | Exit insert/overwrite mode and go back to command mode. |
+| Esc | Exit insert/overwrite mode and go back to command mode. |
 
 ## Deleting text
 | Vim Command | Action|

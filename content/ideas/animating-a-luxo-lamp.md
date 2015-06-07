@@ -23,6 +23,7 @@ This iconic lamp is still a staple at places like [Ikea][03] and [Staples][04].
 * [Building an Open Source 3DOF Palletizing Robot](http://www.marginallyclever.com/blog/2014/03/building-an-open-source-3dof-palletizing-robot/)
 * [IRB 460 high speed robotic palletizer](http://www.abb.ca/product/seitp327/ff492162d8dbaf44c1257861005de2fe.aspx)
 * [The IKEA Robot Lamp](http://www.instructables.com/id/The-IKEA-Robot-Lamp-Adding-the-servos/?ALLSTEPS)
+* [Robo Lamp is too Damn Cute](http://hackaday.com/2015/05/12/robo-lamp-is-too-damn-cute/)
 
 #### Touch
 * [Mug Music Is Good to the Last Drop](http://hackaday.com/2014/03/19/mug-music-is-good-to-the-last-drop/#more-117602)
