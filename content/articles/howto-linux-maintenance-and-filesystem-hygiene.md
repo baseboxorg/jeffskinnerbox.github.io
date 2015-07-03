@@ -225,7 +225,13 @@ can be identified via:
 Run the following command to list all packages that you no longer need:
 
 ```bash
-# list all the kernel packages currently loaded
+# list all the kernel packages installed on the system
+dpkg -l 'linux-*'
+
+# print the currently active kernel version
+uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/"
+
+# list all the currently loaded old kernel packages, that is other than the active one
 dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d'
 ```
 
@@ -241,6 +247,11 @@ have an old kernel or two to fall back to
 (just in case the new one doesn't work with your system).
 At the very least, if you've just upgraded the kernel,
 reboot before deleting the older versions.
+
+```bash
+# to remove a specific kernel package, in this case 3.13.0-49
+sudo apt-get remove --purge $(dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | grep 3.13.0-49)
+```
 
 And if you happen to blow away all the kernel images (as I have done more than once),
 get your current kernel version back by executing `uname -r` and then reinstall it with:

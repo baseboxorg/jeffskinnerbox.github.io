@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 
-# **** THIS DOESN'T WORK YET ****   **** THIS DOESN'T WORK YET ****
+
+
+# **** THIS DOESN'T WORK YET ****  **** THIS DOESN'T WORK YET ****  **** THIS DOESN'T WORK YET ****
+# Maybe a better alternative would be the following:
+#
+#   alias blog_start='. ./bin/activate ; make start'
+#   alias blog_stop='deactivate ; make stop'
+
+
 
 # This script is used to start & stop the local hosting of the blog.
 # It performs the following steps:

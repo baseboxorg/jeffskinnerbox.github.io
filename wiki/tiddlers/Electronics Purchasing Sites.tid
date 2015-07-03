@@ -1,5 +1,5 @@
 created: 20140927211819463
-modified: 20150605015040778
+modified: 20150621022107973
 title: Electronics Purchasing Sites
 type: text/vnd.tiddlywiki
 
@@ -50,9 +50,11 @@ Supply sites for electronics and other products
 :* [[Public Surplus|http://www.publicsurplus.com/]]
 
 !Printed Circuit Board (PCB) / Electronics Design
-Your First Prototype: [[Fabrication Specifications and Gerber Files (Part 1/3)|http://www.proto2prod.com/proto2prod/2015/3/18/your-first-prototype-fab-specs-and-gerber-files-13]],
-[[Preparing Assembly Materials (Part 2/3)|http://www.proto2prod.com/proto2prod/2015/4/15/your-first-prototype-prepare-assembly-materials-23]],
-[[(Part 3/3)|]].
+Your First Prototype:
+
+* [[Fabrication Specifications and Gerber Files (Part 1/3)|http://www.proto2prod.com/proto2prod/2015/3/18/your-first-prototype-fab-specs-and-gerber-files-13]]
+* [[Preparing Assembly Materials (Part 2/3)|http://www.proto2prod.com/proto2prod/2015/4/15/your-first-prototype-prepare-assembly-materials-23]]
+* [[Your First Prototype: Assembly Tips and Techniques (Part 3/3)|http://www.proto2prod.com/proto2prod/2015/6/15/your-first-prototype-assembly-tips-and-techniques?utm_source=p2pnewsletter&utm_medium=email&utm_campaign=Tips]].
 
 !!On The Web
 :* [[Dirt Cheap Dirty Boards|http://dirtypcbs.com/about.php]]
@@ -64,6 +66,7 @@ Your First Prototype: [[Fabrication Specifications and Gerber Files (Part 1/3)|h
 :* [[Schematics.com|http://schematics.com/]]
 :* [[Atanua - Real Time Logic Simulator|http://sol.gfxile.net/atanua/]]
 :* [[OSH Park|https://oshpark.com/]]
+:* [[FabStream / SoloPCB|http://www.fabstream.com/solopcb-design-software.php]]
 
 !3D Printing Services
 :* [[Shapeways|http://www.shapeways.com/]]

@@ -6,10 +6,10 @@ Status: hidden
 :   **Pelican** is a Python-powered static web site generator. You can design the look / layout of your site using CSS and Jinja2 templates, and write your content in reStructuredText, Markdown, or AsciiDoc formats.  Pelican compiles the contents into HTML output suitable for the blog.
 
 [![TiddlyWiki Logo](/images/logos/thumbnail/tiddlywiki_logo.png)](http://tiddlywiki.com/)
-:   **TiddlyWiki** is a versatile note-taking (aka personal wiki) web application you can download for free, store wherever you like, customise however you wish, and use to take / organise / share your notes in ways that word processors and other note-taking tools cannot. TiddlyWiki is designed to be non-linear, structuring content with stories, tags, hyperlinks, and other features. 
+:   **TiddlyWiki** is a versatile note-taking (aka personal wiki) web application you can download for free, store wherever you like, customise however you wish, and use to take / organise / share your notes in ways that word processors and other note-taking tools cannot. TiddlyWiki is designed to be non-linear, structuring content with stories, tags, hyperlinks, and other features.
 
 [![IPython Logo](/images/logos/thumbnail/ipython_notebook_logo.png)](http://ipython.org/notebook.html)
-:   **IPython Notebook** is a web-based interactive computational environment where you can combine code execution, text, mathematics, plots and rich media into a single document. These notebooks are normal files that can be shared with colleagues, converted to other formats such as HTML or PDF, etc. 
+:   **IPython Notebook** is a web-based interactive computational environment where you can combine code execution, text, mathematics, plots and rich media into a single document. These notebooks are normal files that can be shared with colleagues, converted to other formats such as HTML or PDF, etc.
 
 [![Jinja Logo](/images/logos/thumbnail/jinja_logo.png)](http://jinja.pocoo.org/)
 :   **Jinja** is a modern and designer friendly templating language for Python. The Jinja  template engine has Python-like expressions and allows customization of tags, filters, tests, and globals.
@@ -17,14 +17,11 @@ Status: hidden
 [![Python Logo](/images/logos/thumbnail/python_logo.jpg)](http://ipython.org/)
 :   **Python** is a general-purpose interpreted, interactive, object-oriented, and high-level programming language.  Its high-level built in data structures, many modules and package, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development, as well as for use as a scripting or glue language to connect existing components together.
 
-[![Node.js Logo](/images/logos/thumbnail/nodejs_logo.jpg)](http://nodejs.org/) 
+[![Node.js Logo](/images/logos/thumbnail/nodejs_logo.jpg)](http://nodejs.org/)
 :   **Node.js** is a cross-platform runtime environment for server-side and networking applications. Node.js applications are written in JavaScript, and can be run within the Node.js runtime.  Node.js applications are designed to maximize throughput and efficiency, using non-blocking I/O and asynchronous events.
 
-[![Virtualenv Logo](/images/logos/thumbnail/virtualenv_logo.jpg)](https://pypi.python.org/pypi/virtualenv)
-:   **Virtualenv** creates is an isolated working copy of Python which allows you to work on a specific project without worry of affecting other system default libraries or projects. Virtualenv makes creating and managing new Python environments inexpensive and easy.
-
 [![Markdown Logo](/images/logos/thumbnail/markdown_logo_white.png)](http://daringfireball.net/projects/markdown/)
-:   **Markdown** is a web-writing language giving you a easy-to-read, easy-to-write plain text format, that converts to structurally HTML.  At its core, Markdown is a super simple way to add formatting like headers, bold, bulleted lists, and so on to plain text. 
+:   **Markdown** is a web-writing language giving you a easy-to-read, easy-to-write plain text format, that converts to structurally HTML.  At its core, Markdown is a super simple way to add formatting like headers, bold, bulleted lists, and so on to plain text.
 
 [![Git Logo](/images/logos/thumbnail/git_logo.jpg)](http://git-scm.com/)
 :   **Git** is a free and open source distributed version control system designed to handle everything from small to very large projects.  Every Git working directory is a full-fledged repository with complete history and full version tracking capabilities, not dependent on network access or a central server.
@@ -33,7 +30,7 @@ Status: hidden
 :   **GitHub** is a web-based hosting service for software development projects that use the Git revision control system. Also, public webpages are freely hosted and easily published through GitHub. You can manage your site’s content locally on your PC and use GitHub's tools and workflow for posting.
 
 [![GitHub Pages Logo](/images/logos/thumbnail/github_pages_logo.jpg)](https://pages.github.com/)
-:   **GitHub Pages** are public webpages freely hosted and easily published. You can create and publish them online using the Automatic Page Generator, or like I do for this site, it's straightforward to manually create it on your local computer and publish the web site using Git, Github, and Github Pages. 
+:   **GitHub Pages** are public webpages freely hosted and easily published. You can create and publish them online using the Automatic Page Generator, or like I do for this site, it's straightforward to manually create it on your local computer and publish the web site using Git, Github, and Github Pages.
 
 [![Gist Logo](/images/logos/thumbnail/gist_logo.jpg)](https://github.com/signup/free?return_to=gist)
 :   **Gist** is a simple way to share snippets of code with others. All gists are Git repositories, so they are automatically versioned, forkable and usable from Git.

@@ -1,5 +1,5 @@
 created: 20141102160206239
-modified: 20150605025021402
+modified: 20150620183133749
 title: GettingStarted
 type: text/vnd.tiddlywiki
 
@@ -10,8 +10,12 @@ Welcome to [[TiddlyWiki]], the non-linear personal web notebook, and my favorite
 * [[Quick Introduction to TiddlyWiki|GettingStartedIntro]]
 * [[Learn more about WikiText|GettingStartedWikiText]]
 * [[Setting Up TiddlyWiki|GettingStartedSettingUp]]
+* [[Text Formatting|GettingStartedTextFormatting]]
+* [[Special Formatting in WikiText|GettingStartedWikiTextFormatting]]
+* [[HTML Formatting|GettingStartedHTML]]
 * [[Suport for Markdown|GettingStartedMarkdown]]
 * [[Support for CodeMirror|GettingStartedCodeMirror]]
+* [[Image Formatting|GettingStartedImages]]
 * [[Support for Vim|GettingStartedVim]]
 * [[Working With TiddlyWiki on the Desktop|GettingStartedTiddlyDesktop]]
 * [[Creating HTML File for a TiddlyWiki Site|GettingStartedHTMLFile]]

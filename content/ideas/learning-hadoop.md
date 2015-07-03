@@ -22,5 +22,5 @@
 * [FoundationDB - The best Key-Value Store in the world](https://foundationdb.com/)
 * [FoundationDB: Using Python with a Distributed Key-Value Store](https://www.youtube.com/watch?v=G293P7UGnAY&feature=youtu.be)
 * [Backup, Restore, Customize and Clone your Raspberry Pi SD Cards (tutorial)](http://sysmatt.blogspot.com/2014/08/backup-restore-customize-and-clone-your.html)
-* []()
+* [distributed server with RPi](https://hackaday.io/project/1002-distributed-server-with-rpi)
 * []()

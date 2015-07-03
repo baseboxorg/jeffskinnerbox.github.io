@@ -1,10 +1,10 @@
 created: 20141225214402795
-modified: 20150118162228024
+modified: 20150613152820818
 tags: [[Test Gear]]
 title: Oscilloscope
 type: text/vnd.tiddlywiki
 
-It's time to buy a scope.
+In early 2015, it was time for me to buy a scope.
 The Rigol DS1102E has become the work horse for the electronics enthusiast for several years,
 and has been my planned choose,
 but a new Rigol model, the DS1054Z, is about to eclipse it,
@@ -25,7 +25,9 @@ Below are the candidates I'm considering.
 Judging for the reviews and the price points
 (and assuming I can hack the scope to get 100MHz capabilities),
 the DS1054Z seems to be the easy prefered choose but for one cautionary tail.
-[[EEVblog|http://www.eevblog.com/]] investigates two very serious
+[[EEVblog|http://www.eevblog.com/]]
+does a [[teardown|https://www.youtube.com/watch?v=kb9P1Am9aFU]] and
+investigates two very serious
 [[issues with jitter|https://www.youtube.com/watch?v=kcOdzFaIYNE]]
 on the Rigol DS1054Z
 Some sort of modulated sampling/trigger jitter problem at 5 microsecond intervals (the “5us jitter problem”).

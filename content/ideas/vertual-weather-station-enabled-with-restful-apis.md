@@ -8,6 +8,7 @@ https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
 https://scotch.io/tutorials/setting-up-a-mean-stack-single-page-application,
 Authenticate a Node API with Tokens - https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens
 Sample Application with Backbone.js, Twitter Bootstrap, Node.js, Express, and MongoDB - http://coenraets.org/blog/2012/10/nodecellar-sample-application-with-backbone-js-twitter-bootstrap-node-js-express-and-mongodb/
+[PiClock – Time and Weather Information Overload](http://hackaday.com/2015/06/10/piclock-time-and-weather-information-overload/)
 
 I have considered purchasing or building my own home weather station.
 I would make it part of my larger plan to instrument my home for automation and monitoring.

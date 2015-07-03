@@ -9,6 +9,7 @@ Image: DRAFT_stamp.png
 Summary: bla bla bla
 
 Check out
+* [nRFIoT - Easy IoT Sensors](https://hackaday.io/project/2009-nrfiot-easy-iot-sensors)
 * [MySensors](http://www.mysensors.org/)
 * [Mosquitto](http://mosquitto.org/).
 * [Using an NRF24L01 for Air Bootloading](http://hackaday.com/2014/03/07/using-an-nrf24l01-for-air-bootloading/)

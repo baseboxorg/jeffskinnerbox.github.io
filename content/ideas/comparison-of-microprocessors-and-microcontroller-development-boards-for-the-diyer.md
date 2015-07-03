@@ -137,6 +137,7 @@ The new site is project oriented, allowing developers to sort and select paramet
 
 Parameters include processor type and speed; number of analog and digital inputs; wireless options including WiFi and Bluetooth; USB ports including host, client, and/or OTG; video connectivity; and more.
 
+* [Raspberry Pi stays sky high in 2015 Hacker SBC Survey](http://linuxgizmos.com/raspberry-pi-stays-sky-high-in-2015-hacker-sbc-survey/)
 * [Raspberry Pi Comparison Chart](https://www.makershed.com/pages/raspberry-pi-comparison-chart?utm_medium=email&utm_campaign=Maker+Pro+Newsletter+-+020515&utm_content=Maker+Pro+Newsletter+-+020515+CID_23412c58008033119ffa4ad6b38d34f9&utm_source=email_campaign&utm_term=RaspberryPiComparisonChart)
 * [Orange Pi SBC tempts Raspberry Pi clone fans](http://linuxgizmos.com/orange-pi-sbc-tempts-raspberry-pi-clone-fans/)
 * [Arietta G25 - Acme Systems Linux boards](http://www.acmesystems.it/arietta)
@@ -162,6 +163,7 @@ Parameters include processor type and speed; number of analog and digital inputs
 * [P-Star 25K50 Micro](http://www.pololu.com/product/3150)
 * [ARM-BMW, The Open Hardware Cortex-M0 Development Board](http://theanine.io/projects/arm-bmw/)
 * [Radxa](http://radxa.com/)
+* [Parallella-16 Micro Server](https://www.parallella.org/parallella-models/)
 
 | Board | Processor | Flash Memory | RAM Memory | EEPROM | I/O | Analog In | PWM | UART, I2C, SPI |
 |:------|:---------:|:------------:|:----------:|:------:|:---:|:---------:|:---:|:------------:|
