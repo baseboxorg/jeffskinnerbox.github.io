@@ -30,7 +30,7 @@ and highly configurable.
 What pushed me over the top are the facts that I could also use,
 via [TiddlyWiki Plugins][22],
 Markdown to format the content
-(althought TiddlyWiki supports it own  Markdown-like formating language which is more powerful) 
+(althought TiddlyWiki supports it own  Markdown-like formating language which is more powerful)
 and I can edit using Vim via CodeMirror.
 The post "[TiddlyWiki, an open source Evernote with VIM and Markdown][21]"
 gives a good, quick discussion on this topic.
@@ -56,7 +56,7 @@ Also, it gives me an excuse to [learn more about Node.js][^B]!
     This allows Node.js to create a runtime environment that pushes JavaScript
     from the server to the client quickly.
     V8 translates JavaScript into native machine language,
-    instead of working overtime to interpret it as bytecode, giving Node.js its speed. 
+    instead of working overtime to interpret it as bytecode, giving Node.js its speed.
     This speed, combined with asynchronous programming,
     are the twin powerhouses that make Node.js so responsive.
     The web posts [Way Node.js is Becoming the Go-To Technology in the Enterprise][10],
@@ -79,7 +79,7 @@ Also, it gives me an excuse to [learn more about Node.js][^B]!
 ## Installation
 Install Node.js via `apt-get`.
 Because of a conflict with another package (amateur radio node package,
-the executable from the Ubuntu repositories is called `nodejs` instead of `node`. 
+the executable from the Ubuntu repositories is called `nodejs` instead of `node`.
 Node.js package manager and other programs will want to call it "node",
 so you'll need to set up a symbolic link between `nodejs` and `node`.
 
@@ -165,10 +165,8 @@ Learning from these documents, the installation steps I formulated are the follo
 
 * The first step is for you to install the [Heroku Toolbelt][17].
 This provides you access to the Heroku Command Line utility,
-as well as Git and Foreman, tools you’ll use in later steps.
-(No need to install these tools within blogs Python's [`virtualenv`][18].
-In fact, the will automatically be install within
-`~/.heroku`, `/usr/local/heroku`, and `/usr/bin/heroku`.)
+as well as Git and Foreman, tools you’ll use in later steps
+(files are installed in `~/.heroku`, `/usr/local/heroku`, and `/usr/bin/heroku`.)
 
 * Establish your Heroku Toolbelt account:
 
@@ -176,7 +174,7 @@ In fact, the will automatically be install within
 $ heroku login
 Enter your Heroku credentials.
 Email: jeffskinnerbox@yahoo.com
-Password (typing will be hidden): 
+Password (typing will be hidden):
 Authentication successful.
 $
 ```
@@ -205,9 +203,9 @@ Press ^C at any time to quit.
 name: (wiki) jeffskinnerbox.wiki
 version: (0.0.0) 1.0.0
 description: Personal Wiki for the website www.jeffskinnerbox.me
-entry point: (index.js) 
-test command: 
-git repository: 
+entry point: (index.js)
+test command:
+git repository:
 keywords: heroku tiddlywiki
 author: Jeff Irland
 license: (BSD-2-Clause) MIT
@@ -233,7 +231,7 @@ Is this ok? (yes) yes
 ```
 
 * To install dependencies, use `npm install <pkg> --save`.
-This will install the package and also add it as a dependency in the `package.json` file. 
+This will install the package and also add it as a dependency in the `package.json` file.
 
 ```bash
 # create the dependencies
@@ -245,7 +243,7 @@ npm http 304 https://registry.npmjs.org/tiddlywiki
 tiddlywiki@5.1.7 node_modules/tiddlywiki
 
 # list the package.json file to see the results
-$ cat package.json 
+$ cat package.json
 {
   "name": "jeffskinnerbox.wiki",
   "version": "1.0.0",
@@ -282,15 +280,15 @@ FINISH FINISH FINISH FINISH
 * in the development enviment, create the `Procfile`:
 
 ```bash
-# Procfile contains the 
-$ cat Procfile 
+# Procfile contains the
+$ cat Procfile
 FINISH FINISH FINISH FINISH
 ```
 
 * Using the `npm install` command,
 you can install the dependencies that you declared in your `package.json` file.
 The use `foreman` to test it out locally using a
-browser with the URL ` http://localhost:5000/`. 
+browser with the URL ` http://localhost:5000/`.
 
 ```bash
 # build the app
@@ -334,7 +332,7 @@ Also, pick a name for the application and apply it.
 $ heroku login
 Enter your Heroku credentials.
 Email: jeffskinnerbox@yahoo.com
-Password (typing will be hidden): 
+Password (typing will be hidden):
 Authentication successful.
 
 # create the initial instance of the Heroku application
@@ -363,7 +361,7 @@ Writing objects: 100% (169/169), 15.86 MiB | 2.05 MiB/s, done.
 Total 169 (delta 1), reused 0 (delta 0)
 remote: Compressing source files... done.
 remote: Building source:
-remote: 
+remote:
 remote: -----> Node.js app detected
 remote: -----> Resetting git environment
 remote: -----> Requested node range:  0.10.x
@@ -377,11 +375,11 @@ remote: -----> Cleaning up node-gyp and npm artifacts
 remote: -----> Building runtime environment
 remote: -----> Discovering process types
 remote:        Procfile declares types -> web
-remote: 
+remote:
 remote: -----> Compressing... done, 39.8MB
 remote: -----> Launching... done, v3
 remote:        https://jeffskinnerbox-wiki.herokuapp.com/ deployed to Heroku
-remote: 
+remote:
 remote: Verifying deploy... done.
 To https://git.heroku.com/jeffskinnerbox-wiki.git
  * [new branch]      master -> master
@@ -441,7 +439,7 @@ To delete an application: heroku apps:destroy --app <the-application>
 * [Tiddler Toddler: an absolute beginner's guide to TiddlyWiki](http://tiddlertoddler.tiddlyspot.com/)
 
 ## Quickly Building a Prototype
-This show you a simple way to get your project setup so that you can talk to it and control it via the interwebs. 
+This show you a simple way to get your project setup so that you can talk to it and control it via the interwebs.
 * [Anatomy of a web application using node.js, ExpressJS, MongoDB & Backbone.js](http://www.amazon.com/gp/product/B00HRME7NA/ref=kinw_myk_ro_title)
 * [µCast #16: Pi + Express + Bootstrap + Angular FTW!](http://blog.microcasts.tv/2014/04/14/pi_express_bootstrap_angular/)
 * [µCast #17: Control Hardware Remotely With Socket.IO](http://blog.microcasts.tv/2014/06/21/using-socket-io-to-control-the-raspberry-pi-remotely/)
@@ -465,7 +463,7 @@ This show you a simple way to get your project setup so that you can talk to it 
 [15]:https://docs.npmjs.com/getting-started/what-is-npm
 [16]:https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction
 [17]:https://toolbelt.heroku.com/
-[18]:http://www.virtualenv.org/en/latest/
+[18]:
 [19]:https://devcenter.heroku.com/articles/deploying-nodejs
 [20]:https://groups.google.com/forum/#!topic/tiddlywiki/XDFW_tcSbf0
 [21]:http://blog.htmlfusion.com/tiddlywiki-evernote-with-vim-and-markdown/

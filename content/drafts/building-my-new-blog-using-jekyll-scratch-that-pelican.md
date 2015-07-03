@@ -57,10 +57,12 @@ You might find more information on [Pelican's GetHub][23] and [Pelican's Tips & 
 
 ##### Installing Pelican and Creating a Python Virtualenv
 Pelican is a [Python][48] based tool.
+You may have other Python projects and they may require a different version of Python.
 To assure I have a clean Python environment to work in, that doesn't conflict with other Python work,
 create a virtual environment using [`virtualenv`][49].
-To install Pelican and other Python package dependencies in a virtual environment,
-I roughly followed the instructions in the [official Pelican documentation][50].
+
+I chose not to install Pelican and other Python package dependencies in a virtual environment.
+If you do, you can roughly followed the instructions in the [official Pelican documentation][50].
 See below:
 
 ```bash
