@@ -202,8 +202,8 @@ and <code>-v</code> to provide verbose status&nbsp;output.</p>
 <p>The <code>sudo</code> is required since I have made <code>/mnt/backup</code> writable only by root.
 The presence or absence of the terminating <code>/</code> within the rsync command line is important.
 The following two commands produce different&nbsp;results:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv /home/jeff/Documents/<span style="color: #CC3300">&quot;My Maps&quot;</span>/ /mnt/backup/rsync-test2
-sudo rsync -azv /home/jeff/Documents/<span style="color: #CC3300">&quot;My Maps&quot;</span> /mnt/backup/rsync-test3
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv /home/jeff/Documents/&quot;My Maps&quot;/ /mnt/backup/rsync-test2
+sudo rsync -azv /home/jeff/Documents/&quot;My Maps&quot; /mnt/backup/rsync-test3
 </pre></div>
 
 
@@ -229,20 +229,20 @@ but when performing beyond your the firewall, you should use ssh, as shown&nbsp;
 checkout &#8220;<a href="http://www.thegeekstuff.com/2011/07/rsync-over-ssh-without-password/">How to Setup Rsync with <span class="caps">SSH</span> on <span class="caps">UNIX</span> / Linux (rsync without password)</a>&#8220;.
 This is sometime you will want to do to support automatic, unattended backups.
 Basicly, your going to do the following on the machine that will store the backups<sup id="fnref:B"><a class="footnote-ref" href="#fn:B" rel="footnote">2</a></sup>:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">cd</span> <span style="color: #003333">$HOME</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cd $HOME
 mkdir .ssh
-chmod <span style="color: #FF6600">755</span> .ssh
-ssh-keygen -N <span style="color: #CC3300">&quot;&quot;</span> -f /<span style="color: #003333">$HOME</span>/.ssh/id_rsa
-ssh-copy-id -i /<span style="color: #003333">$HOME</span>/.ssh/id_rsa.pub pi@RedRPi
-ssh-copy-id -i /<span style="color: #003333">$HOME</span>/.ssh/id_rsa.pub pi@BlackRPi
+chmod 755 .ssh
+ssh-keygen -N &quot;&quot; -f /$HOME/.ssh/id_rsa
+ssh-copy-id -i /$HOME/.ssh/id_rsa.pub pi@RedRPi
+ssh-copy-id -i /$HOME/.ssh/id_rsa.pub pi@BlackRPi
 sudo bash
-<span style="color: #336666">cd</span> /root
+cd /root
 mkdir .ssh
-chmod <span style="color: #FF6600">755</span> .ssh
-ssh-keygen -N <span style="color: #CC3300">&quot;&quot;</span> -f /root/.ssh/id_rsa
+chmod 755 .ssh
+ssh-keygen -N &quot;&quot; -f /root/.ssh/id_rsa
 ssh-copy-id -i /root/.ssh/id_rsa.pub pi@RedRPi
 ssh-copy-id -i /root/.ssh/id_rsa.pub pi@BlackRPi
-<span style="color: #336666">exit</span>
+exit
 </pre></div>
 
 
@@ -259,13 +259,13 @@ you might want to exclude one or more files (or directories) from the backup.
 You might also want to exclude a specific file type from rsync.
 Let&#8217;s run a backup of <code>pi@RedRPi:/home/pi/</code>
 but leave out the <code>tmp</code> and <code>src</code> directories.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh --exclude <span style="color: #CC3300">&#39;tmp&#39;</span> --exclude <span style="color: #CC3300">&#39;src&#39;</span> pi@RedRPi:/home/pi/ /mnt/backup/rsync-test6
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh --exclude &#39;tmp&#39; --exclude &#39;src&#39; pi@RedRPi:/home/pi/ /mnt/backup/rsync-test6
 </pre></div>
 
 
 <p>You could also create a file that contains the exclude list <code>tmp</code> and <code>src</code>.
 This would look&nbsp;like:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv --exclude-from <span style="color: #CC3300">&#39;exclude-list.txt&#39;</span> pi@RedRPi:/home/pi/ /mnt/backup/rsync-test6
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv --exclude-from &#39;exclude-list.txt&#39; pi@RedRPi:/home/pi/ /mnt/backup/rsync-test6
 </pre></div>
 
 
@@ -289,7 +289,7 @@ In this case you&#8217;ll be prompted to provide the RedRPi&#8217;s root passwor
 but the root login may not have a password<sup id="fnref:C"><a class="footnote-ref" href="#fn:C" rel="footnote">3</a></sup>.</p>
 <p>The way around all this is to use the <code>--rsync-path</code> option for rsync.
 This will&nbsp;work:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh --rsync-path<span style="color: #555555">=</span><span style="color: #CC3300">&quot;sudo rsync&quot;</span> pi@RedRPi:/root /mnt/backup/rsync-test7
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh --rsync-path=&quot;sudo rsync&quot; pi@RedRPi:/root /mnt/backup/rsync-test7
 </pre></div>
 
 
@@ -322,7 +322,7 @@ and the warnings<sup id="fnref:E"><a class="footnote-ref" href="#fn:E" rel="foot
 
 <p>Make these changes active by restarting the ssh services via the command <code>sudo service ssh restart</code>.</p>
 <p>With ssh properly configured, a command&nbsp;like</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh --rsync-path<span style="color: #555555">=</span><span style="color: #CC3300">&quot;sudo rsync&quot;</span> pi@BlackRPi:/root/.rpi-firmware/ /mnt/backup/rsync-test8
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh --rsync-path=&quot;sudo rsync&quot; pi@BlackRPi:/root/.rpi-firmware/ /mnt/backup/rsync-test8
 </pre></div>
 
 
@@ -334,7 +334,7 @@ It will run without user intervention; just what we need for automated&nbsp;back
 and establish its ssh authentication&nbsp;keys.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo adduser backup_user --disabled-password -u 400
 sudo mkdir /home/backup_user/.ssh
-sudo chmod <span style="color: #FF6600">700</span> /home/backup_user/.ssh
+sudo chmod 700 /home/backup_user/.ssh
 </pre></div>
 
 
@@ -345,27 +345,27 @@ sudo vim /home/backup_user/bin/rsync-wrapper.sh
 
 
 <p>Enter the following in this file to create the&nbsp;script:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/bin/sh</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">#!/bin/sh
 
-<span style="color: #0099FF; font-style: italic"># This script is a wrapper around rsync, so that rsync can run as root,</span>
-<span style="color: #0099FF; font-style: italic"># and at the same time, eliminate any security risks.</span>
+# This script is a wrapper around rsync, so that rsync can run as root,
+# and at the same time, eliminate any security risks.
 
-<span style="color: #0099FF; font-style: italic"># Place in the log file information concerning the execution of this script</span>
-<span style="color: #336666">echo</span> -n <span style="color: #CC3300">&quot;rsync wrapper script executed on &quot;</span> &gt;&gt; /home/backup_user/backup.log
+# Place in the log file information concerning the execution of this script
+echo -n &quot;rsync wrapper script executed on &quot; &gt;&gt; /home/backup_user/backup.log
 date &gt;&gt; /home/backup_user/backup.log
-<span style="color: #336666">echo</span> -n <span style="color: #CC3300">&quot;options passed to rsync: &quot;</span> &gt;&gt; /home/backup_user/backup.log
-<span style="color: #336666">echo</span> <span style="color: #003333">$@</span> &gt;&gt; /home/backup_user/backup.log
-<span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;---------------------------------------------&quot;</span> &gt;&gt; /home/backup_user/backup.log
+echo -n &quot;options passed to rsync: &quot; &gt;&gt; /home/backup_user/backup.log
+echo $@ &gt;&gt; /home/backup_user/backup.log
+echo &quot;---------------------------------------------&quot; &gt;&gt; /home/backup_user/backup.log
 
-<span style="color: #0099FF; font-style: italic"># Now execute the script</span>
-/usr/bin/sudo /usr/bin/rsync <span style="color: #CC3300">&quot;</span><span style="color: #003333">$@</span><span style="color: #CC3300">&quot;</span>;
+# Now execute the script
+/usr/bin/sudo /usr/bin/rsync &quot;$@&quot;;
 </pre></div>
 
 
 <p>Now change the mode and owner of this&nbsp;file:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo chown backup_user:backup_user /home/backup_user/*
 sudo chown backup_user:backup_user /home/backup_user/bin/rsync-wrapper.sh
-sudo chmod <span style="color: #FF6600">754</span> /home/backup_user/bin/rsync-wrapper.sh
+sudo chmod 754 /home/backup_user/bin/rsync-wrapper.sh
 </pre></div>
 
 
@@ -387,11 +387,11 @@ and establish its <code>ssh</code> authentication&nbsp;keys.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo adduser backup_user -u 400
 sudo chown backup_user:backup_user /home/backup_user/*
 sudo su backup_user
-<span style="color: #336666">cd</span> ~
-ssh-keygen -N <span style="color: #CC3300">&quot;&quot;</span> -f ~/.ssh/id_rsa
+cd ~
+ssh-keygen -N &quot;&quot; -f ~/.ssh/id_rsa
 ssh-copy-id -i ~/.ssh/id_rsa.pub backup_user@RedRPi
 ssh-copy-id -i ~/.ssh/id_rsa.pub backup_user@BlackRPi
-<span style="color: #336666">exit</span>
+exit
 </pre></div>
 
 
@@ -538,24 +538,24 @@ This initial run is likely to run a long time, and shouldn&#8217;t be do via cro
 You can setup commands or scripts, which will be repeatedly run at a set&nbsp;time.</p>
 <p>For crontab, I created a wrapper script and
 placed it in <code>/home/backup_user/bin/rsnapshot-wrapper.sh</code>:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/bin/sh</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">#!/bin/sh
 
-<span style="color: #0099FF; font-style: italic"># This script is a wrapper around rsnapshot, so status information is logged</span>
+# This script is a wrapper around rsnapshot, so status information is logged
 
-<span style="color: #0099FF; font-style: italic"># Place in the log file information concerning the execution of this script</span>
-<span style="color: #336666">echo</span> -n <span style="color: #CC3300">&quot;rsnapshot wrapper script started at &quot;</span> &gt;&gt; /home/backup_user/backup.log
+# Place in the log file information concerning the execution of this script
+echo -n &quot;rsnapshot wrapper script started at &quot; &gt;&gt; /home/backup_user/backup.log
 date &gt;&gt; /home/backup_user/backup.log
 
-<span style="color: #336666">echo</span> -n <span style="color: #CC3300">&quot;options passed to rsnapshot: &quot;</span> &gt;&gt; /home/backup_user/backup.log
-<span style="color: #336666">echo</span> <span style="color: #003333">$@</span> &gt;&gt; /home/backup_user/backup.log
+echo -n &quot;options passed to rsnapshot: &quot; &gt;&gt; /home/backup_user/backup.log
+echo $@ &gt;&gt; /home/backup_user/backup.log
 
-<span style="color: #0099FF; font-style: italic"># Now execute the script</span>
-/usr/bin/rsnapshot <span style="color: #CC3300">&quot;</span><span style="color: #003333">$@</span><span style="color: #CC3300">&quot;</span> &gt;&gt; /home/backup_user/backup.log 2&gt;&amp;1;
+# Now execute the script
+/usr/bin/rsnapshot &quot;$@&quot; &gt;&gt; /home/backup_user/backup.log 2&gt;&amp;1;
 
-<span style="color: #336666">echo</span> -n <span style="color: #CC3300">&quot;rsnapshot wrapper script completed at &quot;</span> &gt;&gt; /home/backup_user/backup.log
+echo -n &quot;rsnapshot wrapper script completed at &quot; &gt;&gt; /home/backup_user/backup.log
 date &gt;&gt; /home/backup_user/backup.log
 
-<span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&quot;</span> &gt;&gt; /home/backup_user/backup.log
+echo &quot;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&quot; &gt;&gt; /home/backup_user/backup.log
 </pre></div>
 
 

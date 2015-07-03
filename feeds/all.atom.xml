@@ -186,7 +186,7 @@ but none organized the way I&amp;nbsp;want.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align="center"&gt;%&lt;/td&gt;
-&lt;td align="left"&gt;Move to associated ( ), &lt;/td&gt;
+&lt;td align="left"&gt;Move to associated ( ), { }, [ ]&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -275,8 +275,8 @@ but none organized the way I&amp;nbsp;want.&lt;/p&gt;
 &lt;td align="left"&gt;Delete to the end of the line.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align="center" motion="motion"&gt;d&lt;/td&gt;
-&lt;td align="left" motion="motion"&gt;Delete text that &lt;/td&gt;
+&lt;td align="center"&gt;d{motion}&lt;/td&gt;
+&lt;td align="left"&gt;Delete text that {motion} moves over&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1069,8 +1069,8 @@ but none organized the way I&amp;nbsp;want.&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td 0-9a-zA-Z_="0-9a-zA-Z&amp;quot;" align="center"&gt;q&lt;/td&gt;
-&lt;td 0-9a-zA-Z_="0-9a-zA-Z&amp;quot;" align="left"&gt;Record typed characters into register &lt;/td&gt;
+&lt;td align="center"&gt;q{0-9a-zA-Z&amp;#8221;}&lt;/td&gt;
+&lt;td align="left"&gt;Record typed characters into register {0-9a-zA-Z&amp;#8221;} (uppercase to append).  The &amp;#8216;q&amp;#8217; command is disabled while executing a register, and it doesn&amp;#8217;t work inside a mapping and :normal.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align="center"&gt;q&lt;/td&gt;
@@ -1092,12 +1092,12 @@ but none organized the way I&amp;nbsp;want.&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td 0-9a-zA-Z_="0-9a-zA-Z&amp;quot;" align="center"&gt;@q&lt;/td&gt;
+&lt;td align="center"&gt;@q{0-9a-zA-Z&amp;#8221;}&lt;/td&gt;
 &lt;td align="left"&gt;Play back the macro.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td 0-9="0-9" align="center"&gt;&lt;/td&gt;
-&lt;td 0-9a-zA-Z_="0-9a-zA-Z&amp;quot;" align="left"&gt;Play back the macro q&lt;/td&gt;
+&lt;td align="center"&gt;{0-9}@q{0-9a-zA-Z&amp;#8221;}&lt;/td&gt;
+&lt;td align="left"&gt;Play back the macro q{0-9a-zA-Z&amp;#8221;} a {0-9} number of  times.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align="center"&gt;@@&lt;/td&gt;
@@ -1123,7 +1123,7 @@ but none organized the way I&amp;nbsp;want.&lt;/p&gt;
 &lt;td align="left"&gt;string creates a fold from the cursor to string&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align="center" motion="motion"&gt;zf&lt;/td&gt;
+&lt;td align="center"&gt;zf{motion} or {Visual}zf&lt;/td&gt;
 &lt;td align="left"&gt;operator to create a fold&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2087,27 +2087,27 @@ My &lt;code&gt;/home/tc/.xsession&lt;/code&gt; file looks like&amp;nbsp;this&lt;
 &lt;span style="color: #0099FF; font-style: italic"&gt;# Set to 1 if your wish to use remote Display Manager&lt;/span&gt;
 &lt;span style="color: #003333"&gt;REMOTE&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;1
 
-&lt;span style="color: #006699; font-weight: bold"&gt;if&lt;/span&gt; &lt;span style="color: #555555"&gt;[&lt;/span&gt; &lt;span style="color: #003333"&gt;$REMOTE&lt;/span&gt; &lt;span style="color: #555555"&gt;==&lt;/span&gt; &lt;span style="color: #FF6600"&gt;1&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt;;
+&lt;span style="color: #006699; font-weight: bold"&gt;if&lt;/span&gt; &lt;span style="color: #555555"&gt;[&lt;/span&gt; &lt;span style="color: #003333"&gt;$REMOTE&lt;/span&gt; &lt;span style="color: #555555"&gt;==&lt;/span&gt; 1 &lt;span style="color: #555555"&gt;]&lt;/span&gt;;
 &lt;span style="color: #006699; font-weight: bold"&gt;then&lt;/span&gt;
-    Xvesa -query desktop -br -screen 1024x768x32 -shadow -3button -mouse /dev/input/mice,5 -I &amp;gt;/dev/null 2&amp;gt;&amp;amp;&lt;span style="color: #FF6600"&gt;1&lt;/span&gt; &amp;amp;
+&lt;span style="color: #006699; font-weight: bold"&gt;    &lt;/span&gt;Xvesa -query desktop -br -screen 1024x768x32 -shadow -3button -mouse /dev/input/mice,5 -I &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 &amp;amp;
     &lt;span style="color: #336666"&gt;export &lt;/span&gt;&lt;span style="color: #003333"&gt;XPID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #003333"&gt;$!&lt;/span&gt;
     waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; ! &lt;span style="color: #336666"&gt;echo &lt;/span&gt;failed in waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; &lt;span style="color: #336666"&gt;exit&lt;/span&gt;
-    &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$DESKTOP&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt; 2&amp;gt;/tmp/wm_errors &amp;amp;
+    &lt;span style="color: #CC3300"&gt;&amp;quot;$DESKTOP&amp;quot;&lt;/span&gt; 2&amp;gt;/tmp/wm_errors &amp;amp;
     &lt;span style="color: #336666"&gt;export &lt;/span&gt;&lt;span style="color: #003333"&gt;WM_PID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #003333"&gt;$!&lt;/span&gt;
     &lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground 
     &lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &amp;amp;
-    &lt;span style="color: #555555"&gt;[&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;which &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$ICONS&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;.sh&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;ICONS&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;.sh &amp;amp;
-    &lt;span style="color: #555555"&gt;[&lt;/span&gt; -d &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;&lt;span style="color: #CC3300"&gt;/.X.d&amp;quot;&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; find &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;&lt;span style="color: #CC3300"&gt;/.X.d&amp;quot;&lt;/span&gt; -type f -print | &lt;span style="color: #006699; font-weight: bold"&gt;while&lt;/span&gt; &lt;span style="color: #336666"&gt;read &lt;/span&gt;F; &lt;span style="color: #006699; font-weight: bold"&gt;do&lt;/span&gt; . &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$F&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;; &lt;span style="color: #006699; font-weight: bold"&gt;done&lt;/span&gt;
+    &lt;span style="color: #555555"&gt;[&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;which &lt;span style="color: #CC3300"&gt;&amp;quot;$ICONS&amp;quot;&lt;/span&gt;.sh&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;ICONS&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;.sh &amp;amp;
+    &lt;span style="color: #555555"&gt;[&lt;/span&gt; -d &lt;span style="color: #CC3300"&gt;&amp;quot;$HOME/.X.d&amp;quot;&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; find &lt;span style="color: #CC3300"&gt;&amp;quot;$HOME/.X.d&amp;quot;&lt;/span&gt; -type f -print | &lt;span style="color: #006699; font-weight: bold"&gt;while &lt;/span&gt;&lt;span style="color: #336666"&gt;read &lt;/span&gt;F; &lt;span style="color: #006699; font-weight: bold"&gt;do&lt;/span&gt; . &lt;span style="color: #CC3300"&gt;&amp;quot;$F&amp;quot;&lt;/span&gt;; &lt;span style="color: #006699; font-weight: bold"&gt;done&lt;/span&gt;
 &lt;span style="color: #006699; font-weight: bold"&gt;else&lt;/span&gt;
-    Xvesa -br -screen 1024x768x32 -shadow -3button -mouse /dev/input/mice,5 -nolisten tcp -I &amp;gt;/dev/null 2&amp;gt;&amp;amp;&lt;span style="color: #FF6600"&gt;1&lt;/span&gt; &amp;amp;
+&lt;span style="color: #006699; font-weight: bold"&gt;    &lt;/span&gt;Xvesa -br -screen 1024x768x32 -shadow -3button -mouse /dev/input/mice,5 -nolisten tcp -I &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 &amp;amp;
     &lt;span style="color: #336666"&gt;export &lt;/span&gt;&lt;span style="color: #003333"&gt;XPID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #003333"&gt;$!&lt;/span&gt;
     waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; ! &lt;span style="color: #336666"&gt;echo &lt;/span&gt;failed in waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; &lt;span style="color: #336666"&gt;exit&lt;/span&gt;
-    &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$DESKTOP&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt; 2&amp;gt;/tmp/wm_errors &amp;amp;
+    &lt;span style="color: #CC3300"&gt;&amp;quot;$DESKTOP&amp;quot;&lt;/span&gt; 2&amp;gt;/tmp/wm_errors &amp;amp;
     &lt;span style="color: #336666"&gt;export &lt;/span&gt;&lt;span style="color: #003333"&gt;WM_PID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #003333"&gt;$!&lt;/span&gt;
     &lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground 
     &lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &amp;amp;
-    &lt;span style="color: #555555"&gt;[&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;which &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$ICONS&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;.sh&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;ICONS&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;.sh &amp;amp;
-    &lt;span style="color: #555555"&gt;[&lt;/span&gt; -d &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;&lt;span style="color: #CC3300"&gt;/.X.d&amp;quot;&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; find &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;&lt;span style="color: #CC3300"&gt;/.X.d&amp;quot;&lt;/span&gt; -type f -print | &lt;span style="color: #006699; font-weight: bold"&gt;while&lt;/span&gt; &lt;span style="color: #336666"&gt;read &lt;/span&gt;F; &lt;span style="color: #006699; font-weight: bold"&gt;do&lt;/span&gt; . &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$F&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;; &lt;span style="color: #006699; font-weight: bold"&gt;done&lt;/span&gt;
+    &lt;span style="color: #555555"&gt;[&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;which &lt;span style="color: #CC3300"&gt;&amp;quot;$ICONS&amp;quot;&lt;/span&gt;.sh&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;ICONS&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;.sh &amp;amp;
+    &lt;span style="color: #555555"&gt;[&lt;/span&gt; -d &lt;span style="color: #CC3300"&gt;&amp;quot;$HOME/.X.d&amp;quot;&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; find &lt;span style="color: #CC3300"&gt;&amp;quot;$HOME/.X.d&amp;quot;&lt;/span&gt; -type f -print | &lt;span style="color: #006699; font-weight: bold"&gt;while &lt;/span&gt;&lt;span style="color: #336666"&gt;read &lt;/span&gt;F; &lt;span style="color: #006699; font-weight: bold"&gt;do&lt;/span&gt; . &lt;span style="color: #CC3300"&gt;&amp;quot;$F&amp;quot;&lt;/span&gt;; &lt;span style="color: #006699; font-weight: bold"&gt;done&lt;/span&gt;
 &lt;span style="color: #006699; font-weight: bold"&gt;fi&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -2115,15 +2115,15 @@ My &lt;code&gt;/home/tc/.xsession&lt;/code&gt; file looks like&amp;nbsp;this&lt;
 &lt;p&gt;My &lt;code&gt;/home/tc/.local/bin/localX.sh&lt;/code&gt; file looks like&amp;nbsp;this&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# This script will start a local X Window envirnment&lt;/span&gt;
 
-Xvesa -br -screen 1024x768x32 -shadow -3button -mouse /dev/input/mice,5 -nolisten tcp -I &amp;gt;/dev/null 2&amp;gt;&amp;amp;&lt;span style="color: #FF6600"&gt;1&lt;/span&gt; &amp;amp;
+Xvesa -br -screen 1024x768x32 -shadow -3button -mouse /dev/input/mice,5 -nolisten tcp -I &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 &amp;amp;
 &lt;span style="color: #336666"&gt;export &lt;/span&gt;&lt;span style="color: #003333"&gt;XPID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #003333"&gt;$!&lt;/span&gt;
 waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; ! &lt;span style="color: #336666"&gt;echo &lt;/span&gt;failed in waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; &lt;span style="color: #336666"&gt;exit&lt;/span&gt;
-&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$DESKTOP&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt; 2&amp;gt;/tmp/wm_errors &amp;amp;
+&lt;span style="color: #CC3300"&gt;&amp;quot;$DESKTOP&amp;quot;&lt;/span&gt; 2&amp;gt;/tmp/wm_errors &amp;amp;
 &lt;span style="color: #336666"&gt;export &lt;/span&gt;&lt;span style="color: #003333"&gt;WM_PID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #003333"&gt;$!&lt;/span&gt;
 &lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground 
 &lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &amp;amp;
-&lt;span style="color: #555555"&gt;[&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;which &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$ICONS&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;.sh&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;ICONS&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;.sh &amp;amp;
-&lt;span style="color: #555555"&gt;[&lt;/span&gt; -d &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;&lt;span style="color: #CC3300"&gt;/.X.d&amp;quot;&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; find &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;&lt;span style="color: #CC3300"&gt;/.X.d&amp;quot;&lt;/span&gt; -type f -print | &lt;span style="color: #006699; font-weight: bold"&gt;while&lt;/span&gt; &lt;span style="color: #336666"&gt;read &lt;/span&gt;F; &lt;span style="color: #006699; font-weight: bold"&gt;do&lt;/span&gt; . &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$F&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;; &lt;span style="color: #006699; font-weight: bold"&gt;done&lt;/span&gt;
+&lt;span style="color: #555555"&gt;[&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;which &lt;span style="color: #CC3300"&gt;&amp;quot;$ICONS&amp;quot;&lt;/span&gt;.sh&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;ICONS&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;.sh &amp;amp;
+&lt;span style="color: #555555"&gt;[&lt;/span&gt; -d &lt;span style="color: #CC3300"&gt;&amp;quot;$HOME/.X.d&amp;quot;&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; find &lt;span style="color: #CC3300"&gt;&amp;quot;$HOME/.X.d&amp;quot;&lt;/span&gt; -type f -print | &lt;span style="color: #006699; font-weight: bold"&gt;while &lt;/span&gt;&lt;span style="color: #336666"&gt;read &lt;/span&gt;F; &lt;span style="color: #006699; font-weight: bold"&gt;do&lt;/span&gt; . &lt;span style="color: #CC3300"&gt;&amp;quot;$F&amp;quot;&lt;/span&gt;; &lt;span style="color: #006699; font-weight: bold"&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -2346,19 +2346,19 @@ Screen shot is at the&amp;nbsp;bottom.&lt;/p&gt;
 &lt;span style="color: #0099FF; font-style: italic"&gt;# -------------------- Conky&amp;#39;s Run Time Parameters -------------------- #&lt;/span&gt;
 
 update_interval 2.0         &lt;span style="color: #0099FF; font-style: italic"&gt;# Conky update interval in seconds&lt;/span&gt;
-total_run_times &lt;span style="color: #FF6600"&gt;0&lt;/span&gt;           &lt;span style="color: #0099FF; font-style: italic"&gt;# Number of updates before quitting.  Set to zero to run forever.&lt;/span&gt;
+total_run_times 0           &lt;span style="color: #0099FF; font-style: italic"&gt;# Number of updates before quitting.  Set to zero to run forever.&lt;/span&gt;
 no_buffers yes              &lt;span style="color: #0099FF; font-style: italic"&gt;# Subtract file system buffers from used memory?&lt;/span&gt;
-cpu_avg_samples &lt;span style="color: #FF6600"&gt;2&lt;/span&gt;           &lt;span style="color: #0099FF; font-style: italic"&gt;# Number of cpu samples to average. Set to 1 to disable averaging&lt;/span&gt;
-net_avg_samples &lt;span style="color: #FF6600"&gt;2&lt;/span&gt;           &lt;span style="color: #0099FF; font-style: italic"&gt;# Number of net samples to average. Set to 1 to disable averaging&lt;/span&gt;
+cpu_avg_samples 2           &lt;span style="color: #0099FF; font-style: italic"&gt;# Number of cpu samples to average. Set to 1 to disable averaging&lt;/span&gt;
+net_avg_samples 2           &lt;span style="color: #0099FF; font-style: italic"&gt;# Number of net samples to average. Set to 1 to disable averaging&lt;/span&gt;
 
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# -------------------- Conky&amp;#39;s General Look &amp;amp; Feel -------------------- #&lt;/span&gt;
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# --- defualt values --- #&lt;/span&gt;
 default_color grey          &lt;span style="color: #0099FF; font-style: italic"&gt;# Default color and border color&lt;/span&gt;
-default_bar_size &lt;span style="color: #FF6600"&gt;0&lt;/span&gt; &lt;span style="color: #FF6600"&gt;6&lt;/span&gt;        &lt;span style="color: #0099FF; font-style: italic"&gt;# Specify a default width and height for bars.&lt;/span&gt;
-default_gauge_size &lt;span style="color: #FF6600"&gt;25&lt;/span&gt; &lt;span style="color: #FF6600"&gt;25&lt;/span&gt;    &lt;span style="color: #0099FF; font-style: italic"&gt;# Specify a default width and height for gauges.&lt;/span&gt;
-default_graph_size &lt;span style="color: #FF6600"&gt;0&lt;/span&gt; &lt;span style="color: #FF6600"&gt;25&lt;/span&gt;     &lt;span style="color: #0099FF; font-style: italic"&gt;# Specify a default width and height for graphs.&lt;/span&gt;
+default_bar_size 0 6        &lt;span style="color: #0099FF; font-style: italic"&gt;# Specify a default width and height for bars.&lt;/span&gt;
+default_gauge_size 25 25    &lt;span style="color: #0099FF; font-style: italic"&gt;# Specify a default width and height for gauges.&lt;/span&gt;
+default_graph_size 0 25     &lt;span style="color: #0099FF; font-style: italic"&gt;# Specify a default width and height for graphs.&lt;/span&gt;
 default_outline_color green &lt;span style="color: #0099FF; font-style: italic"&gt;# Default border and text outline color&lt;/span&gt;
 default_shade_color yellow  &lt;span style="color: #0099FF; font-style: italic"&gt;# Default border and text shading color&lt;/span&gt;
 
@@ -2366,7 +2366,7 @@ default_shade_color yellow  &lt;span style="color: #0099FF; font-style: italic"&
 color0 FFFFFF               &lt;span style="color: #0099FF; font-style: italic"&gt;# white&lt;/span&gt;
 color1 FFA500               &lt;span style="color: #0099FF; font-style: italic"&gt;# orange&lt;/span&gt;
 color2 B22222               &lt;span style="color: #0099FF; font-style: italic"&gt;# firebrick&lt;/span&gt;
-color3 &lt;span style="color: #FF6600"&gt;696969&lt;/span&gt;               &lt;span style="color: #0099FF; font-style: italic"&gt;# dim gray&lt;/span&gt;
+color3 696969               &lt;span style="color: #0099FF; font-style: italic"&gt;# dim gray&lt;/span&gt;
 color4 D3D3D3               &lt;span style="color: #0099FF; font-style: italic"&gt;# light gray&lt;/span&gt;
 color5 2F4F4F               &lt;span style="color: #0099FF; font-style: italic"&gt;# dark slate gray&lt;/span&gt;
 color6 FFEC8B               &lt;span style="color: #0099FF; font-style: italic"&gt;# light golden rod&lt;/span&gt;
@@ -2381,7 +2381,7 @@ own_window_transparent yes  &lt;span style="color: #0099FF; font-style: italic"&
 own_window_colour blue      &lt;span style="color: #0099FF; font-style: italic"&gt;# If own_window_transparent is no, set the background colour&lt;/span&gt;
 double_buffer yes           &lt;span style="color: #0099FF; font-style: italic"&gt;# Use double buffering (reduces flicker)&lt;/span&gt;
 use_spacer right            &lt;span style="color: #0099FF; font-style: italic"&gt;# Adds spaces to stop object from moving&lt;/span&gt;
-maximum_width &lt;span style="color: #FF6600"&gt;600&lt;/span&gt;           &lt;span style="color: #0099FF; font-style: italic"&gt;# Maximum width of window in pixels&lt;/span&gt;
+maximum_width 600           &lt;span style="color: #0099FF; font-style: italic"&gt;# Maximum width of window in pixels&lt;/span&gt;
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# --- window placment --- #&lt;/span&gt;
@@ -2389,11 +2389,11 @@ alignment top_right         &lt;span style="color: #0099FF; font-style: italic"&
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# --- borders, margins, and outlines --- #&lt;/span&gt;
 draw_graph_borders yes      &lt;span style="color: #0099FF; font-style: italic"&gt;# Do you want to draw borders around graphs&lt;/span&gt;
-border_inner_margin &lt;span style="color: #FF6600"&gt;9&lt;/span&gt;       &lt;span style="color: #0099FF; font-style: italic"&gt;# Window&amp;#39;s inner border margin (in pixels)&lt;/span&gt;
-border_outer_margin &lt;span style="color: #FF6600"&gt;5&lt;/span&gt;       &lt;span style="color: #0099FF; font-style: italic"&gt;# Window&amp;#39;s outer border margin (in pixels)&lt;/span&gt;
-gap_x &lt;span style="color: #FF6600"&gt;10&lt;/span&gt;                    &lt;span style="color: #0099FF; font-style: italic"&gt;# Gap between borders of screen and text (on x-axis)&lt;/span&gt;
-gap_y &lt;span style="color: #FF6600"&gt;40&lt;/span&gt;                    &lt;span style="color: #0099FF; font-style: italic"&gt;# Gap between borders of screen and text (on y-axis)&lt;/span&gt;
-border_width &lt;span style="color: #FF6600"&gt;10&lt;/span&gt;             &lt;span style="color: #0099FF; font-style: italic"&gt;# Window&amp;#39;s border width (in pixels)&lt;/span&gt;
+border_inner_margin 9       &lt;span style="color: #0099FF; font-style: italic"&gt;# Window&amp;#39;s inner border margin (in pixels)&lt;/span&gt;
+border_outer_margin 5       &lt;span style="color: #0099FF; font-style: italic"&gt;# Window&amp;#39;s outer border margin (in pixels)&lt;/span&gt;
+gap_x 10                    &lt;span style="color: #0099FF; font-style: italic"&gt;# Gap between borders of screen and text (on x-axis)&lt;/span&gt;
+gap_y 40                    &lt;span style="color: #0099FF; font-style: italic"&gt;# Gap between borders of screen and text (on y-axis)&lt;/span&gt;
+border_width 10             &lt;span style="color: #0099FF; font-style: italic"&gt;# Window&amp;#39;s border width (in pixels)&lt;/span&gt;
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# --- Text --- #&lt;/span&gt;
 draw_outline no             &lt;span style="color: #0099FF; font-style: italic"&gt;# Do you want ot draw outlines&lt;/span&gt;
@@ -2407,90 +2407,90 @@ xftfont Monospace:size&lt;span style="color: #555555"&gt;=&lt;/span&gt;8:weight&
 &lt;span style="color: #0099FF; font-style: italic"&gt;# -------------------- Conky&amp;#39;s Displayed System Monitoring Parameters -------------------- #&lt;/span&gt;
 TEXT
 &lt;span style="color: #0099FF; font-style: italic"&gt;# General system information&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;SYSTEM INFORMATION &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;System: &lt;span style="color: #003333"&gt;$color$nodename&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Uptime: &lt;span style="color: #003333"&gt;$color$uptime&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Kernel: &lt;span style="color: #003333"&gt;$color$kernel&lt;/span&gt;&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Arch: &lt;span style="color: #003333"&gt;$color$machine&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Distribution: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;execi&lt;/span&gt; 99999 lsb_release --description | awk &lt;span style="color: #CC3300"&gt;&amp;#39;{ print $2&amp;quot; &amp;quot;$3 }&amp;#39;&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;CPU Type: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;execi&lt;/span&gt; 99999 grep &lt;span style="color: #CC3300"&gt;&amp;#39;model name&amp;#39;&lt;/span&gt; /proc/cpuinfo | awk &lt;span style="color: #CC3300"&gt;&amp;#39;{ print $6 }&amp;#39;&lt;/span&gt; | sed &lt;span style="color: #CC3300"&gt;&amp;#39;2,$d&amp;#39;&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; / &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;execi&lt;/span&gt; 99999 grep &lt;span style="color: #CC3300"&gt;&amp;#39;model name&amp;#39;&lt;/span&gt; /proc/cpuinfo | wc -l&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; Cores
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;CPU Speed: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;freq&lt;/span&gt; 0&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; MHz Current / &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;execi&lt;/span&gt; 99999 grep &lt;span style="color: #CC3300"&gt;&amp;#39;model name&amp;#39;&lt;/span&gt; /proc/cpuinfo | awk &lt;span style="color: #CC3300"&gt;&amp;#39;{ print $9 }&amp;#39;&lt;/span&gt; | sed &lt;span style="color: #CC3300"&gt;&amp;#39;2,$d&amp;#39;&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; Max
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Processor Temperature: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;acpitemp&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;°C
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;SYSTEM INFORMATION &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;System: &lt;span style="color: #003333"&gt;$color$nodename&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Uptime: &lt;span style="color: #003333"&gt;$color$uptime&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Kernel: &lt;span style="color: #003333"&gt;$color$kernel&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Arch: &lt;span style="color: #003333"&gt;$color$machine&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Distribution: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;execi&lt;/span&gt; 99999 lsb_release --description | awk &lt;span style="color: #CC3300"&gt;&amp;#39;{ print $2&amp;quot; &amp;quot;$3 }&amp;#39;&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;CPU Type: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;execi&lt;/span&gt; 99999 grep &lt;span style="color: #CC3300"&gt;&amp;#39;model name&amp;#39;&lt;/span&gt; /proc/cpuinfo | awk &lt;span style="color: #CC3300"&gt;&amp;#39;{ print $6 }&amp;#39;&lt;/span&gt; | sed &lt;span style="color: #CC3300"&gt;&amp;#39;2,$d&amp;#39;&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; / &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;execi&lt;/span&gt; 99999 grep &lt;span style="color: #CC3300"&gt;&amp;#39;model name&amp;#39;&lt;/span&gt; /proc/cpuinfo | wc -l&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; Cores
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;CPU Speed: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;freq&lt;/span&gt; 0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; MHz Current / &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;execi&lt;/span&gt; 99999 grep &lt;span style="color: #CC3300"&gt;&amp;#39;model name&amp;#39;&lt;/span&gt; /proc/cpuinfo | awk &lt;span style="color: #CC3300"&gt;&amp;#39;{ print $9 }&amp;#39;&lt;/span&gt; | sed &lt;span style="color: #CC3300"&gt;&amp;#39;2,$d&amp;#39;&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; Max
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Processor Temperature: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;acpitemp&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;°C
 &lt;span style="color: #0099FF; font-style: italic"&gt;#${color0}MAC Address (eth0): $color${execi 99999 cat /sys/class/net/eth0/address }&lt;/span&gt;
 &lt;span style="color: #0099FF; font-style: italic"&gt;#${color0}MAC Address (eth1): $color${execi 99999 cat /sys/class/net/eth1/address }&lt;/span&gt;
 &lt;span style="color: #0099FF; font-style: italic"&gt;#${color0}MAC Address (wlan0): $color${execi 99999 cat /sys/class/net/wlan0/address }&lt;/span&gt;
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# CPU information&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;CPU &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;CPU Usage:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpu&lt;/span&gt; cpu0&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;% &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color7&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpubar&lt;/span&gt; cpu0&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpugraph&lt;/span&gt; cpu0 0000ff 00ff00&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Core 1:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;freq&lt;/span&gt; 1&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; MHz &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpu&lt;/span&gt; cpu1&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;% &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color5&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpubar&lt;/span&gt; cpu1&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Core 2:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;freq&lt;/span&gt; 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; MHz &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpu&lt;/span&gt; cpu2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;% &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color5&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpubar&lt;/span&gt; cpu2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Core 3:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;freq&lt;/span&gt; 3&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; MHz &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpu&lt;/span&gt; cpu3&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;% &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color5&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpubar&lt;/span&gt; cpu3&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Core 4:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;freq&lt;/span&gt; 4&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; MHz &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpu&lt;/span&gt; cpu4&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;% &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color5&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpubar&lt;/span&gt; cpu4&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;CPU &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;CPU Usage:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpu&lt;/span&gt; cpu0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color7&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpubar&lt;/span&gt; cpu0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpugraph&lt;/span&gt; cpu0 0000ff 00ff00&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Core 1:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;freq&lt;/span&gt; 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; MHz &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpu&lt;/span&gt; cpu1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color5&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpubar&lt;/span&gt; cpu1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Core 2:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;freq&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; MHz &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpu&lt;/span&gt; cpu2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color5&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpubar&lt;/span&gt; cpu2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Core 3:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;freq&lt;/span&gt; 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; MHz &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpu&lt;/span&gt; cpu3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color5&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpubar&lt;/span&gt; cpu3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Core 4:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;freq&lt;/span&gt; 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; MHz &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpu&lt;/span&gt; cpu4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color5&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpubar&lt;/span&gt; cpu4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# Top running processes&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;TOP &lt;span style="color: #FF6600"&gt;5&lt;/span&gt; PROCESSES &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Processes:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #003333"&gt;$processes&lt;/span&gt;  &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Running:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #003333"&gt;$running_processes&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Threads:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #003333"&gt;$threads&lt;/span&gt;  &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Running:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #003333"&gt;$running_threads&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;stippled_hr&lt;/span&gt; 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;CPU Usage&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color3&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; NAME              PID    CPU %   MEM&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color2&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; name 1&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; pid 1&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; cpu 1&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; mem 1&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
- &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; name 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; pid 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; cpu 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; mem 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
- &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; name 3&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; pid 3&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; cpu 3&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; mem 3&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
- &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; name 4&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; pid 4&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; cpu 4&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; mem 4&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
- &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; name 5&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; pid 5&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; cpu 5&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; mem 5&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;stippled_hr&lt;/span&gt; 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Mem Usage&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color3&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; NAME              PID    CPU %   MEM&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color2&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; name 1&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; pid 1&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; cpu 1&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; mem 1&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
- &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; name 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; pid 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; cpu 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; mem 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
- &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; name 3&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; pid 3&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; cpu 3&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; mem 3&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
- &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; name 4&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; pid 4&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; cpu 4&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; mem 4&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
- &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; name 5&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; pid 5&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; cpu 5&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; mem 5&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;TOP 5 PROCESSES &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Processes:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #003333"&gt;$processes&lt;/span&gt;  &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Running:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #003333"&gt;$running_processes&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Threads:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #003333"&gt;$threads&lt;/span&gt;  &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Running:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #003333"&gt;$running_threads&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;stippled_hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;CPU Usage&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color3&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; NAME              PID    CPU %   MEM&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color2&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; name 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; pid 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; cpu 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; mem 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+ &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; name 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; pid 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; cpu 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; mem 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+ &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; name 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; pid 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; cpu 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; mem 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+ &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; name 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; pid 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; cpu 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; mem 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+ &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; name 5&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; pid 5&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; cpu 5&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; mem 5&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;stippled_hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Mem Usage&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color3&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; NAME              PID    CPU %   MEM&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color2&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; name 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; pid 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; cpu 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; mem 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+ &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; name 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; pid 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; cpu 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; mem 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+ &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; name 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; pid 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; cpu 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; mem 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+ &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; name 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; pid 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; cpu 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; mem 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+ &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; name 5&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; pid 5&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; cpu 5&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; mem 5&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# Memory and swap space untilization&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;MEMORY &amp;amp; SWAP &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;RAM Usage: &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$mem&lt;/span&gt; / &lt;span style="color: #003333"&gt;$memmax&lt;/span&gt;
-&lt;span style="color: #003333"&gt;$memperc&lt;/span&gt;% &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color6&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;membar&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Swap Usage: &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$swap&lt;/span&gt; / &lt;span style="color: #003333"&gt;$swapmax&lt;/span&gt;
-&lt;span style="color: #003333"&gt;$swapperc&lt;/span&gt;% &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color6&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;swapbar&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;MEMORY &amp;amp; SWAP &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;RAM Usage: &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$mem&lt;/span&gt; / &lt;span style="color: #003333"&gt;$memmax&lt;/span&gt;
+&lt;span style="color: #003333"&gt;$memperc&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color6&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;membar&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Swap Usage: &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$swap&lt;/span&gt; / &lt;span style="color: #003333"&gt;$swapmax&lt;/span&gt;
+&lt;span style="color: #003333"&gt;$swapperc&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color6&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;swapbar&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# File System utilization&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;FILE SYSTEM &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;root:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used&lt;/span&gt; /&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; / &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_size&lt;/span&gt; /&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used_perc&lt;/span&gt; /&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;% &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_bar&lt;/span&gt; /&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;boot:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used&lt;/span&gt; /boot&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; / &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_size&lt;/span&gt; /boot&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used_perc&lt;/span&gt; /boot&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;% &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_bar&lt;/span&gt; /boot&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;home:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used&lt;/span&gt; /home&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; / &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_size&lt;/span&gt; /home&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used_perc&lt;/span&gt; /home&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;% &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_bar&lt;/span&gt; /home&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;backup:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used&lt;/span&gt; /mnt/backup&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; / &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_size&lt;/span&gt; /mnt/backup&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used_perc&lt;/span&gt; /mnt/backup&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;% &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_bar&lt;/span&gt; /mnt/backup&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;FILE SYSTEM &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;root:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used&lt;/span&gt; /&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; / &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_size&lt;/span&gt; /&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used_perc&lt;/span&gt; /&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_bar&lt;/span&gt; /&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;boot:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used&lt;/span&gt; /boot&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; / &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_size&lt;/span&gt; /boot&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used_perc&lt;/span&gt; /boot&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_bar&lt;/span&gt; /boot&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;home:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used&lt;/span&gt; /home&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; / &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_size&lt;/span&gt; /home&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used_perc&lt;/span&gt; /home&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_bar&lt;/span&gt; /home&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;backup:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used&lt;/span&gt; /mnt/backup&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; / &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_size&lt;/span&gt; /mnt/backup&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used_perc&lt;/span&gt; /mnt/backup&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_bar&lt;/span&gt; /mnt/backup&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# Hard Drive Utilization&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;HARD DRIVE I/O &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Device:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; /dev/sda
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Reads: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskio_read&lt;/span&gt; /dev/sda&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;/s&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Writes: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskio_write&lt;/span&gt; /dev/sda&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;/s
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskiograph_read&lt;/span&gt; /dev/sda 20,100 33FF00 FF3333 scale -t&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskiograph_write&lt;/span&gt; /dev/sda 20,100 33FF00 FF3333 scale -t&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Device:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; /dev/md0
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Reads: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskio_read&lt;/span&gt; /dev/md0&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;/s&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Writes: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskio_write&lt;/span&gt; /dev/md0&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;/s
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskiograph_read&lt;/span&gt; /dev/md0 20,100 33FF00 FF3333 scale -t&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskiograph_write&lt;/span&gt; /dev/md0 20,100 33FF00 FF3333 scale -t&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;HARD DRIVE I/O &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Device:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; /dev/sda
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Reads: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskio_read&lt;/span&gt; /dev/sda&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;/s&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Writes: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskio_write&lt;/span&gt; /dev/sda&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;/s
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskiograph_read&lt;/span&gt; /dev/sda 20,100 33FF00 FF3333 scale -t&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskiograph_write&lt;/span&gt; /dev/sda 20,100 33FF00 FF3333 scale -t&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Device:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; /dev/md0
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Reads: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskio_read&lt;/span&gt; /dev/md0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;/s&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Writes: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskio_write&lt;/span&gt; /dev/md0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;/s
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskiograph_read&lt;/span&gt; /dev/md0 20,100 33FF00 FF3333 scale -t&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskiograph_write&lt;/span&gt; /dev/md0 20,100 33FF00 FF3333 scale -t&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# Ethernet utilization&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;NETWORKING &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Wired &lt;span style="color: #555555"&gt;(&lt;/span&gt;&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;addr&lt;/span&gt; eth0&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #555555"&gt;)&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Down:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;downspeed&lt;/span&gt; eth0&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;/s &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Up:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;upspeed&lt;/span&gt; eth0&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;/s
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Total:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;totaldown&lt;/span&gt; eth0&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Total: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;totalup&lt;/span&gt; eth0&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;downspeedgraph&lt;/span&gt; eth0 25,120 000000 00ff00&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;upspeedgraph&lt;/span&gt; eth0 25,120 000000 ff0000&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;stippled_hr&lt;/span&gt; 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Wireless &lt;span style="color: #555555"&gt;(&lt;/span&gt;&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;addr&lt;/span&gt; wlan0&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #555555"&gt;)&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Down:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;downspeed&lt;/span&gt; wlan0&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;/s &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Up:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;upspeed&lt;/span&gt; wlan0&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;/s
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Total:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;totaldown&lt;/span&gt; wlan0&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;Total: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;totalup&lt;/span&gt; wlan0&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;downspeedgraph&lt;/span&gt; wlan0 25,120 000000 00ff00&lt;span style="color: #AA0000"&gt;}&lt;/span&gt; &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;upspeedgraph&lt;/span&gt; wlan0 25,120 000000 ff0000&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;NETWORKING &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Wired &lt;span style="color: #555555"&gt;(&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;addr&lt;/span&gt; eth0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #555555"&gt;)&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Down:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;downspeed&lt;/span&gt; eth0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;/s &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Up:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;upspeed&lt;/span&gt; eth0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;/s
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Total:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;totaldown&lt;/span&gt; eth0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Total: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;totalup&lt;/span&gt; eth0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;downspeedgraph&lt;/span&gt; eth0 25,120 000000 00ff00&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;upspeedgraph&lt;/span&gt; eth0 25,120 000000 ff0000&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;stippled_hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Wireless &lt;span style="color: #555555"&gt;(&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;addr&lt;/span&gt; wlan0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #555555"&gt;)&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Down:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;downspeed&lt;/span&gt; wlan0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;/s &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Up:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;upspeed&lt;/span&gt; wlan0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;/s
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Total:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;totaldown&lt;/span&gt; wlan0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Total: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;totalup&lt;/span&gt; wlan0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;downspeedgraph&lt;/span&gt; wlan0 25,120 000000 00ff00&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;upspeedgraph&lt;/span&gt; wlan0 25,120 000000 ff0000&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# Print the tail of the Linux system log&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;LOG FILES &lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;SysLog Messages&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
-&lt;span style="color: #AA0000"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color4&lt;/span&gt;&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;font&lt;/span&gt; Arial:&lt;span style="color: #003333"&gt;size&lt;/span&gt;=7&lt;span style="color: #AA0000"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;execi&lt;/span&gt; 30 tail -n3 /var/log/syslog | fold -w50&lt;span style="color: #AA0000"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color$font&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;LOG FILES &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;SysLog Messages&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color4&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;font&lt;/span&gt; Arial:&lt;span style="color: #003333"&gt;size&lt;/span&gt;=7&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;execi&lt;/span&gt; 30 tail -n3 /var/log/syslog | fold -w50&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color$font&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -2876,14 +2876,20 @@ can be identified&amp;nbsp;via:&lt;/p&gt;
 
 
 &lt;p&gt;Run the following command to list all packages that you no longer&amp;nbsp;need:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# list all the kernel packages currently loaded&lt;/span&gt;
-dpkg -l &lt;span style="color: #CC3300"&gt;&amp;#39;linux-*&amp;#39;&lt;/span&gt; | sed &lt;span style="color: #CC3300"&gt;&amp;#39;/^ii/!d;/&amp;#39;&amp;quot;&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;uname -r | sed &lt;span style="color: #CC3300"&gt;&amp;quot;s/\(.*\)-\([^0-9]\+\)/\1/&amp;quot;&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&amp;#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&amp;#39;&lt;/span&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# list all the kernel packages installed on the system&lt;/span&gt;
+dpkg -l &lt;span style="color: #CC3300"&gt;&amp;#39;linux-*&amp;#39;&lt;/span&gt;
+
+&lt;span style="color: #0099FF; font-style: italic"&gt;# print the currently active kernel version&lt;/span&gt;
+uname -r | sed &lt;span style="color: #CC3300"&gt;&amp;quot;s/\(.*\)-\([^0-9]\+\)/\1/&amp;quot;&lt;/span&gt;
+
+&lt;span style="color: #0099FF; font-style: italic"&gt;# list all the currently loaded old kernel packages, that is other than the active one&lt;/span&gt;
+dpkg -l &lt;span style="color: #CC3300"&gt;&amp;#39;linux-*&amp;#39;&lt;/span&gt; | sed &lt;span style="color: #CC3300"&gt;&amp;#39;/^ii/!d;/&amp;#39;&amp;quot;$(uname -r | sed &amp;quot;&lt;/span&gt;s/&lt;span style="color: #CC3300; font-weight: bold"&gt;\(&lt;/span&gt;.*&lt;span style="color: #CC3300; font-weight: bold"&gt;\)&lt;/span&gt;-&lt;span style="color: #CC3300; font-weight: bold"&gt;\(&lt;/span&gt;&lt;span style="color: #555555"&gt;[&lt;/span&gt;^0-9&lt;span style="color: #555555"&gt;]&lt;/span&gt;&lt;span style="color: #CC3300; font-weight: bold"&gt;\+\)&lt;/span&gt;/&lt;span style="color: #CC3300; font-weight: bold"&gt;\1&lt;/span&gt;/&lt;span style="color: #CC3300"&gt;&amp;quot;)&amp;quot;&amp;#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;You can use the above command to permanently delete &lt;strong&gt;&lt;span class="caps"&gt;ALL&lt;/span&gt;&lt;/strong&gt; older&amp;nbsp;kernels:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# USE WITH CAUTION: perminately delete old kernel packages&lt;/span&gt;
-sudo apt-get remove --purge &lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;dpkg -l &lt;span style="color: #CC3300"&gt;&amp;#39;linux-*&amp;#39;&lt;/span&gt; | sed &lt;span style="color: #CC3300"&gt;&amp;#39;/^ii/!d;/&amp;#39;&amp;quot;&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;uname -r | sed &lt;span style="color: #CC3300"&gt;&amp;quot;s/\(.*\)-\([^0-9]\+\)/\1/&amp;quot;&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&amp;#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&amp;#39;&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt;
+sudo apt-get remove --purge &lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;dpkg -l &lt;span style="color: #CC3300"&gt;&amp;#39;linux-*&amp;#39;&lt;/span&gt; | sed &lt;span style="color: #CC3300"&gt;&amp;#39;/^ii/!d;/&amp;#39;&amp;quot;$(uname -r | sed &amp;quot;&lt;/span&gt;s/&lt;span style="color: #CC3300; font-weight: bold"&gt;\(&lt;/span&gt;.*&lt;span style="color: #CC3300; font-weight: bold"&gt;\)&lt;/span&gt;-&lt;span style="color: #CC3300; font-weight: bold"&gt;\(&lt;/span&gt;&lt;span style="color: #555555"&gt;[&lt;/span&gt;^0-9&lt;span style="color: #555555"&gt;]&lt;/span&gt;&lt;span style="color: #CC3300; font-weight: bold"&gt;\+\)&lt;/span&gt;/&lt;span style="color: #CC3300; font-weight: bold"&gt;\1&lt;/span&gt;/&lt;span style="color: #CC3300"&gt;&amp;quot;)&amp;quot;&amp;#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&amp;#39;&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -2892,6 +2898,11 @@ have an old kernel or two to fall back to
 (just in case the new one doesn&amp;#8217;t work with your system).
 At the very least, if you&amp;#8217;ve just upgraded the kernel,
 reboot before deleting the older&amp;nbsp;versions.&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# to remove a specific kernel package, in this case 3.13.0-49&lt;/span&gt;
+sudo apt-get remove --purge &lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;dpkg -l &lt;span style="color: #CC3300"&gt;&amp;#39;linux-*&amp;#39;&lt;/span&gt; | sed &lt;span style="color: #CC3300"&gt;&amp;#39;/^ii/!d;/&amp;#39;&amp;quot;$(uname -r | sed &amp;quot;&lt;/span&gt;s/&lt;span style="color: #CC3300; font-weight: bold"&gt;\(&lt;/span&gt;.*&lt;span style="color: #CC3300; font-weight: bold"&gt;\)&lt;/span&gt;-&lt;span style="color: #CC3300; font-weight: bold"&gt;\(&lt;/span&gt;&lt;span style="color: #555555"&gt;[&lt;/span&gt;^0-9&lt;span style="color: #555555"&gt;]&lt;/span&gt;&lt;span style="color: #CC3300; font-weight: bold"&gt;\+\)&lt;/span&gt;/&lt;span style="color: #CC3300; font-weight: bold"&gt;\1&lt;/span&gt;/&lt;span style="color: #CC3300"&gt;&amp;quot;)&amp;quot;&amp;#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&amp;#39;&lt;/span&gt; | grep 3.13.0-49&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;And if you happen to blow away all the kernel images (as I have done more than once),
 get your current kernel version back by executing &lt;code&gt;uname -r&lt;/code&gt; and then reinstall it&amp;nbsp;with:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get install linux-image-x.x.x-xx
@@ -3083,7 +3094,7 @@ to truncate the file to zero&amp;nbsp;bytes&lt;/p&gt;
 
 &lt;p&gt;You could automate all of the above with this command&amp;nbsp;line&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# for all open but deleted files associated with process 2746, trunctate the file to 0 bytes&lt;/span&gt;
-&lt;span style="color: #003333"&gt;PID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #FF6600"&gt;2746&lt;/span&gt; ; &lt;span style="color: #336666"&gt;cd&lt;/span&gt; /proc/&lt;span style="color: #003333"&gt;$PID&lt;/span&gt;/fd ; ls -l | grep &lt;span style="color: #CC3300"&gt;&amp;#39;(deleted)&amp;#39;&lt;/span&gt; | awk &lt;span style="color: #CC3300"&gt;&amp;#39;{ print $9 }&amp;#39;&lt;/span&gt; | &lt;span style="color: #006699; font-weight: bold"&gt;while&lt;/span&gt; &lt;span style="color: #336666"&gt;read &lt;/span&gt;FILE; &lt;span style="color: #006699; font-weight: bold"&gt;do&lt;/span&gt; :&amp;gt; /proc/&lt;span style="color: #003333"&gt;$PID&lt;/span&gt;/fd/&lt;span style="color: #003333"&gt;$FILE&lt;/span&gt;; &lt;span style="color: #006699; font-weight: bold"&gt;done&lt;/span&gt;
+&lt;span style="color: #003333"&gt;PID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;2746 ; &lt;span style="color: #336666"&gt;cd&lt;/span&gt; /proc/&lt;span style="color: #003333"&gt;$PID&lt;/span&gt;/fd ; ls -l | grep &lt;span style="color: #CC3300"&gt;&amp;#39;(deleted)&amp;#39;&lt;/span&gt; | awk &lt;span style="color: #CC3300"&gt;&amp;#39;{ print $9 }&amp;#39;&lt;/span&gt; | &lt;span style="color: #006699; font-weight: bold"&gt;while &lt;/span&gt;&lt;span style="color: #336666"&gt;read &lt;/span&gt;FILE; &lt;span style="color: #006699; font-weight: bold"&gt;do&lt;/span&gt; :&amp;gt; /proc/&lt;span style="color: #003333"&gt;$PID&lt;/span&gt;/fd/&lt;span style="color: #003333"&gt;$FILE&lt;/span&gt;; &lt;span style="color: #006699; font-weight: bold"&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -3211,8 +3222,8 @@ and &lt;code&gt;-v&lt;/code&gt; to provide verbose status&amp;nbsp;output.&lt;/p
 &lt;p&gt;The &lt;code&gt;sudo&lt;/code&gt; is required since I have made &lt;code&gt;/mnt/backup&lt;/code&gt; writable only by root.
 The presence or absence of the terminating &lt;code&gt;/&lt;/code&gt; within the rsync command line is important.
 The following two commands produce different&amp;nbsp;results:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo rsync -azv /home/jeff/Documents/&lt;span style="color: #CC3300"&gt;&amp;quot;My Maps&amp;quot;&lt;/span&gt;/ /mnt/backup/rsync-test2
-sudo rsync -azv /home/jeff/Documents/&lt;span style="color: #CC3300"&gt;&amp;quot;My Maps&amp;quot;&lt;/span&gt; /mnt/backup/rsync-test3
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo rsync -azv /home/jeff/Documents/&amp;quot;My Maps&amp;quot;/ /mnt/backup/rsync-test2
+sudo rsync -azv /home/jeff/Documents/&amp;quot;My Maps&amp;quot; /mnt/backup/rsync-test3
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -3238,20 +3249,20 @@ but when performing beyond your the firewall, you should use ssh, as shown&amp;n
 checkout &amp;#8220;&lt;a href="http://www.thegeekstuff.com/2011/07/rsync-over-ssh-without-password/"&gt;How to Setup Rsync with &lt;span class="caps"&gt;SSH&lt;/span&gt; on &lt;span class="caps"&gt;UNIX&lt;/span&gt; / Linux (rsync without password)&lt;/a&gt;&amp;#8220;.
 This is sometime you will want to do to support automatic, unattended backups.
 Basicly, your going to do the following on the machine that will store the backups&lt;sup id="fnref:B"&gt;&lt;a class="footnote-ref" href="#fn:B" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #336666"&gt;cd&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;cd $HOME
 mkdir .ssh
-chmod &lt;span style="color: #FF6600"&gt;755&lt;/span&gt; .ssh
-ssh-keygen -N &lt;span style="color: #CC3300"&gt;&amp;quot;&amp;quot;&lt;/span&gt; -f /&lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.ssh/id_rsa
-ssh-copy-id -i /&lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.ssh/id_rsa.pub pi@RedRPi
-ssh-copy-id -i /&lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.ssh/id_rsa.pub pi@BlackRPi
+chmod 755 .ssh
+ssh-keygen -N &amp;quot;&amp;quot; -f /$HOME/.ssh/id_rsa
+ssh-copy-id -i /$HOME/.ssh/id_rsa.pub pi@RedRPi
+ssh-copy-id -i /$HOME/.ssh/id_rsa.pub pi@BlackRPi
 sudo bash
-&lt;span style="color: #336666"&gt;cd&lt;/span&gt; /root
+cd /root
 mkdir .ssh
-chmod &lt;span style="color: #FF6600"&gt;755&lt;/span&gt; .ssh
-ssh-keygen -N &lt;span style="color: #CC3300"&gt;&amp;quot;&amp;quot;&lt;/span&gt; -f /root/.ssh/id_rsa
+chmod 755 .ssh
+ssh-keygen -N &amp;quot;&amp;quot; -f /root/.ssh/id_rsa
 ssh-copy-id -i /root/.ssh/id_rsa.pub pi@RedRPi
 ssh-copy-id -i /root/.ssh/id_rsa.pub pi@BlackRPi
-&lt;span style="color: #336666"&gt;exit&lt;/span&gt;
+exit
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -3268,13 +3279,13 @@ you might want to exclude one or more files (or directories) from the backup.
 You might also want to exclude a specific file type from rsync.
 Let&amp;#8217;s run a backup of &lt;code&gt;pi@RedRPi:/home/pi/&lt;/code&gt;
 but leave out the &lt;code&gt;tmp&lt;/code&gt; and &lt;code&gt;src&lt;/code&gt; directories.&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo rsync -azv -e ssh --exclude &lt;span style="color: #CC3300"&gt;&amp;#39;tmp&amp;#39;&lt;/span&gt; --exclude &lt;span style="color: #CC3300"&gt;&amp;#39;src&amp;#39;&lt;/span&gt; pi@RedRPi:/home/pi/ /mnt/backup/rsync-test6
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo rsync -azv -e ssh --exclude &amp;#39;tmp&amp;#39; --exclude &amp;#39;src&amp;#39; pi@RedRPi:/home/pi/ /mnt/backup/rsync-test6
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;You could also create a file that contains the exclude list &lt;code&gt;tmp&lt;/code&gt; and &lt;code&gt;src&lt;/code&gt;.
 This would look&amp;nbsp;like:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo rsync -azv --exclude-from &lt;span style="color: #CC3300"&gt;&amp;#39;exclude-list.txt&amp;#39;&lt;/span&gt; pi@RedRPi:/home/pi/ /mnt/backup/rsync-test6
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo rsync -azv --exclude-from &amp;#39;exclude-list.txt&amp;#39; pi@RedRPi:/home/pi/ /mnt/backup/rsync-test6
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -3298,7 +3309,7 @@ In this case you&amp;#8217;ll be prompted to provide the RedRPi&amp;#8217;s root
 but the root login may not have a password&lt;sup id="fnref:C"&gt;&lt;a class="footnote-ref" href="#fn:C" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 &lt;p&gt;The way around all this is to use the &lt;code&gt;--rsync-path&lt;/code&gt; option for rsync.
 This will&amp;nbsp;work:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo rsync -azv -e ssh --rsync-path&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;sudo rsync&amp;quot;&lt;/span&gt; pi@RedRPi:/root /mnt/backup/rsync-test7
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo rsync -azv -e ssh --rsync-path=&amp;quot;sudo rsync&amp;quot; pi@RedRPi:/root /mnt/backup/rsync-test7
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -3331,7 +3342,7 @@ and the warnings&lt;sup id="fnref:E"&gt;&lt;a class="footnote-ref" href="#fn:E" 
 
 &lt;p&gt;Make these changes active by restarting the ssh services via the command &lt;code&gt;sudo service ssh restart&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;With ssh properly configured, a command&amp;nbsp;like&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo rsync -azv -e ssh --rsync-path&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;sudo rsync&amp;quot;&lt;/span&gt; pi@BlackRPi:/root/.rpi-firmware/ /mnt/backup/rsync-test8
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo rsync -azv -e ssh --rsync-path=&amp;quot;sudo rsync&amp;quot; pi@BlackRPi:/root/.rpi-firmware/ /mnt/backup/rsync-test8
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -3343,7 +3354,7 @@ It will run without user intervention; just what we need for automated&amp;nbsp;
 and establish its ssh authentication&amp;nbsp;keys.&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo adduser backup_user --disabled-password -u 400
 sudo mkdir /home/backup_user/.ssh
-sudo chmod &lt;span style="color: #FF6600"&gt;700&lt;/span&gt; /home/backup_user/.ssh
+sudo chmod 700 /home/backup_user/.ssh
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -3354,27 +3365,27 @@ sudo vim /home/backup_user/bin/rsync-wrapper.sh
 
 
 &lt;p&gt;Enter the following in this file to create the&amp;nbsp;script:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;#!/bin/sh&lt;/span&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;#!/bin/sh
 
-&lt;span style="color: #0099FF; font-style: italic"&gt;# This script is a wrapper around rsync, so that rsync can run as root,&lt;/span&gt;
-&lt;span style="color: #0099FF; font-style: italic"&gt;# and at the same time, eliminate any security risks.&lt;/span&gt;
+# This script is a wrapper around rsync, so that rsync can run as root,
+# and at the same time, eliminate any security risks.
 
-&lt;span style="color: #0099FF; font-style: italic"&gt;# Place in the log file information concerning the execution of this script&lt;/span&gt;
-&lt;span style="color: #336666"&gt;echo&lt;/span&gt; -n &lt;span style="color: #CC3300"&gt;&amp;quot;rsync wrapper script executed on &amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /home/backup_user/backup.log
+# Place in the log file information concerning the execution of this script
+echo -n &amp;quot;rsync wrapper script executed on &amp;quot; &amp;gt;&amp;gt; /home/backup_user/backup.log
 date &amp;gt;&amp;gt; /home/backup_user/backup.log
-&lt;span style="color: #336666"&gt;echo&lt;/span&gt; -n &lt;span style="color: #CC3300"&gt;&amp;quot;options passed to rsync: &amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /home/backup_user/backup.log
-&lt;span style="color: #336666"&gt;echo&lt;/span&gt; &lt;span style="color: #003333"&gt;$@&lt;/span&gt; &amp;gt;&amp;gt; /home/backup_user/backup.log
-&lt;span style="color: #336666"&gt;echo&lt;/span&gt; &lt;span style="color: #CC3300"&gt;&amp;quot;---------------------------------------------&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /home/backup_user/backup.log
+echo -n &amp;quot;options passed to rsync: &amp;quot; &amp;gt;&amp;gt; /home/backup_user/backup.log
+echo $@ &amp;gt;&amp;gt; /home/backup_user/backup.log
+echo &amp;quot;---------------------------------------------&amp;quot; &amp;gt;&amp;gt; /home/backup_user/backup.log
 
-&lt;span style="color: #0099FF; font-style: italic"&gt;# Now execute the script&lt;/span&gt;
-/usr/bin/sudo /usr/bin/rsync &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$@&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;;
+# Now execute the script
+/usr/bin/sudo /usr/bin/rsync &amp;quot;$@&amp;quot;;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now change the mode and owner of this&amp;nbsp;file:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo chown backup_user:backup_user /home/backup_user/*
 sudo chown backup_user:backup_user /home/backup_user/bin/rsync-wrapper.sh
-sudo chmod &lt;span style="color: #FF6600"&gt;754&lt;/span&gt; /home/backup_user/bin/rsync-wrapper.sh
+sudo chmod 754 /home/backup_user/bin/rsync-wrapper.sh
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -3396,11 +3407,11 @@ and establish its &lt;code&gt;ssh&lt;/code&gt; authentication&amp;nbsp;keys.&lt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo adduser backup_user -u 400
 sudo chown backup_user:backup_user /home/backup_user/*
 sudo su backup_user
-&lt;span style="color: #336666"&gt;cd&lt;/span&gt; ~
-ssh-keygen -N &lt;span style="color: #CC3300"&gt;&amp;quot;&amp;quot;&lt;/span&gt; -f ~/.ssh/id_rsa
+cd ~
+ssh-keygen -N &amp;quot;&amp;quot; -f ~/.ssh/id_rsa
 ssh-copy-id -i ~/.ssh/id_rsa.pub backup_user@RedRPi
 ssh-copy-id -i ~/.ssh/id_rsa.pub backup_user@BlackRPi
-&lt;span style="color: #336666"&gt;exit&lt;/span&gt;
+exit
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -3547,24 +3558,24 @@ This initial run is likely to run a long time, and shouldn&amp;#8217;t be do via
 You can setup commands or scripts, which will be repeatedly run at a set&amp;nbsp;time.&lt;/p&gt;
 &lt;p&gt;For crontab, I created a wrapper script and
 placed it in &lt;code&gt;/home/backup_user/bin/rsnapshot-wrapper.sh&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;#!/bin/sh&lt;/span&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;#!/bin/sh
 
-&lt;span style="color: #0099FF; font-style: italic"&gt;# This script is a wrapper around rsnapshot, so status information is logged&lt;/span&gt;
+# This script is a wrapper around rsnapshot, so status information is logged
 
-&lt;span style="color: #0099FF; font-style: italic"&gt;# Place in the log file information concerning the execution of this script&lt;/span&gt;
-&lt;span style="color: #336666"&gt;echo&lt;/span&gt; -n &lt;span style="color: #CC3300"&gt;&amp;quot;rsnapshot wrapper script started at &amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /home/backup_user/backup.log
+# Place in the log file information concerning the execution of this script
+echo -n &amp;quot;rsnapshot wrapper script started at &amp;quot; &amp;gt;&amp;gt; /home/backup_user/backup.log
 date &amp;gt;&amp;gt; /home/backup_user/backup.log
 
-&lt;span style="color: #336666"&gt;echo&lt;/span&gt; -n &lt;span style="color: #CC3300"&gt;&amp;quot;options passed to rsnapshot: &amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /home/backup_user/backup.log
-&lt;span style="color: #336666"&gt;echo&lt;/span&gt; &lt;span style="color: #003333"&gt;$@&lt;/span&gt; &amp;gt;&amp;gt; /home/backup_user/backup.log
+echo -n &amp;quot;options passed to rsnapshot: &amp;quot; &amp;gt;&amp;gt; /home/backup_user/backup.log
+echo $@ &amp;gt;&amp;gt; /home/backup_user/backup.log
 
-&lt;span style="color: #0099FF; font-style: italic"&gt;# Now execute the script&lt;/span&gt;
-/usr/bin/rsnapshot &lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$@&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /home/backup_user/backup.log 2&amp;gt;&amp;amp;1;
+# Now execute the script
+/usr/bin/rsnapshot &amp;quot;$@&amp;quot; &amp;gt;&amp;gt; /home/backup_user/backup.log 2&amp;gt;&amp;amp;1;
 
-&lt;span style="color: #336666"&gt;echo&lt;/span&gt; -n &lt;span style="color: #CC3300"&gt;&amp;quot;rsnapshot wrapper script completed at &amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /home/backup_user/backup.log
+echo -n &amp;quot;rsnapshot wrapper script completed at &amp;quot; &amp;gt;&amp;gt; /home/backup_user/backup.log
 date &amp;gt;&amp;gt; /home/backup_user/backup.log
 
-&lt;span style="color: #336666"&gt;echo&lt;/span&gt; &lt;span style="color: #CC3300"&gt;&amp;quot;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /home/backup_user/backup.log
+echo &amp;quot;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&amp;quot; &amp;gt;&amp;gt; /home/backup_user/backup.log
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -3948,7 +3959,7 @@ sudo pip install virtualenvwrapper
 
 &lt;h3&gt;Step 2: Create a&amp;nbsp;Virtualenv&lt;/h3&gt;
 &lt;p&gt;The following command creates a clean virtualenv devoid of any packages in a directory called &lt;code&gt;_notebook&lt;/code&gt;.&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #003333"&gt;$ &lt;/span&gt;virtualenv --no-site-packages _notebook
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;$ virtualenv --no-site-packages _notebook
 New python executable in _notebook/bin/python
 Installing Setuptools........................................done.
 Installing Pip...............................................done.
@@ -3956,7 +3967,7 @@ Installing Pip...............................................done.
 
 
 &lt;p&gt;The way virtualenv works is that it creates the directory &lt;code&gt;_notebook&lt;/code&gt; symlinks to your global python installation, as you can see clearly using the tree&amp;nbsp;utility.&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #003333"&gt;$ &lt;/span&gt;tree -d _notebook
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;$ tree -d _notebook
 _notebook
 ├── bin
 ├── include
@@ -3985,10 +3996,10 @@ _notebook
 │           ├── setuptools
 │           │   ├── _backport
 │           │   │   └── hashlib
-│           │   ├── &lt;span style="color: #336666"&gt;command&lt;/span&gt;
+│           │   ├── command
 │           │   └── tests
 │           └── setuptools-0.9.8-py2.7.egg-info
-└── &lt;span style="color: #336666"&gt;local&lt;/span&gt;
+└── local
     ├── bin -&amp;gt; /home/jeff/myblog/_notebook/bin
     ├── include -&amp;gt; /home/jeff/myblog/_notebook/include
     └── lib -&amp;gt; /home/jeff/myblog/_notebook/lib
@@ -4002,21 +4013,21 @@ Do you want this virtualenv to use packages from your system site-packages, if n
 pass in the &lt;code&gt;-–no-site-packages&lt;/code&gt; switch when creating your&amp;nbsp;virtualenv.&lt;/p&gt;
 &lt;h3&gt;Step 3: Use the&amp;nbsp;Environment&lt;/h3&gt;
 &lt;p&gt;So we now have a new virtualenv, it now has to be activated. To do this, change to the virtualenv directory you just created and source the activation script from the bin directory in your&amp;nbsp;virtualenv:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;~/myblog&lt;span style="color: #003333"&gt;$ &lt;/span&gt;&lt;span style="color: #336666"&gt;cd &lt;/span&gt;_notebook
-~/myblog/_notebook&lt;span style="color: #003333"&gt;$ &lt;/span&gt;&lt;span style="color: #336666"&gt;source &lt;/span&gt;bin/activate
-&lt;span style="color: #555555"&gt;(&lt;/span&gt;_notebook&lt;span style="color: #555555"&gt;)&lt;/span&gt;~/myblog/_notebook&lt;span style="color: #003333"&gt;$ &lt;/span&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;~/myblog$ cd _notebook
+~/myblog/_notebook$ source bin/activate
+(_notebook)~/myblog/_notebook$ 
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Notice that the command prompt is modified after the sourcing.
 When you activate a virtualenv, it modifies your current prompt to prepend the name of the virtualenv in parentheses so that you know at a glance you have it active.
 Other than the prompt change, the main changes the activate script makes&amp;nbsp;are:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #003333"&gt;VIRTUAL_ENV&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;/home/jeff/myblog/_notebook&amp;quot;&lt;/span&gt;
-&lt;span style="color: #336666"&gt;export &lt;/span&gt;VIRTUAL_ENV
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;VIRTUAL_ENV=&amp;quot;/home/jeff/myblog/_notebook&amp;quot;
+export VIRTUAL_ENV
 
-&lt;span style="color: #003333"&gt;_OLD_VIRTUAL_PATH&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$PATH&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;
-&lt;span style="color: #003333"&gt;PATH&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;&lt;span style="color: #003333"&gt;$VIRTUAL_ENV&lt;/span&gt;&lt;span style="color: #CC3300"&gt;/bin:&lt;/span&gt;&lt;span style="color: #003333"&gt;$PATH&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;&lt;/span&gt;
-&lt;span style="color: #336666"&gt;export &lt;/span&gt;PATH
+_OLD_VIRTUAL_PATH=&amp;quot;$PATH&amp;quot;
+PATH=&amp;quot;$VIRTUAL_ENV/bin:$PATH&amp;quot;
+export PATH
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -4026,10 +4037,10 @@ This means through the magic of the Python site module the site-packages in your
 &lt;h3&gt;Step 4: Installing Packages in&amp;nbsp;Virtualenv&lt;/h3&gt;
 &lt;p&gt;Now that we are in the virtual envirnment, if you list the installed python packages,
 you&amp;#8217;ll find very&amp;nbsp;little:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #555555"&gt;(&lt;/span&gt;_notebook&lt;span style="color: #555555"&gt;)&lt;/span&gt;~/myblog/_notebook&lt;span style="color: #003333"&gt;$ &lt;/span&gt;pip freeze
-&lt;span style="color: #003333"&gt;argparse&lt;/span&gt;&lt;span style="color: #555555"&gt;==&lt;/span&gt;1.2.1
-&lt;span style="color: #003333"&gt;wsgiref&lt;/span&gt;&lt;span style="color: #555555"&gt;==&lt;/span&gt;0.1.2
-&lt;span style="color: #555555"&gt;(&lt;/span&gt;_notebook&lt;span style="color: #555555"&gt;)&lt;/span&gt;~/myblog/_notebook&lt;span style="color: #AA0000; background-color: #FFAAAA"&gt;$&lt;/span&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;(_notebook)~/myblog/_notebook$ pip freeze
+argparse==1.2.1
+wsgiref==0.1.2
+(_notebook)~/myblog/_notebook$
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -4047,12 +4058,12 @@ easy_install yolk
 &lt;p&gt;To install the basemap for matplotlib, you&amp;#8217;ll need to &lt;a href="http://matplotlib.org/basemap/users/installing.html"&gt;download&lt;/a&gt; the source from Matplotlib Org website.
 Basemap is an add-on toolkit for matplotlib that lets you plot data on map projections with coastlines, lakes, rivers and political&amp;nbsp;boundaries.&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;tar -zxvf basemap-1.0.7.tar.gz
-&lt;span style="color: #336666"&gt;cd &lt;/span&gt;basemap-1.0.7
-&lt;span style="color: #336666"&gt;cd &lt;/span&gt;geos-3.3.3
-&lt;span style="color: #336666"&gt;export &lt;/span&gt;&lt;span style="color: #003333"&gt;GEOS_DIR&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;quot;/home/jeff/myblog/_notebook/lib&amp;quot;&lt;/span&gt;
-./configure --prefix&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #003333"&gt;$GEOS_DIR&lt;/span&gt;
+cd basemap-1.0.7
+cd geos-3.3.3
+export GEOS_DIR=&amp;quot;/home/jeff/myblog/_notebook/lib&amp;quot;
+./configure --prefix=$GEOS_DIR
 make; make install
-&lt;span style="color: #336666"&gt;cd&lt;/span&gt; ..
+cd ..
 python setup.py install
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -4063,8 +4074,8 @@ These dependencies should be load automatically, but in case there are problems,
 they are &lt;a href="http://ipython.org/ipython-doc/stable/install/install.html"&gt;documented on the IPython website&lt;/a&gt;.
 You can download the latest IPython package from the &lt;a href="https://pypi.python.org/pypi/ipython"&gt;Python Org website&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;unzip ipython-1.1.0.zip 
-&lt;span style="color: #336666"&gt;cd &lt;/span&gt;ipython-1.1.0
-easy_install ipython&lt;span style="color: #555555"&gt;[&lt;/span&gt;all&lt;span style="color: #555555"&gt;]&lt;/span&gt;
+cd ipython-1.1.0
+easy_install ipython[all]
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -4680,10 +4691,10 @@ In &lt;a href="http://jeffskinnerbox.wordpress.com/2013/05/26/rtl-sdr-software-d
 &lt;p&gt;Also within this post, I venture out from gqrx to examine a few other tools.  I don&amp;#8217;t cover much territory, nor have much success.  The insperation to examine these other tools comes mainly from the lengthy post &amp;#8220;&lt;a href="http://superkuh.com/rtlsdr.html#simple_ra"&gt;&lt;span class="caps"&gt;RTL&lt;/span&gt;-&lt;span class="caps"&gt;SDR&lt;/span&gt; and &lt;span class="caps"&gt;GNU&lt;/span&gt; Radio with Realtek &lt;span class="caps"&gt;RTL2832U&lt;/span&gt; [Elonics E4000/Raphael Micro &lt;span class="caps"&gt;R820T&lt;/span&gt;] software defined radio receiver&lt;/a&gt;&amp;#8220;.  Also check out &amp;#8220;&lt;a href="http://blog.opensecurityresearch.com/2012/06/getting-started-with-gnu-radio-and-rtl.html"&gt;Getting Started with &lt;span class="caps"&gt;GNU&lt;/span&gt; Radio and &lt;span class="caps"&gt;RTL&lt;/span&gt;-&lt;span class="caps"&gt;SDR&lt;/span&gt; (on Backtrack)&lt;/a&gt;&amp;#8220;.
 &lt;h2&gt;Build &lt;span class="caps"&gt;GNU&lt;/span&gt; Radio on&amp;nbsp;Ubuntu&lt;/h2&gt;
 The &lt;span class="caps"&gt;GNU&lt;/span&gt; Radio web site has &lt;a href="http://gnuradio.org/redmine/projects/gnuradio/wiki/InstallingGR#Using-the-build-gnuradio-script"&gt;specific instructions&lt;/a&gt; and a build script for installing it on Ubuntu (I&amp;#8217;m using version 13.04).  This process claims it may take 1-2 hours to do the install (for me it ran in 1 hour 14 minutes).  The steps are as&amp;nbsp;follows:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #336666"&gt;cd&lt;/span&gt; ~/src
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;cd ~/src
 mkdir ~/gnuradio
-&lt;span style="color: #336666"&gt;cd&lt;/span&gt; ~/gnuradio
-wget http://www.sbrac.org/files/build-gnuradio &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; chmod a+x ./build-gnuradio &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; ./build-gnuradio --verbose
+cd ~/gnuradio
+wget http://www.sbrac.org/files/build-gnuradio &amp;amp;&amp;amp; chmod a+x ./build-gnuradio &amp;amp;&amp;amp; ./build-gnuradio --verbose
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -4857,7 +4868,7 @@ sudo apt-get install phonon-backend-gstreamer
 
 &lt;p&gt;Now download the source for &lt;a href="http://www.oz9aec.net/index.php/gnu-radio/gqrx-sdr"&gt;Gqrx via its page on GitHub&lt;/a&gt;  and extract it into your target directory. The posting &lt;a href="http://www.thepowerbase.com/2012/06/getting-started-with-rtl-sdr/2/"&gt;Getting Started With &lt;span class="caps"&gt;RTL&lt;/span&gt;-&lt;span class="caps"&gt;SDR&lt;/span&gt;&lt;/a&gt; and the &lt;a href="https://github.com/csete/gqrx/blob/master/README.md"&gt;&lt;span class="caps"&gt;README&lt;/span&gt;&lt;/a&gt; on the GitHub site where useful in understanding how to do the install.  I did the&amp;nbsp;following:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;git clone git://github.com/csete/gqrx.git
-&lt;span style="color: #336666"&gt;cd &lt;/span&gt;gqrx
+cd gqrx
 qmake gqrx.pro
 make
 &lt;/pre&gt;&lt;/div&gt;
@@ -4876,7 +4887,7 @@ Click &amp;#8220;&lt;span class="caps"&gt;OK&lt;/span&gt;&amp;#8221; and the scr
 &lt;h2&gt;Building Multimode Radio&amp;nbsp;Receiver&lt;/h2&gt;
 This radio receiver is capable of demodulating muitiple modes, specifically &lt;span class="caps"&gt;AM&lt;/span&gt;, &lt;span class="caps"&gt;FM&lt;/span&gt;, &lt;span class="caps"&gt;USB&lt;/span&gt;, &lt;span class="caps"&gt;LSB&lt;/span&gt; , &lt;span class="caps"&gt;WFM&lt;/span&gt;. &lt;span class="caps"&gt;TV&lt;/span&gt;-&lt;span class="caps"&gt;FM&lt;/span&gt;, &lt;span class="caps"&gt;PAL&lt;/span&gt;-&lt;span class="caps"&gt;FM&lt;/span&gt;. It&amp;#8217;s easy to use and  has an automated scanning and spectral zoom features where clicking on the spectrogram or panorama to tune to the frequency of&amp;nbsp;interest.&lt;/p&gt;
 &lt;p&gt;Multimode documentation is sparse to non existent. The posts &amp;#8220;&lt;a href="http://foxgulch.com/WordPress/?p=615"&gt;Using the Realtek &lt;span class="caps"&gt;RTL2832&lt;/span&gt; &lt;span class="caps"&gt;USB&lt;/span&gt; “dongle” as a gnuradio multimode receiver&lt;/a&gt;&amp;#8221; and &amp;#8220;&lt;a href="http://superkuh.com/rtlsdr.html#multimodeappnote"&gt;&lt;span class="caps"&gt;RTL&lt;/span&gt;-&lt;span class="caps"&gt;SDR&lt;/span&gt; and &lt;span class="caps"&gt;GNU&lt;/span&gt; Radio with Realtek &lt;span class="caps"&gt;RTL2832U&lt;/span&gt; [Elonics E4000/Raphael Micro &lt;span class="caps"&gt;R820T&lt;/span&gt;] software defined radio receiver&lt;/a&gt;&amp;#8221; and &amp;#8220;&lt;a href="http://blog.opensecurityresearch.com/2012/06/getting-started-with-gnu-radio-and-rtl.html"&gt;Getting Started with &lt;span class="caps"&gt;GNU&lt;/span&gt; Radio and &lt;span class="caps"&gt;RTL&lt;/span&gt;-&lt;span class="caps"&gt;SDR&lt;/span&gt; (on Backtrack)&lt;/a&gt;&amp;#8221; gave some important hints on how to install multimode and get it operational.  I did the&amp;nbsp;following:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #336666"&gt;cd&lt;/span&gt; ~
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;cd ~
 svn co https://www.cgran.org/svn/projects/multimode/trunk/ ~/src/multimode
 make install
 &lt;/pre&gt;&lt;/div&gt;
@@ -4885,16 +4896,16 @@ make install
 &lt;p&gt;When I executed &lt;code&gt;multimode.py&lt;/code&gt;, it didn&amp;#8217;t product a display.  I suspect its some subtle Python code problem, or more likely.  incompatibility with the latest &lt;span class="caps"&gt;GNU&lt;/span&gt; Radio libraries.  For now, I&amp;#8217;m going to abandon this.
 &lt;h2&gt;&lt;span class="caps"&gt;GNU&lt;/span&gt; Radio Signal&amp;nbsp;Scanner&lt;/h2&gt;
 &lt;a href="http://www.techmeology.co.uk/gr-scan/"&gt;gr-scan&lt;/a&gt; is a program  built upon &lt;span class="caps"&gt;GNU&lt;/span&gt; Radio, rtl-sdr, and the OsmoSDR Source Block.  This receiver constantly changes frequencies in a set order looking for a frequency that has someone transmitting. It is intended to scan a range of frequencies and print a list of discovered signals.  Installation involved the following&amp;nbsp;steps:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #336666"&gt;cd&lt;/span&gt; ~./src
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;cd ~./src
 mkdir gr-scan
-&lt;span style="color: #336666"&gt;cd &lt;/span&gt;gr-scan
+cd gr-scan
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;with your browser, download: &lt;code&gt;http://www.techmeology.co.uk/gr-scan/gr-scan-2012082301.tar.gz&lt;/code&gt;&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;gzip -d gr-scan-2012082301.tar.gz
 tar -xvvf gr-scan-2012082301.tar
-&lt;span style="color: #336666"&gt;cd &lt;/span&gt;gr-scan-2012082301
+cd gr-scan-2012082301
 make
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -5020,16 +5031,16 @@ From the research I have done, I have found that the NooElec &lt;span class="cap
 &lt;p&gt;The dongle will not provide the desired &lt;span class="caps"&gt;SDR&lt;/span&gt; function out of the box.  It must first be configured (aka hacked) to stream the I/Q samples to the &lt;span class="caps"&gt;USB&lt;/span&gt; output.  This is where &lt;a href="http://sdr.osmocom.org/trac/wiki/rtl-sdr"&gt;Antii Palosaari&amp;#8217;s&lt;/a&gt; discovery comes into play.  The wiki&amp;#8217;s &lt;a href="http://rtlsdr.org/"&gt;rtlsdr.org&lt;/a&gt; and &lt;a href="http://sdr.osmocom.org/trac/"&gt;OsmoSDR&lt;/a&gt; are good sources for disparate information concerning &lt;span class="caps"&gt;RTL2832U&lt;/span&gt; based &lt;span class="caps"&gt;SDR&lt;/span&gt;, typically called &lt;span class="caps"&gt;RTL&lt;/span&gt;-&lt;span class="caps"&gt;SDR&lt;/span&gt;.  For my purposes, I wanted to get something initially working on my &lt;span class="caps"&gt;PC&lt;/span&gt; (Linux &lt;span class="caps"&gt;OS&lt;/span&gt;) but ultimately I wanted to have the dongle attached to a Raspberry Pi (RPi) and have the RPi be a server or archive of I/Q samples (sort of a intelligent wide band scanner as done in &lt;a href="http://www.jpmeijers.com/drupal/node/15"&gt;Raspberry Pi and &lt;span class="caps"&gt;DVB&lt;/span&gt;-T receivers&lt;/a&gt; and here &lt;a href="http://www.hamradioscience.com/raspberry-pi-as-remote-server-for-rtl2832u-sdr/"&gt;Raspberry Pi as Remote Server for RTL2832u &lt;span class="caps"&gt;SDR&lt;/span&gt;&lt;/a&gt; and here &lt;a href="http://www.jpmeijers.com/drupal/node/15"&gt;&lt;span class="caps"&gt;SDR&lt;/span&gt; with Raspberry Pi and &lt;span class="caps"&gt;DVB&lt;/span&gt;-T receivers&lt;/a&gt;) that could be processed by my &lt;span class="caps"&gt;PC&lt;/span&gt;.  Therefore, the first step is to get the dongle and a good &lt;span class="caps"&gt;SDR&lt;/span&gt; processor working on my &lt;span class="caps"&gt;PC&lt;/span&gt;.
 &lt;h2&gt;Building rtl-sdr Library and Capture&amp;nbsp;Tools&lt;/h2&gt;
 The  OsmoSDR wiki has some good instructions on &lt;a href="http://sdr.osmocom.org/trac/wiki/rtl-sdr#Buildingthesoftware"&gt;how to build the rtl-sdr software&lt;/a&gt;. I basically followed the wiki&amp;#8217;s instructions but I had to first install &lt;a href="http://www.cmake.org/"&gt;cmake&lt;/a&gt; (&lt;code&gt;sudo apt-get install cmake&lt;/code&gt;) and &lt;a href="http://www.libusb.org/"&gt;libusb&lt;/a&gt; (&lt;code&gt;sudo apt-get install libusb-1.0-0-dev&lt;/code&gt;) to get a successful make.  I then using the following&amp;nbsp;commands:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #336666"&gt;cd&lt;/span&gt; ~/src
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;cd ~/src
 git clone git://git.osmocom.org/rtl-sdr.git
-&lt;span style="color: #336666"&gt;cd &lt;/span&gt;rtl-sdr/
+cd rtl-sdr/
 mkdir build
-&lt;span style="color: #336666"&gt;cd &lt;/span&gt;build
+cd build
 cmake ../
 make
 sudo make install
 sudo ldconfig
-cmake ../ -DINSTALL_UDEV_RULES&lt;span style="color: #555555"&gt;=&lt;/span&gt;ON
+cmake ../ -DINSTALL_UDEV_RULES=ON
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -5058,14 +5069,14 @@ The  rtlsdr.org wiki has some instructions on &lt;a href="http://rtlsdr.org/so
 &lt;p&gt;Given this, I chose a different path. I found another posting that claim to &lt;a href="http://opensource.telkomspeedy.com/wiki/index.php/SDR:_SDRSharp_Ubuntu_12.04"&gt;get &lt;span class="caps"&gt;SDR&lt;/span&gt;# running in Linux&lt;/a&gt;. In this case, only executable will be loaded, not source code that needs to be compiled. You can download &lt;span class="caps"&gt;SDR&lt;/span&gt;# executable from this &lt;a href="http://sdrsharp.com/index.php/downloads"&gt;posting&lt;/a&gt;.  You&amp;#8217;ll also need to install &lt;a href="http://www.mono-project.com/Main_Page"&gt;mono&lt;/a&gt; and &lt;a href="http://www.portaudio.com/"&gt;PortAudio&lt;/a&gt;.  Here is how I did&amp;nbsp;it:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get install mono-complete monodevelop
 sudo apt-get install libportaudio2
-&lt;span style="color: #336666"&gt;cd&lt;/span&gt; ~/src
+cd ~/src
 mkdir sdrsharp
-&lt;span style="color: #336666"&gt;cd &lt;/span&gt;sdrsharp
+cd sdrsharp
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Within &lt;code&gt;~/src/sdrsharp&lt;/code&gt;, install the downloaded &lt;span class="caps"&gt;SDR&lt;/span&gt;# zip file and unzip&amp;nbsp;it.&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #336666"&gt;cd &lt;/span&gt;sdr-nightly
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;cd sdr-nightly
 ln -s /usr/local/lib/librtlsdr.so librtlsdr.dll
 ln -s /usr/lib/i386-linux-gnu/libportaudio.so.2 libportaudio.so
 &lt;/pre&gt;&lt;/div&gt;
@@ -5077,11 +5088,11 @@ ln -s /usr/lib/i386-linux-gnu/libportaudio.so.2 libportaudio.so
 &lt;h2&gt;Getting &lt;span class="caps"&gt;RTL&lt;/span&gt;-&lt;span class="caps"&gt;SDR&lt;/span&gt; Scanner&amp;nbsp;Running&lt;/h2&gt;
 &lt;a href="http://eartoearoak.com/software/rtlsdr-scanner"&gt;&lt;span class="caps"&gt;RTLSDR&lt;/span&gt; Scanner&lt;/a&gt; is a simple frequency scanning &lt;span class="caps"&gt;GUI&lt;/span&gt; using the OsmoSDR rtl-sdr library.  I more or less followed the &lt;a href="http://eartoearoak.com/software/rtlsdr-scanner/rtlsdr-scanner-installation"&gt;installation instructions&lt;/a&gt; but they are confusing/out-of-date and you&amp;#8217;ll needed to do some adjustments.  The OsmoSDR rtlsdr library has already been installed earlier in the text, so its not listed here.  To get the required files for &lt;span class="caps"&gt;RTLSDR&lt;/span&gt;&amp;nbsp;Scanner:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get install python python-wxgtk2.8 python-matplotlib python-numpy
-&lt;span style="color: #336666"&gt;cd&lt;/span&gt; ~/src
+cd ~/src
 git clone git://github.com/roger-/pyrtlsdr.git
-&lt;span style="color: #336666"&gt;cd &lt;/span&gt;pyrtlsdr
+cd pyrtlsdr
 sudo setup.py
-&lt;span style="color: #336666"&gt;cd&lt;/span&gt; ~/src
+cd ~/src
 git clone git://github.com/EarToEarOak/RTLSDR-Scanner.git
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -5442,21 +5453,21 @@ As I continue my investigation of the XBee radio, I&amp;#8217;m impressed by t
 I&amp;#8217;ll be using a Arduino and a RPis for for my network, each with a XBee radio thought which they can communicate. I&amp;#8217;ll establish terminal interface into each device so I can enter text for the device to transmit and the terminal will also show what messages where revived. All  terminals will be within windows on my &lt;span class="caps"&gt;PC&lt;/span&gt; using PuTTY, Xterm, or the Arduino&amp;#8217;s serial monitor screen.
 &lt;h2&gt;Initializing the XBee&amp;nbsp;Radios&lt;/h2&gt;
 First step is to make sure all the XBee radios that will be part of your network are properly configured.  Specifically, you need to make sure the &lt;span class="caps"&gt;PAN&lt;/span&gt; &lt;span class="caps"&gt;ID&lt;/span&gt; and Channel &lt;span class="caps"&gt;ID&lt;/span&gt; of the XBee radio&amp;#8217;s are identical.  To accomplish this, I used the &lt;code&gt;XBeeTerm.py&lt;/code&gt; utility I posted in my earlier blog titled &lt;a href="http://jeffskinnerbox.wordpress.com/2013/01/30/configuration-utilities-for-xbee-radios/"&gt;Configuration Utilities for XBee Radios&lt;/a&gt;.  I&amp;#8217;m going to setup my network with two XBee radios (but you can use as many as you wish) and I used the configuration file below on both&amp;nbsp;radios:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# To remove comments, white spaces, and blank lines, use the following:&lt;/span&gt;
-&lt;span style="color: #0099FF; font-style: italic"&gt;#       sed &amp;#39;/^#/d; s/\([^$]\)#.*/\1/&amp;#39; Modem-Device.txt | sed &amp;#39;s/[ \t]*$//&amp;#39; &amp;amp;gt; modemd.txt&lt;/span&gt;
-&lt;span style="color: #0099FF; font-style: italic"&gt;# Run this script to configure the XBee radio using the following:&lt;/span&gt;
-&lt;span style="color: #0099FF; font-style: italic"&gt;#       ./XBeeTerm.py modemd.txt&lt;/span&gt;
-&lt;span style="color: #0099FF; font-style: italic"&gt;#&lt;/span&gt;
-baudrate &lt;span style="color: #FF6600"&gt;9600&lt;/span&gt;       &lt;span style="color: #0099FF; font-style: italic"&gt;# (XBeeTerm command) set the baudrate used to comm. with the XBee&lt;/span&gt;
-serial /dev/ttyUSB0 &lt;span style="color: #0099FF; font-style: italic"&gt;# (XBeeTerm command) serial device which has the XBee radio&lt;/span&gt;
-+++             &lt;span style="color: #0099FF; font-style: italic"&gt;# (XBee command) enter AT command mode on the XBee&lt;/span&gt;
-ATRE            &lt;span style="color: #0099FF; font-style: italic"&gt;# (XBee command) restore XBee to factory settings&lt;/span&gt;
-ATID B000       &lt;span style="color: #0099FF; font-style: italic"&gt;# (XBee command) Set the PAN ID to eight byte hex (all XBee&amp;#39;s must have this same value)&lt;/span&gt;
-ATCH 0E         &lt;span style="color: #0099FF; font-style: italic"&gt;# (XBee command) set the Channel ID to a four byte hex (all XBee&amp;#39;s must have same value)&lt;/span&gt;
-ATPL &lt;span style="color: #FF6600"&gt;0&lt;/span&gt;          &lt;span style="color: #0099FF; font-style: italic"&gt;# (XBee command) power level at which the RF module transmits (0 lowest / 4 highest)&lt;/span&gt;
-ATWR            &lt;span style="color: #0099FF; font-style: italic"&gt;# (XBee command) write all the changes to the XBee non-volatile memory&lt;/span&gt;
-ATFR            &lt;span style="color: #0099FF; font-style: italic"&gt;# (XBee command) reboot XBee radio&lt;/span&gt;
-&lt;span style="color: #336666"&gt;exit&lt;/span&gt;            &lt;span style="color: #0099FF; font-style: italic"&gt;# (XBeeTerm command) exit python shell&lt;/span&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;# To remove comments, white spaces, and blank lines, use the following:
+#       sed &amp;#39;/^#/d; s/\([^$]\)#.*/\1/&amp;#39; Modem-Device.txt | sed &amp;#39;s/[ \t]*$//&amp;#39; &amp;amp;gt; modemd.txt
+# Run this script to configure the XBee radio using the following:
+#       ./XBeeTerm.py modemd.txt
+#
+baudrate 9600       # (XBeeTerm command) set the baudrate used to comm. with the XBee
+serial /dev/ttyUSB0 # (XBeeTerm command) serial device which has the XBee radio
++++             # (XBee command) enter AT command mode on the XBee
+ATRE            # (XBee command) restore XBee to factory settings
+ATID B000       # (XBee command) Set the PAN ID to eight byte hex (all XBee&amp;#39;s must have this same value)
+ATCH 0E         # (XBee command) set the Channel ID to a four byte hex (all XBee&amp;#39;s must have same value)
+ATPL 0          # (XBee command) power level at which the RF module transmits (0 lowest / 4 highest)
+ATWR            # (XBee command) write all the changes to the XBee non-volatile memory
+ATFR            # (XBee command) reboot XBee radio
+exit            # (XBeeTerm command) exit python shell
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -5694,8 +5705,8 @@ The XBeeTerm utility will  easily configure the XBee radios for &lt;span class=
 &lt;p&gt;&lt;script src="https://gist.github.com/jeffskinnerbox/6663187.js"&gt;&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;As they stand right now, these files could not be processed by &lt;code&gt;XBeeTerm.py&lt;/code&gt; because of the comments (included to make the contents understandable).  To clean this up, the command &lt;code&gt;sed '/^#/d; s/([^$])#.&lt;em&gt;/\1/'&lt;/code&gt;will remove all shell type comments from a file and &lt;code&gt;sed 's/[ \t]&lt;/em&gt;$//'&lt;/code&gt;will remove unneeded white space.  Putting this all together and you can use this to prepare the above files for &lt;code&gt;XBeeTerm.py&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sed &lt;span style="color: #CC3300"&gt;&amp;#39;/^#/d; s/\([^$]\)#.*/\1/&amp;#39;&lt;/span&gt; Config-Coordinator.txt | sed &lt;span style="color: #CC3300"&gt;&amp;#39;s/[ \t]*$//&amp;#39;&lt;/span&gt; &amp;gt; coord.txt
-sed &lt;span style="color: #CC3300"&gt;&amp;#39;/^#/d; s/\([^$]\)#.*/\1/&amp;#39;&lt;/span&gt; Config-End-Device.txt | sed &lt;span style="color: #CC3300"&gt;&amp;#39;s/[ \t]*$//&amp;#39;&lt;/span&gt; &amp;gt; endd.txt
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sed &amp;#39;/^#/d; s/\([^$]\)#.*/\1/&amp;#39; Config-Coordinator.txt | sed &amp;#39;s/[ \t]*$//&amp;#39; &amp;gt; coord.txt
+sed &amp;#39;/^#/d; s/\([^$]\)#.*/\1/&amp;#39; Config-End-Device.txt | sed &amp;#39;s/[ \t]*$//&amp;#39; &amp;gt; endd.txt
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -5703,7 +5714,7 @@ sed &lt;span style="color: #CC3300"&gt;&amp;#39;/^#/d; s/\([^$]\)#.*/\1/&amp;#39
 &lt;p&gt;&lt;a href="http://jeffskinnerbox.files.wordpress.com/2013/01/xbeeterm-script.jpg"&gt;&lt;img class="aligncenter size-full wp-image-1262" alt="XBeeTerm Script" src="http://jeffskinnerbox.files.wordpress.com/2013/01/xbeeterm-script.jpg" width="500" height="205" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The yellow text is responses back from the XBee serial terminal and the red text is from the XBee radio itself.  Since all the red text is &amp;#8220;&lt;span class="caps"&gt;OK&lt;/span&gt;&amp;#8221;, all the commands took and the XBee radio is now configured as a Coordinator.  Now repeat this for the End Device XBee&amp;nbsp;radio.&lt;/p&gt;
 &lt;p&gt;In this example, I have one End Device but what if you have multiple devices, do you need a &lt;code&gt;Config-End-Device.txt &lt;/code&gt;file for each end device?  The only change within the configuration file is the radio&amp;#8217;s address, which is established via the &lt;span class="caps"&gt;ATMY&lt;/span&gt; command.  Here is a trick to avoid the need for multiple files.  First, configure all your End Devices using the configuration file.  Then, for each radio, modify the &lt;span class="caps"&gt;ATMY&lt;/span&gt; use the&amp;nbsp;following:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #336666"&gt;echo&lt;/span&gt; -e &lt;span style="color: #CC3300"&gt;&amp;quot;baudrate 9600\nserial /dev/ttyUSB0\n+++\nATMY AAA1\nATWR\nATFR\nexit&amp;quot;&lt;/span&gt; | python XBeeTerm.py
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;echo -e &amp;quot;baudrate 9600\nserial /dev/ttyUSB0\n+++\nATMY AAA1\nATWR\nATFR\nexit&amp;quot; | python XBeeTerm.py
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -6088,8 +6099,8 @@ As promised, the final topic is the &lt;span class="caps"&gt;USB&lt;/span&gt; po
 &lt;h2&gt;Festival&lt;/h2&gt;
 
 &lt;p&gt;To test out the installation, check out &lt;a href="http://linux.die.net/man/1/festival"&gt;Festival&amp;#8217;s man page&lt;/a&gt;, and execute the&amp;nbsp;following:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #336666"&gt;echo&lt;/span&gt; &lt;span style="color: #CC3300"&gt;&amp;quot;Why are you in front of the computer?&amp;quot;&lt;/span&gt; | festival --tts
-date &lt;span style="color: #CC3300"&gt;&amp;#39;+%A, %B %e, %Y&amp;#39;&lt;/span&gt; | festival --tts
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;echo &amp;quot;Why are you in front of the computer?&amp;quot; | festival --tts
+date &amp;#39;+%A, %B %e, %Y&amp;#39; | festival --tts
 festival --tts Gettysburg_Address.txt
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -6114,7 +6125,7 @@ aplay HAL.wav
 &lt;/center&gt;
 &lt;h2&gt;Flite&lt;/h2&gt;
 &lt;a href="http://manpages.ubuntu.com/manpages/hardy/man1/flite.1.html"&gt;Flite&lt;/a&gt; (festival-lite) is a small, fast run-time synthesis engine developed using Festival for small embedded machines. Taking a famous quote from &lt;a href="http://en.wikipedia.org/wiki/HAL_9000"&gt;&lt;span class="caps"&gt;HAL&lt;/span&gt;&lt;/a&gt;, the computer in the movie &amp;#8220;&lt;a href="http://en.wikipedia.org/wiki/2001:_A_Space_Odyssey_(film)"&gt;2001: A Space Odyssey&lt;/a&gt;&amp;#8221;&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;flite &lt;span style="color: #CC3300"&gt;&amp;quot;Look Dave, I can see you&amp;#39;re really upset about this. I honestly think you ought to sit down calmly, take a stress pill, and think things over.&amp;quot;&lt;/span&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;flite &amp;quot;Look Dave, I can see you&amp;#39;re really upset about this. I honestly think you ought to sit down calmly, take a stress pill, and think things over.&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -6124,14 +6135,14 @@ aplay HAL.wav
 
 
 &lt;p&gt;To play a specific voice from the list, use the &lt;code&gt;-voice&lt;/code&gt; parameter in the&amp;nbsp;command&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;flite -voice kal &lt;span style="color: #CC3300"&gt;&amp;quot;I&amp;#39;m now speaking kal&amp;#39;s voice. By the way, please call me Dr. Hawking.&amp;quot;&lt;/span&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;flite -voice kal &amp;quot;I&amp;#39;m now speaking kal&amp;#39;s voice. By the way, please call me Dr. Hawking.&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;In my case, the default voice appears to be &amp;#8220;kal&amp;#8221;, which sounds somewhat like &lt;a href="http://www.newscientist.com/article/dn21323-the-man-who-saves-stephen-hawkings-voice.html"&gt;Stephen Hawking&lt;/a&gt;.  &amp;#8221;slt&amp;#8221; appears to be a female version of the &amp;#8220;kal&amp;#8221;&amp;nbsp;voice.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://manpages.ubuntu.com/manpages/hardy/man1/flite_time.1.html"&gt;&lt;code&gt;flite_time&lt;/code&gt;&lt;/a&gt; is a talking clock that can speak things like &amp;#8220;The time is now, exactly two, in the&amp;nbsp;afternoon.&amp;#8221;&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;flite_time 14:00
-flite_time &lt;span style="color: #CC3300"&gt;`&lt;/span&gt;date +%H:%M&lt;span style="color: #CC3300"&gt;`&lt;/span&gt;
+flite_time `date +%H:%M`
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -6149,7 +6160,7 @@ flite_time &lt;span style="color: #CC3300"&gt;`&lt;/span&gt;date +%H:%M&lt;span 
 His article &lt;a href="http://874.org.uk/speaking-weather-forecast-raspberry-pi.html"&gt;Getting your Raspberry Pi to speak the weather forecast&lt;/a&gt;
 explains his very simple approach using Google Text to Speech service.
 See&amp;nbsp;below&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;mplayer -ao alsa -really-quiet -noconsolecontrols &lt;span style="color: #CC3300"&gt;&amp;quot;http://translate.google.com/translate_tts?tl=en&amp;amp;q=Look Dave, I can see you&amp;#39;re really upset about this.&amp;quot;&lt;/span&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;mplayer -ao alsa -really-quiet -noconsolecontrols &amp;quot;http://translate.google.com/translate_tts?tl=en&amp;amp;q=Look Dave, I can see you&amp;#39;re really upset about this.&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -6178,7 +6189,7 @@ sudo apt-get install lame
 
 &lt;p&gt;By default, the RPi audio output is set to automatically select the digital &lt;span class="caps"&gt;HDMI&lt;/span&gt; interface if its being used, otherwise the analog audio output. You can force it to use a specific interface via the sound mixer controls.  &lt;a href="http://linux.die.net/man/1/amixer"&gt;&lt;code&gt;amixer&lt;/code&gt;&lt;/a&gt; allows command-line control of the mixer for the &lt;span class="caps"&gt;ALSA&lt;/span&gt;&amp;nbsp;driver.&lt;/p&gt;
 &lt;p&gt;You can force the RPi to use a specific interface using the command &lt;code&gt;amixer cset numid=3 N&lt;/code&gt; where the &lt;code&gt;N&lt;/code&gt; parameter means the following: 0=auto, 1=analog, 2=hdmi.  Therefore, to force the Raspberry Pi to use the analog&amp;nbsp;output:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;amixer cset &lt;span style="color: #003333"&gt;numid&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #FF6600"&gt;3&lt;/span&gt; 1
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;amixer cset numid=3 1
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -6187,8 +6198,8 @@ sudo apt-get install lame
 &lt;p&gt;With this done, you should be ready for a simple test.  Plug a speaker into the (RPi) Audio Output 3.5mm jack.  I used a simple battery powered&lt;a href="http://www.ihomeaudio.com/iHM60GX/"&gt; iHM60 iHome&lt;/a&gt; speaker.  The jack will not deliver much power, so the speaker needs to be&amp;nbsp;powered.&lt;/p&gt;
 &lt;p&gt;To test the RPi audio, you can play a &lt;span class="caps"&gt;WAV&lt;/span&gt; file (&lt;a href="http://www.jahozafat.com/php/sounds/?id=gog&amp;amp;media=WAVS&amp;amp;type=Movies&amp;amp;movie=Full_Metal_Jacket&amp;amp;quote=numnuts.txt&amp;amp;file=numnuts.wav"&gt;download this&lt;/a&gt; &amp;#8230; excellent for user-error notification) with &lt;code&gt;&lt;a href="http://linux.die.net/man/1/aplay"&gt;aplay&lt;/a&gt;&lt;/code&gt;, &lt;a href="http://linux.die.net/man/1/mpg321"&gt;&lt;code&gt;mpg321&lt;/code&gt;&lt;/a&gt; for &lt;span class="caps"&gt;MP3&lt;/span&gt; files, or use the &lt;a href="http://linux.die.net/man/1/speaker-test"&gt;&lt;code&gt;speaker-test&lt;/code&gt;&lt;/a&gt; command if you don&amp;#8217;t have a &lt;span class="caps"&gt;WAV&lt;/span&gt;/&lt;span class="caps"&gt;MP3&lt;/span&gt;&amp;nbsp;file.&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;aplay numnuts.wav
-speaker-test -t sine -f &lt;span style="color: #FF6600"&gt;440&lt;/span&gt; -c &lt;span style="color: #FF6600"&gt;2&lt;/span&gt; -s 1
-mpg321 &lt;span style="color: #CC3300"&gt;&amp;quot;Mannish Boy.mp3&amp;quot;&lt;/span&gt;
+speaker-test -t sine -f 440 -c 2 -s 1
+mpg321 &amp;quot;Mannish Boy.mp3&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -6315,7 +6326,7 @@ At its foundation, &lt;span class="caps"&gt;SSH&lt;/span&gt; functions as a pr
 
 &lt;p&gt;When I ran sendEmail the first time, it complained about some missing libraries.  I installed the missing libraries and this cleared the error.  Clearly, the sendEmail package needs some work since this dependency should have been taken care of by &lt;code&gt;apt-get&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;I ran it again using this&amp;nbsp;command:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sendEmail -f pi@RedRPi -t &amp;lt;my_user_name&amp;gt;@verzion.net -u &lt;span style="color: #CC3300"&gt;&amp;quot;Test Email from RedRPi&amp;quot;&lt;/span&gt; -m &lt;span style="color: #CC3300"&gt;&amp;quot;My test message.&amp;quot;&lt;/span&gt; -s smtp.gmail.com:587  -o &lt;span style="color: #003333"&gt;tls&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;yes -xu &amp;lt;my_user_name&amp;gt; -xp &amp;lt;my_password&amp;gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sendEmail -f pi@RedRPi -t &amp;lt;my_user_name&amp;gt;@verzion.net -u &amp;quot;Test Email from RedRPi&amp;quot; -m &amp;quot;My test message.&amp;quot; -s smtp.gmail.com:587  -o tls=yes -xu &amp;lt;my_user_name&amp;gt; -xp &amp;lt;my_password&amp;gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -6330,7 +6341,7 @@ At its foundation, &lt;span class="caps"&gt;SSH&lt;/span&gt; functions as a pr
 &lt;h2&gt;&lt;span class="caps"&gt;SMS&lt;/span&gt;&amp;nbsp;Messaging&lt;/h2&gt;
 Another messaging mechanism that I plan to use is Short Message Service (&lt;span class="caps"&gt;SMS&lt;/span&gt;).  To do this, you can use a &lt;a href="http://en.wikipedia.org/wiki/SMS_gateway"&gt;&lt;span class="caps"&gt;SMS&lt;/span&gt; gateway&lt;/a&gt; which will transform an email into an &lt;span class="caps"&gt;SMS&lt;/span&gt; message.  The down side is that there isn&amp;#8217;t a single gateway but &lt;a href="http://en.wikipedia.org/wiki/List_of_SMS_gateways"&gt;one for each of the cellular carries&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Here is an example for &lt;span class="caps"&gt;AT&lt;/span&gt;&amp;amp;T cell&amp;nbsp;phones:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sendEmail -f pi@RedRPi -t &amp;lt;cell_phone_number&amp;gt;@txt.att.net -u &lt;span style="color: #CC3300"&gt;&amp;quot;Test Email from RedRPi&amp;quot;&lt;/span&gt; -m &lt;span style="color: #CC3300"&gt;&amp;quot;My test message.&amp;quot;&lt;/span&gt; -s smtp.gmail.com:587  -o &lt;span style="color: #003333"&gt;tls&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;yes -xu &amp;lt;my_user_name&amp;gt; -xp &amp;lt;my_password&amp;gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sendEmail -f pi@RedRPi -t &amp;lt;cell_phone_number&amp;gt;@txt.att.net -u &amp;quot;Test Email from RedRPi&amp;quot; -m &amp;quot;My test message.&amp;quot; -s smtp.gmail.com:587  -o tls=yes -xu &amp;lt;my_user_name&amp;gt; -xp &amp;lt;my_password&amp;gt;
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="Raspberry Pi"></category></entry><entry><title>WiFi (with WEP Security) on Raspberry Pi</title><link href="http://jeffskinnerbox.me/posts/2012/Nov/05/wifi-with-wep-security-on-raspberry-pi/" rel="alternate"></link><updated>2012-11-05T00:01:00-05:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2012-11-05:posts/2012/Nov/05/wifi-with-wep-security-on-raspberry-pi/</id><summary type="html">&lt;p&gt;The Raspberry Pi Linux distribution I&amp;#8217;m using is Adafruit&amp;#8217;s &lt;a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/occidentalis-v0-dot-2"&gt;Occidentalis&lt;/a&gt;.  It &lt;a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/occidentalis-v0-dot-1#wifi-support"&gt;supports WiFi&lt;/a&gt; out of the box and appears easy to configure.  But as noted by Adafruit, adding peripherals to the RPi may increase the loading on the power supply to your board and this, in turn, may affect the voltage presented to the&amp;nbsp;RPi.&lt;/p&gt;
 
 &lt;p&gt;This is clearly the case, even for the tiny  OURlink WiFi (802.11b/g/n) &lt;span class="caps"&gt;USB&lt;/span&gt; Adapter (uses the &lt;a href="http://www.realtek.com/products/productsView.aspx?Langid=2&amp;amp;PNid=21&amp;amp;PFid=48&amp;amp;Level=5&amp;amp;Conn=4&amp;amp;ProdID=277"&gt;RTl8192cu chip&lt;/a&gt; which is &lt;a href="http://wiki.debian.org/rtl819x"&gt;supported by Debian Linux&lt;/a&gt;) I purchased from &lt;a href="http://www.adafruit.com/products/814"&gt;Adafruit&lt;/a&gt;.  When I plugged it into the RPi, it became unstable and crashed.  Adafruit advises that you can over come this by attach the RPi&amp;#8217;s &lt;span class="caps"&gt;USB&lt;/span&gt; port to a powered hub.  (Note that all &lt;span class="caps"&gt;USB&lt;/span&gt; hubs aren&amp;#8217;t powered or powered sufficient, and therefore, not all are  &lt;a href="http://elinux.org/RPi_VerifiedPeripherals"&gt;recommended&lt;/a&gt;.  I used a Dynex 4 Port Hub with a 5V 2.1A power adapter and all seem fine.)  If you find using a using a &lt;span class="caps"&gt;USB&lt;/span&gt; hub completely unacceptable, you could make some &lt;a href="http://theiopage.blogspot.com.au/2012/06/increasing-raspberry-pis-usb-host.html"&gt;RPi board modifications&lt;/a&gt; to the &lt;a href="http://elinux.org/Polyfuses_explained"&gt;polyfuses&lt;/a&gt;, but this isn&amp;#8217;t the &amp;#8220;official/supported&amp;#8221; approach for this power problem &amp;#8230;. but first &amp;#8230;. see the &lt;strong&gt;Epilogue No. 1&lt;/strong&gt;&amp;nbsp;below.&lt;/p&gt;
@@ -6688,15 +6699,15 @@ mintty --position 600,500 --size 80,25 --exec ssh -X pi@raspberrypi.local
 
 &lt;p&gt;This will open up two xterm windows for your in the left hand corner of the screen and a thrid xterm window in the center of the screen.  This third screen is automatically logging in to the RPi as user pi and will wait four you to enter the&amp;nbsp;password.&lt;/p&gt;
 &lt;p&gt;Also make sure that you export your &lt;code&gt;DISPLAY&lt;/code&gt; for the X server on your &lt;span class="caps"&gt;PC&lt;/span&gt;.  You can do this by placing the following in your &lt;code&gt;.bashrc&lt;/code&gt; file:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# environment variables required by X Window System&lt;/span&gt;
-&lt;span style="color: #336666"&gt;export &lt;/span&gt;&lt;span style="color: #003333"&gt;DISPLAY&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;:0.0
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;# environment variables required by X Window System
+export DISPLAY=:0.0
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;Configuring&amp;nbsp;RPi&lt;/h2&gt;
 
 &lt;p&gt;Not much needs to be done to the RPi to prepare for the X applications.  You may wish to launch some X Window System application upon logging in.  You can do this by adding the X applications to your .bash_profile.  For example, add the following line to launch the &lt;span class="caps"&gt;LXDE&lt;/span&gt; file&amp;nbsp;manager:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# execute X Window System programs&lt;/span&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;# execute X Window System programs
 pcmanfm &amp;amp;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -6726,7 +6737,7 @@ The first thing I did was to set up git within my &lt;span class="caps"&gt;MS&lt
 &lt;p&gt;So how did I do it?  It&amp;#8217;s easy once you successively done it once.  First let me state the context; for the exercise I&amp;#8217;m doing, I&amp;#8217;m attempting to place my &lt;code&gt;.bashrc, .profile, .vimrc&lt;/code&gt;, and a few other configuration files under gits control.  The basic sequence of operation is to initialize the git environment, configure some parameters, and then add the files.  It goes like this (I&amp;#8217;ll let you research the git documentation, just like I did, to understand the command.  Trust me, this is good for you!):
 &lt;p style="padding-left:30px;"&gt;&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;git init
-git config --global user.name &lt;span style="color: #CC3300"&gt;&amp;quot;jeffskinnerbox&amp;quot;&lt;/span&gt;
+git config --global user.name &amp;quot;jeffskinnerbox&amp;quot;
 git config --global user.email jeff.irland@verizon.net
 git config --global core.editor vim
 git config --global merge.tool vimdiff

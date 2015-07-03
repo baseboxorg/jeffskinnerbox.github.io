@@ -284,7 +284,7 @@ but none organized the way I&nbsp;want.</p>
 </tr>
 <tr>
 <td align="center">%</td>
-<td align="left">Move to associated ( ), </td>
+<td align="left">Move to associated ( ), { }, [ ]</td>
 </tr>
 </tbody>
 </table>
@@ -373,8 +373,8 @@ but none organized the way I&nbsp;want.</p>
 <td align="left">Delete to the end of the line.</td>
 </tr>
 <tr>
-<td align="center" motion="motion">d</td>
-<td align="left" motion="motion">Delete text that </td>
+<td align="center">d{motion}</td>
+<td align="left">Delete text that {motion} moves over</td>
 </tr>
 </tbody>
 </table>
@@ -1167,8 +1167,8 @@ but none organized the way I&nbsp;want.</p>
 </thead>
 <tbody>
 <tr>
-<td 0-9a-zA-Z_="0-9a-zA-Z&quot;" align="center">q</td>
-<td 0-9a-zA-Z_="0-9a-zA-Z&quot;" align="left">Record typed characters into register </td>
+<td align="center">q{0-9a-zA-Z&#8221;}</td>
+<td align="left">Record typed characters into register {0-9a-zA-Z&#8221;} (uppercase to append).  The &#8216;q&#8217; command is disabled while executing a register, and it doesn&#8217;t work inside a mapping and :normal.</td>
 </tr>
 <tr>
 <td align="center">q</td>
@@ -1190,12 +1190,12 @@ but none organized the way I&nbsp;want.</p>
 </thead>
 <tbody>
 <tr>
-<td 0-9a-zA-Z_="0-9a-zA-Z&quot;" align="center">@q</td>
+<td align="center">@q{0-9a-zA-Z&#8221;}</td>
 <td align="left">Play back the macro.</td>
 </tr>
 <tr>
-<td 0-9="0-9" align="center"></td>
-<td 0-9a-zA-Z_="0-9a-zA-Z&quot;" align="left">Play back the macro q</td>
+<td align="center">{0-9}@q{0-9a-zA-Z&#8221;}</td>
+<td align="left">Play back the macro q{0-9a-zA-Z&#8221;} a {0-9} number of  times.</td>
 </tr>
 <tr>
 <td align="center">@@</td>
@@ -1221,7 +1221,7 @@ but none organized the way I&nbsp;want.</p>
 <td align="left">string creates a fold from the cursor to string</td>
 </tr>
 <tr>
-<td align="center" motion="motion">zf</td>
+<td align="center">zf{motion} or {Visual}zf</td>
 <td align="left">operator to create a fold</td>
 </tr>
 <tr>

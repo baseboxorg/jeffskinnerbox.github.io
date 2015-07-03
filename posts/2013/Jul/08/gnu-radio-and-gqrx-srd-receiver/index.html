@@ -110,10 +110,10 @@ In <a href="http://jeffskinnerbox.wordpress.com/2013/05/26/rtl-sdr-software-defi
 <p>Also within this post, I venture out from gqrx to examine a few other tools.  I don&#8217;t cover much territory, nor have much success.  The insperation to examine these other tools comes mainly from the lengthy post &#8220;<a href="http://superkuh.com/rtlsdr.html#simple_ra"><span class="caps">RTL</span>-<span class="caps">SDR</span> and <span class="caps">GNU</span> Radio with Realtek <span class="caps">RTL2832U</span> [Elonics E4000/Raphael Micro <span class="caps">R820T</span>] software defined radio receiver</a>&#8220;.  Also check out &#8220;<a href="http://blog.opensecurityresearch.com/2012/06/getting-started-with-gnu-radio-and-rtl.html">Getting Started with <span class="caps">GNU</span> Radio and <span class="caps">RTL</span>-<span class="caps">SDR</span> (on Backtrack)</a>&#8220;.
 <h2>Build <span class="caps">GNU</span> Radio on&nbsp;Ubuntu</h2>
 The <span class="caps">GNU</span> Radio web site has <a href="http://gnuradio.org/redmine/projects/gnuradio/wiki/InstallingGR#Using-the-build-gnuradio-script">specific instructions</a> and a build script for installing it on Ubuntu (I&#8217;m using version 13.04).  This process claims it may take 1-2 hours to do the install (for me it ran in 1 hour 14 minutes).  The steps are as&nbsp;follows:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">cd</span> ~/src
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cd ~/src
 mkdir ~/gnuradio
-<span style="color: #336666">cd</span> ~/gnuradio
-wget http://www.sbrac.org/files/build-gnuradio <span style="color: #555555">&amp;&amp;</span> chmod a+x ./build-gnuradio <span style="color: #555555">&amp;&amp;</span> ./build-gnuradio --verbose
+cd ~/gnuradio
+wget http://www.sbrac.org/files/build-gnuradio &amp;&amp; chmod a+x ./build-gnuradio &amp;&amp; ./build-gnuradio --verbose
 </pre></div>
 
 
@@ -287,7 +287,7 @@ sudo apt-get install phonon-backend-gstreamer
 
 <p>Now download the source for <a href="http://www.oz9aec.net/index.php/gnu-radio/gqrx-sdr">Gqrx via its page on GitHub</a>  and extract it into your target directory. The posting <a href="http://www.thepowerbase.com/2012/06/getting-started-with-rtl-sdr/2/">Getting Started With <span class="caps">RTL</span>-<span class="caps">SDR</span></a> and the <a href="https://github.com/csete/gqrx/blob/master/README.md"><span class="caps">README</span></a> on the GitHub site where useful in understanding how to do the install.  I did the&nbsp;following:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">git clone git://github.com/csete/gqrx.git
-<span style="color: #336666">cd </span>gqrx
+cd gqrx
 qmake gqrx.pro
 make
 </pre></div>
@@ -306,7 +306,7 @@ Click &#8220;<span class="caps">OK</span>&#8221; and the screen below will pop u
 <h2>Building Multimode Radio&nbsp;Receiver</h2>
 This radio receiver is capable of demodulating muitiple modes, specifically <span class="caps">AM</span>, <span class="caps">FM</span>, <span class="caps">USB</span>, <span class="caps">LSB</span> , <span class="caps">WFM</span>. <span class="caps">TV</span>-<span class="caps">FM</span>, <span class="caps">PAL</span>-<span class="caps">FM</span>. It&#8217;s easy to use and  has an automated scanning and spectral zoom features where clicking on the spectrogram or panorama to tune to the frequency of&nbsp;interest.</p>
 <p>Multimode documentation is sparse to non existent. The posts &#8220;<a href="http://foxgulch.com/WordPress/?p=615">Using the Realtek <span class="caps">RTL2832</span> <span class="caps">USB</span> “dongle” as a gnuradio multimode receiver</a>&#8221; and &#8220;<a href="http://superkuh.com/rtlsdr.html#multimodeappnote"><span class="caps">RTL</span>-<span class="caps">SDR</span> and <span class="caps">GNU</span> Radio with Realtek <span class="caps">RTL2832U</span> [Elonics E4000/Raphael Micro <span class="caps">R820T</span>] software defined radio receiver</a>&#8221; and &#8220;<a href="http://blog.opensecurityresearch.com/2012/06/getting-started-with-gnu-radio-and-rtl.html">Getting Started with <span class="caps">GNU</span> Radio and <span class="caps">RTL</span>-<span class="caps">SDR</span> (on Backtrack)</a>&#8221; gave some important hints on how to install multimode and get it operational.  I did the&nbsp;following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">cd</span> ~
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cd ~
 svn co https://www.cgran.org/svn/projects/multimode/trunk/ ~/src/multimode
 make install
 </pre></div>
@@ -315,16 +315,16 @@ make install
 <p>When I executed <code>multimode.py</code>, it didn&#8217;t product a display.  I suspect its some subtle Python code problem, or more likely.  incompatibility with the latest <span class="caps">GNU</span> Radio libraries.  For now, I&#8217;m going to abandon this.
 <h2><span class="caps">GNU</span> Radio Signal&nbsp;Scanner</h2>
 <a href="http://www.techmeology.co.uk/gr-scan/">gr-scan</a> is a program  built upon <span class="caps">GNU</span> Radio, rtl-sdr, and the OsmoSDR Source Block.  This receiver constantly changes frequencies in a set order looking for a frequency that has someone transmitting. It is intended to scan a range of frequencies and print a list of discovered signals.  Installation involved the following&nbsp;steps:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">cd</span> ~./src
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cd ~./src
 mkdir gr-scan
-<span style="color: #336666">cd </span>gr-scan
+cd gr-scan
 </pre></div>
 
 
 <p>with your browser, download: <code>http://www.techmeology.co.uk/gr-scan/gr-scan-2012082301.tar.gz</code></p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">gzip -d gr-scan-2012082301.tar.gz
 tar -xvvf gr-scan-2012082301.tar
-<span style="color: #336666">cd </span>gr-scan-2012082301
+cd gr-scan-2012082301
 make
 </pre></div>
 

@@ -124,7 +124,7 @@ sudo apt-get install lame
 
 <p>By default, the RPi audio output is set to automatically select the digital <span class="caps">HDMI</span> interface if its being used, otherwise the analog audio output. You can force it to use a specific interface via the sound mixer controls.  <a href="http://linux.die.net/man/1/amixer"><code>amixer</code></a> allows command-line control of the mixer for the <span class="caps">ALSA</span>&nbsp;driver.</p>
 <p>You can force the RPi to use a specific interface using the command <code>amixer cset numid=3 N</code> where the <code>N</code> parameter means the following: 0=auto, 1=analog, 2=hdmi.  Therefore, to force the Raspberry Pi to use the analog&nbsp;output:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">amixer cset <span style="color: #003333">numid</span><span style="color: #555555">=</span><span style="color: #FF6600">3</span> 1
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">amixer cset numid=3 1
 </pre></div>
 
 
@@ -133,8 +133,8 @@ sudo apt-get install lame
 <p>With this done, you should be ready for a simple test.  Plug a speaker into the (RPi) Audio Output 3.5mm jack.  I used a simple battery powered<a href="http://www.ihomeaudio.com/iHM60GX/"> iHM60 iHome</a> speaker.  The jack will not deliver much power, so the speaker needs to be&nbsp;powered.</p>
 <p>To test the RPi audio, you can play a <span class="caps">WAV</span> file (<a href="http://www.jahozafat.com/php/sounds/?id=gog&amp;media=WAVS&amp;type=Movies&amp;movie=Full_Metal_Jacket&amp;quote=numnuts.txt&amp;file=numnuts.wav">download this</a> &#8230; excellent for user-error notification) with <code><a href="http://linux.die.net/man/1/aplay">aplay</a></code>, <a href="http://linux.die.net/man/1/mpg321"><code>mpg321</code></a> for <span class="caps">MP3</span> files, or use the <a href="http://linux.die.net/man/1/speaker-test"><code>speaker-test</code></a> command if you don&#8217;t have a <span class="caps">WAV</span>/<span class="caps">MP3</span>&nbsp;file.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">aplay numnuts.wav
-speaker-test -t sine -f <span style="color: #FF6600">440</span> -c <span style="color: #FF6600">2</span> -s 1
-mpg321 <span style="color: #CC3300">&quot;Mannish Boy.mp3&quot;</span>
+speaker-test -t sine -f 440 -c 2 -s 1
+mpg321 &quot;Mannish Boy.mp3&quot;
 </pre></div>
 
 

@@ -317,14 +317,20 @@ can be identified&nbsp;via:</p>
 
 
 <p>Run the following command to list all packages that you no longer&nbsp;need:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># list all the kernel packages currently loaded</span>
-dpkg -l <span style="color: #CC3300">&#39;linux-*&#39;</span> | sed <span style="color: #CC3300">&#39;/^ii/!d;/&#39;&quot;</span><span style="color: #006699; font-weight: bold">$(</span>uname -r | sed <span style="color: #CC3300">&quot;s/\(.*\)-\([^0-9]\+\)/\1/&quot;</span><span style="color: #006699; font-weight: bold">)</span><span style="color: #CC3300">&quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39;</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># list all the kernel packages installed on the system</span>
+dpkg -l <span style="color: #CC3300">&#39;linux-*&#39;</span>
+
+<span style="color: #0099FF; font-style: italic"># print the currently active kernel version</span>
+uname -r | sed <span style="color: #CC3300">&quot;s/\(.*\)-\([^0-9]\+\)/\1/&quot;</span>
+
+<span style="color: #0099FF; font-style: italic"># list all the currently loaded old kernel packages, that is other than the active one</span>
+dpkg -l <span style="color: #CC3300">&#39;linux-*&#39;</span> | sed <span style="color: #CC3300">&#39;/^ii/!d;/&#39;&quot;$(uname -r | sed &quot;</span>s/<span style="color: #CC3300; font-weight: bold">\(</span>.*<span style="color: #CC3300; font-weight: bold">\)</span>-<span style="color: #CC3300; font-weight: bold">\(</span><span style="color: #555555">[</span>^0-9<span style="color: #555555">]</span><span style="color: #CC3300; font-weight: bold">\+\)</span>/<span style="color: #CC3300; font-weight: bold">\1</span>/<span style="color: #CC3300">&quot;)&quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39;</span>
 </pre></div>
 
 
 <p>You can use the above command to permanently delete <strong><span class="caps">ALL</span></strong> older&nbsp;kernels:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># USE WITH CAUTION: perminately delete old kernel packages</span>
-sudo apt-get remove --purge <span style="color: #006699; font-weight: bold">$(</span>dpkg -l <span style="color: #CC3300">&#39;linux-*&#39;</span> | sed <span style="color: #CC3300">&#39;/^ii/!d;/&#39;&quot;</span><span style="color: #006699; font-weight: bold">$(</span>uname -r | sed <span style="color: #CC3300">&quot;s/\(.*\)-\([^0-9]\+\)/\1/&quot;</span><span style="color: #006699; font-weight: bold">)</span><span style="color: #CC3300">&quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39;</span><span style="color: #006699; font-weight: bold">)</span>
+sudo apt-get remove --purge <span style="color: #006699; font-weight: bold">$(</span>dpkg -l <span style="color: #CC3300">&#39;linux-*&#39;</span> | sed <span style="color: #CC3300">&#39;/^ii/!d;/&#39;&quot;$(uname -r | sed &quot;</span>s/<span style="color: #CC3300; font-weight: bold">\(</span>.*<span style="color: #CC3300; font-weight: bold">\)</span>-<span style="color: #CC3300; font-weight: bold">\(</span><span style="color: #555555">[</span>^0-9<span style="color: #555555">]</span><span style="color: #CC3300; font-weight: bold">\+\)</span>/<span style="color: #CC3300; font-weight: bold">\1</span>/<span style="color: #CC3300">&quot;)&quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39;</span><span style="color: #006699; font-weight: bold">)</span>
 </pre></div>
 
 
@@ -333,6 +339,11 @@ have an old kernel or two to fall back to
 (just in case the new one doesn&#8217;t work with your system).
 At the very least, if you&#8217;ve just upgraded the kernel,
 reboot before deleting the older&nbsp;versions.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># to remove a specific kernel package, in this case 3.13.0-49</span>
+sudo apt-get remove --purge <span style="color: #006699; font-weight: bold">$(</span>dpkg -l <span style="color: #CC3300">&#39;linux-*&#39;</span> | sed <span style="color: #CC3300">&#39;/^ii/!d;/&#39;&quot;$(uname -r | sed &quot;</span>s/<span style="color: #CC3300; font-weight: bold">\(</span>.*<span style="color: #CC3300; font-weight: bold">\)</span>-<span style="color: #CC3300; font-weight: bold">\(</span><span style="color: #555555">[</span>^0-9<span style="color: #555555">]</span><span style="color: #CC3300; font-weight: bold">\+\)</span>/<span style="color: #CC3300; font-weight: bold">\1</span>/<span style="color: #CC3300">&quot;)&quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39;</span> | grep 3.13.0-49<span style="color: #006699; font-weight: bold">)</span>
+</pre></div>
+
+
 <p>And if you happen to blow away all the kernel images (as I have done more than once),
 get your current kernel version back by executing <code>uname -r</code> and then reinstall it&nbsp;with:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install linux-image-x.x.x-xx
@@ -524,7 +535,7 @@ to truncate the file to zero&nbsp;bytes</p>
 
 <p>You could automate all of the above with this command&nbsp;line</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># for all open but deleted files associated with process 2746, trunctate the file to 0 bytes</span>
-<span style="color: #003333">PID</span><span style="color: #555555">=</span><span style="color: #FF6600">2746</span> ; <span style="color: #336666">cd</span> /proc/<span style="color: #003333">$PID</span>/fd ; ls -l | grep <span style="color: #CC3300">&#39;(deleted)&#39;</span> | awk <span style="color: #CC3300">&#39;{ print $9 }&#39;</span> | <span style="color: #006699; font-weight: bold">while</span> <span style="color: #336666">read </span>FILE; <span style="color: #006699; font-weight: bold">do</span> :&gt; /proc/<span style="color: #003333">$PID</span>/fd/<span style="color: #003333">$FILE</span>; <span style="color: #006699; font-weight: bold">done</span>
+<span style="color: #003333">PID</span><span style="color: #555555">=</span>2746 ; <span style="color: #336666">cd</span> /proc/<span style="color: #003333">$PID</span>/fd ; ls -l | grep <span style="color: #CC3300">&#39;(deleted)&#39;</span> | awk <span style="color: #CC3300">&#39;{ print $9 }&#39;</span> | <span style="color: #006699; font-weight: bold">while </span><span style="color: #336666">read </span>FILE; <span style="color: #006699; font-weight: bold">do</span> :&gt; /proc/<span style="color: #003333">$PID</span>/fd/<span style="color: #003333">$FILE</span>; <span style="color: #006699; font-weight: bold">done</span>
 </pre></div>
 
 

@@ -168,15 +168,15 @@ Below is an example (with no language given in the fenced&nbsp;block):</p>
 13</pre></div></td><td class="code"><div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/bin/bash</span>
 
 usage<span style="color: #555555">()</span> <span style="color: #555555">{</span>
-    <span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;Usage: </span><span style="color: #003333">$0</span><span style="color: #CC3300"> filename&quot;</span>
+    <span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;Usage: $0 filename&quot;</span>
     <span style="color: #336666">exit </span>1
 <span style="color: #555555">}</span>
 
 <span style="color: #0099FF; font-style: italic"># define is_file_exits function </span>
 <span style="color: #0099FF; font-style: italic"># $f -&gt; store argument passed to the script</span>
 is_file_exits<span style="color: #555555">()</span> <span style="color: #555555">{</span>
-    <span style="color: #336666">local </span><span style="color: #003333">f</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;</span><span style="color: #003333">$1</span><span style="color: #CC3300">&quot;</span>
-    <span style="color: #555555">[[</span> -f <span style="color: #CC3300">&quot;</span><span style="color: #003333">$f</span><span style="color: #CC3300">&quot;</span> <span style="color: #555555">]]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #006699; font-weight: bold">return</span> <span style="color: #FF6600">0</span> <span style="color: #555555">||</span> <span style="color: #006699; font-weight: bold">return</span> 1
+    <span style="color: #336666">local </span><span style="color: #003333">f</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;$1&quot;</span>
+    <span style="color: #555555">[[</span> -f <span style="color: #CC3300">&quot;$f&quot;</span> <span style="color: #555555">]]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #006699; font-weight: bold">return </span>0 <span style="color: #555555">||</span> <span style="color: #006699; font-weight: bold">return </span>1
 <span style="color: #555555">}</span>
 </pre></div>
 </td></tr></table>
@@ -228,29 +228,23 @@ For example, to syntax highlight C++ code, start the block with <code>~~~~.cpp</
 <p>When you use the <code>~~~~</code> Fenced Blocks, you can also emphasized certain lines of code.
 You can do this by telling Markdown what lines to highlight in the first fence.
 In the example below, lines 4 and 9 are emphasized (e.g. <code>~~~~{.python hl_lines="4 9"}</code>).</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/usr/bin/python</span>
-
-<span style="color: #0099FF; font-style: italic"># Dictionaries map keys to values.</span>
-<span style="background-color: #ffffcc">fred <span style="color: #555555">=</span> { <span style="color: #CC3300">&#39;mike&#39;</span>: <span style="color: #FF6600">456</span>, <span style="color: #CC3300">&#39;bill&#39;</span>: <span style="color: #FF6600">399</span>, <span style="color: #CC3300">&#39;sarah&#39;</span>: <span style="color: #FF6600">521</span> }
-</span>
-<span style="color: #0099FF; font-style: italic"># Subscripts.</span>
-<span style="color: #006699; font-weight: bold">try</span>:
-    <span style="color: #006699; font-weight: bold">print</span> fred
-<span style="background-color: #ffffcc">    <span style="color: #006699; font-weight: bold">print</span> fred[<span style="color: #CC3300">&#39;bill&#39;</span>]
-</span>    <span style="color: #006699; font-weight: bold">print</span> fred[<span style="color: #CC3300">&#39;nora&#39;</span>]
-    <span style="color: #006699; font-weight: bold">print</span> <span style="color: #CC3300">&quot;Won&#39;t see this!&quot;</span>
-<span style="color: #006699; font-weight: bold">except</span> <span style="color: #CC0000; font-weight: bold">KeyError</span>, rest:
-    <span style="color: #006699; font-weight: bold">print</span> <span style="color: #CC3300">&quot;Lookup failed:&quot;</span>, rest
-<span style="color: #006699; font-weight: bold">print</span>
-
-<span style="color: #0099FF; font-style: italic"># Entries can be added, udated, or deleted.</span>
-fred[<span style="color: #CC3300">&#39;bill&#39;</span>] <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;Sopwith Camel&#39;</span>
-fred[<span style="color: #CC3300">&#39;wilma&#39;</span>] <span style="color: #555555">=</span> <span style="color: #FF6600">2233</span>
-<span style="color: #006699; font-weight: bold">del</span> fred[<span style="color: #CC3300">&#39;mike&#39;</span>]
-<span style="color: #006699; font-weight: bold">print</span> fred
-</pre></div>
-
-
+<p>~~~~{.python hl_lines=&#8221;4&nbsp;9&#8221;}</p>
+<h1>!/usr/bin/python</h1>
+<h1>Dictionaries map keys to&nbsp;values.</h1>
+<p>fred = { &#8216;mike&#8217;: 456, &#8216;bill&#8217;: 399, &#8216;sarah&#8217;: 521&nbsp;}</p>
+<h1>Subscripts.</h1>
+<p>try:
+    print fred
+    print fred[&#8216;bill&#8217;]
+    print fred[&#8216;nora&#8217;]
+    print &#8220;Won&#8217;t see this!&#8221;
+except KeyError, rest:
+    print &#8220;Lookup failed:&#8221;, rest&nbsp;print</p>
+<h1>Entries can be added, udated, or&nbsp;deleted.</h1>
+<p>fred[&#8216;bill&#8217;] = &#8216;Sopwith Camel&#8217;
+fred[&#8216;wilma&#8217;] = 2233
+del fred[&#8216;mike&#8217;]
+print fred&nbsp;~~~~</p>
 <p>Python&#8217;s Markdown also has the <a href="http://pythonhosted.org//Markdown/extensions/code_hilite.html">CodeHilite</a> extension which adds code/syntax
 highlighting to code blocks using <a href="http://pygments.org/">Pygments</a>.
 In this case, the text must all be tabbed in 4 spaces, including the fenced block, which is <code>:::</code>.
@@ -263,12 +257,12 @@ For the example below, indent the text but begin with <code>:::java hl_lines="9 
 
 <span style="color: #006699; font-weight: bold">public</span> <span style="color: #006699; font-weight: bold">class</span> <span style="color: #00AA88; font-weight: bold">CallingMethodsInSameClass</span>
 <span style="color: #555555">{</span>
-<span style="background-color: #ffffcc">    <span style="color: #006699; font-weight: bold">public</span> <span style="color: #006699; font-weight: bold">static</span> <span style="color: #007788; font-weight: bold">void</span> <span style="color: #CC00FF">main</span><span style="color: #555555">(</span>String<span style="color: #555555">[]</span> args<span style="color: #555555">)</span> <span style="color: #555555">{</span>
-</span><span style="background-color: #ffffcc">        printOne<span style="color: #555555">();</span>
-</span><span style="background-color: #ffffcc">        printOne<span style="color: #555555">();</span>
-</span><span style="background-color: #ffffcc">        printTwo<span style="color: #555555">();</span>
-</span><span style="background-color: #ffffcc">    <span style="color: #555555">}</span>
-</span>
+    <span style="color: #006699; font-weight: bold">public</span> <span style="color: #006699; font-weight: bold">static</span> <span style="color: #007788; font-weight: bold">void</span> <span style="color: #CC00FF">main</span><span style="color: #555555">(</span>String<span style="color: #555555">[]</span> args<span style="color: #555555">)</span> <span style="color: #555555">{</span>
+        printOne<span style="color: #555555">();</span>
+        printOne<span style="color: #555555">();</span>
+        printTwo<span style="color: #555555">();</span>
+    <span style="color: #555555">}</span>
+
     <span style="color: #006699; font-weight: bold">public</span> <span style="color: #006699; font-weight: bold">static</span> <span style="color: #007788; font-weight: bold">void</span> <span style="color: #CC00FF">printOne</span><span style="color: #555555">()</span> <span style="color: #555555">{</span>
         System<span style="color: #555555">.</span><span style="color: #330099">out</span><span style="color: #555555">.</span><span style="color: #330099">println</span><span style="color: #555555">(</span><span style="color: #CC3300">&quot;Hello World&quot;</span><span style="color: #555555">);</span>
     <span style="color: #555555">}</span>
