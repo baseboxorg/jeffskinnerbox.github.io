@@ -1,15 +1,15 @@
 Title: Network Backups via Rsync and Rsnapshot
 Date: 2014-02-08 00:01
 Category: Software
-Tags: Linux, Rsync, Rsnapshot 
+Tags: Linux, Rsync, Rsnapshot
 Slug: network-backups-via-rsync-and-rsnapshot
 Author: Jeff Irland
 Image: backup-vault.png
 Summary: Using a external hard drive, and rsync / rsnapshot as a remote filesystem backup utility, I create scheduled incremental backups of my Linux & Windows filesystems. This light-weight and efficient scheme allows me to create increment backups every 4 hours and keep backups up to three months.
 
 ### Rsync and Rsnapshot
-<a href="http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/">
-<img class="img-rounded floatLeft" style="margin: 0px 8px; float: left" title="Seagate Backup Plus" alt="{{ site.author.name }}" src="http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg" width="30%" height="30%" /></a>
+<a href="http://thewirecutter.com/reviews/the-best-external-desktop-hard-drive/">
+<img class="img-rounded floatLeft" style="margin: 0px 8px; float: left" title="Seagate Backup Plus" alt="{{ site.author.name }}" src="/images/seagate-backup-plus-4-tb.jpg" width="30%" height="30%" /></a>
 I got a 4 Terabyte [Seagate Backup Plus][05] hard drive as a Christmas present and
 I plan to put it to use as a central backup for my Linux desktop, multiple Raspberry Pi,
 my laptop, and anything else that my come along.
@@ -21,7 +21,7 @@ but also to recover from a hardware failure or software install that has gone ve
 There are [many backup tools][01] you can pick from but
 I wanted to stick with something basic, widely used, and simple.
 [Rsync][02] is one of the most widely used Linux backup solutions, and in fact,
-it is often used by [other backup tools][03] as a foundational component. 
+it is often used by [other backup tools][03] as a foundational component.
 Rsync stands for **r**emote **sync**hronization tool.
 Rsync is a UN*X command line utility, containing a [special protocal and algorithm][35],
 that synchronizes files and directories from one location to another
@@ -96,21 +96,21 @@ mkdir /mnt/backup
 chmod a+rwx /mnt/backup
 chmod o-w /mnt/backup
 ```
- 
+
 ### Getting Familiar with rsync and Preparatory Work
 In this section, we'll learn about some of rsync's features and get some foundational stuff done.
 ##### Dry Running a rsync Command
 Rsync has the potential of really messing up things
 and then doing an undo can be a tedious job.
 Rsync can be run in a "dry run" mode to show you the output of the command.
-For example, this will make a copy of `~/tmp`: 
+For example, this will make a copy of `~/tmp`:
 
 ```shell
 rsync -azv --dry-run /home/jeff/tmp/ /home/jeff/tmp/copy-of-tmp
 ```
 
 If the output shows exactly what you want to do,
-then you can remove `–dry-run` option from your command and re-run it for real. 
+then you can remove `–dry-run` option from your command and re-run it for real.
 
 ##### Test rsync on Local System
 In an effort to try out rsync in the raw,
@@ -362,7 +362,7 @@ sudo chmod 754 /home/backup_user/bin/rsync-wrapper.sh
 Now for the `backup_user`, configure `sudo` such that it can run the rsync tool
 as root without being being prompted for a password.
 For security reasons, we what only the rsync tool to have `sudo` privileges.
-Using [`visudo`][23] command, edit the [`/etc/sudoers`][24][^F] file by adding the following 
+Using [`visudo`][23] command, edit the [`/etc/sudoers`][24][^F] file by adding the following
 to the bottom of the file.
 
 [^F]:
@@ -407,7 +407,7 @@ exit
 ```
 
 ##### Increased Security
-To increase the security of the overall scheme, 
+To increase the security of the overall scheme,
 on the remote systems and on the local system,
 remove the user password from the `backup_user` user via
 
@@ -527,7 +527,7 @@ logfile	/var/log/rsnapshot.log
 rsync_short_args	-aev
 rsync_long_args	--delete --numeric-ids --relative --delete-excluded
 
-# ssh args passed 
+# ssh args passed
 ssh_args	-i /home/backup_user/.ssh/id_rsa
 
 # systems to be backed up, what high level directory name is to be used
@@ -573,7 +573,7 @@ It should print out the commands it will perform when it runs for real.
 If all is well, then remove the `-t` and run it for real to create the initial backup.
 This initial run is likely to run a long time, and shouldn't be do via cron as discussed below.
 
-### Scheduling (Automating) Backups in crontab 
+### Scheduling (Automating) Backups in crontab
 Linux [cron][15][^J] is used to schedule commands to be executed periodically.
 You can setup commands or scripts, which will be repeatedly run at a set time.
 
@@ -583,7 +583,7 @@ You can setup commands or scripts, which will be repeatedly run at a set time.
     and `/etc/cron.*/` directories.
     It also checks the `/var/spool/cron/` directory.
     Review the article [CronHowTo][16] to see how you can schedule and run tasks
-    in the background automatically at regular intervals using crontab files. 
+    in the background automatically at regular intervals using crontab files.
     Crontab ( **cron** **tab**le ) is a file which contains the schedule of cron entries to be run and at specified times.
     (If the system isn't running 24x7, consider using [anacron][17]).
 
@@ -594,7 +594,7 @@ placed it in `/home/backup_user/bin/rsnapshot-wrapper.sh`:
 #!/bin/sh
 
 # This script is a wrapper around rsnapshot, so status information is logged
- 
+
 # Place in the log file information concerning the execution of this script
 echo -n "rsnapshot wrapper script started at " >> /home/backup_user/backup.log
 date >> /home/backup_user/backup.log
@@ -621,7 +621,7 @@ Using `crontab -e`, I enter the following:
       30    4           1         *         *         /home/backup_user/bin/rsnapshot-wrapper.sh monthly
 ```
 
-You can use `sudo crontab -l` to list the contents of root's crontab. 
+You can use `sudo crontab -l` to list the contents of root's crontab.
 
 ### Monitoring rsnapshot
 Monitoring and testing is an essential part of any backup procedure.
@@ -675,7 +675,7 @@ No need to “revert” or “restore” files from backup, or run any special s
 This is mighty convenient, intuitive, and fool proof.
 
 ### Sources
-I found these articles useful for writing this post and setting up my rsych / rsnapshot backup scheme. 
+I found these articles useful for writing this post and setting up my rsych / rsnapshot backup scheme.
 
 #### rsync
 * [How to Backup Linux? 15 rsync Command Examples](http://www.thegeekstuff.com/2010/09/rsync-command-examples/)
