@@ -11,8 +11,8 @@ Summary: This post is a somewhat disjointed dump of things that I’ve done in o
 I wanted to get a Linux laptop for some lightweight development
 but I couldn't justify the price tag for my limited needs.
 [Chromebook's are cheap & popular][31]
-(in fact, [Amazon's top three computers sold over the 2014 Christmas season were Chromebooks][32])
-and which can be purchased for $300 or less.
+and which can be purchased for $300 or less
+(In fact, [Amazon's top three computers sold over the 2014 Christmas season were Chromebooks][32]).
 I knew you could installing a traditional Linux environment on a Chromebook,
 so I got myself a [Toshiba CB35-B3340 Chromebook 2][01] with 4G of memory and 16G drive
 (see a review [here][38]).
@@ -35,13 +35,14 @@ because the Chrome OS is a Linux-based operating system.
 You can install an alternative Linux environment and get a fully-fledged Linux desktop
 along side Chromebook.
 There are two main ways to install a traditional Linux environment on your device,
-either in a dual-boot environment using [ChrUbuntu][02], or in a chroot environment using [Crouton][03].
+either in a dual-boot environment using [ChrUbuntu][02],
+or in a chroot environment using [Crouton][03].
 There is a third method.
 The “[Boot from USB][06]” option will allow you to activate booting from USB devices.
 This allows you to boot a full Linux environment from a USB drive without modifying your Chrome OS system.
 
 Crouton appears to be the best supported way of running another OS on top of Chrome OS.
-It’s quite impressive how easy it is to use!
+It’s quite impressive how easy it is to use and what I will use.
 
 # The Linux Install
 I choose to use the crouton method, which is a set of scripts,
@@ -50,7 +51,7 @@ run a Linux operating system alongside Chrome OS.
 Chroot was meant for Linux administrators to easily fix problems while running as the root,
 superuser, without logging off the current user.
 Here, it's being used to run a primitive form of container.
-It has neither the sophistication of a virtual machine (VM)
+It has neither the sophistication of a [virtual machine (VM)][40]
 or an advanced container such as Docker or Google lmctfy.
 What chroot has going for it is that it's very lightweight
 and is present on almost all versions of Linux (including Chrome OS).
@@ -175,6 +176,7 @@ https://github.com/dnschneid/crouton/wiki/crouton-in-a-Chromium-OS-window-(xiwi)
 
 ## Commands, Tips, and Tricks
 * [Chrome Story][37]
+* [100 Tips for Google Chrome][41]
 * [Getting Started with your Chromebook][35]
 * [100 Best Chromebook Tips, Tricks and Time Savers][36]
 
@@ -193,6 +195,8 @@ Google's Chrome OS uses some familiar keyboard shortcuts as well as some unique 
 A few of these access Chrome OS settings
 and others take the place of missing physical keys on Chromebook keyboards
 ( e.g. Page Up, Page Down, Home, End).
+
+Full list of Chromebook's [Keyboard shortcuts][42].
 
 | Keys         | Operation                       |
 |--------------|---------------------------------|
@@ -457,9 +461,9 @@ https://www.getpostman.com/
 [37]:http://www.chromestory.com/
 [38]:https://failicide.wordpress.com/2014/12/18/toshiba-chromebook-2-an-amazing-device/
 [39]:https://en.wikipedia.org/wiki/Chrome_OS
-[40]:
-[41]:
-[42]:
+[40]:https://en.wikipedia.org/wiki/Virtual_machine
+[41]:http://www.chromestory.com/100_Chrome_ChromeOS_And_ChromeBook_Tips_Ebook.pdf
+[42]:https://support.google.com/chromebook/answer/183101?hl=en&source=genius-rts
 [43]:
 [44]:
 [45]:
