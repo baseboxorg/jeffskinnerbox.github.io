@@ -99,99 +99,99 @@ Jeff's Skinner Box&nbsp;            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>I want to deliver sound from my Raspberry Pi&#8217;s (RPi) Audio Output 3.5mm jack.  I&#8217;ll need to get audio drivers working on Audio Out, and to test it, I&#8217;ll need some sound files and players.  I&#8217;m choosing the <a href="http://www.alsa-project.org/main/index.php/Main_Page">Advanced Linux Sound Architecture (<span class="caps">ALSA</span>)</a> drivers because its widely supported and because <a href="http://en.wikipedia.org/wiki/Advanced_Linux_Sound_Architecture"><span class="caps">ALSA</span></a> not only provides audio but  <a href="http://en.wikipedia.org/wiki/Musical_Instrument_Digital_Interface">Musical Instrument Digital Interface (<span class="caps">MIDI</span>)</a> functionality to Linux.   I&#8217;ll also be using the popular command line <span class="caps">MP3</span> players, <a href="http://linux.die.net/man/1/mpg321">mpg321</a> and the <span class="caps">WAV</span> player that comes with <span class="caps">ALSA</span>, <a href="http://linux.die.net/man/1/aplay">aplay</a>.</p>
-<p>To get things going, I installed <span class="caps">ALSA</span>, a <span class="caps">MP3</span> tools, and a <span class="caps">WAV</span> to <span class="caps">MP3</span> conversion tool via the following&nbsp;commands:</p>
+                <p>I want to deliver sound from my Raspberry Pi's (RPi) Audio Output 3.5mm jack.  I'll need to get audio drivers working on Audio Out, and to test it, I'll need some sound files and players.  I'm choosing the <a href="http://www.alsa-project.org/main/index.php/Main_Page">Advanced Linux Sound Architecture (ALSA)</a> drivers because its widely supported and because <a href="http://en.wikipedia.org/wiki/Advanced_Linux_Sound_Architecture">ALSA</a> not only provides audio but  <a href="http://en.wikipedia.org/wiki/Musical_Instrument_Digital_Interface">Musical Instrument Digital Interface (MIDI)</a> functionality to Linux.   I'll also be using the popular command line MP3 players, <a href="http://linux.die.net/man/1/mpg321">mpg321</a> and the WAV player that comes with ALSA, <a href="http://linux.die.net/man/1/aplay">aplay</a>.</p>
+<p>To get things going, I installed ALSA, a MP3 tools, and a WAV to MP3 conversion tool via the following commands:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install alsa-utils
 sudo apt-get install mpg321
 sudo apt-get install lame
 </pre></div>
 
 
-<h2>Enabling the Sound&nbsp;Module</h2>
+<h2>Enabling the Sound Module</h2>
 
-<p>Reboot the <span class="caps">RP</span> and when it comes back up, its time to load the Sound Drivers.  This will be done via loadable kernel module (<span class="caps">LKM</span>) which are object file  that contains code to extend the Linux kernel.  <code>lsmod</code> is a command on Linux systems which prints the contents of the <code>/proc/modules</code> file.  It shows which loadable kernel modules are currently loaded.  In my case, <code>lsmod</code> gives&nbsp;me:</p>
+<p>Reboot the RP and when it comes back up, its time to load the Sound Drivers.  This will be done via loadable kernel module (LKM) which are object file  that contains code to extend the Linux kernel.  <code>lsmod</code> is a command on Linux systems which prints the contents of the <code>/proc/modules</code> file.  It shows which loadable kernel modules are currently loaded.  In my case, <code>lsmod</code> gives me:</p>
 <p><center>
 <a href="http://jeffskinnerbox.files.wordpress.com/2012/11/lsmod.jpg">
     <img class="aligncenter size-full wp-image-706" title="lsmod" alt="lsmod" src="http://jeffskinnerbox.files.wordpress.com/2012/11/lsmod.jpg" width="545" height="284" />
 </a>
 </center></p>
-<p>The <code>snd-bcm2835</code> module appears to be already installed. RPi has a Broadcom  <a href="http://www.broadcom.com/products/BCM2835"><span class="caps">BCM2835</span></a> <a href="http://www.androidauthority.com/how-it-works-systems-on-a-chip-soc-93587/">system on a chip (SoC)</a> which is a High Definition 1080p Embedded Multimedia Applications Processor.  <code>snd-bcm2835</code> is the sound driver.  If  <code>lsmod</code> doesn&#8217;t list the <code>snd-bcn2835</code> module, then it can be installed via the following&nbsp;command:</p>
+<p>The <code>snd-bcm2835</code> module appears to be already installed. RPi has a Broadcom  <a href="http://www.broadcom.com/products/BCM2835">BCM2835</a> <a href="http://www.androidauthority.com/how-it-works-systems-on-a-chip-soc-93587/">system on a chip (SoC)</a> which is a High Definition 1080p Embedded Multimedia Applications Processor.  <code>snd-bcm2835</code> is the sound driver.  If  <code>lsmod</code> doesn't list the <code>snd-bcn2835</code> module, then it can be installed via the following command:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo modprobe snd-bcm2835
 </pre></div>
 
 
-<h2>Enabling Audio&nbsp;Output</h2>
+<h2>Enabling Audio Output</h2>
 
-<p>By default, the RPi audio output is set to automatically select the digital <span class="caps">HDMI</span> interface if its being used, otherwise the analog audio output. You can force it to use a specific interface via the sound mixer controls.  <a href="http://linux.die.net/man/1/amixer"><code>amixer</code></a> allows command-line control of the mixer for the <span class="caps">ALSA</span>&nbsp;driver.</p>
-<p>You can force the RPi to use a specific interface using the command <code>amixer cset numid=3 N</code> where the <code>N</code> parameter means the following: 0=auto, 1=analog, 2=hdmi.  Therefore, to force the Raspberry Pi to use the analog&nbsp;output:</p>
+<p>By default, the RPi audio output is set to automatically select the digital HDMI interface if its being used, otherwise the analog audio output. You can force it to use a specific interface via the sound mixer controls.  <a href="http://linux.die.net/man/1/amixer"><code>amixer</code></a> allows command-line control of the mixer for the ALSA driver.</p>
+<p>You can force the RPi to use a specific interface using the command <code>amixer cset numid=3 N</code> where the <code>N</code> parameter means the following: 0=auto, 1=analog, 2=hdmi.  Therefore, to force the Raspberry Pi to use the analog output:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">amixer cset numid=3 1
 </pre></div>
 
 
-<h2>Sound&nbsp;Check</h2>
+<h2>Sound Check</h2>
 
-<p>With this done, you should be ready for a simple test.  Plug a speaker into the (RPi) Audio Output 3.5mm jack.  I used a simple battery powered<a href="http://www.ihomeaudio.com/iHM60GX/"> iHM60 iHome</a> speaker.  The jack will not deliver much power, so the speaker needs to be&nbsp;powered.</p>
-<p>To test the RPi audio, you can play a <span class="caps">WAV</span> file (<a href="http://www.jahozafat.com/php/sounds/?id=gog&amp;media=WAVS&amp;type=Movies&amp;movie=Full_Metal_Jacket&amp;quote=numnuts.txt&amp;file=numnuts.wav">download this</a> &#8230; excellent for user-error notification) with <code><a href="http://linux.die.net/man/1/aplay">aplay</a></code>, <a href="http://linux.die.net/man/1/mpg321"><code>mpg321</code></a> for <span class="caps">MP3</span> files, or use the <a href="http://linux.die.net/man/1/speaker-test"><code>speaker-test</code></a> command if you don&#8217;t have a <span class="caps">WAV</span>/<span class="caps">MP3</span>&nbsp;file.</p>
+<p>With this done, you should be ready for a simple test.  Plug a speaker into the (RPi) Audio Output 3.5mm jack.  I used a simple battery powered<a href="http://www.ihomeaudio.com/iHM60GX/"> iHM60 iHome</a> speaker.  The jack will not deliver much power, so the speaker needs to be powered.</p>
+<p>To test the RPi audio, you can play a WAV file (<a href="http://www.jahozafat.com/php/sounds/?id=gog&amp;media=WAVS&amp;type=Movies&amp;movie=Full_Metal_Jacket&amp;quote=numnuts.txt&amp;file=numnuts.wav">download this</a> ... excellent for user-error notification) with <code><a href="http://linux.die.net/man/1/aplay">aplay</a></code>, <a href="http://linux.die.net/man/1/mpg321"><code>mpg321</code></a> for MP3 files, or use the <a href="http://linux.die.net/man/1/speaker-test"><code>speaker-test</code></a> command if you don't have a WAV/MP3 file.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">aplay numnuts.wav
 speaker-test -t sine -f 440 -c 2 -s 1
 mpg321 &quot;Mannish Boy.mp3&quot;
 </pre></div>
 
 
-<h2>More on the <span class="caps">ALSA</span> Sound Drivers and&nbsp;Utilities</h2>
+<h2>More on the ALSA Sound Drivers and Utilities</h2>
 
-<p>While <span class="caps">ALSA</span> is a powerful tool, it documentation appears is very weak.  Also, it appears that the capabilities of <span class="caps">ALSA</span> drivers and utilities are very  dependent on the hardware used.  The best sources of documentation that I found include <a href="http://www.alsa-project.org/main/index.php/Main_Page">Advanced Linux Sound Architecture (<span class="caps">ALSA</span>) project homepage</a>,  <a href="https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture">archlinux Advanced Linux Sound Architecture</a>, and <a href="http://www.tldp.org/HOWTO/Alsa-sound.html"><span class="caps">ALSA</span>-sound-mini-<span class="caps">HOWTO</span></a>.</p>
-<p>You can find useful information in the directory /proc, which is a &#8220;virtual&#8221; file system (meaning that it does not exist in real life, but merely is a mapping to various processes and tasks in your computer).
+<p>While ALSA is a powerful tool, it documentation appears is very weak.  Also, it appears that the capabilities of ALSA drivers and utilities are very  dependent on the hardware used.  The best sources of documentation that I found include <a href="http://www.alsa-project.org/main/index.php/Main_Page">Advanced Linux Sound Architecture (ALSA) project homepage</a>,  <a href="https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture">archlinux Advanced Linux Sound Architecture</a>, and <a href="http://www.tldp.org/HOWTO/Alsa-sound.html">ALSA-sound-mini-HOWTO</a>.</p>
+<p>You can find useful information in the directory /proc, which is a "virtual" file system (meaning that it does not exist in real life, but merely is a mapping to various processes and tasks in your computer).
 <ul>
 <ul>
-    <li><code>/proc/modules</code> gives information about loaded kernel modules.  The command <code>lsmod | grep snd</code> will list modules relevant to the sound&nbsp;system.</li>
+    <li><code>/proc/modules</code> gives information about loaded kernel modules.  The command <code>lsmod | grep snd</code> will list modules relevant to the sound system.</li>
     <li>You can check the existence of a soundcard by looking  at <code>cat /proc/asound/cards</code>.</li>
 </ul>
 </ul>
 The <code>amixer</code> command can provide useful information (sometimes):
 <ul>
 <ul>
-    <li>You can look at the mixer settings by typing <code>amixer</code> without any arguments. This command lists the mixer settings of the various parts of the soundcard. The output from <code>amixer</code> can greatly differ from card to card. Unfortunately  you can&#8217;t find much documentation on how to interpret the&nbsp;out.</li>
-    <li>The RPi doesn&#8217;t have a &#8220;Master&#8221; control only &#8220;<span class="caps">PCM</span>&#8221;.  So commands like <code>amixer set Master...</code> will not work.  You must use <code>amixer set PCM ...</code></li>
+    <li>You can look at the mixer settings by typing <code>amixer</code> without any arguments. This command lists the mixer settings of the various parts of the soundcard. The output from <code>amixer</code> can greatly differ from card to card. Unfortunately  you can't find much documentation on how to interpret the out.</li>
+    <li>The RPi doesn't have a "Master" control only "PCM".  So commands like <code>amixer set Master...</code> will not work.  You must use <code>amixer set PCM ...</code></li>
     <li>You can mute /unmute the sound via these commands: <code>amixer set PCM mute</code> and <code>amixer set PCM unmute</code></li>
-    <li>As of August 2012, there appears to be a <a href="http://raspberrypi.stackexchange.com/questions/1268/alsa-volume-ignored-when-beginning-playback">known bug</a> in RPi <span class="caps">ALSA</span> driver that ignores volume settings at the start of playback and always plays at max volume.  Therefore, commands like <code>amixer set PCM 50% unmute</code> will <span style="text-decoration:underline;">not</span> set the volume to 50%, at least until this bug is fixed.  Maybe this isn&#8217;t really a bug but a limitation of the hardware because there is a workaround for this &#8230;. see&nbsp;below.</li>
+    <li>As of August 2012, there appears to be a <a href="http://raspberrypi.stackexchange.com/questions/1268/alsa-volume-ignored-when-beginning-playback">known bug</a> in RPi ALSA driver that ignores volume settings at the start of playback and always plays at max volume.  Therefore, commands like <code>amixer set PCM 50% unmute</code> will <span style="text-decoration:underline;">not</span> set the volume to 50%, at least until this bug is fixed.  Maybe this isn't really a bug but a limitation of the hardware because there is a workaround for this .... see below.</li>
 </ul>
 </ul>
-<h2>Volume&nbsp;Control</h2>
-The RPi built-in sound chips don&#8217;t have a &#8220;master volume&#8221; control, and as a result, you must control the volume via software.  I guess the RPi views itself as a preamplifier (preamp) and volume controls would be supplied down stream.  <span class="caps">ALSA</span> provides a software volume control using the <a title="Softvol" href="http://alsa.opensrc.org/Softvol">softvol</a> plugin.</p>
-<p>The <code>/etc/asound.conf</code> file is a configuration files for <span class="caps">ALSA</span> drivers (system-wide).  The main use of this configuration file is to add functionality. It allows you to create &#8220;virtual devices&#8221; that pre or post-process audio streams. Any properly written <span class="caps">ALSA</span> program can use these virtual devices as though they were normal devices.  My RPi  <code>/etc/asound.conf</code> file looks like&nbsp;this:</p>
+<h2>Volume Control</h2>
+The RPi built-in sound chips don't have a "master volume" control, and as a result, you must control the volume via software.  I guess the RPi views itself as a preamplifier (preamp) and volume controls would be supplied down stream.  ALSA provides a software volume control using the <a title="Softvol" href="http://alsa.opensrc.org/Softvol">softvol</a> plugin.</p>
+<p>The <code>/etc/asound.conf</code> file is a configuration files for ALSA drivers (system-wide).  The main use of this configuration file is to add functionality. It allows you to create "virtual devices" that pre or post-process audio streams. Any properly written ALSA program can use these virtual devices as though they were normal devices.  My RPi  <code>/etc/asound.conf</code> file looks like this:</p>
 <p><center>
 <a href="http://jeffskinnerbox.files.wordpress.com/2012/11/orginal-asound-conf.jpg">
     <img class="aligncenter size-full wp-image-746" title="orginal asound.conf" alt="asound conf" src="http://jeffskinnerbox.files.wordpress.com/2012/11/orginal-asound-conf.jpg" width="545" height="223" />
 </a>
 </center></p>
 <p>For most changes to <code>/etc/asound.conf</code> you will need to restart the sound server for the changes to take effect.
-You can do this&nbsp;via</p>
+You can do this via</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo /etc/init.d/alsa-utils restart
 </pre></div>
 
 
-<p>I attempted to implement the software volume controls outline in a <a href="http://www.gentoo-wiki.info/HOWTO_Softvol">softvol how-to</a> that I found, but I couldn&#8217;t get it to work.  I did some additional digging, and I found a solution buried within a python script for a <a href="http://learn.adafruit.com/reading-a-analog-in-and-controlling-audio-volume-with-the-raspberry-pi/overview">Adafruit project</a>.  The following works for controlling the volume (in this case, reducing the volume to 80% of&nbsp;maximum):</p>
+<p>I attempted to implement the software volume controls outline in a <a href="http://www.gentoo-wiki.info/HOWTO_Softvol">softvol how-to</a> that I found, but I couldn't get it to work.  I did some additional digging, and I found a solution buried within a python script for a <a href="http://learn.adafruit.com/reading-a-analog-in-and-controlling-audio-volume-with-the-raspberry-pi/overview">Adafruit project</a>.  The following works for controlling the volume (in this case, reducing the volume to 80% of maximum):</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">amixer cset numid=1 -- 80%
 </pre></div>
 
 
 <p>Note that you can use this command to change the volume while sound is being played an its effect takes place immediately.  Also, I noticed that once the volume has been adjusted, its effect remains even after a reboot.
-<h2><span class="caps">WAV</span> and <span class="caps">MP3</span>&nbsp;Conversion</h2>
-The <span class="caps">MP3</span> player <a href="http://linux.die.net/man/1/mpg321"><code>mpg321</code></a> can convert <span class="caps">MP3</span> files to <span class="caps">WAV</span> files but the <span class="caps">WAV</span> player, <a href="http://linux.die.net/man/1/aplay"><code>aplay</code></a>, can not do a conversion.  To make a <span class="caps">MP3</span> file from a <span class="caps">WAV</span> file, you&#8217;ll need the tool <a href="http://linux.die.net/man/1/lame"><code>lame</code></a>.
+<h2>WAV and MP3 Conversion</h2>
+The MP3 player <a href="http://linux.die.net/man/1/mpg321"><code>mpg321</code></a> can convert MP3 files to WAV files but the WAV player, <a href="http://linux.die.net/man/1/aplay"><code>aplay</code></a>, can not do a conversion.  To make a MP3 file from a WAV file, you'll need the tool <a href="http://linux.die.net/man/1/lame"><code>lame</code></a>.
 <ul>
 <ul>
-    <li>To convert from <span class="caps">WAV</span> to <span class="caps">MP3</span>: <code>lame input.wav output.mp3</code></li>
-    <li>To convert from <span class="caps">MP3</span> to <span class="caps">WAV</span>:  <code>mpg321 -w output.wav input.mp3</code></li>
+    <li>To convert from WAV to MP3: <code>lame input.wav output.mp3</code></li>
+    <li>To convert from MP3 to WAV:  <code>mpg321 -w output.wav input.mp3</code></li>
 </ul>
 </ul>
 <h2>Bottomeline</h2>
-While you can get <span class="caps">ALSA</span> working on the Raspberry Pi, it appears only partly supported, maybe buggy, and poorly documented.  If you just want to simply get sound out of the device (like I do), you&#8217;ll be fine.  But if you have some desire to do some sound processing with <span class="caps">ALSA</span>, your likely to be very frustrated.
+While you can get ALSA working on the Raspberry Pi, it appears only partly supported, maybe buggy, and poorly documented.  If you just want to simply get sound out of the device (like I do), you'll be fine.  But if you have some desire to do some sound processing with ALSA, your likely to be very frustrated.
 <h2>Epilogue</h2>
-This specific post has gotten about 25% of all the viewings of my blog. I&#8217;m not sure why this is the case but I speculate that there are many people tying to make RPi into a Media Player and looking for answers to their technical&nbsp;problems.</p>
+This specific post has gotten about 25% of all the viewings of my blog. I'm not sure why this is the case but I speculate that there are many people tying to make RPi into a Media Player and looking for answers to their technical problems.</p>
 <p>At this point in time, others have done some additional postings and they are more instructive than my post. You should check out:
 <ul>
-    <li><a href="http://blog.scphillips.com/2013/01/sound-configuration-on-raspberry-pi-with-alsa/">Sound configuration on Raspberry Pi with <span class="caps">ALSA</span></a></li>
+    <li><a href="http://blog.scphillips.com/2013/01/sound-configuration-on-raspberry-pi-with-alsa/">Sound configuration on Raspberry Pi with ALSA</a></li>
 </ul></p>
             </div>
             <!-- /.entry-content -->
@@ -243,7 +243,7 @@ This specific post has gotten about 25% of all the viewings of my blog. I&#8217;
             </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-            </li>    
+            </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
@@ -258,7 +258,7 @@ This specific post has gotten about 25% of all the viewings of my blog. I&#8217;
             </a>
         </li>
         <li class="list-group-item">
-            <a href="/posts/2014/Dec/21/cheatsheet-vim-commands/index.html" target="_blank">
+            <a href="/tag/cheat-sheet/index.html" target="_blank">
                 Cheat Sheets
             </a>
         </li>
@@ -321,6 +321,12 @@ This specific post has gotten about 25% of all the viewings of my blog. I&#8217;
         </a></li>
         <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
             <i class="fa fa-linkedin"></i> Linkedin
+        </a></li>
+        <li class="list-group-item"><a href="http://www.commandlinefu.com/commands/by/jeffskinnerbox" target="_blank">
+            <i class="fa fa-terminal"></i> CommandLineFu
+        </a></li>
+        <li class="list-group-item"><a href="https://disqus.com/by/jeffskinnerbox/" target="_blank">
+            <i class="fa fa-comment"></i> DISQUS
         </a></li>
     </ul>
 </li> 

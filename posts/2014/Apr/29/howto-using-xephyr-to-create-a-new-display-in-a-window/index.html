@@ -109,15 +109,15 @@ One for the monitor and the other managing a graphics window as if it were a sec
 Fortunately, X Window System provides tools to do exactly this.
 This has been done by designing a X Client to emulate an X Server that then provides display services to other clients.
 The open-source clients that do this are called <code>Xnest</code> and <code>Xephyr</code>.
-And this display within a window concept is known as &#8220;X&nbsp;nesting&#8221;.</p>
-<h1>My Native Desktop&nbsp;Environment</h1>
-<p>For my X Window System, I&#8217;m running Lightweight X11 Desktop Environment (<span class="caps">LXDE</span>)
-which has <code>lxdm</code> as its X Display Manager (aka <span class="caps">GUI</span> Login Manager),
+And this display within a window concept is known as "X nesting".</p>
+<h1>My Native Desktop Environment</h1>
+<p>For my X Window System, I'm running Lightweight X11 Desktop Environment (LXDE)
+which has <code>lxdm</code> as its X Display Manager (aka GUI Login Manager),
 nd uses <code>lxsession</code> as it X Session Manager,
 and the <code>Metacity</code> X Window Manager.
 In the examples below, I sometimes use other components to demonstrate the robustness of the approach.
-Specifically, I&#8217;m using the <a href="http://awesome.naquadah.org/">Awesome X Windows Manager</a>
-This can be load with the&nbsp;following:</p>
+Specifically, I'm using the <a href="http://awesome.naquadah.org/">Awesome X Windows Manager</a>
+This can be load with the following:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install awesome awesome-extra
 </pre></div>
 
@@ -132,15 +132,15 @@ At the X Protocol level, <code>Xnest</code> works like a X Client of the X Serve
 and as a X Server with respect to the X Window Manager
 (i.e. applications that opens windows) within the <code>Xnest</code> session.
 Therefore, <code>Xnest</code> can be used to run a virtual desktop of another computer
-(which is running X Window) within a&nbsp;window. </p>
+(which is running X Window) within a window. </p>
 <p><code>Xnest</code> might come pre-installed in the Ubuntu X Window System
-but it&#8217;s easy to install and is <a href="http://box.matto.nl/xnest.html">easy to use</a>.
-Simply install the package.  No special configuration is&nbsp;require.</p>
+but it's easy to install and is <a href="http://box.matto.nl/xnest.html">easy to use</a>.
+Simply install the package.  No special configuration is require.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install xnest
 </pre></div>
 
 
-<h3>Simple Test of&nbsp;Xnest</h3>
+<h3>Simple Test of Xnest</h3>
 <p>To open a window containing a new X Display (i.e. display :3) and running xclock,
 execute the following commands in an <code>xterm</code>.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Xnest :3 -geometry 1280x1024+200+200 -name &quot;Xnest Test Window&quot; 2&gt; /dev/null &amp;
@@ -148,14 +148,14 @@ xclock -display :3 &amp;
 </pre></div>
 
 
-<p>The options have the following&nbsp;purpose:</p>
+<p>The options have the following purpose:</p>
 <ul>
-<li><strong>:3</strong> is your display (displays are numbered starting with&nbsp;0)</li>
-<li><strong>-geometry 1280x1024+200+200</strong> sets the window size and&nbsp;position</li>
-<li><strong>-name &#8220;Xnest Test Window&#8221;</strong> is the title of the Xnest&nbsp;window</li>
-<li><strong>2&gt; /dev/null</strong> redirects trace and error&nbsp;messages</li>
+<li><strong>:3</strong> is your display (displays are numbered starting with 0)</li>
+<li><strong>-geometry 1280x1024+200+200</strong> sets the window size and position</li>
+<li><strong>-name "Xnest Test Window"</strong> is the title of the Xnest window</li>
+<li><strong>2&gt; /dev/null</strong> redirects trace and error messages</li>
 </ul>
-<p>In the above, there isn&#8217;t a window manager.
+<p>In the above, there isn't a window manager.
 To include a window manager, you simple need to start one up, but again, within display :3.
 And you can tile on a <code>xterm</code> and the <code>xeye</code>.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">DISPLAY=:3 awesome &amp;
@@ -167,62 +167,62 @@ DISPLAY=:3 xeyes &amp;
 <h1>Xephyr</h1>
 <p>For this discussion, you can think of <a href="http://nims11.wordpress.com/2012/06/24/nested-x-servers-with-xephyr/"><code>Xephyr</code></a> as an improved <code>Xnest</code>.
 Also, the use of the <code>Xephyr</code> X Server instead of <code>Xnest</code> is generally recommended.
-You can install <code>Xephyr</code> with the&nbsp;following.</p>
+You can install <code>Xephyr</code> with the following.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install xserver-xephyr
 </pre></div>
 
 
-<h3>Simple Test of&nbsp;Xephyr</h3>
+<h3>Simple Test of Xephyr</h3>
 <p>To open a <code>Xephyr</code> window with a specific size and suppress trace / error messaging,
-do the&nbsp;following:</p>
+do the following:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Xephyr -ac -screen 1280x1024 -br -reset -terminate 2&gt; /dev/null :3 &amp;
 </pre></div>
 
 
-<p>The options have the following&nbsp;purpose:</p>
+<p>The options have the following purpose:</p>
 <ul>
-<li><strong>:3</strong> is your display (displays are numbered starting with&nbsp;0)</li>
-<li><strong>-ac</strong> disable access control restrictions (allow you to forward&nbsp;X)</li>
-<li><strong>-screen 1280x1024</strong> sets the window&nbsp;size</li>
-<li><strong>-br</strong> set the background to&nbsp;black</li>
-<li><strong>-reset</strong> reset after last client&nbsp;exists</li>
-<li><strong>-terminate</strong> terminate <code>Xephyr</code> at server reset (does not always&nbsp;work)</li>
-<li><strong>2&gt; /dev/null</strong> redirects trace and error&nbsp;messages</li>
+<li><strong>:3</strong> is your display (displays are numbered starting with 0)</li>
+<li><strong>-ac</strong> disable access control restrictions (allow you to forward X)</li>
+<li><strong>-screen 1280x1024</strong> sets the window size</li>
+<li><strong>-br</strong> set the background to black</li>
+<li><strong>-reset</strong> reset after last client exists</li>
+<li><strong>-terminate</strong> terminate <code>Xephyr</code> at server reset (does not always work)</li>
+<li><strong>2&gt; /dev/null</strong> redirects trace and error messages</li>
 </ul>
-<p>To add a <code>xterm</code> into another account and the <span class="caps">GNOME</span> Window Manager, you could do the&nbsp;following:</p>
+<p>To add a <code>xterm</code> into another account and the GNOME Window Manager, you could do the following:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Xephyr -ac -screen 1280x1024 -br -reset -terminate 2&gt; /dev/null :3 &amp;
 DISPLAY=:3.0 gnome-wm &amp;
 DISPLAY=:3.0 ssh -X jennie@desktop xterm
 </pre></div>
 
 
-<p>Or you could start a <span class="caps">GNOME</span> Desktop session, and this will being with it its display&nbsp;manager</p>
+<p>Or you could start a GNOME Desktop session, and this will being with it its display manager</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Xephyr -ac -screen 1280x1024 -br -reset -terminate 2&gt; /dev/null :3 &amp;
 DISPLAY=:3 gnome-session &amp;
 DISPLAY=:3.0 ssh -XfC jennie@desktop xterm
 </pre></div>
 
 
-<p>This doesn&#8217;t give you the full desktop environment.
-The best way to do this is to go thought the X Display Manager (aka <span class="caps">GUI</span> Login Manager).
-This is shown below in the next&nbsp;section.</p>
-<h3>Remote&nbsp;Login</h3>
+<p>This doesn't give you the full desktop environment.
+The best way to do this is to go thought the X Display Manager (aka GUI Login Manager).
+This is shown below in the next section.</p>
+<h3>Remote Login</h3>
 <p><code>Xephyr</code> and <code>Xnest</code> can also be used to <a href="http://techpad.co.uk/content.php?sid=72">remotely login to a desktop session</a>.
 When remotely starting a X Window System desktop,
-<a href="http://www.x.org/releases/X11R7.7/doc/libXdmcp/xdmcp.html"><span class="caps">XDMCP</span> (X Display Manager Control Protocol)</a> is typically used to establish
-the connection between the remote X Display Manager (<span class="caps">XDM</span>) daemon
+<a href="http://www.x.org/releases/X11R7.7/doc/libXdmcp/xdmcp.html">XDMCP (X Display Manager Control Protocol)</a> is typically used to establish
+the connection between the remote X Display Manager (XDM) daemon
 and the local X Server.
 Once the connection has been established, and the user has successfully authenticated,
-the <span class="caps">XDM</span> daemon launches the X client session, which is displayed on the user&#8217;s&nbsp;workstation.</p>
-<p><span class="caps">XDMCP</span> suffers from some of the same security problem as all the X Protocols,
-but unfortunately, cannot be tunnelled over <span class="caps">SSH</span> due to it&#8217;s use of <span class="caps">UDP</span>.
-Attempts to use <span class="caps">XDMCP</span> to connect to a remote system
-via <span class="caps">SSH</span> will fail and an error message will be&nbsp;displayed.</p>
+the XDM daemon launches the X client session, which is displayed on the user's workstation.</p>
+<p>XDMCP suffers from some of the same security problem as all the X Protocols,
+but unfortunately, cannot be tunnelled over SSH due to it's use of UDP.
+Attempts to use XDMCP to connect to a remote system
+via SSH will fail and an error message will be displayed.</p>
 <p>For security reasons,
-<span class="caps">XDMCP</span> is not enabled by default on most modern <span class="caps">UNIX</span> distributions.
+XDMCP is not enabled by default on most modern UNIX distributions.
 You will have to enable remote logins to your X Display Manager.
-To enable <span class="caps">XDMCP</span> on my <span class="caps">LXDE</span> based system,
-I configuring the file <code>/etc/lightdm/lightdm.conf</code> so it&nbsp;contains</p>
+To enable XDMCP on my LXDE based system,
+I configuring the file <code>/etc/lightdm/lightdm.conf</code> so it contains</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">[SeatDefaults]
 user-session=ubuntu
 autologin-user=false
@@ -237,34 +237,34 @@ port=177
 
 
 <p>The key enabler here is the term <code>enabled=true</code>
-(this is generally set to <code>false</code> for security&nbsp;purposes).</p>
+(this is generally set to <code>false</code> for security purposes).</p>
 <p>Now get out of X Window and restart the lightdm with <code>sudo restart lightdm</code>
 (make sure to exit any running applications first)
 or reboot your system so the changes take effect.
 To log into into my Linux system (aka <code>desktop</code>),
 from the same system as if they are remote to each other,
-I used the following command works&nbsp;well. </p>
+I used the following command works well. </p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Xephyr :3 -ac -screen 1280x1024 -br -reset -terminate -query desktop 2&gt; /dev/null &amp;
 </pre></div>
 
 
-<p>The new option <strong>-query desktop</strong> cause <code>Xephyr</code> to contact the host computer <code>desktop</code> via <span class="caps">XDMCP</span>.
-A screen shot is shown&nbsp;below.</p>
+<p>The new option <strong>-query desktop</strong> cause <code>Xephyr</code> to contact the host computer <code>desktop</code> via XDMCP.
+A screen shot is shown below.</p>
 <p><img alt="Xephyr Screen Shot" src="http://jeffskinnerbox.me/images/desktop-using-xephyr.jpg" title="Desktop image with login screen shown in a window" /></p>
-<p><strong><span class="caps">NOTE</span>:</strong> When I attempted to do the same login screen (i.e. Display Manager) with <code>Xnest</code> via the command
+<p><strong>NOTE:</strong> When I attempted to do the same login screen (i.e. Display Manager) with <code>Xnest</code> via the command
 <code>Xnest :3 -geometry 1280x1024+200+200 -query desktop &amp;</code>
-and found that it didn&#8217;t fully work.
-Appears <code>Xephyr</code> is the way to&nbsp;go.</p>
+and found that it didn't fully work.
+Appears <code>Xephyr</code> is the way to go.</p>
 <h3>Sources</h3>
 <ul>
-<li><a href="http://unix.stackexchange.com/questions/20385/windows-managers-vs-login-managers-vs-display-managers-vs-desktop-environment">Windows Managers vs Login Managers vs Display Managers vs Session Manager vs Desktop&nbsp;Environment</a></li>
-<li><a href="http://askubuntu.com/questions/60364/can-i-run-a-remote-x-session-in-windowed-mode">Can I run a remote X session in windowed&nbsp;mode?</a></li>
-<li><a href="http://x.cygwin.com/docs/ug/using-remote-session.html">Remote sessions via <span class="caps">XDMCP</span></a></li>
-<li><a href="http://www.answeredubuntu.com/175902/remote_x_server_with_ssh_x#sthash.ifsk3uxx.dpbs">Remote x-server with ssh&nbsp;-X</a></li>
-<li><a href="http://ptspts.blogspot.com/2010/02/how-to-try-gdm-login-screen-in-many.html">How to try the <span class="caps">GDM</span> login screen in many&nbsp;resolutions</a></li>
-<li><a href="https://www.centos.org/docs/5/html/5.2/Installation_Guide/s2-trouble-remotex.html">Remote Graphical Desktops and <span class="caps">XDMCP</span></a></li>
-<li><a href="http://forums.opensuse.org/showthread.php/466709-Starting-a-Remote-X-session-using-XDMCP">Starting a Remote X session using <span class="caps">XDMCP</span></a></li>
-<li><a href="http://askubuntu.com/questions/11189/how-to-use-xdmcpgdm-and-xnest">How to use <span class="caps">XDMCP</span>+<span class="caps">GDM</span> and&nbsp;Xnest?</a></li>
+<li><a href="http://unix.stackexchange.com/questions/20385/windows-managers-vs-login-managers-vs-display-managers-vs-desktop-environment">Windows Managers vs Login Managers vs Display Managers vs Session Manager vs Desktop Environment</a></li>
+<li><a href="http://askubuntu.com/questions/60364/can-i-run-a-remote-x-session-in-windowed-mode">Can I run a remote X session in windowed mode?</a></li>
+<li><a href="http://x.cygwin.com/docs/ug/using-remote-session.html">Remote sessions via XDMCP</a></li>
+<li><a href="http://www.answeredubuntu.com/175902/remote_x_server_with_ssh_x#sthash.ifsk3uxx.dpbs">Remote x-server with ssh -X</a></li>
+<li><a href="http://ptspts.blogspot.com/2010/02/how-to-try-gdm-login-screen-in-many.html">How to try the GDM login screen in many resolutions</a></li>
+<li><a href="https://www.centos.org/docs/5/html/5.2/Installation_Guide/s2-trouble-remotex.html">Remote Graphical Desktops and XDMCP</a></li>
+<li><a href="http://forums.opensuse.org/showthread.php/466709-Starting-a-Remote-X-session-using-XDMCP">Starting a Remote X session using XDMCP</a></li>
+<li><a href="http://askubuntu.com/questions/11189/how-to-use-xdmcpgdm-and-xnest">How to use XDMCP+GDM and Xnest?</a></li>
 <li><a href="https://wiki.ubuntu.com/xdmcp">xdmcp</a></li>
 </ul>
             </div>
@@ -317,7 +317,7 @@ Appears <code>Xephyr</code> is the way to&nbsp;go.</p>
             </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-            </li>    
+            </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
@@ -332,7 +332,7 @@ Appears <code>Xephyr</code> is the way to&nbsp;go.</p>
             </a>
         </li>
         <li class="list-group-item">
-            <a href="/posts/2014/Dec/21/cheatsheet-vim-commands/index.html" target="_blank">
+            <a href="/tag/cheat-sheet/index.html" target="_blank">
                 Cheat Sheets
             </a>
         </li>
@@ -395,6 +395,12 @@ Appears <code>Xephyr</code> is the way to&nbsp;go.</p>
         </a></li>
         <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
             <i class="fa fa-linkedin"></i> Linkedin
+        </a></li>
+        <li class="list-group-item"><a href="http://www.commandlinefu.com/commands/by/jeffskinnerbox" target="_blank">
+            <i class="fa fa-terminal"></i> CommandLineFu
+        </a></li>
+        <li class="list-group-item"><a href="https://disqus.com/by/jeffskinnerbox/" target="_blank">
+            <i class="fa fa-comment"></i> DISQUS
         </a></li>
     </ul>
 </li> 

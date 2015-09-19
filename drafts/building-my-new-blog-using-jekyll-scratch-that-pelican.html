@@ -105,55 +105,67 @@ Jeff's Skinner Box&nbsp;            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Search for <span class="caps">XXXX</span> <span class="caps">FINISH</span> <span class="caps">THIS</span> <span class="caps">XXXX</span> and make&nbsp;updates.</p>
+                <p>http://crunk.io/post/introduction-to-pelican/
+<a href="http://duncanlock.net/blog/2013/05/17/how-i-built-this-website-using-pelican-part-1-setup/">How I built this website, using Pelican: Part 1 - Setup</a>
+<a href="http://duncanlock.net/blog/2013/10/18/how-i-upgraded-this-website-to-pelican-33/">How I upgraded this website to Pelican 3.3</a></p>
+<p>Search for XXXX FINISH THIS XXXX and make updates.</p>
 <ul>
-<li><a href="http://jakevdp.github.io/blog/2013/05/07/migrating-from-octopress-to-pelican/">Migrating from Octopress to&nbsp;Pelican</a></li>
-<li><a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/">How I setup&nbsp;Pelican</a></li>
+<li><a href="http://jakevdp.github.io/blog/2013/05/07/migrating-from-octopress-to-pelican/">Migrating from Octopress to Pelican</a></li>
+<li><a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/">How I setup Pelican</a></li>
 </ul>
 <p>Prior to setting up this blog, I initially started with <a href="https://wordpress.org/">WordPress</a>,
 I felt limited by it and then  I discovered that many tech-savvy people were
 using static site generators like <a href="http://jekyllrb.com/">Jekyll</a> or <a href="http://docs.getpelican.com/en/3.3.0/">Pelican</a>.
-Static web site don&#8217;t generate web pages upon request, like WordPress.
+Static web site don't generate web pages upon request, like WordPress.
 Instead, software on your local machine creates webpages and then these pages are uploaded to the webhost.
-The webpages have fixed content, hence the description &#8220;static site.&#8221;
-For a personal blog, a static site can makes a lot of sense because it more secure, 
+The webpages have fixed content, hence the description "static site."
+For a personal blog, a static site can makes a lot of sense because it more secure,
 there is no maintenance of web server software,
 your can write the blog in friendly language like <a href="http://daringfireball.net/projects/markdown/">Markdown</a>,
 you can easily control versioning of you content with tools like Git,
-and you blog is easily ported to any other&nbsp;site.</p>
+and you blog is easily ported to any other site.</p>
 <p>My orginal plan was to port <a href="http://jeffskinnerbox.wordpress.com/">my WordPress blog</a> to GitHub and use <a href="http://jekyllrb.com/">Jekyll</a>.
 I did this, and I used it for several months, but felt less and less satisfied with my choose.
-I then read the post &#8220;<a href="http://arunrocks.com/moving-blogs-to-pelican/">Moving Blogs to Pelican</a>&#8221; and I resounated with nearly ever word.
+I then read the post "<a href="http://arunrocks.com/moving-blogs-to-pelican/">Moving Blogs to Pelican</a>" and I resounated with nearly ever word.
 As a result, I have now change my direction, and ported my blog from Jekyll to <a href="http://docs.getpelican.com/en/3.3.0/">Pelican</a>.
 Like Jekyll, Pelican is a static site generator requiring no database or server-side logic,
 but it makes use of Python, Make, and Shell, not Ruby.
-This was an important factor, I never had a need to use Ruby and why should my blog force the&nbsp;issue?</p>
+This was an important factor, I never had a need to use Ruby and why should my blog force the issue?</p>
 <p>The contents of a Pelican  blog is either a post (in Pelican terminalogy, an article) or a page.
 The raw, unprocessed content (e.g. pages, articles, drafts, images, etc.)
 is contained in a directory called <code>content</code>.
 Both articles and pages can be written in
-<a href="http://daringfireball.net/projects/markdown/">Markdown</a>, <a href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>, <a href="http://www.methods.co.nz/asciidoc/index.html">AsciiDoc</a>, or even raw <a href="http://www.w3.org/TR/html5/"><span class="caps">HTML</span></a>.
+<a href="http://daringfireball.net/projects/markdown/">Markdown</a>, <a href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>, <a href="http://www.methods.co.nz/asciidoc/index.html">AsciiDoc</a>, or even raw <a href="http://www.w3.org/TR/html5/">HTML</a>.
 Both articles and pages can have meta-data at the top of the document containing such things as
-title, publication date, tags, etc. and even arbitrary custom&nbsp;meta-data.</p>
+title, publication date, tags, etc. and even arbitrary custom meta-data.</p>
 <p>The processed, ready to be published materials are contained in a directory called <code>output</code>.
 It is this directory that will be pushed to your web server.
 Their are other things that make up a Pelican blog,
 such as plugins, themes, make files, and other publishing tools.
-More on this&nbsp;later.</p>
+More on this later.</p>
 <p>To create this posting, I leveraged the <a href="http://blog.getpelican.com/">Pelican Development Blog</a>,
 which provide much of the detail documentation needed
 but to get started I followed the advice of the <a href="http://hackercodex.com/guide/pelican-static-site-generator-install/">Tutorial: Generating Static Sites with Pelican</a>,
 <a href="http://docs.getpelican.com/en/3.3.0/getting_started.html">Pelican Getting Started Guide</a>, and <a href="http://martinbrochhaus.com/pelican2.html">Pelican and Github Pages</a> very useful.
 Also, reading <a href="http://vuongnguyen.com/creating-blog-python-virtualenv-pelican.html">Creating a Blog with Python Pelican</a> and <a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/">How I setup Pelican</a> prove very helpful.
 You can find the latest Pelican code, along with its <a href="https://github.com/getpelican">themes and plugins on GitHub</a>.
-You might find more information on <a href="https://github.com/getpelican/pelican/tree/master/docs">Pelican&#8217;s GetHub</a> and <a href="https://github.com/getpelican/pelican/wiki/Tips-n-Tricks">Pelican&#8217;s Tips <span class="amp">&amp;</span> Tricks</a>.</p>
-<h5>Installing Pelican and Creating a Python&nbsp;Virtualenv</h5>
+You might find more information on <a href="https://github.com/getpelican/pelican/tree/master/docs">Pelican's GetHub</a> and <a href="https://github.com/getpelican/pelican/wiki/Tips-n-Tricks">Pelican's Tips &amp; Tricks</a>.</p>
+<h5>Installing Pelican and Creating a Python Virtualenv</h5>
+<p>To install Pelican and its dependancies</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install python-pip python-virtualenv virtualenvwrapper
+sudo apt-get install python-dev
+
+sudo pip install pelican markdown MathJaxPlugin latex2markdown typogrify
+</pre></div>
+
+
 <p>Pelican is a <a href="https://www.python.org/">Python</a> based tool.
-To assure I have a clean Python environment to work in, that doesn&#8217;t conflict with other Python work,
-create a virtual environment using <a href="http://www.virtualenv.org/en/latest/"><code>virtualenv</code></a>.
-To install Pelican and other Python package dependencies in a virtual environment,
-I roughly followed the instructions in the <a href="http://pelican.readthedocs.org/en/3.5.0/quickstart.html">official Pelican documentation</a>.
-See&nbsp;below:</p>
+You may have other Python projects and they may require a different version of Python.
+To assure I have a clean Python environment to work in, that doesn't conflict with other Python work,
+create a virtual environment using <a href="http://www.virtualenv.org/en/latest/"><code>virtualenv</code></a>.</p>
+<p>I chose not to install Pelican and other Python package dependencies in a virtual environment.
+If you do, you can roughly followed the instructions in the <a href="http://pelican.readthedocs.org/en/3.5.0/quickstart.html">official Pelican documentation</a>.
+See below:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># procedure for creating an envirnment for Pelican</span>
 <span style="color: #336666">cd</span> ~
 virtualenv --python python2.7 --no-site-packages blogging
@@ -167,14 +179,14 @@ deactivate
 </pre></div>
 
 
-<p><strong>Note:</strong> Don&#8217;t use <code>sudo</code> when installing these Python packages in a virtual environment,
-otherwise you&#8217;ll end up installing them globally,
-which defeats the purpose of using virtual&nbsp;environments.</p>
-<h4>Run Quickstart&nbsp;Pelican</h4>
+<p><strong>Note:</strong> Don't use <code>sudo</code> when installing these Python packages in a virtual environment,
+otherwise you'll end up installing them globally,
+which defeats the purpose of using virtual environments.</p>
+<h4>Run Quickstart Pelican</h4>
 <p>Pelican comes with a quickstart command that will create a skeleton directory structure for your project.
 When running the command will ask you a series of questions.
 See the posting <a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/">How I setup Pelican</a> for recommendations on how to answer the questions.
-I (more or less) followed what was done in this&nbsp;article.</p>
+I (more or less) followed what was done in this article.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">pelican-quickstart
 </pre></div>
 
@@ -183,7 +195,7 @@ I (more or less) followed what was done in this&nbsp;article.</p>
 directory would generate all static files for the blog using the
 default Pelican theme <code>notmyidea</code> into the <code>output/</code> directory.
 You can no serve this directory as you would any other static html files.
-You can test this out by doing the&nbsp;following:</p>
+You can test this out by doing the following:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">make html
 make serve
 </pre></div>
@@ -191,13 +203,13 @@ make serve
 
 <p>Then using a browser, enter <code>localhost:8000</code>.
 Nothing much will be there since not content has been created but you see the shell for
-your <code>notmyidea</code> themed&nbsp;blog.</p>
-<h4>Fork <span class="amp">&amp;</span> Clone Pelican Themes and&nbsp;Plugins</h4>
+your <code>notmyidea</code> themed blog.</p>
+<h4>Fork &amp; Clone Pelican Themes and Plugins</h4>
 <p>I wanted to leverage the official <a href="https://github.com/getpelican/pelican-themes">Pelican themes</a> and <a href="https://github.com/getpelican/pelican-plugins">Pelican plugins</a>,
 and have them under version control,
 so I performed the standard procedure of <a href="https://help.github.com/articles/fork-a-repo">forking/cloning the GitHub</a>.
 First step is to fork these repositories on GitHub.
-I did the&nbsp;following:</p>
+I did the following:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># creater the repository of Pelican plugins</span>
 <span style="color: #336666">cd</span> ~/blogging/pelican-plugins
 git clone https://github.com/jeffskinnerbox/pelican-plugins.git
@@ -212,7 +224,7 @@ git fetch upstream
 </pre></div>
 
 
-<h4>Set Up&nbsp;Git</h4>
+<h4>Set Up Git</h4>
 <p>With what has been done so far,
 you have the beginings of a project structure and you should initiate a Git repository to control it.
 Do the <code>git init</code> and create a rudimentary <code>.gitignore</code> file:</p>
@@ -227,39 +239,39 @@ output/
 </pre></div>
 
 
-<p><span class="caps">XXXX</span> <span class="caps">FINISH</span> <span class="caps">THIS</span> <span class="caps">XXXX</span>
+<p>XXXX FINISH THIS XXXX
 I have posted a final and more complete version of <code>.gitignore</code> <a href="https://gist.github.com/jeffskinnerbox/9612119">on Gist</a>.</p>
-<h4>Pelican Configuration&nbsp;File</h4>
+<h4>Pelican Configuration File</h4>
 <p>Pelican is configurable via setting is a Python module called <code>pelicanconf.py</code>.
 The settings you define in this configuration file will be used within the Pelican
 templates that are part of the themes and to control Pelican processing.
 The basic idea is that, via the configuration files,
 you can point Pelican at the template files in your
-<code>pelican-themes/&lt;theme&gt;/templates/</code> directory to generate all static html&nbsp;files.</p>
+<code>pelican-themes/&lt;theme&gt;/templates/</code> directory to generate all static html files.</p>
 <p>Think of Pelican as having two primary modes of operation:
 local development and production deployment (i.e., <code>pelicanconf.py</code> and <code>publishconf.py</code>, respectively).
 When developing locally, settings for things like Google Analytics and Disqus
 are deliberately left out of <code>pelicanconf.py</code> by design.
 Including those settings in local testing can have adverse effects:
-inaccurate site statistics, spurious comment threads, and other unanticipated side&nbsp;effects.</p>
+inaccurate site statistics, spurious comment threads, and other unanticipated side effects.</p>
 <p>When it is time to publish your site,
 then of course you want those settings to be included.
 The way to do that is to ensure your <code>publishconf.py</code> is being referenced at publish time:
 <code>pelican content -s publishconf.py</code>.
-I posted my <code>pelicanconf.py</code> and <code>publishconf.py</code> files on Gist here and here.  <span class="caps">XXXX</span> <span class="caps">FINISH</span> <span class="caps">THIS</span> <span class="caps">XXXX</span></p>
+I posted my <code>pelicanconf.py</code> and <code>publishconf.py</code> files on Gist here and here.  XXXX FINISH THIS XXXX</p>
 <p>Pelican uses <a href="http://jinja.pocoo.org/">Jinja</a> for its templating language.
 In these templates, you should have access to all variables from <code>pelicanconf.py</code>
 as well as template-specific variables (See “<a href="http://docs.getpelican.com/en/3.3.0/themes.html#templates-and-variables">Template and Variables</a>”
 section of the Pelican documentation).
 The specifics of what variables are supported and what they mean are documented
 in the <code>README.md</code> file.</p>
-<h3>Creating the Pelican&nbsp;Theme</h3>
+<h3>Creating the Pelican Theme</h3>
 <p>Pelican Themes allow you to seperate the contents of your blog from its look-and-feel.
 You can find images of the available themes at <a href="http://pelicanthemes.com/">Pelican Themes</a>.
-This is accomplished in part via use of <a href="http://jinja.pocoo.org/">Jinja</a> template engine to render Pelican pages and articles. 
+This is accomplished in part via use of <a href="http://jinja.pocoo.org/">Jinja</a> template engine to render Pelican pages and articles.
 Pelican makes it easy to make your own themes but clearly it is easiest when
 you start with a theme that is close to what you want.
-I started with <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3">pelican-bootstrap3</a> to creat my&nbsp;theme.</p>
+I started with <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3">pelican-bootstrap3</a> to creat my theme.</p>
 <p>On top of this Pelican Theme, is layered <a href="http://getbootstrap.com/">Bootstrap 3</a>,
 a front-end framework for developing <a href="http://www.onextrapixel.com/2012/11/12/how-to-use-twitter-bootstrap-to-create-a-responsive-website-design/">responsive web sites</a>.
 Bootstrap is a popular web framework, and as a result of its growing popularity,
@@ -267,33 +279,33 @@ it has created uniformity between many websites.
 <a href="http://bootswatch.com/">Bootswatch</a> was created to somewhat combate this trend,
 enable developers, still using Bootstrap to try on a new look,
 without investing much time or energy.
-I used the Bootswatch Bootstrap theme called <a href="http://bootswatch.com/flatly/">flatly</a> 
-I then made modifications as required to create my web site&nbsp;style.</p>
-<h1>Customizing Bootstrap/Bootwatch via&nbsp;custom.css</h1>
+I used the Bootswatch Bootstrap theme called <a href="http://bootswatch.com/flatly/">flatly</a>
+I then made modifications as required to create my web site style.</p>
+<h1>Customizing Bootstrap/Bootwatch via custom.css</h1>
 <p>Dispite all the careful selection of a Bootstrap and Pelicanthemes,
 your going to want to make some modifications.
 In my case, I wanted to change how tables are displayed, the formatting of tag clouds,
 font color of inline code, among other things.
 You could make the modifcations to the <code>bootstrap.css</code> file
-but this isn&#8217;t <a href="http://stackoverflow.com/questions/8596794/customizing-bootstrap-css-template">best practice</a>.
+but this isn't <a href="http://stackoverflow.com/questions/8596794/customizing-bootstrap-css-template">best practice</a>.
 What you should do is create your own css file and
 have it overwrite whenever you want original bootstrap stuff.
 You can use <code>pelicanconf.py</code> variable <code>CUSTOM_CSS</code> to point to your <code>custom.css</code> file.
 The specfics for this topic can be found in the <code>README.md</code> file.</p>
-<h4>Pelican&#8217;s&nbsp;Markdown</h4>
+<h4>Pelican's Markdown</h4>
 <p>Pelican will support <a href="http://daringfireball.net/projects/markdown/">Markdown</a>, <a href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>, and <a href="http://www.methods.co.nz/asciidoc/index.html">AsciiDoc</a>
 for the creation of content.
 I plan to only use Markdown to write my blog posts.
 By default, Pelican uses a flavor of Markdown that comes with some <a href="http://pythonhosted.org/Markdown/extensions/extra.html">extentions</a>.
 I especially like using the footnotes and Pygments extension.
 The specifics on how to make this happen are in the <code>README.md</code> file.</p>
-<h4>Creating&nbsp;Content</h4>
+<h4>Creating Content</h4>
 <p>Pelican considers “articles” to be chronological content, such as posts on a blog,
 and thus associated with a date (e.g. a web posting about some project underway).
 Pelican also supports “pages” that are usually not temporal in nature
 and are used for content that does not change very often (e.g. “About Me” page).
 Also like Jekyll, each of the content files contain metadata about the file.
-When using Markdown, that metadata looks&nbsp;like:</p>
+When using Markdown, that metadata looks like:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Title: My Super Title For My Super Post
 Date: 2010-12-03 10:20
 Category: Blog
@@ -307,7 +319,7 @@ Summary: Short discription that will appear in a listing of all articles on the 
 
 <p>This metadata is placed as a header for the article or page.
 From there you can use your favorate editor to write your content in Markdown.
-The next section shows you how to process this content and see it formated for the web&nbsp;site.</p>
+The next section shows you how to process this content and see it formated for the web site.</p>
 <p>I added to my Pelican driven web site support for IPython Notebook.
 The purpose of the IPython Notbook formated pages is to capture content that is
 best expressed in mathamatics, algorthmic code, or graphical format.
@@ -315,24 +327,24 @@ This comes quite painlessly thanks to <a href="http://ipython.org/">IPython</a>
 and its compainion tool <a href="http://ipython.org/ipython-doc/rel-1.0.0/interactive/nbconvert.html">nbconvert</a>.
 These IPython Notebooks are stored in <code>content/notebooks</code>.
 The are formated by Pelican as pages and I have created a root page
-called &#8220;Open Notebook&#8221; accessable on the navigation&nbsp;bar.</p>
-<h4>Processing&nbsp;Content</h4>
+called "Open Notebook" accessable on the navigation bar.</p>
+<h4>Processing Content</h4>
 <p>Pelican support several automation tools for the processing of content and publishing.
-It supports <a href="http://www.linuxforu.com/2012/06/gnu-make-in-detail-for-beginners/">make</a> and <a href="http://docs.fabfile.org/en/1.8/">fabric</a> build tools, but I&#8217;ll only cover make here.
-Make can be used to automate the creation, editing, and processing of content. 
+It supports <a href="http://www.linuxforu.com/2012/06/gnu-make-in-detail-for-beginners/">make</a> and <a href="http://docs.fabfile.org/en/1.8/">fabric</a> build tools, but I'll only cover make here.
+Make can be used to automate the creation, editing, and processing of content.
 A Makefile is automatically created during the pelican-quickstart process,
-but I modified for my&nbsp;needs.</p>
+but I modified for my needs.</p>
 <p>The <code>REDME.md</code> file documents how the Makefile can be used, but at its heart,
-the processing of Pelican content involves these&nbsp;steps:</p>
+the processing of Pelican content involves these steps:</p>
 <ol>
 <li>Create the content in <code>content/articles</code>, <code>content/pages</code>, or <code>content/drafts</code>.</li>
-<li>Process your content by converting the Markdown to <span class="caps">HTML</span>.  You do this by running <code>pelican -s pelicanconf.py -o output content</code> in the root of the blogs directory system (or <code>pelican --autoreload -s pelicanconf.py -o output content</code> to&nbsp;autoprocess).</li>
+<li>Process your content by converting the Markdown to HTML.  You do this by running <code>pelican -s pelicanconf.py -o output content</code> in the root of the blogs directory system (or <code>pelican --autoreload -s pelicanconf.py -o output content</code> to autoprocess).</li>
 <li>To serve up as a web page, change directory to <code>output</code> and run <code>python -m SimpleHTTPServer</code>.</li>
-<li>To see your web site, place <code>localhost:8000</code> in your&nbsp;browser.</li>
-<li>Once yoru happy with how the content is formated, you push the content to you GitHub hosted web&nbsp;site.</li>
+<li>To see your web site, place <code>localhost:8000</code> in your browser.</li>
+<li>Once yoru happy with how the content is formated, you push the content to you GitHub hosted web site.</li>
 </ol>
-<h5>Pelican&#8217;s File&nbsp;Structure</h5>
-<p>Jekyll expects your website directory to be laid out like&nbsp;so:</p>
+<h5>Pelican's File Structure</h5>
+<p>Jekyll expects your website directory to be laid out like so:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># not correct .... XXXX FINISH THIS XXXX
 |-- _config.yml
 |-- _includes
@@ -351,13 +363,13 @@ the processing of Pelican content involves these&nbsp;steps:</p>
 </pre></div>
 
 
-<p><span class="caps">XXXX</span> <span class="caps">FINISH</span> <span class="caps">THIS</span> <span class="caps">XXXX</span> 
+<p>XXXX FINISH THIS XXXX
 Theme
     : xxx
 static
-    : contains all the static assets, which will be copied to the output theme folder. I’ve put the <span class="caps">CSS</span> and image folders here, but they are just examples. Put what you need here.
+    : contains all the static assets, which will be copied to the output theme folder. I’ve put the CSS and image folders here, but they are just examples. Put what you need here.
 templates
-    :contains all the templates that will be used to generate the content. I’ve just put the mandatory templates here; you can define your own if it helps you keep things organized while creating your&nbsp;theme.</p>
+    :contains all the templates that will be used to generate the content. I’ve just put the mandatory templates here; you can define your own if it helps you keep things organized while creating your theme.</p>
 <p>index.html
     : This is the home page of your blog, generated at output/index.html.
 author.html
@@ -369,8 +381,8 @@ article.html
 page.html
     : This template will be processed for each page, with corresponding .html files saved as output/page_name.html.
 tag.html
-    : This template will be processed for each tag, with corresponding .html files saved as&nbsp;output/tag/tag_name.html.</p>
-<p><span class="caps">XXXX</span> <span class="caps">FINISH</span> <span class="caps">THIS</span> <span class="caps">XXXX</span> </p>
+    : This template will be processed for each tag, with corresponding .html files saved as output/tag/tag_name.html.</p>
+<p>XXXX FINISH THIS XXXX</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">├── static
 │   ├── css
 │   └── images
@@ -389,7 +401,7 @@ tag.html
 </pre></div>
 
 
-<p><span class="caps">XXXX</span> <span class="caps">FINISH</span> <span class="caps">THIS</span> <span class="caps">XXXX</span> </p>
+<p>XXXX FINISH THIS XXXX</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">├── AUTHORS.md
 ├── LICENSE
 ├── README.md
@@ -405,11 +417,11 @@ tag.html
 </pre></div>
 
 
-<h3>Basic Workflow With&nbsp;Pelican</h3>
+<h3>Basic Workflow With Pelican</h3>
 <p>The workflow required to mange the blog is simple, fully under your control,
 and very natural for anyone who is accustom to software development
-since you&#8217;ll be using your development tools.
-It goes like&nbsp;this:</p>
+since you'll be using your development tools.
+It goes like this:</p>
 <p>Launch Terminal
     : You open your favorate terminal tool and change directory to your Jekyll directory. In my case it <code>cd ~/myblog</code>.
 Generate  Post
@@ -421,17 +433,17 @@ Add Proper Front Matter
 Generating Post in <code>_site</code> Directory
     : To generate the post so I can inspect its formatting, I run following command in terminal
 Deploying the Website
-    : If you use GitHub Pages for your website, here again, you can use some very farmilar tools.  You simply need to push the code to&nbsp;GitHub.</p>
-<h4>Search&nbsp;Function</h4>
-<p>Check out what this Pelican web site might have used:&nbsp;http://terriyu.info/blog/search.html</p>
-<h4>Atom and <span class="caps">RSS</span>&nbsp;Feeds</h4>
+    : If you use GitHub Pages for your website, here again, you can use some very farmilar tools.  You simply need to push the code to GitHub.</p>
+<h4>Search Function</h4>
+<p>Check out what this Pelican web site might have used: http://terriyu.info/blog/search.html</p>
+<h4>Atom and RSS Feeds</h4>
 <p>Web <a href="http://en.wikipedia.org/wiki/Web_syndication">content syndication</a> is the process of pushing your blog, site, or
 video content out into third-party sites, either as a full article, snippet, link, or thumbnail.
-Two popular syndication <span class="caps">XML</span>-based file format are <a href="http://atomenabled.org/">Atom</a>, which was
-developed as an alternative to <a href="http://en.wikipedia.org/wiki/RSS"><span class="caps">RSS</span></a> because of its perceived shortcomings.
-When you put content into <span class="caps">RSS</span> or Atom and send that content to other people or websites,
-it&#8217;s called a <a href="http://www.press-feed.com/howitworks/rss_tutorial.php">feed</a>.</p>
-<h4>Web Robots.txt and Sitemap&nbsp;Files</h4>
+Two popular syndication XML-based file format are <a href="http://atomenabled.org/">Atom</a>, which was
+developed as an alternative to <a href="http://en.wikipedia.org/wiki/RSS">RSS</a> because of its perceived shortcomings.
+When you put content into RSS or Atom and send that content to other people or websites,
+it's called a <a href="http://www.press-feed.com/howitworks/rss_tutorial.php">feed</a>.</p>
+<h4>Web Robots.txt and Sitemap Files</h4>
 <p>Some obsure <a href="https://github.com/getpelican/pelican/wiki/Tips-n-Tricks#generate-sitemapxml">Pelican documentation</a> gives a bit of guidance on Web Robots and Sitemaps.
 <a href="http://en.wikipedia.org/wiki/Internet_bot">Web Robots</a> (also known as Web Crawlers or Web Spiders),
 are programs that traverse the Web automatically.
@@ -439,7 +451,7 @@ Search engines, such as Google, use them to index the web content.
 Web site owners use the <code>robots.txt</code> file to give instructions about their site to web robots.
 This is called The <a href="http://www.robotstxt.org/orig.html">Robots Exclusion Protocol</a>.
 Before a web robot visits a we bsite, it firsts checks for <code>robots.txt</code>
-in the top-level directory of your web&nbsp;server.</p>
+in the top-level directory of your web server.</p>
 <p>I put the following in <code>robot.txt</code>:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">User-agent: *
 Disallow: /drafts/
@@ -451,30 +463,30 @@ The <code>Disallow: /draft/</code> tells the robot that it should not
 visit any pages within the <code>drafts</code> directory.
 There are also two important considerations when using <code>robots.txt</code>:</p>
 <ul>
-<li>robots can ignore your&nbsp;/robots.txt</li>
-<li>the /robots.txt file is a publicly readable&nbsp;file</li>
+<li>robots can ignore your /robots.txt</li>
+<li>the /robots.txt file is a publicly readable file</li>
 </ul>
 <p>Sitemaps are a way to inform search engines about pages on your sites that are available for crawling.
-In its simplest form, a Sitemap is an <span class="caps">XML</span> file that lists URLs
-for a site along with additional metadata about each <span class="caps">URL</span>
+In its simplest form, a Sitemap is an XML file that lists URLs
+for a site along with additional metadata about each URL
 (when it was last updated, how often it usually changes, and how important it is,
-relative to other URLs in the site) so that search engines can more intelligently crawl the&nbsp;site.</p>
-<h4>Setting Up Error&nbsp;Pages</h4>
-<p>Pelican&#8217;s documentation does not provide much insight on implement we <a href="https://en.wikipedia.org/wiki/Http_404">error pages</a>,
-but I did fine the posting &#8220;<a href="http://bertelsen.ca/setup/how-to-setup-error-pages-with-pelican/">How to setup error pages with Pelican</a>&#8220;.
+relative to other URLs in the site) so that search engines can more intelligently crawl the site.</p>
+<h4>Setting Up Error Pages</h4>
+<p>Pelican's documentation does not provide much insight on implement we <a href="https://en.wikipedia.org/wiki/Http_404">error pages</a>,
+but I did fine the posting "<a href="http://bertelsen.ca/setup/how-to-setup-error-pages-with-pelican/">How to setup error pages with Pelican</a>".
 This involves the creation of a <code>.htaccess</code> file in the root directory of you web site.
-To better understand what this is all about, check out &#8220;<a href="http://www.freewebmasterhelp.com/tutorials/htaccess/">.htaccess Tutorial</a>&#8221;
-and &#8220;<a href="http://www.thesitewizard.com/archive/custom404.shtml">How to Set Up A Custom 404 File Not Found Page</a>&#8220;.
+To better understand what this is all about, check out "<a href="http://www.freewebmasterhelp.com/tutorials/htaccess/">.htaccess Tutorial</a>"
+and "<a href="http://www.thesitewizard.com/archive/custom404.shtml">How to Set Up A Custom 404 File Not Found Page</a>".
 I placed both htaccess and the error files in the Pelcian <code>content/extra</code> directory
 and used the <code>pelicanconfig.py</code> configuration file
 to move them to there proper destination for publishing
 (see <code>EXTRA_PATH_METADATA</code> in the <code>pelicancong.py</code> file).</p>
-<h4>Setting Up Google Analytics and&nbsp;Disqus</h4>
+<h4>Setting Up Google Analytics and Disqus</h4>
 <ul>
-<li><a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/#fn:2">Setup Google Analytics/Piwik and&nbsp;Disqus</a></li>
-<li><a href="http://blog.kissmetrics.com/google-analytics-resources-2013/">54 Google Analytics Resources – The 2013&nbsp;Edition</a></li>
+<li><a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/#fn:2">Setup Google Analytics/Piwik and Disqus</a></li>
+<li><a href="http://blog.kissmetrics.com/google-analytics-resources-2013/">54 Google Analytics Resources – The 2013 Edition</a></li>
 </ul>
-<h4>Git and GitHub&nbsp;Setup</h4>
+<h4>Git and GitHub Setup</h4>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">git init
 git config --global user.name <span style="color: #CC3300">&quot;jeffskinnerbox&quot;</span>
 git config --global user.email jeff.irland@verizon.net
@@ -486,24 +498,24 @@ git remote add origin https://github.com/jeffskinnerbox/jeffskinnerbox.github.io
 </pre></div>
 
 
-<h4>Publishing to GitHub&nbsp;Page</h4>
+<h4>Publishing to GitHub Page</h4>
 <p><a href="http://pages.github.com/">GitHub can create a websites from a repository</a> and this is call GitHub Pages.
 There are <a href="https://help.github.com/articles/user-organization-and-project-pages">two types of GitHub Pages</a>: Project Pages and User Pages.
 We are using User Pages here.
-Check out <a href="http://www.thinkful.com/learn/a-guide-to-using-github-pages/">A guide to using Github Pages</a> for more&nbsp;information.</p>
+Check out <a href="http://www.thinkful.com/learn/a-guide-to-using-github-pages/">A guide to using Github Pages</a> for more information.</p>
 <p>In the case of User Pages, if we create a repository with the name <code>&lt;username&gt;.github.io</code>,
 whatever is created in the master branch of <code>&lt;username&gt;.github.io</code>, will be published.
 The website will be the same name (you can provide a custom name, more on this below).
 Therefore, for our purpose, just the output generated by Pelican needs to pushed to GitHub
 to create the website.
-We&#8217;ll also use GitHub to version control the source for the website,
-but that will be via a seperate&nbsp;repository.</p>
+We'll also use GitHub to version control the source for the website,
+but that will be via a seperate repository.</p>
 <p>To publish a Pelican site in the form of User Pages,
-you need to push the content of the <code>output</code> directory (i.e. the <span class="caps">HTML</span> created for the website)
+you need to push the content of the <code>output</code> directory (i.e. the HTML created for the website)
 generated by Pelican to the master branch of your <code>&lt;username&gt;.github.io</code> repository on GitHub.
-We&#8217;ll use the utility <code>[ghp-import][31]</code> to make this easy.
-We&#8217;ll also use the <code>publishconf.py</code> Pelican configuration file,
-which will import the <code>pelicanconf.py</code> file but override anything needed specifically for&nbsp;publishing.</p>
+We'll use the utility <code>[ghp-import][31]</code> to make this easy.
+We'll also use the <code>publishconf.py</code> Pelican configuration file,
+which will import the <code>pelicanconf.py</code> file but override anything needed specifically for publishing.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">pelican content -o output -s publishconf.py
 ghp-import output
 git push origin gh-pages:master
@@ -514,11 +526,11 @@ git push origin gh-pages:master
 (freshly updated by the <code>ghp-import</code> command) to the <code>&lt;username&gt;.github.io</code>
 repository’s <code>master</code> branch on GitHub.
 Using <code>ghp-import</code> will over write your local <code>gh-pages</code> branch and the remote GitHub <code>master</code> branch.
-In effect, GitHub&#8217;s <code>master</code> branch will maintain the website&#8217;s current content, but no&nbsp;history.</p>
-<p>I do want maintain a historical record of the website&#8217;s source materials (i.e. the markdown files).
+In effect, GitHub's <code>master</code> branch will maintain the website's current content, but no history.</p>
+<p>I do want maintain a historical record of the website's source materials (i.e. the markdown files).
 To place the source materials for the website into GitHub,
-I&#8217;ll use standard git procedures (i.e. no use of <code>ghp-import</code>).
-See below for the procedure&nbsp;used:</p>
+I'll use standard git procedures (i.e. no use of <code>ghp-import</code>).
+See below for the procedure used:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">git add --all
 git commit -m <span style="color: #CC3300">&quot;&lt;comment&gt;&quot;</span>
 git push origin master:source
@@ -527,41 +539,41 @@ git push origin master:source
 
 <p>The <code>git push</code> command pushes the local <code>master</code> branch
 (which contains the source materials for the website) to the <code>&lt;username&gt;.github.io</code>
-repository’s <code>source</code> branch on&nbsp;GitHub.</p>
-<p>If you&#8217;re having trouble getting Github to publish your site,
-go to Settings for your repository and make sure that the <code>master</code> branch is the default&nbsp;branch.</p>
-<h5>Custom Domain&nbsp;Name</h5>
+repository’s <code>source</code> branch on GitHub.</p>
+<p>If you're having trouble getting Github to publish your site,
+go to Settings for your repository and make sure that the <code>master</code> branch is the default branch.</p>
+<h5>Custom Domain Name</h5>
 <p>To use a custom domain with GitHub Pages,
 you need to put the domain of your site (e.g., www.jeffskinnerbox.me)
 inside a <code>CNAME</code> file at the root of your site.
 To do this, add the <code>CNAME</code> file to the <code>content/extras/</code>.
 Then use the configuration variable <code>STATIC_PATHS</code> setting to tell Pelican
-to copy this file to your output directory. For&nbsp;example:</p>
+to copy this file to your output directory. For example:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">STATIC_PATHS <span style="color: #555555">=</span> [ <span style="color: #CC3300">&#39;images&#39;</span>, <span style="color: #CC3300">&#39;extra/CNAME&#39;</span> ]
 EXTRA_PATH_METADATA <span style="color: #555555">=</span> { <span style="color: #CC3300">&#39;extra/CNAME&#39;</span>: { <span style="color: #CC3300">&#39;path&#39;</span>: <span style="color: #CC3300">&#39;CNAME&#39;</span> }, }
 </pre></div>
 
 
-<h4>Set Up for Your Domain Name&nbsp;Provider</h4>
+<h4>Set Up for Your Domain Name Provider</h4>
 <p>An importiant issue for me was my domain name.
-I didn&#8217;t want my <span class="caps">URL</span> changing to <code>jeffskinnerbox.github.io</code>.
+I didn't want my URL changing to <code>jeffskinnerbox.github.io</code>.
 I have purchased the domain name <code>www.jeffskinnerbox.me</code> <a href="https://www.namecheap.com/">Namecheap</a> and I want to make use of it.
 Github know this and they have provided a super easy method to let you use your own domain.
-Follow the advice at the GitHub page &#8220;<a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages">Setting up a Custom Domain with GitHub Pages</a>&#8220;.</p>
+Follow the advice at the GitHub page "<a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages">Setting up a Custom Domain with GitHub Pages</a>".</p>
 <p>I created a <code>CNAME</code> file in the top level of your github repository for your site.
 In my case this is <code>$(HOME)/blogging/output</code> directory.
 In the <code>CNAME</code> file you will see it just contains <code>jeffskinnerbox.me</code>.
-That&#8217;s all there is need within you Pelican web&nbsp;site. </p>
-<p>As for how to set things up with your <span class="caps">DNS</span> provider,
-as an example, mine now looks like&nbsp;this:</p>
+That's all there is need within you Pelican web site.</p>
+<p>As for how to set things up with your DNS provider,
+as an example, mine now looks like this:</p>
 <table>
 <thead>
 <tr>
-<th align="center"><span class="caps">HOST</span> <span class="caps">NAME</span></th>
-<th align="center"><span class="caps">IP</span> <span class="caps">ADDRESS</span>/<span class="caps">URL</span></th>
-<th align="center"><span class="caps">RECORD</span> <span class="caps">TYPE</span></th>
-<th align="center"><span class="caps">MX</span> <span class="caps">PREF</span></th>
-<th align="center"><span class="caps">TTL</span></th>
+<th align="center">HOST NAME</th>
+<th align="center">IP ADDRESS/URL</th>
+<th align="center">RECORD TYPE</th>
+<th align="center">MX PREF</th>
+<th align="center">TTL</th>
 </tr>
 </thead>
 <tbody>
@@ -575,16 +587,16 @@ as an example, mine now looks like&nbsp;this:</p>
 <tr>
 <td align="center">www</td>
 <td align="center">jeffskinnerbox.github.io.</td>
-<td align="center"><span class="caps">CNAME</span> (Alias)</td>
+<td align="center">CNAME (Alias)</td>
 <td align="center">n/a</td>
 <td align="center">1800</td>
 </tr>
 </tbody>
 </table>
-<p>And that&#8217;s it; just give your <span class="caps">DNS</span> time to update and away you&nbsp;go.</p>
+<p>And that's it; just give your DNS time to update and away you go.</p>
 <p>You can use the <code>[dig][59]</code> command to confirm that you have set it correctly.
 In my case, I run this command <code>dig www.jeffskinnerbox.me +nostats +nocomments +nocmd</code>
-to perform a <span class="caps">DNS</span> lookup and got the following&nbsp;results:</p>
+to perform a DNS lookup and got the following results:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #003333">$ </span>dig www.jeffskinnerbox.me +nostats +nocomments +nocmd
 
 ; &lt;&lt;&gt;&gt; DiG 9.9.3-rpz2+rl.13214.22-P2-Ubuntu-1:9.9.3.dfsg.P2-4ubuntu1.1 &lt;&lt;&gt;&gt; www.jeffskinnerbox.me +nostats +nocomments +nocmd
@@ -596,27 +608,57 @@ github.map.fastly.net.    8     IN  A       199.27.76.133
 </pre></div>
 
 
-<h4>Upgrading&nbsp;Packages</h4>
+<h4>Upgrading Packages</h4>
 <p>If you installed a stable Pelican, Markdown, or other package release via pip or easy_install
 and wish to upgrade to the latest stable release,
 you can do so by adding <code>--upgrade</code> to the relevant command.
-For Pelican, that would&nbsp;be:</p>
+For Pelican, that would be:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># upgrade to the latest stable release of Pelican</span>
 pip install --upgrade pelican
 </pre></div>
 
 
-<p>To upgrade Bootstrap, Bootwatch,&nbsp;&#8230;..</p>
+<p>To upgrade Bootstrap, Bootwatch, .....</p>
 <h1>LinkChecker</h1>
 <ul>
-<li><a href="http://wummel.github.io/linkchecker/">LinkChecker - Check websites for broken&nbsp;links</a></li>
-<li><a href="http://wummel.github.io/linkchecker/man1/linkchecker.1.html">LinkChecker Manual&nbsp;Page</a></li>
-<li><a href="https://github.com/wummel/linkchecker/tree/master/doc/examples">Checkout&nbsp;examples</a></li>
-<li><a href="http://fossies.org/linux/www/LinkChecker-9.3.tar.gz/LinkChecker-9.3/doc/html/logo128x128.png">LinkChecker&nbsp;Logo</a></li>
+<li><a href="http://wummel.github.io/linkchecker/">LinkChecker - Check websites for broken links</a></li>
+<li><a href="http://wummel.github.io/linkchecker/man1/linkchecker.1.html">LinkChecker Manual Page</a></li>
+<li><a href="https://github.com/wummel/linkchecker/tree/master/doc/examples">Checkout examples</a></li>
+<li><a href="http://fossies.org/linux/www/LinkChecker-9.3.tar.gz/LinkChecker-9.3/doc/html/logo128x128.png">LinkChecker Logo</a></li>
 </ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># install the package</span>
 sudo apt-get install linkchecker
-</pre></div>
+</pre></div><script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+		? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js'
+		: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+
             </div>
             <!-- /.entry-content -->
     <hr />
@@ -667,7 +709,7 @@ sudo apt-get install linkchecker
             </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-            </li>    
+            </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
@@ -682,7 +724,7 @@ sudo apt-get install linkchecker
             </a>
         </li>
         <li class="list-group-item">
-            <a href="/posts/2014/Dec/21/cheatsheet-vim-commands/index.html" target="_blank">
+            <a href="/tag/cheat-sheet/index.html" target="_blank">
                 Cheat Sheets
             </a>
         </li>
@@ -745,6 +787,12 @@ sudo apt-get install linkchecker
         </a></li>
         <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
             <i class="fa fa-linkedin"></i> Linkedin
+        </a></li>
+        <li class="list-group-item"><a href="http://www.commandlinefu.com/commands/by/jeffskinnerbox" target="_blank">
+            <i class="fa fa-terminal"></i> CommandLineFu
+        </a></li>
+        <li class="list-group-item"><a href="https://disqus.com/by/jeffskinnerbox/" target="_blank">
+            <i class="fa fa-comment"></i> DISQUS
         </a></li>
     </ul>
 </li> 

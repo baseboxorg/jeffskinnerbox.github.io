@@ -100,49 +100,49 @@ Jeff's Skinner Box&nbsp;            </a>
                 <p><center>
 <a href="https://code.google.com/p/webiopi/"><img alt="WebIOPi" src="http://jeffskinnerbox.me/images/webiopi-chrome.jpg" title="WebIOPi Web Page" /></a>
 </center>
-This idea of controlling my Raspberry Pi (RPi), and the things its networked with, via an internet browser is at the heart of what I would like to do with the assortment of Arduino and Xbee devices I&#8217;m assembling.  To explore how best to do this, I&#8217;m considering using <a href="http://code.google.com/p/webiopi/">WebIOPi</a>, which is a web application used to control your RPi’s <span class="caps">GPIO</span>.  I believe it could be useful as a test tool, but more importantly, I suspect that I could learn how to engineer my application by studying its design.
-<h2>Install&nbsp;WebIOPi</h2>
-When installing WebIOPi on my RPi, I followed the <a href="http://code.google.com/p/webiopi/wiki/INSTALL#PHP/Apache">installation</a> instructions for the Apache version.  I choose this version since  I&#8217;ll be using the Apache web server for other features as my project evolves. Note that there is a small error on the instructions if you use a symbolic link to the webiopi directory.  Create this link&nbsp;using</p>
+This idea of controlling my Raspberry Pi (RPi), and the things its networked with, via an internet browser is at the heart of what I would like to do with the assortment of Arduino and Xbee devices I'm assembling.  To explore how best to do this, I'm considering using <a href="http://code.google.com/p/webiopi/">WebIOPi</a>, which is a web application used to control your RPi’s GPIO.  I believe it could be useful as a test tool, but more importantly, I suspect that I could learn how to engineer my application by studying its design.
+<h2>Install WebIOPi</h2>
+When installing WebIOPi on my RPi, I followed the <a href="http://code.google.com/p/webiopi/wiki/INSTALL#PHP/Apache">installation</a> instructions for the Apache version.  I choose this version since  I'll be using the Apache web server for other features as my project evolves. Note that there is a small error on the instructions if you use a symbolic link to the webiopi directory.  Create this link using</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo ln -s /home/pi/webiopi /var/www/webiopi
 </pre></div>
 
 
-<p>Immediately after installation,  you can test to see if you can render a web page.  Assuming that your  Raspberry Pi is connected to your network  and its named <code>raspberrypi</code>, you can open a browser to <code><a href="http://raspberrypi/webiopi/" rel="nofollow">http://raspberrypi/webiopi/</a></code> with your network <span class="caps">PC</span>.  It might work but your likely to get a error, something like &#8220;&#8230;Could not reliably determine the server’s fully qualified domain name&#8230;&#8221; and the <a href="http://scottlinux.com/2011/02/16/could-not-reliably-determine-the-servers-fully-qualified-domain-name/">solution</a> is to give your web server a&nbsp;name.</p>
-<p>To do this,  create this Apache config&nbsp;file:</p>
+<p>Immediately after installation,  you can test to see if you can render a web page.  Assuming that your  Raspberry Pi is connected to your network  and its named <code>raspberrypi</code>, you can open a browser to <code><a href="http://raspberrypi/webiopi/" rel="nofollow">http://raspberrypi/webiopi/</a></code> with your network PC.  It might work but your likely to get a error, something like "...Could not reliably determine the server’s fully qualified domain name..." and the <a href="http://scottlinux.com/2011/02/16/could-not-reliably-determine-the-servers-fully-qualified-domain-name/">solution</a> is to give your web server a name.</p>
+<p>To do this,  create this Apache config file:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo vi /etc/apache2/conf.d/fqdn
 </pre></div>
 
 
-<p>Enter <code>ServerName raspberrypi</code> into this file and restart Apache&nbsp;using</p>
+<p>Enter <code>ServerName raspberrypi</code> into this file and restart Apache using</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo /etc/init.d/apache2 restart
 </pre></div>
 
 
-<h2>Installing <span class="caps">GPIO</span>&nbsp;Utilities</h2>
+<h2>Installing GPIO Utilities</h2>
 
-<p>While checking on the status of of the Python based <span class="caps">GPIO</span> package on the <span class="caps">RPI</span> using the command <code>dpkg -l | grep gpio</code>, I concluded that the  <a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/overview">Occidentalis</a> distribution I&#8217;m using doesn&#8217;t have any Python libraries for <span class="caps">GPIO</span>.</p>
-<p>Picking up some tips from <a href="http://learn.adafruit.com/raspberry-pi-e-mail-notifier-using-leds/overview">Raspberry Pi E-mail Notifier Using LEDs</a>.  I determined that I need to install several python packages first.  I did this&nbsp;via</p>
+<p>While checking on the status of of the Python based GPIO package on the RPI using the command <code>dpkg -l | grep gpio</code>, I concluded that the  <a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/overview">Occidentalis</a> distribution I'm using doesn't have any Python libraries for GPIO.</p>
+<p>Picking up some tips from <a href="http://learn.adafruit.com/raspberry-pi-e-mail-notifier-using-leds/overview">Raspberry Pi E-mail Notifier Using LEDs</a>.  I determined that I need to install several python packages first.  I did this via</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install python
 sudo apt-get install python-dev
 sudo apt-get install python-pip
 </pre></div>
 
 
-<p>With this done, now its time to install the required Python libraries but first, update the Python distribution by&nbsp;running</p>
+<p>With this done, now its time to install the required Python libraries but first, update the Python distribution by running</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo easy_install -U distribute
 </pre></div>
 
 
-<p>Finally you can install the Raspberry Pi <span class="caps">GPIO</span> (General Purpose Input/Ouput)&nbsp;library:</p>
+<p>Finally you can install the Raspberry Pi GPIO (General Purpose Input/Ouput) library:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo pip install RPi.GPIO
 </pre></div>
 
 
-<h2>What did I&nbsp;find</h2>
+<h2>What did I find</h2>
 
-<p>WebIOPi  supports binary GPIOs, in both input and output.  That is, you can set a <span class="caps">GPIO</span> output pin high/low via a browser pick.  Also, you can see the state of a <span class="caps">GPIO</span> pin.  Equally important to me is that WebIOPi auto-refreshes, via <a href="http://www.kendoui.com/blogs/teamblog/posts/12-05-11/hello_services_webapi_rest_json_and_ajax.aspx">WebAPI, <span class="caps">REST</span>, <span class="caps">JSON</span> and <span class="caps">AJAX</span></a> I assume.  Therefore, when the <span class="caps">GPIO</span> pins change state, the browser automatically is updated with the new status.  And this happens for all browsers displaying WebIOPi.  You can demonstrate this by opening two browsers pointing at WebIOPi.  Action performed in one browser will also appear in the other.
-<h2>Test&nbsp;Script</h2>
-I used this code to generate some random activity on the <span class="caps">GPIO</span> pins and test&nbsp;WebIOPi.</p>
+<p>WebIOPi  supports binary GPIOs, in both input and output.  That is, you can set a GPIO output pin high/low via a browser pick.  Also, you can see the state of a GPIO pin.  Equally important to me is that WebIOPi auto-refreshes, via <a href="http://www.kendoui.com/blogs/teamblog/posts/12-05-11/hello_services_webapi_rest_json_and_ajax.aspx">WebAPI, REST, JSON and AJAX</a> I assume.  Therefore, when the GPIO pins change state, the browser automatically is updated with the new status.  And this happens for all browsers displaying WebIOPi.  You can demonstrate this by opening two browsers pointing at WebIOPi.  Action performed in one browser will also appear in the other.
+<h2>Test Script</h2>
+I used this code to generate some random activity on the GPIO pins and test WebIOPi.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/usr/bin/env python</span>
 
 <span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">RPi.GPIO</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">GPIO</span><span style="color: #555555">,</span> <span style="color: #00CCFF; font-weight: bold">time</span>
@@ -214,7 +214,7 @@ i <span style="color: #555555">=</span> <span style="color: #FF6600">0</span>
 </pre></div>
 
 
-<h2>Alternative&nbsp;Approaches</h2>
+<h2>Alternative Approaches</h2>
 
 <p>The use of a Web page to control the RPi seems useful enough but what if the target environment for launching control messages is a cell phone?  Maybe a phone app would be a better approach.  Check out the post  <a href="http://www.samratamin.com/blog/raspberry-pi-iphone-control-a-rpi-with-an-iphone-in-2-minutes/">Raspberry Pi + iPhone: Control a RPi with an iPhone in 2 Minutes</a>.</p>
             </div>
@@ -267,7 +267,7 @@ i <span style="color: #555555">=</span> <span style="color: #FF6600">0</span>
             </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-            </li>    
+            </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
@@ -282,7 +282,7 @@ i <span style="color: #555555">=</span> <span style="color: #FF6600">0</span>
             </a>
         </li>
         <li class="list-group-item">
-            <a href="/posts/2014/Dec/21/cheatsheet-vim-commands/index.html" target="_blank">
+            <a href="/tag/cheat-sheet/index.html" target="_blank">
                 Cheat Sheets
             </a>
         </li>
@@ -345,6 +345,12 @@ i <span style="color: #555555">=</span> <span style="color: #FF6600">0</span>
         </a></li>
         <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
             <i class="fa fa-linkedin"></i> Linkedin
+        </a></li>
+        <li class="list-group-item"><a href="http://www.commandlinefu.com/commands/by/jeffskinnerbox" target="_blank">
+            <i class="fa fa-terminal"></i> CommandLineFu
+        </a></li>
+        <li class="list-group-item"><a href="https://disqus.com/by/jeffskinnerbox/" target="_blank">
+            <i class="fa fa-comment"></i> DISQUS
         </a></li>
     </ul>
 </li> 

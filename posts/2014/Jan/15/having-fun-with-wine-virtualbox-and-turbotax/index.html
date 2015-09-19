@@ -102,17 +102,17 @@ Jeff's Skinner Box&nbsp;            </a>
                 <p>Sometime ago, I committed myself to Linux and <a href="http://www.winehq.org/">Wine</a>,
 with the promise that I would sincerely abandon Microsoft Windows by
 not <a href="http://en.wikipedia.org/wiki/Multi-booting">dual booting</a> my system nor installing any <a href="http://en.wikipedia.org/wiki/Virtualization">virtualization</a> software.
-Well, it is now tax-time and the Federial goverment wants their &#8220;fair share&#8221; of my income.
-Will my prefered tax software package, <a href="https://turbotax.intuit.com/">TurboTax</a>, run with Linux <span class="amp">&amp;</span> Wine?
-All the evidence I have gathered (see <a href="http://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=623">Wine&#8217;s ratings</a> for one data point)
+Well, it is now tax-time and the Federial goverment wants their "fair share" of my income.
+Will my prefered tax software package, <a href="https://turbotax.intuit.com/">TurboTax</a>, run with Linux &amp; Wine?
+All the evidence I have gathered (see <a href="http://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=623">Wine's ratings</a> for one data point)
 on the web leads me to believe I will be very disapointed.
-I can&#8217;t find any success stories!
+I can't find any success stories!
 Never the less, I will use this as a learning opportunity.
-I&#8217;m going to plung forward and try to get TurboTax working with Wine, &#8230;.
+I'm going to plung forward and try to get TurboTax working with Wine, ....
 and it it fails me, resort to <a href="https://www.virtualbox.org/">VirtualBox</a>,
-which appears to have at least <a href="https://blogs.oracle.com/wbays/entry/turbotax_on_virtualbox_problem_solved">some success</a>&nbsp;stories.</p>
-<h1>Installing and Configuring&nbsp;Wine</h1>
-<p>Wine can be installed via the&nbsp;following:</p>
+which appears to have at least <a href="https://blogs.oracle.com/wbays/entry/turbotax_on_virtualbox_problem_solved">some success</a> stories.</p>
+<h1>Installing and Configuring Wine</h1>
+<p>Wine can be installed via the following:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo add-apt-repository ppa:ubuntu-wine/ppa
 sudo apt-get update
 sudo apt-get install wine
@@ -123,38 +123,38 @@ sudo apt-get install winetricks
 
 <p><code>winetricks</code> is a script which automates the installation of various useful packages,
 offering a friendly interface to do so.
-The <code>cabextract</code> package is a native Linux application that extracts Microsoft Cabinet files (<span class="caps">CAB</span>).
+The <code>cabextract</code> package is a native Linux application that extracts Microsoft Cabinet files (CAB).
 <code>ppa:ubuntu-wine/ppa</code> will get the latest versions for Wine and keep it updated with new releases.
 This is important since the Wine support team is frequently
 fixing and twecking it to get Microsoft Windows software working.
 To test if you got things installed properly<sup id="fnref:A"><a class="footnote-ref" href="#fn:A" rel="footnote">1</a></sup>,
 execute one of the already installed Microsoft Windows packages.
 Try the following: <code>wine notepad.exe</code>.</p>
-<h1>Installing TurboTax with&nbsp;Wine</h1>
+<h1>Installing TurboTax with Wine</h1>
 <p>Wine is complex and large.
-I don&#8217;t have the patience for hours of configuring and testing; 
-particularly if in the end I can&#8217;t print or electronically email my tax return.
-I&#8217;m going to plung into installing TurboTax via Wine,
-and see if I can get things running with minimal&nbsp;effort.</p>
-<p>So, I put the <span class="caps">CD</span> in the drive, right clicked on the setup.exe file, picked the menu item
-&#8220;Open With Wine Windows Program Loader&#8221;, and got a error screen titled
-<a href="https://ttlc.intuit.com/questions/1899606-error-we-can-t-install-turbotax-on-your-computer-just-yet">&#8220;We can&#8217;t install TurboTax on your computer just yet&#8230;&#8221;</a>.
-Appears that TurboTax doesn&#8217;t like Wine&#8217;s version of the .<span class="caps">NET</span> Framework.
-A little <a href="http://superuser.com/questions/476872/installing-net-4-0-framework-on-wine-using-winetricks">research</a> surggested that I should install .<span class="caps">NET</span> 4 via this&nbsp;command:</p>
+I don't have the patience for hours of configuring and testing; 
+particularly if in the end I can't print or electronically email my tax return.
+I'm going to plung into installing TurboTax via Wine,
+and see if I can get things running with minimal effort.</p>
+<p>So, I put the CD in the drive, right clicked on the setup.exe file, picked the menu item
+"Open With Wine Windows Program Loader", and got a error screen titled
+<a href="https://ttlc.intuit.com/questions/1899606-error-we-can-t-install-turbotax-on-your-computer-just-yet">"We can't install TurboTax on your computer just yet..."</a>.
+Appears that TurboTax doesn't like Wine's version of the .NET Framework.
+A little <a href="http://superuser.com/questions/476872/installing-net-4-0-framework-on-wine-using-winetricks">research</a> surggested that I should install .NET 4 via this command:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">winetricks dotnet40
 </pre></div>
 
 
-<p>After this, I still got a .<span class="caps">NET</span> related error.
+<p>After this, I still got a .NET related error.
 Specifically, the TurboTax installer was looking for the <code>netfx40testapplication.exe</code>.
 Another quick search brought me to these bug report: #<a href="http://www.winehq.org/pipermail/wine-bugs/2012-January/308034.html">1</a> and <a href="http://wine.1045685.n5.nabble.com/Bug-29666-New-TurboTax-2011-fails-to-install-td5161768.html">#2</a>.
-I have had enough &#8230; on to&nbsp;VirtualBox!!</p>
-<h1>Installing TurboTax with&nbsp;VirtualBox</h1>
+I have had enough ... on to VirtualBox!!</p>
+<h1>Installing TurboTax with VirtualBox</h1>
 <p>VirtualBox is being setup with Microsoft Windows (specifically Windows 8.1)
-as a the Guest <span class="caps">OS</span> and with the native Linux (specifically Ubuntu 13.10) as the Host <span class="caps">OS</span>.
+as a the Guest OS and with the native Linux (specifically Ubuntu 13.10) as the Host OS.
 <a href="http://www.lifehacker.com.au/2013/10/virtualbox-4-3-adds-windows-8-1-support/">VirtualBox version 4.3 has added Windows 8.1 support</a>,
 so that is the version I wish to install.
-I initially installed VirtualBox via Unbuntu&#8217;s software center
+I initially installed VirtualBox via Unbuntu's software center
 (eqivalent to using <code>sudo apt-get install virtualbox virtualbox-qt</code>),
 which installed version 4.2.16-dfsg-3, and I had to back it out.
 Instead, I install VirtualBox from the Oracle maintained repository,
@@ -166,77 +166,77 @@ deb http://download.virtualbox.org/virtualbox/debian saucy contrib
 </pre></div>
 
 
-<p>Downloaded the Oracle public key for the&nbsp;software:</p>
+<p>Downloaded the Oracle public key for the software:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
 </pre></div>
 
 
-<p>Now install VirtualBox version&nbsp;4.3:</p>
+<p>Now install VirtualBox version 4.3:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get update
 sudo apt-get install dkms virtualbox-4.3
 </pre></div>
 
 
-<h3>Configuring VirtualBox and Installing Windows&nbsp;8.1</h3>
+<h3>Configuring VirtualBox and Installing Windows 8.1</h3>
 <p>It appears you can install 32 or 64 bit Windows (assuming you have virtualization suporting processor).
 I choose the 64 bit version.
-As to the installation steps, I was guided by the posting &#8220;<a href="http://www.geekthis.net/blog/95/windows-81-in-virtualbox">Windows 8.1 in VirtualBox</a>&#8220;,
-and the steps are basically the&nbsp;following:</p>
-<p><strong>Configure&nbsp;VirtualBox</strong></p>
+As to the installation steps, I was guided by the posting "<a href="http://www.geekthis.net/blog/95/windows-81-in-virtualbox">Windows 8.1 in VirtualBox</a>",
+and the steps are basically the following:</p>
+<p><strong>Configure VirtualBox</strong></p>
 <ul>
-<li>Fired up VirtualBox, clicked the &#8220;New&#8221; button, and used the Wizard to create a virtual partition for&nbsp;Window</li>
-<li>I gave the virtual machine the name &#8220;<span class="caps">MS</span>&nbsp;Windows&#8221;</li>
-<li>I allocated to the virtual machine the maximum amount of <span class="caps">RAM</span>, that being 3.<span class="caps">584GB</span></li>
-<li>I created a <span class="caps">50GB</span> virtual hard drive with a VirtualBox Disk Image (<span class="caps">VDI</span>).  I Choose to have the virtual drive to grow&nbsp;dyanamically.</li>
-<li>I opened up &#8220;Settings&#8221; and under &#8220;System&#8221; &gt; &#8220;Processor&#8221;, enable &#8220;<span class="caps">PAE</span>/<span class="caps">NX</span>&#8221;. I also increased the <span class="caps">CPU</span> Cores to the number supported on my box (i.e.&nbsp;4).</li>
-<li>Under &#8220;Display&#8221; &gt; &#8220;Video&#8221;, I increased the Video Memory as high as I can, disable 3D Acceleration but enabled 2D&nbsp;Acceleration.</li>
+<li>Fired up VirtualBox, clicked the "New" button, and used the Wizard to create a virtual partition for Window</li>
+<li>I gave the virtual machine the name "MS Windows"</li>
+<li>I allocated to the virtual machine the maximum amount of RAM, that being 3.584GB</li>
+<li>I created a 50GB virtual hard drive with a VirtualBox Disk Image (VDI).  I Choose to have the virtual drive to grow dyanamically.</li>
+<li>I opened up "Settings" and under "System" &gt; "Processor", enable "PAE/NX". I also increased the CPU Cores to the number supported on my box (i.e. 4).</li>
+<li>Under "Display" &gt; "Video", I increased the Video Memory as high as I can, disable 3D Acceleration but enabled 2D Acceleration.</li>
 </ul>
-<p><strong>Install Windows&nbsp;8.1</strong></p>
+<p><strong>Install Windows 8.1</strong></p>
 <ul>
-<li>Still in the &#8220;Settings&#8221; window, go to &#8220;Storage&#8221; and under &#8220;<span class="caps">IDE</span>&#8221; where it shows &#8220;Empty&#8221;, click the disk next to it and installed Windows 8.1 64-bit <span class="caps">DVD</span> into the&nbsp;drive.</li>
-<li>Still with &#8220;Storage&#8221;, click the disk icon right of the &#8220;<span class="caps">CD</span>/<span class="caps">DVD</span> Drive&#8221; and select &#8220;Host Drive &#8230;&#8221;.  Also check &#8220;Passthrough&#8221;. Click &#8220;<span class="caps">OK</span>&#8221;.</li>
-<li>Select the &#8220;Start&#8221; button om the VirtualBox Manager&nbsp;window.</li>
-<li>At this point, a window should pop up and you see the Windows 8.1 install process&nbsp;begin.</li>
+<li>Still in the "Settings" window, go to "Storage" and under "IDE" where it shows "Empty", click the disk next to it and installed Windows 8.1 64-bit DVD into the drive.</li>
+<li>Still with "Storage", click the disk icon right of the "CD/DVD Drive" and select "Host Drive ...".  Also check "Passthrough". Click "OK".</li>
+<li>Select the "Start" button om the VirtualBox Manager window.</li>
+<li>At this point, a window should pop up and you see the Windows 8.1 install process begin.</li>
 </ul>
-<h3>Installing TurboTax on&nbsp;VirtualBox</h3>
+<h3>Installing TurboTax on VirtualBox</h3>
 <p>This is easy.
-Fire up the &#8220;<span class="caps">MS</span> WIndows&#8221; vitual machine, and load TruboTax like you would any other Microsoft Windows&nbsp;application.</p>
+Fire up the "MS WIndows" vitual machine, and load TruboTax like you would any other Microsoft Windows application.</p>
 <h1>Conclusion</h1>
 <p>Everything seems to be working perfectly within TurboTax using VirtualBox!
 I believe VirtualBox is destine to stay load on my Linux box.
-As to Wine, &#8230;. we&#8217;ll&nbsp;see.</p>
+As to Wine, .... we'll see.</p>
 <h1>Sources</h1>
-<p>Getting Wine&nbsp;Working</p>
+<p>Getting Wine Working</p>
 <ul>
-<li><a href="http://www.tuxarena.com/static/tut_wine_guide.php">A Guide to Wine on Ubuntu for&nbsp;Beginners</a></li>
-<li><a href="http://www.howtogeek.com/105271/how-to-run-windows-software-on-ubuntu-with-wine/">How To Run Windows Software on Ubuntu with&nbsp;Wine</a></li>
-<li><a href="http://www.linuxuser.co.uk/tutorials/use-wine-to-run-windows-software-on-linux">Use Wine to run Windows software on&nbsp;Linux</a></li>
-<li><a href="http://www.tecmint.com/install-wine-on-ubuntu-and-linux-mint/">Wine 1.7.9 Released – Install on Ubuntu 13.04/12.10/12.04/11.10 and Linux Mint&nbsp;16/13</a></li>
-<li><a href="http://www.thegeekstuff.com/2009/08/ubuntu-tips-how-to-use-windows-application-in-linux-desktop-distributions/">Ubuntu Tips: How To Use Windows Applications in Linux Desktop&nbsp;Distributions</a></li>
-<li><a href="http://www.simplehelp.net/2007/05/18/how-to-install-windows-programs-in-linux-using-wine/">How to install Windows programs in Linux using&nbsp;Wine</a></li>
-<li><a href="http://www.yolinux.com/TUTORIALS/LinuxTutorialRunMicrosoftExe.html">Running Microsoft <span class="caps">DOS</span> and Microsoft Windows Software on&nbsp;Linux</a></li>
+<li><a href="http://www.tuxarena.com/static/tut_wine_guide.php">A Guide to Wine on Ubuntu for Beginners</a></li>
+<li><a href="http://www.howtogeek.com/105271/how-to-run-windows-software-on-ubuntu-with-wine/">How To Run Windows Software on Ubuntu with Wine</a></li>
+<li><a href="http://www.linuxuser.co.uk/tutorials/use-wine-to-run-windows-software-on-linux">Use Wine to run Windows software on Linux</a></li>
+<li><a href="http://www.tecmint.com/install-wine-on-ubuntu-and-linux-mint/">Wine 1.7.9 Released – Install on Ubuntu 13.04/12.10/12.04/11.10 and Linux Mint 16/13</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/08/ubuntu-tips-how-to-use-windows-application-in-linux-desktop-distributions/">Ubuntu Tips: How To Use Windows Applications in Linux Desktop Distributions</a></li>
+<li><a href="http://www.simplehelp.net/2007/05/18/how-to-install-windows-programs-in-linux-using-wine/">How to install Windows programs in Linux using Wine</a></li>
+<li><a href="http://www.yolinux.com/TUTORIALS/LinuxTutorialRunMicrosoftExe.html">Running Microsoft DOS and Microsoft Windows Software on Linux</a></li>
 <li><a href="http://wiki.winehq.org/winetricks">winetricks</a></li>
 </ul>
-<p>Getting TurboTax or Quicken&nbsp;Working</p>
+<p>Getting TurboTax or Quicken Working</p>
 <ul>
-<li><a href="http://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=623">History of TurboTax Support via Wine on&nbsp;Linux</a></li>
-<li><a href="http://blog.jdpfu.com/2010/11/29/solved-quicken-2011-working-on-linux">Solved-Quicken 2011 Working on&nbsp;Linux</a></li>
+<li><a href="http://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=623">History of TurboTax Support via Wine on Linux</a></li>
+<li><a href="http://blog.jdpfu.com/2010/11/29/solved-quicken-2011-working-on-linux">Solved-Quicken 2011 Working on Linux</a></li>
 </ul>
-<p>Getting VitualBox&nbsp;Working</p>
+<p>Getting VitualBox Working</p>
 <ul>
-<li><a href="http://www.linuxjournal.com/content/using-windows-xp-virtualbox-linux">Using Windows <span class="caps">XP</span> in VirtualBox on&nbsp;Linux</a></li>
-<li><a href="http://askubuntu.com/questions/187424/install-windows-7-through-virtual-box-in-ubuntu-12-04">Install windows 7 through virtual box in ubuntu&nbsp;12.04</a></li>
-<li><a href="http://www.wikihow.com/Install-Windows-XP-on-Ubuntu-with-VirtualBox">How to Install Windows <span class="caps">XP</span> on Ubuntu with&nbsp;VirtualBox</a></li>
-<li><a href="http://betanews.com/2013/10/21/install-windows-8-1-on-oracle-virtualbox/">Install Windows 8.1 on Oracle&nbsp;VirtualBox</a></li>
-<li><a href="http://www.geekthis.net/blog/95/windows-81-in-virtualbox">Windows 8.1 in&nbsp;VirtualBox</a></li>
+<li><a href="http://www.linuxjournal.com/content/using-windows-xp-virtualbox-linux">Using Windows XP in VirtualBox on Linux</a></li>
+<li><a href="http://askubuntu.com/questions/187424/install-windows-7-through-virtual-box-in-ubuntu-12-04">Install windows 7 through virtual box in ubuntu 12.04</a></li>
+<li><a href="http://www.wikihow.com/Install-Windows-XP-on-Ubuntu-with-VirtualBox">How to Install Windows XP on Ubuntu with VirtualBox</a></li>
+<li><a href="http://betanews.com/2013/10/21/install-windows-8-1-on-oracle-virtualbox/">Install Windows 8.1 on Oracle VirtualBox</a></li>
+<li><a href="http://www.geekthis.net/blog/95/windows-81-in-virtualbox">Windows 8.1 in VirtualBox</a></li>
 <li><a href="https://help.ubuntu.com/community/VirtualBox/Installation">VirtualBox/Installation</a></li>
-<li><a href="https://www.virtualbox.org/manual/ch01.html#idp51679504">Starting&nbsp;VirtualBox</a></li>
+<li><a href="https://www.virtualbox.org/manual/ch01.html#idp51679504">Starting VirtualBox</a></li>
 </ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:A">
-<p><strong><span class="caps">NOTE</span>:</strong> Use the utility <a href="http://wiki.winehq.org/winecfg"><code>winecfg</code></a> to configure Wine and change settings like
+<p><strong>NOTE:</strong> Use the utility <a href="http://wiki.winehq.org/winecfg"><code>winecfg</code></a> to configure Wine and change settings like
 sound, graphics, Windows version, and so on.&#160;<a class="footnote-backref" href="#fnref:A" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
@@ -291,7 +291,7 @@ sound, graphics, Windows version, and so on.&#160;<a class="footnote-backref" hr
             </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-            </li>    
+            </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
@@ -306,7 +306,7 @@ sound, graphics, Windows version, and so on.&#160;<a class="footnote-backref" hr
             </a>
         </li>
         <li class="list-group-item">
-            <a href="/posts/2014/Dec/21/cheatsheet-vim-commands/index.html" target="_blank">
+            <a href="/tag/cheat-sheet/index.html" target="_blank">
                 Cheat Sheets
             </a>
         </li>
@@ -369,6 +369,12 @@ sound, graphics, Windows version, and so on.&#160;<a class="footnote-backref" hr
         </a></li>
         <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
             <i class="fa fa-linkedin"></i> Linkedin
+        </a></li>
+        <li class="list-group-item"><a href="http://www.commandlinefu.com/commands/by/jeffskinnerbox" target="_blank">
+            <i class="fa fa-terminal"></i> CommandLineFu
+        </a></li>
+        <li class="list-group-item"><a href="https://disqus.com/by/jeffskinnerbox/" target="_blank">
+            <i class="fa fa-comment"></i> DISQUS
         </a></li>
     </ul>
 </li> 

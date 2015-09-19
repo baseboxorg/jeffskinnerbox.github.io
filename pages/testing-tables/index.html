@@ -73,11 +73,11 @@ Jeff's Skinner Box&nbsp;            </a>
         <h1 class="entry-title">Testing: Tables</h1>
         
         <div class="entry-content" style="background-image: url('/home/jeff/blogging/content/images/banners-bkgrds/scratchpad-yellow-blueline.jpg'); background-repeat: repeat;">
-            <h2>The Back&nbsp;Story</h2>
+            <h2>The Back Story</h2>
 <p>Out of the box, the table formating of Python Markdown sucks!
 It has no borders, no header formating, no padding in cells, etc.
-This can be fixed with a little custom <span class="caps">CSS</span>.
-My fix is in <code>content/extra/custom.css</code> and is listed&nbsp;blow:</p>
+This can be fixed with a little custom CSS.
+My fix is in <code>content/extra/custom.css</code> and is listed blow:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">/* This allows for a wider range of font sizes for the Tag Cloud.</span>
 <span style="color: #0099FF; font-style: italic"> * Make sure to change the TAG_CLOUD_STEPS value in pelicanconf.py</span>
 <span style="color: #0099FF; font-style: italic"> * to to the number of tags here (i.e. 8) */</span>
@@ -157,11 +157,11 @@ My fix is in <code>content/extra/custom.css</code> and is listed&nbsp;blow:</p>
 
 
 <h2>Tables</h2>
-<p>Tables aren&#8217;t part of the core Markdown spec, but are part of Python / Pelican
+<p>Tables aren't part of the core Markdown spec, but are part of Python / Pelican
 implementation.
 This posting gives you some idea on how <a href="http://stackoverflow.com/questions/16099153/table-not-render-when-use-redcarpet-in-jekyll-github-pages">tables should be supported</a>
 and see the <a href="http://pythonhosted.org//Markdown/extensions/tables.html">Python Table extension</a>.
-You combine this, with the <code>custom.css</code> discussed above, and&nbsp;this</p>
+You combine this, with the <code>custom.css</code> discussed above, and this</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">| Default Justified | Left Justified | Right Justified | Centered Justified |
 | ----------------- |:-------------- | ---------------:|:------------------:|
 | row 1, col 1 | row 1, col 2     | row 1, col 3 | _this should be italics_   |
@@ -172,7 +172,7 @@ You combine this, with the <code>custom.css</code> discussed above, and&nbsp;thi
 </pre></div>
 
 
-<p>you get the&nbsp;following:</p>
+<p>you get the following:</p>
 <table>
 <thead>
 <tr>
@@ -198,7 +198,7 @@ You combine this, with the <code>custom.css</code> discussed above, and&nbsp;thi
 <tr>
 <td>row 3, col 1</td>
 <td align="left">row 3, col 2</td>
-<td align="right"><mathjax>$\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}}$</mathjax></td>
+<td 1="1" align="right">$\frac</td>
 <td align="center">row 3, col 4</td>
 </tr>
 <tr>
@@ -215,7 +215,7 @@ You combine this, with the <code>custom.css</code> discussed above, and&nbsp;thi
 </tr>
 </tbody>
 </table>
-<p>Test of inline MathJax: <mathjax>$\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}}$</mathjax></p><script type= "text/javascript">
+<p>Test of inline MathJax: $\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}}$</p><script type= "text/javascript">
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
         var mathjaxscript = document.createElement('script');
         mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -266,7 +266,7 @@ You combine this, with the <code>custom.css</code> discussed above, and&nbsp;thi
             </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-            </li>    
+            </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
@@ -281,7 +281,7 @@ You combine this, with the <code>custom.css</code> discussed above, and&nbsp;thi
             </a>
         </li>
         <li class="list-group-item">
-            <a href="/posts/2014/Dec/21/cheatsheet-vim-commands/index.html" target="_blank">
+            <a href="/tag/cheat-sheet/index.html" target="_blank">
                 Cheat Sheets
             </a>
         </li>
@@ -344,6 +344,12 @@ You combine this, with the <code>custom.css</code> discussed above, and&nbsp;thi
         </a></li>
         <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
             <i class="fa fa-linkedin"></i> Linkedin
+        </a></li>
+        <li class="list-group-item"><a href="http://www.commandlinefu.com/commands/by/jeffskinnerbox" target="_blank">
+            <i class="fa fa-terminal"></i> CommandLineFu
+        </a></li>
+        <li class="list-group-item"><a href="https://disqus.com/by/jeffskinnerbox/" target="_blank">
+            <i class="fa fa-comment"></i> DISQUS
         </a></li>
     </ul>
 </li> 

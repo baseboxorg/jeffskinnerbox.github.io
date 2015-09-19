@@ -93,6 +93,8 @@ Jeff's Skinner Box&nbsp;            </a>
 
 &nbsp;&nbsp;&nbsp;
 <i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/cheat-sheet/">Cheat Sheet</a>
+        &nbsp;
     <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/vim/">Vim</a>
     
 </footer><!-- /.post-info -->                    </div>
@@ -100,8 +102,8 @@ Jeff's Skinner Box&nbsp;            </a>
                 <p>Vi was one of the first text editors I learned (and still my favorite)
 but I still need need a cheat sheet to help me with a command from time to time.
 I know that there hundreds vi/vim cheat sheets online,
-but none organized the way I&nbsp;want.</p>
-<h2>Working with&nbsp;files</h2>
+but none organized the way I want.</p>
+<h2>Working with files</h2>
 <table>
 <thead>
 <tr>
@@ -112,7 +114,7 @@ but none organized the way I&nbsp;want.</p>
 <tbody>
 <tr>
 <td align="center">:w filename</td>
-<td align="left">Save changes to a file. If you don&#8217;t specify a file name, Vim saves as the file name you were editing. For saving the file under a different name, specify the file name.</td>
+<td align="left">Save changes to a file. If you don't specify a file name, Vim saves as the file name you were editing. For saving the file under a different name, specify the file name.</td>
 </tr>
 <tr>
 <td align="center">:q</td>
@@ -139,7 +141,7 @@ but none organized the way I&nbsp;want.</p>
 <td align="left">write all changed files (save all changes), and keep working</td>
 </tr>
 <tr>
-<td align="center">:<span class="caps">ZZ</span></td>
+<td align="center">:ZZ</td>
 <td align="left">write current file, if modified, and exit.</td>
 </tr>
 <tr>
@@ -160,16 +162,16 @@ but none organized the way I&nbsp;want.</p>
 </tr>
 <tr>
 <td align="center">:x</td>
-<td align="left">Almost the same as :wq, write the file and exit if you&#8217;ve made changes to the file. If you haven&#8217;t made any changes to the file, Vim exits without writing the file.</td>
+<td align="left">Almost the same as :wq, write the file and exit if you've made changes to the file. If you haven't made any changes to the file, Vim exits without writing the file.</td>
 </tr>
 <tr>
-<td align="center"><span class="caps">CTRL</span>-Z</td>
-<td align="left">Suspend Vim, like &#8220;:stop&#8221;.  Works in Normal and in Visual mode.  In Insert and Command-line mode, the <span class="caps">CTRL</span>-Z is inserted as a normal character.</td>
+<td align="center">CTRL-Z</td>
+<td align="left">Suspend Vim, like ":stop".  Works in Normal and in Visual mode.  In Insert and Command-line mode, the CTRL-Z is inserted as a normal character.</td>
 </tr>
 </tbody>
 </table>
-<h2>Moving around in the&nbsp;file</h2>
-<p>These Vim commands and keys work both in command mode and visual&nbsp;mode.</p>
+<h2>Moving around in the file</h2>
+<p>These Vim commands and keys work both in command mode and visual mode.</p>
 <table>
 <thead>
 <tr>
@@ -243,7 +245,7 @@ but none organized the way I&nbsp;want.</p>
 <td align="left">To the first non-whitespace character of a line.</td>
 </tr>
 <tr>
-<td align="center"><mathjax>$</td>
+<td align="center">$</td>
 <td align="left">To the end of a line.</td>
 </tr>
 <tr>
@@ -284,11 +286,11 @@ but none organized the way I&nbsp;want.</p>
 </tr>
 <tr>
 <td align="center">%</td>
-<td align="left">Move to associated ( ), { }, [ ]</td>
+<td align="left">Move to associated ( ), </td>
 </tr>
 </tbody>
 </table>
-<h2>Inserting and overwriting&nbsp;text</h2>
+<h2>Inserting and overwriting text</h2>
 <table>
 <thead>
 <tr>
@@ -339,7 +341,7 @@ but none organized the way I&nbsp;want.</p>
 </tr>
 </tbody>
 </table>
-<h2>Deleting&nbsp;text</h2>
+<h2>Deleting text</h2>
 <table>
 <thead>
 <tr>
@@ -369,17 +371,17 @@ but none organized the way I&nbsp;want.</p>
 <td align="left">Delete the word under the cursor.</td>
 </tr>
 <tr>
-<td align="center">d$</mathjax></td>
+<td align="center">d$</td>
 <td align="left">Delete to the end of the line.</td>
 </tr>
 <tr>
-<td align="center">d{motion}</td>
-<td align="left">Delete text that {motion} moves over</td>
+<td align="center" motion="motion">d</td>
+<td align="left" motion="motion">Delete text that </td>
 </tr>
 </tbody>
 </table>
-<h2>Yanking&nbsp;Text</h2>
-<p>Note that &#8221;<em> and &#8221;+ work both ways. So if you have selected some text in another application, you can paste it into vim using &#8221;</em>p and if you have copied some text (using, say, Ctrl-C) then you can paste it into vim&nbsp;using &#8221;+p.</p>
+<h2>Yanking Text</h2>
+<p>Note that "<em> and "+ work both ways. So if you have selected some text in another application, you can paste it into vim using "</em>p and if you have copied some text (using, say, Ctrl-C) then you can paste it into vim using "+p.</p>
 <table>
 <thead>
 <tr>
@@ -405,7 +407,7 @@ but none organized the way I&nbsp;want.</p>
 <td align="left">Yank the word under the cursor</td>
 </tr>
 <tr>
-<td align="center">y<mathjax>$</td>
+<td align="center">y$</td>
 <td align="left">Yank to the end of the line</td>
 </tr>
 <tr>
@@ -418,7 +420,7 @@ but none organized the way I&nbsp;want.</p>
 </tr>
 </tbody>
 </table>
-<h2>Putting&nbsp;Text</h2>
+<h2>Putting Text</h2>
 <table>
 <thead>
 <tr>
@@ -437,7 +439,7 @@ but none organized the way I&nbsp;want.</p>
 </tr>
 </tbody>
 </table>
-<h2>Changing&nbsp;Text</h2>
+<h2>Changing Text</h2>
 <table>
 <thead>
 <tr>
@@ -487,7 +489,7 @@ but none organized the way I&nbsp;want.</p>
 </tr>
 </tbody>
 </table>
-<h2>Entering visual&nbsp;mode</h2>
+<h2>Entering visual mode</h2>
 <table>
 <thead>
 <tr>
@@ -510,8 +512,8 @@ but none organized the way I&nbsp;want.</p>
 </tr>
 </tbody>
 </table>
-<h2>Editing blocks of&nbsp;text</h2>
-<p>Note: the Vim commands marked with (V) work in visual mode, when you've selected some text. The other commands work in the command mode, when you haven't selected any&nbsp;text.</p>
+<h2>Editing blocks of text</h2>
+<p>Note: the Vim commands marked with (V) work in visual mode, when you've selected some text. The other commands work in the command mode, when you haven't selected any text.</p>
 <table>
 <thead>
 <tr>
@@ -616,7 +618,7 @@ but none organized the way I&nbsp;want.</p>
 </tr>
 </tbody>
 </table>
-<h2>Undo and&nbsp;redo</h2>
+<h2>Undo and redo</h2>
 <table>
 <thead>
 <tr>
@@ -800,15 +802,15 @@ but none organized the way I&nbsp;want.</p>
 <td align="left">Replace all occurrences between lines 2 and 35</td>
 </tr>
 <tr>
-<td align="center">:5,$</mathjax>s/old/new/g</td>
-<td align="left">Replace all occurrences from line 5 to <span class="caps">EOF</span></td>
+<td align="center">:5,$s/old/new/g</td>
+<td align="left">Replace all occurrences from line 5 to EOF</td>
 </tr>
 <tr>
 <td align="center">:%s/^/hello/g</td>
 <td align="left">Replace the beginning of each line by hello</td>
 </tr>
 <tr>
-<td align="center">:%s/<mathjax>$/Harry/g</td>
+<td align="center">:%s/$/Harry/g</td>
 <td align="left">Replace the end of each line by Harry</td>
 </tr>
 <tr>
@@ -816,7 +818,7 @@ but none organized the way I&nbsp;want.</p>
 <td align="left">Replace onward by forward, case insensitive</td>
 </tr>
 <tr>
-<td align="center">:%s/ *$</mathjax>//g</td>
+<td align="center">:%s/ *$//g</td>
 <td align="left">Delete all white spaces</td>
 </tr>
 <tr>
@@ -841,18 +843,18 @@ but none organized the way I&nbsp;want.</p>
 </tr>
 <tr>
 <td align="center">:%s/\r//g</td>
-<td align="left">Delete <span class="caps">DOS</span> carriage returns (^M)</td>
+<td align="left">Delete DOS carriage returns (^M)</td>
 </tr>
 <tr>
 <td align="center">:%s/\r/\r/g</td>
-<td align="left">Transform <span class="caps">DOS</span> carriage returns in returns</td>
+<td align="left">Transform DOS carriage returns in returns</td>
 </tr>
 <tr>
 <td align="center">:%s#&lt;[^&gt;]+&gt;##g</td>
-<td align="left">Delete <span class="caps">HTML</span> tags but keeps text</td>
+<td align="left">Delete HTML tags but keeps text</td>
 </tr>
 <tr>
-<td align="center">:%s/^(.*)\n\1<mathjax>$/\1/</td>
+<td align="center">:%s/^(.*)\n\1$/\1/</td>
 <td align="left">Delete lines which appears twice</td>
 </tr>
 <tr>
@@ -888,7 +890,7 @@ but none organized the way I&nbsp;want.</p>
 <td align="left">Anchor - beginning of the line</td>
 </tr>
 <tr>
-<td align="center">$</mathjax></td>
+<td align="center">$</td>
 <td align="left">Anchor - end of line</td>
 </tr>
 <tr>
@@ -900,7 +902,7 @@ but none organized the way I&nbsp;want.</p>
 <td align="left">Anchor - end of word</td>
 </tr>
 <tr>
-<td align="center">(&#8230;)</td>
+<td align="center">(...)</td>
 <td align="left">Grouping - usually used to group conditions</td>
 </tr>
 <tr>
@@ -908,36 +910,36 @@ but none organized the way I&nbsp;want.</p>
 <td align="left">Contents of nth grouping</td>
 </tr>
 <tr>
-<td align="center"><strong>[&#8230;] - Set Examples</strong></td>
+<td align="center"><strong>[...] - Set Examples</strong></td>
 <td align="left"></td>
 </tr>
 <tr>
 <td align="center">[A-Z]</td>
-<td align="left">The <span class="caps">SET</span> from Capital A to Capital Z</td>
+<td align="left">The SET from Capital A to Capital Z</td>
 </tr>
 <tr>
 <td align="center">[a-z]</td>
-<td align="left">The <span class="caps">SET</span> from lowercase a to lowercase z</td>
+<td align="left">The SET from lowercase a to lowercase z</td>
 </tr>
 <tr>
 <td align="center">[0-9]</td>
-<td align="left">The <span class="caps">SET</span> from 0 to 9 (All numerals)</td>
+<td align="left">The SET from 0 to 9 (All numerals)</td>
 </tr>
 <tr>
 <td align="center">[./=+]</td>
-<td align="left">The <span class="caps">SET</span> containing . (dot), / (slash), =, and +</td>
+<td align="left">The SET containing . (dot), / (slash), =, and +</td>
 </tr>
 <tr>
 <td align="center">[-A-F]</td>
-<td align="left">The <span class="caps">SET</span> from Capital A to Capital F and the dash (dashes must be specified first)</td>
+<td align="left">The SET from Capital A to Capital F and the dash (dashes must be specified first)</td>
 </tr>
 <tr>
 <td align="center">[0-9 A-Z]</td>
-<td align="left">The <span class="caps">SET</span> containing all capital letters and digits and a space</td>
+<td align="left">The SET containing all capital letters and digits and a space</td>
 </tr>
 <tr>
 <td align="center">[A-Z][a-zA-Z]</td>
-<td align="left">In the first position, the <span class="caps">SET</span> from Capital A to Capital Z.  In the second character position, the <span class="caps">SET</span> containing all letters</td>
+<td align="left">In the first position, the SET from Capital A to Capital Z.  In the second character position, the SET containing all letters</td>
 </tr>
 <tr>
 <td align="center"><strong>Regular Expression Examples</strong></td>
@@ -948,7 +950,7 @@ but none organized the way I&nbsp;want.</p>
 <td align="left">Matches if the line contains the value Hello</td>
 </tr>
 <tr>
-<td align="center">/^<span class="caps">TEST</span><mathjax>$/</td>
+<td align="center">/^TEST$/</td>
 <td align="left">Matches if the line contains TEST by itself</td>
 </tr>
 <tr>
@@ -960,7 +962,7 @@ but none organized the way I&nbsp;want.</p>
 <td align="left">Matches if the first character of the line is a-z and there is at least one more of any character following it</td>
 </tr>
 <tr>
-<td align="center">/2134$</mathjax>/</td>
+<td align="center">/2134$/</td>
 <td align="left">Matches if line ends with 2134</td>
 </tr>
 <tr>
@@ -991,7 +993,7 @@ but none organized the way I&nbsp;want.</p>
 <td align="left">Lowercase line</td>
 </tr>
 <tr>
-<td align="center"><span class="caps">VU</span></td>
+<td align="center">VU</td>
 <td align="left">Uppercase line</td>
 </tr>
 <tr>
@@ -1075,7 +1077,7 @@ but none organized the way I&nbsp;want.</p>
 </tr>
 </tbody>
 </table>
-<h2>Window&nbsp;Splitting</h2>
+<h2>Window Splitting</h2>
 <table>
 <thead>
 <tr>
@@ -1157,7 +1159,7 @@ but none organized the way I&nbsp;want.</p>
 </tr>
 </tbody>
 </table>
-<h2>Recording&nbsp;Macros</h2>
+<h2>Recording Macros</h2>
 <table>
 <thead>
 <tr>
@@ -1167,12 +1169,12 @@ but none organized the way I&nbsp;want.</p>
 </thead>
 <tbody>
 <tr>
-<td align="center">q{0-9a-zA-Z&#8221;}</td>
-<td align="left">Record typed characters into register {0-9a-zA-Z&#8221;} (uppercase to append).  The &#8216;q&#8217; command is disabled while executing a register, and it doesn&#8217;t work inside a mapping and :normal.</td>
+<td 0-9a-zA-Z_="0-9a-zA-Z&quot;" align="center">q</td>
+<td 0-9a-zA-Z_="0-9a-zA-Z&quot;" align="left">Record typed characters into register </td>
 </tr>
 <tr>
 <td align="center">q</td>
-<td align="left">Stops recording.  (Implementation note: The &#8216;q&#8217; that stops recording is not stored in the register, unless it was the result of a mapping)</td>
+<td align="left">Stops recording.  (Implementation note: The 'q' that stops recording is not stored in the register, unless it was the result of a mapping)</td>
 </tr>
 <tr>
 <td align="center">qq</td>
@@ -1180,7 +1182,7 @@ but none organized the way I&nbsp;want.</p>
 </tr>
 </tbody>
 </table>
-<h2>Play Back&nbsp;Macros</h2>
+<h2>Play Back Macros</h2>
 <table>
 <thead>
 <tr>
@@ -1190,12 +1192,12 @@ but none organized the way I&nbsp;want.</p>
 </thead>
 <tbody>
 <tr>
-<td align="center">@q{0-9a-zA-Z&#8221;}</td>
+<td 0-9a-zA-Z_="0-9a-zA-Z&quot;" align="center">@q</td>
 <td align="left">Play back the macro.</td>
 </tr>
 <tr>
-<td align="center">{0-9}@q{0-9a-zA-Z&#8221;}</td>
-<td align="left">Play back the macro q{0-9a-zA-Z&#8221;} a {0-9} number of  times.</td>
+<td 0-9="0-9" align="center"></td>
+<td 0-9a-zA-Z_="0-9a-zA-Z&quot;" align="left">Play back the macro q</td>
 </tr>
 <tr>
 <td align="center">@@</td>
@@ -1221,24 +1223,24 @@ but none organized the way I&nbsp;want.</p>
 <td align="left">string creates a fold from the cursor to string</td>
 </tr>
 <tr>
-<td align="center">zf{motion} or {Visual}zf</td>
+<td align="center" motion="motion">zf</td>
 <td align="left">operator to create a fold</td>
 </tr>
 <tr>
-<td align="center">zf&#8217;a</td>
+<td align="center">zf'a</td>
 <td align="left">fold to mark</td>
 </tr>
 <tr>
 <td align="center">zn</td>
-<td align="left">fold none: reset &#8216;foldenable&#8217;. All folds will be open</td>
+<td align="left">fold none: reset 'foldenable'. All folds will be open</td>
 </tr>
 <tr>
 <td align="center">zN</td>
-<td align="left">fold normal: set &#8216;foldenable&#8217;. All folds will be as they were before</td>
+<td align="left">fold normal: set 'foldenable'. All folds will be as they were before</td>
 </tr>
 <tr>
 <td align="center">zi</td>
-<td align="left">invert &#8216;foldenable&#8217;</td>
+<td align="left">invert 'foldenable'</td>
 </tr>
 <tr>
 <td align="center">zj</td>
@@ -1270,7 +1272,7 @@ but none organized the way I&nbsp;want.</p>
 </tr>
 <tr>
 <td align="center">zR</td>
-<td align="left">decreases the fold-level to zero &#8212; all folds will be open</td>
+<td align="left">decreases the fold-level to zero -- all folds will be open</td>
 </tr>
 <tr>
 <td align="center">zd</td>
@@ -1290,45 +1292,45 @@ but none organized the way I&nbsp;want.</p>
 </tr>
 </tbody>
 </table>
-<h2>Vim Resource&nbsp;File</h2>
-<p>Using Vim&#8217;s scripting language (and a great deal of insight and tools from others),
+<h2>Vim Resource File</h2>
+<p>Using Vim's scripting language (and a great deal of insight and tools from others),
 I have setup Vim on my local machine to be an effective development environment for my needs.
 Also, using GitHub to <a href="https://github.com/jeffskinnerbox/dotvim">store my vi resource file</a>,
-I can replicate this Vim environment across the multiple systems I&#8217;m presently&nbsp;use.</p>
+I can replicate this Vim environment across the multiple systems I'm presently use.</p>
 <h2>Sources</h2>
-<p>These are the sources for the commands documented above in the&nbsp;tables.</p>
+<p>These are the sources for the commands documented above in the tables.</p>
 <ul>
-<li><a href="http://www.catswhocode.com/blog/100-vim-commands-every-programmer-should-know">100 Vim commands every programmer should&nbsp;know</a></li>
-<li><a href="http://tips.webdesign10.com/vim/how-use-vims-spellchecker">How to Use Vim&#8217;s&nbsp;Spellchecker</a></li>
-<li><a href="http://usevim.com/2012/08/10/macros/">Vim 101: A Gentle Introduction to&nbsp;Macros</a></li>
-<li><a href="https://sites.google.com/site/linuxpebbles/cool-tricks/some-of-my-favorite-vim-tips/vim-folding-commands"><span class="caps">VIM</span> folding&nbsp;commands</a></li>
-<li><a href="http://www.lagmonster.org/docs/vi.html">Vi Cheat&nbsp;Sheet</a></li>
-<li><a href="http://bullium.com/support/vim.html">Vim Commands Cheat&nbsp;Sheet</a></li>
-<li><a href="http://unix.stackexchange.com/questions/12535/how-to-copy-text-from-vim-to-an-external-program">How to copy text from vim to an external&nbsp;program?</a></li>
+<li><a href="http://www.catswhocode.com/blog/100-vim-commands-every-programmer-should-know">100 Vim commands every programmer should know</a></li>
+<li><a href="http://tips.webdesign10.com/vim/how-use-vims-spellchecker">How to Use Vim's Spellchecker</a></li>
+<li><a href="http://usevim.com/2012/08/10/macros/">Vim 101: A Gentle Introduction to Macros</a></li>
+<li><a href="https://sites.google.com/site/linuxpebbles/cool-tricks/some-of-my-favorite-vim-tips/vim-folding-commands">VIM folding commands</a></li>
+<li><a href="http://www.lagmonster.org/docs/vi.html">Vi Cheat Sheet</a></li>
+<li><a href="http://bullium.com/support/vim.html">Vim Commands Cheat Sheet</a></li>
+<li><a href="http://unix.stackexchange.com/questions/12535/how-to-copy-text-from-vim-to-an-external-program">How to copy text from vim to an external program?</a></li>
 </ul>
-<h2>Requires More&nbsp;Research</h2>
+<h2>Requires More Research</h2>
 <p>These links should be explored to see what additional information
-could be gathered for this cheat&nbsp;sheet.</p>
+could be gathered for this cheat sheet.</p>
 <ul>
-<li><a href="http://www.terminally-incoherent.com/blog/reference/vim-cheat-sheet/">Another Vim Cheat&nbsp;Sheet</a></li>
-<li><a href="http://www.terminally-incoherent.com/blog/2008/10/27/vim-cheatsheet/">Vim&nbsp;Cheatsheet</a></li>
-<li><a href="http://jon.oxer.com.au/cheatsheet/vim">Jonathan Oxer&#8217;s Cheat&nbsp;Sheets</a></li>
-<li><a href="http://www.glump.net/howto/desktop/vim-graphical-cheat-sheet-and-tutorial">Graphical vi-vim Cheat Sheet and&nbsp;Tutorial</a></li>
-<li><a href="http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html">Graphical vi-vim Cheat Sheet and&nbsp;Tutorial</a></li>
-<li><a href="http://amix.dk/blog/post/19334">Vim tips: Visual&nbsp;Search</a></li>
-<li><a href="https://github.com/amix/vimrc">The Ultimate&nbsp;vimrc</a></li>
-<li><a href="https://github.com/davidhalter/jedi-vim">check out Jedi for auto&nbsp;completion</a></li>
-<li><a href="http://jaredforsyth.com/projects/vim-debug/"><span class="caps">NERD</span> Commenter&nbsp;Command</a></li>
-<li><a href="http://j605.wordpress.com/2011/10/08/a-python-debugger-for-vim/">A python debugger for&nbsp;vim</a></li>
-<li><a href="http://files.swaroopch.com/vim/byte_of_vim_v051.pdf">A Byte of&nbsp;Vim</a></li>
-<li><a href="http://lepture.com/work/vundle-vs-pathogen">Vundle vs&nbsp;Pathogen</a></li>
-<li><a href="http://rmitc.org/2013/04/modern-vim-plugin-management-pathogen-vs-vundle/">Modern vim plugin management – Pathogen vs&nbsp;Vundle</a></li>
-<li><a href="http://petro.tanrei.ca/2010/8/working-with-vim-and-ipython.html">Working with Vim and&nbsp;IPython</a></li>
-<li><a href="http://github.com/ivanov/vim-ipython">vim-ipython - A two-way integration between Vim and&nbsp;IPython</a></li>
-<li><a href="http://appsweets.net/wasavi/">wasavi (<span class="caps">VI</span> editor for any web&nbsp;page)</a></li>
+<li><a href="http://www.terminally-incoherent.com/blog/reference/vim-cheat-sheet/">Another Vim Cheat Sheet</a></li>
+<li><a href="http://www.terminally-incoherent.com/blog/2008/10/27/vim-cheatsheet/">Vim Cheatsheet</a></li>
+<li><a href="http://jon.oxer.com.au/cheatsheet/vim">Jonathan Oxer's Cheat Sheets</a></li>
+<li><a href="http://www.glump.net/howto/desktop/vim-graphical-cheat-sheet-and-tutorial">Graphical vi-vim Cheat Sheet and Tutorial</a></li>
+<li><a href="http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html">Graphical vi-vim Cheat Sheet and Tutorial</a></li>
+<li><a href="http://amix.dk/blog/post/19334">Vim tips: Visual Search</a></li>
+<li><a href="https://github.com/amix/vimrc">The Ultimate vimrc</a></li>
+<li><a href="https://github.com/davidhalter/jedi-vim">check out Jedi for auto completion</a></li>
+<li><a href="http://jaredforsyth.com/projects/vim-debug/">NERD Commenter Command</a></li>
+<li><a href="http://j605.wordpress.com/2011/10/08/a-python-debugger-for-vim/">A python debugger for vim</a></li>
+<li><a href="http://files.swaroopch.com/vim/byte_of_vim_v051.pdf">A Byte of Vim</a></li>
+<li><a href="http://lepture.com/work/vundle-vs-pathogen">Vundle vs Pathogen</a></li>
+<li><a href="http://rmitc.org/2013/04/modern-vim-plugin-management-pathogen-vs-vundle/">Modern vim plugin management – Pathogen vs Vundle</a></li>
+<li><a href="http://petro.tanrei.ca/2010/8/working-with-vim-and-ipython.html">Working with Vim and IPython</a></li>
+<li><a href="http://github.com/ivanov/vim-ipython">vim-ipython - A two-way integration between Vim and IPython</a></li>
+<li><a href="http://appsweets.net/wasavi/">wasavi (VI editor for any web page)</a></li>
 <li><a href="http://codemirror.net/">CodeMirror</a></li>
 <li><a href="http://lalashan.mcmaster.ca/theobio/projects/index.php/TextAid">TextAid</a></li>
-<li><a href="http://www.catonmat.net/blog/bash-vi-editing-mode-cheat-sheet/">Working Productively in Bash&#8217;s Vi Command Line Editing Mode (with Cheat&nbsp;Sheet)</a></li>
+<li><a href="http://www.catonmat.net/blog/bash-vi-editing-mode-cheat-sheet/">Working Productively in Bash's Vi Command Line Editing Mode (with Cheat Sheet)</a></li>
 </ul><script type= "text/javascript">
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
         var mathjaxscript = document.createElement('script');
@@ -1410,7 +1412,7 @@ could be gathered for this cheat&nbsp;sheet.</p>
             </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-            </li>    
+            </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
@@ -1425,7 +1427,7 @@ could be gathered for this cheat&nbsp;sheet.</p>
             </a>
         </li>
         <li class="list-group-item">
-            <a href="/posts/2014/Dec/21/cheatsheet-vim-commands/index.html" target="_blank">
+            <a href="/tag/cheat-sheet/index.html" target="_blank">
                 Cheat Sheets
             </a>
         </li>
@@ -1488,6 +1490,12 @@ could be gathered for this cheat&nbsp;sheet.</p>
         </a></li>
         <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
             <i class="fa fa-linkedin"></i> Linkedin
+        </a></li>
+        <li class="list-group-item"><a href="http://www.commandlinefu.com/commands/by/jeffskinnerbox" target="_blank">
+            <i class="fa fa-terminal"></i> CommandLineFu
+        </a></li>
+        <li class="list-group-item"><a href="https://disqus.com/by/jeffskinnerbox/" target="_blank">
+            <i class="fa fa-comment"></i> DISQUS
         </a></li>
     </ul>
 </li> 

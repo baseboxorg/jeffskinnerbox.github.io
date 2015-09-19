@@ -99,9 +99,9 @@ Jeff's Skinner Box&nbsp;            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Now that I can get <a href="http://jeffskinnerbox.wordpress.com/2012/11/15/getting-audio-out-working-on-the-raspberry-pi/">sound</a> out of my Raspberry Pi (RPi), the next logical step for me is speech synthesis &#8230; Right?  I foresee my RPi being used as a controller/gateway for other devices (e.g. RPi or Arduino).  In that capacity, I want the RPi to provide status via email, <span class="caps">SMS</span>, web updates, and so why not speech?  Therefore, I&#8217;m looking for a good text-to-speech tool that will work nicely with my&nbsp;RPi.</p>
-<p>The two dominate free speech synthesis tools for Linux are <a href="http://espeak.sourceforge.net/">eSpeak</a> and <a href="http://www.cstr.ed.ac.uk/projects/festival/download.html">Festival</a> (which has a light-weight version called Flite). Both tools appear very popular, well supported, and produce quality voices.  I sensed that Festival is more feature reach and configurable, so I went with&nbsp;it.</p>
-<p>To install Festival and Flite (which doesn&#8217;t require Festival to be installed), use the following&nbsp;command:</p>
+                <p>Now that I can get <a href="http://jeffskinnerbox.wordpress.com/2012/11/15/getting-audio-out-working-on-the-raspberry-pi/">sound</a> out of my Raspberry Pi (RPi), the next logical step for me is speech synthesis ... Right?  I foresee my RPi being used as a controller/gateway for other devices (e.g. RPi or Arduino).  In that capacity, I want the RPi to provide status via email, SMS, web updates, and so why not speech?  Therefore, I'm looking for a good text-to-speech tool that will work nicely with my RPi.</p>
+<p>The two dominate free speech synthesis tools for Linux are <a href="http://espeak.sourceforge.net/">eSpeak</a> and <a href="http://www.cstr.ed.ac.uk/projects/festival/download.html">Festival</a> (which has a light-weight version called Flite). Both tools appear very popular, well supported, and produce quality voices.  I sensed that Festival is more feature reach and configurable, so I went with it.</p>
+<p>To install Festival and Flite (which doesn't require Festival to be installed), use the following command:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install festival
 &lt;code&gt;sudo apt-get install flite
 </pre></div>
@@ -109,22 +109,22 @@ Jeff's Skinner Box&nbsp;            </a>
 
 <h2>Festival</h2>
 
-<p>To test out the installation, check out <a href="http://linux.die.net/man/1/festival">Festival&#8217;s man page</a>, and execute the&nbsp;following:</p>
+<p>To test out the installation, check out <a href="http://linux.die.net/man/1/festival">Festival's man page</a>, and execute the following:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">echo &quot;Why are you in front of the computer?&quot; | festival --tts
 date &#39;+%A, %B %e, %Y&#39; | festival --tts
 festival --tts Gettysburg_Address.txt
 </pre></div>
 
 
-<h2>Text, <span class="caps">WAV</span>, Mp3&nbsp;Utilities</h2>
+<h2>Text, WAV, Mp3 Utilities</h2>
 
-<p>Festival also supplies a tool for converting text files into <span class="caps">WAV</span> files.  This tool, called <a href="http://manpages.ubuntu.com/manpages/hardy/man1/text2wave.1.html"><code>text2wave</code></a> can be executes as&nbsp;follows:</p>
+<p>Festival also supplies a tool for converting text files into WAV files.  This tool, called <a href="http://manpages.ubuntu.com/manpages/hardy/man1/text2wave.1.html"><code>text2wave</code></a> can be executes as follows:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">text2wave -o HAL.wav HAL.txt
 aplay HAL.wav
 </pre></div>
 
 
-<p><span class="caps">MP3</span> files can be 5 to 10 times smaller than <span class="caps">WAV</span> files, so it might be nice to convert a <span class="caps">WAV</span> file to <span class="caps">MP3</span>.  You can do this via a tool called <a href="http://linux.die.net/man/1/lame"><code>lame</code></a>.</p>
+<p>MP3 files can be 5 to 10 times smaller than WAV files, so it might be nice to convert a WAV file to MP3.  You can do this via a tool called <a href="http://linux.die.net/man/1/lame"><code>lame</code></a>.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">lame HAL.wav HAL.mp3
 </pre></div>
 
@@ -135,23 +135,23 @@ aplay HAL.wav
 </a>
 </center>
 <h2>Flite</h2>
-<a href="http://manpages.ubuntu.com/manpages/hardy/man1/flite.1.html">Flite</a> (festival-lite) is a small, fast run-time synthesis engine developed using Festival for small embedded machines. Taking a famous quote from <a href="http://en.wikipedia.org/wiki/HAL_9000"><span class="caps">HAL</span></a>, the computer in the movie &#8220;<a href="http://en.wikipedia.org/wiki/2001:_A_Space_Odyssey_(film)">2001: A Space Odyssey</a>&#8221;</p>
+<a href="http://manpages.ubuntu.com/manpages/hardy/man1/flite.1.html">Flite</a> (festival-lite) is a small, fast run-time synthesis engine developed using Festival for small embedded machines. Taking a famous quote from <a href="http://en.wikipedia.org/wiki/HAL_9000">HAL</a>, the computer in the movie "<a href="http://en.wikipedia.org/wiki/2001:_A_Space_Odyssey_(film)">2001: A Space Odyssey</a>"</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">flite &quot;Look Dave, I can see you&#39;re really upset about this. I honestly think you ought to sit down calmly, take a stress pill, and think things over.&quot;
 </pre></div>
 
 
-<p>Depending how the software was built for the package, you find that flite (and festival) has multiple voices. To find what voices where built in, use the&nbsp;command</p>
+<p>Depending how the software was built for the package, you find that flite (and festival) has multiple voices. To find what voices where built in, use the command</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">flite -lv
 </pre></div>
 
 
-<p>To play a specific voice from the list, use the <code>-voice</code> parameter in the&nbsp;command</p>
+<p>To play a specific voice from the list, use the <code>-voice</code> parameter in the command</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">flite -voice kal &quot;I&#39;m now speaking kal&#39;s voice. By the way, please call me Dr. Hawking.&quot;
 </pre></div>
 
 
-<p>In my case, the default voice appears to be &#8220;kal&#8221;, which sounds somewhat like <a href="http://www.newscientist.com/article/dn21323-the-man-who-saves-stephen-hawkings-voice.html">Stephen Hawking</a>.  &#8221;slt&#8221; appears to be a female version of the &#8220;kal&#8221;&nbsp;voice.</p>
-<p><a href="http://manpages.ubuntu.com/manpages/hardy/man1/flite_time.1.html"><code>flite_time</code></a> is a talking clock that can speak things like &#8220;The time is now, exactly two, in the&nbsp;afternoon.&#8221;</p>
+<p>In my case, the default voice appears to be "kal", which sounds somewhat like <a href="http://www.newscientist.com/article/dn21323-the-man-who-saves-stephen-hawkings-voice.html">Stephen Hawking</a>.  "slt" appears to be a female version of the "kal" voice.</p>
+<p><a href="http://manpages.ubuntu.com/manpages/hardy/man1/flite_time.1.html"><code>flite_time</code></a> is a talking clock that can speak things like "The time is now, exactly two, in the afternoon."</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">flite_time 14:00
 flite_time `date +%H:%M`
 </pre></div>
@@ -159,23 +159,23 @@ flite_time `date +%H:%M`
 
 <h2>Documentation</h2>
 
-<p>The documentation for Festival and Flite isn&#8217;t all that great but there does seem to be multiple sources.  Here is what I found most useful:
+<p>The documentation for Festival and Flite isn't all that great but there does seem to be multiple sources.  Here is what I found most useful:
 <ul>
 <ul>
-    <li><a href="http://www.cstr.ed.ac.uk/projects/festival/manual/festival_7.html">Quick&nbsp;Start</a></li>
-    <li><a href="http://digital.cs.usu.edu/~vkulyukin/vkweb/teaching/cs6890/festival.pdf">More&nbsp;Complete</a></li>
+    <li><a href="http://www.cstr.ed.ac.uk/projects/festival/manual/festival_7.html">Quick Start</a></li>
+    <li><a href="http://digital.cs.usu.edu/~vkulyukin/vkweb/teaching/cs6890/festival.pdf">More Complete</a></li>
 </ul>
 </ul></p>
 <h2>Update</h2>
 <p>Gary Hall of <a href="http://874.org.uk/">878.org.uk</a> made me aware of another method of getting speech out of the Raspberry Pi.
 His article <a href="http://874.org.uk/speaking-weather-forecast-raspberry-pi.html">Getting your Raspberry Pi to speak the weather forecast</a>
 explains his very simple approach using Google Text to Speech service.
-See&nbsp;below</p>
+See below</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">mplayer -ao alsa -really-quiet -noconsolecontrols &quot;http://translate.google.com/translate_tts?tl=en&amp;q=Look Dave, I can see you&#39;re really upset about this.&quot;
 </pre></div>
 
 
-<p>Some day, Google will rule the&nbsp;world!</p>
+<p>Some day, Google will rule the world!</p>
             </div>
             <!-- /.entry-content -->
     <hr />
@@ -226,7 +226,7 @@ See&nbsp;below</p>
             </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-            </li>    
+            </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
@@ -241,7 +241,7 @@ See&nbsp;below</p>
             </a>
         </li>
         <li class="list-group-item">
-            <a href="/posts/2014/Dec/21/cheatsheet-vim-commands/index.html" target="_blank">
+            <a href="/tag/cheat-sheet/index.html" target="_blank">
                 Cheat Sheets
             </a>
         </li>
@@ -304,6 +304,12 @@ See&nbsp;below</p>
         </a></li>
         <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
             <i class="fa fa-linkedin"></i> Linkedin
+        </a></li>
+        <li class="list-group-item"><a href="http://www.commandlinefu.com/commands/by/jeffskinnerbox" target="_blank">
+            <i class="fa fa-terminal"></i> CommandLineFu
+        </a></li>
+        <li class="list-group-item"><a href="https://disqus.com/by/jeffskinnerbox/" target="_blank">
+            <i class="fa fa-comment"></i> DISQUS
         </a></li>
     </ul>
 </li> 

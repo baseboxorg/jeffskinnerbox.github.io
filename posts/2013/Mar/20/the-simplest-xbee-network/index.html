@@ -100,14 +100,14 @@ Jeff's Skinner Box&nbsp;            </a>
                 <p><a href="http://jeffskinnerbox.files.wordpress.com/2013/03/simplest-xbee-network.jpg">
     <img class="img-rounded" style="margin: 0px 8px; float: left" alt="SAMSUNG" src="/images/simplest-xbee-network.jpg?w=500" width="250" height="188" />
 </a>
-As I continue my investigation of the XBee radio, I&#8217;m impressed by the functionality compressed into the the small package, but I have been frustrated by one fact.  It has been a hard road to understand the device and to make it do something useful.  There is a confusing mass of commands and options that can be used.  To make things more difficult for me, it is my nature to study my subject at depth, and understand it well, before I commit myself to a project.  The XBee radios are proving to be a deep subject.  I have been struggling to get a simple 802.15.4 network up and working, at least one that is sufficiently complex to be useful for my&nbsp;needs.</p>
-<p>I stumbled into the realization that I don&#8217;t have to master 802.15.4 and a large set of XBee commands to make a very simple but potentially useful network.  It&#8217;s a very basic observation about all radio devices like the XBee.  You see, at its core the XBee radio is  a <a href="http://en.wikipedia.org/wiki/Modem">modem</a>.  It encodes digital information, transmits its digits via electromagnetism, within a specific frequency band, to be received by another XBee, and  then converted back to digital information.  The use of packet data, the 802.15.4 protocol, and all the <span class="caps">AT</span> commands are layers on top of the XBee&#8217;s  modem capability.  The modem, the core communications sub-component, is a serial communications device with a Universal Asynchronous Receiver/Transmitter (<span class="caps">UART</span>) as examined in an <a href="http://jeffskinnerbox.wordpress.com/2012/12/05/raspberry-pi-serial-communication/">earlier blog</a>.  So why not we just treat the XBee radio as a simple serial communication device?  Drop the idea of packetized data and 802.15.4 protocol and just do&nbsp;raw serial communications.</p>
-<p>While this simplification is seductive, it does come at a price. Data is packetized and transmitted using a protocol for very good reasons.  In data transmission you must consider the fact that data could get corrupted, you need to share the communication channel with others,  data streams may be long (if not endless) and need to be properly sequenced, communications is main between specific devices as apposed to just broadcasting, and many other concerns.  You give up much of this by doing raw serial communications but you&nbsp;gain simplicity.</p>
+As I continue my investigation of the XBee radio, I'm impressed by the functionality compressed into the the small package, but I have been frustrated by one fact.  It has been a hard road to understand the device and to make it do something useful.  There is a confusing mass of commands and options that can be used.  To make things more difficult for me, it is my nature to study my subject at depth, and understand it well, before I commit myself to a project.  The XBee radios are proving to be a deep subject.  I have been struggling to get a simple 802.15.4 network up and working, at least one that is sufficiently complex to be useful for my needs.</p>
+<p>I stumbled into the realization that I don't have to master 802.15.4 and a large set of XBee commands to make a very simple but potentially useful network.  It's a very basic observation about all radio devices like the XBee.  You see, at its core the XBee radio is  a <a href="http://en.wikipedia.org/wiki/Modem">modem</a>.  It encodes digital information, transmits its digits via electromagnetism, within a specific frequency band, to be received by another XBee, and  then converted back to digital information.  The use of packet data, the 802.15.4 protocol, and all the AT commands are layers on top of the XBee's  modem capability.  The modem, the core communications sub-component, is a serial communications device with a Universal Asynchronous Receiver/Transmitter (UART) as examined in an <a href="http://jeffskinnerbox.wordpress.com/2012/12/05/raspberry-pi-serial-communication/">earlier blog</a>.  So why not we just treat the XBee radio as a simple serial communication device?  Drop the idea of packetized data and 802.15.4 protocol and just do raw serial communications.</p>
+<p>While this simplification is seductive, it does come at a price. Data is packetized and transmitted using a protocol for very good reasons.  In data transmission you must consider the fact that data could get corrupted, you need to share the communication channel with others,  data streams may be long (if not endless) and need to be properly sequenced, communications is main between specific devices as apposed to just broadcasting, and many other concerns.  You give up much of this by doing raw serial communications but you gain simplicity.</p>
 <p>What I plan to do here is list some simple, proof of concept programs that I used to create a network with a Arduino and Raspberry Pi (RPi) using XBee radios.  You could simply add additional devices, using the same code, and it will become a fully interconnected network (i.e. where every device can talk to every other devices directly).  While inferior to a 802.15.4 network on many levels, its quick to get operational and easy to debug.  Also keep in mind that this is built on the XBee radio,  but you could do this with most any radio which supports serial communications.
 <h2>Architecture</h2>
-I&#8217;ll be using a Arduino and a RPis for for my network, each with a XBee radio thought which they can communicate. I&#8217;ll establish terminal interface into each device so I can enter text for the device to transmit and the terminal will also show what messages where revived. All  terminals will be within windows on my <span class="caps">PC</span> using PuTTY, Xterm, or the Arduino&#8217;s serial monitor screen.
-<h2>Initializing the XBee&nbsp;Radios</h2>
-First step is to make sure all the XBee radios that will be part of your network are properly configured.  Specifically, you need to make sure the <span class="caps">PAN</span> <span class="caps">ID</span> and Channel <span class="caps">ID</span> of the XBee radio&#8217;s are identical.  To accomplish this, I used the <code>XBeeTerm.py</code> utility I posted in my earlier blog titled <a href="http://jeffskinnerbox.wordpress.com/2013/01/30/configuration-utilities-for-xbee-radios/">Configuration Utilities for XBee Radios</a>.  I&#8217;m going to setup my network with two XBee radios (but you can use as many as you wish) and I used the configuration file below on both&nbsp;radios:</p>
+I'll be using a Arduino and a RPis for for my network, each with a XBee radio thought which they can communicate. I'll establish terminal interface into each device so I can enter text for the device to transmit and the terminal will also show what messages where revived. All  terminals will be within windows on my PC using PuTTY, Xterm, or the Arduino's serial monitor screen.
+<h2>Initializing the XBee Radios</h2>
+First step is to make sure all the XBee radios that will be part of your network are properly configured.  Specifically, you need to make sure the PAN ID and Channel ID of the XBee radio's are identical.  To accomplish this, I used the <code>XBeeTerm.py</code> utility I posted in my earlier blog titled <a href="http://jeffskinnerbox.wordpress.com/2013/01/30/configuration-utilities-for-xbee-radios/">Configuration Utilities for XBee Radios</a>.  I'm going to setup my network with two XBee radios (but you can use as many as you wish) and I used the configuration file below on both radios:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># To remove comments, white spaces, and blank lines, use the following:
 #       sed &#39;/^#/d; s/\([^$]\)#.*/\1/&#39; Modem-Device.txt | sed &#39;s/[ \t]*$//&#39; &amp;gt; modemd.txt
 # Run this script to configure the XBee radio using the following:
@@ -126,9 +126,9 @@ exit            # (XBeeTerm command) exit python shell
 </pre></div>
 
 
-<h2>Arduino&nbsp;Configuration</h2>
+<h2>Arduino Configuration</h2>
 
-<p>The sketch on the Arduino is very simple. Called <code>XBeeModem.ino</code> and is listed&nbsp;blow:</p>
+<p>The sketch on the Arduino is very simple. Called <code>XBeeModem.ino</code> and is listed blow:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">/*</span>
 <span style="color: #0099FF; font-style: italic">    The XBee devise should be connected to the Arduino Uno in the following way:</span>
 <span style="color: #0099FF; font-style: italic">        XBee RX is connected to Arduino TX pin 3</span>
@@ -181,14 +181,44 @@ SoftwareSerial XBeeSerial <span style="color: #555555">=</span>  SoftwareSerial(
 </pre></div>
 
 
-<h2>Raspberry Pi&nbsp;Configuration</h2>
+<h2>Raspberry Pi Configuration</h2>
 
-<p>The Python program on the RPi is also very simple, except for one point.  Linux I/O reads will <a href="http://www.linux-mag.com/id/308/">block </a>if there are no characters to read.  You must &#8220;turn-off&#8221; blocking.  The program is called <code>XBeeModem.py</code> and is listed&nbsp;blow:</p>
+<p>The Python program on the RPi is also very simple, except for one point.  Linux I/O reads will <a href="http://www.linux-mag.com/id/308/">block </a>if there are no characters to read.  You must "turn-off" blocking.  The program is called <code>XBeeModem.py</code> and is listed blow:</p>
 <p><script src="https://gist.github.com/jeffskinnerbox/6663336.js"></script></p>
 
 <h2>Closing</h2>
 
-<p>It doesn&#8217;t get much simpler than this. With a little work, you might make something useful out of this technique but its very limited in the types of problems that it could handle. Never the less, it was a good diversion for me to clear my mind. Now back to the XBee&#8217;s core capabilites, the 802.15.4 protocol, and the other&nbsp;minutia!</p>
+<p>It doesn't get much simpler than this. With a little work, you might make something useful out of this technique but its very limited in the types of problems that it could handle. Never the less, it was a good diversion for me to clear my mind. Now back to the XBee's core capabilites, the 802.15.4 protocol, and the other minutia!</p><script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+		? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js'
+		: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+
             </div>
             <!-- /.entry-content -->
     <hr />
@@ -239,7 +269,7 @@ SoftwareSerial XBeeSerial <span style="color: #555555">=</span>  SoftwareSerial(
             </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-            </li>    
+            </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
@@ -254,7 +284,7 @@ SoftwareSerial XBeeSerial <span style="color: #555555">=</span>  SoftwareSerial(
             </a>
         </li>
         <li class="list-group-item">
-            <a href="/posts/2014/Dec/21/cheatsheet-vim-commands/index.html" target="_blank">
+            <a href="/tag/cheat-sheet/index.html" target="_blank">
                 Cheat Sheets
             </a>
         </li>
@@ -317,6 +347,12 @@ SoftwareSerial XBeeSerial <span style="color: #555555">=</span>  SoftwareSerial(
         </a></li>
         <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
             <i class="fa fa-linkedin"></i> Linkedin
+        </a></li>
+        <li class="list-group-item"><a href="http://www.commandlinefu.com/commands/by/jeffskinnerbox" target="_blank">
+            <i class="fa fa-terminal"></i> CommandLineFu
+        </a></li>
+        <li class="list-group-item"><a href="https://disqus.com/by/jeffskinnerbox/" target="_blank">
+            <i class="fa fa-comment"></i> DISQUS
         </a></li>
     </ul>
 </li> 

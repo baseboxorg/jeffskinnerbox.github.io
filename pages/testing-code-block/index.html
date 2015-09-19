@@ -73,14 +73,14 @@ Jeff's Skinner Box&nbsp;            </a>
         <h1 class="entry-title">Testing: Code Block</h1>
         
         <div class="entry-content" style="background-image: url('/home/jeff/blogging/content/images/banners-bkgrds/scratchpad-yellow-blueline.jpg'); background-repeat: repeat;">
-            <h2>The Back&nbsp;Story</h2>
+            <h2>The Back Story</h2>
 <p>In Pelican, Markdown support is provided by the Python Markdown package (installed seperately).
 Markdown comes with some basic code block capabilities.
-If you want some syntax highlighting, you&#8217;ll need to install Pygments (installed separately).
+If you want some syntax highlighting, you'll need to install Pygments (installed separately).
 The Pelican documentation will tell you that the Pygments package is baked right in,
 and it is kind-of.
 Something not made clear in the Pelican documentation is that
-much of the good stuff in Markdown, like Pygments and syntax highlighting, has to be explicitly&nbsp;activated. </p>
+much of the good stuff in Markdown, like Pygments and syntax highlighting, has to be explicitly activated. </p>
 <p>Python Markdown comes with several <a href="http://pythonhosted.org/Markdown/extensions/extra.html">extras</a>, and one of the extension supported is called <a href="https://pythonhosted.org/Markdown/extensions/code_hilite.html">CodeHilite</a>.
 To get this all to work, you must include something like this in your <code>pelicanconf.py</code> file:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># List of the extensions that the Markdown processor will use.
@@ -97,17 +97,17 @@ Also, Pygment has a default style called <code>default</code> but this can be co
 the <code>pygments_style</code> option.
 To see all the Pygment styles, go to <a href="http://pygments.org/demo/">Pygments online demo</a>.
 To make things even more interesting,
-it doesn&#8217;t appear that all Pygment styles are supported by Pelican,
+it doesn't appear that all Pygment styles are supported by Pelican,
 out of the box (at least when using CodeHilite).
-This <a href="http://docs.getpelican.com/en/3.3.0/faq.html#i-m-creating-my-own-theme-how-do-i-use-pygments-for-syntax-highlighting">link</a> provides some insight on how get other styles&nbsp;working.</p>
+This <a href="http://docs.getpelican.com/en/3.3.0/faq.html#i-m-creating-my-own-theme-how-do-i-use-pygments-for-syntax-highlighting">link</a> provides some insight on how get other styles working.</p>
 <p>Give the above, there are a number of ways to indicate to
 Markdown that a something is to be treated as a code block.
-You can use indentation of 4 spaces, fences (i.e. string of &#8220;~~~~&#8221;),
+You can use indentation of 4 spaces, fences (i.e. string of "~~~~"),
 or box text with triple-backtick (e.g. <code><code>&lt;/code&gt;println("Hello World")&lt;code&gt;</code></code>).
-More detail is provided&nbsp;below.</p>
-<h2>Standard Markdown Code&nbsp;Blocks</h2>
+More detail is provided below.</p>
+<h2>Standard Markdown Code Blocks</h2>
 <p>Standard Markdown converts text with four spaces at the beginning of each line into a code block.
-This first example is using just&nbsp;indenting:</p>
+This first example is using just indenting:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># Example using simply indentation
 
 #!/bin/bash
@@ -126,11 +126,11 @@ is_file_exits() {
 </pre></div>
 
 
-<h2>GitHub Formated Markdown Code&nbsp;Block</h2>
-<p>Pelican also supports <a href="https://help.github.com/articles/github-flavored-markdown">GitHub Flavored Markdown (<span class="caps">GFM</span>)</a> style code blocks,
+<h2>GitHub Formated Markdown Code Block</h2>
+<p>Pelican also supports <a href="https://help.github.com/articles/github-flavored-markdown">GitHub Flavored Markdown (GFM)</a> style code blocks,
 known as <a href="https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks">Fenced Blocks</a> via the Markdown extention CodeHilite.
-Just wrap your code in three back-ticks <code>```</code> and you won&#8217;t need to indent it by four spaces.
-<em>(<strong><span class="caps">NOTE</span>:</strong> Although fenced code blocks don&#8217;t have to be preceded by a blank line—unlike indented code blocks, it is recommend placing a blank line before them to make the raw Markdown easier to&nbsp;read.)</em></p>
+Just wrap your code in three back-ticks <code>```</code> and you won't need to indent it by four spaces.
+<em>(<strong>NOTE:</strong> Although fenced code blocks don't have to be preceded by a blank line—unlike indented code blocks, it is recommend placing a blank line before them to make the raw Markdown easier to read.)</em></p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># Example using Fenced Blocks
 
 #!/bin/bash
@@ -152,7 +152,7 @@ is_file_exits() {
 <p>A feature of CodeHilite is that it will do automatic syntax detection by looking at the first line of code.
 This is done without the assistance of Pygments, so the turning off automatic detection in Pygment
 does not surpress this feature.
-Below is an example (with no language given in the fenced&nbsp;block):</p>
+Below is an example (with no language given in the fenced block):</p>
 <table class="codehilitetable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
  2
  3
@@ -181,19 +181,19 @@ is_file_exits<span style="color: #555555">()</span> <span style="color: #555555"
 </pre></div>
 </td></tr></table>
 
-<h2>Specifying the Syntax&nbsp;Highlighting</h2>
+<h2>Specifying the Syntax Highlighting</h2>
 <p>Code blocks can be taken a step further by adding syntax highlighting.
-In your fenced block, add an optional language identifier and we&#8217;ll run it through syntax highlighting.
+In your fenced block, add an optional language identifier and we'll run it through syntax highlighting.
 You can find out which keywords are valid as language identifiers by
-perusing the GitHub&#8217;s Language Savant <a href="http://pythonhosted.org/Markdown/extensions/extra.html">languages.yml</a> file.
-For example, to syntax highlight Ruby code, start the block with <code>```ruby</code> to&nbsp;get:</p>
+perusing the GitHub's Language Savant <a href="http://pythonhosted.org/Markdown/extensions/extra.html">languages.yml</a> file.
+For example, to syntax highlight Ruby code, start the block with <code>```ruby</code> to get:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">require</span> <span style="color: #CC3300">&#39;redcarpet&#39;</span>
 markdown <span style="color: #555555">=</span> <span style="color: #336600">Redcarpet</span><span style="color: #555555">.</span>new(<span style="color: #CC3300">&quot;Hello World!&quot;</span>)
 <span style="color: #336666">puts</span> markdown<span style="color: #555555">.</span>to_html
 </pre></div>
 
 
-<p>Or using  <code>```bash</code> gets&nbsp;you:</p>
+<p>Or using  <code>```bash</code> gets you:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># this is a comment line</span>
 mkdir /mnt/backup
 chmod a+rwx /mnt/backup
@@ -202,8 +202,8 @@ chmod o-w /mnt/backup
 
 
 <p>If you choose to uses <code>~~~~</code> as it means to identify a code block,
-you&#8217;ll need to use a slightly different format.
-For example, to syntax highlight C++ code, start the block with <code>~~~~.cpp</code> to&nbsp;get:</p>
+you'll need to use a slightly different format.
+For example, to syntax highlight C++ code, start the block with <code>~~~~.cpp</code> to get:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">// Hello.cc</span>
 <span style="color: #0099FF; font-style: italic">//   how to compile: either  </span>
 <span style="color: #0099FF; font-style: italic">//     make Hello</span>
@@ -228,24 +228,30 @@ For example, to syntax highlight C++ code, start the block with <code>~~~~.cpp</
 <p>When you use the <code>~~~~</code> Fenced Blocks, you can also emphasized certain lines of code.
 You can do this by telling Markdown what lines to highlight in the first fence.
 In the example below, lines 4 and 9 are emphasized (e.g. <code>~~~~{.python hl_lines="4 9"}</code>).</p>
-<p>~~~~{.python hl_lines=&#8221;4&nbsp;9&#8221;}</p>
-<h1>!/usr/bin/python</h1>
-<h1>Dictionaries map keys to&nbsp;values.</h1>
-<p>fred = { &#8216;mike&#8217;: 456, &#8216;bill&#8217;: 399, &#8216;sarah&#8217;: 521&nbsp;}</p>
-<h1>Subscripts.</h1>
-<p>try:
-    print fred
-    print fred[&#8216;bill&#8217;]
-    print fred[&#8216;nora&#8217;]
-    print &#8220;Won&#8217;t see this!&#8221;
-except KeyError, rest:
-    print &#8220;Lookup failed:&#8221;, rest&nbsp;print</p>
-<h1>Entries can be added, udated, or&nbsp;deleted.</h1>
-<p>fred[&#8216;bill&#8217;] = &#8216;Sopwith Camel&#8217;
-fred[&#8216;wilma&#8217;] = 2233
-del fred[&#8216;mike&#8217;]
-print fred&nbsp;~~~~</p>
-<p>Python&#8217;s Markdown also has the <a href="http://pythonhosted.org//Markdown/extensions/code_hilite.html">CodeHilite</a> extension which adds code/syntax
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/usr/bin/python</span>
+
+<span style="color: #0099FF; font-style: italic"># Dictionaries map keys to values.</span>
+<span style="background-color: #ffffcc">fred <span style="color: #555555">=</span> { <span style="color: #CC3300">&#39;mike&#39;</span>: <span style="color: #FF6600">456</span>, <span style="color: #CC3300">&#39;bill&#39;</span>: <span style="color: #FF6600">399</span>, <span style="color: #CC3300">&#39;sarah&#39;</span>: <span style="color: #FF6600">521</span> }
+</span>
+<span style="color: #0099FF; font-style: italic"># Subscripts.</span>
+<span style="color: #006699; font-weight: bold">try</span>:
+    <span style="color: #006699; font-weight: bold">print</span> fred
+<span style="background-color: #ffffcc">    <span style="color: #006699; font-weight: bold">print</span> fred[<span style="color: #CC3300">&#39;bill&#39;</span>]
+</span>    <span style="color: #006699; font-weight: bold">print</span> fred[<span style="color: #CC3300">&#39;nora&#39;</span>]
+    <span style="color: #006699; font-weight: bold">print</span> <span style="color: #CC3300">&quot;Won&#39;t see this!&quot;</span>
+<span style="color: #006699; font-weight: bold">except</span> <span style="color: #CC0000; font-weight: bold">KeyError</span>, rest:
+    <span style="color: #006699; font-weight: bold">print</span> <span style="color: #CC3300">&quot;Lookup failed:&quot;</span>, rest
+<span style="color: #006699; font-weight: bold">print</span>
+
+<span style="color: #0099FF; font-style: italic"># Entries can be added, udated, or deleted.</span>
+fred[<span style="color: #CC3300">&#39;bill&#39;</span>] <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;Sopwith Camel&#39;</span>
+fred[<span style="color: #CC3300">&#39;wilma&#39;</span>] <span style="color: #555555">=</span> <span style="color: #FF6600">2233</span>
+<span style="color: #006699; font-weight: bold">del</span> fred[<span style="color: #CC3300">&#39;mike&#39;</span>]
+<span style="color: #006699; font-weight: bold">print</span> fred
+</pre></div>
+
+
+<p>Python's Markdown also has the <a href="http://pythonhosted.org//Markdown/extensions/code_hilite.html">CodeHilite</a> extension which adds code/syntax
 highlighting to code blocks using <a href="http://pygments.org/">Pygments</a>.
 In this case, the text must all be tabbed in 4 spaces, including the fenced block, which is <code>:::</code>.
 For the example below, indent the text but begin with <code>:::java hl_lines="9 10 11 12 13"</code>.</p>
@@ -257,12 +263,12 @@ For the example below, indent the text but begin with <code>:::java hl_lines="9 
 
 <span style="color: #006699; font-weight: bold">public</span> <span style="color: #006699; font-weight: bold">class</span> <span style="color: #00AA88; font-weight: bold">CallingMethodsInSameClass</span>
 <span style="color: #555555">{</span>
-    <span style="color: #006699; font-weight: bold">public</span> <span style="color: #006699; font-weight: bold">static</span> <span style="color: #007788; font-weight: bold">void</span> <span style="color: #CC00FF">main</span><span style="color: #555555">(</span>String<span style="color: #555555">[]</span> args<span style="color: #555555">)</span> <span style="color: #555555">{</span>
-        printOne<span style="color: #555555">();</span>
-        printOne<span style="color: #555555">();</span>
-        printTwo<span style="color: #555555">();</span>
-    <span style="color: #555555">}</span>
-
+<span style="background-color: #ffffcc">    <span style="color: #006699; font-weight: bold">public</span> <span style="color: #006699; font-weight: bold">static</span> <span style="color: #007788; font-weight: bold">void</span> <span style="color: #CC00FF">main</span><span style="color: #555555">(</span>String<span style="color: #555555">[]</span> args<span style="color: #555555">)</span> <span style="color: #555555">{</span>
+</span><span style="background-color: #ffffcc">        printOne<span style="color: #555555">();</span>
+</span><span style="background-color: #ffffcc">        printOne<span style="color: #555555">();</span>
+</span><span style="background-color: #ffffcc">        printTwo<span style="color: #555555">();</span>
+</span><span style="background-color: #ffffcc">    <span style="color: #555555">}</span>
+</span>
     <span style="color: #006699; font-weight: bold">public</span> <span style="color: #006699; font-weight: bold">static</span> <span style="color: #007788; font-weight: bold">void</span> <span style="color: #CC00FF">printOne</span><span style="color: #555555">()</span> <span style="color: #555555">{</span>
         System<span style="color: #555555">.</span><span style="color: #330099">out</span><span style="color: #555555">.</span><span style="color: #330099">println</span><span style="color: #555555">(</span><span style="color: #CC3300">&quot;Hello World&quot;</span><span style="color: #555555">);</span>
     <span style="color: #555555">}</span>
@@ -275,23 +281,53 @@ For the example below, indent the text but begin with <code>:::java hl_lines="9 
 </pre></div>
 
 
-<h2>Using Gist For Code&nbsp;Blocks</h2>
-<p>The posting &#8220;<a href="http://www.restlessprogrammer.com/2013/02/adding-code-snippets-to-your-blog.html">Adding code snippets to your blog</a>&#8221;
+<h2>Using Gist For Code Blocks</h2>
+<p>The posting "<a href="http://www.restlessprogrammer.com/2013/02/adding-code-snippets-to-your-blog.html">Adding code snippets to your blog</a>"
 show you how to use <a href="https://gist.github.com/">GitHug Gist</a> to add code listings to your blog.
 The example below is a code snippits from <a href="https://gist.github.com/jeffskinnerbox/6663095">here</a>.</p>
-<!&#8212; &#8212;&#8212;&#8212;&#8212; Start: Gist Code Snippit &#8212;&#8212;&#8212;&#8212;- &#8212;>
+<!-- -------- Start: Gist Code Snippit --------- -->
 
 <p><style="padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); font-size: 12px; line-height: 14px; width: 90%;">
     <script src="https://gist.github.com/jeffskinnerbox/6663095.js"></script>
 </style>
-<!&#8212; &#8212;&#8212;&#8212;&#8212;- End: Gist Code Snippit &#8212;&#8212;&#8212;&#8212;&#8212; &#8212;> </p>
-<p>The file content to create this is as&nbsp;follows:</p>
+<!-- --------- End: Gist Code Snippit ---------- --> </p>
+<p>The file content to create this is as follows:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">&lt;!-- -------- Start: Gist Code Snippit --------- --&gt; 
 &lt;style=&quot;padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); font-size: 12px; line-height: 14px; width: 90%;&quot;&gt;
     &lt;script src=&quot;https://gist.github.com/jeffskinnerbox/6663095.js&quot;&gt;&lt;/script&gt;
 &lt;/style&gt;
 &lt;!-- --------- End: Gist Code Snippit ---------- --&gt; 
-</pre></div>
+</pre></div><script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+		? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js'
+		: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+
         </div>
     </section>
         </div>
@@ -312,7 +348,7 @@ The example below is a code snippits from <a href="https://gist.github.com/jeffs
             </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-            </li>    
+            </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
@@ -327,7 +363,7 @@ The example below is a code snippits from <a href="https://gist.github.com/jeffs
             </a>
         </li>
         <li class="list-group-item">
-            <a href="/posts/2014/Dec/21/cheatsheet-vim-commands/index.html" target="_blank">
+            <a href="/tag/cheat-sheet/index.html" target="_blank">
                 Cheat Sheets
             </a>
         </li>
@@ -390,6 +426,12 @@ The example below is a code snippits from <a href="https://gist.github.com/jeffs
         </a></li>
         <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
             <i class="fa fa-linkedin"></i> Linkedin
+        </a></li>
+        <li class="list-group-item"><a href="http://www.commandlinefu.com/commands/by/jeffskinnerbox" target="_blank">
+            <i class="fa fa-terminal"></i> CommandLineFu
+        </a></li>
+        <li class="list-group-item"><a href="https://disqus.com/by/jeffskinnerbox/" target="_blank">
+            <i class="fa fa-comment"></i> DISQUS
         </a></li>
     </ul>
 </li> 

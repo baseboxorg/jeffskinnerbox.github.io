@@ -97,34 +97,34 @@ Jeff's Skinner Box&nbsp;            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>In the projects I envision for the future, I&#8217;ll be using my Raspberry Pi (RPi) as a gateway/server/controller for several other devices.  There is likely to be a need to generate status reports/messages and mail them out. It could be as simple as a notification that the deck lights have been turned-on. I don&#8217;t need a full fledged mail client on the RPi to receive mail or manage a mailbox, just a command line utility to send email.  Also, I would like to send short text messages via (<a href="http://en.wikipedia.org/wiki/Short_Message_Service"><span class="caps">SMS</span></a>) to my cell phone.  Linux does have a nice solution for&nbsp;this.</p>
-<p>You do need an established email account with some email provider. I want to keep my personal email and my RPi&#8217;s email separate  so I setup a special email account on gmail.  This will be used only by my Raspberry Pi&#8217;s (or other intelligent devices). There <a href="http://www.e-eeasy.com/SMTPServerList.aspx">exist</a> some <a href="http://searchnetworking.techtarget.com/definition/open-relay">open <span class="caps">SMTP</span> relay</a> mail servers (mail servers that will not require a login nor a password) but many open mail relays have become unpopular and closed due to their exploitation by spammers and worms.
+                <p>In the projects I envision for the future, I'll be using my Raspberry Pi (RPi) as a gateway/server/controller for several other devices.  There is likely to be a need to generate status reports/messages and mail them out. It could be as simple as a notification that the deck lights have been turned-on. I don't need a full fledged mail client on the RPi to receive mail or manage a mailbox, just a command line utility to send email.  Also, I would like to send short text messages via (<a href="http://en.wikipedia.org/wiki/Short_Message_Service">SMS</a>) to my cell phone.  Linux does have a nice solution for this.</p>
+<p>You do need an established email account with some email provider. I want to keep my personal email and my RPi's email separate  so I setup a special email account on gmail.  This will be used only by my Raspberry Pi's (or other intelligent devices). There <a href="http://www.e-eeasy.com/SMTPServerList.aspx">exist</a> some <a href="http://searchnetworking.techtarget.com/definition/open-relay">open SMTP relay</a> mail servers (mail servers that will not require a login nor a password) but many open mail relays have become unpopular and closed due to their exploitation by spammers and worms.
 <h2>SendEmail</h2>
-<a href="http://www.debianadmin.com/how-to-sendemail-from-the-command-line-using-a-gmail-account-and-others.html#more-706">SendEmail</a> is a lightweight, completely command line based, <a href="http://computer.howstuffworks.com/e-mail-messaging/email3.htm"><span class="caps">SMTP</span> email agent</a>. It is written in Perl and designed to be used on the command line, in bash scripts, Perl programs, within web sites,&nbsp;etc.</p>
-<p>I installed SendEmail on my RPi via this&nbsp;command:</p>
+<a href="http://www.debianadmin.com/how-to-sendemail-from-the-command-line-using-a-gmail-account-and-others.html#more-706">SendEmail</a> is a lightweight, completely command line based, <a href="http://computer.howstuffworks.com/e-mail-messaging/email3.htm">SMTP email agent</a>. It is written in Perl and designed to be used on the command line, in bash scripts, Perl programs, within web sites, etc.</p>
+<p>I installed SendEmail on my RPi via this command:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install sendemail
 </pre></div>
 
 
-<h2>Testing&nbsp;sendEmail</h2>
+<h2>Testing sendEmail</h2>
 
 <p>When I ran sendEmail the first time, it complained about some missing libraries.  I installed the missing libraries and this cleared the error.  Clearly, the sendEmail package needs some work since this dependency should have been taken care of by <code>apt-get</code>.</p>
-<p>I ran it again using this&nbsp;command:</p>
+<p>I ran it again using this command:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sendEmail -f pi@RedRPi -t &lt;my_user_name&gt;@verzion.net -u &quot;Test Email from RedRPi&quot; -m &quot;My test message.&quot; -s smtp.gmail.com:587  -o tls=yes -xu &lt;my_user_name&gt; -xp &lt;my_password&gt;
 </pre></div>
 
 
-<p>With this, sendEmail threw an error&nbsp;message:</p>
+<p>With this, sendEmail threw an error message:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">invalid SSL_version specified at /usr/share/perl5/IO/Socket/SSL.pm line 332
 </pre></div>
 
 
-<p>I did a web search and found that this is a reported bug within sendEmail (bummer), but I also found a simple <a href="http://unix.stackexchange.com/questions/53065/invalid-ssl-version-specified-at-usr-share-perl5-io-socket-ssl-pm-line-332">patch</a> for the problem (lucky break).  I applied the fix, executed the command again, and succeeded in sending the&nbsp;email.</p>
-<p>One of the key parameter used here is the <a href="http://en.wikipedia.org/wiki/SMTP"><span class="caps">SMTP</span></a> <a href="http://www.xeams.com/smtprelay.htm">mail relay</a> specified in  &#8221;<code>-s smtp.gmail.com:587</code><span class="dquo">&#8220;</span>.  In this case, Gmail uses port 587 for relay email.  The default port to use is 25 but not all email servers use this&nbsp;port.</p>
-<p>Another key parameter is &#8220;<code>-o tls=yes</code><span class="dquo">&#8220;</span>. This specifies that the <a href="http://en.wikipedia.org/wiki/Transport_Layer_Security">Transport Layer Security (<span class="caps">TLS</span>)</a> protocol will be used to provide communication security over the Internet.  This is important since your including a plain-text password in the command.<sup id="cite_ref-1"></sup>
-<h2><span class="caps">SMS</span>&nbsp;Messaging</h2>
-Another messaging mechanism that I plan to use is Short Message Service (<span class="caps">SMS</span>).  To do this, you can use a <a href="http://en.wikipedia.org/wiki/SMS_gateway"><span class="caps">SMS</span> gateway</a> which will transform an email into an <span class="caps">SMS</span> message.  The down side is that there isn&#8217;t a single gateway but <a href="http://en.wikipedia.org/wiki/List_of_SMS_gateways">one for each of the cellular carries</a>.</p>
-<p>Here is an example for <span class="caps">AT</span>&amp;T cell&nbsp;phones:</p>
+<p>I did a web search and found that this is a reported bug within sendEmail (bummer), but I also found a simple <a href="http://unix.stackexchange.com/questions/53065/invalid-ssl-version-specified-at-usr-share-perl5-io-socket-ssl-pm-line-332">patch</a> for the problem (lucky break).  I applied the fix, executed the command again, and succeeded in sending the email.</p>
+<p>One of the key parameter used here is the <a href="http://en.wikipedia.org/wiki/SMTP">SMTP</a> <a href="http://www.xeams.com/smtprelay.htm">mail relay</a> specified in  "<code>-s smtp.gmail.com:587</code>".  In this case, Gmail uses port 587 for relay email.  The default port to use is 25 but not all email servers use this port.</p>
+<p>Another key parameter is "<code>-o tls=yes</code>". This specifies that the <a href="http://en.wikipedia.org/wiki/Transport_Layer_Security">Transport Layer Security (TLS)</a> protocol will be used to provide communication security over the Internet.  This is important since your including a plain-text password in the command.<sup id="cite_ref-1"></sup>
+<h2>SMS Messaging</h2>
+Another messaging mechanism that I plan to use is Short Message Service (SMS).  To do this, you can use a <a href="http://en.wikipedia.org/wiki/SMS_gateway">SMS gateway</a> which will transform an email into an SMS message.  The down side is that there isn't a single gateway but <a href="http://en.wikipedia.org/wiki/List_of_SMS_gateways">one for each of the cellular carries</a>.</p>
+<p>Here is an example for AT&amp;T cell phones:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sendEmail -f pi@RedRPi -t &lt;cell_phone_number&gt;@txt.att.net -u &quot;Test Email from RedRPi&quot; -m &quot;My test message.&quot; -s smtp.gmail.com:587  -o tls=yes -xu &lt;my_user_name&gt; -xp &lt;my_password&gt;
 </pre></div>
             </div>
@@ -177,7 +177,7 @@ Another messaging mechanism that I plan to use is Short Message Service (<span c
             </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-            </li>    
+            </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
@@ -192,7 +192,7 @@ Another messaging mechanism that I plan to use is Short Message Service (<span c
             </a>
         </li>
         <li class="list-group-item">
-            <a href="/posts/2014/Dec/21/cheatsheet-vim-commands/index.html" target="_blank">
+            <a href="/tag/cheat-sheet/index.html" target="_blank">
                 Cheat Sheets
             </a>
         </li>
@@ -255,6 +255,12 @@ Another messaging mechanism that I plan to use is Short Message Service (<span c
         </a></li>
         <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
             <i class="fa fa-linkedin"></i> Linkedin
+        </a></li>
+        <li class="list-group-item"><a href="http://www.commandlinefu.com/commands/by/jeffskinnerbox" target="_blank">
+            <i class="fa fa-terminal"></i> CommandLineFu
+        </a></li>
+        <li class="list-group-item"><a href="https://disqus.com/by/jeffskinnerbox/" target="_blank">
+            <i class="fa fa-comment"></i> DISQUS
         </a></li>
     </ul>
 </li> 

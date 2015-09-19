@@ -109,43 +109,43 @@ Jeff's Skinner Box&nbsp;            </a>
 some of it related to this blog but not all related.
 I need a place to adequately organize and store it.
 Creating a page or post on the blog will be over kill.
-May of the topic are interrelated and should be searchable and&nbsp;cross-linked.</p>
+May of the topic are interrelated and should be searchable and cross-linked.</p>
 <p>What I need is a <a href="http://en.wikipedia.org/wiki/Microblogging">microblog</a> or a <a href="http://en.wikipedia.org/wiki/Personal_wiki">personal wiki</a>.
 There seems to be many of them but I have found <a href="http://tiddlywiki.com/">TiddlyWiki</a>
 offering the most inviting solution.
 I particularly like the fact that you can use it with just a browser
-(must be at least somewhat <a href="http://html5test.com/"><span class="caps">HTML5</span> complatable</a>, like <a href="https://www.google.com/intl/en/chrome/browser/#brand=CHMB&amp;utm_campaign=en&amp;utm_source=en-ha-na-us-sk&amp;utm_medium=ha">Chrome</a>).
-All you need is a browser and you maintain the wiki via a locally stored <span class="caps">HTML</span> file.
+(must be at least somewhat <a href="http://html5test.com/">HTML5 complatable</a>, like <a href="https://www.google.com/intl/en/chrome/browser/#brand=CHMB&amp;utm_campaign=en&amp;utm_source=en-ha-na-us-sk&amp;utm_medium=ha">Chrome</a>).
+All you need is a browser and you maintain the wiki via a locally stored HTML file.
 The file is loaded with <a href="http://www.w3schools.com/js/">JavaScript</a> to support the editing of the wiki.
-TiddlyWiki&#8217;s fundamental units of information is the &#8220;<a href="http://tiddlywiki.com/#Tiddlers">tiddler</a>&#8220;,
-which is to capture a small, self contain thought, idea, or&nbsp;concept.</p>
+TiddlyWiki's fundamental units of information is the "<a href="http://tiddlywiki.com/#Tiddlers">tiddler</a>",
+which is to capture a small, self contain thought, idea, or concept.</p>
 <p>The really strong features for me are that
 TiddlyWiki is amazingly easy to use, portable across multiple operating systems,
 and highly configurable.
 What pushed me over the top are the facts that I could also use,
 via <a href="http://tiddlywiki.com/#Plugins">TiddlyWiki Plugins</a>,
 Markdown to format the content
-(althought TiddlyWiki supports it own  Markdown-like formating language which is more powerful) 
+(althought TiddlyWiki supports it own  Markdown-like formating language which is more powerful)
 and I can edit using Vim via CodeMirror.
-The post &#8220;<a href="http://blog.htmlfusion.com/tiddlywiki-evernote-with-vim-and-markdown/">TiddlyWiki, an open source Evernote with <span class="caps">VIM</span> and Markdown</a>&#8221;
-gives a good, quick discussion on this&nbsp;topic.</p>
-<p>My initial thought was just to add the wiki&#8217;s <span class="caps">HTML</span> file to my blog
+The post "<a href="http://blog.htmlfusion.com/tiddlywiki-evernote-with-vim-and-markdown/">TiddlyWiki, an open source Evernote with VIM and Markdown</a>"
+gives a good, quick discussion on this topic.</p>
+<p>My initial thought was just to add the wiki's HTML file to my blog
 as a page addressable from the header menu.
-This approach would make the wiki editable by anyone, something I didn&#8217;t want.
-TiddlyWiki does support the rendering of a static <span class="caps">HTML</span> file, which is what I want,
-but this solution make for a cold and lifeless wiki with no interactivity and searching&nbsp;capabilities.</p>
+This approach would make the wiki editable by anyone, something I didn't want.
+TiddlyWiki does support the rendering of a static HTML file, which is what I want,
+but this solution make for a cold and lifeless wiki with no interactivity and searching capabilities.</p>
 <p>TiddlyWiki does support an alternative where the pages
 are delivered via a server using <a href="http://nodejs.org/">Node.js</a><sup id="fnref:A"><a class="footnote-ref" href="#fn:A" rel="footnote">1</a></sup>.
 This provides the interactivity I want, and I can password protect its editing.
 In addition, individual tiddlers are stored in separate files,
-instead of a single <span class="caps">HTML</span> file, so you can organise them as you wish across multiple wiki.
+instead of a single HTML file, so you can organise them as you wish across multiple wiki.
 Also, it gives me an excuse to [learn more about Node.js]<sup id="fnref:B"><a class="footnote-ref" href="#fn:B" rel="footnote">2</a></sup>!</p>
 <h2>Installation</h2>
 <p>Install Node.js via <code>apt-get</code>.
 Because of a conflict with another package (amateur radio node package,
-the executable from the Ubuntu repositories is called <code>nodejs</code> instead of <code>node</code>. 
-Node.js package manager and other programs will want to call it &#8220;node&#8221;,
-so you&#8217;ll need to set up a symbolic link between <code>nodejs</code> and <code>node</code>.</p>
+the executable from the Ubuntu repositories is called <code>nodejs</code> instead of <code>node</code>.
+Node.js package manager and other programs will want to call it "node",
+so you'll need to set up a symbolic link between <code>nodejs</code> and <code>node</code>.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># install the Node.js engine and its package manager</span>
 sudo apt-get install nodejs npm
 
@@ -163,38 +163,38 @@ tiddlywiki --version
 </pre></div>
 
 
-<p>When a new version of TiddlyWiki is released, you can easily upgrade it with this&nbsp;command:</p>
+<p>When a new version of TiddlyWiki is released, you can easily upgrade it with this command:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># upgrade TiddlyWiki</span>
 sudo npm update -g tiddlywiki
 </pre></div>
 
 
-<h2>Creating a&nbsp;Wiki</h2>
-<p>At this point, you should be ready to create a test&nbsp;wiki.</p>
+<h2>Creating a Wiki</h2>
+<p>At this point, you should be ready to create a test wiki.</p>
 <ul>
-<li>change directory to where you want the wiki to be&nbsp;stored</li>
-<li><code>tiddlywiki mynewwiki --init server</code> will create a folder called <code>mynewwiki</code> for a new wiki that includes server-related&nbsp;components</li>
-<li><code>tiddlywiki mynewwiki --server</code> to start TiddlyWiki&nbsp;server</li>
+<li>change directory to where you want the wiki to be stored</li>
+<li><code>tiddlywiki mynewwiki --init server</code> will create a folder called <code>mynewwiki</code> for a new wiki that includes server-related components</li>
+<li><code>tiddlywiki mynewwiki --server</code> to start TiddlyWiki server</li>
 <li>With your browser, visit <code>http://127.0.0.1:8080/</code></li>
 <li>Try editing and creating tiddlers.  The Tiddles will be maintained in individual files in the <code>tiddlers</code> directory.</li>
 </ul>
-<p>Check the <a href="http://tiddlywiki.com/">TiddlyWiki website documentation</a> to find out more about the capabilities of&nbsp;TiddlyWiki.</p>
-<h2>Configuring&nbsp;TiddlyWiki</h2>
+<p>Check the <a href="http://tiddlywiki.com/">TiddlyWiki website documentation</a> to find out more about the capabilities of TiddlyWiki.</p>
+<h2>Configuring TiddlyWiki</h2>
 <ul>
 <li><strong>Setting a Favicon</strong> - Following the instructions outline in the <a href="http://tiddlywiki.com/#Setting%20a%20favicon">TiddlyWiki tiddler</a>,
 create a tiddler called <code>$:/favicon.ico</code> provide your <a href="http://en.wikipedia.org/wiki/Favicon">favicon</a>.
 (First you <a href="http://tiddlywiki.com/#ImportTiddlers">import the image</a> to create a tiddler and then rename that tiddler to <code>$:/favicon.ico</code>.)</li>
-<li><strong>Install Markdown Plugin</strong> - Follow the instructions given by TiddlyWiki plugin&#8217;s documentation to
+<li><strong>Install Markdown Plugin</strong> - Follow the instructions given by TiddlyWiki plugin's documentation to
 <a href="http://tiddlywiki.com/plugins/tiddlywiki/markdown/">install the Markdown plugin</a>.
 The key to getting TiddlyWiki to format Markdown text is to select <code>text/vnd.tiddlywiki</code>
-in the text type menu at the bottom of the tiddler when editing&nbsp;it.</li>
+in the text type menu at the bottom of the tiddler when editing it.</li>
 <li><a href="http://tiddlywiki.com/plugins/tiddlywiki/codemirror/">CodeMirror</a></li>
 </ul>
-<h2>Creation of Wiki for&nbsp;Blog</h2>
-<p>Create the wiki&nbsp;via</p>
+<h2>Creation of Wiki for Blog</h2>
+<p>Create the wiki via</p>
 <ul>
 <li>change directories into blogging and execute <code>tiddlywiki wiki --init server</code>.</li>
-<li>Modify <code>pelicanconf.py</code> to&nbsp;include</li>
+<li>Modify <code>pelicanconf.py</code> to include</li>
 </ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># A list of tuples (Title, URL) for additional menu items to appear</span>
 <span style="color: #0099FF; font-style: italic"># at the beginning of the main menu.</span>
@@ -205,39 +205,37 @@ MENUITEMS <span style="color: #555555">=</span> ((<span style="color: #CC3300">&
 
 
 <ul>
-<li><code>tiddlywiki wiki --server</code> to start TiddlyWiki&nbsp;server</li>
+<li><code>tiddlywiki wiki --server</code> to start TiddlyWiki server</li>
 </ul>
-<h2>Hosting&nbsp;TiddlyWiki</h2>
+<h2>Hosting TiddlyWiki</h2>
 <p>TiddlyWiki recommends some methods for
 <a href="http://tiddlywiki.com/#TiddlyWiki%20in%20the%20Sky%20for%20TiddlyWeb">hosting your TiddlyWiki on the web</a>.</p>
-<p>GitHub Pages host only static <span class="caps">HTML</span> pages.
+<p>GitHub Pages host only static HTML pages.
 No server side technology is supported.
-So node.js applications won&#8217;t run on GitHub Pages.
-Never the less, I wanted the easy deployment strategy I get with GitHub&nbsp;Pages.</p>
-<h3>Hosting TiddlyWiki on&nbsp;Heroku</h3>
+So node.js applications won't run on GitHub Pages.
+Never the less, I wanted the easy deployment strategy I get with GitHub Pages.</p>
+<h3>Hosting TiddlyWiki on Heroku</h3>
 <p>After establishing a free Heroku account,
-you are taken to &#8220;<a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction">Getting Started with Node.js on Heroku</a>&#8220;.
+you are taken to "<a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction">Getting Started with Node.js on Heroku</a>".
 This provides an excellent tutorial on how to get a demo Node.js app running.
-&#8220;<a href="https://devcenter.heroku.com/articles/deploying-nodejs">Deploying Node.js Apps on Heroku</a>&#8221; does the same for an existing application.
-The real secrete in getting it to work was found in the post &#8220;<a href="https://groups.google.com/forum/#!topic/tiddlywiki/XDFW_tcSbf0">Installing TiddlyWiki5 on Heroku</a>&#8220;.
-Learning from these documents, the installation steps I formulated are the&nbsp;following:</p>
+"<a href="https://devcenter.heroku.com/articles/deploying-nodejs">Deploying Node.js Apps on Heroku</a>" does the same for an existing application.
+The real secrete in getting it to work was found in the post "<a href="https://groups.google.com/forum/#!topic/tiddlywiki/XDFW_tcSbf0">Installing TiddlyWiki5 on Heroku</a>".
+Learning from these documents, the installation steps I formulated are the following:</p>
 <ul>
 <li>
 <p>The first step is for you to install the <a href="https://toolbelt.heroku.com/">Heroku Toolbelt</a>.
 This provides you access to the Heroku Command Line utility,
-as well as Git and Foreman, tools you’ll use in later steps.
-(No need to install these tools within blogs Python&#8217;s <a href="http://www.virtualenv.org/en/latest/"><code>virtualenv</code></a>.
-In fact, the will automatically be install within
-<code>~/.heroku</code>, <code>/usr/local/heroku</code>, and <code>/usr/bin/heroku</code>.)</p>
+as well as Git and Foreman, tools you’ll use in later steps
+(files are installed in <code>~/.heroku</code>, <code>/usr/local/heroku</code>, and <code>/usr/bin/heroku</code>.)</p>
 </li>
 <li>
-<p>Establish your Heroku Toolbelt&nbsp;account:</p>
+<p>Establish your Heroku Toolbelt account:</p>
 </li>
 </ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #003333">$ </span>heroku login
 Enter your Heroku credentials.
 Email: jeffskinnerbox@yahoo.com
-Password <span style="color: #555555">(</span>typing will be hidden<span style="color: #555555">)</span>: 
+Password <span style="color: #555555">(</span>typing will be hidden<span style="color: #555555">)</span>:
 Authentication successful.
 <span style="color: #AA0000; background-color: #FFAAAA">$</span>
 </pre></div>
@@ -247,7 +245,7 @@ Authentication successful.
 <li>Change directory to where you application resides
 and initialize things for use with Heroku.
 The command <code>npm init</code> will walk you through creating a <code>package.json</code> file.
-You can skip any of the prompts by leaving them&nbsp;blank.</li>
+You can skip any of the prompts by leaving them blank.</li>
 </ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># move to your Wiki directory</span>
 <span style="color: #336666">cd</span> ~/blog/wiki
@@ -267,9 +265,9 @@ Press ^C at any <span style="color: #336666">time </span>to quit.
 name: <span style="color: #555555">(</span>wiki<span style="color: #555555">)</span> jeffskinnerbox.wiki
 version: <span style="color: #555555">(</span>0.0.0<span style="color: #555555">)</span> 1.0.0
 description: Personal Wiki <span style="color: #006699; font-weight: bold">for </span>the website www.jeffskinnerbox.me
-entry point: <span style="color: #555555">(</span>index.js<span style="color: #555555">)</span> 
-<span style="color: #336666">test command</span>: 
-git repository: 
+entry point: <span style="color: #555555">(</span>index.js<span style="color: #555555">)</span>
+<span style="color: #336666">test command</span>:
+git repository:
 keywords: heroku tiddlywiki
 author: Jeff Irland
 license: <span style="color: #555555">(</span>BSD-2-Clause<span style="color: #555555">)</span> MIT
@@ -297,7 +295,7 @@ Is this ok? <span style="color: #555555">(</span>yes<span style="color: #555555"
 
 <ul>
 <li>To install dependencies, use <code>npm install &lt;pkg&gt; --save</code>.
-This will install the package and also add it as a dependency in the <code>package.json</code> file. </li>
+This will install the package and also add it as a dependency in the <code>package.json</code> file.</li>
 </ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># create the dependencies</span>
 <span style="color: #003333">$ </span>npm install tiddlywiki --save
@@ -308,7 +306,7 @@ npm http 304 https://registry.npmjs.org/tiddlywiki
 tiddlywiki@5.1.7 node_modules/tiddlywiki
 
 <span style="color: #0099FF; font-style: italic"># list the package.json file to see the results</span>
-<span style="color: #003333">$ </span>cat package.json 
+<span style="color: #003333">$ </span>cat package.json
 <span style="color: #555555">{</span>
   <span style="color: #CC3300">&quot;name&quot;</span>: <span style="color: #CC3300">&quot;jeffskinnerbox.wiki&quot;</span>,
   <span style="color: #CC3300">&quot;version&quot;</span>: <span style="color: #CC3300">&quot;1.0.0&quot;</span>,
@@ -337,7 +335,7 @@ Also
 define the <code>scripts.start</code> in your <code>package.json</code> file.
 (If you do so, you don’t need to manually create a <code>Procfile</code> because it will be created automatically.)
 Using the commandline <code>cat package.json | python -mjson.tool | pygmentize -l javascript</code>,
-below is the&nbsp;listing:</li>
+below is the listing:</li>
 </ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #AA0000; background-color: #FFAAAA">FINISH</span> <span style="color: #AA0000; background-color: #FFAAAA">FINISH</span> <span style="color: #AA0000; background-color: #FFAAAA">FINISH</span> <span style="color: #AA0000; background-color: #FFAAAA">FINISH</span>
 </pre></div>
@@ -347,8 +345,8 @@ below is the&nbsp;listing:</li>
 <li>So that the Wiki can run locally via <code>foreman start</code></li>
 <li>in the development enviment, create the <code>Procfile</code>:</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># Procfile contains the </span>
-<span style="color: #003333">$ </span>cat Procfile 
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># Procfile contains the</span>
+<span style="color: #003333">$ </span>cat Procfile
 FINISH FINISH FINISH FINISH
 </pre></div>
 
@@ -357,7 +355,7 @@ FINISH FINISH FINISH FINISH
 <li>Using the <code>npm install</code> command,
 you can install the dependencies that you declared in your <code>package.json</code> file.
 The use <code>foreman</code> to test it out locally using a
-browser with the <span class="caps">URL</span> <code>http://localhost:5000/</code>. </li>
+browser with the URL <code>http://localhost:5000/</code>.</li>
 </ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># build the app</span>
 <span style="color: #003333">$ </span>npm install
@@ -371,7 +369,7 @@ browser with the <span class="caps">URL</span> <code>http://localhost:5000/</cod
 
 
 <ul>
-<li>Create a .gitignore file that looks something like&nbsp;this</li>
+<li>Create a .gitignore file that looks something like this</li>
 </ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #003333">$ </span>cat .gitignore
 /node_modules
@@ -384,7 +382,7 @@ npm-debug.log
 <ul>
 <li>Establish the <code>git</code> repository that will be used by this Heroku application,
 then add you first commit to the repository,
-and make sure exclude any ignore any unnecessary&nbsp;files.</li>
+and make sure exclude any ignore any unnecessary files.</li>
 </ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># initialize the git repoistory</span>
 git init
@@ -397,13 +395,13 @@ git commit -m <span style="color: #CC3300">&quot;Initial commitment on December 
 
 <ul>
 <li>Login into Heroku and create the initial instance of the Heroku application.
-Also, pick a name for the application and apply&nbsp;it.</li>
+Also, pick a name for the application and apply it.</li>
 </ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># enter your Heroku credentials</span>
 <span style="color: #003333">$ </span>heroku login
 Enter your Heroku credentials.
 Email: jeffskinnerbox@yahoo.com
-Password <span style="color: #555555">(</span>typing will be hidden<span style="color: #555555">)</span>: 
+Password <span style="color: #555555">(</span>typing will be hidden<span style="color: #555555">)</span>:
 Authentication successful.
 
 <span style="color: #0099FF; font-style: italic"># create the initial instance of the Heroku application</span>
@@ -421,7 +419,7 @@ Git remote heroku updated
 
 
 <ul>
-<li>Now it&#8217;s time to deploy the application to Heroku.
+<li>Now it's time to deploy the application to Heroku.
 Deploy to Heroku follows the standard <code>git</code> pattern:</li>
 </ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># deploy to Heroku</span>
@@ -433,7 +431,7 @@ Writing objects: 100% <span style="color: #555555">(</span>169/169<span style="c
 Total 169 <span style="color: #555555">(</span>delta 1<span style="color: #555555">)</span>, reused 0 <span style="color: #555555">(</span>delta 0<span style="color: #555555">)</span>
 remote: Compressing <span style="color: #336666">source </span>files... <span style="color: #006699; font-weight: bold">done</span>.
 remote: Building <span style="color: #336666">source</span>:
-remote: 
+remote:
 remote: -----&gt; Node.js app detected
 remote: -----&gt; Resetting git environment
 remote: -----&gt; Requested node range:  0.10.x
@@ -447,11 +445,11 @@ remote: -----&gt; Cleaning up node-gyp and npm artifacts
 remote: -----&gt; Building runtime environment
 remote: -----&gt; Discovering process types
 remote:        Procfile declares types -&gt; web
-remote: 
+remote:
 remote: -----&gt; Compressing... <span style="color: #006699; font-weight: bold">done</span>, 39.8MB
 remote: -----&gt; Launching... <span style="color: #006699; font-weight: bold">done</span>, v3
 remote:        https://jeffskinnerbox-wiki.herokuapp.com/ deployed to Heroku
-remote: 
+remote:
 remote: Verifying deploy... <span style="color: #006699; font-weight: bold">done</span>.
 To https://git.heroku.com/jeffskinnerbox-wiki.git
  * <span style="color: #555555">[</span>new branch<span style="color: #555555">]</span>      master -&gt; master
@@ -459,7 +457,7 @@ To https://git.heroku.com/jeffskinnerbox-wiki.git
 
 
 <ul>
-<li>Now check to see if everything is&nbsp;working</li>
+<li>Now check to see if everything is working</li>
 </ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># check that everything is working (at https://jeffskinnerbox-wiki.herokuapp.com/)</span>
 heroku open
@@ -468,7 +466,7 @@ heroku open
 
 <ul>
 <li>Now that everything is established an initialized, the updating of the Heroku-based
-application follows a simple&nbsp;pattern:</li>
+application follows a simple pattern:</li>
 </ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># make your commit</span>
 git add .
@@ -482,59 +480,59 @@ git push heroku master
 </pre></div>
 
 
-<p>Unfortunately the only problem with running <span class="caps">TW5</span> on Heroku is that they use what they call an ephemeral filesystem. That is, any time the dyno spins down (usually from being idle) and then spins up, all file system changes will be gone and it will only have what&#8217;s in the git repo. -&nbsp;https://groups.google.com/forum/#!topic/tiddlywiki/XDFW_tcSbf0</p>
+<p>Unfortunately the only problem with running TW5 on Heroku is that they use what they call an ephemeral filesystem. That is, any time the dyno spins down (usually from being idle) and then spins up, all file system changes will be gone and it will only have what's in the git repo. - https://groups.google.com/forum/#!topic/tiddlywiki/XDFW_tcSbf0</p>
 <p>Having only a single web dyno running will result in the dyno going to sleep after one hour of inactivity. This causes a delay of a few seconds for the first request upon waking. Subsequent requests will perform normally. - https://devcenter.heroku.com/articles/getting-started-with-nodejs#scale-the-app
-Signup for a free <a href="https://www.pingdom.com/free/">Pingdom</a> account and have it ping your instance on Heroku. This should help keep your Heroku instance awake and watching the world for&nbsp;you.</p>
+Signup for a free <a href="https://www.pingdom.com/free/">Pingdom</a> account and have it ping your instance on Heroku. This should help keep your Heroku instance awake and watching the world for you.</p>
 <ul>
-<li><a href="https://coderwall.com/p/u0x3nw/avoid-heroku-idling-with-new-relic-pings">Avoid Heroku idling with New Relic&nbsp;pings</a></li>
+<li><a href="https://coderwall.com/p/u0x3nw/avoid-heroku-idling-with-new-relic-pings">Avoid Heroku idling with New Relic pings</a></li>
 </ul>
-<h3>Hosting TiddlyWiki on&nbsp;OpenShift</h3>
+<h3>Hosting TiddlyWiki on OpenShift</h3>
 <ul>
 <li><a href="https://www.openshift.com/">OpenShift</a>
 <strong> <a href="http://ericmiao.github.io/blog/2014/04/05/setup-personal-tiddlywiki-on-openshift/">Setup a personal TiddlyWiki on OpenShift</a>
-</strong> <a href="https://blog.openshift.com/10-reasons-openshift-is-the-best-place-to-host-your-nodejs-app/">10 Reasons OpenShift is the Best Place for Node.js&nbsp;Apps</a></li>
+</strong> <a href="https://blog.openshift.com/10-reasons-openshift-is-the-best-place-to-host-your-nodejs-app/">10 Reasons OpenShift is the Best Place for Node.js Apps</a></li>
 </ul>
 <h6></h6>
-<p>To get a list of the Heroku applications you are managing: heroku&nbsp;apps</p>
-<p>To delete an application: heroku apps:destroy &#8212;app <the-application></p>
+<p>To get a list of the Heroku applications you are managing: heroku apps</p>
+<p>To delete an application: heroku apps:destroy --app <the-application></p>
 <h6></h6>
 <ul>
-<li><a href="https://github.com/joyent/node/wiki/Node-Hosting">Hosting compatible with&nbsp;Node</a></li>
+<li><a href="https://github.com/joyent/node/wiki/Node-Hosting">Hosting compatible with Node</a></li>
 <li>
-<p><a href="http://ericmiao.github.io/blog/2014/04/05/setup-personal-tiddlywiki-on-openshift/">Setup a personal TiddlyWiki on&nbsp;OpenShift</a></p>
+<p><a href="http://ericmiao.github.io/blog/2014/04/05/setup-personal-tiddlywiki-on-openshift/">Setup a personal TiddlyWiki on OpenShift</a></p>
 </li>
 <li>
-<p><a href="http://embeddedfun.blogspot.com/2011/11/heroku-nodejs-mongolab.html">Heroku + Node.js +&nbsp;MongoLab</a></p>
+<p><a href="http://embeddedfun.blogspot.com/2011/11/heroku-nodejs-mongolab.html">Heroku + Node.js + MongoLab</a></p>
 </li>
-<li><a href="https://devcenter.heroku.com/start">Getting Started on&nbsp;Heroku</a></li>
-<li><a href="https://www.youtube.com/watch?v=VuydqVmRvrs">Introduction to Heroku -&nbsp;YouTube</a></li>
-<li><a href="https://www.youtube.com/watch?v=J9dWpxLdeko">What is Heroku? Explained through Analogy -&nbsp;YouTube</a></li>
+<li><a href="https://devcenter.heroku.com/start">Getting Started on Heroku</a></li>
+<li><a href="https://www.youtube.com/watch?v=VuydqVmRvrs">Introduction to Heroku - YouTube</a></li>
+<li><a href="https://www.youtube.com/watch?v=J9dWpxLdeko">What is Heroku? Explained through Analogy - YouTube</a></li>
 </ul>
-<h2>Learning&nbsp;TiddlyWiki</h2>
+<h2>Learning TiddlyWiki</h2>
 <ul>
-<li><a href="http://tiddlertoddler.tiddlyspot.com/">Tiddler Toddler: an absolute beginner&#8217;s guide to&nbsp;TiddlyWiki</a></li>
+<li><a href="http://tiddlertoddler.tiddlyspot.com/">Tiddler Toddler: an absolute beginner's guide to TiddlyWiki</a></li>
 </ul>
-<h2>Quickly Building a&nbsp;Prototype</h2>
-<p>This show you a simple way to get your project setup so that you can talk to it and control it via the interwebs. 
-<em> <a href="http://www.amazon.com/gp/product/B00HRME7NA/ref=kinw_myk_ro_title">Anatomy of a web application using node.js, ExpressJS, MongoDB <span class="amp">&amp;</span> Backbone.js</a>
-</em> <a href="http://blog.microcasts.tv/2014/04/14/pi_express_bootstrap_angular/">µCast #16: Pi + Express + Bootstrap + Angular <span class="caps">FTW</span>!</a>
-* <a href="http://blog.microcasts.tv/2014/06/21/using-socket-io-to-control-the-raspberry-pi-remotely/">µCast #17: Control Hardware Remotely With Socket.<span class="caps">IO</span></a></p>
+<h2>Quickly Building a Prototype</h2>
+<p>This show you a simple way to get your project setup so that you can talk to it and control it via the interwebs.
+<em> <a href="http://www.amazon.com/gp/product/B00HRME7NA/ref=kinw_myk_ro_title">Anatomy of a web application using node.js, ExpressJS, MongoDB &amp; Backbone.js</a>
+</em> <a href="http://blog.microcasts.tv/2014/04/14/pi_express_bootstrap_angular/">µCast #16: Pi + Express + Bootstrap + Angular FTW!</a>
+* <a href="http://blog.microcasts.tv/2014/06/21/using-socket-io-to-control-the-raspberry-pi-remotely/">µCast #17: Control Hardware Remotely With Socket.IO</a></p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:A">
-<p><a href="http://readwrite.com/2013/11/07/what-you-need-to-know-about-nodejs#feed=%2Fhack&amp;awesm=~oD2cgDlOnKEfSp">Node.js is a platform</a> built on Chrome&#8217;s JavaScript runtime for event-driven, non-blocking I/O model.
+<p><a href="http://readwrite.com/2013/11/07/what-you-need-to-know-about-nodejs#feed=%2Fhack&amp;awesm=~oD2cgDlOnKEfSp">Node.js is a platform</a> built on Chrome's JavaScript runtime for event-driven, non-blocking I/O model.
 Unlike JavaScript applications running in a web browser,
 Node.js runs JavaScript by leveraging <a href="http://en.wikipedia.org/wiki/V8_(JavaScript_engine)">V8</a>,
 Google’s fast JavaScript engine designed for Chrome.
 This allows Node.js to create a runtime environment that pushes JavaScript
 from the server to the client quickly.
 V8 translates JavaScript into native machine language,
-instead of working overtime to interpret it as bytecode, giving Node.js its speed. 
+instead of working overtime to interpret it as bytecode, giving Node.js its speed.
 This speed, combined with asynchronous programming,
 are the twin powerhouses that make Node.js so responsive.
 The web posts <a href="http://www.nearform.com/nodecrunch/node-js-becoming-go-technology-enterprise/">Way Node.js is Becoming the Go-To Technology in the Enterprise</a>,
-<a href="http://www.makeuseof.com/tag/what-is-node-js-and-why-should-i-care-web-development/">What is Node.<span class="caps">JS</span> and Why Should I Care?</a>, and
+<a href="http://www.makeuseof.com/tag/what-is-node-js-and-why-should-i-care-web-development/">What is Node.JS and Why Should I Care?</a>, and
 <a href="http://www.toptal.com/nodejs/why-the-hell-would-i-use-node-js">Why The Hell Would I Use Node.js? A Case-by-Case Tutorial</a>
 provides some good insights and motivation for the use of Node.js.&#160;<a class="footnote-backref" href="#fnref:A" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
@@ -547,11 +545,41 @@ where both the client and server can initiate communication,
 allowing them to exchange data freely.
 This is in stark contrast to the typical web response paradigm,
 where the client always initiates communication.
-Additionally, it’s all based on the open web stack (<span class="caps">HTML</span>, <span class="caps">CSS</span> and <span class="caps">JS</span>)
+Additionally, it’s all based on the open web stack (HTML, CSS and JS)
 running over the standard port 80.&#160;<a class="footnote-backref" href="#fnref:B" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
-</div>
+</div><script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+		? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js'
+		: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+
             </div>
             <!-- /.entry-content -->
     <hr />
@@ -602,7 +630,7 @@ running over the standard port 80.&#160;<a class="footnote-backref" href="#fnref
             </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-            </li>    
+            </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
@@ -617,7 +645,7 @@ running over the standard port 80.&#160;<a class="footnote-backref" href="#fnref
             </a>
         </li>
         <li class="list-group-item">
-            <a href="/posts/2014/Dec/21/cheatsheet-vim-commands/index.html" target="_blank">
+            <a href="/tag/cheat-sheet/index.html" target="_blank">
                 Cheat Sheets
             </a>
         </li>
@@ -680,6 +708,12 @@ running over the standard port 80.&#160;<a class="footnote-backref" href="#fnref
         </a></li>
         <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
             <i class="fa fa-linkedin"></i> Linkedin
+        </a></li>
+        <li class="list-group-item"><a href="http://www.commandlinefu.com/commands/by/jeffskinnerbox" target="_blank">
+            <i class="fa fa-terminal"></i> CommandLineFu
+        </a></li>
+        <li class="list-group-item"><a href="https://disqus.com/by/jeffskinnerbox/" target="_blank">
+            <i class="fa fa-comment"></i> DISQUS
         </a></li>
     </ul>
 </li> 

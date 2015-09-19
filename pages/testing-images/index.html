@@ -73,7 +73,7 @@ Jeff's Skinner Box&nbsp;            </a>
         <h1 class="entry-title">Testing: Images</h1>
         
         <div class="entry-content" style="background-image: url('/home/jeff/blogging/content/images/banners-bkgrds/scratchpad-yellow-blueline.jpg'); background-repeat: repeat;">
-            <h2>The Back&nbsp;Story</h2>
+            <h2>The Back Story</h2>
 <p>Python Markdown comes with several <a href="http://docs.getpelican.com/en/3.3.0/">extras</a>, and one of the extension supported is called <a href="http://jeffskinnerbox.wordpress.com/">CodeHilite</a>.
 To get this all to work, you must include something like this in your <code>pelicanconf.py</code> file:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># List of the extensions that the Markdown processor will use.
@@ -81,23 +81,23 @@ MD_EXTENSIONS = [&#39;extra&#39;, &#39;codehilite(noclasses=True, pygments_style
 </pre></div>
 
 
-<h2>Markdown Image&nbsp;Formatting</h2>
+<h2>Markdown Image Formatting</h2>
 <p>Markdown uses a syntax like <code>[text](link-URL)</code> to support hyperlinks in text.
-It uses a similar syntax for images,&nbsp;like</p>
+It uses a similar syntax for images, like</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">![alt text](image-URL &quot;hover text&quot;)
 [![alt text](image-URL &quot;hover text&quot;)](link-URL)
 </pre></div>
 
 
 <p>Here is an example when using a file stored within the pelican directory structure
-(also hover the mouse over the image to see the&nbsp;text):</p>
+(also hover the mouse over the image to see the text):</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">![Wolf Trap]({filename}/images/wolf_trap.jpg &quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot;)
 </pre></div>
 
 
 <p><img alt="Wolf Trap" src="http://jeffskinnerbox.me/images/wolf_trap.jpg" title="Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182" /></p>
 <p>Can we change the size of the image?
-Now trying some tricks from the web that works for some version of&nbsp;Markdown:</p>
+Now trying some tricks from the web that works for some version of Markdown:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">![Wolf Trap]({filename}/images/wolf_trap.jpg =50x50 &quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot;)
 _Lorem ipsum dolor sit amet, ....
 </pre></div>
@@ -105,9 +105,9 @@ _Lorem ipsum dolor sit amet, ....
 
 <p><img alt="Wolf Trap" src="http://jeffskinnerbox.me/images/wolf_trap.jpg" title="=50x50 &quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot;" />
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
-<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
 <p>Here is an another example using a file from the web
-(also hover the mouse over the image to see the&nbsp;text):</p>
+(also hover the mouse over the image to see the text):</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Full image is placed here
 ![alt text](http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg &quot;Skinner Box:  operant conditioning cage&quot;)
 _Lorem ipsum dolor sit amet, ....
@@ -117,8 +117,8 @@ _Lorem ipsum dolor sit amet, ....
 <p><em>Full image is placed here</em>
 <img alt="alt text" src="http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg" title="Skinner Box: operant conditioning cage" />
 <em><a href="http://www.lipsum.com/">Lorem ipsum</a> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
-<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
-<p>You can also access some of the <span class="caps">HTML</span>&nbsp;features</p>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
+<p>You can also access some of the HTML features</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">_Lorem ipsum dolor sit amet, ....
 [<span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://www.google.com.au/images/nav_logo7.png&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>](http://google.com.au/)
 _Lorem ipsum dolor sit amet, ....
@@ -127,8 +127,8 @@ _Lorem ipsum dolor sit amet, ....
 
 <p><em><a href="http://www.lipsum.com/">Lorem ipsum</a> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
 <a href="http://google.com.au/"><img src="http://www.google.com.au/images/nav_logo7.png"></a>
-<em><a href="http://www.lipsum.com/">Lorem ipsum</a> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
-<p>And now for something&nbsp;different</p>
+<em><a href="http://www.lipsum.com/">Lorem ipsum</a> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
+<p>And now for something different</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">_Lorem ipsum dolor sit amet, ....
 [![Foo](http://www.google.com.au/images/nav_logo7.png)](http://google.com.au/)
 </pre></div>
@@ -136,8 +136,8 @@ _Lorem ipsum dolor sit amet, ....
 
 <p><em><a href="http://www.lipsum.com/">Lorem ipsum</a> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
 <a href="http://google.com.au/"><img alt="Foo" src="http://www.google.com.au/images/nav_logo7.png" /></a></p>
-<h2><span class="caps">HTML</span> Image&nbsp;Formatting</h2>
-<p>You can also use standard <span class="caps">HTML</span> image syntax, which allows you to scale the width and height of the&nbsp;image.</p>
+<h2>HTML Image Formatting</h2>
+<p>You can also use standard HTML image syntax, which allows you to scale the width and height of the image.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">100 x 100 pixel image is here
 <span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;Some text for you&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;100&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;100&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
 _Lorem ipsum dolor sit amet, ....
@@ -147,9 +147,9 @@ _Lorem ipsum dolor sit amet, ....
 <p><em>100 x 100 pixel image is here</em>
 <img src="http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg" title="Some text for you" width="100" height="100">
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
-<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
-<h3>Float&nbsp;Image</h3>
-<p>By using some more <span class="caps">HTML</span> mojo, you float the image left or&nbsp;right.</p>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
+<h3>Float Image</h3>
+<p>By using some more HTML mojo, you float the image left or right.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;div</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;float: left&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
     <span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;200&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;200&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
 <span style="color: #330099; font-weight: bold">&lt;/div&gt;</span>
@@ -162,15 +162,15 @@ _Lorem ipsum dolor sit amet, ....
 </div>
 
 <p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
-<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
 <blockquote>
 <blockquote>
-<p><strong><span class="caps">NOTE</span>:</strong> The width and height parameters in the img tag must be in absolute terms.
-width=&#8221;20%&#8221; height=&#8221;20%&#8221; will not&nbsp;work!</p>
+<p><strong>NOTE:</strong> The width and height parameters in the img tag must be in absolute terms.
+width="20%" height="20%" will not work!</p>
 </blockquote>
 </blockquote>
-<h3>Selectable&nbsp;Image</h3>
-<p>And using a little more <span class="caps">HTML</span> mojo, you can make the image take you to a <span class="caps">URL</span> (select the image below with the&nbsp;mouse):</p>
+<h3>Selectable Image</h3>
+<p>And using a little more HTML mojo, you can make the image take you to a URL (select the image below with the mouse):</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;div</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;float: right&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
     <span style="color: #330099; font-weight: bold">&lt;a</span> <span style="color: #330099">href=</span><span style="color: #CC3300">&quot;http://webspace.ship.edu/cgboer/skinner.html&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
         <span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;200&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;200&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
@@ -187,8 +187,8 @@ _Lorem ipsum dolor sit amet, ....
 </div>
 
 <p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
-<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
-<p>Now moving to the left, adding a hyperlink, and a few other bells <span class="amp">&amp;</span>&nbsp;whistles:</p>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
+<p>Now moving to the left, adding a hyperlink, and a few other bells &amp; whistles:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">_Lorem ipsum dolor sit amet, ....
 <span style="color: #330099; font-weight: bold">&lt;div</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;float: left&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
     <span style="color: #330099; font-weight: bold">&lt;a</span> <span style="color: #330099">href=</span><span style="color: #CC3300">&quot;http://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
@@ -205,9 +205,9 @@ _Lorem ipsum dolor sit amet, ....
         <img class="img-rounded" style="margin: 0px 8px" title="HP Omni Book XE3 being used as a X Terminal using Tiny Core Linux" alt="Laptop X Terminal" src="http://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg" width="70" height="70">
     </a>
 </div>
-<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
-<h3>Adding Formating Features to the&nbsp;Image</h3>
-<p>You can also add additional features to the image, like rounded&nbsp;corners</p>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
+<h3>Adding Formating Features to the Image</h3>
+<p>You can also add additional features to the image, like rounded corners</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;div</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;float: right&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
     <span style="color: #330099; font-weight: bold">&lt;a</span> <span style="color: #330099">href=</span><span style="color: #CC3300">&quot;http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
         <span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;Seagate Backup Plus&quot;</span> <span style="color: #330099">alt=</span><span style="color: #CC3300">&quot;Backup Plus Pic&quot;</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;200&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;200&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
@@ -224,8 +224,8 @@ _Lorem ipsum dolor sit amet, ....
 </div>
 
 <p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
-<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
-<p>Now lets place somes border space around the image so the text isn&#8217;t touching&nbsp;it.</p>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
+<p>Now lets place somes border space around the image so the text isn't touching it.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;a</span> <span style="color: #330099">href=</span><span style="color: #CC3300">&quot;http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
     <span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;margin: 0px 8px; float: left&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;Seagate Backup Plus&quot;</span> <span style="color: #330099">alt=</span><span style="color: #CC3300">&quot;Backup Plus Pic&quot;</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099; font-weight: bold">/&gt;&lt;/a&gt;</span>
 _Lorem ipsum dolor sit amet, ....
@@ -235,8 +235,8 @@ _Lorem ipsum dolor sit amet, ....
 <p><a href="http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Seagate Backup Plus" alt="Backup Plus Pic" src="http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg" width="150" height="150" /></a>
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
-<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
-<h3>Retrieving Images From Different&nbsp;Locations</h3>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
+<h3>Retrieving Images From Different Locations</h3>
 <p>Now lets do a image that is stored within the directory <code>content/images</code>:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;margin: 0px 8px; float: left&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot;</span> <span style="color: #330099">alt=</span><span style="color: #CC3300">&quot;Wolf Trap&quot;</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;{filename}/images/wolf_trap.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099; font-weight: bold">/&gt;</span>
 _Lorem ipsum dolor sit amet, ....
@@ -245,8 +245,8 @@ _Lorem ipsum dolor sit amet, ....
 
 <p><img class="img-rounded" style="margin: 0px 8px; float: left" title="Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182" alt="Wolf Trap" src="http://jeffskinnerbox.me/images/wolf_trap.jpg" width="150" height="150" />
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
-<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
-<p>Now pull the image file for the blogs directory system and modify it default&nbsp;format:</p>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
+<p>Now pull the image file for the blogs directory system and modify it default format:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">![Wolf Trap]({filename}/images/wolf_trap.jpg &quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot; { margin: 0px 8px; float: left; width: 200px height: 200px; })
 _Lorem ipsum dolor sit amet, ....
 </pre></div>
@@ -254,8 +254,8 @@ _Lorem ipsum dolor sit amet, ....
 
 <p><img alt="Wolf Trap" src="http://jeffskinnerbox.me/images/wolf_trap.jpg" title="&quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot; { margin: 0px 8px; float: left; width: 200px height: 200px; }" />
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
-<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
-<p>Now lets float an image right but take it from the blogs <code>images/</code> directory within <span class="caps">HTML</span>:</p>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
+<p>Now lets float an image right but take it from the blogs <code>images/</code> directory within HTML:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">_Lorem ipsum dolor sit amet, ....
  <span style="color: #330099; font-weight: bold">&lt;a</span> <span style="color: #330099">href=</span><span style="color: #CC3300">&quot;https://unity.ubuntu.com/&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
     <span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;margin: 0px 8px; float: right&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;Unity is the Desktop Environment that is shippped as the default Ubuntu installation, and claims it&#39;s focus is on simplicity and consistency across multiple devices (e.g. across TV, mobile, tablet, and desktop)&quot;</span> <span style="color: #330099">alt=</span><span style="color: #CC3300">&quot;Ubuntu Unity Logo&quot;</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;/images/ubuntu-unity-logo.png&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;100&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;100&quot;</span> <span style="color: #330099; font-weight: bold">/&gt;</span>
@@ -269,9 +269,9 @@ _Lorem ipsum dolor sit amet, ....
     <img class="img-rounded" style="margin: 0px 8px; float: right" title="Unity is the Desktop Environment that is shippped as the default Ubuntu installation, and claims it's focus is on simplicity and consistency across multiple devices (e.g. across TV, mobile, tablet, and desktop)" alt="Ubuntu Unity Logo" src="/images/ubuntu-unity-logo.png" width="100" height="100" />
 </a>
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
-<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
-<h3>Pull Images from&nbsp;Flickr</h3>
-<p>You can just as easily retrive images from personal stach maintained in&nbsp;Flickr.</p>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
+<h3>Pull Images from Flickr</h3>
+<p>You can just as easily retrive images from personal stach maintained in Flickr.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;margin: 0px 8px; float: left&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;HP Omni Book XE3 being used as a X Terminal using Tiny Core Linux&quot;</span> <span style="color: #330099">alt=</span><span style="color: #CC3300">&quot;Laptop X Terminal&quot;</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;https://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;25%&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;25%&quot;</span><span style="color: #330099; font-weight: bold">/&gt;</span>
 I store some of my blog photos on Flickr. ....
 </pre></div>
@@ -279,16 +279,16 @@ I store some of my blog photos on Flickr. ....
 
 <p><img class="img-rounded" style="margin: 0px 8px; float: left" title="HP Omni Book XE3 being used as a X Terminal using Tiny Core Linux" alt="Laptop X Terminal" src="https://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg" width="25%" height="25%"/>
 I store some of my blog photos on Flickr.
-To <a href="https://help.yahoo.com/kb/flickr/SLN15714.html">get the <span class="caps">URL</span> of a Flickr photo</a>:</p>
+To <a href="https://help.yahoo.com/kb/flickr/SLN15714.html">get the URL of a Flickr photo</a>:</p>
 <ol>
-<li>Click on the photo you want to share to open&nbsp;it.</li>
+<li>Click on the photo you want to share to open it.</li>
 <li>Click the <strong>Download icon</strong>.</li>
 <li>Click <strong>View all sizes</strong>.</li>
-<li>Select the size of photo you&nbsp;want.</li>
-<li>Right-click the image | select <strong>Copy image <span class="caps">URL</span></strong>.</li>
+<li>Select the size of photo you want.</li>
+<li>Right-click the image | select <strong>Copy image URL</strong>.</li>
 </ol>
 <p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
-<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
         </div>
     </section>
         </div>
@@ -309,7 +309,7 @@ To <a href="https://help.yahoo.com/kb/flickr/SLN15714.html">get the <span class=
             </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-            </li>    
+            </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
@@ -324,7 +324,7 @@ To <a href="https://help.yahoo.com/kb/flickr/SLN15714.html">get the <span class=
             </a>
         </li>
         <li class="list-group-item">
-            <a href="/posts/2014/Dec/21/cheatsheet-vim-commands/index.html" target="_blank">
+            <a href="/tag/cheat-sheet/index.html" target="_blank">
                 Cheat Sheets
             </a>
         </li>
@@ -387,6 +387,12 @@ To <a href="https://help.yahoo.com/kb/flickr/SLN15714.html">get the <span class=
         </a></li>
         <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
             <i class="fa fa-linkedin"></i> Linkedin
+        </a></li>
+        <li class="list-group-item"><a href="http://www.commandlinefu.com/commands/by/jeffskinnerbox" target="_blank">
+            <i class="fa fa-terminal"></i> CommandLineFu
+        </a></li>
+        <li class="list-group-item"><a href="https://disqus.com/by/jeffskinnerbox/" target="_blank">
+            <i class="fa fa-comment"></i> DISQUS
         </a></li>
     </ul>
 </li> 

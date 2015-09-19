@@ -97,7 +97,7 @@ Jeff's Skinner Box&nbsp;            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>As I have been exploring the Arduino hardware platforms for my <span class="caps">TBD</span> project, I find myself forgetting the memory options available.  I&#8217;m recording here my findings so I can reference it later.
+                <p>As I have been exploring the Arduino hardware platforms for my TBD project, I find myself forgetting the memory options available.  I'm recording here my findings so I can reference it later.
 <center>
 <table border="1" cellspacing="0" cellpadding="0">
 <tbody>
@@ -112,44 +112,44 @@ Jeff's Skinner Box&nbsp;            </a>
 <p align="center"><strong>Flash</strong></p>
 </td>
 <td valign="top" width="127">
-<p align="center"><strong><span class="caps">SRAM</span></strong></p>
+<p align="center"><strong>SRAM</strong></p>
 </td>
 <td valign="top" width="133">
-<p align="center"><strong><span class="caps">EEPROM</span></strong></p>
+<p align="center"><strong>EEPROM</strong></p>
 </td>
 </tr>
 <tr>
 <td valign="top" width="115">
-<p align="center"><strong>Nano&nbsp;2.3</strong></p>
+<p align="center"><strong>Nano 2.3</strong></p>
 </td>
 <td valign="top" width="139">
 <p align="center">ATmega168</p>
 </td>
 <td valign="top" width="126">
-<p align="center">16K&nbsp;bytes</p>
+<p align="center">16K bytes</p>
 </td>
 <td valign="top" width="127">
-<p align="center">1024&nbsp;bytes</p>
+<p align="center">1024 bytes</p>
 </td>
 <td valign="top" width="133">
-<p align="center">512&nbsp;bytes</p>
+<p align="center">512 bytes</p>
 </td>
 </tr>
 <tr>
 <td valign="top" width="115">
-<p align="center"><strong>Nano&nbsp;3.0</strong></p>
+<p align="center"><strong>Nano 3.0</strong></p>
 </td>
 <td valign="top" width="139">
 <p align="center">ATmega328</p>
 </td>
 <td valign="top" width="126">
-<p align="center">32K&nbsp;bytes</p>
+<p align="center">32K bytes</p>
 </td>
 <td valign="top" width="127">
-<p align="center">2048&nbsp;bytes</p>
+<p align="center">2048 bytes</p>
 </td>
 <td valign="top" width="133">
-<p align="center">1024&nbsp;bytes</p>
+<p align="center">1024 bytes</p>
 </td>
 </tr>
 <tr>
@@ -160,30 +160,30 @@ Jeff's Skinner Box&nbsp;            </a>
 <p align="center">ATmega328</p>
 </td>
 <td valign="top" width="126">
-<p align="center">32K&nbsp;bytes</p>
+<p align="center">32K bytes</p>
 </td>
 <td valign="top" width="127">
-<p align="center">2048&nbsp;bytes</p>
+<p align="center">2048 bytes</p>
 </td>
 <td valign="top" width="133">
-<p align="center">1024&nbsp;bytes</p>
+<p align="center">1024 bytes</p>
 </td>
 </tr>
 <tr>
 <td valign="top" width="115">
-<p align="center"><strong>Mega&nbsp;2560</strong></p>
+<p align="center"><strong>Mega 2560</strong></p>
 </td>
 <td valign="top" width="139">
 <p align="center">ATmega2560</p>
 </td>
 <td valign="top" width="126">
-<p align="center">256K&nbsp;bytes</p>
+<p align="center">256K bytes</p>
 </td>
 <td valign="top" width="127">
-<p align="center">8192&nbsp;bytes</p>
+<p align="center">8192 bytes</p>
 </td>
 <td valign="top" width="133">
-<p align="center">4096&nbsp;bytes</p>
+<p align="center">4096 bytes</p>
 </td>
 </tr>
 </tbody>
@@ -191,18 +191,18 @@ Jeff's Skinner Box&nbsp;            </a>
 <ul>
 <ul>
 </center>
-    <li><span class="caps">SRAM</span> (Static Random Access Memory) is where the sketch creates and manipulates variables when it&nbsp;runs.</li>
-    <li><span class="caps">EEPROM</span> (Electrically Erasable Programmable Read-Only Memory) is memory space that programmers can use to store long-term&nbsp;information.</li>
-    <li>Flash memory is where the Arduino sketch is stored (program space).  The bootloader takes about 2 <span class="caps">KB</span> of flash memory and remaining space is for the&nbsp;sketch.</li>
+    <li>SRAM (Static Random Access Memory) is where the sketch creates and manipulates variables when it runs.</li>
+    <li>EEPROM (Electrically Erasable Programmable Read-Only Memory) is memory space that programmers can use to store long-term information.</li>
+    <li>Flash memory is where the Arduino sketch is stored (program space).  The bootloader takes about 2 KB of flash memory and remaining space is for the sketch.</li>
 </ul>
 </ul>
-The Arduino <span class="caps">IDE</span> will tell you exactly how much Flash is being used after each compile/upload.  <span class="caps">EEPROM</span> is an older, more reliable technology. It is somewhat slower than Flash.  In Flash, a large block is erased all at once, much faster than the <span class="caps">EEPROM</span> method of going&nbsp;cell-by-cell.</p>
-<p>If you don&#8217;t need to modify the strings or data while your sketch is running, you can store them in Flash (program) memory instead of <span class="caps">SRAM</span>; to do this, use the <span class="caps">PROGMEM</span>&nbsp;keyword.</p>
-<p>Part of my interest in the Arduino&#8217;s memory is my concern about how much memory a sketch uses.  Here are some sites that provide insight and algorithms for calculating the memory:
+The Arduino IDE will tell you exactly how much Flash is being used after each compile/upload.  EEPROM is an older, more reliable technology. It is somewhat slower than Flash.  In Flash, a large block is erased all at once, much faster than the EEPROM method of going cell-by-cell.</p>
+<p>If you don't need to modify the strings or data while your sketch is running, you can store them in Flash (program) memory instead of SRAM; to do this, use the PROGMEM keyword.</p>
+<p>Part of my interest in the Arduino's memory is my concern about how much memory a sketch uses.  Here are some sites that provide insight and algorithms for calculating the memory:
 <ul>
 <ul>
-    <li><a href="http://jeelabs.org/2011/05/22/atmega-memory-use/">ATmega memory&nbsp;use</a></li>
-    <li><a href="http://www.nongnu.org/avr-libc/user-manual/malloc.html">Memory Areas and Using&nbsp;malloc()</a></li>
+    <li><a href="http://jeelabs.org/2011/05/22/atmega-memory-use/">ATmega memory use</a></li>
+    <li><a href="http://www.nongnu.org/avr-libc/user-manual/malloc.html">Memory Areas and Using malloc()</a></li>
     <li><a href="http://code.google.com/p/cec-arduino/source/browse/branches/anc/MemoryFree.c?r=15">MemoryFree.c</a></li>
 </ul>
 </ul></p>
@@ -256,7 +256,7 @@ The Arduino <span class="caps">IDE</span> will tell you exactly how much Flash i
             </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-            </li>    
+            </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
             </li>
@@ -271,7 +271,7 @@ The Arduino <span class="caps">IDE</span> will tell you exactly how much Flash i
             </a>
         </li>
         <li class="list-group-item">
-            <a href="/posts/2014/Dec/21/cheatsheet-vim-commands/index.html" target="_blank">
+            <a href="/tag/cheat-sheet/index.html" target="_blank">
                 Cheat Sheets
             </a>
         </li>
@@ -334,6 +334,12 @@ The Arduino <span class="caps">IDE</span> will tell you exactly how much Flash i
         </a></li>
         <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
             <i class="fa fa-linkedin"></i> Linkedin
+        </a></li>
+        <li class="list-group-item"><a href="http://www.commandlinefu.com/commands/by/jeffskinnerbox" target="_blank">
+            <i class="fa fa-terminal"></i> CommandLineFu
+        </a></li>
+        <li class="list-group-item"><a href="https://disqus.com/by/jeffskinnerbox/" target="_blank">
+            <i class="fa fa-comment"></i> DISQUS
         </a></li>
     </ul>
 </li> 
