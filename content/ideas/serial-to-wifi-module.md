@@ -44,7 +44,6 @@ typical Wi-Fi speeds for everything from file transfer to Internet connectivity.
 # Cloud Platforms
 * [ThingSpeak](https://thingspeak.com/)
 * []()
-* []()
 
 # Data Logging and Graphing
 * [RRDtool](http://www.mrtg.org/rrdtool/)

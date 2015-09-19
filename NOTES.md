@@ -1,3 +1,48 @@
+# Installation of Pelican
+To install Pelican and its dependancies
+
+```bash
+sudo apt-get install python-pip python-virtualenv virtualenvwrapper
+sudo apt-get install python-dev
+
+sudo pip install pelican3.6.3
+sudo pip install markdown MathJaxPlugin latex2markdown typogrify
+```
+
+## Installation of TiddlyWiki
+Install Node.js via `apt-get`.
+Because of a conflict with another package (amateur radio node package,
+the executable from the Ubuntu repositories is called `nodejs` instead of `node`.
+Node.js package manager and other programs will want to call it "node",
+so you'll need to set up a symbolic link between `nodejs` and `node`.
+
+```bash
+# install the Node.js engine and its package manager
+sudo apt-get install nodejs npm
+
+# create symbolic link
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+```
+
+You can install the wiki, TiddlyWiki, via the Node.js package manager, [`npm`][15]:
+
+```bash
+# install TiddlyWiki, the '-g' option installs it globally
+sudo npm install -g tiddlywiki
+
+# check its version
+tiddlywiki --version
+
+```
+
+When a new version of TiddlyWiki is released, you can easily upgrade it with this command:
+
+```bash
+# upgrade TiddlyWiki
+sudo npm update -g tiddlywiki
+```
+
+
 # Publishing to GitHub Page
 [GitHub can create a websites from a repository][03] and this is call GitHub Pages.
 There are [two types of GitHub Pages][04]: Project Pages and User Pages.
@@ -10,9 +55,12 @@ to the `master` branch of your `<site-name>.github.io` repository on GitHub.
 The utility [`ghp-import`][02] (installed with `easy_install` or `pip`) can makes this easy.
 It basically it goes like this
 
-    pelican content -o output -s pelicanconf.py
-    ghp-import output
-    git push git@github.com:my-github/my-site.github.io.git gh-pages:master
+```bash
+# publish the Pelican site
+pelican content -o output -s pelicanconf.py
+ghp-import output
+git push git@github.com:my-github/my-site.github.io.git gh-pages:master
+```
 
 The `git push` command pushes the local gh-pages branch
 (freshly updated by the `ghp-import` command)
@@ -23,7 +71,7 @@ If you create a file in your repository named [`.gitignore`][06],
 Git uses it to determine which files and directories to ignore, before you make a commit.
 Within the `~/blogging` directory should be this file:
 
-```shell
+```bash
 ### ---------- Project Specific Files ---------- ###
 bin/
 lib/
@@ -36,14 +84,20 @@ pelican-plugins/
 ```
 
 Also within the `~/blogging` directory, initialize it as a git repository
- 
-    cd ~/blogging
-    git init
- 
+
+```bash
+# initialize your git repository
+cd ~/blogging
+git init
+```
+
 Add all the files, and make initial comment
 
-    git add .
-    git commit -m 'Initial commit'
+```bash
+# add all the files to the git repository and make initial comment
+git add .
+git commit -m 'Initial commit'
+```
 
 ### Creating the GitHub Repository
 Goto GitHub.com and create the new repository
@@ -53,7 +107,7 @@ Goto GitHub.com and create the new repository
 
 Within the `~/blogging` directory,
 associate this local git repository with the GitHub repository:
- 
+
     git remote add origin https://github.com/jeffskinnerbox/jeffskinnerbox.github.io
 
 ### Publish Pelican Site
@@ -166,7 +220,7 @@ To test out the web site, use the command `jekyll serve --watch --drafts`
 and then go to `http://localhost:4000/`.
 
 ## Licensing
-I have opted to go with the [MIT License][01]. 
+I have opted to go with the [MIT License][01].
 This seems like an important decision
 (at least its important to keep the lawyers away from your door),
 but how does one make the call?

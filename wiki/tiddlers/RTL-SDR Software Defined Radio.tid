@@ -1,5 +1,5 @@
 created: 20140919015727086
-modified: 20150208023831058
+modified: 20150810005641822
 tags: Projects
 title: RTL-SDR Software Defined Radio
 type: text/vnd.tiddlywiki
@@ -100,9 +100,14 @@ type: text/vnd.tiddlywiki
 *[[Quadrifilar Helix (QFH) Antenna|http://www.youtube.com/watch?v=fopnIkYnFPI]]
 *[[FM Receiver Gnuradio block using  RTL2832U dongle|http://zr6aic.blogspot.com/2012/08/gnuradio-with-rtl2832u-dongle.html]]
 *[[SatNOGS : Global Network of Ground Stations|http://hackaday.io/project/1340-satnogs-global-network-of-ground-stations]]
+* [[Receive Weather Satellite Images With Software-Defined Radio|http://mattg.co.uk/words/noaa_sdr/]]
+* [[Downloading Satellite Images via FM Radio|http://hackaday.com/2015/08/02/downloading-satellite-images-via-fm-radio/]]
+* [[NOAA Weather Satellite Reception with GNU Radio and USRP|http://www.oz9aec.net/index.php/gnu-radio-blog/350-noaa-weather-satellite-reception-with-gnu-radio-and-usrp]]
+* [[User's Guide for Building and Operating Environmental Satellite Receiving Stations|http://www.noaasis.noaa.gov/NOAASIS/pubs/Users_Guide-Building_Receive_Stations_March_2009.pdf]]
 
 !!Other SDR Solutions
 
+* [[Reading Weather Data with Software-Defined Radio|http://www.linux-magazine.com/Online/Features/Reading-Weather-Data-with-Software-Defined-Radio]]
 * [[Building A Software Defined Radio With A Teensy|http://hackaday.com/2014/04/25/building-a-software-defined-radio-with-a-teensy/]]
 * [[HackRF One|https://greatscottgadgets.com/hackrf/]]
 * [[HackRF Blue|http://hackrfblue.com/]]

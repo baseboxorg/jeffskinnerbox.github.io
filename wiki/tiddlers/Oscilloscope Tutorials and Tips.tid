@@ -1,5 +1,5 @@
 created: 20141226143823014
-modified: 20150608014304588
+modified: 20150810232904953
 tags: [[Test Gear]]
 title: Oscilloscope Tutorials and Tips
 type: text/vnd.tiddlywiki
@@ -29,6 +29,12 @@ so its time to learn how to use it like a pro.
 
 !!Tips
 * [[Twelve tips for using the Rigol DS1052E Oscilloscope|http://www.righto.com/2013/07/tips-for-using-rigol-ds1052e.html]]
+* [[Oscilloscope Vertical Confusion|https://www.youtube.com/watch?v=DMXiD3dKYJc&feature=em-uploademail]]
+* [[Why Digital Oscilloscopes Appear Noisy|https://www.youtube.com/watch?v=Znwp0pK8Tzk]]
+* [[How NOT To Blow Up Your Oscilloscope!|https://www.youtube.com/watch?v=xaELqAo4kkQ]]
+* [[Mysteries of x1 Oscilloscope Probes Revealed|https://www.youtube.com/watch?v=OiAmER1OJh4]]
+* [[Bode Plotting on Your Osciloscope|https://www.youtube.com/watch?v=uMH2hGvqhlE]]
+* [[w2aew|https://www.youtube.com/channel/UCiqd3GLTluk2s_IBt7p_LjA]]
 
 !!Tools
 * [[Controlling a Rigol oscilloscope using Linux and Python|http://www.cibomahto.com/2010/04/controlling-a-rigol-oscilloscope-using-linux-and-python/]]

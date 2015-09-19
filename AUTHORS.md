@@ -12,7 +12,7 @@ and its primary authors are:
 - [Romulo Jales](https://github.com/romulojales) aka `romulojales`
 - [Mike Abrahamsen](https://github.com/mikeabrahamsen) aka `mikeabrahamsen`
 
-Also, the concept of using IPython Notebook as an integral part of this blog 
+Also, the concept of using IPython Notebook as an integral part of this blog
 was inspired by the blogs of:
 
 - [Carl Boettiger](http://carlboettiger.info/2012/09/28/Welcome-to-my-lab-notebook.html)

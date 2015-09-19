@@ -162,27 +162,30 @@ stop: stopserver stopwiki
 # the blog pages and articles, the blog can be view at "http://localhost:8000/" using a browser.
 startserver:
 ifdef PORT
-	$(BASEDIR)/develop_server.sh restart $(PORT)
+	@$(BASEDIR)/develop_server.sh restart $(PORT)
+	@echo 'Started Pelican and HTTP server processes running in background.'
 else
-	$(BASEDIR)/develop_server.sh restart
+	@$(BASEDIR)/develop_server.sh restart
+	@echo 'Started Pelican and HTTP server processes running in background.'
 endif
 
 
 # This stops the Pelican and HTTP Server running in the background.
 stopserver:
-	$(BASEDIR)/develop_server.sh stop
+	@$(BASEDIR)/develop_server.sh stop
+	@echo 'Stopped Pelican and HTTP server processes running in background.'
 
 
 # This starts the TiddlyWiki server process required for TiddlyWiki server.
 # http://tiddlywiki.com/#ServerCommand
 startwiki:
-	tiddlywiki wiki --server & echo "$$!" > tiddlywiki.pid
+	@tiddlywiki wiki --server & echo "$$!" > tiddlywiki.pid
 	@echo 'Started TiddlyWiki server processes running in background.'
 
 
 # This stops the TiddlyWiki server process required for TiddlyWiki server.
 stopwiki:
-	kill -9 `cat tiddlywiki.pid` && rm -rf tiddlywiki.pid
+	@kill -9 `cat tiddlywiki.pid` && rm -rf tiddlywiki.pid
 	@echo 'Stopped TiddlyWiki server processes running in background.'
 
 

@@ -49,7 +49,7 @@ This iconic lamp is still a staple at places like [Ikea][03] and [Staples][04].
 #### Other
 * [This Friendly Robot Could One Day Be Your Family’s Personal Assistant](http://www.wired.com/2014/07/jibo-family-robot/)
     * [Jimbo](http://www.myjibo.com/)
-* []()
+* [uArm - Desktop Robotic Arm](https://www.sparkfun.com/products/13663?utm_source=SparkFun+Customer+Newsletter&utm_campaign=2ca58c52dd-July_17thNewsletter&utm_medium=email&utm_term=0_fa5287abaf-2ca58c52dd-7212537)
 
 #### Heavy Duty Servo
 Stall torque is the maximum instantaneous and static torque.

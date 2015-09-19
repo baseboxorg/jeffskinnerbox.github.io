@@ -9,6 +9,8 @@ https://scotch.io/tutorials/setting-up-a-mean-stack-single-page-application,
 Authenticate a Node API with Tokens - https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens
 Sample Application with Backbone.js, Twitter Bootstrap, Node.js, Express, and MongoDB - http://coenraets.org/blog/2012/10/nodecellar-sample-application-with-backbone-js-twitter-bootstrap-node-js-express-and-mongodb/
 [PiClock – Time and Weather Information Overload](http://hackaday.com/2015/06/10/piclock-time-and-weather-information-overload/)
+[Weather Underground APIs](http://www.wunderground.com/weather/api)
+[National Digital Forecast Database (NDFD) Simple Object Access Protocol (SOAP) Web Service](http://graphical.weather.gov/xml/)
 
 I have considered purchasing or building my own home weather station.
 I would make it part of my larger plan to instrument my home for automation and monitoring.
@@ -24,7 +26,7 @@ A some of the most sophisticated weather stations would have
 * **Ultraviolet sensor** (UV sensor) is a device that measures UV light from the Sun.
 * **Leaf wetness sensor** detects the presence of surface moisture and is measured between 0 (dry) and 15 (saturated).
 * **Soil moisture** sensor measures the quantity of water contained in a material, such as soil on a volumetric or gravimetric basis.
-* **Soil temperature** sensor measures the temperature of the soil 
+* **Soil temperature** sensor measures the temperature of the soil
 
 So potential there are many expensive sensors,
 then of course their is the user interface,
@@ -35,7 +37,7 @@ I would like the data, but the cost and labor I would like to avoid.
 My solution to this will be a vertual weather station.
 No hardware mounted to my house,
 just a Raspberry Pi making use of published API to get my local weather.
-The vertual weather station will 
+The vertual weather station will
 itself be API emabled so that you can quere for realtime status, hsitoral data,
 and support mutiple thypes of user interfaces
 (e.g. web page, mobile app, or even a repurposed old Kindle).

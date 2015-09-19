@@ -8,11 +8,13 @@ Author: Jeff Irland
 Image: internet-of-things.png
 Summary: bla bla bla
 
+An alternative to Pushover is [Instapush](https://instapush.im/).
+
 [A REST API FOR ARDUINO AND THE CC3000 WIFI CHIP](http://blog.arduino.cc/2014/06/05/a-rest-api-for-arduino-and-cc3000/?utm_content=bufferc97c1&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 
 [Face Recognition API to integrate facial recognition into any web service](https://www.keylemon.com/)
 
-Read more: http://www.programmableweb.com/api/keylemon#ixzz37atW6GGC 
+Read more: http://www.programmableweb.com/api/keylemon#ixzz37atW6GGC
 Follow us: @ProgrammableWeb on Twitter | ProgrammableWeb on Facebook
 
 Device Cloud Platform to be explored:
@@ -34,7 +36,7 @@ This is the Internet of Things._
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Source: Shutterstock - http://www.shutterstock.com/" alt="IoT Picture" src="/images/internet-of-things-2.png" width="200" height="200" />
 </a>
 There are more elaborate definition, such as [Mark Weiser's concept of Ubiquitous Computing][47],
-which I find too lofty and not sufficiently discriptive. 
+which I find too lofty and not sufficiently discriptive.
 On the other hand, the definition given in the post
 "[The ABCs of the Internet of Things][41]" I find this too prescriptive.
 At the same time, the above definition doesn't have much precision.
@@ -43,7 +45,7 @@ Is your laptop outfitted with some type of remote management software a smart ob
 Underpinning the evolution of the Internet of Things is the ever increasing 'connected' devices in everyday usage.
 This includes your computer and smart phones, but increasingly this will include device that
 monitor your fitness, smart meters in your home, RFID readers within supply chains,
-or the components of machines, for example a jet engine of an airplane or the drill of an oil rig. 
+or the components of machines, for example a jet engine of an airplane or the drill of an oil rig.
 In time, our lives will undergo a multitude of minuscule changes but collectively
 will likely have a significant changes on how we work, play, and stay informed.
 Some say that the new rule for the future is going to be
@@ -93,7 +95,7 @@ show them to the user, and store them for off-line viewing.
 With some scripting, you can integrate Pushover notifications into your
 application, website, server process, network monitor, or anything else.
 Messages are currently limited to 512 characters,
-including a title of up to 100 characters. 
+including a title of up to 100 characters.
 
 Setting up Pushover is simple.
 Download the client on to your device and then your prompted to register the device
@@ -109,7 +111,7 @@ what can be done with them is powerful.
 Check out the article "[Make a Smarter Notification System for Your Phone or Tablet with Pushover][27]".
 
 Pushover uses a single, simple REST API to create messages within your application
-and send them to the Pushover device clients. 
+and send them to the Pushover device clients.
 There is no out-of-band authentication mechanisms or
 per-call signing libraries required, such as [OAuth][26].
 Pushover is simply notification, there is no logic or actions to be performed.
@@ -221,7 +223,7 @@ with special keys can access it.
 Once you lock a thing, the name of that thing cannot be used by anyone else.
 
 The process of publishing a message is called "dweeting" by Bug Labs,
-and this is done by using a simple [HAPI-REST][39] web API. 
+and this is done by using a simple [HAPI-REST][39] web API.
 You can play with dweet.io and learn its operation by using using the [dweet.io API console][40].
 Note that dweet.io only holds on to the last 500 dweets over a 24 hour period.
 If the thing hasn't dweeted in the last 24 hours, its history will be removed.
@@ -296,18 +298,19 @@ Bug Labs also offer a web-based tool called [Freeboard][03] that allows you to b
 interactive user-interfaces for connected devices.
 Bug Labs claims combining dweet.io + Freeboard,
 give you everything you need to put together an IoT application quickly and easily.
-Never the less, they can be used individually or in conjunction with other platforms. 
+Never the less, they can be used individually or in conjunction with other platforms.
 It's interesting that Bug Labs positions Freeboard as an open source alternative to [Geckoboard][04].
 
 * [dweet.io](https://dweet.io/)
 * [Freeboard](https://freeboard.io/)
 * [Freeboard's GitHub](https://github.com/Freeboard/freeboard)
 
-# AT&T Speech API 
+# AT&T Speech API
 <a href="https://developer.att.com/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="AT&T Developer Web Site" alt="AT&T Developer Logo" src="/images/att-developer-logo.png" width="100" height="100" />
 </a>
-This code was inspired by the [Jasper Project][53].
+This code was inspired by the [Jasper Project][53]
+and [Amazon's Echo][58].
 Jasper, an open-source, crowd developed, [Siri-like][54] virtual assistant for Raspberry Pi.
 The concept is to have an always-on system constantly waiting for
 voice commands that you can hack together to use in your home.
@@ -428,6 +431,6 @@ interesting Internet-enabled speech application using this API.
 [55]:http://changingjasper.blogspot.com/2014/06/making-jasper-use-at-speech-api.html
 [56]:http://developer.att.com/apis/speech
 [57]:http://jibbigo.com/
-[58]:
+[58]:http://hackaday.com/2015/08/04/amazons-ai-escapes-its-hardware-prison/
 [59]:
 [60]:

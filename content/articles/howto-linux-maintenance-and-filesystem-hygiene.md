@@ -14,7 +14,7 @@ None of this is needed in Linux but there is some recommend filesystem hygiene y
 ## Gather Information
 For starters, lets gather some information.
 Some of the maintenance activities listed here, you're going to need some basic information.
-This next section shows you how to get that information. 
+This next section shows you how to get that information.
 
 #### Distribution Name and Version
 To determine which Linux version / build / release / distribution you are running:
@@ -59,7 +59,7 @@ You should periodically update your Linux operating system (OS)
 and its applications.
 
 #### Install Operating System and Application Patches/Updates
-This will patch the Linux operating system and all its GPL applications 
+This will patch the Linux operating system and all its GPL applications
 
 ```bash
 # commandline utility for applications upgrade
@@ -111,7 +111,7 @@ Check on the status of directory systems storage space and inode usage:
 and read their hardware SMART statistics (install with `sudo apt-get install smartmontools`).
 To ensure that your drive supports [SMART][03], type the following for each physical drive:
 
-    sudo smartctl -i /dev/sda 
+    sudo smartctl -i /dev/sda
 
 If `smartctl` can access the drive, you should turn on some SMART features.
 I ran the following command on my three drives (example for the `/dev/sda` drive):
@@ -169,7 +169,7 @@ An alternative is to shut down the system with the `-F` option like this:
 >_**NOTE:** A filesystem check can run for many minutes, if not hours,
 depending on the size of the filesystem._
 
-## Clean-Up
+## Periodic Filesystem Hygiene
 Linux will leave some clutter around in the filesystem.
 While generally not a problem, it can eat-up disk space,
 and can become a problem for the `/boot` directory.
@@ -184,14 +184,14 @@ Use the command below to get a list of candidates:
 
 After that appears to do what you want, add the -exec part.
 
-    find $HOME -type f -name "*~" -print -exec rm {} \; 
+    find $HOME -type f -name "*~" -print -exec rm {} \;
 
 Kernel crashes, when they happen, write the core dump files under `/var`.
 Assuming you aren't saving them for debugging, you can do this to get a listing:
 
     sudo find /var -type f -name "core" -print
 
-Some applications create temporary files in their own directories: 
+Some applications create temporary files in their own directories:
 
     rm -rf ${HOME}/.macromedia/* ${HOME}/.adobe/*
 
@@ -249,7 +249,7 @@ At the very least, if you've just upgraded the kernel,
 reboot before deleting the older versions.
 
 ```bash
-# to remove a specific kernel package, in this case 3.13.0-49
+# USE WITH CAUTION: to remove a specific kernel package, in this case 3.13.0-49
 sudo apt-get remove --purge $(dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | grep 3.13.0-49)
 ```
 
@@ -340,7 +340,7 @@ Effectively, your running a filesystem check but using an alternate superblock.
 This could run for a very long time (like hours).
 After it completes, corruption should be removed and the primary superblock restored.
 
-### When the Filesystem is Full
+## When the Filesystem is Full
 Sometimes after a system crash,
 you'll get a message like "The volume filesystem root has only 0 bytes disk space remaining".
 If you run the `df -h` command, you will in fact see it.
@@ -364,7 +364,7 @@ A useful command for finding what's eating up all the space is the ["disk usage"
 Running the following command:
 
     sudo du -s -h -x /*
-    
+
 This will give you the total amount of space used (`-s`) by each file
 or directory at the top of your root filesystem (`/*`),
 without looking at other filesystems (`-x`),
@@ -383,6 +383,31 @@ In addition to the locations above, the following locations are common culprits:
 
 * `/opt` &ensp;&ensp;many third-party apps install here, and don't clean up after themselves
 * `/var/log` &ensp;&ensp;log files can eat up a lot of space if there are repetitive errors
+
+#### Very Large Log Files
+Linux log files found in `/var/log` can be a source of your filesystem full.
+These log files will quickly fill if there are problems within the system.
+
+To investigate if they may be the source your filesystem full,
+find the top ten largest files and directories in  `/var/log`:
+
+```bash
+# print number of bytes in the 10 largest files and directories in /var/log
+sudo du -a -b /var/log | sort -n -r | head -n 10
+```
+
+To clean up the offending log file,
+you can use the `: >` operation to truncate the file to zero bytes.
+For example, this will reduce the `syslog` and `kern.log` files to zero bytes:
+
+```bash
+# reduce syslog and kern.log to zero bites
+sudo su
+cd /var/log
+: > syslog
+: > kern.lg
+exit
+```
 
 #### Deleted But Open Files
 Another potential source of a full filesystem are large
@@ -418,7 +443,7 @@ sudo lsof -nP | grep '(deleted)' | awk '{ print $2 }' | sort | uniq
 
 It's up to the filesystem driver to actually free the allocated space,
 and that will usually happen only once all file descriptors referring to that file are released.
-So you can't really reclaim the space, unless you make the application close the file. 
+So you can't really reclaim the space, unless you make the application close the file.
 The challenge is that the responsible applications are long gone due to the system crash.
 How does one "delete" a file that the operating system believes has already been deleted?
 
@@ -438,7 +463,7 @@ Your can truncate text file and make the size to zero using [redirection][17]:
 For example, if `2746` is the process ID with in `/proc` with a deleted but open file,
 the coresponding file must be truncate zero bytes.
 This can be done by switching to full root mode, find the effected files, and truncate them.
-For an example with a PID of `2746` 
+For an example with a PID of `2746`
 
     sudo -s
     cd /proc/2746/fd

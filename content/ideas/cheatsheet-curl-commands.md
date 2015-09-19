@@ -134,9 +134,9 @@ To get the page, use the `--location` (or `-L`) option
 # Doing HTTP Request Methods With cURL
 The Hypertext Transfer Protocol (HTTP) is an application protocol for distributed,
 collaborative, [hypermedia][07] information systems.
-HTTP functions as a request-response protocol in the client-server computing model. 
+HTTP functions as a request-response protocol in the client-server computing model.
 A web browser may be the client and an application running on a computer hosting a web site may be the server.
-The client submits an [HTTP request message][08] to the server. 
+The client submits an [HTTP request message][08] to the server.
 This is also know as the client executing a HTTP Request Method.
 
 cURL supports the `--request` (or `-X`) parameter,
@@ -216,7 +216,7 @@ Notice that we are using semicolon(":") to separate header name from its value.
 Every time your web browser requests a page,
 the web server sends “headers” before it sends the actual page markup.
 These headers are normally invisible, although cURL will make them visible if you’re interested.
-But the headers are important, because they tell your browser how to interpret the page markup that follows. 
+But the headers are important, because they tell your browser how to interpret the page markup that follows.
 
 If you need to get HTTP headers with your response, `--include` (or `-i`) parameter can be used.
 [HTTP headers][10] are part of these HTTP requests and responses,
@@ -239,7 +239,7 @@ The `diff` produces the following:
     > ETag: "20797-3b61-4f7de3cc22740"
     > Accept-Ranges: bytes
     > Content-Length: 15201
-    > 
+    >
 
 ## See Complete Request And Response Headers with CURL
 Using verbose output in curl can help you see all headers
@@ -258,7 +258,7 @@ For example, the command `curl www.youtypeitwepostit.com` gives you
             <div>
               <h1>You type it, we post it!</h1>
               <p>Exciting! Amazing!</p>
-          
+
               <p class="links">
                 <a href="http://www.youtypeitwepostit.com/messages">Get started</a>
                 <a href="http://www.youtypeitwepostit.com/about">About this site</a>
@@ -287,7 +287,7 @@ But the command `curl --verbose www.youtypeitwepostit.com` gives you
     > User-Agent: curl/7.32.0
     > Host: www.youtypeitwepostit.com
     > Accept: */*
-    > 
+    >
     < HTTP/1.1 200 OK
     < Content-Type: text/html
     < Date: Mon, 28 Apr 2014 01:34:15 GMT
@@ -295,7 +295,7 @@ But the command `curl --verbose www.youtypeitwepostit.com` gives you
     < Last-Modified: undefined
     < Content-Length: 973
     < Connection: keep-alive
-    < 
+    <
     <!DOCTYPE html>
     <html>
         <head>
@@ -307,7 +307,7 @@ But the command `curl --verbose www.youtypeitwepostit.com` gives you
             <div>
               <h1>You type it, we post it!</h1>
               <p>Exciting! Amazing!</p>
-          
+
               <p class="links">
                 <a href="http://www.youtypeitwepostit.com/messages">Get started</a>
                 <a href="http://www.youtypeitwepostit.com/about">About this site</a>
@@ -322,6 +322,25 @@ But the command `curl --verbose www.youtypeitwepostit.com` gives you
     </html>
     * Connection #0 to host www.youtypeitwepostit.com left intact
 
+Sometimes even `--verbose` is not enough.
+Then `--trace` and `--trace-ascii`
+offer even more details as they show EVERYTHING curl sends and receives.
+Use it like this:
+
+```bash
+curl --trace-ascii debugdump.txt http://www.example.com/
+```
+
+Many times you may wonder what exactly is taking all the time,
+or you just want to know the amount of milliseconds between two points in a transfer.
+For those, and other similar situations,
+the `--trace-time` option is what you need.
+It'll prepend the time to each trace output line:
+
+```bash
+curl --trace-ascii d.txt --trace-time http://example.com/
+```
+
 ## Show Methods that are Supported on a Resource
 If you want to figure out which methods are supported on a resource,
 use the `OPTIONS` method for this.
@@ -331,7 +350,7 @@ For example, the command
 
     curl --include --request OPTIONS 'http://www.centos.org'
 
-returns the following.  It include the line starting with "Allow" 
+returns the following.  It include the line starting with "Allow"
 which list the methods supported.
 
     HTTP/1.1 200 OK
@@ -351,7 +370,7 @@ and as a result, its results could be erroneous.
 ## Show Only Response Headers
 Sometimes you only want to see the response headers returned by the server,
 without seeing the actual response content.
-In this case, use the `--head` (or -I`) option.
+In this case, use the `--head` (or `-I`) option.
 
     $ curl --request GET --head www.youtypeitwepostit.com
     HTTP/1.1 200 OK
@@ -482,7 +501,6 @@ To query for the word "internet", you get the following:
 
 [An introduction to curl using GitHub's API](https://gist.github.com/caspyin/2288960)
 [GitHub API v3](https://developer.github.com/v3/)
-
 
 
 

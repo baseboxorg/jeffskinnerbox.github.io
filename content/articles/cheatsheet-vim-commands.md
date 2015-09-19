@@ -1,7 +1,7 @@
 Title: CheatSheet: Vim Commands
 Date: 2014-12-21 17:10
 Category: CheatSheet
-Tags: Vim
+Tags: Cheat Sheet, Vim
 Slug: cheatsheet-vim-commands
 Author: xxx
 Image: cheat-sheet.jpg

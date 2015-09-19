@@ -29,8 +29,12 @@ You'll find many recommendations on how to jazz up a newlly install Ubuntu syste
 </ul>
 <h2>Installing "dot" Files</h2>
 Like may, over the years I have made a large time investment in tuning my <code>.bashrc</code>, <code>.vimrc</code>, and other such resource files.  I installed my beloved "dot" files from my <a href="https://github.com/jeffskinnerbox">Git repository</a>.
-<h2>Installing Google Chrome’s Native PDF Reader in Chromium</h2>
+<h2>Installing Google Chromium and Chrome</h2>
 Chromium is a fully open-source version of Google's Chrome, and for licensing reasons, it doesn't come packaged with the integrated Flash or a native PDF reader.  Lucky, there is a work around and that is documented here: <a href="http://www.omgubuntu.co.uk/2010/07/use-google-chrome%E2%80%99s-native-pdf-reader-in-chromium">Use Google Chrome’s Native PDF reader in Chromium</a>.
+
+But I prefer Chrome to Chromium, and luckily, you can install it on Ubuntu.
+Just go to [Chrome's download site][15] and follow the instructions.
+
 <h2>Installing My Squeeze Box</h2>
 I have a <a href="http://www.mysqueezebox.com/index/Home">SqueezeBox</a> device in my workshop for playing music.
 Specifically, I have the Squeezebox Classic ([Owner's Guide][12]).
@@ -202,7 +206,7 @@ You can convert this format to PDF (and many other formats) via the utility [`co
 (e.g. `convert outfile.pnm outfile.pdf`).
 
 <h2>iPod Support</h2>
-Ubuntu comes with <a href="https://wiki.gnome.org/Apps/Rhythmbox">Rhythmbox</a> as its music playing application and can be used to synch with a iPod. 
+Ubuntu comes with <a href="https://wiki.gnome.org/Apps/Rhythmbox">Rhythmbox</a> as its music playing application and can be used to synch with a iPod.
 Also, you'll want to install several Rhythmbox <a href="http://www.webupd8.org/2012/08/rhythmbox-third-party-plugins-ubuntu-ppa.html">plugins</a>.
 That can be done via
 
@@ -374,7 +378,11 @@ sudo apt-get install wine
 
 Using Wine on Windows programs can be as simple  or complex, it all depends on the program.  <a href="https://help.ubuntu.com/community/Wine">Ubuntu provides some guidance on how to use Wine</a>, also check out <a href="http://www.winehq.org/site/documentation">Wine Documentation</a> and <a href="http://wiki.winehq.org/HowTo">Wine HowTo</a>.
 
-As of this writing of the post, the only thing I loaded via Wine was SplashID, which worked without any challenges.
+At the time of writing of this post, the only thing I loaded via Wine was SplashID, which worked without any challenges.
+
+>**Note:** Ultimately, I abandoned Wine and installed VirtualBox.
+See my posting titled "Having Fun with Wine, VirtualBox, and TurboTax".
+
 <h2>Installing PlayOnLinux</h2>
 <a href="http://www.playonlinux.com/en">PlayOnLinux</a> is based on Wine, and so profits from all its features, yet it keeps the user from having to deal with all its complexity.  I also install this package, in part because it comes pre-configured to load some popular tools.  I used it to install Internet Explore (sometimes its the only browser you can get to work on a site), and Kindle.
 <h2>Installing RAID</h2>
@@ -532,3 +540,4 @@ sudo mdadm --detail --scan >> /etc/mdadm/mdadm.conf
 [12]:http://www.logitech.com/assets/32377/squeezeboxclassic-ownersguide.pdf
 [13]:http://www.tixati.com/optimize/open-ports-linux.html
 [14]:http://www.instructables.com/id/Wall-Mounted-SqueezePlayer-with-Raspberry-Pi/?ALLSTEPS
+[15]:https://www.google.com/intl/en-US/chrome/browser/desktop/index.html

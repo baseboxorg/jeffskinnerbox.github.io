@@ -19,7 +19,7 @@ DEFAULT_LANG = u'en'
 
 DATE_FORMATS = {'en': '%A&nbsp;&nbsp;&nbsp;&nbsp;%B %d, %Y'}
 TIMEZONE = "America/New_York"
-#DEFAULT_DATE = (2100, 3, 2, 14, 1, 1)
+# DEFAULT_DATE = (2100, 3, 2, 14, 1, 1)
 DEFAULT_DATE = None
 
 # If False, content with dates in the future will have "Status: draft",
@@ -74,10 +74,11 @@ TAG_CLOUD_MAX_ITEMS = 100   # Maximum number of tags in the cloud.
 # root-relative URLs. Preview the site locally via python -m SimpleHTTPServer.
 # When deploying to production, uncomment SITEURL, generate, and deploy.
 SITEURL = ''
+# SITEURL = '/home/jeff/blogging'
 RELATIVE_URLS = True        # always set to False when you're ready to publish
 
 # Specify the Pelican theme to be used
-#THEME = '/home/jeff/blogging/pelican-themes/pelican-bootstrap3'
+# THEME = '/home/jeff/blogging/pelican-themes/pelican-bootstrap3'
 THEME = '/home/jeff/blogging/theme'
 
 # Bootstrap theme to be use.  Supported themes are: amelia, cerulean, cosmo,
@@ -97,8 +98,8 @@ COPYRIGHT = 'Copyright Jeffrey C. Irland, 2014'
 # A list of tuples (Title, URL) for additional menu items to appear
 # at the beginning of the main menu.
 MENUITEMS = (('About Me', '/pages/about-me/'),
-            ('MicroContent', 'http://127.0.0.1:8080'),
-            ('Open Notebook', '/pages/open-notebook/'),)
+             ('MicroContent', 'http://127.0.0.1:8080'),
+             ('Open Notebook', '/pages/open-notebook/'),)
 
 # Provide Google Analytics Tracking ID (i.e. ‘UA-XXXX-YYYY’)
 # and turn-off Google Analytics will testing
@@ -124,7 +125,7 @@ CATEGORY_FEED_RSS = None
 TRANSLATION_FEED_ATOM = None
 
 # Feeds
-#FEEDS = (('All posts', 'feeds/all.atom.xml'),
+# FEEDS = (('All posts', 'feeds/all.atom.xml'),
 #        ('Category', 'feeds/category'),
 #        ('OPW', 'feeds/tag/opw.atom.xml'),)
 
@@ -157,7 +158,7 @@ ADMIN = (('Google Analytics', 'https://www.google.com/analytics/web/?hl=en#repor
 # Links to appear in the "links" section of the sidebar
 PAGE = (('RPi Packages',
          '/pages/linux-and-python-packages-for-my-raspberry-pi'),
-        ('Cheat Sheets', '/posts/2014/Dec/21/cheatsheet-vim-commands'),)
+        ('Cheat Sheets', '/tag/cheat-sheet'),)
 WIKI = (('Project Ideas', 'http://127.0.0.1:8080/#Potential Projects'),
         ('Things to Study', 'http://127.0.0.1:8080/#Topics for Study'),)
 LINKS = (('TiddlyWiki', 'http://tiddlywiki.com/'),)
@@ -173,7 +174,9 @@ SOCIAL = (('Github', 'fa-github', 'https://github.com/jeffskinnerbox'),
           ('Tumblr', 'fa-tumblr', 'http://jeffskinnerbox.tumblr.com/'),
           ('Instagram', 'fa-instagram', 'http://instagram.com/jeffskinnerbox'),
           ('Facebook', 'fa-facebook', 'https://www.facebook.com/jeff.irland'),      # NOQA
-          ('Linkedin', 'fa-linkedin', 'https://linkedin.com/in/jeffreyirland'),)    # NOQA
+          ('Linkedin', 'fa-linkedin', 'https://linkedin.com/in/jeffreyirland'),     # NOQA
+          ('CommandLineFu', 'fa-terminal', 'http://www.commandlinefu.com/commands/by/jeffskinnerbox'),     # NOQA
+          ('DISQUS', 'fa-comment', 'https://disqus.com/by/jeffskinnerbox/'),)
 TWITTER_USERNAME = 'jeffskinnerbox'
 
 # When you don’t specify a category in your post metadata,
@@ -189,9 +192,9 @@ DELETE_OUTPUT_DIRECTORY = True
 
 # If set to True, several typographical improvements will be incorporated
 # into the generated HTML via the Typogrify
-TYPOGRIFY = True
+# TYPOGRIFY = True
 
-#LOGOIMAGE = '/theme/macdrifter-logo-art/macdrifter-logo_280px.png'
+# LOGOIMAGE = '/theme/macdrifter-logo-art/macdrifter-logo_280px.png'
 
 # Specify the Pelican plugins to be used when formating content
 PLUGIN_PATHS = ['pelican-plugins/', ]
@@ -203,7 +206,7 @@ MD_EXTENSIONS = ['extra', 'codehilite(noclasses=True, pygments_style=manni, \
                  guess_lang=False)']
 
 # code blocks with line numbers
-#PYGMENTS_RST_OPTIONS = {'linenos': 'table'}
+# PYGMENTS_RST_OPTIONS = {'linenos': 'table'}
 
 # Syntax highlighting style used by Pygment.  Supported styles are: autumn,
 # borland, bw, colorful, default, emacs, friendly, fruity, manni, monokai,
@@ -216,8 +219,8 @@ PYGMENTS_STYLE = 'default'
 PATH = 'content'
 PAGE_PATHS = ['pages', 'test', ]
 ARTICLE_PATHS = ['articles', 'drafts', ]
-ARTICLE_EXCLUDES = ['ideas', ]
 PAGE_EXCLUDES = []
+ARTICLE_EXCLUDES = ['ideas', ]
 
 # List of directories to exclude when looking for pages.
 PAGE_EXCLUDES = ['drafts', 'TBD', ]

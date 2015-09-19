@@ -1,3 +1,7 @@
+# CHoosing Battery Technology
+* [Battery Basics – Choosing a Battery for Your Project](http://hackaday.com/2014/12/16/battery-basics-choosing-a-battery-for-your-project/)
+* [An Obsessively Thorough Battery (and more) Showdown](http://hackaday.com/2014/09/05/an-obsessively-thorough-battery-and-more-showdown/)
+* []()
 
 * [A Li-ion Battery Charging Guide](http://hackaday.com/2014/09/21/a-li-ion-battery-charging-guide/)
 * [A Description of Maddening Battery Terminology](http://hackaday.com/2014/09/26/a-description-of-maddening-battery-terminology/)

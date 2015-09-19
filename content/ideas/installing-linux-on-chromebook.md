@@ -359,6 +359,9 @@ http://www.cnet.com/how-to/what-does-it-mean-to-powerwash-a-chromebook/
 ## Microsoft Apps
 http://www.omgchrome.com/microsoft-brings-office-online-chrome-web-store/
 
+## Run Linux Desktop in Browser Tab
+http://www.howtogeek.com/208368/how-to-run-a-full-linux-desktop-in-a-browser-tab-on-your-chromebook/
+
 ## Update a Crouton Chroot
 When a new version of Crouton comes out,
 the software in your chroot will be outdated.

@@ -1,7 +1,7 @@
 Title: Converting Audio Files
 Date: 2100-01-01 00:00
 Category: Audio
-Tags: 
+Tags:
 Slug: converting-audio-files
 Author: Jeff Irland
 Image: DRAFT_stamp.png
@@ -11,7 +11,8 @@ Summary: bla bla bla
 * [HiFiBerry](http://www.hifiberry.com/)
 
 ## Music and Sound Waves
- *[Art Ludwig's Sound Page](http://www.silcom.com/~aludwig/)
+ * [Art Ludwig's Sound Page](http://www.silcom.com/~aludwig/)
+ * [The Kraakdoos — Musical Abuser of an Ancient OpAmp](http://hackaday.com/2015/09/03/the-kraakdoos-musical-abuser-of-an-ancient-opamp/)
 
 ## Audio Codec
 An audio codec (or just [codec][17]) is a device or computer program capable of
@@ -21,7 +22,7 @@ and places the data in an [audio file format][18] or launch a streaming media au
 The object of the algorithm is create a file (or data stream), that when decoded back to an audio signal,
 maintains a quaility objective using the minimum number of bits.
 This can effectively reduce the storage space and the bandwidth required for
-transmission of the stored audio file. 
+transmission of the stored audio file.
 
 There are three major groups of audio file formats:
 

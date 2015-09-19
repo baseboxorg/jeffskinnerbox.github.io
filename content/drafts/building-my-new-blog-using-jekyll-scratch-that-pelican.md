@@ -8,6 +8,10 @@ Author: Jeff Irland
 Image: pelican_logo.png
 Summary: This article give a "how I setup Pelican" outline from start to finish. It shows you how to install Pelican, add supporting tools like Markdown, Disqus, Google Analytics, Bootstrap, etc.  It also show you how to use tools Make and GitHub to create a easy to maintain workflow.
 
+http://crunk.io/post/introduction-to-pelican/
+[How I built this website, using Pelican: Part 1 - Setup](http://duncanlock.net/blog/2013/05/17/how-i-built-this-website-using-pelican-part-1-setup/)
+[How I upgraded this website to Pelican 3.3](http://duncanlock.net/blog/2013/10/18/how-i-upgraded-this-website-to-pelican-33/)
+
 Search for XXXX FINISH THIS XXXX and make updates.
 
 * [Migrating from Octopress to Pelican](http://jakevdp.github.io/blog/2013/05/07/migrating-from-octopress-to-pelican/)
@@ -19,7 +23,7 @@ using static site generators like [Jekyll][06] or [Pelican][10].
 Static web site don't generate web pages upon request, like WordPress.
 Instead, software on your local machine creates webpages and then these pages are uploaded to the webhost.
 The webpages have fixed content, hence the description "static site."
-For a personal blog, a static site can makes a lot of sense because it more secure, 
+For a personal blog, a static site can makes a lot of sense because it more secure,
 there is no maintenance of web server software,
 your can write the blog in friendly language like [Markdown][19],
 you can easily control versioning of you content with tools like Git,
@@ -56,6 +60,15 @@ You can find the latest Pelican code, along with its [themes and plugins on GitH
 You might find more information on [Pelican's GetHub][23] and [Pelican's Tips & Tricks][24].
 
 ##### Installing Pelican and Creating a Python Virtualenv
+To install Pelican and its dependancies
+
+```bash
+sudo apt-get install python-pip python-virtualenv virtualenvwrapper
+sudo apt-get install python-dev
+
+sudo pip install pelican markdown MathJaxPlugin latex2markdown typogrify
+```
+
 Pelican is a [Python][48] based tool.
 You may have other Python projects and they may require a different version of Python.
 To assure I have a clean Python environment to work in, that doesn't conflict with other Python work,
@@ -178,7 +191,7 @@ in the `README.md` file.
 ### Creating the Pelican Theme
 Pelican Themes allow you to seperate the contents of your blog from its look-and-feel.
 You can find images of the available themes at [Pelican Themes][26].
-This is accomplished in part via use of [Jinja][15] template engine to render Pelican pages and articles. 
+This is accomplished in part via use of [Jinja][15] template engine to render Pelican pages and articles.
 Pelican makes it easy to make your own themes but clearly it is easiest when
 you start with a theme that is close to what you want.
 I started with [pelican-bootstrap3][27] to creat my theme.
@@ -190,7 +203,7 @@ it has created uniformity between many websites.
 [Bootswatch][35] was created to somewhat combate this trend,
 enable developers, still using Bootstrap to try on a new look,
 without investing much time or energy.
-I used the Bootswatch Bootstrap theme called [flatly][53] 
+I used the Bootswatch Bootstrap theme called [flatly][53]
 I then made modifications as required to create my web site style.
 
 # Customizing Bootstrap/Bootwatch via custom.css
@@ -231,7 +244,7 @@ Author: Jeff Irland
 Image: DRAFT_stamp.svg
 Summary: Short discription that will appear in a listing of all articles on the home page.
 ```
-    
+
 This metadata is placed as a header for the article or page.
 From there you can use your favorate editor to write your content in Markdown.
 The next section shows you how to process this content and see it formated for the web site.
@@ -248,7 +261,7 @@ called "Open Notebook" accessable on the navigation bar.
 #### Processing Content
 Pelican support several automation tools for the processing of content and publishing.
 It supports [make][09] and [fabric][08] build tools, but I'll only cover make here.
-Make can be used to automate the creation, editing, and processing of content. 
+Make can be used to automate the creation, editing, and processing of content.
 A Makefile is automatically created during the pelican-quickstart process,
 but I modified for my needs.
 
@@ -280,7 +293,7 @@ Jekyll expects your website directory to be laid out like so:
             |-- style.css
         |-- javascripts
 
-XXXX FINISH THIS XXXX 
+XXXX FINISH THIS XXXX
 Theme
     : xxx
 static
@@ -301,7 +314,7 @@ page.html
 tag.html
     : This template will be processed for each tag, with corresponding .html files saved as output/tag/tag_name.html.
 
-XXXX FINISH THIS XXXX 
+XXXX FINISH THIS XXXX
 ```
 ├── static
 │   ├── css
@@ -320,7 +333,7 @@ XXXX FINISH THIS XXXX
     └── tags.html             // must list all the tags. Can be a tag cloud.
 ```
 
-XXXX FINISH THIS XXXX 
+XXXX FINISH THIS XXXX
 ```
 ├── AUTHORS.md
 ├── LICENSE
@@ -499,7 +512,7 @@ Follow the advice at the GitHub page "[Setting up a Custom Domain with GitHub Pa
 I created a `CNAME` file in the top level of your github repository for your site.
 In my case this is `$(HOME)/blogging/output` directory.
 In the `CNAME` file you will see it just contains `jeffskinnerbox.me`.
-That's all there is need within you Pelican web site. 
+That's all there is need within you Pelican web site.
 
 As for how to set things up with your DNS provider,
 as an example, mine now looks like this:

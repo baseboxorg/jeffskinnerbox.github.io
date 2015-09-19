@@ -24,6 +24,16 @@ The iproute2 collection contains the following command-line utilities:
 `ip`, `ss`, `bridge`, `rtacct`, `rtmon`, `tc`, `ctstat`, `lnstat`,
 `nstat`, `routef`, `routel`, `rtstat`, and `arpd`.
 
+what about ethtool, netifd, nm-tool, nmcli, nm-online
+
+* Why nm-tool is no longer available in Ubuntu 15.04? - http://askubuntu.com/questions/617067/why-nm-tool-is-no-longer-available-in-ubuntu-15-04
+* 9 Linux ethtool Examples to Manipulate Ethernet Card (NIC Card) - http://www.thegeekstuff.com/2010/10/ethtool-command/
+* Fun with ethtool - http://www.linuxjournal.com/content/fun-ethtool
+
+The NetworkManager daemon attempts to make networking configuration and operation as painless and automatic as possible by managing the primary network connection and other network interfaces, like Ethernet, WiFi, and Mobile Broadband devices. NetworkManager will connect any network device when a connection for that device becomes available, unless that behavior is disabled. Information about networking is exported via a D-Bus interface to any interested application, providing a rich API with which to inspect and control network settings and operation.
+
+####################
+
 * Tools for Querying / Configuring IP Network
     * [`ip`][17] shows and manipulates routing, devices, policy routing, and tunnels
     * [`ifconfig`][16] is a network interface configuration, control, and query tool.
@@ -70,7 +80,7 @@ The iproute2 collection contains the following command-line utilities:
 * Tools for Monitoring / Scanning WiFi
     * [`wavemon`][07] is a ncurses-based monitoring application for wireless network devices.
     It displays continuously updated information about signal levels, as well as,
-    wireless-specific and general network information. 
+    wireless-specific and general network information.
     **Example Usage:** `wavemon wlan0`
     * [`iwevent`][08] is another command line tool that displays wireless events
     received through the [RTNetlink socket][06].
@@ -82,7 +92,7 @@ The iproute2 collection contains the following command-line utilities:
 * IP Network Packet Analysis
     * [`tcpdump`][31] is a common packet analyzer that runs under the command line.
     It allows the user to display TCP/IP and other packets being transmitted or
-    received over a network to which the computer is attached. 
+    received over a network to which the computer is attached.
     * [`wireshark`][32] (orginally called `ethereal`) is the world's de facto
     network protocol analyzer letting you do deep inspection of hundreds of protocols,
     live capture, and offline analysis.
@@ -90,7 +100,7 @@ The iproute2 collection contains the following command-line utilities:
     * [`ping`][25] (Packet Internet Gropper) is like a sonar pulse sent to detect another IP address.
     It is used to test the connection and latency between two network connections.
     * [`traceroute`][26] (trace route) is a diagnostic tool for displaying the route
-    (path) and measuring transit delays of packets across an IP network. 
+    (path) and measuring transit delays of packets across an IP network.
     * [`netcat` or `nc`][22] is a [highly functional][21] Unix utility which reads and writes data
     across network connections, using TCP or UDP protocol.
     It is designed to be a reliable "back-end" tool that can
@@ -135,6 +145,7 @@ WiFi Configuration Via Command Line
 * [How do I connect to a WPA wifi network using the command line?](http://askubuntu.com/questions/138472/how-do-i-connect-to-a-wpa-wifi-network-using-the-command-line)
 * [Connect to WiFi network through Ubuntu terminal](http://askubuntu.com/questions/294257/connect-to-wifi-network-through-ubuntu-terminal)
 * [Wireless network configuration](https://wiki.archlinux.org/index.php/Wireless_network_configuration)
+* [How to Find The Best Wi-Fi Channel For Your Router on Any Operating System](http://www.howtogeek.com/197268/how-to-find-the-best-wi-fi-channel-for-your-router-on-any-operating-system/)
 
 ####################
 
@@ -178,12 +189,12 @@ The old tool `iwconfig` is deprecated, never the less, you might still find it i
 ```bash
 # list information about the currently associated wireless network
 $ iwconfig wlan0
-wlan0     IEEE 802.11bgn  ESSID:"74LL5"  
-          Mode:Managed  Frequency:2.462 GHz  Access Point: 00:12:93:A4:8A:F0   
-          Bit Rate=54 Mb/s   Tx-Power=27 dBm   
+wlan0     IEEE 802.11bgn  ESSID:"74LL5"
+          Mode:Managed  Frequency:2.462 GHz  Access Point: 00:12:93:A4:8A:F0
+          Bit Rate=54 Mb/s   Tx-Power=27 dBm
           Retry  long limit:7   RTS thr:off   Fragment thr:off
           Power Management:on
-          Link Quality=63/70  Signal level=-47 dBm  
+          Link Quality=63/70  Signal level=-47 dBm
           Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
           Tx excessive retries:0  Invalid misc:5471   Missed beacon:0
 $
@@ -256,9 +267,9 @@ Station 00:1f:90:b4:8a:80 (on wlan0)
 ```
 
 * **TDLS**, or Tunneled Direct Link Setup is a technology that enables devices to
-link directly to one another when connected to a traditional WiFi network. 
+link directly to one another when connected to a traditional WiFi network.
 * **WMM/WME**, or Wireless Multimedia Extensions (WME), also known as WiFi Multimedia (WMM),
-provides basic Quality of service (QoS) features to IEEE 802.11 networks. 
+provides basic Quality of service (QoS) features to IEEE 802.11 networks.
 
 If you want to get specific statistics against a peer you station is
 communicating with you can use the following:
@@ -278,7 +289,7 @@ iw dev <devname> set txpower <auto|fixed|limit> [<tx power in mBm>]
 iw phy <phyname> set txpower <auto|fixed|limit> [<tx power in mBm>]
 ```
 
-IEEE-802.11 was designed with [`power saving`][04] in mind for stations. 
+IEEE-802.11 was designed with [`power saving`][04] in mind for stations.
 To assist stations with power saving, Access Points (APs) are designed to buffer frames
 for a station when that station is in power save mode and
 to transmit them later to the station when the AP knows the station will listen.
@@ -347,7 +358,7 @@ sudo nmap -sV 192.168.1.1
 
 # Routing
 _Routing_ is a means of sending an IP packet from one point to another.
-In computer networking, a _router_ is a device responsible for forwarding network traffic. 
+In computer networking, a _router_ is a device responsible for forwarding network traffic.
 On Linux and UNIX systems,
 information on how packets are to be forwarded is stored in a
 kernel structure called a _routing table_.
@@ -367,7 +378,7 @@ Dynamic routing consists of the kernel making decisions as to which route,
 out of multiple present routes, a packet should take.
 Static routing is a form of routing that occurs when a router
 uses a manually-configured routing entry,
-rather than information from a dynamic routing protocol to forward traffic. 
+rather than information from a dynamic routing protocol to forward traffic.
 
 The data in routing table contains the following main entries:
 
@@ -423,7 +434,7 @@ If this flag is not set then it can be assumed that the destination is directly 
 ```bash
 # using the iproute2 suite
 $ ip route list
-default via 192.168.1.1 dev eth1  proto static 
+default via 192.168.1.1 dev eth1  proto static
 192.168.1.0/24 dev eth1  proto kernel  scope link  src 192.168.1.4  metric 1
 ```
 
@@ -522,7 +533,7 @@ HTTP request sent, awaiting response... 200 OK
 Length: 11536384 (11M) [application/zip]
 Saving to: ‘/dev/null’
 
-100%[======================================>] 11,536,384  5.03MB/s   in 2.2s   
+100%[======================================>] 11,536,384  5.03MB/s   in 2.2s
 
 2014-12-24 16:00:46 (5.03 MB/s) - ‘/dev/null’ saved [11536384/11536384]
 $
@@ -534,11 +545,11 @@ $
 Here is a [script][11] that provides live stats monitor of wireless stations' link quality
 and some additional useful information regarding the
 bit rate, Tx/Rx packets, wireless signal strength, etc.
-<!-- -------- Start: Gist Code Snippet --------- --> 
+<!-- -------- Start: Gist Code Snippet --------- -->
 <style="padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); font-size: 12px; line-height: 14px; width: 90%;">
     <script src="https://gist.github.com/jeffskinnerbox/9277e3ee7961c47ec4c8.js"></script>
 </style>
-<!-- --------- End: Gist Code Snippet ---------- --> 
+<!-- --------- End: Gist Code Snippet ---------- -->
 
 ## Sources
 These are the major sources for the information and commands documented in this post.
