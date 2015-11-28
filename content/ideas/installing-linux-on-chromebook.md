@@ -424,6 +424,17 @@ http://computers.tutsplus.com/tutorials/use-chrome-remote-desktop-to-access-your
 ## Postman
 https://www.getpostman.com/
 
+## Run Android App On Chromebook
+Eventually, Google hopes, you’ll be able to run potentially millions of Android apps
+within Chrome or Chrome OS once they’re formally ported over.
+But you can get make that vision start to happen today—with a new Google tool called ARC Welder.
+
+* [Here's how to run Android apps on Chrome with Google's new tool](http://www.pcworld.com/article/2905297/heres-how-to-run-android-apps-on-chrome-with-googles-new-tool.html)
+* [How to Install Android Applications Directly on Chromebook](https://www.maketecheasier.com/install-android-applications-chromebook/)
+* [How to install Android apps on Chrome/Chromebooks](https://www.youtube.com/watch?v=fgOd0qdR_AU)
+
+
+
 
 [01]:http://www.cnet.com/products/toshiba-chromebook-2-review/
 [02]:http://chromeos-cr48.blogspot.mx/

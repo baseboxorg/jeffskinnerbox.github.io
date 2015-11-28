@@ -46,4 +46,5 @@
 * [WeatherBug](http://weatherbughome.com/tstat/)
 * [OpenEnergyMonitor](http://openenergymonitor.org/emon/)
 * [How to root your WINK hub - Step by Step tutorial](http://arahuman.blogspot.de/2014/11/how-to-root-your-wink-hub-step-by-step.html)
+* [OpenEnergyMonitor](http://openenergymonitor.org/emon/)
 

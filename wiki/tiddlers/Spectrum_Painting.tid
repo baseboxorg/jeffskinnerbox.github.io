@@ -1,0 +1,15 @@
+created: 20150924011736686
+modified: 20150924013901527
+tags: Projects
+title: Spectrum Painting
+type: text/vnd.tiddlywiki
+
+[[Spectrum painter|https://github.com/polygon/spectrum_painter]]
+converts images to digital signal processing IQ streams
+that can be viewed in a
+[[spectrogram|https://en.wikipedia.org/wiki/Spectrogram]].
+Transmitting SDR's like [[HackRF|http://greatscottgadgets.com/hackrf/]]
+and [[bladeRF|http://hackaday.com/2013/02/02/bladerf-your-next-software-defined-radio/]]
+have software
+that enables you to directly load up
+and play out a file over the radio interface.

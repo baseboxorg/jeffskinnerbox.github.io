@@ -1,14 +1,14 @@
 Title: Animating a Luxo Lamp
 Date: 2100-01-01 00:00
 Category: Pages
-Tags: 
+Tags:
 Slug: animating-a-luxo-lamp
 Author: Jeff Irland
 Image: DRAFT_stamp.png
 Summary: bla bla bla
 
 In 1937, Jac Jacobsen (1901-1996), the founder of [Luxo][02], invented the [Luxo L-1 lamp][01].
-This iconic lamp is still a staple at places like [Ikea][03] and [Staples][04]. 
+This iconic lamp is still a staple at places like [Ikea][03] and [Staples][04].
 
 #### Luxo History
 * [Anglepoise lamp](http://en.wikipedia.org/wiki/Anglepoise_lamp)
@@ -41,6 +41,7 @@ This iconic lamp is still a staple at places like [Ikea][03] and [Staples][04].
 * [Myra, an intelligent robotic lighting system for your living room](http://kawalabo.blogspot.jp/2014/01/myra-intelligent-robotic-lighting.html)
 
 #### Word Recognition
+* [Use Raspberry Pi for Voice Control of Your Roomba](http://makezine.com/projects/use-raspberry-pi-for-voice-control/)
 * [Update: Whistled platform upgraded for simple word recognition](http://hackaday.com/2013/08/22/update-whistled-platform-upgraded-for-simple-word-recognition/)
 
 #### Tracking Objects

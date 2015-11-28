@@ -158,6 +158,39 @@ WiFi Configuration Via Command Line
 ####################
 
 
+
+####################
+
+Multicast Domain Name System (mDNS)
+(http://www.multicastdns.org/) is one of the features of Bonjour, included in Mac OS X 10.2 or later.
+mDNS resolves host names to IP addresses within small networks that do not include a local name server.
+It is a zero-configuration service,
+using essentially the same programming interfaces,
+packet formats and operating semantics as the unicast Domain Name System (DNS).
+When an mDNS client needs to resolve a host name,
+it sends an IP multicast query message that asks the host having that name to identify itself.
+That target machine then multicasts a message that includes its IP address.
+All machines in that subnet can then use that information to update their mDNS caches.
+
+On the Internet at large, a DNS name such as "www.apple.com" must be resolved
+to a numbered IP address before your computer can connect to the server.
+A domain name system (DNS) server normally provides this name resolution service for your computer.
+Your Internet service provider or network administrator normally provides a local DNS server for your use.
+
+Conversely, mDNS allows computers on a local network, such as home or small office,
+to look up each others' names and addresses without a DNS server.
+Each computer knows its own name and responds to requests for that name automatically via IP multicast.
+
+Anywhere that a you could normally use a DNS name such as "www.apple.com",
+you could instead enter the Bonjour name of the computer on the local network.
+To indicate that the name should be looked up using local multicast instead of a standard DNS query,
+all Bonjour host names end with the extension ".local."
+This helps avoid confusion between names that are local Bonjour computer names
+("mycomputer.local") and globally unique DNS names ("www.apple.com").
+
+####################
+
+
 # Establishing a Connection
 You can use `iw` to connect to an AP directly if and only if the AP has:
 

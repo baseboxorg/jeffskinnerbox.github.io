@@ -25,6 +25,7 @@ You'll find many recommendations on how to jazz up a newlly install Ubuntu syste
 	<li><a href="http://debianhelp.wordpress.com/2012/09/28/to-do-list-after-installing-ubuntu-13-04-aka-raring-ringtail-operating-system/">To Do List After installing Ubuntu 13.04 aka Raring Ringtail OS</a></li>
 	<li><a href="http://www.noobslab.com/2013/04/tweaksthings-to-do-after-install-of.html">Things/Tweaks to do after Install of Ubuntu 13.04 Raring Ringtail</a></li>
 	<li><a href="http://mambochimbo.blogspot.com/2013/05/to-do-top-things-to-do-after-installing.html">Top things to do after installing Ubuntu 13.04</a></li>
+	<li><a href="http://fabhax.com/technology/change-wallpapers-in-gnome-3.4/">Change desktop, login and lock screen wallpapers</a></li>
 </ul>
 </ul>
 <h2>Installing "dot" Files</h2>
@@ -367,6 +368,37 @@ sudo apt-get install keepass2 keepass2-doc
 I then exported the contents of my SplashID database to a <a href="http://en.wikipedia.org/wiki/Comma-separated_values">CSV file</a> and imported it into keepass2.  I set up the KeePass2 database within my Dropbox folder.  This way, it can be scych'ed with my cell phone. I then installed KeePassDroid on my cell phone, pointing it at the database with the cell phones Dropbox.  <a href="http://www.keepassdroid.com/">KeePassDroid</a> is a port of the KeePass password safe for the Android platform.
 
 There is some cleanup of the fields within the KeePass2 database, but the data is now accessable on both my PC and my cell phone.
+
+## Installing Slake Utility
+[Slack][16] is a team collaboration tool that replaced email with a chat app that
+plugged in to all their favorite services like Twitter, GitHub, and Dropbox.
+It organize your team conversations in open channels.
+You can make a channel for a project, a topic, a team, etc.
+but transparent view of all that’s going on.
+
+At the time of  writing this post,
+Slake didn't have an offical tool for the Linux desktop,
+but [ScudCloud][17] provide the unofficial Slack client for Ubuntu.
+[And it's open source][18].
+
+To install the Slake client, and its spelling checker, do the following:
+
+```bash
+sudo apt-add-repository -y ppa:rael-gc/scudcloud
+sudo apt-get update
+sudo apt-get install scudcloud
+sudo apt-get install hunspell-en-us
+```
+
+If you want to use a Slack icon instead of ScudCloud
+(which is not possible to include in this package due to copyright)
+
+```bash
+sudo dpkg-divert --add --rename --divert /opt/scudcloud/resources/scudcloud.png.real /opt/scudcloud/resources/scudcloud.png
+sudo cp ~/scudcloud.png /opt/scudcloud/resources/
+sudo chmod +r /opt/scudcloud/resources/scudcloud.png
+```
+
 <h2>Installing Wine</h2>
 <a href="http://www.winehq.org/">Wine</a> allows you to run many Windows programs on Linux. Instead of simulating internal Windows logic like a virtual machine or emulator, Wine translates Windows API calls into Linux calls.  I used the following to install Wine:
 
@@ -526,7 +558,7 @@ sudo mdadm --detail --scan >> /etc/mdadm/mdadm.conf
 ```
 
 
-[01]:https://help.ubuntu.com/13.10/serverguide/cups.html
+[01]:https://www.cups.org/
 [02]:http://linux.about.com/library/cmd/blcmdl1_scanimage.htm
 [03]:http://www.samsung.com/levant/consumer/computers-peripherals/printers/mono-multi-function/SCX-4521F/XSG
 [04]:http://www.bchemnet.com/suldr/supported.html
@@ -541,3 +573,6 @@ sudo mdadm --detail --scan >> /etc/mdadm/mdadm.conf
 [13]:http://www.tixati.com/optimize/open-ports-linux.html
 [14]:http://www.instructables.com/id/Wall-Mounted-SqueezePlayer-with-Raspberry-Pi/?ALLSTEPS
 [15]:https://www.google.com/intl/en-US/chrome/browser/desktop/index.html
+[16]:https://slack.com/
+[17]:http://www.makeuseof.com/tag/linux-loving-slack-users-heres-an-app-for-you/
+[18]:https://github.com/raelgc/scudcloud/

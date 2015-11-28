@@ -21,14 +21,14 @@ The Bus Pirate can operate at 3.3V or 5V logic levels
 and controlling the Bus Pirate is as easy as hooking up a serial terminal program
 and plugging in a USB cable.
 
-The Bus Pirates main object is to reduce or eliminates early prototyping effort when working with new or unknown chips. 
+The Bus Pirates main object is to reduce or eliminates early prototyping effort when working with new or unknown chips.
 Type commands into a terminal on your computer, those commands are interpreted by the Bus Pirate and sent via the proper protocol.
 The Pirate will also interpret data sent from your embedded device back to your computer terminal. There is also a bootloader on the Bus Pirate, which allows you to easily update the firmware and change the functionality.
 
 This posting documents my initial run at the Bus Pirate.
 My initial efforts where to run the self-testing, update the firmware, and study the documentation.
 Doesn't sound like much but this little board is packed with functionality.
-  
+
 ## Bus Pirate Self-Test
 To use Bus Pirate, you'll need to connect with it via a terminal emulator.
 Linux has a simple terminal called [microcom][03] that can do the trick.
@@ -39,7 +39,7 @@ Follow this with a carriage return and you should get the prompt `HiZ>`.
 Now perform a self-test using the instructions posted on the [Bus Pirate self-test guide][12].
 A self-test goes like this:
 
-1. Disconnect any devices from the Bus Pirate I/O header pins. 
+1. Disconnect any devices from the Bus Pirate I/O header pins.
 2. Connect the Vpullup (Vpu) pin to the +5V pin. Connect the ADC pin to the +3.3V pin.
 3. Connect the Bus Pirate to you system via the USB cable.
 4. Within a terminal window, execute the command `sudo microcom -p /dev/buspirate`.
@@ -97,12 +97,12 @@ To update the Bus Pirate with the latest firmware, I followed the instructions a
 The instructions are very convoluted, but basically it went like this:
 
 1. Down load the latest firmware and loading tools, [BusPirate.package.v6.1.zip](http://code.google.com/p/dangerous-prototypes-open-hardware/downloads/detail?name=BusPirate.package.v6.1.zip).
-2. Unpack the Zip file and you'll find multiple versions of tools and firmware.  Were interested in in the directory `BPv3-firmware`, so `cd` into it. 
+2. Unpack the Zip file and you'll find multiple versions of tools and firmware.  Were interested in in the directory `BPv3-firmware`, so `cd` into it.
 3. We'll be loading the firmware package called `BPv3-frimware-v6.1.hex` and we must compile the loader tool in the directory `pirate-loader-source`.
 4. Run the provided script `build-unix.sh` to build the loading tool by doing `sh ./build-unix.sh`. This should give you an executable called `pirate-loader_lnx`. Now `cd ..` to return to the directory where the Hex data is located.
 5. In a separate terminal for the Bus Pirate, enter into bootloader mode by using this series of commands: `sudo microcom -p /dev/buspirate`, `$`, and `y`. You'll see a response back from the Bus Pirate `BOOTLOADER`.  Now terminate the terminal being used.  _This is need to to free the serial port to the Bus Pirate before proceeding._
 6. In a terminal, execute the command `sudo ./pirate-loader-source/pirate-loader_lnx --dev=/dev/buspirate --hex=BPv3-frimware-v6.1.hex`.  This will perform the firmware upload.
-7. Reset the Bus Pirate by removing and attaching the USB cable. The firmware update is complete. 
+7. Reset the Bus Pirate by removing and attaching the USB cable. The firmware update is complete.
 
 Now if you check the firmware version using the "i" command again, you get:
 

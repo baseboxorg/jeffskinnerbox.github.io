@@ -259,6 +259,7 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
     * [momentary push button supplies power to a ESP8266](http://hackaday.com/2015/07/24/alarm-notifies-the-office-when-the-coffee-is-ready/)
     * [Switch Mains Power with an ESP8266](http://hackaday.com/2015/04/19/switch-mains-power-with-an-esp8266/)
     * [Attiny85 DHT22 Temp/Humidity logger](http://www.esp8266.com/viewtopic.php?f=8&t=390)
+    * [Tiny wi-fi robot](https://hackaday.io/project/6695-tiny-wi-fi-robot)
 
 ## More
 * [The Pain of Connecting to WPA Wi-Fi on the Linux Command Line](http://www.sevenforge.com/2009/07/28/connecting-to-wpa-wifi-on-the-command-line/)

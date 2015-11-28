@@ -7,6 +7,9 @@ Author: Jeff Irland
 Image: DRAFT_stamp.png
 Summary: bla bla bla
 
+Check this out
+[Arduino IDE Now Supports Building Software In The Command Line](http://www.lifehacker.com.au/2015/11/arduino-ide-now-supports-building-software-in-the-command-line/)
+
 For someone like myself, who is at home with Linux as my OS and Vim as my editor,
 using the Arduino IDE for Arduino coding is a step back into the stone age.
 If you are used to doing these things yourself and controlling the organization of your code
@@ -53,7 +56,7 @@ The `usermod -a -G dialout pi` may not be need if `pi` is already in the group.
 You can check via `grep dialout /etc/group`.
 If you need to update the group, log out and back in again so the group permissions take effect.
 
-A main makefile is included under /usr/share/arduino/Arduino.mk. It can be used to build an Arduino project by creating a small project specific makefile, refer to the main makefile and finally define a few required constants. 
+A main makefile is included under /usr/share/arduino/Arduino.mk. It can be used to build an Arduino project by creating a small project specific makefile, refer to the main makefile and finally define a few required constants.
 
 You should then set up environment variables thus:
 
@@ -75,7 +78,7 @@ ARDUINO_DIR = /usr/share/arduino
 # Canonically this would match the .pde file, but it's not needed here: you could always set it to xx if you wanted!
 TARGET = CLItest
 
-# List of any libraries used by the sketch (we assume these are in $(ARDUINO_DIR)/hardware/libraries 
+# List of any libraries used by the sketch (we assume these are in $(ARDUINO_DIR)/hardware/libraries
 # e.g. EEPROM Firmata SD SoftwareSerial Stepper Ethernet Ethernet/utility LiquidCrystal Servo SPI Wire Wire/utility
 ARDUINO_LIBS = SPI
 
@@ -123,7 +126,7 @@ But we haven't abanded this capability since there are Linux alternatives.
 The post [Arduino and Linux TTY][04] provides a series of solutions.
 (What is listed below isn't always functional for every need, so consult the posting for more ideas.)
 Assuming the Arduino's USB is plugged into `/dev/ACM0` and the port speed is set to `57600`,
-`cu -l /dev/ttyACM0 -s 57600` will get you simple connect. 
+`cu -l /dev/ttyACM0 -s 57600` will get you simple connect.
 Entering `~.` will terminate the connection.
 For more commands, consult the [cu manual page][07].
 
@@ -134,7 +137,7 @@ You can use `screen` to provide a more interactive serial monitor session with a
 ```
 stty -F /dev/ttyACM0 cs8 57600 ignbrk -brkint -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts
 screen /dev/ttyACM0 57600
-``` 
+```
 
 Make sure the Arduino is plugged in first, otherwise the `stty` will not take.
 Also, you need to only issue the `stty` command once for the terminal session.
@@ -157,6 +160,7 @@ https://github.com/sudar/vim-arduino-syntax
 
 ### Sources and Inspiration
 * [Arduino from the command line](http://www.mjoldfield.com/atelier/2009/02/arduino-cli.html)
+
 
 
 [01]:http://playground.arduino.cc/Learning/Linux

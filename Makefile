@@ -62,20 +62,22 @@ help:
 	@echo 'Makefile for a Pelican Web Site'
 	@echo ' '
 	@echo 'Usage:'
-	@echo '   make draft TITLE="<str>"       starting with a file in /ideas, '
-	@echo '                                    create a file for /drafts with title <str>'
-	@echo '   make upgrade                   upgrade the Pelican package'
-	@echo '   make article                   pick a file in /drafts to move to /articles'
-	@echo '   make html                      generate content for local server'
-	@echo '   make clean                     remove the generated HTML files'
-	@echo '   make process                   create thumbnails for the web site'
-	@echo '   make regenerate                regenerate files upon modification'
-	@echo '   make publish                   generate content for production server'
 	@echo '   make serve [PORT=8000]         serve site at http://localhost:8000'
 	@echo '   make start [PORT=8000]         start/restart local server'
 	@echo '   make stop                      stop the local server'
-	@echo '   make backup                    create a backup of the blogs content and tools'
+	@echo ' '
+	@echo '   make draft TITLE="<str>"       starting with a file in /ideas, '
+	@echo '                                    create a file for /drafts with title <str>'
+	@echo '   make article                   pick a file in /drafts to move to /articles'
+	@echo '   make publish                   generate content for production server'
 	@echo '   make github [COMMENT="<str>"]  upload the content to production server'
+	@echo ' '
+	@echo '   make html                      generate content for local server'
+	@echo '   make clean                     remove the generated HTML files'
+	@echo '   make backup                    create a backup of the blogs content and tools'
+	@echo '   make upgrade                   upgrade the Pelican package'
+	@echo '   make process                   create thumbnails for the web site'
+	@echo '   make regenerate                regenerate files upon modification'
 	@echo ' '
 	@echo 'Set the DEBUG variable to 1 to enable debugging (e.g. make html DEBUG=1)'
 	@echo ' '
@@ -171,6 +173,7 @@ endif
 
 
 # This stops the Pelican and HTTP Server running in the background.
+# Site location is http://localhost:8000/
 stopserver:
 	@$(BASEDIR)/develop_server.sh stop
 	@echo 'Stopped Pelican and HTTP server processes running in background.'

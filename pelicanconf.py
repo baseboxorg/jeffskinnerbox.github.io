@@ -71,7 +71,8 @@ TAG_CLOUD_STEPS = 8         # Count of different font sizes in the tag cloud.
 TAG_CLOUD_MAX_ITEMS = 100   # Maximum number of tags in the cloud.
 
 # Comment out SITEURL during development, which will essentially give you
-# root-relative URLs. Preview the site locally via python -m SimpleHTTPServer.
+# root-relative URLs. Preview the site locally via python -m SimpleHTTPServer
+# at http://localhost:8000/.
 # When deploying to production, uncomment SITEURL, generate, and deploy.
 SITEURL = ''
 # SITEURL = '/home/jeff/blogging'

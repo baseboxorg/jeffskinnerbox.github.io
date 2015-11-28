@@ -8,6 +8,8 @@ Author: Jeff Irland
 Image: pelican_logo.png
 Summary: This article give a "how I setup Pelican" outline from start to finish. It shows you how to install Pelican, add supporting tools like Markdown, Disqus, Google Analytics, Bootstrap, etc.  It also show you how to use tools Make and GitHub to create a easy to maintain workflow.
 
+Consider replacing some of your document with references like this - [Creating your blog with Pelican](http://chdoig.github.io/create-pelican-blog.html)
+
 http://crunk.io/post/introduction-to-pelican/
 [How I built this website, using Pelican: Part 1 - Setup](http://duncanlock.net/blog/2013/05/17/how-i-built-this-website-using-pelican-part-1-setup/)
 [How I upgraded this website to Pelican 3.3](http://duncanlock.net/blog/2013/10/18/how-i-upgraded-this-website-to-pelican-33/)

@@ -1,3 +1,13 @@
+
+Some simple weather station setups:
+* [Hyper-local Weather Dashboard: Wunderground + Pi Sense HAT](https://github.com/InitialState/wunderground-sensehat/wiki)
+* [How to Monitor Room Temperature With a Raspberry Pi](https://www.jeremymorgan.com/tutorials/raspberry-pi/monitor-room-temperature-raspberry-pi/)
+* [Make a Weather Station With a Raspberry Pi 2](https://www.jeremymorgan.com/tutorials/raspberry-pi/how-to-weather-station-raspberry-pi/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed:+JeremyMorganTutorials+(Jeremy)
+* [Mini weather station with Attiny85](http://www.instructables.com/id/Mini-weather-station-with-Attiny85/)
+* [Home environment monitor](https://www.hackster.io/breakpointer/home-environment-monitor-e1173e?ref=newsletter&utm_source=Hackster.io+newsletter&utm_campaign=ea4231d547-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-ea4231d547-140225889)
+
+[OpenWeatherMap](http://openweathermap.org/)
+
 Gulp - http://gulpjs.com/
 Mocha - http://mochajs.org/
 Chai - http://chaijs.com/

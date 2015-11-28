@@ -8,6 +8,7 @@
 * [ESP8266 Retro Browser](http://hackaday.io/project/3072/instructions)
 * [GCC for the ESP8266 WiFi Module](http://hackaday.com/2014/10/02/gcc-for-the-esp8266-wifi-module/)
 * [ESP8266 Wifi Temperature Logger](http://www.instructables.com/id/ESP8266-Wifi-Temperature-Logger/?ALLSTEPS)
+* [Use the Esp As a Serial Adapter](http://hackaday.com/2015/10/23/use-the-esp-as-a-serial-adapter/)
 * [Review: HUZZAH is the ESP8266 WiFi Setup You Need](http://hackaday.com/2015/05/01/review-huzzah-is-the-esp8266-wifi-setup-you-need/)
 
 #  TI CC3000 WiFi Module

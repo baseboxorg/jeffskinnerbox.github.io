@@ -3,6 +3,7 @@
 
 # This file is only used if you use `make publish` or
 # explicitly specify it as your config file.
+# No longer publishing to http://localhost:8000/
 
 from __future__ import unicode_literals
 import os
