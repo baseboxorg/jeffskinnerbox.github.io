@@ -1,5 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Jeff's Skinner Box</title><link href="http://jeffskinnerbox.me/" rel="alternate"></link><link href="http://jeffskinnerbox.me/feeds/all.atom.xml" rel="self"></link><id>http://jeffskinnerbox.me/</id><updated>2014-12-21T17:10:00-05:00</updated><entry><title>CheatSheet: Vim Commands</title><link href="http://jeffskinnerbox.me/posts/2014/Dec/21/cheatsheet-vim-commands/" rel="alternate"></link><updated>2014-12-21T17:10:00-05:00</updated><author><name>xxx</name></author><id>tag:jeffskinnerbox.me,2014-12-21:posts/2014/Dec/21/cheatsheet-vim-commands/</id><summary type="html">&lt;p&gt;Vi was one of the first text editors I learned (and still my favorite)
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Jeff's Skinner Box</title><link href="http://jeffskinnerbox.me/" rel="alternate"></link><link href="http://jeffskinnerbox.me/feeds/all.atom.xml" rel="self"></link><id>http://jeffskinnerbox.me/</id><updated>2015-11-28T10:16:00-05:00</updated><entry><title>Two-Factor Authentication via Google Authenticator</title><link href="http://jeffskinnerbox.me/posts/2015/Nov/28/two-factor-authentication-via-google-authenticator/" rel="alternate"></link><updated>2015-11-28T10:16:00-05:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2015-11-28:posts/2015/Nov/28/two-factor-authentication-via-google-authenticator/</id><summary type="html">&lt;h1&gt;Two-Factor Authentication&lt;/h1&gt;
+&lt;p&gt;&lt;div style="float: left"&gt;
+    &lt;a href="http://security.stackexchange.com/questions/41939/two-step-vs-two-factor-authentication-is-there-a-difference"&gt;
+        &lt;img class="img-rounded" style="margin: 0px 8px; width: 247px; height: 111px" title="Strictly speaking, Google Authenticator is a Two STEP Authentication methodology. Never the less, it is close too it.  This implementation pragmatically require the phone, the 2nd factor." alt="2FA-Picture" src="http://jeffskinnerbox.me/images/two-factor-authentication.png" /&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+I want additional security for my SSH login exposed to the Internet,
+specifically &lt;a href="http://www.cnet.com/news/two-factor-authentication-what-you-need-to-know-faq/"&gt;Two-Factor Authentication (2FA)&lt;/a&gt;.
+&lt;a href="https://twofactorauth.org/"&gt;Increasingly, websites are being built to support 2FA natively&lt;/a&gt;
+and you can &lt;a href="http://lifehacker.com/5938565/heres-everywhere-you-should-enable-two-factor-authentication-right-now?disableinsets=on&amp;amp;utm_expid=66866090-49.VYy4WCNHSyuP6EmjnM93MQ.2&amp;amp;utm_referrer=https%3A%2F%2Fwww.google.com%2F"&gt;take advantage of 2FA at these sites&lt;/a&gt;,
+but it &lt;a href="http://www.cnet.com/how-to/how-to-enable-two-factor-authentication-on-popular-sites/"&gt;typically requires you to enable 2FA&lt;/a&gt; for those sites only.
+I want to &lt;a href="http://www.howtogeek.com/121650/how-to-secure-ssh-with-google-authenticators-two-factor-authentication/"&gt;implement 2FA on my Ubuntu SSH connections&lt;/a&gt;
+use an offering called &lt;a href="http://www.google.com/landing/2step/"&gt;Google Authenticator&lt;/a&gt;.
+This Google &lt;a href="https://github.com/google/google-authenticator"&gt;web service is open sources&lt;/a&gt; and can be used with a companion smart phone app.&lt;/p&gt;
+&lt;p&gt;Google Authenticator implements &lt;a href="https://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm"&gt;Time-based One-time Password Algorithm (TOTP)&lt;/a&gt;
+security tokens from &lt;a href="https://tools.ietf.org/html/rfc6238"&gt;RFC6238&lt;/a&gt; in mobile apps made by Google.
+The Authenticator provides a six digit one-time password users must provide
+in addition to their username and password to log into Google services or other sites.
+Google Authenticator doesn’t call Google — all the work happens on your SSH server and your phone.&lt;/p&gt;
+&lt;h3&gt;Step 1&lt;/h3&gt;
+&lt;p&gt;To access my home PC from out side my home via SSH,
+I need to configure port forwarding on your router (external interface)
+to my home PC's SSH server.
+I can either use the standard port (22) or any alternative port (something above 1024).
+(&lt;strong&gt;NOTE:&lt;/strong&gt; For the webserver you will need to set the port forwarding from port 80
+on the external interface to your server and maybe port 443 if you want to include SSL/TLS connections.)
+I did this via the router's configuration page.
+Many modern routers have presets for configuring several applications, including SSH.
+If you need to forward the port manually, though,
+set it so that any incoming connections through port 22
+will be routed to the local IP of your home computer.&lt;/p&gt;
+&lt;p&gt;Also, on some routers,
+you'll need to configure you home PC with a static IP address,
+otherwise DHCP could move your assigned IP address around,
+effectively disabling the forwarding.&lt;/p&gt;
+&lt;h3&gt;Step 2&lt;/h3&gt;
+&lt;p&gt;Download the Google Authenticator app for your Apple or Android device.
+In my case, I used the &lt;a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2"&gt;Android App&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Step 3&lt;/h3&gt;
+&lt;p&gt;Next you need to install the Google Authenticator&lt;a href="http://tldp.org/HOWTO/User-Authentication-HOWTO/x115.html"&gt;PAM module&lt;/a&gt;.
+To install the package on Ubuntu, run the following command:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get install libpam-google-authenticator
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now log in as the user you’ll be logging in with remotely
+and run the comand &lt;code&gt;google-authenticator&lt;/code&gt; to create a secret key.&lt;/p&gt;
+&lt;p&gt;Allow the command to update your Google Authenticator file by typing &lt;code&gt;y&lt;/code&gt;.
+You’ll then be prompted with several questions that will allow you to
+restrict uses of the same temporary security token,
+increase the time window that tokens can be used for,
+and limit allowed acces attempts to hinder brute-force cracking attempts.&lt;/p&gt;
+&lt;p&gt;Finally, Google Authenticator will present you with a secret key
+and several “emergency scratch codes.”
+Write down the emergency scratch codes somewhere safe,
+they can only be used one time each,
+and they’re intended for use if you lose your phone.&lt;/p&gt;
+&lt;h3&gt;Step 4&lt;/h3&gt;
+&lt;p&gt;Enter the secret key in the Google Authenticator app on your phone,
+or you can also use the scan barcode feature (i.e. scan a QR code with your phone’s camera).&lt;/p&gt;
+&lt;p&gt;Now you’ll now have a constantly changing verification code on your phone.
+(&lt;strong&gt;NOTE:&lt;/strong&gt; If you want to log in remotely as multiple users,
+run this command for each user.
+Each user will have their own secret key and their own codes.)&lt;/p&gt;
+&lt;h3&gt;Step 5&lt;/h3&gt;
+&lt;p&gt;Next you need to activate Google Authenticator on the home PC
+and require Google Authenticator for SSH logins.
+To do so, open the &lt;code&gt;/etc/pam.d/sshd&lt;/code&gt; file on your system
+and add the following line to the file:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;auth required pam_google_authenticator.so
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Next, open the &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt; file,
+locate the &lt;code&gt;ChallengeResponseAuthentication&lt;/code&gt; line,
+and change it to read as follows:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;ChallengeResponseAuthentication yes
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(&lt;strong&gt;NOTE:&lt;/strong&gt; If the &lt;code&gt;ChallengeResponseAuthentication&lt;/code&gt; line doesn’t already exist,
+add the above line to the file.)&lt;/p&gt;
+&lt;p&gt;Finally, restart the SSH server, so your changes will take effect, via ths command:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo service ssh restart
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 6&lt;/h3&gt;
+&lt;p&gt;Test it out.
+You’ll be prompted for both your password and
+Google Authenticator code whenever you attempt to log in via SSH.&lt;/p&gt;
+&lt;h1&gt;Sources&lt;/h1&gt;
+&lt;p&gt;Key Articles that I found helpful:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://kb.mailchimp.com/integrations/other-integrations/set-up-google-authenticator"&gt;Set Up Google Authenticator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-two-factor-authentication"&gt;How To Protect SSH With Two-Factor Authentication&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.linux.com/community/blogs/133-general-linux/783135-securing-ssh-with-two-factor-authentication-using-google-authenticator"&gt;Securing SSH with two factor authentication using Google Authenticator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://wiki.vps.net/vps-net-features/cloud-servers/configuring-two-factor-authentication-in-ubuntu-14-04-using-google-authenticator/"&gt;Configuring two-factor authentication in Ubuntu 14.04 using Google Authenticator&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="Security"></category><category term="Two-Factor Authentication"></category></entry><entry><title>CheatSheet: Vim Commands</title><link href="http://jeffskinnerbox.me/posts/2014/Dec/21/cheatsheet-vim-commands/" rel="alternate"></link><updated>2014-12-21T17:10:00-05:00</updated><author><name>xxx</name></author><id>tag:jeffskinnerbox.me,2014-12-21:posts/2014/Dec/21/cheatsheet-vim-commands/</id><summary type="html">&lt;p&gt;Vi was one of the first text editors I learned (and still my favorite)
 but I still need need a cheat sheet to help me with a command from time to time.
 I know that there hundreds vi/vim cheat sheets online,
 but none organized the way I want.&lt;/p&gt;
@@ -4678,6 +4776,7 @@ You'll find many recommendations on how to jazz up a newlly install Ubuntu syste
     &lt;li&gt;&lt;a href="http://debianhelp.wordpress.com/2012/09/28/to-do-list-after-installing-ubuntu-13-04-aka-raring-ringtail-operating-system/"&gt;To Do List After installing Ubuntu 13.04 aka Raring Ringtail OS&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="http://www.noobslab.com/2013/04/tweaksthings-to-do-after-install-of.html"&gt;Things/Tweaks to do after Install of Ubuntu 13.04 Raring Ringtail&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="http://mambochimbo.blogspot.com/2013/05/to-do-top-things-to-do-after-installing.html"&gt;Top things to do after installing Ubuntu 13.04&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="http://fabhax.com/technology/change-wallpapers-in-gnome-3.4/"&gt;Change desktop, login and lock screen wallpapers&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Installing "dot" Files&lt;/h2&gt;
@@ -4742,7 +4841,7 @@ it is likely that it will work immediately without any further driver or softwar
 I did this with my multifunction &lt;a href="http://www.samsung.com/levant/consumer/computers-peripherals/printers/mono-multi-function/SCX-4521F/XSG"&gt;Samsung SCX-4521F&lt;/a&gt;, which is a printer / scanner combination,
 and the printer function worked but the scanner did not.&lt;/p&gt;
 &lt;p&gt;After a bit of research, I discovered that Ubuntu uses
-&lt;a href="https://help.ubuntu.com/13.10/serverguide/cups.html"&gt;Common UNIX Printing System (CUPS)&lt;/a&gt; for printer management.
+&lt;a href="https://www.cups.org/"&gt;Common UNIX Printing System (CUPS)&lt;/a&gt; for printer management.
 CUPS is the standards-based,
 open source printing system developed by Apple for OS X and other UNIX-like operating systems.
 Assuming CUPS is installed (and it appeares to be with the Ubuntu package),
@@ -4986,9 +5085,36 @@ The first step was to get KeePass installed in Ubuntu.  I found it on the &lt;a
 
 
 &lt;p&gt;I then exported the contents of my SplashID database to a &lt;a href="http://en.wikipedia.org/wiki/Comma-separated_values"&gt;CSV file&lt;/a&gt; and imported it into keepass2.  I set up the KeePass2 database within my Dropbox folder.  This way, it can be scych'ed with my cell phone. I then installed KeePassDroid on my cell phone, pointing it at the database with the cell phones Dropbox.  &lt;a href="http://www.keepassdroid.com/"&gt;KeePassDroid&lt;/a&gt; is a port of the KeePass password safe for the Android platform.&lt;/p&gt;
-&lt;p&gt;There is some cleanup of the fields within the KeePass2 database, but the data is now accessable on both my PC and my cell phone.
+&lt;p&gt;There is some cleanup of the fields within the KeePass2 database, but the data is now accessable on both my PC and my cell phone.&lt;/p&gt;
+&lt;h2&gt;Installing Slake Utility&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://slack.com/"&gt;Slack&lt;/a&gt; is a team collaboration tool that replaced email with a chat app that
+plugged in to all their favorite services like Twitter, GitHub, and Dropbox.
+It organize your team conversations in open channels.
+You can make a channel for a project, a topic, a team, etc.
+but transparent view of all that’s going on.&lt;/p&gt;
+&lt;p&gt;At the time of  writing this post,
+Slake didn't have an offical tool for the Linux desktop,
+but &lt;a href="http://www.makeuseof.com/tag/linux-loving-slack-users-heres-an-app-for-you/"&gt;ScudCloud&lt;/a&gt; provide the unofficial Slack client for Ubuntu.
+&lt;a href="https://github.com/raelgc/scudcloud/"&gt;And it's open source&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To install the Slake client, and its spelling checker, do the following:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-add-repository -y ppa:rael-gc/scudcloud
+sudo apt-get update
+sudo apt-get install scudcloud
+sudo apt-get install hunspell-en-us
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you want to use a Slack icon instead of ScudCloud
+(which is not possible to include in this package due to copyright)&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo dpkg-divert --add --rename --divert /opt/scudcloud/resources/scudcloud.png.real /opt/scudcloud/resources/scudcloud.png
+sudo cp ~/scudcloud.png /opt/scudcloud/resources/
+sudo chmod +r /opt/scudcloud/resources/scudcloud.png
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h2&gt;Installing Wine&lt;/h2&gt;
-&lt;a href="http://www.winehq.org/"&gt;Wine&lt;/a&gt; allows you to run many Windows programs on Linux. Instead of simulating internal Windows logic like a virtual machine or emulator, Wine translates Windows API calls into Linux calls.  I used the following to install Wine:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.winehq.org/"&gt;Wine&lt;/a&gt; allows you to run many Windows programs on Linux. Instead of simulating internal Windows logic like a virtual machine or emulator, Wine translates Windows API calls into Linux calls.  I used the following to install Wine:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo add-apt-repository ppa:ubuntu-wine/ppa
 sudo apt-get update
 sudo apt-get install wine

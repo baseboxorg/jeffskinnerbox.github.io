@@ -131,6 +131,7 @@ You'll find many recommendations on how to jazz up a newlly install Ubuntu syste
     <li><a href="http://debianhelp.wordpress.com/2012/09/28/to-do-list-after-installing-ubuntu-13-04-aka-raring-ringtail-operating-system/">To Do List After installing Ubuntu 13.04 aka Raring Ringtail OS</a></li>
     <li><a href="http://www.noobslab.com/2013/04/tweaksthings-to-do-after-install-of.html">Things/Tweaks to do after Install of Ubuntu 13.04 Raring Ringtail</a></li>
     <li><a href="http://mambochimbo.blogspot.com/2013/05/to-do-top-things-to-do-after-installing.html">Top things to do after installing Ubuntu 13.04</a></li>
+    <li><a href="http://fabhax.com/technology/change-wallpapers-in-gnome-3.4/">Change desktop, login and lock screen wallpapers</a></li>
 </ul>
 </ul>
 <h2>Installing "dot" Files</h2>
@@ -195,7 +196,7 @@ it is likely that it will work immediately without any further driver or softwar
 I did this with my multifunction <a href="http://www.samsung.com/levant/consumer/computers-peripherals/printers/mono-multi-function/SCX-4521F/XSG">Samsung SCX-4521F</a>, which is a printer / scanner combination,
 and the printer function worked but the scanner did not.</p>
 <p>After a bit of research, I discovered that Ubuntu uses
-<a href="https://help.ubuntu.com/13.10/serverguide/cups.html">Common UNIX Printing System (CUPS)</a> for printer management.
+<a href="https://www.cups.org/">Common UNIX Printing System (CUPS)</a> for printer management.
 CUPS is the standards-based,
 open source printing system developed by Apple for OS X and other UNIX-like operating systems.
 Assuming CUPS is installed (and it appeares to be with the Ubuntu package),
@@ -439,9 +440,36 @@ The first step was to get KeePass installed in Ubuntu.  I found it on the <a hr
 
 
 <p>I then exported the contents of my SplashID database to a <a href="http://en.wikipedia.org/wiki/Comma-separated_values">CSV file</a> and imported it into keepass2.  I set up the KeePass2 database within my Dropbox folder.  This way, it can be scych'ed with my cell phone. I then installed KeePassDroid on my cell phone, pointing it at the database with the cell phones Dropbox.  <a href="http://www.keepassdroid.com/">KeePassDroid</a> is a port of the KeePass password safe for the Android platform.</p>
-<p>There is some cleanup of the fields within the KeePass2 database, but the data is now accessable on both my PC and my cell phone.
+<p>There is some cleanup of the fields within the KeePass2 database, but the data is now accessable on both my PC and my cell phone.</p>
+<h2>Installing Slake Utility</h2>
+<p><a href="https://slack.com/">Slack</a> is a team collaboration tool that replaced email with a chat app that
+plugged in to all their favorite services like Twitter, GitHub, and Dropbox.
+It organize your team conversations in open channels.
+You can make a channel for a project, a topic, a team, etc.
+but transparent view of all that’s going on.</p>
+<p>At the time of  writing this post,
+Slake didn't have an offical tool for the Linux desktop,
+but <a href="http://www.makeuseof.com/tag/linux-loving-slack-users-heres-an-app-for-you/">ScudCloud</a> provide the unofficial Slack client for Ubuntu.
+<a href="https://github.com/raelgc/scudcloud/">And it's open source</a>.</p>
+<p>To install the Slake client, and its spelling checker, do the following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-add-repository -y ppa:rael-gc/scudcloud
+sudo apt-get update
+sudo apt-get install scudcloud
+sudo apt-get install hunspell-en-us
+</pre></div>
+
+
+<p>If you want to use a Slack icon instead of ScudCloud
+(which is not possible to include in this package due to copyright)</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo dpkg-divert --add --rename --divert /opt/scudcloud/resources/scudcloud.png.real /opt/scudcloud/resources/scudcloud.png
+sudo cp ~/scudcloud.png /opt/scudcloud/resources/
+sudo chmod +r /opt/scudcloud/resources/scudcloud.png
+</pre></div>
+
+
 <h2>Installing Wine</h2>
-<a href="http://www.winehq.org/">Wine</a> allows you to run many Windows programs on Linux. Instead of simulating internal Windows logic like a virtual machine or emulator, Wine translates Windows API calls into Linux calls.  I used the following to install Wine:</p>
+
+<p><a href="http://www.winehq.org/">Wine</a> allows you to run many Windows programs on Linux. Instead of simulating internal Windows logic like a virtual machine or emulator, Wine translates Windows API calls into Linux calls.  I used the following to install Wine:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo add-apt-repository ppa:ubuntu-wine/ppa
 sudo apt-get update
 sudo apt-get install wine
