@@ -103,7 +103,7 @@ When running a kernel with SysRq compiled in, <code>/proc/sys/kernel/sysrq</cod
 
 To actually reboot the machine there is a well know key sequence to follow: REISUB (or REISUO if you want to turn off the system instead of reboot).  Basically, if you keep pressed AltGR + SysRq + R and then while you keep pressed AltGR + SysRq you press E, I, S, U, B with about 1 second between each letter (do not type it fast). Your system will reboot. This  is a safer alternative to just cold rebooting the computer.
 
-Mnemonic for REISUB is <strong>R</strong>eboot <strong>E</strong>ven <strong>I</strong>f  <strong>S</strong>ystem <strong>U</strong>tterly <strong>B</strong>roken, and the keys pressed do the following:
+Mnemonic for REISUB is <strong>R</strong>eboot <strong>E</strong>ven <strong>I</strong>f  <strong>S</strong>ystem <strong>U</strong>tterly <strong>B</strong>roken, so while pressing `AltGR + SysRq`, press the following  keys:
 <p style="padding-left:60px;">
 <ul>
 <ul>

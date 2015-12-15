@@ -1,13 +1,13 @@
 Title: Building My Linux Box...The Implementation
 Date: 2013-08-01 00:01
 Category: Software
-Tags: Linux, Ubuntu, Squeeze Box, Harmony Remote, Chrome, Xbindkeys, KeePass, Wine, RAID
+Tags: Linux, Ubuntu, Squeeze Box, Harmony Remote, Chrome, Xbindkeys, KeePass, Wine, RAID, Google CLoud Print
 Slug: building-my-linux-box-the-implementation
 Author: Jeff Irland
 Image: ubuntu-13-04-raring-ringtail.jpg
 Summary: In this posting, I show how I implemented my plans to build my custom made Linux system.  I review where I deviated from my plans, and give some of the details on software configuration.
 
-<img class="img-rounded" style="margin: 0px 8px; float: left" alt="Ubuntu 13.04 Raring Ringtail" src="/images/ubuntu-13-04-raring-ringtail.jpg" width="15%" height="15%" />
+<img class="img-rounded" style="margin: 0px 8px; float: left" alt="Ubuntu 13.04 Raring Ringtail" src="/images/ubuntu-13-04-raring-ringtail.jpg" width="8%" height="8%" />
 In an earlier post, I outlined [my plan for building a Linux Box][11].  Here I will post how that plan was ultimately implemented. Life has taught me that all good planning is ultimately undone, and at some point, you must improvise.  That has also proven true for this quest to up grade my computation.  Specifically:
 <ul>
 <ul>
@@ -205,6 +205,25 @@ Given this, I proceeded to using [`xsane`][08] to test out some scanning (it wor
 xsane is a X Window application and produces it output in [PNM format][09].
 You can convert this format to PDF (and many other formats) via the utility [`convert`][10]
 (e.g. `convert outfile.pnm outfile.pdf`).
+
+## Configuring HP LaserJet P2035 for Google Cloud Printing
+I later abandoned my Samsung printer for the HP LaserJet P2035;
+a basic black & white workhorse.
+Keeping the multipurpose Samsung working was just too much of a drain on my time.
+
+To get this printer working, I choose to use it with [Google Cloud Print][19].
+To do this, for the most part, I followed the post
+"[How can I easily set up a Google Cloud Print printer?][20]"
+to get my Linux box configured with the Google Cloud Print service.
+I then used "[How can I import my printer(s) into Google Cloud Print?][21]"
+to get my printer established within Google Cloud Print.
+
+With Google Cloud Print, I'm not only able to print from my Linux desktop,
+but from any Chrome browser when I'm logged in to my Google account.
+So I can print from my Chromebook, Android Phone, etc.
+The next step was to share this print with others,
+and that can be done by following this posting:
+[Share your printer][22].
 
 <h2>iPod Support</h2>
 Ubuntu comes with <a href="https://wiki.gnome.org/Apps/Rhythmbox">Rhythmbox</a> as its music playing application and can be used to synch with a iPod.
@@ -576,3 +595,7 @@ sudo mdadm --detail --scan >> /etc/mdadm/mdadm.conf
 [16]:https://slack.com/
 [17]:http://www.makeuseof.com/tag/linux-loving-slack-users-heres-an-app-for-you/
 [18]:https://github.com/raelgc/scudcloud/
+[19]:http://www.google.com/cloudprint/learn/#utm_campaign=en&utm_source=en-ha-ww-sk&utm_medium=ha&utm_term=%2Bgoogle%20%2Bcloud%20%2Bprint
+[20]:http://askubuntu.com/questions/158874/how-can-i-easily-set-up-a-google-cloud-print-printer
+[21]:http://askubuntu.com/questions/172716/how-can-i-import-my-printers-into-google-cloud-print
+[22]:https://support.google.com/chromebook/answer/2541899?hl=en-GB&rd=1

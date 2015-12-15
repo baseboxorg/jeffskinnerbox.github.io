@@ -24,6 +24,7 @@ Other platforms and bands are in development at this time.
 Next will be Ubiquiti equipment with others supported as development resources permit.
 
 # Meshing Raspberry Pi
+* [How to Install OpenWrt on Raspberry Pi](https://www.all4os.com/router/how-to-install-openwrt-on-raspberry-pi.html)
 * [MESH NETWORKING WITH MULTIPLE RASPBERRY PI BOARDS](http://hackaday.com/2012/11/14/mesh-networking-with-multiple-raspberry-pi-boards/)
 * [Commotion Pi: Build an RPi MESH Node](https://commotionwireless.net/blog/2014/06/12/commotion-pi-build-rpi-mesh-node/)
 * [A Raspberry Pi based batman-adv Mesh network node](http://people.skolelinux.org/pere/blog/A_Raspberry_Pi_based_batman_adv_Mesh_network_node.html)

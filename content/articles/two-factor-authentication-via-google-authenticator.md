@@ -84,6 +84,8 @@ Each user will have their own secret key and their own codes.)
 ### Step 5
 Next you need to activate Google Authenticator on the home PC
 and require Google Authenticator for SSH logins.
+You's do this by making modification to the [Pluggable Authentication Modules (PAM)][12]
+for Linux.
 To do so, open the `/etc/pam.d/sshd` file on your system
 and add the following line to the file:
 
@@ -108,17 +110,55 @@ sudo service ssh restart
 ```
 
 ### Step 6
+At this point, when using SSH from my local network,
+I would need to provide the verification code.
+I don’t want to enter the verification code on my local network,
+because I trust my local network.
+When I SSH from remote, a verification code is required.
+One way to avoid this is to always login with certificates.
+
+Luckily, there is another way to arrange this using the `pam_access.so` module
+This modification will allow skipping two-factor authentication
+when the connection originates from certain sources.
+This is natively already supported by PAM.
+The `pam_access.so` module can be used to check the source against local subnets:
+
+make sure you have the following in `/etc/ssh/sshd_config`:
+
+```bash
+# use Google Authenticator
+# The ‘nullok’ option tells PAM whenever no config for 2-factor authentication is found,
+# it should just ignore it. This will prevent you from being locked out.
+auth [success=1 default=ignore] pam_access.so accessfile=/etc/security/access-local.conf
+auth required pam_google_authenticator.so nullok
+```
+
+Add create the file `/etc/security/access-local.conf` with the following contents:
+
+```bash
+# skip one-time password if logging in from the local network
+# only allow from local IP range
++ : ALL : 192.0.0.0/24
++ : ALL : LOCAL
+- : ALL : ALL
+```
+
+### Step 7
 Test it out.
 You’ll be prompted for both your password and
-Google Authenticator code whenever you attempt to log in via SSH.
+Google Authenticator code whenever you attempt to log in via SSH externally.
+On the other hand, when using SSH on your local network,
+you should not be required to enter the Google Authenticator code.
 
 # Sources
-Key Articles that I found helpful:
+Key articles that I found helpful:
 
 * [Set Up Google Authenticator](http://kb.mailchimp.com/integrations/other-integrations/set-up-google-authenticator)
 * [How To Protect SSH With Two-Factor Authentication](https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-two-factor-authentication)
 * [Securing SSH with two factor authentication using Google Authenticator](https://www.linux.com/community/blogs/133-general-linux/783135-securing-ssh-with-two-factor-authentication-using-google-authenticator)
 * [Configuring two-factor authentication in Ubuntu 14.04 using Google Authenticator](http://wiki.vps.net/vps-net-features/cloud-servers/configuring-two-factor-authentication-in-ubuntu-14-04-using-google-authenticator/)
+* [Playing with two-factor authentication in Linux using Google Authenticator][13]
+* [Two Factor SSH Authentication on external address only][14]
 
 
 
@@ -133,3 +173,6 @@ Key Articles that I found helpful:
 [09]:https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2
 [10]:https://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm
 [11]:https://tools.ietf.org/html/rfc6238
+[12]:http://tldp.org/HOWTO/User-Authentication-HOWTO/x115.html
+[13]:http://blog.remibergsma.com/2013/06/08/playing-with-two-facor-authentication-in-linux-using-google-authenticator/
+[14]:http://serverfault.com/questions/518802/two-factor-ssh-authentication-on-external-address-only

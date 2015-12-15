@@ -98,7 +98,10 @@ See /home/jeff/src/email_parser/extract_email.py
 sudo pip install email
 ```
 
-
+# Gmail API
+The [Gmail API][20] is a RESTful API that can be used to access Gmail mailboxes and send mail.
+All you need to use the Gmail API is the [client library][21]
+for your choice of language and an [app that can authenticate][23] as a Gmail user.
 
 [01]:https://en.wikipedia.org/wiki/Callback_(computer_programming)
 [02]:http://culttt.com/2014/01/22/webhooks/
@@ -119,7 +122,8 @@ sudo pip install email
 [17]:http://restcookbook.com/Basics/hateoas/
 [18]:http://pythonhosted.org/feedparser/introduction.html
 [19]:http://mitchtech.net/connect-raspberry-pi-to-gmail-facebook-twitter-more/
-[20]:
-[21]:
+[20]:https://developers.google.com/gmail/api/
+[21]:https://developers.google.com/gmail/api/downloads
 [22]:https://pushover.net/
+[23]:https://developers.google.com/gmail/api/auth/about-auth
 [36]:http://en.wikipedia.org/wiki/Push_technology

@@ -30,6 +30,7 @@ METADATA = $(BASEDIR)/metadata
 INPUTDIR = $(BASEDIR)/content
 OUTPUTDIR = $(BASEDIR)/output
 CACHEDIR = $(BASEDIR)/cache
+WIKI = $(BASEDIR)/wiki
 ARTICLESDIR = $(INPUTDIR)/articles
 DRAFTSDIR = $(INPUTDIR)/drafts
 EXTRADIR = $(INPUTDIR)/extra
@@ -75,9 +76,14 @@ help:
 	@echo '   make html                      generate content for local server'
 	@echo '   make clean                     remove the generated HTML files'
 	@echo '   make backup                    create a backup of the blogs content and tools'
+	@echo '   make version                   print out the software version numbers'
 	@echo '   make upgrade                   upgrade the Pelican package'
 	@echo '   make process                   create thumbnails for the web site'
 	@echo '   make regenerate                regenerate files upon modification'
+	@echo '   make gethub_pelican            push the contents of website into Github'
+	@echo '                                    and post to Github Website'
+	@echo '   make github_tiddlywiki         push the content of the wiki into Github'
+	@echo '                                    and post to Heroku Website'
 	@echo ' '
 	@echo 'Set the DEBUG variable to 1 to enable debugging (e.g. make html DEBUG=1)'
 	@echo ' '
@@ -214,8 +220,8 @@ backup: html
 	find . -maxdepth 1 -type f -exec cp {} $(BACKUPDIR) \;
 
 
-# push the web site to its domain and place the contents into GitHub
-github: backup publish
+# push the contents of website into Github and post contents on Github Website
+gethub_pelican:
 	ghp-import $(OUTPUTDIR)
 	git push origin gh-pages:master
 	git add --all
@@ -225,6 +231,19 @@ else
 	git commit -m "Modified $(shell date)"
 endif
 	git push origin master:source
+
+
+# push the content of the wiki into Github and post to Heroku Website
+github_tiddlywiki:
+	cd $(WIKI); git add --all
+	cd $(WIKI); git commit -m "Tiddler updates for $(shell date)"
+	cd $(WIKI); heroku login
+	cd $(WIKI); git push heroku master
+
+
+# place contents in Github and push to Website
+github: backup publish gethub_pelican github_tiddlywiki
+
 
 # Versions of tools being used
 version:

@@ -1,5 +1,5 @@
 created: 20140919015727086
-modified: 20150810005641822
+modified: 20151212020141104
 tags: Projects
 title: RTL-SDR Software Defined Radio
 type: text/vnd.tiddlywiki
@@ -10,6 +10,7 @@ type: text/vnd.tiddlywiki
 
 !!Learning SDR-RTL and GUN Radio
 
+*[[An online Software Defined Radio training course|http://www.rtl-sdr.com/an-online-software-defined-radio-training-course/]]
 *[[RTL-SDR.COM|http://www.rtl-sdr.com/]]
 *[[Radio Antics|http://nerdsville.blogspot.com/]]
 *[[Welcome to GNU Radio!|http://gnuradio.org/redmine/projects/gnuradio/wiki]]

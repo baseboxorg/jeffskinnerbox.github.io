@@ -9,6 +9,7 @@ you can have one thread serve hundreds of requests in a non blocking manner.
 Mind you, it's not just Node.js,
 it's the whole stack that has to be able support high volume of web service requests. Node js is a piece of it.
 
+# Node.js
 * [Node.js Raspberry Pi and the Internet of Things](https://vimeo.com/110600770)
 * [Node.js + MongoDB = The Internet of Things (IoT)](http://ilikekillnerds.com/2014/08/node-js-mongodb-the-internet-of-things-iot/)
 * [JavaScript, Node.JS and IOT](http://oguzbastemur.blogspot.com/2015/04/javascript-nodejs-and-iot.html)
@@ -19,8 +20,18 @@ it's the whole stack that has to be able support high volume of web service requ
 * [HOW TO CREATE A RESTFUL API WITH NODE.JS](http://www.programmableweb.com/news/how-to-create-restful-api-node.js/how-to/2014/06/11)
 * [Why JavaScript and the Internet of Things?](http://www.sitepoint.com/javascript-internet-things/)
 
+# Node.js Based IoT Platforms
 * [Node-RED: A visual tool for wiring the Internet of Things](http://nodered.org/)
 * [deviceJS](http://devicejs.org/)
 * [Zetta](http://www.zettajs.org/)
 
 * [Raspberry pi, a Buzzer and Node.js – An IoT Doorbell](http://thejackalofjavascript.com/rpi-buzzer-node-iot-doorbell/)
+
+# Apigee
+* [Apigee-127: A Toolkit for Building Awesome APIs](http://apigee.com/about/blog/developer/apigee-127-toolkit-building-awesome-apis)
+* [A127: Introduction And Getting Started](https://www.youtube.com/watch?v=KL1kAH2ipBw)
+* [Build APIs in Node.js and Swagger 2.0 with Apigee-127](https://www.youtube.com/watch?v=Fw43z14Y1Xw)
+
+# Apigee Zetta
+* [Building A Home Security Recipe With a Beagle Bone, the Cloud9 IDE and the Apigee Zetta API](http://thenewstack.io/building-a-home-security-recipe-with-a-beagle-bone-the-cloud9-ide-and-the-apigee-zetta-api/)
+* []()

@@ -45,6 +45,25 @@ git push heroku master
 heroku open
 ```
 
+## Subsequent Uploads to Heroku
+Use this Bash script:
+
+```bash
+#!/usr/bin/env bash
+
+set -x
+
+# make your commit
+git add --all
+git commit -m "Tiddler updates for $(date)"
+
+# enter your Heroku credentials
+heroku login
+
+# deploy to Heroku
+git push heroku master
+```
+
 ## Documentation
 
 For more information about using Node.js on Heroku, see these Heroku Dev Center articles:

@@ -2,7 +2,8 @@
 This is the source content and tools for creating my web site [www.jeffskinnerbox.me][03].
 The site is generated using [Pelican][04], written mostly in [markdown][05],
 and it is hosted using [Github Pages][06].
-The web sites user-interface theme was developed by reusing & modifing the [pelican-bootstrap3][10] Pelican Theme and
+The web sites user-interface theme was developed by reusing &
+modifing the [pelican-bootstrap3][10] Pelican Theme and
 reusing and modifing the [Bootswatch][09] [Bootstrap][07] theme called [flatly][08].
 The web site also makes use of pages that were formated using the [IPython][12] tool [nbconvert][11].
 All these tools (and [several more][13]) are used to create the content for the web site.
@@ -146,7 +147,7 @@ It will appear in the site's footer. To enable, use one of the following two way
 * To choose the license by name, set `CC_LICENSE` to the common abbreviated name of the license: `"CC-BY"` (require attribution), `"CC-BY-SA"` (require ShareAlike), `"CC-BY-ND"` (NoDerivatives) , `"CC-BY-NC"` (require attribution, no commercial reuse), `"CC-BY-NC-SA"` (require ShareAlike, no commercial reuse), or `"CC-BY-NC-ND"` (NoDerivatives, no commercial reuse).
 * Alternatively, choose the licence by features:
     * `CC_LICENSE_DERIVATIVES` - `"yes"` if permitted, `"no"` if not permitted, and `"ShareAlike"` if derivatives must be shared under the same terms.
-    * `CC_LICENSE_COMMERCIAL` - `"yes"` if commercial reuse is permitted, and `"no"` otherwise. 
+    * `CC_LICENSE_COMMERCIAL` - `"yes"` if commercial reuse is permitted, and `"no"` otherwise.
 * Optionally, you can include attribution markup in the license mark by setting `CC_ATTR_MARKUP` to _True_.
 
 The license choice mirrors the [Creative Commons License Chooser](http://creativecommons.org/choose/). Source for the macro that renders the mark is at http://github.com/hlapp/cc-tools.
@@ -170,7 +171,7 @@ You can enable sharing buttons through [AddThis](http://www.addthis.com/) by set
 In order to make the Facebook like button work better, the template contains Open Graph metatags like `<meta property="og:type" content="article"/>`. You can disable them by setting `USE_OPEN_GRAPH` to _False_. You can use `OPEN_GRAPH_FB_APP_ID` to provide a Facebook _app id_. You can also provide a default image that will be passed to Facebook for the homepage of you site by setting `OPEN_GRAPH_IMAGE` to a relative file path, which will be prefixed by your site's static directory.
 
 ### Footer
-The footer will display a copyright message using the AUTHOR variable and the year of the latest post. If a content license mark is enabled (see above), that will be shown as well. 
+The footer will display a copyright message using the AUTHOR variable and the year of the latest post. If a content license mark is enabled (see above), that will be shown as well.
 
 ## Makefile
 The Makefile is engineered for doing common tasks with the static site generator Jekyll, such as,

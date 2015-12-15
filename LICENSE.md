@@ -23,7 +23,16 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ---
 
-**Note:** The primary candidates for licensing appear to be the following:
+I have opted to go with the [MIT License][mit].
+This seems like an important decision
+(at least its important to keep the lawyers away from your door),
+but how does one make the call?
+I found the following sites useful:
+
+* [Choosing an OSS license doesn’t need to be scary](http://choosealicense.com/)
+* [OSS Watch - Open Source Software Advisory Service](http://oss-watch.ac.uk/apps/licdiff/)
+
+The primary candidates for licensing appear to be the following:
 
 * [Unlicense][un]
 * [Creative Commons][cc]

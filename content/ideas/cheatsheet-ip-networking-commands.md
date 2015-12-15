@@ -29,6 +29,7 @@ what about ethtool, netifd, nm-tool, nmcli, nm-online
 * Why nm-tool is no longer available in Ubuntu 15.04? - http://askubuntu.com/questions/617067/why-nm-tool-is-no-longer-available-in-ubuntu-15-04
 * 9 Linux ethtool Examples to Manipulate Ethernet Card (NIC Card) - http://www.thegeekstuff.com/2010/10/ethtool-command/
 * Fun with ethtool - http://www.linuxjournal.com/content/fun-ethtool
+*  Stop using telnet to test network connectivity - http://scotte.github.io/2015/03/stop-using-telnet/
 
 The NetworkManager daemon attempts to make networking configuration and operation as painless and automatic as possible by managing the primary network connection and other network interfaces, like Ethernet, WiFi, and Mobile Broadband devices. NetworkManager will connect any network device when a connection for that device becomes available, unless that behavior is disabled. Information about networking is exported via a D-Bus interface to any interested application, providing a rich API with which to inspect and control network settings and operation.
 
