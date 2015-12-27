@@ -7,7 +7,7 @@ The MT7620 router-on-a-chip includes an 802.11n MAC and baseband, a 2.4 GHz radi
 a 580 MHz [MIPS][37] CPU ([MIPS 24KEc][38]),
 a 5-port 10/100 switch and two
 [Reduced Gigabit Media Independent Interface (RGMII)][25].
-The MT7620 includes everything needed to build an AP router from a single chip. 
+The MT7620 includes everything needed to build an AP router from a single chip.
 
 The WRTnode oprates at 300Mbps, WiFi antenna integrated into the PCB board,
 has pins preconfigured for some of the LED indicators
@@ -21,11 +21,17 @@ we can see the pinout each and every one of them.
 > **Note:** In this diagram, WRTNode is photographed by the side of the welds,
 so when making connections, we must reverse the pinout.
 
+###########
+VoCore is an open hardware runs OpenWrt. It has WIFI, USB, UART, 20+ GPIOs but size is only one square inch.
+
+* [VOCore Tutorial Gets You Started with Tiny Router](http://hackaday.com/2015/11/15/vocore-tutorial-gets-you-started-with-tiny-router/)
+###########
+
 # Components that Make Up WRTNode
 ## OpenWrt
 OpenWrt is a desendent of the firmware used for the classic [Linksys WRT54G][39] router.
 In fact, this classic Linksys series of routers lead to [DD-WRT][41], [OpenWrt][40], [Tomato][42],
-and countless other open-source firmwares. 
+and countless other open-source firmwares.
 Read "[The Open Source WRT54G Story][43]" if you want more of a history lesson.
 
 OpenWrt is described as a Linux distribution for embedded devices,
@@ -111,7 +117,7 @@ https://linino2013.wordpress.com/about/
 ## Getting Connected with WRTnode Via WiFi
 The easiest way to get connected with WRTnode/OpenWrt on Ubuntu is via
 the [network menu in the menu bar][08].
-We know from the [WRTnode documentation][04] 
+We know from the [WRTnode documentation][04]
 that the SSID being broadcasted by the WRTNode is "WRTnodeXXXX",
 where the XXX is the last 4 digits of the OpenWrt's MAC address.
 In my case its "WRTnode9976".
@@ -177,7 +183,7 @@ you'll see the device and its symbolic link.
 No more USB port dancing to find the FDTI Friend!
 
 ### Pin Connections to Access Console
-[This web post][33] will provide some insight on 
+[This web post][33] will provide some insight on
 what pins to connect to on the WRTnode and access the console via the FTDI Friend.
 My diagram for pin connections are given below:
 
@@ -251,19 +257,19 @@ Finished.
 APs available are...
 ra0       get_site_survey:
 Ch  SSID                             BSSID               Security               Siganl(%)W-Mode  ExtCH  NT WPS DPID
-1   TRENDnet637                      00:14:d1:c3:c0:6f   WEP                    29       11b/g/n NONE   In YES     
-6   Download Virus                   90:72:40:1b:c4:c6   WPA2PSK/AES            29       11b/g/n NONE   In  NO     
-6   F9MH4                            00:26:62:73:0e:f8   WEP                    44       11b/g/n NONE   In  NO     
-6   Battlestar                       00:26:62:66:92:3f   WPA1PSKWPA2PSK/AES     5        11b/g/n NONE   In  NO     
-6   7D6GC                            00:26:b8:65:a6:e5   WEP                    24       11b/g/n NONE   In  NO     
-6   74LL5                            00:1f:90:b4:8a:80   WPA1PSKWPA2PSK/AES     100      11b/g   NONE   In  NO     
-6   W7JKF                            f8:e4:fb:7c:7a:b1   WPA2PSK/AES            10       11b/g/n NONE   In  NO     
-6   Bridge-2.4                       e8:fc:af:93:b8:f9   WPA1PSKWPA2PSK/TKIPAES 86       11b/g/n NONE   In YES     
-6   Guest Network                    92:c6:c4:1b:40:70   WPA2PSK/AES            39       11b/g/n NONE   In  NO     
-11  CRL-EmployeesOnly                9c:1c:12:3e:c8:e0   WPA2/AES               10       11b/g/n NONE   In  NO     
-11  NETGEAR99                        10:0d:7f:8b:ce:3f   WPA2PSK/AES            15       11b/g/n NONE   In YES     
-11  RFOS8                            00:18:01:e3:08:ee   WEP                    20       11b/g   NONE   In  NO     
-11  Campbell-WLAN                    00:1f:90:fb:27:20   WPAPSK/TKIP            5        11b/g   NONE   In  NO  
+1   TRENDnet637                      00:14:d1:c3:c0:6f   WEP                    29       11b/g/n NONE   In YES
+6   Download Virus                   90:72:40:1b:c4:c6   WPA2PSK/AES            29       11b/g/n NONE   In  NO
+6   F9MH4                            00:26:62:73:0e:f8   WEP                    44       11b/g/n NONE   In  NO
+6   Battlestar                       00:26:62:66:92:3f   WPA1PSKWPA2PSK/AES     5        11b/g/n NONE   In  NO
+6   7D6GC                            00:26:b8:65:a6:e5   WEP                    24       11b/g/n NONE   In  NO
+6   74LL5                            00:1f:90:b4:8a:80   WPA1PSKWPA2PSK/AES     100      11b/g   NONE   In  NO
+6   W7JKF                            f8:e4:fb:7c:7a:b1   WPA2PSK/AES            10       11b/g/n NONE   In  NO
+6   Bridge-2.4                       e8:fc:af:93:b8:f9   WPA1PSKWPA2PSK/TKIPAES 86       11b/g/n NONE   In YES
+6   Guest Network                    92:c6:c4:1b:40:70   WPA2PSK/AES            39       11b/g/n NONE   In  NO
+11  CRL-EmployeesOnly                9c:1c:12:3e:c8:e0   WPA2/AES               10       11b/g/n NONE   In  NO
+11  NETGEAR99                        10:0d:7f:8b:ce:3f   WPA2PSK/AES            15       11b/g/n NONE   In YES
+11  RFOS8                            00:18:01:e3:08:ee   WEP                    20       11b/g   NONE   In  NO
+11  Campbell-WLAN                    00:1f:90:fb:27:20   WPAPSK/TKIP            5        11b/g   NONE   In  NO
 ```
 
 ## Connecting with the Internet
@@ -281,12 +287,12 @@ run the `ia` command, WRTnode equvilent to `ifconfig`:
 
 ```bash
 root@OpenWrt:~# ia
-apcli0    Link encap:Ethernet  HWaddr 66:51:7E:32:99:76  
+apcli0    Link encap:Ethernet  HWaddr 66:51:7E:32:99:76
           inet6 addr: fe80::6451:7eff:fe32:9976/64 Scope:Link
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000 
+          collisions:0 txqueuelen:1000
           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
 ```
 
@@ -386,7 +392,7 @@ To monitor what is going on with the WRTNode, I found the following tools useful
 * Tools for Monitoring WiFi
     * [`wavemon`][02] is a ncurses-based monitoring application for wireless network devices.
     It displays continuously updated information about signal levels, as well as,
-    wireless-specific and general network information. 
+    wireless-specific and general network information.
     **Example Usage:** `wavemon wlan0`
     * [`iwevent`][05] is another command line tool that displays wireless events
     received through the [RTNetlink socket][06].

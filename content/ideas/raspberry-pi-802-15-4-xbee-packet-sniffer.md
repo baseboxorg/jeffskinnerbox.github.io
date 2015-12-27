@@ -8,6 +8,7 @@ Image: DRAFT_stamp.png
 Summary: abla bla bla
 
 * [Sniffing nRF24L01+ Traffic with Wireshark](http://hackaday.com/2014/08/05/sniffing-nrf24l01-traffic-with-wireshark/)
+* [tshark](http://www.linuxuser.co.uk/tutorials/monitor-network-traffic-tutorial)
 
 <a href="/img/posts/jekyll-posts/RPi-XBee-Sniffer.jpg"><img align="left" title="bus priate board" src="/img/posts/jekyll-posts/RPi-XBee-Sniffer.jpg" width="250px" height="187px" class="img-rounded floatLeft" /></a>
 As I continue to dive into the XBee radios and experiment with them via Arduino and the Raspberry Pi, I have found myself populating my code with print statement and creating utilities to "see" what is going on.Unfortunately, I often believe I'm sending one thing via one of the XBee's but I appear to be receive something unexpected.

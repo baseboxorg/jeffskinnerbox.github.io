@@ -164,6 +164,7 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
     * [ESP Gets FCC and CE](http://hackaday.com/2014/12/17/esp-gets-fcc-and-ce/)
 
 * Documentation
+    * [ESP8266 Reference](http://www.pighixxx.com/test/2015/06/esp8266-rev-1/)
     * [ESP8266 Quick Start](http://benlo.com/esp8266/esp8266QuickStart.html)
     * [Espressif Systems is the manufacter of the ESP8266](http://espressif.com/en/products/esp8266/)
     * [ESP8266 Documentation and Datasheet](https://nurdspace.nl/ESP8266)
@@ -172,6 +173,7 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
     * [ElectroDragon Wiki](http://www.electrodragon.com/w/Wi07c)
     * [ESP8266 Serial WIFI Module](http://wiki.iteadstudio.com/ESP8266_Serial_WIFI_Module)
     * [ESP8266 Community Forum](http://www.esp8266.com/)
+    * [Hackaday Dictionary: The ESP8266](http://hackaday.com/2015/09/24/hackaday-dictionary-the-esp8266/)
 
 * Toolchain and Development Boards
     * [Building the toolchain](https://github.com/EspressifSystems/low_power_voltage_measurement)
@@ -183,6 +185,7 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
     * [ESP8266 Basic](http://www.esp8266basic.com/)
     * [Arduino IDE Support for the ESP8266](http://hackaday.com/2015/03/28/arduino-ide-support-for-the-esp8266/)
     * [Seeed Studio's ESP8266 IoT SDK](http://www.seeedstudio.com/document/pdf/esp_iot_sdk_v0.6.zip)
+    * [Building and Running MicroPython on the ESP8266](https://learn.adafruit.com/building-and-running-micropython-on-the-esp8266)
     * [Micro Python Now Runs on the ESP8266](http://hackaday.com/2014/11/29/micro-python-now-runs-on-the-esp8266-contributors-wanted-to-get-wifi-working/)
     * [Compiling Your Own Programs for the ESP8266/](http://hackaday.com/2014/12/08/compiling-your-own-programs-for-the-esp8266/)
     * [A Development Board for the ESP8266-03](http://www.limpkin.fr/index.php?post/2014/11/27/A-Development-Board-for-the-ESP8266-03)
@@ -197,12 +200,19 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
         * [NodeMcu - A Lua based firmware for wifi-soc esp8266](https://github.com/nodemcu/nodemcu-firmware)
         * [Burning LuaFirmware](http://importhack.wordpress.com/2014/11/22/how-to-use-ep8266-esp-01-as-a-sensor-web-client/)
         * [Flash tool for NodeMCU](https://github.com/nodemcu/nodemcu-firmware)
+        * [IoT With Lua and NodeMCU](https://dzone.com/articles/iot-with-lua)
+        * [GitHub - nodemcu/nodemcu-flasher](https://github.com/nodemcu/nodemcu-flasher)
         * [Command line interface for the ESP8266 module](https://www.npmjs.com/package/esp8266)
         * ESP8266 based web configurable wifi general purpose control [Part 1](http://www.instructables.com/id/ESP8266-based-web-configurable-wifi-general-purpos/?ALLSTEPS) and [Part 2](http://www.instructables.com/id/ESP8266-based-web-configurable-wifi-general-purpos-1/?ALLSTEPS)
     * [DIY ESP8266 Development Board](http://www.electro-labs.com/diy-esp8266-development-board/)
 
 # Tools and Libraries
 * [MQTT client library for ESP8266](https://github.com/tuanpmt/esp_mqtt)
+* [Squash Your ESP-8266 Bugs with ESP-gdbstub](http://hackaday.com/2015/12/12/squash-your-esp-8266-bugs-with-esp-gdbstub/)
+
+* Quick Start
+    * [ESP8266 WiFi Module Quick Start Guide](http://rancidbacon.com/files/kiwicon8/ESP8266_WiFi_Module_Quick_Start_Guide_v_1.0.4.pdf)
+    * [ESP8266 Quick Start](http://benlo.com/esp8266/esp8266QuickStart.html)
 
 * Tutorials
     * Video: [Hari Wiguna's "$3 WiFi Modual" YouTube Series](https://www.youtube.com/playlist?list=PL-xZsBalytNAFgyiDI8_lwXyeVE3R4hpx)
@@ -232,11 +242,16 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
     * [ESP8266 Now Working/Updated](http://scargill.wordpress.com/2014/10/05/esp8266-working/)
     * [Connect ESP8266 to Raspberry Pi](http://www.extragsm.com/blog/2014/12/03/connect-esp8266-to-raspberry-pi/)
     * [REDUCING ESP8266 POWER CONSUMPTION USING DEEP SLEEP](http://tinker.yeoman.com.au/2015/03/08/reducing-esp8266-power-consumption-using-deep-sleep/)
+    * [How to Make Two ESP8266 Talk](http://randomnerdtutorials.com/how-to-make-two-esp8266-talk/)
+    * [ESP8266 Web Server Tutorial](http://randomnerdtutorials.com/esp8266-web-server/)
 
 * Projects Making Use of the ESP8266
     * [ESP8266 weather station](http://dangerousprototypes.com/2015/11/30/esp8266-weather-station/)
     * [WiFi / Internet Controlled Relays using ESP8266 - Quick, 30 minutes IoT project](http://www.instructables.com/id/WiFi-Internet-Controlled-Relays-using-ESP8266-Quic/)
     * [ESP8266 IFTTT Easy Button](https://www.hackster.io/noelportugal/esp8266-ifttt-easy-button)
+    * [Transparent ESP8266 WiFi-to-Serial Bridge](http://hackaday.com/2015/09/18/transparent-esp8266-wifi-to-serial-bridge/)
+    * [Building a ESP8266 Client/Server Application](https://arduino-board.com/tutorials/esp8266)
+    * [ESP8266 WiFi Access Point](https://arduino-board.com/tutorials/esp8266-ap)
     * [ESP8266 as an Access Point](http://scargill.wordpress.com/2014/10/08/esp8266-as-an-access-point/)
     * [ESP8266 for low power sensor applications](https://github.com/EspressifSystems/low_power_voltage_measurement)
     * [Accessing a web site with an ESP8266 serial WiFi module and an Arduino Mega 2560](http://hackaday.io/project/3072/instructions)
@@ -263,6 +278,13 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
     * [Switch Mains Power with an ESP8266](http://hackaday.com/2015/04/19/switch-mains-power-with-an-esp8266/)
     * [Attiny85 DHT22 Temp/Humidity logger](http://www.esp8266.com/viewtopic.php?f=8&t=390)
     * [Tiny wi-fi robot](https://hackaday.io/project/6695-tiny-wi-fi-robot)
+    * [Home Automation With the ESP8266: Build Home Automation Systems Using the Powerful and Cheap ESP8266 WiFi Chip Kindle Edition](http://www.amazon.com/Home-Automation-ESP8266-Systems-Powerful-ebook/dp/B00W9B3OOC/ref=sr_1_1?s=digital-text&ie=UTF8&qid=1442795120&sr=1-1&keywords=home+automation+using+esp8266&tag=rnwap-20)
+    * [Primary IoT Make with NodeMcu ->ESP8266<-](http://www.seeedstudio.com/recipe/232-primary-iot-make-with-nodemcu-gt-esp8266-lt.html)
+    * [A WiFI-enabled cord switch with the ESP8266 in 10 minutes](https://www.hackster.io/alinan/a-wifi-enabled-cord-switch-with-the-esp8266-in-10-minutes-6fa700?ref=newsletter&utm_source=Hackster.io+newsletter&utm_campaign=7fdf5fdbea-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-7fdf5fdbea-140225889)
+
+## Next Version
+* [Meet ESP32, New Big Brother to IoT Board ESP8266](http://makezine.com/2015/12/09/meet-esp32-new-big-brother-to-iot-board-esp8266/?utm_source=MakerPro+20151217&utm_medium=email&utm_term=&utm_content=image&utm_campaign=newsletter)
+* [The ESP32 Beta Units Arrive](http://hackaday.com/2015/12/23/the-esp32-beta-units-arrive/)
 
 ## More
 * [The Pain of Connecting to WPA Wi-Fi on the Linux Command Line](http://www.sevenforge.com/2009/07/28/connecting-to-wpa-wifi-on-the-command-line/)

@@ -123,7 +123,7 @@ when the connection originates from certain sources.
 This is natively already supported by PAM.
 The `pam_access.so` module can be used to check the source against local subnets:
 
-make sure you have the following in `/etc/ssh/sshd_config`:
+make sure you have the following in `/etc/pam.d/sshd`:
 
 ```bash
 # use Google Authenticator
@@ -138,7 +138,7 @@ Add create the file `/etc/security/access-local.conf` with the following content
 ```bash
 # skip one-time password if logging in from the local network
 # only allow from local IP range
-+ : ALL : 192.0.0.0/24
++ : ALL : 192.168.1.0/24
 + : ALL : LOCAL
 - : ALL : ALL
 ```
@@ -159,6 +159,7 @@ Key articles that I found helpful:
 * [Configuring two-factor authentication in Ubuntu 14.04 using Google Authenticator](http://wiki.vps.net/vps-net-features/cloud-servers/configuring-two-factor-authentication-in-ubuntu-14-04-using-google-authenticator/)
 * [Playing with two-factor authentication in Linux using Google Authenticator][13]
 * [Two Factor SSH Authentication on external address only][14]
+* [Two Step Authentication for SSH on Centos 6 Using Google Authenticator](http://blog.nowherelan.com/2014/01/04/two-step-authentication-for-ssh-on-centos-6-using-google-authenticator/)
 
 
 

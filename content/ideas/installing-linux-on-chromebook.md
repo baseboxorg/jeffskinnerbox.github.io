@@ -2,16 +2,17 @@ Status: draft
 Title: Installing Linux on Chromebook
 Date: 2100-01-01 00:00
 Category: Software, Hardware
-Tags: Chrome, Chromebook, Linux
+Tags: Chrome, Chromebook, Crouton, Linux
 Slug: cheap-linux-laptop
 Author: Jeff Irland
 Image: toshiba-chromebook-linux.jpg
 Summary: The price of the Chromebook makes it a very attractive, assuming you can get your favorite tools working on it.  Well, you can install Linux, along with all the tools Linux brings to your development needs. This post is a somewhat disjointed dump of things that I’ve done to create a comfortable working envirnment on a Chromebook.
 
 I wanted to get a Linux laptop for some lightweight development
+and remote login into my home Linux box
 but I couldn't justify the price tag for my limited needs.
 [Chromebook's are cheap & popular][31]
-and which can be purchased for $300 or less
+and can be purchased for $300 or less
 (In fact, [Amazon's top three computers sold over the 2014 Christmas season were Chromebooks][32]).
 I knew you could installing a traditional Linux environment on a Chromebook,
 so I got myself a [Toshiba CB35-B3340 Chromebook 2][01] with 4G of memory and 16G drive
@@ -21,14 +22,15 @@ which is [important for installing Linux][04].
 Chromebook isn't a PC replacement, but for many users, a [better alternative][23].
 See the [Chrome Help Center][21] and [Chromebook Help Center][22] for more information.
 
-Conveniently, Chromebooks have a Developer Mode,
+Conveniently, Chromebooks have a [Developer Mode][58],
 which lets you bypass all the normal checks and balances that Google
 use to ensure that rogue software does not run on Chrome OS devices.
 After you have switched into developer mode,
 your Chromebook will run whatever you want it to.
 You can open up a Linux shell in a browser tab
 ([Chromebooks are running a cut down Linux distribution][39] after all)
-simply by hitting `Ctrl`+`Alt`+`T` on the keyboard.
+simply by hitting `Ctrl`+`Alt`+`T` on the keyboard,
+or bring ups a [crosh shell][33].
 
 Installing a traditional Linux environment on your Chromebook is a quick and easy
 because the Chrome OS is a Linux-based operating system.
@@ -44,16 +46,200 @@ This allows you to boot a full Linux environment from a USB drive without modify
 Crouton appears to be the best supported way of running another OS on top of Chrome OS.
 It’s quite impressive how easy it is to use and
 comes with a [rich set of options][51].
+(By the way, there happens to be a way to merging ChromeOS and Android
+via [ARC Welder][54].)
+
+I'm not the first to consider the Chromebook as an alternative development environment.
+In fact, Martin Malinda's posting
+Ultimate guide for Web Development on Chromebook —
+[Part 1: Crouton][55] and
+[Part 2: ChromeOS tricks and workflows][56]
+and Joe Marini's [Tools for Developing on ChromeOS][57]
+are a good read to understand how to make the Chromebook a powerful developers tool.
+
+# Quick Chromebook Introduction
+You can find thousands of apps for the Chromebook on the web
+to do things like create documents, edit photos, and listen to music in the browser.
+Google has provided a recommendation list at the sites
+"[Find apps for your Chromebook][26]",
+"[10 Top Tweaks and Tips for Chromebook][27]",
+"[Chromebook tips and tricks: Getting the most out of your Chrome OS machine][29]",
+"[15 essential Chrome OS keyboard shortcuts][30]".
+
+https://gigaom.com/2012/07/09/10-google-chromebook-tips-tricks-and-tweaks/
+
+## Working with Chromebook / Chrome OS
+Switching from a PC to a Chromebook comes with a few adjustments.
+For one, you’ll need to have access to a WiFi signal for most Chrome apps to function.
+Also, the Chromebook doesn't have a standard PC keyboard (e.g. no Page Up / Down keys).
+
+Google's Chrome OS uses some familiar keyboard shortcuts as well as some unique ones.
+A few of these access Chrome OS settings
+and others take the place of missing physical keys on Chromebook keyboards
+( e.g. Page Up, Page Down, Home, End).
+
+| Keys                 | Operation                       |
+|----------------------|---------------------------------|
+| Ctrl+?               | Open help                       |
+| Shift+Esc            | Open task manager               |
+| Ctrl+Alt+/           | Open keyboard shortcut list     |
+| Ctrl+M               | Open file manager               |
+
+| Keys                 | Operation                       |
+|----------------------|---------------------------------|
+| ALT + [              | Dock window left | 50% width    |
+| Alt + ]              | Dock window right | 50% width   |
+
+| Keys                 | Operation                       |
+|----------------------|---------------------------------|
+| Alt+ up arrow        | Page Up                         |
+| Alt+ down arrow      | Page Down                       |
+| Ctrl+Alt+ up arrow   | Home                            |
+| Ctrl+Alt+ down arrow | End                             |
+| Ctrl+Tab             | Switch to next browser tab      |
+| Ctrl+W               | Close current tab               |
+| Ctrl+Shift+T         | Reopen last closed tab          |
+| Ctrl+N               | Open new browser window         |
+| Alt+Tab              | Switch to next open window      |
+| Ctrl+Shift+Q         | Sign out of Google account      |
+| Alt+backspace        | Delete file(s) in file manager  |
+
+There is also a number of keyboard shortcuts you’ll need to learn,
+and touchpad motions that are different from the average PC.
+
+* Click the touchpad with two fingers to open the **right-click menu** .
+* Place two fingers on the touchpad and move up and down or right to left to **scroll**.
+* Click and hold on an item you want to **drag and drop** using one finger. Then, with a second finger move to where you want that item dropped.
+* Swipe left or right quickly using two fingers to **switch between open tabs**.
+
+For a fuller list of sharotcuts,
+see "[Cheatsheet: Chromebook and Chrome OS Keyboard Shortcuts][]".
+
+## Crosh
+Crosh is a shell environment known as “chrome shell”
+that is provided with Chrome OS.
+Crosh allows users to run several commands directly from Chrome OS.
+Developer mode is not required to use crosh.
+The vast majority of linux commands are locked down inside crosh.
+Crosh can be accessed by pressing `Ctrl`+`Alt`+`T` on the keyboard.
+This will open a new tab with the crosh terminal.
+**NOTE:** You can actually create as many shells as you want.
+Just hit `Ctrl`+`Alt`+`T` again and a second shell will be opened.
+
+cosh has two separate versions of help.
+you can access basic help in the crosh window by simple typing `help`.
+This will give you a list of commands that can be used inside crosh.
+To get a list of the more advanced commands type `help_advanced`.
+To access further functionality from crosh such as as the Bash Shell,
+chromeos needs to be in developer mode.
+
+There are several commands included in Chrome OS’s crosh shell.
+You find several of them documented in the articles
+"[10+ Commands Included In Chrome OS’s Hidden Crosh Shell][25]",
+"[Customize Chromebook Chrosh Shell Environment][28]".
+
+[10 Commands In Chrome’s Crosh Shell](http://efytimes.com/e1/fullnews.asp?edid=124113)
+http://krypted.com/unix/helpful-chrome-os-shell-crosh-commands/
+[25 Helpful Chrome OS Shell (crosh) Commands](http://krypted.com/unix/helpful-chrome-os-shell-crosh-commands/)
+http://www.dudleymediagroup.com/Detail/id/5-tips-after-installing-crouton-on-a-chromebook-2654
+
+Crosh even supports full-blown bash with ssh-agent and Vim.
+To get Vim working, do the following:
+
+```
+CTRL+ALT T
+crosh> shell
+chrosos@localhost / $ echo $SHELL
+/bin/bash
+chrosos@localhost / $ vim
+```
+
+The problem with running crosh in the browser is that if you want to use shortcuts like `Ctrl`+`w`
+(in Vim, for example), Chrome will take the default action associated to that shortcut.
+One solution is to open crosh as a window.
+
+You can also put crosh in a window, independent of your Chrome browser.
+You can do this via a Chrome app called [Crosh Window][33]
+(You must have [Secure Shell][34] installed for this to work).
+When clicked, this app opens a new crosh window without any chrome browser,
+but pressing `Ctrl`+`Alt`+`T` still brings up crosh in the Chrome browser.
+
+## `xiwi` (X11 in a Window)
+One of the most impressive things that you can do with Crouton is run native Linux apps,
+either in a window of their own, or as a browser tab, using [`xiwi`][18].
+Xiwi is a X.org X11 backend running unaccelerated integration with Chromium OS.
+With xiwi installed,
+you do not need a X11 desktop environment.
+You can launch apps on an individual basis in a Chromium OS window or tab.
+You can do things like running the GIMP image editor as a Chrome browser tab.
+This is literally as simple as typing `xiwi -t gimp` at the Linux command line.
+
+## Commands, Tips, and Tricks
+* [Chrome Story][37]
+* [100 Tips for Google Chrome][41]
+* [Getting Started with your Chromebook][35]
+* [100 Best Chromebook Tips, Tricks and Time Savers][36]
+* [11 tips to get the most out of your Chromebook][50]
+
+## Chrome://Commands
+There are several features that are not available from the Chrome Menu,
+which you can access only using the `chrome://commands`.
+
+12 Most Useful Google Chrome Browser chrome:// Commands - http://www.thegeekstuff.com/2011/10/google-chrome-commands/
+
+# Crouton
+* [Crouton Command Cheat Sheet][16]
+* http://fuyuko.net/basic-tweaks-and-tips-for-crouton-in-chromebook/
+* https://github.com/dnschneid/crouton/wiki/Crouton-Command-Cheat-Sheet
+
+## Update a Crouton Chroot
+When a new version of Crouton comes out,
+the software in your chroot will be outdated.
+It won’t automatically update itself, but you can update it fairly quickly.
+
+```bash
+# enter your chroot and run the following command.
+croutonversion -u -d -c
+
+# trusty is the name of your chroot
+sudo sh ~/Downloads/crouton -u -n trusty
+```
+
+## Managing Crouton
+Unlike the Chromebook itself,
+whe a new version of Crouton comes out,
+the software in your chroot will not automatically update itself.
+To update it, enter your chroot and run the following command.
+That means this command must be run from that Crouton Linux system:
+
+```bash
+croutonversion -u -d -c
+```
+
+Next, exit the chroot and run the following command from the Chrome OS shell,
+replacing “name” with the name of your chroot.
+If you didn’t specify a name,
+it’s probably the name of the release you installed — for example, “trusty”, in my case.
+
+```bash
+# trusty is the name of the Linux version to be installed
+sudo sh ~/Downloads/crouton -u -n trusty
+```
+
+The article "[How to Manage the Crouton Linux System on Your Chromebook][24]"
+gives some additional pointers on manging your Crounton-enabled Chromebook.
+It covers things like backing up the chroot, creating multiple chroots,
+deleting a chroot, etc.
 
 # The Linux Install
-I choose to use the crouton method, which is a set of scripts,
+I choose to use the [Crouton method][03], which is a set of scripts,
 to use the Linux command chroot ([Change Root][13]) to simultaneously
 run a Linux operating system alongside Chrome OS.
 Chroot was meant for Linux administrators to easily fix problems while running as the root,
 superuser, without logging off the current user.
 Here, it's being used to run a primitive form of container.
 It has neither the sophistication of a [virtual machine (VM)][40]
-or an advanced container such as Docker or Google lmctfy.
+or an advanced container such as [Docker][52] or [Vagrent][53].
 What chroot has going for it is that it's very lightweight
 and is present on almost all versions of Linux (including Chrome OS).
 Its downside is that in this mode users have a great deal of power over their system,
@@ -64,18 +250,20 @@ I'm also going to install two different X window managers,
 While both are not necessary, they are very different and suited for different needs.
 You have a command line choose for which one you wish to start with Linux.
 
+## Step 0: Inttialize New Chromebooks
+If your dealing with a new Chromebook,
+make sure you have established an initial Google account
+and set up the WiFi connectivity.
+
 ## Step 1: Backup Your Chromebook Data
 Since all of your data is synced to Google Server,
 you actually don’t have to worry about losing any data.
 The only data that you must make a back-up of is the `Download` folder
 because the content of this folder is not synced.
 
-If your dealing with a new Chromebook,
-make sure you have established an initial account
-and set up the WiFi connectivity.
-
 ## Step 2: Backup Your Chromebook Environment
-Once you have taken the back-up, it’s also a fail-safe plan to create a restore USB of Chrome OS,
+Once you have taken the back-up,
+it’s also a fail-safe plan to create a restore USB of Chrome OS,
 in case something goes badly wrong and you need to re-install Chrome OS.
 Install Chromebook recovery utility from the Chrome web store.
 Go to the [Chrome Web Store][07]
@@ -99,14 +287,15 @@ Also keep in mind that Developer Mode will need access to the Internet to downlo
 This means you need to have initialized the native Chromebook with access to WiFi.
 
 ## Step 4: Download and Install Crouton
-Crouton is a set of scripts that bundle up the installation of Ubuntu or Debian OS for the Chromebook.
+Crouton is a set of scripts that bundle up the installation of
+Ubuntu or Debian OS for the Chromebook.
 All the best documentation is maintained on Github's
 [crouton: Chromium OS Universal Chroot Environment][10]
 and the [Wiki][15].
-There you will find a easy to use link to download crouton.
+There you will find a easy to use link to download Crouton.
 Just execute this link [https://goo.gl/fd3zc][11] from your Chromebook browser.
-Download crouton via the link to the directory `Downloads`,
-pop open a shell (`Ctrl`+`Alt`+`T`, within the poped up window type `shell` and hit enter),
+Download Crouton via the link to the directory `Downloads`,
+pop open a shell (`Ctrl`+`Alt`+`T`, within the popped up window type `shell` and hit enter),
 and run `sh ~/Downloads/crouton` to see some examples on what you can to with this utility.
 
 You should also install the [crouton extension][12].
@@ -137,14 +326,17 @@ sh ~/Downloads/crouton -r list
 I used the following command line to install my system:
 
 ```bash
-# install your desired Ubuntu release and targets
-sudo sh ~/Downloads/crouton -e -r trusty -t xfce-desktop,xiwi,keyboard,extension,core,cli-extra
+# install your desired Ubuntu release and targets (NOTE: drive is not encripted)
+sudo sh ~/Downloads/crouton -r trusty -t xfce-desktop,x11,xiwi,keyboard,extension,core,cli-extra
 ```
 
-* xfce-desktop - [Xfce][47] is a lightweight desktop environment aiming to be light on system resources, while still being visually appealing and user friendly.
-* xiwi - xiwi (X11 in a Window) works by creating a window in Chrome and channeling a virtual X11 framebuffer over to it.
+* xfce-desktop - [Xfce][47] is a lightweight desktop environment aiming to be light on system resources,
+while still being visually appealing and user friendly.
+* xiwi - [xiwi][18] (X11 in a Window) works by creating a window in Chrome and
+* x11 - X Window System and is essential to run most programs.
+channeling a virtual X11 framebuffer over to it.
 * keyboard - adds support for Chromebook keyboard special keys
-* extension - clipboard synchronization and URL handling with Chrome OS
+* extension - implements clipboard syncing through WebSockets so you can copy paste from browser to xiwi tabs and windows without issues.
 * core - performs core system configuration (a must have)
 * cli-extra - basic command line interface tools like ssh
 
@@ -157,7 +349,12 @@ they will be places in
 
 The Crouton [Wiki][15] discusses [security][17]
 and points out that crouton is not, and cannot be, as secure as Chromium OS in verified mode.
-Because of this, I use the second "-e" option to encrypt the Linux instance.
+If this is a concern, you can use the second "-e" option to encrypt the Linux instance.
+
+```bash
+# install your desired Ubuntu release and targets and encript the drive
+sudo sh ~/Downloads/crouton -e -r trusty -t xfce-desktop,x11,xiwi,keyboard,extension,core,cli-extra
+```
 
 ## Step 6: Test It Out
 You can now test out your Ubuntu instance by entering your chroot in commandline mode via:
@@ -210,7 +407,12 @@ but but you can jump right into from crosh shell if you set up your
 echo "exec i3" > ~/.xinitrc
 
 # launch i3 directly from the crosh shell
-sudo enter-chroot -n trusty xinit
+# use native Xorg instead of xiwi (linux runs full screen, no access to Chrome)
+sudo enter-chroot -X xorg -n trusty xinit
+
+# launch i3 directly from the crosh shell
+# use native Xorg instead of xiwi (linux runs full screen, no access to Chrome)
+sudo enter-chroot -X xiwi -n trusty xinit
 ```
 
 The i3 tilling window manager is highly configurable but entirely keyboard driven.
@@ -219,240 +421,123 @@ and for the uninitiated, you'll be completely lost on what to do
 to create a window or navigate.
 Check out my [cheatsheet][] to find you way out of the darkness.
 
-## Step N: Make a Backup
-The [Github Wiki for Crouton][49] provides a very complete description of making backups.
-The command below should get started quickly on do a Crouton chroot backup,
-but its wise to read the wiki.
-This command creates an archive in the current directory with your chroot’s files in it.
+## Step 9: Make a Backup
 
-```bash
-# move to the directory where you want the backup saved
-cd google drvie
+## Step N: Push Backup to Google Drive
 
-# backup your chroot files
-sudo edit-chroot -b trusty
-```
-
-You can restore the backup later with the following command:
-
-```bash
-# restore your backup
-sudo edit-chroot -r trusty
-```
-
-Or perhaps you’ve powerwashed your Chromebook and you want to get
-your customized Linux environment back.
-You can run the following command while installing Crouton.
-The Crouton installer script will restore your chroot
-from the backup file you provide,
-so replace `backupfile.tar.gz` with the name of the backup file you want to restore.
-
-```bash
-# restore backup to a powerwashed Chromebook
-sudo sh ~/Downloads/crouton -f backupfile.tar.gz
-```
-
-## Step N+1: Push Backup to Google Drive
-Push the file to Google Drive
-http://www.howtogeek.com/196635/an-official-google-drive-for-linux-is-here-sort-of-maybe-this-is-all-well-ever-get/
-
-
-https://developers.google.com/drive/v2/reference/files/insert
-
-# Starting Up Linux
+# Starting Up Linux and Linux Apps
 There are several ways to start up your Linux instance on the Chromebook,
 but they all start from the crosh shell.
 To get to the crosh shell,
-type `Ctrl`+`Alt`+`T`,
-then within the poped up window type `shell` and hit enter.
+type `Ctrl`+`Alt`+`T` to bring up a Chrome Shell or `crosh`.
+Then type `shell` at the prompt to get to the root Linux shell
+(this can only be done in [Developer Mode][19]).
 Now within this window, enter one of the following:
 
 ```bash
 # command line only
 sudo enter-chroot -n trusty
 
-# full window manage - Xfce Window Manger
-sudo startxfce4 -n trusty
+# run full Xfce Window Manger
+# use native xiwi (linux runs in chroos window or Chrome tab)
+sudo startxfce4 -X xiwi -n trusty
+
+# run full Xfce Window Manger
+# use native Xorg instead of xiwi (linux runs full screen, no access to Chrome)
+sudo startxfce4 -X xorg -n trusty
 
 # lightweight, tilling window manager - i3 Window Manager
-sudo enter-chroot xinit -n trusty
+sudo enter-chroot -X xiwi -n trusty xinit
 ```
 
 You can also run Linux programs, including X Window programs,
-as individual programs without pulling up a separate as you must with xfce and i3.
+as individual programs without pulling up a desktop envirnment as you do with xfce and i3.
 With the [crouton chrome extension & xiwi][12],
 this enables running the X11 windows in the Ubuntu chroot as
 native Chrome OS windows.
+You enter chroot via `sudo enter-chroot` and the run the app via `xiwi`.
+you use `xiwi -T <app>` to launch in Chrome browser tab,
+or `xiwi -F <app>` to launch full-screen.
+You can silence output and run the command in the background via
+`sudo enter-chroot -b xiwi -T <app>`.
+
+You can launch individual apps in crouton windows by using the "xiwi" command
+in the chroot shell.
+Use startxiwi to launch directly from the host shell.
+Use the startxiwi parameter -b to run in the background.
+
+If your application forks and quits,
+xiwi may get confused and quit as well
+(you'll get an error/quit when the window launches).
+Often you must pass your app the  `-f` parameter.
+If you can't find one,
+you can pass `-f` to xiwi itself
+(e.g., `xiwi -f gvim` or `xiwi gvim -f`),
+and xiwi will not close unless there are no applications visible
+and you close the Chromium OS window.
+Also, xiwi doesn't know you current directory so use full paths
+(e.g. `sudo enter-chroot -b xiwi gimp ~/Downloads/img.jpg`).
+
 For example,
 
 ```bash
 # run the program node-red in the background
 sudo startxiwi -b node-red
 
+# run the program node-red in the foreground (also brings up an additional window)
+Sudo enter-chroot xiwi node-red
+
 # run a xterm in the forground
 sudo startxiwi -f xterm
+xiwi -f xterm
 ```
-
-To make this all easier to remember, you could create some alias'.
-For example, create an alias for starting i3, xfce, and command line version
-of Ubuntu by putting the following in `~/.bashrc`
-(exit out of the chroot and from inside your crosh/shell, edit `$HOME/.bashrc`):
-
-```bash
-alias starti3='sudo enter-chroot -n trusty xinit'
-alias startxfce='sudo startxfce4 -n trusty'
-alias startcl='sudo enter-chroot -n trusty'
-```
-
-THE DOESN'T APPEAR TO WORK SINCE YOU CAN'T CREATE THE BASHRC FILE
-
-# Managing Crouton
-Unlike the Chromebook itself,
-whe a new version of Crouton comes out,
-the software in your chroot will not automatically update itself.
-To update it, enter your chroot and run the following command.
-That means this command must be run from that Crouton Linux system:
-
-```bash
-croutonversion -u -d -c
-```
-
-Next, exit the chroot and run the following command from the Chrome OS shell,
-replacing “name” with the name of your chroot.
-If you didn’t specify a name,
-it’s probably the name of the release you installed — for example, “trusty”, in my case.
-
-```bash
-# trusty is the name of the Linux version to be installed
-sudo sh ~/Downloads/crouton -u -n trusty
-```
-
-The article "[How to Manage the Crouton Linux System on Your Chromebook][24]"
-gives some additional pointers on manging your Crounton-enabled Chromebook.
-It covers things like backing up the chroot, creating multiple chroots,
-deleting a chroot, etc.
-
-# Working with Chrome OS and Linux
-Switching from a PC to a Chromebook comes with a few adjustments.
-For one, you’ll need to have access to a WiFi signal for most Chrome apps to function.
-Also, the Chromebook doesn't have a standard PC keyboard (e.g. no Page Up / Down keys).
-There is also a number of keyboard shortcuts you’ll need to learn,
-and touchpad motions that are different from the average PC.
-
-* Click the touchpad with two fingers to open the **right-click menu** .
-* Place two fingers on the touchpad and move up and down or right to left to **scroll**.
-* Click and hold on an item you want to **drag and drop** using one finger. Then, with a second finger move to where you want that item dropped.
-* Swipe left or right quickly using two fingers to **switch between open tabs**.
 
 https://support.google.com/chromebook/answer/1047367?hl=en&ref_topic=2589149
 http://blog.laptopmag.com/how-to-right-click-on-a-chromebook
 
+## Aliases
+To make this all easier to remember, you could create some aliases'.
+Aliases have to be stored in `~/.bashrc` to persist indefinitely
+(Note `~` is `home/chronos/user`.  Make sure to do `cd` when you enter the shell).
+
+There is one problem with aliases'.
+If you launch applications via aliases,
+the xiwi command will not know about them.
+You can add the [following snippet][62] to your `~/.bashrc` to handle basic aliases:
+
+```bash
+# Wrap xiwi so that aliases work
+xiwi() {
+    local xiwiargs=''
+    while [ "${1#-}" != "$1" ]; do
+        xiwiargs="$xiwiargs $1"
+        shift
+    done
+    local cmd="`alias "$1" 2>/dev/null`"
+    if [ -z "$cmd" ]; then
+        cmd="$1"
+    else
+        eval "cmd=${cmd#*=}"
+        cmd="env $cmd"
+    fi
+    shift
+    eval "/usr/local/bin/xiwi $xiwiargs $cmd \"\$@\""
+}
+```
+
+For example, to create an alias for starting i3, xfce, and command line version of Ubuntu
+I putting the following in my  `~/.bashrc` file:
+
+```bash
+```
+
+>NOTE: You do your edits of `~/.bashrc` from inside your crosh/shell, edit, not chroot.
+
 ## Linux in a Chromium OS Window
 https://github.com/dnschneid/crouton/wiki/crouton-in-a-Chromium-OS-window-(xiwi)
 
-## Commands, Tips, and Tricks
-* [Chrome Story][37]
-* [100 Tips for Google Chrome][41]
-* [Getting Started with your Chromebook][35]
-* [100 Best Chromebook Tips, Tricks and Time Savers][36]
-* [11 tips to get the most out of your Chromebook][50]
-
-## Chrome://Commands
-There are several features that are not available from the Chrome Menu,
-which you can access only using the `chrome://commands`.
-
-12 Most Useful Google Chrome Browser chrome:// Commands - http://www.thegeekstuff.com/2011/10/google-chrome-commands/
-
 ## Markdown
 https://chrome.google.com/webstore/detail/markdown-preview/jmchmkecamhbiokiopfpnfgbidieafmd
-
-### Chromebook
-You can find thousands of apps for the Chromebook on the web
-to do things like create documents, edit photos, and listen to music in the browser.
-Google has provided a recommendation list at the sites
-"[Find apps for your Chromebook][26]",
-"[10 Top Tweaks and Tips for Chromebook][27]",
-"[Chromebook tips and tricks: Getting the most out of your Chrome OS machine][29]",
-"[15 essential Chrome OS keyboard shortcuts][30]".
-
-https://gigaom.com/2012/07/09/10-google-chromebook-tips-tricks-and-tweaks/
-
-Google's Chrome OS uses some familiar keyboard shortcuts as well as some unique ones.
-A few of these access Chrome OS settings
-and others take the place of missing physical keys on Chromebook keyboards
-( e.g. Page Up, Page Down, Home, End).
-
-Full list of Chromebook's [Keyboard shortcuts][42].
-
-| Keys                 | Operation                       |
-|----------------------|---------------------------------|
-| Ctrl+?               | Open help                       |
-| Shift+Esc            | Open task manager               |
-| Ctrl+Alt+/           | Open keyboard shortcut list     |
-| Ctrl+M               | Open file manager               |
-
-
-| Keys                 | Operation                       |
-|----------------------|---------------------------------|
-| Alt+ up arrow        | Page Up                         |
-| Alt+ down arrow      | Page Down                       |
-| Ctrl+Alt+ up arrow   | Home                            |
-| Ctrl+Alt+ down arrow | End                             |
-| Ctrl+Tab             | Switch to next browser tab      |
-| Ctrl+W               | Close current tab               |
-| Ctrl+Shift+T         | Reopen last closed tab          |
-| Ctrl+N               | Open new browser window         |
-| Alt+Tab              | Switch to next open window      |
-| Ctrl+Shift+Q         | Sign out of Google account      |
-| Alt+backspace        | Delete file(s) in file manager  |
-
-
-### Crosh
-Crosh is a shell environment known as “chrome shell”
-that is provided with Chrome OS.
-Crosh allows users to run several commands directly from Chrome OS.
-Developer mode is not required to use crosh.
-The vast majority of linux commands are locked down inside crosh.
-Crosh can be accessed by pressing `Ctrl`+`Alt`+`T` on the keyboard.
-This will open a new tab with the crosh terminal.
-
-cosh has two separate versions of help.
-you can access basic help in the crosh window by simple typing `help`.
-This will give you a list of commands that can be used inside crosh.
-To get a list of the more advanced commands type `help_advanced`.
-To access further functionality from crosh such as as the Bash Shell,
-chromeos needs to be in developer mode.
-
-There are several commands included in Chrome OS’s crosh shell.
-You find several of them documented in the articles
-"[10+ Commands Included In Chrome OS’s Hidden Crosh Shell][25]",
-"[Customize Chromebook Chrosh Shell Environment][28]".
-
-[10 Commands In Chrome’s Crosh Shell](http://efytimes.com/e1/fullnews.asp?edid=124113)
-http://krypted.com/unix/helpful-chrome-os-shell-crosh-commands/
-[25 Helpful Chrome OS Shell (crosh) Commands](http://krypted.com/unix/helpful-chrome-os-shell-crosh-commands/)
-http://www.dudleymediagroup.com/Detail/id/5-tips-after-installing-crouton-on-a-chromebook-2654
-
-Crosh even supports full-blown bash with ssh-agent and Vim.
-To get Vim working, do the following:
-
-```
-CTRL+ALT T
-crosh> shell
-chrosos@localhost / $ echo $SHELL
-/bin/bash
-chrosos@localhost / $ vim
-```
-
-The problem with running crosh in the browser is that if you want to use shortcuts like `Ctrl`+`w`
-(in Vim, for example), Chrome will take the default action associated to that shortcut.
-One solution is to open crosh as a window.
-
-You can also put crosh in a window, independent of your Chrome browser.
-You can do this via a Chrome app called [Crosh Window][33]
-(You must have [Secure Shell][34] installed for this to work).
-When clicked, this app opens a new crosh window without any chrome browser,
-but pressing `Ctrl`+`Alt`+`T` still brings up crosh in the Chrome browser.
 
 #### Ssh Tunnelling on Chrome OS
 To use [ssh tunnelling on Chrome OS][20],
@@ -469,10 +554,6 @@ to secure shell into the `desktop` system using the login `jeff`.
 #### Connectivity Command
 [CHROME OS – USING THE CROSH CONNECTIVITY COMMAND](https://failicide.wordpress.com/2015/02/19/chrome-os-using-the-crosh-connectivity-command/)
 
-### Crouton
-[Crouton Command Cheat Sheet][16]
-http://fuyuko.net/basic-tweaks-and-tips-for-crouton-in-chromebook/
-
 ### Linux
 Xfce tweaks
 
@@ -480,88 +561,15 @@ Xfce tweaks
 * Make sure the TERM varable is set to the same value as the remote system your logging into (XTERM=xterm-256color)
 * download your .bash, .vim, etc.
 
-## Starting and Stopping Linux
-There are a few things you need to know to move between Chrome OS and Linux.
-First of all, to start your Linux, you'll need to
-press `Ctrl`+`Alt`+`T`
-to bring up a Chrome Shell or `crosh` terminal on your Chromebook.
-Then type `shell` at the prompt to get to the root Linux shell
-(this can only be done in [Developer Mode][19]).
-
-You can open your running chroot desktops by clicking on the extension icon.
-Once in a crouton window, press fullscreen or the "switch window" key to switch
-back to Chromium OS.
-
-The screen will go black for a minute and boot into the Linux desktop.
-
-```bash
-# start linux command line mode
-sudo enter-chroot
-
-# start X Windows envirnment
-sudo startxfce4 -b -X xiwi
-
-sudo enter-chroot startxfce4
-```
-
-You can launch individual apps in crouton windows by using the "xiwi" command
-in the chroot shell.
-Use startxiwi to launch directly from the host shell.
-Use the startxiwi parameter -b to run in the background.
-
-```bash
-# within shroot shell, run a xterm in it own window
-sudo startxiwi -b xterm
-```
-
-You can start Xfce via the startxfce4 host command:
-
-```bash
-sudo startxfce4
-```
-
-You can start a shell in a new VT via the startcli host command:
-
-```bash
-sudo startcli
-```
-
-See https://github.com/dnschneid/crouton/wiki/Crouton-Command-Cheat-Sheet
 
 ## Getting to a Command Prompt
 https://www.chromium.org/chromium-os/poking-around-your-chrome-os-device
 
-### Getting the Command Prompt Through Crosh
-**NOTE:** You can actually create as many shells as you want.
-Just hit `Ctrl`+`Alt`+`T` again and a second shell will be opened.
-
-### Get the Command Prompt Through VT-2
-One way to get the login prompt is through something called VT-2, or "virtual terminal 2".
-You can get to VT-2 by pressing:
-[ Ctrl ] [ Alt ] [ => ]
-...where the [ => ] key is the right-arrow key just above the number 3 on your keyboard.
-
 ## Chromebook Factory Reset
 http://www.cnet.com/how-to/what-does-it-mean-to-powerwash-a-chromebook/
 
-## Microsoft Apps
-http://www.omgchrome.com/microsoft-brings-office-online-chrome-web-store/
-
 ## Run Linux Desktop in Browser Tab
 http://www.howtogeek.com/208368/how-to-run-a-full-linux-desktop-in-a-browser-tab-on-your-chromebook/
-
-## Update a Crouton Chroot
-When a new version of Crouton comes out,
-the software in your chroot will be outdated.
-It won’t automatically update itself, but you can update it fairly quickly.
-
-```bash
-# enter your chroot and run the following command.
-croutonversion -u -d -c
-
-# trusty is the name of your chroot
-sudo sh ~/Downloads/crouton -u -n trusty
-```
 
 ## When Linux Stops Working
 Linux may stop working after a Chrome OS update.
@@ -586,10 +594,12 @@ For example, if you've installed Ubuntu 12.04 Precise, the default chrootname is
 * [State of Developing on a Chromebook](http://matthewphillips.info/posts/state-of-developing-on-a-chromebook.html)
 * [Using Cloud Drives on Chromebooks](http://matthewphillips.info/posts/using-cloud-drives-on-chromebooks.html)
 * [Coder on a Chromebook with Crouton](https://github.com/googlecreativelab/coder/wiki/Coder-on-a-Chromebook-with-Crouton)
+* Ultimate guide for Web Development on Chromebook — [Part 1: Crouton][55] and [Part 2: ChromeOS tricks and workflows][56]
+* [Tools for Developing on ChromeOS][57]
 
 ## Printing with Chromebook
 So how do you print on a Chromebook?
-You use Google Cloud Print.
+You use [Google Cloud Print][59].
 Some new printers support Google Cloud Print,
 so you can connect them to your network and easily print to them.
 If you have an old printer connected to a Windows or Mac computer,
@@ -597,23 +607,73 @@ you can use the Google Cloud Print Connector feature to make an older printer
 accessible to Google Cloud Print.
 Don’t try to plug your printer directly into your Chromebook, though — that won’t work.
 
-https://github.com/dnschneid/crouton/wiki/Printing
-http://www.cnet.com/how-to/how-to-print-from-a-chromebook/
+## Chromebook Backup
+The [Github Wiki for Crouton][49] provides a very complete description of making backups.
+The command below should get started quickly on do a Crouton chroot backup,
+but its wise to read the wiki.
 
-## Google Drive
-Visit www.drive.google.com/settings to see the total space remaining.
+These command creates a tar archive in the current directory from which
+the command is executed.
+When doing the backup, enter crosh and shell,
+and make sure no other chroot intances are running.
 
-## Dropbox
+*[An Official Google Drive for Linux is Here, Sort Of — Maybe This Is All We’ll Ever Get](http://www.howtogeek.com/196635/an-official-google-drive-for-linux-is-here-sort-of-maybe-this-is-all-well-ever-get/)
+*[Using Google Drive from the Linux Command Line](http://linuxnewbieguide.org/?p=1078)
+*[GDRIVE: A SIMPLE GOOGLE DRIVE CLI CLIENT (CROSS-PLATFORM)](http://www.webupd8.org/2014/09/gdrive-simple-google-drive-cli-client.html)
+*[How to sync Google Drive from the command line on Linux](http://xmodulo.com/how-to-sync-google-drive-from-the-command-line-on-linux.html)
+
+Push the file to Google Drive
+http://www.howtogeek.com/196635/an-official-google-drive-for-linux-is-here-sort-of-maybe-this-is-all-well-ever-get/
+
+https://developers.google.com/drive/v2/reference/files/insert
+
+```bash
+# move to the directory where you want the backup saved
+cd ~/Downloads
+
+# backup your chroot files
+sudo edit-chroot -b trusty
+
+# move the tar file to GDrive
+xxx
+```
+
+You can restore the backup later with the following command:
+
+```bash
+# restore your backup
+sudo edit-chroot -r trusty
+```
+
+Or perhaps you’ve powerwashed your Chromebook and you want to get
+your customized Linux environment back.
+You can run the following command while installing Crouton.
+The Crouton installer script will restore your chroot
+from the backup file you provide,
+so replace `backupfile.tar.gz` with the name of the backup file you want to restore.
+
+```bash
+# restore backup to a powerwashed Chromebook
+sudo sh ~/Downloads/crouton -f backupfile.tar.gz
+```
+
+# Chrome Apps to Install
+* Ultimate guide for Web Development on Chromebook — [Part 1: Crouton][55] and [Part 2: ChromeOS tricks and workflows][56]
+
+* [Postman][60] is a great utility for testing REST based APIs.
+* [GistBox][81] can access and store code snippets (or "Gists", in their terms) for easy access them from everywhere.
+
+### Dropbox
 * https://github.com/dnschneid/crouton/wiki/Dropbox
 * [How to enable Dropbox integration into the file manager on your Chromebook](http://www.androidcentral.com/how-enable-dropbox-integration-file-manager-your-chromebook?utm_source=related&utm_medium=module&utm_campaign=next)
 
-## Chrome Remote Desktop
+### Chrome Remote Desktop
 http://computers.tutsplus.com/tutorials/use-chrome-remote-desktop-to-access-your-computer-anywhere--cms-21227
 
-## Postman
-https://www.getpostman.com/
+### Microsoft Apps
+http://www.omgchrome.com/microsoft-brings-office-online-chrome-web-store/
 
-## Run Android App On Chromebook
+# Run Android App On Chromebook
 Eventually, Google hopes, you’ll be able to run potentially millions of Android apps
 within Chrome or Chrome OS once they’re formally ported over.
 But you can get make that vision start to happen today—with a new Google tool called ARC Welder.
@@ -666,7 +726,7 @@ But you can get make that vision start to happen today—with a new Google tool 
 [39]:https://en.wikipedia.org/wiki/Chrome_OS
 [40]:https://en.wikipedia.org/wiki/Virtual_machine
 [41]:http://www.chromestory.com/100_Chrome_ChromeOS_And_ChromeBook_Tips_Ebook.pdf
-[42]:https://support.google.com/chromebook/answer/183101?hl=en&source=genius-rts
+[42]:
 [43]:http://www.cnet.com/how-to/what-does-it-mean-to-powerwash-a-chromebook/
 [44]:http://i3wm.org/
 [45]:https://en.wikipedia.org/wiki/Tiling_window_manager
@@ -676,12 +736,22 @@ But you can get make that vision start to happen today—with a new Google tool 
 [49]:https://github.com/dnschneid/crouton/wiki/Backups
 [50]:http://www.geek.com/chips/11-tips-to-get-the-most-out-of-your-chromebook-1637058/
 [51]:http://tomwwolf.com/chromebook-14-compedium/chromebook-crouton-cookbook/
-[52]:
-[53]:
-[54]:
-[55]:
-[56]:
-[57]:
-[58]:
-[59]:
-[60]:
+[52]:https://www.docker.com/
+[53]:https://www.vagrantup.com/
+[54]:https://chrome.google.com/webstore/detail/arc-welder/emfinbmielocnlhgmfkkmkngdoccbadn
+[55]:https://medium.com/@martinmalinda/ultimate-guide-for-web-development-on-chromebook-part-1-crouton-2ec2e6bb2a2d#.unzzpg2a1
+[56]:https://medium.com/@martinmalinda/ultimate-guide-for-web-development-on-chromebook-part-2-chromeos-tricks-and-workflows-4dfcc308d391#.k4axwqchl
+[57]:http://joemarini.blogspot.com/2013/11/tools-for-developing-on-chromeos.html
+[58]:https://sites.google.com/site/chromeoswikisite/home/what-s-new-in-dev-and-beta/developer-mode
+[59]:http://www.cnet.com/how-to/how-to-print-from-a-chromebook/
+[60]:https://www.getpostman.com/
+[61]:https://chrome.google.com/webstore/detail/gistbox-desktop/pdjgfbgklbmmigkmmdbbhfchdldngkml
+[62]:https://github.com/dnschneid/crouton/wiki/crouton-in-a-Chromium-OS-window-(xiwi)
+[63]:
+[64]:
+[65]:
+[66]:
+[67]:
+[68]:
+[69]:
+[70]:

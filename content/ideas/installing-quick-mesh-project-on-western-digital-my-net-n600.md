@@ -20,7 +20,7 @@ not the destination!
 
 [Quick Mesh Project (qMp)][09]
 is a system for easily deploying Mesh/MANET networks using WiFi technology.
-The qMp firmware, based on OpenWrt, works on many embedded WiFi network devices. 
+The qMp firmware, based on OpenWrt, works on many embedded WiFi network devices.
 The [qMp website states][18] that, in general
 every device supported by OpenWrt with 4 MB+ Flash and 32 MB+ RAM can work with qMp.
 I have an old [Linksys WRT54G][01] V8 wireless router
@@ -36,7 +36,7 @@ This appears to be due to the policy to not supporting only units with at least 
 where the WRT54G >= v5 has only 2M.
 OpenWrt also doesn't support my Linksys WRT54G2 router.
 To top it off,
-OpenWrt [flatly refuses][02] to recommend any hardware or manufacturer! 
+OpenWrt [flatly refuses][02] to recommend any hardware or manufacturer!
 
 So I searched the Internet for some advice on
 [what to buy for an OpenWrt router][05],
@@ -143,7 +143,7 @@ and other devices to connect to both routers.
 To do this, you need to statically define the qMp Router IP address,
 and disable the qMp Router's DHCP server.
 In OpenWrt, you do this via the menu / tabs / button sequence
-`Network > Interfaces > LAN > Edit` 
+`Network > Interfaces > LAN > Edit`
 (The [OpenWrt documentation states][33] that the
 Eathernet `lan` and the wireless interface/interfaces `wlan0` / `wlan1`
 are bridged together to make `br-lan`)
@@ -182,9 +182,9 @@ In OpenWrt, you should [configure several settings][30].
 You do this via the menu / tabs / button sequence listed here:
 
 * [Secure Access][29] - `System > Administration`
-(**Important** since OpenWrt will [revert to default configuration settings][33] until the password is set.) 
+(**Important** since OpenWrt will [revert to default configuration settings][33] until the password is set.)
 * [Enable Wireless][31] - `Network > WiFi`
-* Set Hostname - `System > Administration` 
+* Set Hostname - `System > Administration`
 * Set Time - `System > General Settings > Provide NTP server`
 * Archive Configuration Settings - `Systems > Backup / Flash Firmware > Actions > Generate archive`
 
@@ -193,13 +193,13 @@ Test it out with `ssh root@192.168.1.200`.
 This is important, because later on in the qMp install,
 you may xxxxxxxxxxxxxxxxxxxxxxxx
 
-With this all done, save the OpenWrt configuration via 
+With this all done, save the OpenWrt configuration via
 `Systems > Backup / Flash Firmware > Actions > Generate archive`.
 
 # Installing qMp
 The source for my insights on the installation of qMp are from the
 [qMp homepage][09], [qMp development site][32], and the
-[Quick deployment network using MANET][38] document. 
+[Quick deployment network using MANET][38] document.
 
 I also discovered that some of the configurations above
 for OpenWrt will be undone by the qMp install.
@@ -234,7 +234,7 @@ src/gz qmp http://repo.qmp.cat/ar71xx/packages/
 
 ## Loading qMp Firmware
 Judging from the qMp feed site `http://repo.qmp.cat/ar71xx/packages/`
-and the [Quick deployment network using MANET][38] document, 
+and the [Quick deployment network using MANET][38] document,
 there are three types of qMp binaries:
 
 * `qmp-tiny-node` - _can't find any documentation_

@@ -97,6 +97,9 @@ The NetworkManager daemon attempts to make networking configuration and operatio
     * [`wireshark`][32] (orginally called `ethereal`) is the world's de facto
     network protocol analyzer letting you do deep inspection of hundreds of protocols,
     live capture, and offline analysis.
+    * [`tshark`][35] the command-line version of Wireshark.
+    The main advantage of tshark is that it can be used in scripts.
+    Its main disadvantage is that it does not have a GUI.
 * IP Networking Utilities
     * [`ping`][25] (Packet Internet Gropper) is like a sonar pulse sent to detect another IP address.
     It is used to test the connection and latency between two network connections.
@@ -664,7 +667,7 @@ could be gathered for this cheat sheet.
 [32]:https://www.wireshark.org/
 [33]:http://linux.die.net/man/8/iwspy
 [34]:http://linux.about.com/library/cmd/blcmdl8_iwpriv.htm
-[35]:
+[35]:http://www.linuxuser.co.uk/tutorials/monitor-network-traffic-tutorial
 [36]:
 [37]:
 [38]:

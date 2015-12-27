@@ -1,5 +1,5 @@
 created: 20141226143823014
-modified: 20150810232904953
+modified: 20151227045741200
 tags: [[Test Gear]]
 title: Oscilloscope Tutorials and Tips
 type: text/vnd.tiddlywiki
@@ -27,6 +27,11 @@ so its time to learn how to use it like a pro.
 !!Performance
 * [[Oscilloscope performance vs. specifications|https://www.youtube.com/watch?v=6CDJbi8E0UE]]
 
+!!Spectrum Analyzer
+* [[Giving the Rigol DS1052E ‘scope a spectrum analyzer|http://hackaday.com/2012/10/10/giving-the-rygol-ds1052e-scope-a-spectrum-analyzer/]]
+* [[Software Spectrum Analyzer for the Rigol 1000 series Oscilloscopes|http://hackaday.com/2015/12/20/no-spectrum-analyser-no-problem/]]
+* [[A Better Spectrum Analyzer for your Rigol Scope|http://hackaday.com/2015/09/22/a-better-spectrum-analyzer-for-your-rigol-scope/]]
+
 !!Tips
 * [[Twelve tips for using the Rigol DS1052E Oscilloscope|http://www.righto.com/2013/07/tips-for-using-rigol-ds1052e.html]]
 * [[Oscilloscope Vertical Confusion|https://www.youtube.com/watch?v=DMXiD3dKYJc&feature=em-uploademail]]
@@ -39,6 +44,5 @@ so its time to learn how to use it like a pro.
 !!Tools
 * [[Controlling a Rigol oscilloscope using Linux and Python|http://www.cibomahto.com/2010/04/controlling-a-rigol-oscilloscope-using-linux-and-python/]]
 * [[Controlling A Rigol With Linux|http://hackaday.com/2015/06/06/controlling-a-rigol-with-linux/]]
-* [[Giving the Rigol DS1052E ‘scope a spectrum analyzer|http://hackaday.com/2012/10/10/giving-the-rygol-ds1052e-scope-a-spectrum-analyzer/]]
 * [[Four Rigol oscilloscope hacks with Python|http://www.righto.com/2013/07/rigol-oscilloscope-hacks-with-python.html]]
 * [[The LXI Primer|http://www.lxistandard.org/Documents/LXI%20Primer/The%20LXI%20Primer%20Final.pdf]]

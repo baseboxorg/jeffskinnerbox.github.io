@@ -1,15 +1,20 @@
 created: 20140919015727086
-modified: 20151212020141104
+modified: 20151221032401632
 tags: Projects
 title: RTL-SDR Software Defined Radio
 type: text/vnd.tiddlywiki
 
 !!RTL-SDR Software Packages
 
-*[[THE BIG LIST OF RTL-SDR SUPPORTED SOFTWARE|http://www.rtl-sdr.com/big-list-rtl-sdr-supported-software/]]
+* [[THE BIG LIST OF RTL-SDR SUPPORTED SOFTWARE|http://www.rtl-sdr.com/big-list-rtl-sdr-supported-software/]]
+* [[Taking the Raspberry Pi 2 for a Test Drive with GNU Radio|http://www.rs-online.com/designspark/electronics/eng/blog/taking-the-raspberry-pi-2-for-a-test-drive-with-gnu-radio-2]]
+* [[The Comprehensive GNU Radio Archive Network|http://cgran.org/]]
 
 !!Learning SDR-RTL and GUN Radio
 
+* [[SDR Tutorials From Michael Ossmann|http://hackaday.com/2015/10/10/sdr-tutorials-from-michael-ossmann/]]
+* [[Getting Started with GNU Radio and RTL-SDR (on Backtrack)|http://blog.opensecurityresearch.com/2012/06/getting-started-with-gnu-radio-and-rtl.html]]
+* [[Getting Started with GNU Radio|http://hackaday.com/2015/11/11/getting-started-with-gnu-radio/]]
 *[[An online Software Defined Radio training course|http://www.rtl-sdr.com/an-online-software-defined-radio-training-course/]]
 *[[RTL-SDR.COM|http://www.rtl-sdr.com/]]
 *[[Radio Antics|http://nerdsville.blogspot.com/]]
@@ -19,6 +24,9 @@ type: text/vnd.tiddlywiki
 *[[GRC Examples|http://www.oz9aec.net/index.php/gnu-radio/grc-examples]]
 *[[GNU Radio Documentation|http://radioware.nd.edu/documentation]]
 *[[Balint's SDR (and GNU Radio) Tutorials|http://files.ettus.com/tutorials/]]
+* [[Introductory Tour of the GNU Radio Project|http://www.joshknows.com/gnuradio]]
+* [[Roundup of Software Defined Radios|http://www.rtl-sdr.com/roundup-software-defined-radios/]]
+* [[Videos: GNU Radio Tutorial Series|http://files.ettus.com/tutorials/]]
 
 !!Decoding Tire Pressure Monitor Systems
 
@@ -72,11 +80,12 @@ type: text/vnd.tiddlywiki
 
 !!Aircraft Monitoring
 
-*[[RTL-SDR Tutorial: Receiving Airplane Data with ACARS |http://www.rtl-sdr.com/rtl-sdr-radio-scanner-tutorial-receiving-airplane-data-with-acars/]]
-*[[ACARS decoder|http://acarsdec.sourceforge.net/]]
-*[[PlanePlotter|http://www.nicstorey.co.uk/planeplotter/sdrscanner]]
-*[[acarsd - ACARS Decoder for Linux & Windows|http://www.acarsd.org/]]
+* [[RTL-SDR Tutorial: Receiving Airplane Data with ACARS |http://www.rtl-sdr.com/rtl-sdr-radio-scanner-tutorial-receiving-airplane-data-with-acars/]]
+* [[ACARS decoder|http://acarsdec.sourceforge.net/]]
+*  [[PlanePlotter|http://www.nicstorey.co.uk/planeplotter/sdrscanner]]
+* [[acarsd - ACARS Decoder for Linux & Windows|http://www.acarsd.org/]]
 * [[The Pi Plane Project tracks planes the fly over my house|http://simonaubury.com/the-pi-plane-project1-introduction/]]
+* [[FlightRadar24|http://www.flightradar24.com/39.17,-77.53/7]]
 
 !!Aircraft Transponders / ADS-B
 

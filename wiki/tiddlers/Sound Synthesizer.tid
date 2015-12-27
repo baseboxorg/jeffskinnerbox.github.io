@@ -1,5 +1,5 @@
 created: 20140919014920863
-modified: 20150208023101456
+modified: 20151221020431711
 tags: Projects
 title: Sound Synthesizer
 type: text/vnd.tiddlywiki
@@ -8,6 +8,8 @@ type: text/vnd.tiddlywiki
 * [[Csound is an incredibly powerful signal processor.|http://www.csounds.com/]]
 * [[An Introductory Guide to Csound on the BeagleBone and the Raspberry Pi, as well other Linux-powered tinyware|http://www.csounds.com/journal/issue18/beagle_pi.html]]
 * [[SuperCollider - real-time audio synthesis and algorithmic composition|http://supercollider.sourceforge.net/]]
+* [[Overtone|https://overtone.github.io/]]
+* [[Synth Secrets Exposed!|http://hackaday.com/2015/11/08/synth-secrets-exposed/]]
 
 [[Freesound|http://www.freesound.org/]]
 aims to create a huge collaborative database of audio snippets, samples, recordings, bleeps, ... released under Creative Commons licenses that allow their reuse.

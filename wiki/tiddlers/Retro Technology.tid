@@ -1,5 +1,5 @@
 created: 20141125030141346
-modified: 20151108230106705
+modified: 20151224200542996
 title: Retro Technology
 type: text/vnd.tiddlywiki
 
@@ -38,11 +38,17 @@ was the first successful mechanical calculator. It was developed in the 1640's b
 
 From the mid-40s until the 90s,
 [[Heathkit|http://hackaday.com/2014/12/22/the-heathkit-mystery/]]
-was the brand for electronic kits ranging from test equipment, ~HiFis, amateur radio equipment, to computers. Their departure was a tragic loss.
+was the brand for electronic kits ranging from test equipment, ~HiFis, amateur radio equipment, to computers. Their departure was a tragic loss,
+but there are some faint signs they may be making a
+[[come back|https://www.heathkit.com/heathkit-faq.html]].
 
 A [[teleprinter|https://www.youtube.com/watch?v=HcMHam54EOI#t=516]]
 (teletypewriter, Teletype or TTY) is an electromechanical typewriter that can be used to send and receive typed messages from point to point and point to multipoint over various types of communications channels.
 Teleprinters were invented in order to send and receive messages without the need for operators trained in the use of Morse code.
+At there core, they were
+[[mechanical UARTs|http://hackaday.com/2015/11/13/retrotechtacular-a-mechanical-uart/]],
+converting serial bits pumping out at 110 baud and
+converting the encoding to letter strikes on the paper.
 
 This training film on [[Basic Telephony|https://www.youtube.com/watch?v=BKfa27PTE_s#t=29]]
 (and it's [[part 2|https://www.youtube.com/watch?v=jKvllL2zxGo]])
@@ -68,13 +74,13 @@ there was [[Tennis for Two|http://www.engineering.com/DesignerEdge/DesignerEdgeA
 at [[Brookhaven National Laboratory|http://www.stonybrook.edu/libspecial/videogames/tennis.html]],
 the first video game.
 Tennis for Two consisted of a 5 inch oscilloscope and
-an analog computer to simiulate the physics of gravity and elasticity in real time.
+an analog computer to simulate the physics of gravity and elasticity in real time.
 And of course, some have updated the analog orginal with a
 [[digital replacement|http://www.evilmadscientist.com/2008/resurrecting-tennis-for-two-a-video-game-from-1958/]].
 
 The [[Omega navigational system|https://www.youtube.com/watch?v=7mFAemn1pSw]], deployed by the United States Navy, was a network of eight (VLF) transmitter sites spread around the globe using radio frequencies and phase difference calculations to determine global position.
 
-Some belive Westinghouse built the
+Some believe Westinghouse built the
 [[first electric computer|http://gothamist.com/2015/10/15/grand_central_computer_video.php#photo-1]]
 in 1913 and installed it in the sub-basement of
 Grand Central Terminal.
@@ -90,3 +96,24 @@ In 1972 Hewlett-Packard
 [[HP-35|http://www.hp.com/hpinfo/abouthp/histnfacts/museum/personalsystems/0023/0023history.html]]
 came out with the first handheld electronic calculator.
 Practically overnight, the slide rule had become obsolete.
+
+It was on [[HP's version|http://www.hpmuseum.org/]]
+of this [[first Desktop Computer|http://hackaday.com/2015/12/08/retrotechtacular-a-desktop-computer-from-1965/]] that sparked my interest in software coding.
+Programming it was only slightly better than working in assembly language.
+
+[[Fax|https://en.wikipedia.org/wiki/Fax]],
+or it original version[[radio facsimile|http://hackaday.com/2015/12/22/retrotechtacular-electronic-publishing-in-the-1930s/]],
+was introduced in the 1940s.
+Fax provided an pre-computer age of transmission of scanned printed material (both text and images).
+
+The Internet has made the accessing of mathematical, physical and chemical data easy.
+Back in the day, as in my college years,
+I was required to purchase the
+[[CRC Handbook of Standard Mathematical Tables|https://www.crcpress.com/CRC-Standard-Mathematical-Tables-and-Formulae-32nd-Edition/Zwillinger/9781439835487]].
+As a parting gift for leave for college,
+my high school biology teacher gave me
+a copy of the 1928 version of the
+[[CRC Handbook of Chemistry and Physics, 3rd Edition|http://hackaday.com/2015/12/23/before-google-there-was-the-chemical-rubber-company/]].
+I haven't opened these books in a VERY Long time,
+not because they don't contain relevant / useful information,
+but the [[Internet makes the book searchable|http://www.hbcpnetbase.com/]].

@@ -92,7 +92,8 @@ should be stored in an online service a while back,
 something that doesn't sit well with me, I prefer to keep them on my LAN.
 Consider this to [roll your own Squeezebox with a Raspberry Pi][14].
 
-<h2>Configuring Samsung SCX-4521F Printer/Scanner</h2>
+<h2>Configuring Printers</h2>
+### Configuring Samsung SCX-4521F Printer/Scanner
 When it comes to printers and scanners, Ubuntu advices that you should simply plug it in and try!
 Ubuntu claims that if it's a newer model USB scanner / printer,
 it is likely that it will work immediately without any further driver or software installations.
@@ -206,7 +207,7 @@ xsane is a X Window application and produces it output in [PNM format][09].
 You can convert this format to PDF (and many other formats) via the utility [`convert`][10]
 (e.g. `convert outfile.pnm outfile.pdf`).
 
-## Configuring HP LaserJet P2035 for Google Cloud Printing
+### Configuring HP LaserJet P2035 for Google Cloud Printing
 I later abandoned my Samsung printer for the HP LaserJet P2035;
 a basic black & white workhorse.
 Keeping the multipurpose Samsung working was just too much of a drain on my time.

@@ -21,6 +21,7 @@ Device Cloud Platform to be explored:
 Pushover
 Bug Labs dweet.io and Freeboard
 [Node-RED](http://www.infoq.com/news/2014/05/ibm-node-red-qconlondon)
+[Initial State - Stream data from your devices to beautiful visualizations in your web browser](https://www.initialstate.com/)
 
 The broadest definition for the [Internet of Things (IoT)][46] that I have come accross is as follows:
 
