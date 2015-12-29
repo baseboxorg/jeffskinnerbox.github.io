@@ -1,7 +1,7 @@
 Title: A Better Mobile Display for the Raspberry Pi
 Date: 2013-04-11 00:01
 Category: Electronics
-Tags: Linux, Raspberry Pi, X Window System
+Tags: Linux, Raspberry Pi, X Window System, Window Manager
 Slug: a-better-mobile-display-for-the-raspberry-pi
 Author: Jeff Irland
 Image: issh-on-ipad.png

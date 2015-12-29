@@ -1,7 +1,7 @@
 Title: Establishing an X Window System Environment for my PC and Raspberry Pi
 Date: 2012-10-04 00:01
 Category: Electronics
-Tags: Raspberry Pi, Linux, X Window System
+Tags: Raspberry Pi, Linux, X Window System, Window Manager
 Slug: establishing-an-x-window-system-environment-for-my-pc-and-raspberry-pi
 Author: Jeff Irland
 Image: x-window-system-screen-shot.jpg

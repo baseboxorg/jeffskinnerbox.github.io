@@ -1,3 +1,16 @@
+Status: draft
+Title: Cheatsheet: i3 Window Manager
+Date: 2100-01-01 00:00
+Category: Software
+Tags: i3, Window Manager
+Slug: cheatsheet-i3-window-manager
+Author: Jeff Irland
+Image: cheat-sheet.jpg
+Summary: The i3 tiling window manager is a nice modern tiling window manager that works unders GNU/Linux/BSD operating systems. It supports tiling, stacking, tabs, virtual desktops, and multiple monitors. You can do almost everything from the keyboard, or mix up keyboard and mouse.  It's well documented and real simple to modify and tinker with. With extremely easy to remember keybindings, using i3 is extremely enjoyable, even without the need for a mouse.
+
+<a href="https://i3wm.org/">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="i3 is a tiling window manager designed for X11  and runs on all version of Linux. It supports tiling, stacking, and tabbing layouts, which it handles dynamically. Configuration is achieved via plain text file and extending i3 is possible using its Unix domain socket and JSON based IPC interface from many programming languages." alt="i3-logo" src="{filename}/images/i3_window_manager_logo.png" width="100" height="100" />
+</a>
  The [i3 tiling window manager][01] is a nice modern tiling window manager
  that is open source and very well documented.
  It supports tiling, stacking, tabs, virtual desktops, and multiple monitors.

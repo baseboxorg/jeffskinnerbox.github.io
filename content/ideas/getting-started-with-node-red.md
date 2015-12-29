@@ -304,6 +304,10 @@ and frankly, doesn't appear to have much support behind it.
 ## Initial State
 [Initial State - Stream data from your devices to beautiful visualizations in your web browser](https://www.initialstate.com/)
 
+* Waylay - http://www.waylay.io/
+* http://waylayio.github.io/integration/2015/10/24/webscripts.html
+* [Getting Started With Adafruit IO](https://www.jeremymorgan.com/internet-of-things/how-to-adafruit-io/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+JeremyMorganTutorials+%28Jeremy%27s+Tutorials%29)
+
 
 
 [01]:https://www-304.ibm.com/connections/blogs/et/entry/node-red?lang=en_us

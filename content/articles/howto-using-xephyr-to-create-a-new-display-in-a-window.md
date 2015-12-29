@@ -1,7 +1,7 @@
 Title: HowTo: Using Xephyr to Create a New Display in a Window
 Date: 2014-04-29 22:54
 Category: HowTo
-Tags: X Window System, Xnest, Xephyr
+Tags: X Window System, Window Manager, Xnest, Xephyr
 Slug: howto-using-xephyr-to-create-a-new-display-in-a-window
 Author: "Jeff Irland"
 Image: how-to.jpg
@@ -11,7 +11,7 @@ You might want to run one X Window System desktop environment on your local comp
 including its own desktop environment,
 all the while using the first computer’s screen and keyboard.
 This sounds like multiple X Servers running.
-One for the monitor and the other managing a graphics window as if it were a second monitor. 
+One for the monitor and the other managing a graphics window as if it were a second monitor.
 Fortunately, X Window System provides tools to do exactly this.
 This has been done by designing a X Client to emulate an X Server that then provides display services to other clients.
 The open-source clients that do this are called `Xnest` and `Xephyr`.
@@ -34,13 +34,13 @@ sudo apt-get install awesome awesome-extra
 `Xnest` is a Display Server implementing the X11 display server protocol that outputs to a window,
 as apposed to a X display.
 `Xnest` is a standard part of the XFree86 and X.org X Servers,
-and provides an X Server that runs inside a standard X Window. 
+and provides an X Server that runs inside a standard X Window.
 In other words, `Xnest` opens a window that works like another screen in which the user can open windows, etc.
 At the X Protocol level, `Xnest` works like a X Client of the X Server hosting the window,
 and as a X Server with respect to the X Window Manager
 (i.e. applications that opens windows) within the `Xnest` session.
 Therefore, `Xnest` can be used to run a virtual desktop of another computer
-(which is running X Window) within a window. 
+(which is running X Window) within a window.
 
 `Xnest` might come pre-installed in the Ubuntu X Window System
 but it's easy to install and is [easy to use][02].
@@ -164,7 +164,7 @@ Now get out of X Window and restart the lightdm with `sudo restart lightdm`
 or reboot your system so the changes take effect.
 To log into into my Linux system (aka `desktop`),
 from the same system as if they are remote to each other,
-I used the following command works well. 
+I used the following command works well.
 
 ```
 Xephyr :3 -ac -screen 1280x1024 -br -reset -terminate -query desktop 2> /dev/null &

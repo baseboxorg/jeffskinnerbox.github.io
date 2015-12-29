@@ -1,20 +1,20 @@
 Title: Repurposing a Vintage Laptop to Create a X Terminal
 Date: 2014-12-19 22:24
 Category: Software
-Tags: Tiny Core Linux, X Terminal, X Window System
+Tags: Tiny Core Linux, X Terminal, X Window System, Window Manager
 Slug: repurposing-a-vintage-laptop-to-create-a-x-terminal
 Author: "Jeff Irland"
 Image: x-terminal.jpg
-Summary: This project proved more challenging and complex a journey than originally anticipated, but I learned a great deal. I had to master Tiny Core Linux, X Window System, Ubuntu Unity, and even wireless LAN security all in the context of an ancient piece of hardware. I review my learnings and then provide the details on how to create the X Terminal. 
+Summary: This project proved more challenging and complex a journey than originally anticipated, but I learned a great deal. I had to master Tiny Core Linux, X Window System, Ubuntu Unity, and even wireless LAN security all in the context of an ancient piece of hardware. I review my learnings and then provide the details on how to create the X Terminal.
 
 
 <a href="http://television.cosmicbooknews.com/content/wayback-machine-wabac-machine">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="WABAC (pronounced “wayback”) machine of Peabody's Improbable History, an ongoing feature of the 1960s cartoon series The Rocky and Bullwinkle Show" alt="WABAC Pic" src="https://upload.wikimedia.org/wikipedia/en/3/3f/Waybackmachine3.png" width="200" height="200" />
 </a>
-On a whim, I visited a web auction site dealing in surplus government property. 
+On a whim, I visited a web auction site dealing in surplus government property.
 I spotted two very old laptops, which claimed to be still operational,
 and I placed a bid of $40.
-A few days later, I received an email saying I was the proud owner of two 
+A few days later, I received an email saying I was the proud owner of two
 HP Omni Book XE3 loaded with a Celeron[^A] 32bit processor!
 
 By todays standards, the HP Omni Book XE3 isn't exactly a race horse with its
@@ -28,7 +28,7 @@ a 1.44-MB floppy disk drive, and proudly hosting Microsoft Windows 98 Second Edi
     targeted at budget personal computers.
     [Introduced in April 1998][09], the first Celeron branded CPU was based on the Pentium II branded core.
     Subsequent Celeron branded CPUs were based on the Pentium III, Pentium 4, Pentium M,
-    and Intel Core branded processors. 
+    and Intel Core branded processors.
     With Damn Small Linux loaded and running `cat /proc/cpuinfo`,
     it shows the processor is of Intel CPU family 6 and model 11.
     This maps to Intel product code 80530, which [makes it a Pentium III (codename Tualatin)][10].
@@ -99,11 +99,11 @@ Linux operating system for [older hardware][08].
 DSL supports older machines with minimal memory by disabling all unnecessary daemons or services.
 DSL gives you a tool to individually load and manage daemons,
 and you can load bundled applications designed with stingy resource use.
-DSL was designed, tested, and runs on old computers by retains support for many old devices. 
+DSL was designed, tested, and runs on old computers by retains support for many old devices.
 
 [^D]:
     Damn Small Linux also uses by default [Busybox][11].
-    BusyBox provides several stripped-down Unix tools in a single executable file. 
+    BusyBox provides several stripped-down Unix tools in a single executable file.
     Its originally aim was to provide a complete bootable system on a single floppy
     that would serve both as a rescue disk and as an installer for the Debian distribution.
     Busybox's use now is more focused on embedded operating systems with very limited resources.
@@ -148,7 +148,7 @@ So any reasonable size application will cause performance problems.
 My final attempt was [Tiny Core Linux (TCL)][14], which comes in three ISO images,
 include CorePlus which is the installation image I required.
 I download the CorePlus, image, burned it to a CD-ROM, booted it,
-and selected "`Boot Core with X/GUI (TineCore) + Installation Extentions`" from the boot menu. 
+and selected "`Boot Core with X/GUI (TineCore) + Installation Extentions`" from the boot menu.
 This will enable you to perform a hard drive install of TCL.
 See the [Tiny Core Linux installation documentation for procedures][15].
 (You can also do a [manual install][16],
@@ -218,7 +218,7 @@ When the Display Manager is remote, the Display Manager works according to the
 The XDMCP protocol mandates that the X Server starts autonomously and connects to the Display Manager.
 You configure an XDMCP Chooser program running on the local computer (or X Terminal)
 to connect to a specific remote X Display Manager
-or to display a list of suitable hosts (if configured to do so) that the user can choose from. 
+or to display a list of suitable hosts (if configured to do so) that the user can choose from.
 When the user selects a host from the list,
 the XDMCP Chooser running on the local machine will send a message
 to the selected remote computer's Display Manager
@@ -229,7 +229,7 @@ XDMCP allows several different users to login and run different X sessions at th
 Your not sharing a desktop screen image, your starting seperate X Window session on the remote machine.
 
 If your Linux box boots into a graphical login screen, like my Ubuntu desktop system,
-you are already running a Display Manager. 
+you are already running a Display Manager.
 Specifically, my desktop Linux box is using [`lightdm`][68] as its X Display Manager.
 You can determine this by running `cat /etc/X11/default-display-manager`
 or `ps -A | grep dm`.
@@ -281,7 +281,7 @@ ps -ef | egrep "xfwm|twm|metacity|beryl|compiz" | grep -v egrep
 ```
 
 What is the Display Manager being used?
-The Display Manager runs before you log in, and as such, it's by the system is configured. 
+The Display Manager runs before you log in, and as such, it's by the system is configured.
 On a Ubuntu system, you can find the Display Manager being used via
 
 ```bash
@@ -392,14 +392,14 @@ gnome-session-quit
 /etc/init.d/gdm restart         # kill your graphical interface using
 sudo service lightdm restart    # restart your session manager
 
-# see this 
+# see this
 http://manpages.ubuntu.com/manpages/lucid/en/man1/gnome-wm.1.html
 ```
 
 Like many desktop envirnments, Ubuntu Unity can change its look & feel by changing the [themes][81].
-These alternative theme files are extracted to `~/.themes` or `/user/share/themes` directores. 
+These alternative theme files are extracted to `~/.themes` or `/user/share/themes` directores.
 Once a theme is established, it can udergo additional tuning via the
-[Unity Tweak Tool][80], which is a settings manager for the Unity desktop. 
+[Unity Tweak Tool][80], which is a settings manager for the Unity desktop.
 This configuration tool provides users access to features and configuration options,
 and brings them all together in a polished & easy-to-use interface.
 To install this tool, use
@@ -409,12 +409,12 @@ To install this tool, use
 The most transparent and precise way to configure the Unity envirnment is to modify the file
 `/etc/lightdm/lightdm.conf`.
 The post "[Understanding lightdm.conf][77]" is a good read to better understand `lightdm.conf`
-but keep in mind that some utilities it suggest are no more. 
+but keep in mind that some utilities it suggest are no more.
 As of Ubuntu Trusy 14.04,
 the command line utility `lightdm-set-defaults` is [no longer available][76].
 This is because `lightdm` now using a configuration directory `/etc/lightdm/lightdm.conf.d/`
 rather than a single configuration file.
-The files in this directory can be edited by hand, new files can be added, or files can be removed. 
+The files in this directory can be edited by hand, new files can be added, or files can be removed.
 There is no manpage for `lighdm.conf`, but there is an example that lists all the options
 and a bit about what they do, just look in `/usr/share/doc/lightdm/lightdm.conf.gz`
 (If you use vim, you can just edit the file and it will be automagically ungzipped for you).
@@ -440,7 +440,7 @@ To support this, there is [`gsettings`][83] which offers a simple command line i
 `GSettings` is a GLib implementation of the [DConf spec][84], which stores its data in a binary database.
 The `gsettings` command line tool is simply a tool to access or modify settings via the `GSettings` API.
 
-Applications using `GSettings`/DConf install allication configuration data or schemas. 
+Applications using `GSettings`/DConf install allication configuration data or schemas.
 A schema is basically is a list of the available settings for that application.
 There are two types of schemas, standard and relocatable schemas.
 Important to understand that for relocatable schemas we need to provide a
@@ -484,7 +484,7 @@ gsettings list-recursively org.gnome.login-screen:/org/mate/panel/objects/object
 
 You'll find other uses for `gsettings` on [its manual page][85].
 For example,
-Unity desktop comes with overlay scrollbars enabled by default. 
+Unity desktop comes with overlay scrollbars enabled by default.
 You can disable overlay scroll-bars, if you don't like them.
 Enter the following command in a terminal to disable overlay scrollbar:
 
@@ -547,7 +547,7 @@ Tiny Core is designed to
 run from a RAM copy created at boot time. Besides being fast, this
 protects system files from changes and ensures a pristine system on
 every reboot.
-Easy, fast, and simple renew-ability and stability is a principle goal of Tiny Core. 
+Easy, fast, and simple renew-ability and stability is a principle goal of Tiny Core.
 The core system provides most of what you need for a working environment,
 which they can then tweak from there via loadable applications.
 
@@ -589,7 +589,7 @@ Tiny Core handles this with the `filetool.sh` script.
 When run with the `-b` option this packages up all these files into a single compressed file (`mydata.tgz`)
 that it saves in the `tce` directory.
 When the script is run with the `-r` option it does the reverse and restores the saved files.
-The restore happens automatically as the system boots. 
+The restore happens automatically as the system boots.
 By default the `/opt/filetool.lst` file includes the `/home` and `/opt` directories.
 Remove this entries if you wish (e.g. when backup take a long time).
 
@@ -597,7 +597,7 @@ Remove this entries if you wish (e.g. when backup take a long time).
 
 Many options, such as a choice of either an ALSA or OSS sound server, are left up to the user.
 Once inside the environment, the user is then able to connect to the online repositories
-in order to install the applications they desire and configure their system. 
+in order to install the applications they desire and configure their system.
 TCL has a very simple package manager that provides a list of available packages to install.
 The user need only select a package and the manager will download it with all
 required dependencies and install them to the system.
@@ -609,7 +609,7 @@ or "On Demand" (do not mount at boot, but create a special menu
 section for easy access and display an icon if available).
 (For my purposes of creating a X Terminal, I see no for any of these options other than OnBoot).
 
-* **OnBoot -** This is the default method. This extension will be installed, and added to the onboot list, to be mounted on the following boots. 
+* **OnBoot -** This is the default method. This extension will be installed, and added to the onboot list, to be mounted on the following boots.
 * **OnDemand -** A loading script will be generated for this extension.  Instead of being loaded on boot, the icon/menu entry for this extension will load the extension when you first need it.  This option speeds up your boot time, at the cost of making the first start of the application slower.
 * **Download + Load -** The extension will be downloaded and installed for this session only.  It will reside within the directory sytem, but since it is not added to the onboot list, it will not be loaded after a reboot.
 * **Download Only -** The extension will only be downloaded, nothing more will be done.
@@ -722,7 +722,7 @@ The boot process will waits for them to complete.
 If you need network access later, this might be a good place to wait for the network to come up.
 `/opt/bootlocal.sh` is the is the file for all items that don’t need to be waited for.
 This may include loading some non-essential module
-(ISA sound cards, for example), or starting some server. 
+(ISA sound cards, for example), or starting some server.
 
 Once `/opt/bootsync.sh` is complete (and while `/opt/bootlocal.sh`  runs in the background)
 `init` regains control.
@@ -742,7 +742,7 @@ To do the install, you need to follow these steps:
 
 1. **Configure the TCL Image for Installation**
     * Put the CD-ROM in the Laptop's drive, connect it via Ethernet to the Internet, and turn on the power.
-    * When it boots up, selected “Boot Core with X/GUI (TineCore) + Installation Extensions” from the boot menu. This will automatically install the `TC_Install` program for installing apps. 
+    * When it boots up, selected “Boot Core with X/GUI (TineCore) + Installation Extensions” from the boot menu. This will automatically install the `TC_Install` program for installing apps.
     * Select "Apps" icon on the bottom and install the following application packages to "OnBoot"
         * cfdisk.tcz
     * Now open a terminal and enter "cfdisk".  This will be used to format and partition the hard drive. I created a `sda1` bootable drive with 9500Mb and a `sda2` swap drive with 555.94Mb. Write to the disk and quit.
@@ -756,7 +756,7 @@ To do the install, you need to follow these steps:
     * Still in `TC_Install`, click the next arrow at the bottom and select Proceed.  The disk will now be formated, partitioned, and software loaded as specified.
 <br/><br/>
 
-1. **Boot TCL Image from Hard Disk** 
+1. **Boot TCL Image from Hard Disk**
     * Now its time to reboot the system, making sure to remove the CD.  To do this, go to a terminal window and execute these commands
         * `umount /mnt/hdc`
         * `eject /dev/hdc`
@@ -781,7 +781,7 @@ To do the install, you need to follow these steps:
 
 1. **Install and Activate SSH**
 <br/>
-I used "[How to install and configure OpenSSH (SSH Server) in Tiny Core Linux][96]" as my guide for this work. 
+I used "[How to install and configure OpenSSH (SSH Server) in Tiny Core Linux][96]" as my guide for this work.
     * Click on Apps and install
         * openssh.tcz
     * Go to the ssh configuration files with `cd /usr/local/etc/ssh`
@@ -874,7 +874,7 @@ My `/opt/bootsync.sh` file looks like this
 ```bash
 #!/bin/sh
 # put other system startup commands here, the boot process will wait until they complete.
-# Use bootlocal.sh for system startup commands that can run in the background 
+# Use bootlocal.sh for system startup commands that can run in the background
 # and therefore not slow down the boot process.
 /usr/bin/sethostname box
 /opt/bootlocal.sh &
@@ -886,7 +886,7 @@ My `/opt/bootlocal.sh` file looks like this
 ```bash
 #!/bin/sh
 # put other system startup commands here
-/usr/local/sbin/basic-firewall noprompt 
+/usr/local/sbin/basic-firewall noprompt
 /usr/local/etc/init.d/openssh start
 /usr/local/sbin/basic-firewall noprompt
 opt/alas
@@ -922,7 +922,7 @@ then
 	waitforX || ! echo failed in waitforX || exit
 	"$DESKTOP" 2>/tmp/wm_errors &
 	export WM_PID=$!
-	[ -x $HOME/.setbackground ] && $HOME/.setbackground 
+	[ -x $HOME/.setbackground ] && $HOME/.setbackground
 	[ -x $HOME/.mouse_config ] && $HOME/.mouse_config &
 	[ $(which "$ICONS".sh) ] && ${ICONS}.sh &
 	[ -d "$HOME/.X.d" ] && find "$HOME/.X.d" -type f -print | while read F; do . "$F"; done
@@ -932,7 +932,7 @@ else
 	waitforX || ! echo failed in waitforX || exit
 	"$DESKTOP" 2>/tmp/wm_errors &
 	export WM_PID=$!
-	[ -x $HOME/.setbackground ] && $HOME/.setbackground 
+	[ -x $HOME/.setbackground ] && $HOME/.setbackground
 	[ -x $HOME/.mouse_config ] && $HOME/.mouse_config &
 	[ $(which "$ICONS".sh) ] && ${ICONS}.sh &
 	[ -d "$HOME/.X.d" ] && find "$HOME/.X.d" -type f -print | while read F; do . "$F"; done
@@ -948,7 +948,7 @@ export XPID=$!
 waitforX || ! echo failed in waitforX || exit
 "$DESKTOP" 2>/tmp/wm_errors &
 export WM_PID=$!
-[ -x $HOME/.setbackground ] && $HOME/.setbackground 
+[ -x $HOME/.setbackground ] && $HOME/.setbackground
 [ -x $HOME/.mouse_config ] && $HOME/.mouse_config &
 [ $(which "$ICONS".sh) ] && ${ICONS}.sh &
 [ -d "$HOME/.X.d" ] && find "$HOME/.X.d" -type f -print | while read F; do . "$F"; done
@@ -979,7 +979,7 @@ To start the X Winodw System, do the following
 ### Configuring Remote Computer (Ubuntu Desktop)
 On the remote-computer (in my case, a Ubuntu desktop runing `lightdm` Display Manager),
 you need to tell the Display Manager to accept logins from a remote X Server.
-This is easily done by configuring the file `/etc/lightdm/lightdm.conf` so it contains 
+This is easily done by configuring the file `/etc/lightdm/lightdm.conf` so it contains
 
 ```
 [SeatDefaults]
@@ -1005,7 +1005,7 @@ lightweight Window Manger that could run on my ancient hardware.
 I researched my options with the aid of the articles
 "[How-to: Picking a Window Manager in Linux][92]" and
 "[20 Most Nimble and Simple X Window Managers for Linux][93]".
-I choose [Fluxbox][95] as my replacement Window Manger because of its simplicity and it widely praised. 
+I choose [Fluxbox][95] as my replacement Window Manger because of its simplicity and it widely praised.
 You [Fluxbox Documentation][94] will give most of what you need to configure this Window Manager.
 To install Fluxbox, and a companion tool for supporting desktop icons called fbdesk, use the following:
 

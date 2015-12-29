@@ -10,6 +10,7 @@ Summary: This article give a "how I setup Pelican" outline from start to finish.
 
 Consider followint the layout of [Building a Website with Jekyll](http://nordness.net/posts/how-i-made-this-site/).
 Consider replacing some of your document with references like this - [Creating your blog with Pelican](http://chdoig.github.io/create-pelican-blog.html)
+Checkout - https://github.com/DandyDev/pelican-bootstrap3
 
 http://crunk.io/post/introduction-to-pelican/
 [How I built this website, using Pelican: Part 1 - Setup](http://duncanlock.net/blog/2013/05/17/how-i-built-this-website-using-pelican-part-1-setup/)

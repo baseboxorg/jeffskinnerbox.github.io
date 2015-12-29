@@ -3,11 +3,14 @@ Title: Installing Linux on Chromebook
 Date: 2100-01-01 00:00
 Category: Software, Hardware
 Tags: Chrome, Chromebook, Crouton, Linux
-Slug: cheap-linux-laptop
+Slug: installing-linux-on-chromebook
 Author: Jeff Irland
 Image: toshiba-chromebook-linux.jpg
 Summary: The price of the Chromebook makes it a very attractive, assuming you can get your favorite tools working on it.  Well, you can install Linux, along with all the tools Linux brings to your development needs. This post is a somewhat disjointed dump of things that I’ve done to create a comfortable working envirnment on a Chromebook.
 
+<a href="http://www.pcmag.com/article2/0,2817,2470486,00.asp">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="This Chromebook 2 is thin and light, which is pretty impressive, considering it has a 13.6-inch HD display. The plastic chassis measures just 0.76 by 12.76 by 8.4 inches (HWD) and weighs only 2.95 pounds." alt="chromebook picture" src="{filename}/images/take_a_picture.png" width="500" height="500" />
+</a>
 I wanted to get a Linux laptop for some lightweight development
 and remote login into my home Linux box
 but I couldn't justify the price tag for my limited needs.
@@ -84,14 +87,8 @@ and others take the place of missing physical keys on Chromebook keyboards
 | Shift+Esc            | Open task manager               |
 | Ctrl+Alt+/           | Open keyboard shortcut list     |
 | Ctrl+M               | Open file manager               |
-
-| Keys                 | Operation                       |
-|----------------------|---------------------------------|
 | ALT + [              | Dock window left | 50% width    |
 | Alt + ]              | Dock window right | 50% width   |
-
-| Keys                 | Operation                       |
-|----------------------|---------------------------------|
 | Alt+ up arrow        | Page Up                         |
 | Alt+ down arrow      | Page Down                       |
 | Ctrl+Alt+ up arrow   | Home                            |
@@ -503,7 +500,7 @@ Aliases have to be stored in `~/.bashrc` to persist indefinitely
 There is one problem with aliases'.
 If you launch applications via aliases,
 the xiwi command will not know about them.
-You can add the [following snippet][62] to your `~/.bashrc` to handle basic aliases:
+You can add the [following snippet][42] to your `~/.bashrc` to handle basic aliases:
 
 ```bash
 # Wrap xiwi so that aliases work
@@ -726,7 +723,7 @@ But you can get make that vision start to happen today—with a new Google tool 
 [39]:https://en.wikipedia.org/wiki/Chrome_OS
 [40]:https://en.wikipedia.org/wiki/Virtual_machine
 [41]:http://www.chromestory.com/100_Chrome_ChromeOS_And_ChromeBook_Tips_Ebook.pdf
-[42]:
+[42]:https://github.com/dnschneid/crouton/wiki/crouton-in-a-Chromium-OS-window-(xiwi)
 [43]:http://www.cnet.com/how-to/what-does-it-mean-to-powerwash-a-chromebook/
 [44]:http://i3wm.org/
 [45]:https://en.wikipedia.org/wiki/Tiling_window_manager
@@ -746,7 +743,7 @@ But you can get make that vision start to happen today—with a new Google tool 
 [59]:http://www.cnet.com/how-to/how-to-print-from-a-chromebook/
 [60]:https://www.getpostman.com/
 [61]:https://chrome.google.com/webstore/detail/gistbox-desktop/pdjgfbgklbmmigkmmdbbhfchdldngkml
-[62]:https://github.com/dnschneid/crouton/wiki/crouton-in-a-Chromium-OS-window-(xiwi)
+[62]:
 [63]:
 [64]:
 [65]:

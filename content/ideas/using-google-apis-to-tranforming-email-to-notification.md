@@ -10,6 +10,13 @@ They are usually triggered by some event, like a comment being posted to a blog.
 When that event occurs, the source site makes an HTTP request to the URI configured for the webhook.
 Users can configure them to cause events on one site to invoke behavior on another.
 
+## Webscript
+Web scripting can add information to a page as a reader uses it or
+let the reader enter information.
+
+* [Server-less Stripe push notifications with webscript.io](http://coovtech.com/posts/push-with-web-script/)
+* https://www.webscript.io/
+
 ## WebSocket
 [!websocket_logo]:http://www.appelsiini.net/demo/websocket/img/HTML5_Connectivity_512.png
 * http://stackoverflow.com/questions/23172760/differences-between-webhook-and-websocket

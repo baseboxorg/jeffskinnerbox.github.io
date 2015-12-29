@@ -47,15 +47,19 @@ PUBLISHCONF = $(BASEDIR)/publishconf.py
 # If a backup is requested, this is the backup file's location/name.
 BACKUPDIR = "$(TMP)/blog_backup_$(shell date | tr ': ' '_')"
 
-# If an idea, draft, or article is created, this will capture the title
-# and make it part of the URL for the document.
-SLUG = $(shell echo "$(TITLE)" | tr -d '!@$%^&*()?:;|{}[]",.' | tr '[:upper:]' '[:lower:]' | tr -s ' ' | tr '_ ' '-' | tr -s '-' )
-
 # Author of the idea, draft, or article
 AUTHOR = Jeff Irland
 
 # Date and time stamp to be applied to an article's header.
-DATETIME =  $(shell date "+%Y-%m-%d %H:%M")
+DATETIME = $(shell date "+%Y-%m-%d %H:%M")
+
+# If an idea, draft, or article is created, this will capture the title
+# and make it part of the URL for the document.
+ifdef TITLE
+	SLUG = $(shell echo "$(TITLE)" | tr -d '!@$%^&*()?:;|{}[]",.' | tr '[:upper:]' '[:lower:]' | tr -s ' ' | tr '_ ' '-' | tr -s '-' )
+else
+	SLUG = place-holder
+endif
 
 ################################################################################
 
@@ -67,8 +71,8 @@ help:
 	@echo '   make start [PORT=8000]         start/restart local server'
 	@echo '   make stop                      stop the local server'
 	@echo ' '
-	@echo '   make draft TITLE="<str>"       starting with a file in /ideas, '
-	@echo '                                    create a file for /drafts with title <str>'
+	@echo '   make draft [TITLE="<str>"]     pick a file in /ideas to move to /drafts, '
+	@echo '                                    using TITLE as its title'
 	@echo '   make article                   pick a file in /drafts to move to /articles'
 	@echo '   make publish                   generate content for production server'
 	@echo '   make github [COMMENT="<str>"]  upload the content to production server'
@@ -90,7 +94,6 @@ help:
 
 # Create a draft file for $(BASEDIR)/content/drafts diretory from a file within the $(BASEDIR)/content/ideas directory
 draft:
-ifdef TITLE
 	@echo " "
 	@echo "Enter the number of the file you wish to process. Pick the last number to exit."
 	@$(EXIT_ON_ERROR) ; \
@@ -105,16 +108,20 @@ ifdef TITLE
             	;; \
         	*) \
             	echo "You picked the file $$file" ; \
+				echo $$file > /home/jeff/tmp/temp_name ; \
 				mv $$file $(TMPFILE) ; \
             	break ; \
             	;; \
     	esac ; \
 	done
+ifdef TITLE
 	cat $(METADATA)/article.metadata $(TMPFILE) | sed 's/Title: xxx/Title: $(TITLE)/' | sed 's/Slug: xxx/Slug: $(SLUG)/' | sed 's/Author: xxx/Author: $(AUTHOR)/' > $(DRAFTSDIR)/$(SLUG).md
 	vim $(DRAFTSDIR)/$(SLUG).md &
 else
-	@echo 'You must provide a title.  Usage: make article TITLE="<str>"'
-	@exit
+	TITLE="$(shell cat /home/jeff/tmp/temp_name)" ; \
+	SLUG="$(shell cat /home/jeff/tmp/temp_name)" ; \
+	cat $(METADATA)/article.metadata $(TMPFILE) | sed 's/Title: xxx/Title: $(TITLE)/' | sed 's/Slug: xxx/Slug: $(SLUG)/' | sed 's/Author: xxx/Author: $(AUTHOR)/' > $(DRAFTSDIR)/$(SLUG).md
+	vim $(DRAFTSDIR)/$(SLUG).md &
 endif
 
 

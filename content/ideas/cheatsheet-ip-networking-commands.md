@@ -1,16 +1,3 @@
-Status: draft
-Title: CheatSheet: IP Networking Commands
-Date: 2100-01-01 00:00
-Category: CheatSheet
-Tags: nmap
-Slug: cheatsheet-ip-networking-commands
-Author: xxx
-Image: cheat-sheet.jpg
-Summary: bla bla bla
-
-
-####################
-
 Most network configuration manuals still refer to `ifconfig` and `route`
 as the primary network configuration tools,
 but `ifconfig` is known to behave inadequately in modern network environments.
@@ -34,6 +21,12 @@ what about ethtool, netifd, nm-tool, nmcli, nm-online
 The NetworkManager daemon attempts to make networking configuration and operation as painless and automatic as possible by managing the primary network connection and other network interfaces, like Ethernet, WiFi, and Mobile Broadband devices. NetworkManager will connect any network device when a connection for that device becomes available, unless that behavior is disabled. Information about networking is exported via a D-Bus interface to any interested application, providing a rich API with which to inspect and control network settings and operation.
 
 ####################
+* also see
+    * [tshark - Monitor network traffic tutorial](http://www.linuxuser.co.uk/tutorials/monitor-network-traffic-tutorial)
+    * [10 Free Server & Network Monitoring Tools that Kick Ass](http://sixrevisions.com/tools/10-free-server-network-monitoring-tools-that-kick-ass/)
+    * [Raspberry Pi – control your network traffic with Nagios](https://developer-blog.net/en/hardware-2/raspberry-pi-control-your-network-traffic-with-nagios/)
+    * [Raspberry Pi and Distributed Network Monitoring: Iperf](https://netbeez.net/2014/08/19/raspberry-pi-and-distributed-network-monitoring-iperf/)
+    * [How to Build a Portable Hacking Station with a Raspberry Pi and Kali Linux](http://lifehacker.com/how-to-build-a-portable-hacking-station-with-a-raspberr-1739297918)
 
 * Tools for Querying / Configuring IP Network
     * [`ip`][17] shows and manipulates routing, devices, policy routing, and tunnels
@@ -194,6 +187,9 @@ This helps avoid confusion between names that are local Bonjour computer names
 
 ####################
 
+
+# SSH - Remote Unix Work
+[Tips for remote Unix work: SSH, screen, and VNC](http://shebang.brandonmintern.com/tips-for-remote-unix-work-ssh-screen-and-vnc/)
 
 # Establishing a Connection
 You can use `iw` to connect to an AP directly if and only if the AP has:

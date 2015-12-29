@@ -17,6 +17,10 @@ An alternative to Pushover is [Instapush](https://instapush.im/).
 Read more: http://www.programmableweb.com/api/keylemon#ixzz37atW6GGC
 Follow us: @ProgrammableWeb on Twitter | ProgrammableWeb on Facebook
 
+* Waylay - http://www.waylay.io/
+* http://waylayio.github.io/integration/2015/10/24/webscripts.html
+* [Getting Started With Adafruit IO](https://www.jeremymorgan.com/internet-of-things/how-to-adafruit-io/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+JeremyMorganTutorials+%28Jeremy%27s+Tutorials%29)
+
 Device Cloud Platform to be explored:
 Pushover
 Bug Labs dweet.io and Freeboard
@@ -332,6 +336,9 @@ Here I'm going to exercise the AT&T Speech API outside of Jasper just to demonst
 With a little imagination, you should see how it can turn a Raspberry Pi into an
 interesting Internet-enabled speech application using this API.
 
+# OpenSensors.io
+[OpenSensors.io](https://www.opensensors.io/)
+
 # IFTTT
 [IFTTT](https://ifttt.com/)
 
@@ -371,7 +378,6 @@ interesting Internet-enabled speech application using this API.
     * [MQTT and CoAP, IoT Protocols](http://www.eclipse.org/community/eclipse_newsletter/2014/february/article2.php)
     * [IoT Protocol Wars: MQTT vs CoAP vs XMPP](http://www.iotprimer.com/2013/11/iot-protocol-wars-mqtt-vs-coap-vs-xmpp.html)
     * [Pushover](https://pushover.net/)
-
 
 
 

@@ -1,14 +1,18 @@
-# Working with Chromebook / Chrome OS
+Status: draft
+Title: Cheatsheet: Chromebook and Chrome OS Keyboard Shortcuts
+Date: 2100-01-01 00:00
+Category: Software
+Tags: Chrome, Chromebook
+Slug: cheatsheet-chromebook-and-chrome-os-keyboard-shortcuts
+Author: Jeff Irland
+Image: cheat-sheet.jpg
+Summary: bla bla bla bla bla bla
+
 Switching from a PC to a Chromebook comes with a few adjustments.
 For one, you’ll need to have access to a WiFi signal for most Chrome apps to function.
 Also, the Chromebook doesn't have a standard PC keyboard (e.g. no Page Up / Down keys).
 There is also a number of keyboard shortcuts you’ll need to learn,
 and touchpad motions that are different from the average PC.
-
-* Click the touchpad with two fingers to open the **right-click menu** .
-* Place two fingers on the touchpad and move up and down or right to left to **scroll**.
-* Click and hold on an item you want to **drag and drop** using one finger. Then, with a second finger move to where you want that item dropped.
-* Swipe left or right quickly using two fingers to **switch between open tabs**.
 
 # Keyboard Shortcuts
 Google's Chrome OS uses some familiar keyboard shortcuts as well as some unique ones.
@@ -16,21 +20,15 @@ A few of these access Chrome OS settings
 and others take the place of missing physical keys on Chromebook keyboards
 ( e.g. Page Up, Page Down, Home, End).
 
-Full list of Chromebook's [Keyboard shortcuts][42].
+Full list of Chromebook's [Keyboard shortcuts][01].
+Press `Ctrl` + `Alt` + `?` to see a map of these shortcuts on your screen.
 
-"qa
 | Keys                 | Operation                       |
 |----------------------|---------------------------------|
 | Ctrl+?               | Open help                       |
 | Shift+Esc            | Open task manager               |
 | Ctrl+Alt+/           | Open keyboard shortcut list     |
 | Ctrl+M               | Open file manager               |
-
-
-| Keys                 | Operation                       |
-|----------------------|---------------------------------|
-| ALT + [              | Dock window left | 50% width    |
-| Alt + ]              | Dock window right | 50% width   |
 
 
 | Keys                 | Operation                       |
@@ -46,6 +44,8 @@ Full list of Chromebook's [Keyboard shortcuts][42].
 
 | Keys                 | Operation                       |
 |----------------------|---------------------------------|
+| ALT + [              | Dock window left | 50% width    |
+| Alt + ]              | Dock window right | 50% width   |
 | Alt+ up arrow        | Page Up                         |
 | Alt+ down arrow      | Page Down                       |
 | Ctrl+Alt+ up arrow   | Home                            |
@@ -58,9 +58,10 @@ Full list of Chromebook's [Keyboard shortcuts][42].
 | Ctrl+Shift+Q         | Sign out of Google account      |
 | Alt+backspace        | Delete file(s) in file manager  |
 
+# Gesture Shortcuts
 You can use your Chromebook's touchpad to move the pointer,
 right-click items on the screen, and more. Here's how it works
-and [look here to change touchpad settings][63]:
+and [look here to change touchpad settings][02]:
 
 | Keys                 | Operation                       |
 |----------------------|---------------------------------|
@@ -99,5 +100,5 @@ chromeos needs to be in dev
 
 
 
-[42]:https://support.google.com/chromebook/answer/183101?hl=en&source=genius-rts
-[63]:https://support.google.com/chromebook/answer/1047367?hl=en&ref_topic=2589149
+[01]:https://support.google.com/chromebook/answer/183101?hl=en&source=genius-rts
+[02]:https://support.google.com/chromebook/answer/1047367?hl=en&ref_topic=2589149

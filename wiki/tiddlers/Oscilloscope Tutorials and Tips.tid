@@ -1,5 +1,5 @@
 created: 20141226143823014
-modified: 20151227045741200
+modified: 20151228224622638
 tags: [[Test Gear]]
 title: Oscilloscope Tutorials and Tips
 type: text/vnd.tiddlywiki
@@ -21,6 +21,7 @@ so its time to learn how to use it like a pro.
 * [[Introduction to Oscilloscopes Lab Experiment|https://www.noisebridge.net/images/8/8d/Tektronix--IntroToOscilliscopesLab.pdf]]
 * [[Oscilloscope and Data Logger Application Notes|https://www.picotech.com/library/application-notes]]
 * [[Tektronix Oscilloscope Tutorial|http://www.tek.com/learning/oscilloscope-tutorial]]
+* [[From Digital to RF - Using a scope to easily debug in the time and frequency domains|http://www.rohde-schwarz-usa.com/Webinar-Digital-to-RF-Oscilloscope.html?mkt_tok=3RkMMJWWfF9wsRojsqXBZKXonjHpfsXx6u0pWbHr08Yy0EZ5VunJEUWy3YAAT9Q/cOedCQkZHblFnV8KTq2gSqgNrqIK]]
 * [[Tektronix Manuals and Documentation|http://www.tek.com/downloads]]
 ** [[Application Notes|http://www.afc-ingenieros.com/uploads/Afc/InfoTecn/Osciloscopios/pdf/]]
 
@@ -46,3 +47,6 @@ so its time to learn how to use it like a pro.
 * [[Controlling A Rigol With Linux|http://hackaday.com/2015/06/06/controlling-a-rigol-with-linux/]]
 * [[Four Rigol oscilloscope hacks with Python|http://www.righto.com/2013/07/rigol-oscilloscope-hacks-with-python.html]]
 * [[The LXI Primer|http://www.lxistandard.org/Documents/LXI%20Primer/The%20LXI%20Primer%20Final.pdf]]
+
+!!Misc
+* [[Hacklet 36 – Oscilloscope Projects|http://hackaday.com/2015/02/27/hacklet-36-oscilloscope-projects/]]

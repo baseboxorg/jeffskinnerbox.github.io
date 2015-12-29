@@ -1,5 +1,5 @@
 created: 20141225214402795
-modified: 20150613152820818
+modified: 20151228225551693
 tags: [[Test Gear]]
 title: Oscilloscope
 type: text/vnd.tiddlywiki
@@ -23,7 +23,9 @@ Below are the candidates I'm considering.
 * Typical Price: $400 to $450
 
 Judging for the reviews and the price points
-(and assuming I can hack the scope to get 100MHz capabilities),
+(and assuming I can hack the scope to get 100MHz capabilities -
+See the post "[[Unlocking features in the Rigol DS1054Z|http://simonselectronics.eu/2015/09/unlocking-features-in-the-rigol-ds1054z/]]"
+and the video "[[Rigol DS1054Z - Unlock all features|https://www.youtube.com/watch?v=NmJNOwcJh7Y]]"),
 the DS1054Z seems to be the easy prefered choose but for one cautionary tail.
 [[EEVblog|http://www.eevblog.com/]]
 does a [[teardown|https://www.youtube.com/watch?v=kb9P1Am9aFU]] and
