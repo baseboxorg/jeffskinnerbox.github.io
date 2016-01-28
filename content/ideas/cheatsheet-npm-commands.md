@@ -5,10 +5,15 @@ If you have either of those installed, then you already have npm too.
 
 [npm's documentation site][02] featuring large number of videos and tutorial.
 
- The [package.json interactive guide][03] describes important properties
- of the package.json packaging format for node.js applications.
+The [package.json interactive guide][03] describes important properties
+of the package.json packaging format for node.js applications.
 
- [Getting a new node project started with npm][05]
+[Getting a new node project started with npm][05]
+
+[npm cheat sheet](http://browsenpm.org/help)
+[A Beginner’s Guide to npm — the Node Package Manager](http://www.sitepoint.com/beginners-guide-node-package-manager/)
+[10 Cool Things You Probably Didn’t Realize npm Could Do](http://blog.izs.me/post/1675072029/10-cool-things-you-probably-didnt-realize-npm)
+
 
 
 [01]:https://www.npmjs.com/

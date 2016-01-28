@@ -13,6 +13,7 @@ Summary: bla bla bla
 ## Music and Sound Waves
  * [Art Ludwig's Sound Page](http://www.silcom.com/~aludwig/)
  * [The Kraakdoos — Musical Abuser of an Ancient OpAmp](http://hackaday.com/2015/09/03/the-kraakdoos-musical-abuser-of-an-ancient-opamp/)
+ * The Sound on Sound (SOS) series of articles on [sound synthesis](http://www.soundonsound.com/sos/allsynthsecrets.htm)
 
 ## Audio Codec
 An audio codec (or just [codec][17]) is a device or computer program capable of

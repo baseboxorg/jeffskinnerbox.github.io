@@ -10,7 +10,7 @@ Steam Punk Radio
 
 # Reciever
 * [Alfred P. Morgan: A Generation’s Radio Hacker](http://hackaday.com/2015/12/11/alfred-p-morgan-a-generations-radio-hacker/)
-* []()
+* [Hacking When It Counts: The Great Depression](http://hackaday.com/2016/01/07/hacking-when-it-counts-the-great-depression/)
 * []()
 * []()
 

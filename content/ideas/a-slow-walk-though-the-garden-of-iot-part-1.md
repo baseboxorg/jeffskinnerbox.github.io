@@ -17,9 +17,19 @@ An alternative to Pushover is [Instapush](https://instapush.im/).
 Read more: http://www.programmableweb.com/api/keylemon#ixzz37atW6GGC
 Follow us: @ProgrammableWeb on Twitter | ProgrammableWeb on Facebook
 
+# AWS IoT
+* [AWS IoT](http://aws.amazon.com/iot/)
+*
+# Waylay.io
 * Waylay - http://www.waylay.io/
 * http://waylayio.github.io/integration/2015/10/24/webscripts.html
+
+# Adafruit.io
 * [Getting Started With Adafruit IO](https://www.jeremymorgan.com/internet-of-things/how-to-adafruit-io/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+JeremyMorganTutorials+%28Jeremy%27s+Tutorials%29)
+* you have access to [Adafruit.io Dashboard](https://io.adafruit.com/jirland) and its [tutorials](https://learn.adafruit.com/adafruit-io)
+* [adafruit.io IFTTT recipes](https://ifttt.com/recipes/search?q=adafruit)
+* [Zapier](https://learn.adafruit.com/using-zapier-with-adafruit-io)
+* Via adafruit.io sign-up, [you've been invited to use an app On Zapier](https://zapier.com/developer/invite/25310/e5b57f6e084ed73db02db095986ead31/)
 
 Device Cloud Platform to be explored:
 Pushover
@@ -310,32 +320,6 @@ It's interesting that Bug Labs positions Freeboard as an open source alternative
 * [Freeboard](https://freeboard.io/)
 * [Freeboard's GitHub](https://github.com/Freeboard/freeboard)
 
-# AT&T Speech API
-<a href="https://developer.att.com/">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" title="AT&T Developer Web Site" alt="AT&T Developer Logo" src="/images/att-developer-logo.png" width="100" height="100" />
-</a>
-This code was inspired by the [Jasper Project][53]
-and [Amazon's Echo][58].
-Jasper, an open-source, crowd developed, [Siri-like][54] virtual assistant for Raspberry Pi.
-The concept is to have an always-on system constantly waiting for
-voice commands that you can hack together to use in your home.
-The Jasper Project anticipates contribution form carry out
-any kind of automated task you can think of using voice commands,
-such as reading you news headlines, sending commands for home automation, etc.
-
-In it's current implementation, Jasper uses a Linux based text-to-speech and speech-to-text package.
-It has been [recommended to use a web-based API instead][55],
-specifically the [AT&T Speech API][56].
-This API is being used by [Jibbigo][57], a smart phone language translation app.
-The API is well documented, requires your registration for an API key, but free for limited use.
-The main limitation with this free Speech API is its rate limit,
-but it's very difficult to run up to the limit for most applications.
-You're limited to 1 request per second and your audio file must be less than a minute in length.
-
-Here I'm going to exercise the AT&T Speech API outside of Jasper just to demonstrate its use.
-With a little imagination, you should see how it can turn a Raspberry Pi into an
-interesting Internet-enabled speech application using this API.
-
 # OpenSensors.io
 [OpenSensors.io](https://www.opensensors.io/)
 
@@ -433,11 +417,11 @@ interesting Internet-enabled speech application using this API.
 [50]:http://martinfowler.com/articles/richardsonMaturityModel.html
 [51]:http://bestoked.blogspot.com/2012/02/restful-resources-required-reading.html
 [52]:http://en.wikipedia.org/wiki/Chunked_transfer_encoding
-[53]:http://jasperproject.github.io/
-[54]:http://www.apple.com/ios/siri/
-[55]:http://changingjasper.blogspot.com/2014/06/making-jasper-use-at-speech-api.html
-[56]:http://developer.att.com/apis/speech
-[57]:http://jibbigo.com/
-[58]:http://hackaday.com/2015/08/04/amazons-ai-escapes-its-hardware-prison/
+[53]:
+[54]:
+[55]:
+[56]:
+[57]:
+[58]:
 [59]:
 [60]:

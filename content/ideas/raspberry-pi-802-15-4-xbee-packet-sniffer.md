@@ -7,6 +7,7 @@ Author: Jeff Irland
 Image: DRAFT_stamp.png
 Summary: abla bla bla
 
+* [chibiArduino Software Release v1.05 Available Now](http://freaklabs.org/index.php/blog/chibi/chibiarduino-software-release-v1-05-available-now.html)
 * [Sniffing nRF24L01+ Traffic with Wireshark](http://hackaday.com/2014/08/05/sniffing-nrf24l01-traffic-with-wireshark/)
 * [tshark](http://www.linuxuser.co.uk/tutorials/monitor-network-traffic-tutorial)
 

@@ -47,6 +47,7 @@ The content here is lift for these sources:
 * [The Node-RED Getting Started page](http://nodered.org/docs/getting-started/)
 * [Raspberry Pi Hosting Node-Red](https://learn.adafruit.com/raspberry-pi-hosting-node-red/what-is-node-red)
 * [Node-RED Wiki](https://github.com/node-red/node-red/wiki)
+* [Raspberry Pi 2 Node-Red setup](https://swabbster.wordpress.com/2015/04/16/raspberry-pi2-node-red-setup/)
 
 ## Installing Node-RED
 The easiest way to install Node-RED is to use node’s package manager, npm.

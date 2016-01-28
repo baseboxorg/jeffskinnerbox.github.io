@@ -25,6 +25,8 @@ so when making connections, we must reverse the pinout.
 VoCore is an open hardware runs OpenWrt. It has WIFI, USB, UART, 20+ GPIOs but size is only one square inch.
 
 * [VOCore Tutorial Gets You Started with Tiny Router](http://hackaday.com/2015/11/15/vocore-tutorial-gets-you-started-with-tiny-router/)
+
+* [Onion Omega](https://onion.io/omega)
 ###########
 
 # Components that Make Up WRTNode

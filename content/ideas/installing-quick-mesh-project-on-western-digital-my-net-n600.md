@@ -3,7 +3,7 @@
 http://makezine.com/2014/11/26/how-meshnets-are-changing-the-face-of-the-web/
 http://hyperboria.net/
 
-* I plan to dive into [openHAB][20],
+* I'm thinking about diving into [openHAB][20],
 loading it on a [Raspberry Pi][21],
 and create a sensor network for some home automation/monitoring devices.
 * I plan to use [OpenWrt][22] and [qMp][09] as the network (I choose [mesh networking][23],

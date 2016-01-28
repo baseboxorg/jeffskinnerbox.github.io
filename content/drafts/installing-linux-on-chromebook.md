@@ -60,6 +60,13 @@ Ultimate guide for Web Development on Chromebook —
 and Joe Marini's [Tools for Developing on ChromeOS][57]
 are a good read to understand how to make the Chromebook a powerful developers tool.
 
+Keep in mind that the Chrome browser comes pre-packaged with
+Chrome Developer Tools ([DevTools][62] for short),
+which is a set of web authoring and debugging tools built into Google Chrome.
+I will not cover that here, but you can learn more about it at
+[Code School][63] for free.
+DevTools can also optimize your workflow and make life easier.
+
 # Quick Chromebook Introduction
 You can find thousands of apps for the Chromebook on the web
 to do things like create documents, edit photos, and listen to music in the browser.
@@ -743,8 +750,8 @@ But you can get make that vision start to happen today—with a new Google tool 
 [59]:http://www.cnet.com/how-to/how-to-print-from-a-chromebook/
 [60]:https://www.getpostman.com/
 [61]:https://chrome.google.com/webstore/detail/gistbox-desktop/pdjgfbgklbmmigkmmdbbhfchdldngkml
-[62]:
-[63]:
+[62]:https://developers.google.com/web/tools/chrome-devtools/
+[63]:https://www.codeschool.com/courses/discover-devtools
 [64]:
 [65]:
 [66]:
