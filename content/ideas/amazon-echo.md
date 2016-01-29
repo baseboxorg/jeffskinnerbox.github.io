@@ -9,6 +9,8 @@
 * [Alexa Skills Kit (ASK)](https://developer.amazon.com/public)
 *[Alexa Voice Service (AVS)](https://developer.amazon.com/public/solutions/alexa/alexa-voice-service)
 * [Alexa Lambda Linux (ALL) Reference Design](https://github.com/goruck/all)
+* [New Alexa Skills Kit Template: Build a Trivia Skill in under an Hour](https://developer.amazon.com/public/community/post/TxDJWS16KUPVKO/New-Alexa-Skills-Kit-Template-Build-a-Trivia-Skill-in-under-an-Hour?mkt_tok=3RkMMJWWfF9wsRokvqjLZKXonjHpfsX66e4vWKK2lMI%2F0ER3fOvrPUfGjI4CSsNnI%2BSLDwEYGJlv6SgFSrfFMapt17gOUhk%3D)
+* [Introduction to Voice Design with Amazon's Alexa](https://www.udemy.com/amazonalexa/?mkt_tok=3RkMMJWWfF9wsRokvqjLZKXonjHpfsX66e4vWKK2lMI%2F0ER3fOvrPUfGjI4CSsNnI%2BSLDwEYGJlv6SgFSrfFMapt17gOUhk%3D)
 
 # Role-Your-Own Echo
 * [Voice Command with No Echo](http://hackaday.com/2015/08/30/voice-command-with-no-echo/)

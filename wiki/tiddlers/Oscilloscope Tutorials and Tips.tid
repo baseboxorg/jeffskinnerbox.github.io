@@ -1,5 +1,5 @@
 created: 20141226143823014
-modified: 20160105014550636
+modified: 20160128190004217
 tags: [[Test Gear]]
 title: Oscilloscope Tutorials and Tips
 type: text/vnd.tiddlywiki
@@ -26,7 +26,8 @@ so its time to learn how to use it like a pro.
 * [[Tektronix Manuals and Documentation|http://www.tek.com/downloads]]
 ** [[Application Notes|http://www.afc-ingenieros.com/uploads/Afc/InfoTecn/Osciloscopios/pdf/]]
 
-!!Performance
+!!Evaluation
+* [[Evaluating Oscilloscopes - Part 1|http://circuitcellar.com/cc-blog/evaluating-oscilloscopes-part-1/#at_pco=smlre-1.0&at_si=569e738305ad0ffb&at_ab=per-2&at_pos=3&at_tot=4]], [[Part 2|http://circuitcellar.com/cc-blog/evaluating-oscilloscopes-part-2/]], [[Part 3|http://circuitcellar.com/cc-blog/evaluating-oscilloscopes-part-3/]], [[Part 4|http://circuitcellar.com/cc-blog/evaluating-oscilloscopes-part-4/]]
 * [[Oscilloscope performance vs. specifications|https://www.youtube.com/watch?v=6CDJbi8E0UE]]
 
 !!Spectrum Analyzer
