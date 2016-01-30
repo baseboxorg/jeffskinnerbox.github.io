@@ -95,6 +95,8 @@ Jeff's Skinner Box&nbsp;            </a>
 <i class="fa fa-tags fa-lg"></i>
     <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/x-window-system/">X Window System</a>
         &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/window-manager/">Window Manager</a>
+        &nbsp;
     <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/xnest/">Xnest</a>
         &nbsp;
     <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/xephyr/">Xephyr</a>
@@ -105,7 +107,7 @@ Jeff's Skinner Box&nbsp;            </a>
 including its own desktop environment,
 all the while using the first computer’s screen and keyboard.
 This sounds like multiple X Servers running.
-One for the monitor and the other managing a graphics window as if it were a second monitor. 
+One for the monitor and the other managing a graphics window as if it were a second monitor.
 Fortunately, X Window System provides tools to do exactly this.
 This has been done by designing a X Client to emulate an X Server that then provides display services to other clients.
 The open-source clients that do this are called <code>Xnest</code> and <code>Xephyr</code>.
@@ -126,13 +128,13 @@ This can be load with the following:</p>
 <p><code>Xnest</code> is a Display Server implementing the X11 display server protocol that outputs to a window,
 as apposed to a X display.
 <code>Xnest</code> is a standard part of the XFree86 and X.org X Servers,
-and provides an X Server that runs inside a standard X Window. 
+and provides an X Server that runs inside a standard X Window.
 In other words, <code>Xnest</code> opens a window that works like another screen in which the user can open windows, etc.
 At the X Protocol level, <code>Xnest</code> works like a X Client of the X Server hosting the window,
 and as a X Server with respect to the X Window Manager
 (i.e. applications that opens windows) within the <code>Xnest</code> session.
 Therefore, <code>Xnest</code> can be used to run a virtual desktop of another computer
-(which is running X Window) within a window. </p>
+(which is running X Window) within a window.</p>
 <p><code>Xnest</code> might come pre-installed in the Ubuntu X Window System
 but it's easy to install and is <a href="http://box.matto.nl/xnest.html">easy to use</a>.
 Simply install the package.  No special configuration is require.</p>
@@ -243,7 +245,7 @@ port=177
 or reboot your system so the changes take effect.
 To log into into my Linux system (aka <code>desktop</code>),
 from the same system as if they are remote to each other,
-I used the following command works well. </p>
+I used the following command works well.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Xephyr :3 -ac -screen 1280x1024 -br -reset -terminate -query desktop 2&gt; /dev/null &amp;
 </pre></div>
 
@@ -459,7 +461,7 @@ Appears <code>Xephyr</code> is the way to go.</p>
             <a href="http://tiddlywiki.com/" target="_blank">TiddlyWiki</a>,
             <a href="http://ipython.org/notebook.html" target="_blank">Python Notebook</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
-            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <a href="/pages/this-blog-is-powered-by/index.html" target="_blank">Other Things</a>.
             <p>
             <a href="http://opensource.org/">
                 <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">

@@ -177,7 +177,7 @@ If the system is completely locks up, or <a href="http://www.linuxjournal.com/co
 If your get "<code>CONFIG_MAGIC_SYSRQ=y"</code>, then its enabled on your kernel.</p>
 <p>When running a kernel with SysRq compiled in, <code>/proc/sys/kernel/sysrq</code> controls the functions allowed to be invoked via the SysRq key.  If the file contains "<code>1</code>", that means that every possible SysRq request is allowed. See <a href="http://lxr.linux.no/linux/Documentation/sysrq.txt">here</a> for more on the <code>/proc/sys/kernel/sysrq</code>.</p>
 <p>To actually reboot the machine there is a well know key sequence to follow: REISUB (or REISUO if you want to turn off the system instead of reboot).  Basically, if you keep pressed AltGR + SysRq + R and then while you keep pressed AltGR + SysRq you press E, I, S, U, B with about 1 second between each letter (do not type it fast). Your system will reboot. This  is a safer alternative to just cold rebooting the computer.</p>
-<p>Mnemonic for REISUB is <strong>R</strong>eboot <strong>E</strong>ven <strong>I</strong>f  <strong>S</strong>ystem <strong>U</strong>tterly <strong>B</strong>roken, and the keys pressed do the following:
+<p>Mnemonic for REISUB is <strong>R</strong>eboot <strong>E</strong>ven <strong>I</strong>f  <strong>S</strong>ystem <strong>U</strong>tterly <strong>B</strong>roken, so while pressing <code>AltGR + SysRq</code>, press the following  keys:
 <p style="padding-left:60px;">
 <ul>
 <ul>
@@ -382,7 +382,7 @@ The magic SysRq key supports more then just the REISUB keys.  To see the larger
             <a href="http://tiddlywiki.com/" target="_blank">TiddlyWiki</a>,
             <a href="http://ipython.org/notebook.html" target="_blank">Python Notebook</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
-            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <a href="/pages/this-blog-is-powered-by/index.html" target="_blank">Other Things</a>.
             <p>
             <a href="http://opensource.org/">
                 <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">

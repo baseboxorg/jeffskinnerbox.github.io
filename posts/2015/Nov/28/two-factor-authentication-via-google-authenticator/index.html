@@ -166,6 +166,8 @@ Each user will have their own secret key and their own codes.)</p>
 <h3>Step 5</h3>
 <p>Next you need to activate Google Authenticator on the home PC
 and require Google Authenticator for SSH logins.
+You's do this by making modification to the <a href="http://tldp.org/HOWTO/User-Authentication-HOWTO/x115.html">Pluggable Authentication Modules (PAM)</a>
+for Linux.
 To do so, open the <code>/etc/pam.d/sshd</code> file on your system
 and add the following line to the file:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">auth required pam_google_authenticator.so
@@ -187,16 +189,51 @@ add the above line to the file.)</p>
 
 
 <h3>Step 6</h3>
+<p>At this point, when using SSH from my local network,
+I would need to provide the verification code.
+I don’t want to enter the verification code on my local network,
+because I trust my local network.
+When I SSH from remote, a verification code is required.
+One way to avoid this is to always login with certificates.</p>
+<p>Luckily, there is another way to arrange this using the <code>pam_access.so</code> module
+This modification will allow skipping two-factor authentication
+when the connection originates from certain sources.
+This is natively already supported by PAM.
+The <code>pam_access.so</code> module can be used to check the source against local subnets:</p>
+<p>make sure you have the following in <code>/etc/pam.d/sshd</code>:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># use Google Authenticator</span>
+<span style="color: #0099FF; font-style: italic"># The ‘nullok’ option tells PAM whenever no config for 2-factor authentication is found,</span>
+<span style="color: #0099FF; font-style: italic"># it should just ignore it. This will prevent you from being locked out.</span>
+auth <span style="color: #555555">[</span><span style="color: #003333">success</span><span style="color: #555555">=</span>1 <span style="color: #003333">default</span><span style="color: #555555">=</span>ignore<span style="color: #555555">]</span> pam_access.so <span style="color: #003333">accessfile</span><span style="color: #555555">=</span>/etc/security/access-local.conf
+auth required pam_google_authenticator.so nullok
+</pre></div>
+
+
+<p>Add create the file <code>/etc/security/access-local.conf</code> with the following contents:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># skip one-time password if logging in from the local network</span>
+<span style="color: #0099FF; font-style: italic"># only allow from local IP range</span>
++ : ALL : 192.168.1.0/24
++ : ALL : LOCAL
+- : ALL : ALL
+</pre></div>
+
+
+<h3>Step 7</h3>
 <p>Test it out.
 You’ll be prompted for both your password and
-Google Authenticator code whenever you attempt to log in via SSH.</p>
+Google Authenticator code whenever you attempt to log in via SSH externally.
+On the other hand, when using SSH on your local network,
+you should not be required to enter the Google Authenticator code.</p>
 <h1>Sources</h1>
-<p>Key Articles that I found helpful:</p>
+<p>Key articles that I found helpful:</p>
 <ul>
 <li><a href="http://kb.mailchimp.com/integrations/other-integrations/set-up-google-authenticator">Set Up Google Authenticator</a></li>
 <li><a href="https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-two-factor-authentication">How To Protect SSH With Two-Factor Authentication</a></li>
 <li><a href="https://www.linux.com/community/blogs/133-general-linux/783135-securing-ssh-with-two-factor-authentication-using-google-authenticator">Securing SSH with two factor authentication using Google Authenticator</a></li>
 <li><a href="http://wiki.vps.net/vps-net-features/cloud-servers/configuring-two-factor-authentication-in-ubuntu-14-04-using-google-authenticator/">Configuring two-factor authentication in Ubuntu 14.04 using Google Authenticator</a></li>
+<li><a href="http://blog.remibergsma.com/2013/06/08/playing-with-two-facor-authentication-in-linux-using-google-authenticator/">Playing with two-factor authentication in Linux using Google Authenticator</a></li>
+<li><a href="http://serverfault.com/questions/518802/two-factor-ssh-authentication-on-external-address-only">Two Factor SSH Authentication on external address only</a></li>
+<li><a href="http://blog.nowherelan.com/2014/01/04/two-step-authentication-for-ssh-on-centos-6-using-google-authenticator/">Two Step Authentication for SSH on Centos 6 Using Google Authenticator</a></li>
 </ul>
             </div>
             <!-- /.entry-content -->
@@ -390,7 +427,7 @@ Google Authenticator code whenever you attempt to log in via SSH.</p>
             <a href="http://tiddlywiki.com/" target="_blank">TiddlyWiki</a>,
             <a href="http://ipython.org/notebook.html" target="_blank">Python Notebook</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
-            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <a href="/pages/this-blog-is-powered-by/index.html" target="_blank">Other Things</a>.
             <p>
             <a href="http://opensource.org/">
                 <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">

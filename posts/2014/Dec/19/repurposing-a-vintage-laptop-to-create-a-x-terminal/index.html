@@ -98,16 +98,18 @@ Jeff's Skinner Box&nbsp;            </a>
     <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/x-terminal/">X Terminal</a>
         &nbsp;
     <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/x-window-system/">X Window System</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/window-manager/">Window Manager</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
                 <p><a href="http://television.cosmicbooknews.com/content/wayback-machine-wabac-machine">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="WABAC (pronounced “wayback”) machine of Peabody's Improbable History, an ongoing feature of the 1960s cartoon series The Rocky and Bullwinkle Show" alt="WABAC Pic" src="https://upload.wikimedia.org/wikipedia/en/3/3f/Waybackmachine3.png" width="200" height="200" />
 </a>
-On a whim, I visited a web auction site dealing in surplus government property. 
+On a whim, I visited a web auction site dealing in surplus government property.
 I spotted two very old laptops, which claimed to be still operational,
 and I placed a bid of $40.
-A few days later, I received an email saying I was the proud owner of two 
+A few days later, I received an email saying I was the proud owner of two
 HP Omni Book XE3 loaded with a Celeron<sup id="fnref:A"><a class="footnote-ref" href="#fn:A" rel="footnote">1</a></sup> 32bit processor!</p>
 <p>By todays standards, the HP Omni Book XE3 isn't exactly a race horse with its
 1066 MHz clock, 128M of RAM running at 100 MHz, and 10/100 Ethernet LAN communications.
@@ -151,7 +153,7 @@ Linux operating system for <a href="http://www.osnews.com/story/24936/Damn_Small
 DSL supports older machines with minimal memory by disabling all unnecessary daemons or services.
 DSL gives you a tool to individually load and manage daemons,
 and you can load bundled applications designed with stingy resource use.
-DSL was designed, tested, and runs on old computers by retains support for many old devices. </p>
+DSL was designed, tested, and runs on old computers by retains support for many old devices.</p>
 <p>The installation of DSL on the laptop happened without any difficulties.
 I followed the excellent instructions give in the article
 <a href="http://voices.yahoo.com/how-download-install-dsl-linux-5947706.html?cat=15">How to Download and Install DSL Linux</a>.
@@ -187,7 +189,7 @@ So any reasonable size application will cause performance problems.</p>
 <p>My final attempt was <a href="http://tinycorelinux.net/">Tiny Core Linux (TCL)</a>, which comes in three ISO images,
 include CorePlus which is the installation image I required.
 I download the CorePlus, image, burned it to a CD-ROM, booted it,
-and selected "<code>Boot Core with X/GUI (TineCore) + Installation Extentions</code>" from the boot menu. 
+and selected "<code>Boot Core with X/GUI (TineCore) + Installation Extentions</code>" from the boot menu.
 This will enable you to perform a hard drive install of TCL.
 See the <a href="http://tinycorelinux.net/install.html">Tiny Core Linux installation documentation for procedures</a>.
 (You can also do a <a href="http://tinycorelinux.net/install_manual.html">manual install</a>,
@@ -244,7 +246,7 @@ When the Display Manager is remote, the Display Manager works according to the
 <p>The XDMCP protocol mandates that the X Server starts autonomously and connects to the Display Manager.
 You configure an XDMCP Chooser program running on the local computer (or X Terminal)
 to connect to a specific remote X Display Manager
-or to display a list of suitable hosts (if configured to do so) that the user can choose from. 
+or to display a list of suitable hosts (if configured to do so) that the user can choose from.
 When the user selects a host from the list,
 the XDMCP Chooser running on the local machine will send a message
 to the selected remote computer's Display Manager
@@ -253,7 +255,7 @@ and instruct it to connect the X Server on the local computer or terminal.</p>
 XDMCP allows several different users to login and run different X sessions at the same time.
 Your not sharing a desktop screen image, your starting seperate X Window session on the remote machine.</p>
 <p>If your Linux box boots into a graphical login screen, like my Ubuntu desktop system,
-you are already running a Display Manager. 
+you are already running a Display Manager.
 Specifically, my desktop Linux box is using <a href="http://www.freedesktop.org/wiki/Software/LightDM/"><code>lightdm</code></a> as its X Display Manager.
 You can determine this by running <code>cat /etc/X11/default-display-manager</code>
 or <code>ps -A | grep dm</code>.
@@ -303,7 +305,7 @@ ps -ef | egrep <span style="color: #CC3300">&quot;xfwm|twm|metacity|beryl|compiz
 
 
 <p>What is the Display Manager being used?
-The Display Manager runs before you log in, and as such, it's by the system is configured. 
+The Display Manager runs before you log in, and as such, it's by the system is configured.
 On a Ubuntu system, you can find the Display Manager being used via</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># print our the Display Manager being used</span>
 cat /etc/X11/default-display-manager
@@ -406,15 +408,15 @@ gnome-session-quit
 /etc/init.d/gdm restart         <span style="color: #0099FF; font-style: italic"># kill your graphical interface using</span>
 sudo service lightdm restart    <span style="color: #0099FF; font-style: italic"># restart your session manager</span>
 
-<span style="color: #0099FF; font-style: italic"># see this </span>
+<span style="color: #0099FF; font-style: italic"># see this</span>
 http://manpages.ubuntu.com/manpages/lucid/en/man1/gnome-wm.1.html
 </pre></div>
 
 
 <p>Like many desktop envirnments, Ubuntu Unity can change its look &amp; feel by changing the <a href="http://itsfoss.com/best-themes-ubuntu-1310/">themes</a>.
-These alternative theme files are extracted to <code>~/.themes</code> or <code>/user/share/themes</code> directores. 
+These alternative theme files are extracted to <code>~/.themes</code> or <code>/user/share/themes</code> directores.
 Once a theme is established, it can udergo additional tuning via the
-<a href="http://www.techrepublic.com/blog/linux-and-open-source/six-must-have-ubuntu-unity-tweaks/">Unity Tweak Tool</a>, which is a settings manager for the Unity desktop. 
+<a href="http://www.techrepublic.com/blog/linux-and-open-source/six-must-have-ubuntu-unity-tweaks/">Unity Tweak Tool</a>, which is a settings manager for the Unity desktop.
 This configuration tool provides users access to features and configuration options,
 and brings them all together in a polished &amp; easy-to-use interface.
 To install this tool, use</p>
@@ -425,12 +427,12 @@ To install this tool, use</p>
 <p>The most transparent and precise way to configure the Unity envirnment is to modify the file
 <code>/etc/lightdm/lightdm.conf</code>.
 The post "<a href="http://www.mattfischer.com/blog/?p=343">Understanding lightdm.conf</a>" is a good read to better understand <code>lightdm.conf</code>
-but keep in mind that some utilities it suggest are no more. 
+but keep in mind that some utilities it suggest are no more.
 As of Ubuntu Trusy 14.04,
 the command line utility <code>lightdm-set-defaults</code> is <a href="http://askubuntu.com/questions/251041/how-to-install-lightdm-set-defaults">no longer available</a>.
 This is because <code>lightdm</code> now using a configuration directory <code>/etc/lightdm/lightdm.conf.d/</code>
 rather than a single configuration file.
-The files in this directory can be edited by hand, new files can be added, or files can be removed. 
+The files in this directory can be edited by hand, new files can be added, or files can be removed.
 There is no manpage for <code>lighdm.conf</code>, but there is an example that lists all the options
 and a bit about what they do, just look in <code>/usr/share/doc/lightdm/lightdm.conf.gz</code>
 (If you use vim, you can just edit the file and it will be automagically ungzipped for you).</p>
@@ -457,7 +459,7 @@ minimpulating the <a href="https://developer.gnome.org/gio/2.39/GSettings.html">
 To support this, there is <a href="https://developer.gnome.org/gio/2.39/gsettings-tool.html"><code>gsettings</code></a> which offers a simple command line interface to <code>GSettings</code>.
 <code>GSettings</code> is a GLib implementation of the <a href="http://en.wikipedia.org/wiki/Dconf">DConf spec</a>, which stores its data in a binary database.
 The <code>gsettings</code> command line tool is simply a tool to access or modify settings via the <code>GSettings</code> API.</p>
-<p>Applications using <code>GSettings</code>/DConf install allication configuration data or schemas. 
+<p>Applications using <code>GSettings</code>/DConf install allication configuration data or schemas.
 A schema is basically is a list of the available settings for that application.
 There are two types of schemas, standard and relocatable schemas.
 Important to understand that for relocatable schemas we need to provide a
@@ -493,7 +495,7 @@ For example we added a colon followed by the path:</p>
 
 <p>You'll find other uses for <code>gsettings</code> on <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/gsettings.1.html">its manual page</a>.
 For example,
-Unity desktop comes with overlay scrollbars enabled by default. 
+Unity desktop comes with overlay scrollbars enabled by default.
 You can disable overlay scroll-bars, if you don't like them.
 Enter the following command in a terminal to disable overlay scrollbar:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">gsettings set com.canonical.desktop.interface scrollbar-mode normal
@@ -550,7 +552,7 @@ Tiny Core is designed to
 run from a RAM copy created at boot time. Besides being fast, this
 protects system files from changes and ensures a pristine system on
 every reboot.
-Easy, fast, and simple renew-ability and stability is a principle goal of Tiny Core. 
+Easy, fast, and simple renew-ability and stability is a principle goal of Tiny Core.
 The core system provides most of what you need for a working environment,
 which they can then tweak from there via loadable applications.</p>
 <p><a href="http://tinycorelinux.net/install_manual.html">Frugal</a> is the typical installation method for Tiny Core.
@@ -589,7 +591,7 @@ Tiny Core handles this with the <code>filetool.sh</code> script.
 When run with the <code>-b</code> option this packages up all these files into a single compressed file (<code>mydata.tgz</code>)
 that it saves in the <code>tce</code> directory.
 When the script is run with the <code>-r</code> option it does the reverse and restores the saved files.
-The restore happens automatically as the system boots. 
+The restore happens automatically as the system boots.
 By default the <code>/opt/filetool.lst</code> file includes the <code>/home</code> and <code>/opt</code> directories.
 Remove this entries if you wish (e.g. when backup take a long time).</p>
 <blockquote>
@@ -597,7 +599,7 @@ Remove this entries if you wish (e.g. when backup take a long time).</p>
 </blockquote>
 <p>Many options, such as a choice of either an ALSA or OSS sound server, are left up to the user.
 Once inside the environment, the user is then able to connect to the online repositories
-in order to install the applications they desire and configure their system. 
+in order to install the applications they desire and configure their system.
 TCL has a very simple package manager that provides a list of available packages to install.
 The user need only select a package and the manager will download it with all
 required dependencies and install them to the system.</p>
@@ -608,7 +610,7 @@ or "On Demand" (do not mount at boot, but create a special menu
 section for easy access and display an icon if available).
 (For my purposes of creating a X Terminal, I see no for any of these options other than OnBoot).</p>
 <ul>
-<li><strong>OnBoot -</strong> This is the default method. This extension will be installed, and added to the onboot list, to be mounted on the following boots. </li>
+<li><strong>OnBoot -</strong> This is the default method. This extension will be installed, and added to the onboot list, to be mounted on the following boots.</li>
 <li><strong>OnDemand -</strong> A loading script will be generated for this extension.  Instead of being loaded on boot, the icon/menu entry for this extension will load the extension when you first need it.  This option speeds up your boot time, at the cost of making the first start of the application slower.</li>
 <li><strong>Download + Load -</strong> The extension will be downloaded and installed for this session only.  It will reside within the directory sytem, but since it is not added to the onboot list, it will not be loaded after a reboot.</li>
 <li><strong>Download Only -</strong> The extension will only be downloaded, nothing more will be done.</li>
@@ -704,7 +706,7 @@ The boot process will waits for them to complete.
 If you need network access later, this might be a good place to wait for the network to come up.
 <code>/opt/bootlocal.sh</code> is the is the file for all items that don’t need to be waited for.
 This may include loading some non-essential module
-(ISA sound cards, for example), or starting some server. </p>
+(ISA sound cards, for example), or starting some server.</p>
 <p>Once <code>/opt/bootsync.sh</code> is complete (and while <code>/opt/bootlocal.sh</code>  runs in the background)
 <code>init</code> regains control.
 As the boot is now complete from <code>init</code> point of view,
@@ -727,7 +729,7 @@ If an X server is available, and a text-only boot was not requested, X is starte
 <p><strong>Configure the TCL Image for Installation</strong></p>
 <ul>
 <li>Put the CD-ROM in the Laptop's drive, connect it via Ethernet to the Internet, and turn on the power.</li>
-<li>When it boots up, selected “Boot Core with X/GUI (TineCore) + Installation Extensions” from the boot menu. This will automatically install the <code>TC_Install</code> program for installing apps. </li>
+<li>When it boots up, selected “Boot Core with X/GUI (TineCore) + Installation Extensions” from the boot menu. This will automatically install the <code>TC_Install</code> program for installing apps.</li>
 <li>Select "Apps" icon on the bottom and install the following application packages to "OnBoot"<ul>
 <li>cfdisk.tcz</li>
 </ul>
@@ -747,7 +749,7 @@ If an X server is available, and a text-only boot was not requested, X is starte
 </ul>
 </li>
 <li>
-<p><strong>Boot TCL Image from Hard Disk</strong> </p>
+<p><strong>Boot TCL Image from Hard Disk</strong></p>
 <ul>
 <li>Now its time to reboot the system, making sure to remove the CD.  To do this, go to a terminal window and execute these commands<ul>
 <li><code>umount /mnt/hdc</code></li>
@@ -788,7 +790,7 @@ If an X server is available, and a text-only boot was not requested, X is starte
 <li>
 <p><strong>Install and Activate SSH</strong>
 <br/>
-I used "<a href="http://firewallengineer.wordpress.com/2012/04/01/how-to-install-and-configure-openssh-ssh-server-in-tiny-core-linux/">How to install and configure OpenSSH (SSH Server) in Tiny Core Linux</a>" as my guide for this work. </p>
+I used "<a href="http://firewallengineer.wordpress.com/2012/04/01/how-to-install-and-configure-openssh-ssh-server-in-tiny-core-linux/">How to install and configure OpenSSH (SSH Server) in Tiny Core Linux</a>" as my guide for this work.</p>
 <ul>
 <li>Click on Apps and install<ul>
 <li>openssh.tcz</li>
@@ -886,7 +888,7 @@ while the boot waits for them to complete.
 My <code>/opt/bootsync.sh</code> file looks like this</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/bin/sh</span>
 <span style="color: #0099FF; font-style: italic"># put other system startup commands here, the boot process will wait until they complete.</span>
-<span style="color: #0099FF; font-style: italic"># Use bootlocal.sh for system startup commands that can run in the background </span>
+<span style="color: #0099FF; font-style: italic"># Use bootlocal.sh for system startup commands that can run in the background</span>
 <span style="color: #0099FF; font-style: italic"># and therefore not slow down the boot process.</span>
 /usr/bin/sethostname box
 /opt/bootlocal.sh &amp;
@@ -898,7 +900,7 @@ This may include loading some non-essential module or starting some server.
 My <code>/opt/bootlocal.sh</code> file looks like this</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/bin/sh</span>
 <span style="color: #0099FF; font-style: italic"># put other system startup commands here</span>
-/usr/local/sbin/basic-firewall noprompt 
+/usr/local/sbin/basic-firewall noprompt
 /usr/local/etc/init.d/openssh start
 /usr/local/sbin/basic-firewall noprompt
 opt/alas
@@ -934,7 +936,7 @@ My <code>/home/tc/.xsession</code> file looks like this</p>
     waitforX <span style="color: #555555">||</span> ! <span style="color: #336666">echo </span>failed in waitforX <span style="color: #555555">||</span> <span style="color: #336666">exit</span>
     <span style="color: #CC3300">&quot;$DESKTOP&quot;</span> 2&gt;/tmp/wm_errors &amp;
     <span style="color: #336666">export </span><span style="color: #003333">WM_PID</span><span style="color: #555555">=</span><span style="color: #003333">$!</span>
-    <span style="color: #555555">[</span> -x <span style="color: #003333">$HOME</span>/.setbackground <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #003333">$HOME</span>/.setbackground 
+    <span style="color: #555555">[</span> -x <span style="color: #003333">$HOME</span>/.setbackground <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #003333">$HOME</span>/.setbackground
     <span style="color: #555555">[</span> -x <span style="color: #003333">$HOME</span>/.mouse_config <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #003333">$HOME</span>/.mouse_config &amp;
     <span style="color: #555555">[</span> <span style="color: #006699; font-weight: bold">$(</span>which <span style="color: #CC3300">&quot;$ICONS&quot;</span>.sh<span style="color: #006699; font-weight: bold">)</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">ICONS</span><span style="color: #006699; font-weight: bold">}</span>.sh &amp;
     <span style="color: #555555">[</span> -d <span style="color: #CC3300">&quot;$HOME/.X.d&quot;</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> find <span style="color: #CC3300">&quot;$HOME/.X.d&quot;</span> -type f -print | <span style="color: #006699; font-weight: bold">while </span><span style="color: #336666">read </span>F; <span style="color: #006699; font-weight: bold">do</span> . <span style="color: #CC3300">&quot;$F&quot;</span>; <span style="color: #006699; font-weight: bold">done</span>
@@ -944,7 +946,7 @@ My <code>/home/tc/.xsession</code> file looks like this</p>
     waitforX <span style="color: #555555">||</span> ! <span style="color: #336666">echo </span>failed in waitforX <span style="color: #555555">||</span> <span style="color: #336666">exit</span>
     <span style="color: #CC3300">&quot;$DESKTOP&quot;</span> 2&gt;/tmp/wm_errors &amp;
     <span style="color: #336666">export </span><span style="color: #003333">WM_PID</span><span style="color: #555555">=</span><span style="color: #003333">$!</span>
-    <span style="color: #555555">[</span> -x <span style="color: #003333">$HOME</span>/.setbackground <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #003333">$HOME</span>/.setbackground 
+    <span style="color: #555555">[</span> -x <span style="color: #003333">$HOME</span>/.setbackground <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #003333">$HOME</span>/.setbackground
     <span style="color: #555555">[</span> -x <span style="color: #003333">$HOME</span>/.mouse_config <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #003333">$HOME</span>/.mouse_config &amp;
     <span style="color: #555555">[</span> <span style="color: #006699; font-weight: bold">$(</span>which <span style="color: #CC3300">&quot;$ICONS&quot;</span>.sh<span style="color: #006699; font-weight: bold">)</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">ICONS</span><span style="color: #006699; font-weight: bold">}</span>.sh &amp;
     <span style="color: #555555">[</span> -d <span style="color: #CC3300">&quot;$HOME/.X.d&quot;</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> find <span style="color: #CC3300">&quot;$HOME/.X.d&quot;</span> -type f -print | <span style="color: #006699; font-weight: bold">while </span><span style="color: #336666">read </span>F; <span style="color: #006699; font-weight: bold">do</span> . <span style="color: #CC3300">&quot;$F&quot;</span>; <span style="color: #006699; font-weight: bold">done</span>
@@ -960,7 +962,7 @@ Xvesa -br -screen 1024x768x32 -shadow -3button -mouse /dev/input/mice,5 -noliste
 waitforX <span style="color: #555555">||</span> ! <span style="color: #336666">echo </span>failed in waitforX <span style="color: #555555">||</span> <span style="color: #336666">exit</span>
 <span style="color: #CC3300">&quot;$DESKTOP&quot;</span> 2&gt;/tmp/wm_errors &amp;
 <span style="color: #336666">export </span><span style="color: #003333">WM_PID</span><span style="color: #555555">=</span><span style="color: #003333">$!</span>
-<span style="color: #555555">[</span> -x <span style="color: #003333">$HOME</span>/.setbackground <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #003333">$HOME</span>/.setbackground 
+<span style="color: #555555">[</span> -x <span style="color: #003333">$HOME</span>/.setbackground <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #003333">$HOME</span>/.setbackground
 <span style="color: #555555">[</span> -x <span style="color: #003333">$HOME</span>/.mouse_config <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #003333">$HOME</span>/.mouse_config &amp;
 <span style="color: #555555">[</span> <span style="color: #006699; font-weight: bold">$(</span>which <span style="color: #CC3300">&quot;$ICONS&quot;</span>.sh<span style="color: #006699; font-weight: bold">)</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">ICONS</span><span style="color: #006699; font-weight: bold">}</span>.sh &amp;
 <span style="color: #555555">[</span> -d <span style="color: #CC3300">&quot;$HOME/.X.d&quot;</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> find <span style="color: #CC3300">&quot;$HOME/.X.d&quot;</span> -type f -print | <span style="color: #006699; font-weight: bold">while </span><span style="color: #336666">read </span>F; <span style="color: #006699; font-weight: bold">do</span> . <span style="color: #CC3300">&quot;$F&quot;</span>; <span style="color: #006699; font-weight: bold">done</span>
@@ -990,7 +992,7 @@ and you will get the TCL command line prompt.</p>
 <h3>Configuring Remote Computer (Ubuntu Desktop)</h3>
 <p>On the remote-computer (in my case, a Ubuntu desktop runing <code>lightdm</code> Display Manager),
 you need to tell the Display Manager to accept logins from a remote X Server.
-This is easily done by configuring the file <code>/etc/lightdm/lightdm.conf</code> so it contains </p>
+This is easily done by configuring the file <code>/etc/lightdm/lightdm.conf</code> so it contains</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">[SeatDefaults]
 user-session=ubuntu
 autologin-user=false
@@ -1014,7 +1016,7 @@ lightweight Window Manger that could run on my ancient hardware.
 I researched my options with the aid of the articles
 "<a href="http://www.engadget.com/2012/10/30/how-to-picking-a-window-manager-linux/">How-to: Picking a Window Manager in Linux</a>" and
 "<a href="http://www.junauza.com/2008/08/20-most-nimble-and-simple-x-window.html">20 Most Nimble and Simple X Window Managers for Linux</a>".
-I choose <a href="http://fluxbox.org/">Fluxbox</a> as my replacement Window Manger because of its simplicity and it widely praised. 
+I choose <a href="http://fluxbox.org/">Fluxbox</a> as my replacement Window Manger because of its simplicity and it widely praised.
 You <a href="http://fluxbox.sourceforge.net/docbook/en/html/book1.html">Fluxbox Documentation</a> will give most of what you need to configure this Window Manager.
 To install Fluxbox, and a companion tool for supporting desktop icons called fbdesk, use the following:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># install Fluxbox</span>
@@ -1052,7 +1054,7 @@ file, like their bigger brothers.</p>
 targeted at budget personal computers.
 <a href="http://en.wikipedia.org/wiki/Celeron">Introduced in April 1998</a>, the first Celeron branded CPU was based on the Pentium II branded core.
 Subsequent Celeron branded CPUs were based on the Pentium III, Pentium 4, Pentium M,
-and Intel Core branded processors. 
+and Intel Core branded processors.
 With Damn Small Linux loaded and running <code>cat /proc/cpuinfo</code>,
 it shows the processor is of Intel CPU family 6 and model 11.
 This maps to Intel product code 80530, which <a href="http://en.wikipedia.org/wiki/List_of_Intel_microprocessors">makes it a Pentium III (codename Tualatin)</a>.&#160;<a class="footnote-backref" href="#fnref:A" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
@@ -1134,7 +1136,7 @@ I can't say this about this vintage laptop.&#160;<a class="footnote-backref" hre
 </li>
 <li id="fn:D">
 <p>Damn Small Linux also uses by default <a href="http://www.busybox.net/">Busybox</a>.
-BusyBox provides several stripped-down Unix tools in a single executable file. 
+BusyBox provides several stripped-down Unix tools in a single executable file.
 Its originally aim was to provide a complete bootable system on a single floppy
 that would serve both as a rescue disk and as an installer for the Debian distribution.
 Busybox's use now is more focused on embedded operating systems with very limited resources.&#160;<a class="footnote-backref" href="#fnref:D" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
@@ -1391,7 +1393,7 @@ The program tries to be fully functional and RFC 2131 compliant.&#160;<a class="
             <a href="http://tiddlywiki.com/" target="_blank">TiddlyWiki</a>,
             <a href="http://ipython.org/notebook.html" target="_blank">Python Notebook</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
-            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <a href="/pages/this-blog-is-powered-by/index.html" target="_blank">Other Things</a>.
             <p>
             <a href="http://opensource.org/">
                 <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">

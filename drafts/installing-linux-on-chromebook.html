@@ -1,0 +1,1073 @@
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Installing Linux on Chromebook - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="http://jeffskinnerbox.me/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Installing Linux on Chromebook"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/drafts/installing-linux-on-chromebook.html"/>
+            <meta property="og:description" content="The price of the Chromebook makes it a very attractive, assuming you can get your favorite tools working on it. Well, you can install Linux, along with all the tools Linux brings to your development needs. This post is a somewhat disjointed dump of things that I’ve done to create a comfortable working envirnment on a Chromebook."/>
+
+    <!-- Bootstrap -->
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
+
+        <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://jeffskinnerbox.me/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/pages/about-me/">About Me</a></li>
+                    <li><a href="http://jeffskinnerbox-wiki.herokuapp.com/">MicroContent</a></li>
+                    <li><a href="/pages/open-notebook/">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+<!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://jeffskinnerbox.me/drafts/installing-linux-on-chromebook.html"
+                       rel="bookmark"
+                       title="Permalink to Installing Linux on Chromebook">
+                        Installing Linux on Chromebook
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2100-01-01T00:00:00-05:00"> Friday&nbsp;&nbsp;&nbsp;&nbsp;January 01, 2100</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/chrome/">Chrome</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/chromebook/">Chromebook</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/crouton/">Crouton</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/linux/">Linux</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p><a href="http://www.pcmag.com/article2/0,2817,2470486,00.asp">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="This Chromebook 2 is thin and light, which is pretty impressive, considering it has a 13.6-inch HD display. The plastic chassis measures just 0.76 by 12.76 by 8.4 inches (HWD) and weighs only 2.95 pounds." alt="chromebook picture" src="{filename}/images/take_a_picture.png" width="500" height="500" />
+</a>
+I wanted to get a Linux laptop for some lightweight development
+and remote login into my home Linux box
+but I couldn't justify the price tag for my limited needs.
+<a href="http://www.zdnet.com/article/few-business-takers-yet-but-chromebook-sales-to-grow-7-3-million-this-year/">Chromebook's are cheap &amp; popular</a>
+and can be purchased for $300 or less
+(In fact, <a href="http://www.zdnet.com/article/top-3-holiday-computers-on-amazon-were-chromebooks/">Amazon's top three computers sold over the 2014 Christmas season were Chromebooks</a>).
+I knew you could installing a traditional Linux environment on a Chromebook,
+so I got myself a <a href="http://www.cnet.com/products/toshiba-chromebook-2-review/">Toshiba CB35-B3340 Chromebook 2</a> with 4G of memory and 16G drive
+(see a review <a href="https://failicide.wordpress.com/2014/12/18/toshiba-chromebook-2-an-amazing-device/">here</a>).
+Note that this Chromebook uses an Intel process,
+which is <a href="http://www.howtogeek.com/185039/4-things-to-keep-in-mind-when-buying-a-chromebook-for-linux/">important for installing Linux</a>.
+Chromebook isn't a PC replacement, but for many users, a <a href="https://www.google.com/chromebook/switch/">better alternative</a>.
+See the <a href="https://support.google.com/chrome#topic=3227046">Chrome Help Center</a> and <a href="https://support.google.com/chromebook/?hl=en#topic=3399709">Chromebook Help Center</a> for more information.</p>
+<p>Conveniently, Chromebooks have a <a href="https://sites.google.com/site/chromeoswikisite/home/what-s-new-in-dev-and-beta/developer-mode">Developer Mode</a>,
+which lets you bypass all the normal checks and balances that Google
+use to ensure that rogue software does not run on Chrome OS devices.
+After you have switched into developer mode,
+your Chromebook will run whatever you want it to.
+You can open up a Linux shell in a browser tab
+(<a href="https://en.wikipedia.org/wiki/Chrome_OS">Chromebooks are running a cut down Linux distribution</a> after all)
+simply by hitting <code>Ctrl</code>+<code>Alt</code>+<code>T</code> on the keyboard,
+or bring ups a <a href="https://chrome.google.com/webstore/detail/crosh-window/nhbmpbdladcchdhkemlojfjdknjadhmh?hl=en-US">crosh shell</a>.</p>
+<p>Installing a traditional Linux environment on your Chromebook is a quick and easy
+because the Chrome OS is a Linux-based operating system.
+You can install an alternative Linux environment and get a fully-fledged Linux desktop
+along side Chromebook.
+There are two main ways to install a traditional Linux environment on your device,
+either in a dual-boot environment using <a href="http://chromeos-cr48.blogspot.mx/">ChrUbuntu</a>,
+or in a chroot environment using <a href="https://github.com/dnschneid/crouton">Crouton</a>.
+There is a third method.
+The “<a href="http://www.pcworld.com/article/2873561/google-just-made-it-easier-to-run-linux-on-your-chromebook.html">Boot from USB</a>” option will allow you to activate booting from USB devices.
+This allows you to boot a full Linux environment from a USB drive without modifying your Chrome OS system.</p>
+<p>Crouton appears to be the best supported way of running another OS on top of Chrome OS.
+It’s quite impressive how easy it is to use and
+comes with a <a href="http://tomwwolf.com/chromebook-14-compedium/chromebook-crouton-cookbook/">rich set of options</a>.
+(By the way, there happens to be a way to merging ChromeOS and Android
+via <a href="https://chrome.google.com/webstore/detail/arc-welder/emfinbmielocnlhgmfkkmkngdoccbadn">ARC Welder</a>.)</p>
+<p>I'm not the first to consider the Chromebook as an alternative development environment.
+In fact, Martin Malinda's posting
+Ultimate guide for Web Development on Chromebook —
+<a href="https://medium.com/@martinmalinda/ultimate-guide-for-web-development-on-chromebook-part-1-crouton-2ec2e6bb2a2d#.unzzpg2a1">Part 1: Crouton</a> and
+<a href="https://medium.com/@martinmalinda/ultimate-guide-for-web-development-on-chromebook-part-2-chromeos-tricks-and-workflows-4dfcc308d391#.k4axwqchl">Part 2: ChromeOS tricks and workflows</a>
+and Joe Marini's <a href="http://joemarini.blogspot.com/2013/11/tools-for-developing-on-chromeos.html">Tools for Developing on ChromeOS</a>
+are a good read to understand how to make the Chromebook a powerful developers tool.</p>
+<p>Keep in mind that the Chrome browser comes pre-packaged with
+Chrome Developer Tools (<a href="https://developers.google.com/web/tools/chrome-devtools/">DevTools</a> for short),
+which is a set of web authoring and debugging tools built into Google Chrome.
+I will not cover that here, but you can learn more about it at
+<a href="https://www.codeschool.com/courses/discover-devtools">Code School</a> for free.
+DevTools can also optimize your workflow and make life easier.</p>
+<h1>Quick Chromebook Introduction</h1>
+<p>You can find thousands of apps for the Chromebook on the web
+to do things like create documents, edit photos, and listen to music in the browser.
+Google has provided a recommendation list at the sites
+"<a href="https://support.google.com/chromebook/answer/1056325?hl=en">Find apps for your Chromebook</a>",
+"<a href="http://www.technorms.com/35871/top-tweaks-and-tips-for-chromebook">10 Top Tweaks and Tips for Chromebook</a>",
+"<a href="http://www.pocket-lint.com/news/129107-chromebook-tips-and-tricks-getting-the-most-out-of-your-chrome-os-machine">Chromebook tips and tricks: Getting the most out of your Chrome OS machine</a>",
+"<a href="http://www.cnet.com/how-to/15-essential-chrome-os-keyboard-shortcuts/">15 essential Chrome OS keyboard shortcuts</a>".</p>
+<p>https://gigaom.com/2012/07/09/10-google-chromebook-tips-tricks-and-tweaks/</p>
+<h2>Working with Chromebook / Chrome OS</h2>
+<p>Switching from a PC to a Chromebook comes with a few adjustments.
+For one, you’ll need to have access to a WiFi signal for most Chrome apps to function.
+Also, the Chromebook doesn't have a standard PC keyboard (e.g. no Page Up / Down keys).</p>
+<p>Google's Chrome OS uses some familiar keyboard shortcuts as well as some unique ones.
+A few of these access Chrome OS settings
+and others take the place of missing physical keys on Chromebook keyboards
+( e.g. Page Up, Page Down, Home, End).</p>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl+?</td>
+<td>Open help</td>
+</tr>
+<tr>
+<td>Shift+Esc</td>
+<td>Open task manager</td>
+</tr>
+<tr>
+<td>Ctrl+Alt+/</td>
+<td>Open keyboard shortcut list</td>
+</tr>
+<tr>
+<td>Ctrl+M</td>
+<td>Open file manager</td>
+</tr>
+<tr>
+<td>ALT + [</td>
+<td>Dock window left</td>
+</tr>
+<tr>
+<td>Alt + ]</td>
+<td>Dock window right</td>
+</tr>
+<tr>
+<td>Alt+ up arrow</td>
+<td>Page Up</td>
+</tr>
+<tr>
+<td>Alt+ down arrow</td>
+<td>Page Down</td>
+</tr>
+<tr>
+<td>Ctrl+Alt+ up arrow</td>
+<td>Home</td>
+</tr>
+<tr>
+<td>Ctrl+Alt+ down arrow</td>
+<td>End</td>
+</tr>
+<tr>
+<td>Ctrl+Tab</td>
+<td>Switch to next browser tab</td>
+</tr>
+<tr>
+<td>Ctrl+W</td>
+<td>Close current tab</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+T</td>
+<td>Reopen last closed tab</td>
+</tr>
+<tr>
+<td>Ctrl+N</td>
+<td>Open new browser window</td>
+</tr>
+<tr>
+<td>Alt+Tab</td>
+<td>Switch to next open window</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+Q</td>
+<td>Sign out of Google account</td>
+</tr>
+<tr>
+<td>Alt+backspace</td>
+<td>Delete file(s) in file manager</td>
+</tr>
+</tbody>
+</table>
+<p>There is also a number of keyboard shortcuts you’ll need to learn,
+and touchpad motions that are different from the average PC.</p>
+<ul>
+<li>Click the touchpad with two fingers to open the <strong>right-click menu</strong> .</li>
+<li>Place two fingers on the touchpad and move up and down or right to left to <strong>scroll</strong>.</li>
+<li>Click and hold on an item you want to <strong>drag and drop</strong> using one finger. Then, with a second finger move to where you want that item dropped.</li>
+<li>Swipe left or right quickly using two fingers to <strong>switch between open tabs</strong>.</li>
+</ul>
+<p>For a fuller list of sharotcuts,
+see "[Cheatsheet: Chromebook and Chrome OS Keyboard Shortcuts][]".</p>
+<h2>Crosh</h2>
+<p>Crosh is a shell environment known as “chrome shell”
+that is provided with Chrome OS.
+Crosh allows users to run several commands directly from Chrome OS.
+Developer mode is not required to use crosh.
+The vast majority of linux commands are locked down inside crosh.
+Crosh can be accessed by pressing <code>Ctrl</code>+<code>Alt</code>+<code>T</code> on the keyboard.
+This will open a new tab with the crosh terminal.
+<strong>NOTE:</strong> You can actually create as many shells as you want.
+Just hit <code>Ctrl</code>+<code>Alt</code>+<code>T</code> again and a second shell will be opened.</p>
+<p>cosh has two separate versions of help.
+you can access basic help in the crosh window by simple typing <code>help</code>.
+This will give you a list of commands that can be used inside crosh.
+To get a list of the more advanced commands type <code>help_advanced</code>.
+To access further functionality from crosh such as as the Bash Shell,
+chromeos needs to be in developer mode.</p>
+<p>There are several commands included in Chrome OS’s crosh shell.
+You find several of them documented in the articles
+"<a href="http://www.howtogeek.com/170648/10-commands-included-in-chrome-oss-hidden-crosh-shell/">10+ Commands Included In Chrome OS’s Hidden Crosh Shell</a>",
+"<a href="https://gist.github.com/aaronhalford/a009bc73498407ae80e2">Customize Chromebook Chrosh Shell Environment</a>".</p>
+<p><a href="http://efytimes.com/e1/fullnews.asp?edid=124113">10 Commands In Chrome’s Crosh Shell</a>
+http://krypted.com/unix/helpful-chrome-os-shell-crosh-commands/
+<a href="http://krypted.com/unix/helpful-chrome-os-shell-crosh-commands/">25 Helpful Chrome OS Shell (crosh) Commands</a>
+http://www.dudleymediagroup.com/Detail/id/5-tips-after-installing-crouton-on-a-chromebook-2654</p>
+<p>Crosh even supports full-blown bash with ssh-agent and Vim.
+To get Vim working, do the following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">CTRL+ALT T
+crosh&gt; shell
+chrosos@localhost / $ echo $SHELL
+/bin/bash
+chrosos@localhost / $ vim
+</pre></div>
+
+
+<p>The problem with running crosh in the browser is that if you want to use shortcuts like <code>Ctrl</code>+<code>w</code>
+(in Vim, for example), Chrome will take the default action associated to that shortcut.
+One solution is to open crosh as a window.</p>
+<p>You can also put crosh in a window, independent of your Chrome browser.
+You can do this via a Chrome app called <a href="https://chrome.google.com/webstore/detail/crosh-window/nhbmpbdladcchdhkemlojfjdknjadhmh?hl=en-US">Crosh Window</a>
+(You must have <a href="https://chrome.google.com/webstore/detail/secure-shell/pnhechapfaindjhompbnflcldabbghjo">Secure Shell</a> installed for this to work).
+When clicked, this app opens a new crosh window without any chrome browser,
+but pressing <code>Ctrl</code>+<code>Alt</code>+<code>T</code> still brings up crosh in the Chrome browser.</p>
+<h2><code>xiwi</code> (X11 in a Window)</h2>
+<p>One of the most impressive things that you can do with Crouton is run native Linux apps,
+either in a window of their own, or as a browser tab, using <a href="https://github.com/dnschneid/crouton/wiki/crouton-in-a-Chromium-OS-window-(xiwi)"><code>xiwi</code></a>.
+Xiwi is a X.org X11 backend running unaccelerated integration with Chromium OS.
+With xiwi installed,
+you do not need a X11 desktop environment.
+You can launch apps on an individual basis in a Chromium OS window or tab.
+You can do things like running the GIMP image editor as a Chrome browser tab.
+This is literally as simple as typing <code>xiwi -t gimp</code> at the Linux command line.</p>
+<h2>Commands, Tips, and Tricks</h2>
+<ul>
+<li><a href="http://www.chromestory.com/">Chrome Story</a></li>
+<li><a href="http://www.chromestory.com/100_Chrome_ChromeOS_And_ChromeBook_Tips_Ebook.pdf">100 Tips for Google Chrome</a></li>
+<li><a href="http://www.chromestory.com/Getting_Started_With_Your_Chromebook.pdf">Getting Started with your Chromebook</a></li>
+<li><a href="http://www.chromestory.com/google-chromebook/">100 Best Chromebook Tips, Tricks and Time Savers</a></li>
+<li><a href="http://www.geek.com/chips/11-tips-to-get-the-most-out-of-your-chromebook-1637058/">11 tips to get the most out of your Chromebook</a></li>
+</ul>
+<h2>Chrome://Commands</h2>
+<p>There are several features that are not available from the Chrome Menu,
+which you can access only using the <code>chrome://commands</code>.</p>
+<p>12 Most Useful Google Chrome Browser chrome:// Commands - http://www.thegeekstuff.com/2011/10/google-chrome-commands/</p>
+<h1>Crouton</h1>
+<ul>
+<li><a href="https://github.com/dnschneid/crouton/wiki/Crouton-Command-Cheat-Sheet">Crouton Command Cheat Sheet</a></li>
+<li>http://fuyuko.net/basic-tweaks-and-tips-for-crouton-in-chromebook/</li>
+<li>https://github.com/dnschneid/crouton/wiki/Crouton-Command-Cheat-Sheet</li>
+</ul>
+<h2>Update a Crouton Chroot</h2>
+<p>When a new version of Crouton comes out,
+the software in your chroot will be outdated.
+It won’t automatically update itself, but you can update it fairly quickly.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># enter your chroot and run the following command.</span>
+croutonversion -u -d -c
+
+<span style="color: #0099FF; font-style: italic"># trusty is the name of your chroot</span>
+sudo sh ~/Downloads/crouton -u -n trusty
+</pre></div>
+
+
+<h2>Managing Crouton</h2>
+<p>Unlike the Chromebook itself,
+whe a new version of Crouton comes out,
+the software in your chroot will not automatically update itself.
+To update it, enter your chroot and run the following command.
+That means this command must be run from that Crouton Linux system:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">croutonversion -u -d -c
+</pre></div>
+
+
+<p>Next, exit the chroot and run the following command from the Chrome OS shell,
+replacing “name” with the name of your chroot.
+If you didn’t specify a name,
+it’s probably the name of the release you installed — for example, “trusty”, in my case.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># trusty is the name of the Linux version to be installed</span>
+sudo sh ~/Downloads/crouton -u -n trusty
+</pre></div>
+
+
+<p>The article "<a href="http://www.howtogeek.com/210047/how-to-manage-the-crouton-linux-system-on-your-chromebook/">How to Manage the Crouton Linux System on Your Chromebook</a>"
+gives some additional pointers on manging your Crounton-enabled Chromebook.
+It covers things like backing up the chroot, creating multiple chroots,
+deleting a chroot, etc.</p>
+<h1>The Linux Install</h1>
+<p>I choose to use the <a href="https://github.com/dnschneid/crouton">Crouton method</a>, which is a set of scripts,
+to use the Linux command chroot (<a href="https://wiki.archlinux.org/index.php/Change_root">Change Root</a>) to simultaneously
+run a Linux operating system alongside Chrome OS.
+Chroot was meant for Linux administrators to easily fix problems while running as the root,
+superuser, without logging off the current user.
+Here, it's being used to run a primitive form of container.
+It has neither the sophistication of a <a href="https://en.wikipedia.org/wiki/Virtual_machine">virtual machine (VM)</a>
+or an advanced container such as <a href="https://www.docker.com/">Docker</a> or <a href="https://www.vagrantup.com/">Vagrent</a>.
+What chroot has going for it is that it's very lightweight
+and is present on almost all versions of Linux (including Chrome OS).
+Its downside is that in this mode users have a great deal of power over their system,
+so be careful not to do foolish things with your Chromebook.</p>
+<p>I'm also going to install two different X window managers,
+<a href="http://www.xfce.org/">Xfce</a> and <a href="http://i3wm.org/">i3</a>.
+While both are not necessary, they are very different and suited for different needs.
+You have a command line choose for which one you wish to start with Linux.</p>
+<h2>Step 0: Inttialize New Chromebooks</h2>
+<p>If your dealing with a new Chromebook,
+make sure you have established an initial Google account
+and set up the WiFi connectivity.</p>
+<h2>Step 1: Backup Your Chromebook Data</h2>
+<p>Since all of your data is synced to Google Server,
+you actually don’t have to worry about losing any data.
+The only data that you must make a back-up of is the <code>Download</code> folder
+because the content of this folder is not synced.</p>
+<h2>Step 2: Backup Your Chromebook Environment</h2>
+<p>Once you have taken the back-up,
+it’s also a fail-safe plan to create a restore USB of Chrome OS,
+in case something goes badly wrong and you need to re-install Chrome OS.
+Install Chromebook recovery utility from the Chrome web store.
+Go to the <a href="https://chrome.google.com/webstore/category/apps">Chrome Web Store</a>
+and install the <a href="https://chrome.google.com/webstore/detail/chromebook-recovery-utili/jndclpdbaamdhonoechobihbbiimdgai">Chromebook Recovery Utility</a>.
+Open the app and follow the instructions to create the recovery drive.
+All you need is working Internet and a USB drive with at least 4GB space.</p>
+<h2>Step 3: Putting the Chromebook into Developer Mode</h2>
+<p>Putting Chromebook into “<a href="https://software.intel.com/en-us/blogs/2014/07/01/chrome-os-whats-developer-mode">Developer Mode</a>” will give you full root access,
+including the ability to modify your Chromebook’s system files.
+We'll use it to install a full Linux system with Crouton.
+The article "<a href="http://www.howtogeek.com/210817/how-to-enable-developer-mode-on-your-chromebook/">How to Enable Developer Mode on Your Chromebook</a>"
+and the <a href="https://www.youtube.com/watch?v=d_MuVwJq_XQ">this video</a> gives a complete description of this process.
+There are a few subtle steps that can trip you up, so read it.</p>
+<blockquote>
+<p><strong>Warning:</strong> Entering developer mode will wipe all data off of the SSD.</p>
+</blockquote>
+<p>As part of the process of enabling Developer Mode, your Chromebook will be “<a href="http://www.cnet.com/how-to/what-does-it-mean-to-powerwash-a-chromebook/">powerwashed</a>.”
+All the user accounts and their files will be removed from your Chromebook.
+Also keep in mind that Developer Mode will need access to the Internet to download files.
+This means you need to have initialized the native Chromebook with access to WiFi.</p>
+<h2>Step 4: Download and Install Crouton</h2>
+<p>Crouton is a set of scripts that bundle up the installation of
+Ubuntu or Debian OS for the Chromebook.
+All the best documentation is maintained on Github's
+<a href="https://github.com/dnschneid/crouton">crouton: Chromium OS Universal Chroot Environment</a>
+and the <a href="https://github.com/dnschneid/crouton/wiki">Wiki</a>.
+There you will find a easy to use link to download Crouton.
+Just execute this link <a href="https://goo.gl/fd3zc">https://goo.gl/fd3zc</a> from your Chromebook browser.
+Download Crouton via the link to the directory <code>Downloads</code>,
+pop open a shell (<code>Ctrl</code>+<code>Alt</code>+<code>T</code>, within the popped up window type <code>shell</code> and hit enter),
+and run <code>sh ~/Downloads/crouton</code> to see some examples on what you can to with this utility.</p>
+<p>You should also install the <a href="https://chrome.google.com/webstore/detail/crouton-integration/gcpneefbbnfalgjniomfjknbcgkbijom">crouton extension</a>.
+This works with with the "extension" or "<a href="https://github.com/dnschneid/crouton/wiki/crouton-in-a-Chromium-OS-window-(xiwi)">xiwi</a>" targets (see below),
+provides much improved integration with Chromium OS
+by putting X11 in a native window.</p>
+<h2>Step 5: Choose a Linux Target</h2>
+<p>To install you Linux OS onto the Chromebook,
+follow the procedures  outline in Step 4 of the article
+"<a href="https://www.linux.com/learn/tutorials/795730-how-to-easily-install-ubuntu-on-chromebook-with-crouton">How to Easily Install Ubuntu on Chromebook with Crouton</a>".</p>
+<p>When installing using Crouton, you have to specify a target Linux environment.
+For example, <code>sudo sh ~/Downloads/crouton -r trusty -t xfce,xiwi</code> installs the Xfce desktop
+with the <code>trusty</code> version of Ubuntu.
+You’ll find other targets here too — Ubuntu’s Unity desktop, KDE, GNOME, LXDE, Enlightenment,
+and even command-line only targets like “core” and “cli-extra” if you don’t need a fancy desktop.
+To get a listing, use the commands below:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># see a list of targets</span>
+sh ~/Downloads/crouton -t <span style="color: #336666">help</span>
+
+<span style="color: #0099FF; font-style: italic"># see a list of Linux distributions and their releases</span>
+sh ~/Downloads/crouton -r list
+</pre></div>
+
+
+<p>I used the following command line to install my system:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># install your desired Ubuntu release and targets (NOTE: drive is not encripted)</span>
+sudo sh ~/Downloads/crouton -r trusty -t xfce-desktop,x11,xiwi,keyboard,extension,core,cli-extra
+</pre></div>
+
+
+<ul>
+<li>xfce-desktop - <a href="http://www.xfce.org/">Xfce</a> is a lightweight desktop environment aiming to be light on system resources,
+while still being visually appealing and user friendly.</li>
+<li>xiwi - <a href="https://github.com/dnschneid/crouton/wiki/crouton-in-a-Chromium-OS-window-(xiwi)">xiwi</a> (X11 in a Window) works by creating a window in Chrome and</li>
+<li>x11 - X Window System and is essential to run most programs.
+channeling a virtual X11 framebuffer over to it.</li>
+<li>keyboard - adds support for Chromebook keyboard special keys</li>
+<li>extension - implements clipboard syncing through WebSockets so you can copy paste from browser to xiwi tabs and windows without issues.</li>
+<li>core - performs core system configuration (a must have)</li>
+<li>cli-extra - basic command line interface tools like ssh</li>
+</ul>
+<p>This installs the Ubuntu instance in the directory
+<code>/mnt/stateful_partition/crouton/chroots/trusty</code>.
+If you choose to install additional instances with crouton, like trusty,
+they will be places in
+<code>/mnt/stateful_partition/crouton/chroots</code>.</p>
+<p>The Crouton <a href="https://github.com/dnschneid/crouton/wiki">Wiki</a> discusses <a href="https://github.com/dnschneid/crouton/wiki/Security">security</a>
+and points out that crouton is not, and cannot be, as secure as Chromium OS in verified mode.
+If this is a concern, you can use the second "-e" option to encrypt the Linux instance.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># install your desired Ubuntu release and targets and encript the drive</span>
+sudo sh ~/Downloads/crouton -e -r trusty -t xfce-desktop,x11,xiwi,keyboard,extension,core,cli-extra
+</pre></div>
+
+
+<h2>Step 6: Test It Out</h2>
+<p>You can now test out your Ubuntu instance by entering your chroot in commandline mode via:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># enter command line mode of Linux instance</span>
+sudo enter-chroot -n trusty
+</pre></div>
+
+
+<p>Notice that if you started with a <code>Ctrl</code>+<code>Alt</code>+<code>T</code>,
+your Linux instances is running within the Chrome browser tab!
+Also notice that your present working directory is <code>/home/jeff</code>
+and the downloaded instance of crouton is in the directory <code>/home/jeff/Downloads</code>.</p>
+<h2>Step 7: Install Drop Box</h2>
+<p>You'll inevitably need to move files into this new environment,
+so lets get Dropbox working.
+The only way I know of getting Dropbox install on an Ubuntu instance is via the
+<a href="https://apps.ubuntu.com/cat/applications/nautilus-dropbox/">Ubuntu Apps Directory</a>.
+Via the browser,  click on the download button and follow the procedures.</p>
+<h2>Step 8: Install i3</h2>
+<p><a href="http://i3wm.org/">i3</a> is a <a href="https://en.wikipedia.org/wiki/Tiling_window_manager">tilling window manager</a> that is configurable, fast, well documented,
+and primarily targeted at advanced users and developers.
+While you may already fined i3 installed,
+you can install i3 from via the chroot
+(i.e. <code>Ctrl+Alt+T</code> then <code>shell</code> then <code>sudo enter-chroot -n trusty</code>).
+Make sure you using the latest version of i3 via <code>i3wm.org</code> site:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># make sure you have the latest linux packages</span>
+sudo apt-get update <span style="color: #555555">&amp;&amp;</span> sudo apt-get dist-upgrade
+
+<span style="color: #0099FF; font-style: italic"># this ubuntu repository is provides the latest stable release of i3</span>
+sudo <span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe&quot;</span> &gt;&gt; /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get --allow-unauthenticated install sur5r-keyring
+sudo apt-get update
+
+<span style="color: #0099FF; font-style: italic"># install i3</span>
+sudo apt-get install i3
+</pre></div>
+
+
+<p>Your can <a href="https://github.com/dnschneid/crouton/wiki/i3">run i3 from within xfce by placing it in the "Application Autostart"</a>,
+but but you can jump right into from crosh shell if you set up your
+<code>.xinitrc</code> file to execute i3.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># add exec i3 to ~/.xinitrc</span>
+<span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;exec i3&quot;</span> &gt; ~/.xinitrc
+
+<span style="color: #0099FF; font-style: italic"># launch i3 directly from the crosh shell</span>
+<span style="color: #0099FF; font-style: italic"># use native Xorg instead of xiwi (linux runs full screen, no access to Chrome)</span>
+sudo enter-chroot -X xorg -n trusty xinit
+
+<span style="color: #0099FF; font-style: italic"># launch i3 directly from the crosh shell</span>
+<span style="color: #0099FF; font-style: italic"># use native Xorg instead of xiwi (linux runs full screen, no access to Chrome)</span>
+sudo enter-chroot -X xiwi -n trusty xinit
+</pre></div>
+
+
+<p>The i3 tilling window manager is highly configurable but entirely keyboard driven.
+You will not see any buttons or menus,
+and for the uninitiated, you'll be completely lost on what to do
+to create a window or navigate.
+Check out my [cheatsheet][] to find you way out of the darkness.</p>
+<h2>Step 9: Make a Backup</h2>
+<h2>Step N: Push Backup to Google Drive</h2>
+<h1>Starting Up Linux and Linux Apps</h1>
+<p>There are several ways to start up your Linux instance on the Chromebook,
+but they all start from the crosh shell.
+To get to the crosh shell,
+type <code>Ctrl</code>+<code>Alt</code>+<code>T</code> to bring up a Chrome Shell or <code>crosh</code>.
+Then type <code>shell</code> at the prompt to get to the root Linux shell
+(this can only be done in <a href="https://software.intel.com/en-us/blogs/2014/07/01/chrome-os-whats-developer-mode">Developer Mode</a>).
+Now within this window, enter one of the following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># command line only</span>
+sudo enter-chroot -n trusty
+
+<span style="color: #0099FF; font-style: italic"># run full Xfce Window Manger</span>
+<span style="color: #0099FF; font-style: italic"># use native xiwi (linux runs in chroos window or Chrome tab)</span>
+sudo startxfce4 -X xiwi -n trusty
+
+<span style="color: #0099FF; font-style: italic"># run full Xfce Window Manger</span>
+<span style="color: #0099FF; font-style: italic"># use native Xorg instead of xiwi (linux runs full screen, no access to Chrome)</span>
+sudo startxfce4 -X xorg -n trusty
+
+<span style="color: #0099FF; font-style: italic"># lightweight, tilling window manager - i3 Window Manager</span>
+sudo enter-chroot -X xiwi -n trusty xinit
+</pre></div>
+
+
+<p>You can also run Linux programs, including X Window programs,
+as individual programs without pulling up a desktop envirnment as you do with xfce and i3.
+With the <a href="https://chrome.google.com/webstore/detail/crouton-integration/gcpneefbbnfalgjniomfjknbcgkbijom">crouton chrome extension &amp; xiwi</a>,
+this enables running the X11 windows in the Ubuntu chroot as
+native Chrome OS windows.
+You enter chroot via <code>sudo enter-chroot</code> and the run the app via <code>xiwi</code>.
+you use <code>xiwi -T &lt;app&gt;</code> to launch in Chrome browser tab,
+or <code>xiwi -F &lt;app&gt;</code> to launch full-screen.
+You can silence output and run the command in the background via
+<code>sudo enter-chroot -b xiwi -T &lt;app&gt;</code>.</p>
+<p>You can launch individual apps in crouton windows by using the "xiwi" command
+in the chroot shell.
+Use startxiwi to launch directly from the host shell.
+Use the startxiwi parameter -b to run in the background.</p>
+<p>If your application forks and quits,
+xiwi may get confused and quit as well
+(you'll get an error/quit when the window launches).
+Often you must pass your app the  <code>-f</code> parameter.
+If you can't find one,
+you can pass <code>-f</code> to xiwi itself
+(e.g., <code>xiwi -f gvim</code> or <code>xiwi gvim -f</code>),
+and xiwi will not close unless there are no applications visible
+and you close the Chromium OS window.
+Also, xiwi doesn't know you current directory so use full paths
+(e.g. <code>sudo enter-chroot -b xiwi gimp ~/Downloads/img.jpg</code>).</p>
+<p>For example,</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># run the program node-red in the background</span>
+sudo startxiwi -b node-red
+
+<span style="color: #0099FF; font-style: italic"># run the program node-red in the foreground (also brings up an additional window)</span>
+Sudo enter-chroot xiwi node-red
+
+<span style="color: #0099FF; font-style: italic"># run a xterm in the forground</span>
+sudo startxiwi -f xterm
+xiwi -f xterm
+</pre></div>
+
+
+<p>https://support.google.com/chromebook/answer/1047367?hl=en&amp;ref_topic=2589149
+http://blog.laptopmag.com/how-to-right-click-on-a-chromebook</p>
+<h2>Aliases</h2>
+<p>To make this all easier to remember, you could create some aliases'.
+Aliases have to be stored in <code>~/.bashrc</code> to persist indefinitely
+(Note <code>~</code> is <code>home/chronos/user</code>.  Make sure to do <code>cd</code> when you enter the shell).</p>
+<p>There is one problem with aliases'.
+If you launch applications via aliases,
+the xiwi command will not know about them.
+You can add the <a href="https://github.com/dnschneid/crouton/wiki/crouton-in-a-Chromium-OS-window-(xiwi)">following snippet</a> to your <code>~/.bashrc</code> to handle basic aliases:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># Wrap xiwi so that aliases work</span>
+xiwi<span style="color: #555555">()</span> <span style="color: #555555">{</span>
+    <span style="color: #336666">local </span><span style="color: #003333">xiwiargs</span><span style="color: #555555">=</span><span style="color: #CC3300">&#39;&#39;</span>
+    <span style="color: #006699; font-weight: bold">while</span> <span style="color: #555555">[</span> <span style="color: #CC3300">&quot;${1#-}&quot;</span> !<span style="color: #555555">=</span> <span style="color: #CC3300">&quot;$1&quot;</span> <span style="color: #555555">]</span>; <span style="color: #006699; font-weight: bold">do</span>
+<span style="color: #006699; font-weight: bold">        </span><span style="color: #003333">xiwiargs</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;$xiwiargs $1&quot;</span>
+        <span style="color: #336666">shift</span>
+<span style="color: #336666">    </span><span style="color: #006699; font-weight: bold">done</span>
+<span style="color: #006699; font-weight: bold">    </span><span style="color: #336666">local </span><span style="color: #003333">cmd</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;`alias &quot;</span><span style="color: #003333">$1</span><span style="color: #CC3300">&quot; 2&gt;/dev/null`&quot;</span>
+    <span style="color: #006699; font-weight: bold">if</span> <span style="color: #555555">[</span> -z <span style="color: #CC3300">&quot;$cmd&quot;</span> <span style="color: #555555">]</span>; <span style="color: #006699; font-weight: bold">then</span>
+<span style="color: #006699; font-weight: bold">        </span><span style="color: #003333">cmd</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;$1&quot;</span>
+    <span style="color: #006699; font-weight: bold">else</span>
+<span style="color: #006699; font-weight: bold">        </span><span style="color: #336666">eval</span> <span style="color: #CC3300">&quot;cmd=${cmd#*=}&quot;</span>
+        <span style="color: #003333">cmd</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;env $cmd&quot;</span>
+    <span style="color: #006699; font-weight: bold">fi</span>
+<span style="color: #006699; font-weight: bold">    </span><span style="color: #336666">shift</span>
+<span style="color: #336666">    eval</span> <span style="color: #CC3300">&quot;/usr/local/bin/xiwi $xiwiargs $cmd \&quot;\$@\&quot;&quot;</span>
+<span style="color: #555555">}</span>
+</pre></div>
+
+
+<p>For example, to create an alias for starting i3, xfce, and command line version of Ubuntu
+I putting the following in my  <code>~/.bashrc</code> file:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">
+</pre></div>
+
+
+<blockquote>
+<p>NOTE: You do your edits of <code>~/.bashrc</code> from inside your crosh/shell, edit, not chroot.</p>
+</blockquote>
+<h2>Linux in a Chromium OS Window</h2>
+<p>https://github.com/dnschneid/crouton/wiki/crouton-in-a-Chromium-OS-window-(xiwi)</p>
+<h2>Markdown</h2>
+<p>https://chrome.google.com/webstore/detail/markdown-preview/jmchmkecamhbiokiopfpnfgbidieafmd</p>
+<h4>Ssh Tunnelling on Chrome OS</h4>
+<p>To use <a href="http://www.howtogeek.com/202768/how-to-use-ssh-tunnelling-on-chrome-os/">ssh tunnelling on Chrome OS</a>,
+open the crosh shell by pressing <code>Ctrl</code>+<code>Alt</code>+<code>T</code> anywhere in Chrome OS.
+The shell will open in a browser tab.
+Next, use the appropriate <code>ssh</code> command to connect to an SSH server and establish a tunnel.
+You’ll do this by running the <code>ssh</code> command and then by typing every option on its own line, like so:</p>
+<p><img alt="crosh ssh" src="http://cdn3.howtogeek.com/wp-content/uploads/2014/11/img_546b9898a9e3f.png" /></p>
+<p>You could also just type in the whole line like <code>ssh jeff@desktop</code>
+to secure shell into the <code>desktop</code> system using the login <code>jeff</code>.</p>
+<h4>Connectivity Command</h4>
+<p><a href="https://failicide.wordpress.com/2015/02/19/chrome-os-using-the-crosh-connectivity-command/">CHROME OS – USING THE CROSH CONNECTIVITY COMMAND</a></p>
+<h3>Linux</h3>
+<p>Xfce tweaks</p>
+<ul>
+<li>Turn on X11 Forwarding - http://www.webupd8.org/2013/12/things-to-do-after-installing-ubuntu-on.html</li>
+<li>Make sure the TERM varable is set to the same value as the remote system your logging into (XTERM=xterm-256color)</li>
+<li>download your .bash, .vim, etc.</li>
+</ul>
+<h2>Getting to a Command Prompt</h2>
+<p>https://www.chromium.org/chromium-os/poking-around-your-chrome-os-device</p>
+<h2>Chromebook Factory Reset</h2>
+<p>http://www.cnet.com/how-to/what-does-it-mean-to-powerwash-a-chromebook/</p>
+<h2>Run Linux Desktop in Browser Tab</h2>
+<p>http://www.howtogeek.com/208368/how-to-run-a-full-linux-desktop-in-a-browser-tab-on-your-chromebook/</p>
+<h2>When Linux Stops Working</h2>
+<p>Linux may stop working after a Chrome OS update.
+If that's the case, update all the installed targets using the following command
+(in Chrome OS, open a terminal using <code>Ctrl</code>+<code>Alt</code>+<code>T</code>, then type "shell"):</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># trusty is the name of your chroot</span>
+sudo sh -e ~/Downloads/crouton -u -n trusty
+</pre></div>
+
+
+<p>Where "trusty" is the name of the chroot you want to update.
+The default chroot name is the codename for the Ubuntu version you've installed
+(regardless of the desktop environment you've installed).
+For example, if you've installed Ubuntu 12.04 Precise, the default chrootname is "precise"</p>
+<h2>Developing on a Chromebook</h2>
+<ul>
+<li><a href="http://blog.tomtasche.at/2011/11/developing-on-chromebook-part-1.html">Developing on a Chromebook - Part 1: The Chromebook</a></li>
+<li><a href="http://blog.tomtasche.at/2011/11/developing-on-chromebook-part-2-cloud.html">Developing on a Chromebook - Part 2: Cloud, it's not me, it's you.</a></li>
+<li><a href="http://blog.tomtasche.at/2012/01/developing-on-chromebook-part-3-x.html">Developing on a Chromebook - Part 3: X-Forwarding, or "Eclipse on a Chromebook"</a></li>
+<li><a href="http://blog.tomtasche.at/2012/02/developing-on-chromebook-part-4-back-to.html">Developing on a Chromebook - Part 4: Back to the past</a></li>
+<li><a href="http://matthewphillips.info/posts/state-of-developing-on-a-chromebook.html">State of Developing on a Chromebook</a></li>
+<li><a href="http://matthewphillips.info/posts/using-cloud-drives-on-chromebooks.html">Using Cloud Drives on Chromebooks</a></li>
+<li><a href="https://github.com/googlecreativelab/coder/wiki/Coder-on-a-Chromebook-with-Crouton">Coder on a Chromebook with Crouton</a></li>
+<li>Ultimate guide for Web Development on Chromebook — <a href="https://medium.com/@martinmalinda/ultimate-guide-for-web-development-on-chromebook-part-1-crouton-2ec2e6bb2a2d#.unzzpg2a1">Part 1: Crouton</a> and <a href="https://medium.com/@martinmalinda/ultimate-guide-for-web-development-on-chromebook-part-2-chromeos-tricks-and-workflows-4dfcc308d391#.k4axwqchl">Part 2: ChromeOS tricks and workflows</a></li>
+<li><a href="http://joemarini.blogspot.com/2013/11/tools-for-developing-on-chromeos.html">Tools for Developing on ChromeOS</a></li>
+</ul>
+<h2>Printing with Chromebook</h2>
+<p>So how do you print on a Chromebook?
+You use <a href="http://www.cnet.com/how-to/how-to-print-from-a-chromebook/">Google Cloud Print</a>.
+Some new printers support Google Cloud Print,
+so you can connect them to your network and easily print to them.
+If you have an old printer connected to a Windows or Mac computer,
+you can use the Google Cloud Print Connector feature to make an older printer
+accessible to Google Cloud Print.
+Don’t try to plug your printer directly into your Chromebook, though — that won’t work.</p>
+<h2>Chromebook Backup</h2>
+<p>The <a href="https://github.com/dnschneid/crouton/wiki/Backups">Github Wiki for Crouton</a> provides a very complete description of making backups.
+The command below should get started quickly on do a Crouton chroot backup,
+but its wise to read the wiki.</p>
+<p>These command creates a tar archive in the current directory from which
+the command is executed.
+When doing the backup, enter crosh and shell,
+and make sure no other chroot intances are running.</p>
+<p><em><a href="http://www.howtogeek.com/196635/an-official-google-drive-for-linux-is-here-sort-of-maybe-this-is-all-well-ever-get/">An Official Google Drive for Linux is Here, Sort Of — Maybe This Is All We’ll Ever Get</a>
+</em><a href="http://linuxnewbieguide.org/?p=1078">Using Google Drive from the Linux Command Line</a>
+<em><a href="http://www.webupd8.org/2014/09/gdrive-simple-google-drive-cli-client.html">GDRIVE: A SIMPLE GOOGLE DRIVE CLI CLIENT (CROSS-PLATFORM)</a>
+</em><a href="http://xmodulo.com/how-to-sync-google-drive-from-the-command-line-on-linux.html">How to sync Google Drive from the command line on Linux</a></p>
+<p>Push the file to Google Drive
+http://www.howtogeek.com/196635/an-official-google-drive-for-linux-is-here-sort-of-maybe-this-is-all-well-ever-get/</p>
+<p>https://developers.google.com/drive/v2/reference/files/insert</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># move to the directory where you want the backup saved</span>
+<span style="color: #336666">cd</span> ~/Downloads
+
+<span style="color: #0099FF; font-style: italic"># backup your chroot files</span>
+sudo edit-chroot -b trusty
+
+<span style="color: #0099FF; font-style: italic"># move the tar file to GDrive</span>
+xxx
+</pre></div>
+
+
+<p>You can restore the backup later with the following command:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># restore your backup</span>
+sudo edit-chroot -r trusty
+</pre></div>
+
+
+<p>Or perhaps you’ve powerwashed your Chromebook and you want to get
+your customized Linux environment back.
+You can run the following command while installing Crouton.
+The Crouton installer script will restore your chroot
+from the backup file you provide,
+so replace <code>backupfile.tar.gz</code> with the name of the backup file you want to restore.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># restore backup to a powerwashed Chromebook</span>
+sudo sh ~/Downloads/crouton -f backupfile.tar.gz
+</pre></div>
+
+
+<h1>Chrome Apps to Install</h1>
+<ul>
+<li>
+<p>Ultimate guide for Web Development on Chromebook — <a href="https://medium.com/@martinmalinda/ultimate-guide-for-web-development-on-chromebook-part-1-crouton-2ec2e6bb2a2d#.unzzpg2a1">Part 1: Crouton</a> and <a href="https://medium.com/@martinmalinda/ultimate-guide-for-web-development-on-chromebook-part-2-chromeos-tricks-and-workflows-4dfcc308d391#.k4axwqchl">Part 2: ChromeOS tricks and workflows</a></p>
+</li>
+<li>
+<p><a href="https://www.getpostman.com/">Postman</a> is a great utility for testing REST based APIs.</p>
+</li>
+<li>[GistBox][81] can access and store code snippets (or "Gists", in their terms) for easy access them from everywhere.</li>
+</ul>
+<h3>Dropbox</h3>
+<ul>
+<li>https://github.com/dnschneid/crouton/wiki/Dropbox</li>
+<li><a href="http://www.androidcentral.com/how-enable-dropbox-integration-file-manager-your-chromebook?utm_source=related&amp;utm_medium=module&amp;utm_campaign=next">How to enable Dropbox integration into the file manager on your Chromebook</a></li>
+</ul>
+<h3>Chrome Remote Desktop</h3>
+<p>http://computers.tutsplus.com/tutorials/use-chrome-remote-desktop-to-access-your-computer-anywhere--cms-21227</p>
+<h3>Microsoft Apps</h3>
+<p>http://www.omgchrome.com/microsoft-brings-office-online-chrome-web-store/</p>
+<h1>Run Android App On Chromebook</h1>
+<p>Eventually, Google hopes, you’ll be able to run potentially millions of Android apps
+within Chrome or Chrome OS once they’re formally ported over.
+But you can get make that vision start to happen today—with a new Google tool called ARC Welder.</p>
+<ul>
+<li><a href="http://www.pcworld.com/article/2905297/heres-how-to-run-android-apps-on-chrome-with-googles-new-tool.html">Here's how to run Android apps on Chrome with Google's new tool</a></li>
+<li><a href="https://www.maketecheasier.com/install-android-applications-chromebook/">How to Install Android Applications Directly on Chromebook</a></li>
+<li><a href="https://www.youtube.com/watch?v=fgOd0qdR_AU">How to install Android apps on Chrome/Chromebooks</a></li>
+</ul><script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+		? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js'
+		: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+            var disqus_identifier = 'installing-linux-on-chromebook';
+            var disqus_url = 'http://jeffskinnerbox.me/drafts/installing-linux-on-chromebook.html';
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="http://jeffskinnerbox.me/pages/about-me/" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <a href="http://jeffskinnerbox.me/pages/about-me/">
+                        <img class="img-rounded" src="http://jeffskinnerbox.me/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                    </a>
+                </div>
+
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook/index.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+<li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="/pages/linux-and-python-packages-for-my-raspberry-pi/index.html" target="_blank">
+                RPi Packages
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="/tag/cheat-sheet/index.html" target="_blank">
+                Cheat Sheets
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-puzzle-piece fa-lg"></i><span class="icon-label">MicroContent</span></h4>
+    <ul class="list-group" id="wiki">
+        <li class="list-group-item">
+            <a href="http://jeffskinnerbox-wiki.herokuapp.com/#Potential Projects" target="_blank">
+                Project Ideas
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://jeffskinnerbox-wiki.herokuapp.com/#Topics for Study" target="_blank">
+                Things to Study
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">External Links</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://tiddlywiki.com/" target="_blank">
+                TiddlyWiki
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+    <ul class="list-group" id="social">
+        <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-github"></i> Github
+        </a></li>
+        <li class="list-group-item"><a href="https://hackaday.io/jeffskinnerbox" target="_blank">
+            <i class="fa fa-hacker-news"></i> Hackaday
+        </a></li>
+        <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-twitter"></i> Twitter
+        </a></li>
+        <li class="list-group-item"><a href="https://www.flickr.com/photos/104241758@N03/" target="_blank">
+            <i class="fa fa-flickr"></i> Flickr
+        </a></li>
+        <li class="list-group-item"><a href="https://delicious.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-delicious"></i> Delicious
+        </a></li>
+        <li class="list-group-item"><a href="https://www.pinterest.com/jeffskinnerbox/my-electronics-projects-and-other-diversions/" target="_blank">
+            <i class="fa fa-pinterest"></i> Pinterest
+        </a></li>
+        <li class="list-group-item"><a href="http://getpocket.com/a/queue/" target="_blank">
+            <i class="fa fa-chevron-circle-down"></i> Pocket
+        </a></li>
+        <li class="list-group-item"><a href="http://jeffskinnerbox.tumblr.com/" target="_blank">
+            <i class="fa fa-tumblr"></i> Tumblr
+        </a></li>
+        <li class="list-group-item"><a href="http://instagram.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-instagram"></i> Instagram
+        </a></li>
+        <li class="list-group-item"><a href="https://www.facebook.com/jeff.irland" target="_blank">
+            <i class="fa fa-facebook"></i> Facebook
+        </a></li>
+        <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+            <i class="fa fa-linkedin"></i> Linkedin
+        </a></li>
+        <li class="list-group-item"><a href="http://www.commandlinefu.com/commands/by/jeffskinnerbox" target="_blank">
+            <i class="fa fa-terminal"></i> CommandLineFu
+        </a></li>
+        <li class="list-group-item"><a href="https://disqus.com/by/jeffskinnerbox/" target="_blank">
+            <i class="fa fa-comment"></i> DISQUS
+        </a></li>
+    </ul>
+</li> 
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+<li class="list-group-item"><h4><i class="fa fa-thumbs-up fa-lg"></i><span class="icon-label">Reposted At</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://www.eeweb.com/websites/jeffs-skinner-box" target="_blank">
+                EEWeb.com
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-gears fa-lg"></i><span class="icon-label">Admin</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a43272292w73270397p83408137/" target="_blank">
+                Google Analytics
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io" target="_blank">
+                Web Site Source Code
+            </a>
+        </li>
+    </ul>
+</li>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by/index.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://tiddlywiki.com/" target="_blank">TiddlyWiki</a>,
+            <a href="http://ipython.org/notebook.html" target="_blank">Python Notebook</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by/index.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
+            <small>
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://jeffskinnerbox.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://jeffskinnerbox.me/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://jeffskinnerbox.me/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://jeffskinnerbox.me/theme/js/github.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-43272292-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>

@@ -1,5 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Jeff's Skinner Box</title><link href="http://jeffskinnerbox.me/" rel="alternate"></link><link href="http://jeffskinnerbox.me/feeds/jeff-irland.atom.xml" rel="self"></link><id>http://jeffskinnerbox.me/</id><updated>2015-11-28T10:16:00-05:00</updated><entry><title>Two-Factor Authentication via Google Authenticator</title><link href="http://jeffskinnerbox.me/posts/2015/Nov/28/two-factor-authentication-via-google-authenticator/" rel="alternate"></link><updated>2015-11-28T10:16:00-05:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2015-11-28:posts/2015/Nov/28/two-factor-authentication-via-google-authenticator/</id><summary type="html">&lt;h1&gt;Two-Factor Authentication&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Jeff's Skinner Box</title><link href="http://jeffskinnerbox.me/" rel="alternate"></link><link href="http://jeffskinnerbox.me/feeds/jeff-irland.atom.xml" rel="self"></link><id>http://jeffskinnerbox.me/</id><updated>2016-01-29T19:55:00-05:00</updated><entry><title>HowTo: Connecting to Remote X11 Host from a Mac</title><link href="http://jeffskinnerbox.me/posts/2016/Jan/29/howto-connecting-to-remote-x11-host-from-a-mac/" rel="alternate"></link><updated>2016-01-29T19:55:00-05:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2016-01-29:posts/2016/Jan/29/howto-connecting-to-remote-x11-host-from-a-mac/</id><summary type="html">&lt;p&gt;&lt;a href="http://www.xquartz.org/index.html"&gt;
+    &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="The XQuartz project is an open-source effort to develop a version of the X.Org X Window System that runs on OS X." alt="XQuartz Logo" src="http://jeffskinnerbox.me/images/xquartz-logo.jpg" width="90" height="90" /&gt;
+&lt;/a&gt;
+I want to &lt;a href="http://docstore.mik.ua/orelly/unix3/upt/ch06_10.htm"&gt;run a remote X client&lt;/a&gt; on my Linux desktop (with Ubuntu and X Window System)
+and display that client application my Apple MacBook Pro laptop running
+OS X Yosemite (version 10.10.5).
+I was hoping that, since Mac originated from parts of the Linux / X Window world,
+I could simply run &lt;code&gt;ssh -X user@server&lt;/code&gt;,
+but this doesn't do the trick.&lt;/p&gt;
+&lt;h2&gt;Installation of XQuartz&lt;/h2&gt;
+&lt;p&gt;After multiple attempts to get things working,
+I &lt;a href="http://www.cyberciti.biz/faq/apple-osx-mountain-lion-mavericks-install-xquartz-server/"&gt;discovered&lt;/a&gt; that to use ssh with X11 Forwarding,
+you need to install XQuartz&lt;sup id="fnref:A"&gt;&lt;a class="footnote-ref" href="#fn:A" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; on OS X v10.8 or above.
+The &lt;a href="http://www.xquartz.org/"&gt;XQuartz project&lt;/a&gt; is an open-source effort to develop
+a version of the &lt;a href="http://www.x.org/wiki/"&gt;X.Org&lt;/a&gt; X Window System that runs on OS X.
+This is Apple's version of the X server.
+You need to download and install the server before using ssh with X11 forwarding.
+Just follow the instructions given &lt;a href="http://www.cyberciti.biz/faq/apple-osx-mountain-lion-mavericks-install-xquartz-server/"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Once the install is completed,
+clicking on the XQuartz logo gives you a XTerm.
+Within the XTerm,
+you can run an application on the remote system using the following commands:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# execute a XTerm on the remove system and display on you local Mac&lt;/span&gt;
+ssh -X -C user@server-ip
+
+&lt;span style="color: #0099FF; font-style: italic"&gt;# execute an app on the remote system, go to background, and display on your local Mac&lt;/span&gt;
+ssh -f -X -C user@server-ip /path/to/app-name
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Where,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;user@server-ip&lt;/strong&gt;: remote login username and password&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-f&lt;/strong&gt;: Requests ssh to go to background just before command execution. This is useful if ssh is going to ask for passwords or passphrases, but the user wants it in the background. This is the recommended way to start X11 programs at a remote site/host.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-X&lt;/strong&gt;: Enables X11 forwarding.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-C&lt;/strong&gt;: Requests compression of all data (including stdin, stdout, stderr, and data for forwarded X11 and TCP connections).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-c cipher&lt;/strong&gt;: Selects the cipher specification for encrypting the session.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-T&lt;/strong&gt;: Disable pseudo-tty allocation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Use compression, &lt;strong&gt;-C&lt;/strong&gt;,
+if you think that programs are running slowly because of a lack of bandwidth or network congestion.&lt;/p&gt;
+&lt;h2&gt;.Xresources or .Xdefaults?&lt;/h2&gt;
+&lt;p&gt;Many X programs have user-level configuration options that can be set in the &lt;a href="https://en.wikipedia.org/wiki/X_resources"&gt;X server resource database&lt;/a&gt;.
+Depending on your version of X.Org,
+the most common ways to achieve persistent configuration for your X programs are to store them in either
+the &lt;code&gt;.Xresources&lt;/code&gt; or &lt;code&gt;.Xdefaults&lt;/code&gt; files which are read when X starts or when the X client starts, respectively.
+Both are user configurable dotfiles located in &lt;code&gt;$HOME&lt;/code&gt; used to set X resources.
+These are configuration parameters for X client applications, such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;defining terminal colours&lt;/li&gt;
+&lt;li&gt;configuring terminal preferences&lt;/li&gt;
+&lt;li&gt;setting dots-per-inch (DPI), anti-aliasing, hinting and other X font settings&lt;/li&gt;
+&lt;li&gt;changing the Xcursor theme&lt;/li&gt;
+&lt;li&gt;theming xscreensaver&lt;/li&gt;
+&lt;li&gt;altering preferences on low-level X applications (e.g. xclock, xeyes)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Consider the X program &lt;code&gt;xterm&lt;/code&gt;.
+You want to make the background black and the foreground white.
+This can be achieved by passing some command line arguments to xterm:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# xterm with background black and foreground white&lt;/span&gt;
+xterm -bg black -fg white
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is fine if you want this for only one time,
+but if you want it to be the default, you put it in a configuration file
+&lt;code&gt;.Xresources&lt;/code&gt; or &lt;code&gt;.Xdefaults&lt;/code&gt; as follows:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;XTerm*background: black
+XTerm*foreground: white
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The difference between these two files are the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.Xdefaults&lt;/code&gt; is the older method of storing X resources.
+This file is re-read every time an Xlib program is started.
+If X11 is used over the network, the file must be present on the same filesystem as the programs.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.Xresources&lt;/code&gt; is newer. It is loaded with &lt;a href="http://docstore.mik.ua/orelly/unix3/upt/ch06_08.htm"&gt;&lt;code&gt;xrdb&lt;/code&gt;&lt;/a&gt; into the &lt;a href="https://tronche.com/gui/x/xlib/resource-manager/"&gt;resource manager&lt;/a&gt;
+property of the X11 root window.
+Whenever any program looks up a resource, it is read straight from resource manager.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If &lt;code&gt;.Xresources&lt;/code&gt; does not exist,
+Xlib falls back to the old method of reading &lt;code&gt;.Xdefaults&lt;/code&gt; on every program startup.
+Note that most distributions will load &lt;code&gt;.Xresources&lt;/code&gt; automatically if it is present,
+causing &lt;code&gt;.Xdefaults&lt;/code&gt; to be ignored even if you have never run &lt;code&gt;xrdb&lt;/code&gt; manually.&lt;/p&gt;
+&lt;p&gt;The advantage of the new method is that it's enough to call &lt;code&gt;xrdb&lt;/code&gt; once,
+and the resources will be available to any program running on this display,
+whether local or remote.
+Use of &lt;code&gt;.Xdefaults&lt;/code&gt; comes at the cost that basically
+all X programs needs to parse this file every time you run one.
+A better way is to put the configuration options in &lt;code&gt;.Xresources&lt;/code&gt;
+and store the configuration in the X server’s resource database by using the &lt;code&gt;xrdb&lt;/code&gt; command:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# intialize user configurable resources using the X server resource database utility, xrdb&lt;/span&gt;
+xrdb -merge &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.Xresources
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This execution of &lt;code&gt;xrdb&lt;/code&gt; is done automatically when you login on most Linux distributions.
+Also, the name &lt;code&gt;.Xresources&lt;/code&gt; is only a convention –
+you can use &lt;code&gt;xrdb&lt;/code&gt; to load any file, even &lt;code&gt;.Xdefaults&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Short Digression Concerning gVim and MacVim&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;vi&lt;/code&gt; / &lt;code&gt;vim&lt;/code&gt; / &lt;code&gt;gvim&lt;/code&gt; has long been my standard text editor on Linux.
+Assuming you have the editors configured properly on the remote system,
+and you're using Xterm to login in,
+you should have no difficulty using it with XQuartz.&lt;/p&gt;
+&lt;p&gt;This easy of use made me ponder why I could never get &lt;code&gt;gvim&lt;/code&gt;
+to work properly with my &lt;code&gt;.vimrc&lt;/code&gt; resource file on my Mac,
+even when working within the XQuartz XTerm.
+A small amount of research taught me that &lt;code&gt;gvim&lt;/code&gt; requires
+X.Org and I must use &lt;a href="http://macvim-dev.github.io/macvim/"&gt;MacVim&lt;/a&gt; instead.
+If you’re on a Mac, you just have to use &lt;code&gt;MacVim&lt;/code&gt; as the &lt;code&gt;gvim&lt;/code&gt; alternative,
+there seems to be no way out of it.
+It’s basically like &lt;code&gt;gvim&lt;/code&gt;, except for Mac OS.&lt;/p&gt;
+&lt;p&gt;To help get MacVim working, use the following articles:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://awebfactory.com/node/541"&gt;Getting MacVim to run properly on Yosemite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://stackoverflow.com/questions/21012203/gvim-or-macvim-in-mac-os-x"&gt;Gvim or MacVim in Mac OS X&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://effectif.com/vim/running-vim-with-ruby-support-in-terminal"&gt;Running MacVim in your terminal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://renesd.blogspot.com/2009/08/gvim-cmdline-osx-macvim-from-terminal.html"&gt;gvim cmdline OSX&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:A"&gt;
+&lt;p&gt;On your Mac, check out this directory &lt;code&gt;/Applications/Utilities/&lt;/code&gt; and you will find the file &lt;code&gt;X11.app&lt;/code&gt;.
+It will give give you some instructions on how to support X11.
+The latest version of Apple OS X no longer ships with X11.app, i.e. XQuartz server.&amp;#160;&lt;a class="footnote-backref" href="#fnref:A" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+		? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js'
+		: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</summary><category term="Mac"></category><category term="MacVim"></category><category term="XQuartz"></category><category term="X Window System"></category></entry><entry><title>Two-Factor Authentication via Google Authenticator</title><link href="http://jeffskinnerbox.me/posts/2015/Nov/28/two-factor-authentication-via-google-authenticator/" rel="alternate"></link><updated>2015-11-28T10:16:00-05:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2015-11-28:posts/2015/Nov/28/two-factor-authentication-via-google-authenticator/</id><summary type="html">&lt;h1&gt;Two-Factor Authentication&lt;/h1&gt;
 &lt;p&gt;&lt;div style="float: left"&gt;
     &lt;a href="http://security.stackexchange.com/questions/41939/two-step-vs-two-factor-authentication-is-there-a-difference"&gt;
         &lt;img class="img-rounded" style="margin: 0px 8px; width: 247px; height: 111px" title="Strictly speaking, Google Authenticator is a Two STEP Authentication methodology. Never the less, it is close too it.  This implementation pragmatically require the phone, the 2nd factor." alt="2FA-Picture" src="http://jeffskinnerbox.me/images/two-factor-authentication.png" /&gt;
@@ -66,6 +225,8 @@ Each user will have their own secret key and their own codes.)&lt;/p&gt;
 &lt;h3&gt;Step 5&lt;/h3&gt;
 &lt;p&gt;Next you need to activate Google Authenticator on the home PC
 and require Google Authenticator for SSH logins.
+You's do this by making modification to the &lt;a href="http://tldp.org/HOWTO/User-Authentication-HOWTO/x115.html"&gt;Pluggable Authentication Modules (PAM)&lt;/a&gt;
+for Linux.
 To do so, open the &lt;code&gt;/etc/pam.d/sshd&lt;/code&gt; file on your system
 and add the following line to the file:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;auth required pam_google_authenticator.so
@@ -87,23 +248,58 @@ add the above line to the file.)&lt;/p&gt;
 
 
 &lt;h3&gt;Step 6&lt;/h3&gt;
+&lt;p&gt;At this point, when using SSH from my local network,
+I would need to provide the verification code.
+I don’t want to enter the verification code on my local network,
+because I trust my local network.
+When I SSH from remote, a verification code is required.
+One way to avoid this is to always login with certificates.&lt;/p&gt;
+&lt;p&gt;Luckily, there is another way to arrange this using the &lt;code&gt;pam_access.so&lt;/code&gt; module
+This modification will allow skipping two-factor authentication
+when the connection originates from certain sources.
+This is natively already supported by PAM.
+The &lt;code&gt;pam_access.so&lt;/code&gt; module can be used to check the source against local subnets:&lt;/p&gt;
+&lt;p&gt;make sure you have the following in &lt;code&gt;/etc/pam.d/sshd&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# use Google Authenticator&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;# The ‘nullok’ option tells PAM whenever no config for 2-factor authentication is found,&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;# it should just ignore it. This will prevent you from being locked out.&lt;/span&gt;
+auth &lt;span style="color: #555555"&gt;[&lt;/span&gt;&lt;span style="color: #003333"&gt;success&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;1 &lt;span style="color: #003333"&gt;default&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;ignore&lt;span style="color: #555555"&gt;]&lt;/span&gt; pam_access.so &lt;span style="color: #003333"&gt;accessfile&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;/etc/security/access-local.conf
+auth required pam_google_authenticator.so nullok
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Add create the file &lt;code&gt;/etc/security/access-local.conf&lt;/code&gt; with the following contents:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# skip one-time password if logging in from the local network&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;# only allow from local IP range&lt;/span&gt;
++ : ALL : 192.168.1.0/24
++ : ALL : LOCAL
+- : ALL : ALL
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 7&lt;/h3&gt;
 &lt;p&gt;Test it out.
 You’ll be prompted for both your password and
-Google Authenticator code whenever you attempt to log in via SSH.&lt;/p&gt;
+Google Authenticator code whenever you attempt to log in via SSH externally.
+On the other hand, when using SSH on your local network,
+you should not be required to enter the Google Authenticator code.&lt;/p&gt;
 &lt;h1&gt;Sources&lt;/h1&gt;
-&lt;p&gt;Key Articles that I found helpful:&lt;/p&gt;
+&lt;p&gt;Key articles that I found helpful:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://kb.mailchimp.com/integrations/other-integrations/set-up-google-authenticator"&gt;Set Up Google Authenticator&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-two-factor-authentication"&gt;How To Protect SSH With Two-Factor Authentication&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.linux.com/community/blogs/133-general-linux/783135-securing-ssh-with-two-factor-authentication-using-google-authenticator"&gt;Securing SSH with two factor authentication using Google Authenticator&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://wiki.vps.net/vps-net-features/cloud-servers/configuring-two-factor-authentication-in-ubuntu-14-04-using-google-authenticator/"&gt;Configuring two-factor authentication in Ubuntu 14.04 using Google Authenticator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://blog.remibergsma.com/2013/06/08/playing-with-two-facor-authentication-in-linux-using-google-authenticator/"&gt;Playing with two-factor authentication in Linux using Google Authenticator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://serverfault.com/questions/518802/two-factor-ssh-authentication-on-external-address-only"&gt;Two Factor SSH Authentication on external address only&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://blog.nowherelan.com/2014/01/04/two-step-authentication-for-ssh-on-centos-6-using-google-authenticator/"&gt;Two Step Authentication for SSH on Centos 6 Using Google Authenticator&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</summary><category term="Security"></category><category term="Two-Factor Authentication"></category></entry><entry><title>Repurposing a Vintage Laptop to Create a X Terminal</title><link href="http://jeffskinnerbox.me/posts/2014/Dec/19/repurposing-a-vintage-laptop-to-create-a-x-terminal/" rel="alternate"></link><updated>2014-12-19T22:24:00-05:00</updated><author><name>"Jeff Irland"</name></author><id>tag:jeffskinnerbox.me,2014-12-19:posts/2014/Dec/19/repurposing-a-vintage-laptop-to-create-a-x-terminal/</id><summary type="html">&lt;p&gt;&lt;a href="http://television.cosmicbooknews.com/content/wayback-machine-wabac-machine"&gt;
     &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="WABAC (pronounced “wayback”) machine of Peabody's Improbable History, an ongoing feature of the 1960s cartoon series The Rocky and Bullwinkle Show" alt="WABAC Pic" src="https://upload.wikimedia.org/wikipedia/en/3/3f/Waybackmachine3.png" width="200" height="200" /&gt;
 &lt;/a&gt;
-On a whim, I visited a web auction site dealing in surplus government property. 
+On a whim, I visited a web auction site dealing in surplus government property.
 I spotted two very old laptops, which claimed to be still operational,
 and I placed a bid of $40.
-A few days later, I received an email saying I was the proud owner of two 
+A few days later, I received an email saying I was the proud owner of two
 HP Omni Book XE3 loaded with a Celeron&lt;sup id="fnref:A"&gt;&lt;a class="footnote-ref" href="#fn:A" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; 32bit processor!&lt;/p&gt;
 &lt;p&gt;By todays standards, the HP Omni Book XE3 isn't exactly a race horse with its
 1066 MHz clock, 128M of RAM running at 100 MHz, and 10/100 Ethernet LAN communications.
@@ -147,7 +343,7 @@ Linux operating system for &lt;a href="http://www.osnews.com/story/24936/Damn_Sm
 DSL supports older machines with minimal memory by disabling all unnecessary daemons or services.
 DSL gives you a tool to individually load and manage daemons,
 and you can load bundled applications designed with stingy resource use.
-DSL was designed, tested, and runs on old computers by retains support for many old devices. &lt;/p&gt;
+DSL was designed, tested, and runs on old computers by retains support for many old devices.&lt;/p&gt;
 &lt;p&gt;The installation of DSL on the laptop happened without any difficulties.
 I followed the excellent instructions give in the article
 &lt;a href="http://voices.yahoo.com/how-download-install-dsl-linux-5947706.html?cat=15"&gt;How to Download and Install DSL Linux&lt;/a&gt;.
@@ -183,7 +379,7 @@ So any reasonable size application will cause performance problems.&lt;/p&gt;
 &lt;p&gt;My final attempt was &lt;a href="http://tinycorelinux.net/"&gt;Tiny Core Linux (TCL)&lt;/a&gt;, which comes in three ISO images,
 include CorePlus which is the installation image I required.
 I download the CorePlus, image, burned it to a CD-ROM, booted it,
-and selected "&lt;code&gt;Boot Core with X/GUI (TineCore) + Installation Extentions&lt;/code&gt;" from the boot menu. 
+and selected "&lt;code&gt;Boot Core with X/GUI (TineCore) + Installation Extentions&lt;/code&gt;" from the boot menu.
 This will enable you to perform a hard drive install of TCL.
 See the &lt;a href="http://tinycorelinux.net/install.html"&gt;Tiny Core Linux installation documentation for procedures&lt;/a&gt;.
 (You can also do a &lt;a href="http://tinycorelinux.net/install_manual.html"&gt;manual install&lt;/a&gt;,
@@ -240,7 +436,7 @@ When the Display Manager is remote, the Display Manager works according to the
 &lt;p&gt;The XDMCP protocol mandates that the X Server starts autonomously and connects to the Display Manager.
 You configure an XDMCP Chooser program running on the local computer (or X Terminal)
 to connect to a specific remote X Display Manager
-or to display a list of suitable hosts (if configured to do so) that the user can choose from. 
+or to display a list of suitable hosts (if configured to do so) that the user can choose from.
 When the user selects a host from the list,
 the XDMCP Chooser running on the local machine will send a message
 to the selected remote computer's Display Manager
@@ -249,7 +445,7 @@ and instruct it to connect the X Server on the local computer or terminal.&lt;/p
 XDMCP allows several different users to login and run different X sessions at the same time.
 Your not sharing a desktop screen image, your starting seperate X Window session on the remote machine.&lt;/p&gt;
 &lt;p&gt;If your Linux box boots into a graphical login screen, like my Ubuntu desktop system,
-you are already running a Display Manager. 
+you are already running a Display Manager.
 Specifically, my desktop Linux box is using &lt;a href="http://www.freedesktop.org/wiki/Software/LightDM/"&gt;&lt;code&gt;lightdm&lt;/code&gt;&lt;/a&gt; as its X Display Manager.
 You can determine this by running &lt;code&gt;cat /etc/X11/default-display-manager&lt;/code&gt;
 or &lt;code&gt;ps -A | grep dm&lt;/code&gt;.
@@ -299,7 +495,7 @@ ps -ef | egrep &lt;span style="color: #CC3300"&gt;&amp;quot;xfwm|twm|metacity|be
 
 
 &lt;p&gt;What is the Display Manager being used?
-The Display Manager runs before you log in, and as such, it's by the system is configured. 
+The Display Manager runs before you log in, and as such, it's by the system is configured.
 On a Ubuntu system, you can find the Display Manager being used via&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# print our the Display Manager being used&lt;/span&gt;
 cat /etc/X11/default-display-manager
@@ -402,15 +598,15 @@ gnome-session-quit
 /etc/init.d/gdm restart         &lt;span style="color: #0099FF; font-style: italic"&gt;# kill your graphical interface using&lt;/span&gt;
 sudo service lightdm restart    &lt;span style="color: #0099FF; font-style: italic"&gt;# restart your session manager&lt;/span&gt;
 
-&lt;span style="color: #0099FF; font-style: italic"&gt;# see this &lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;# see this&lt;/span&gt;
 http://manpages.ubuntu.com/manpages/lucid/en/man1/gnome-wm.1.html
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Like many desktop envirnments, Ubuntu Unity can change its look &amp;amp; feel by changing the &lt;a href="http://itsfoss.com/best-themes-ubuntu-1310/"&gt;themes&lt;/a&gt;.
-These alternative theme files are extracted to &lt;code&gt;~/.themes&lt;/code&gt; or &lt;code&gt;/user/share/themes&lt;/code&gt; directores. 
+These alternative theme files are extracted to &lt;code&gt;~/.themes&lt;/code&gt; or &lt;code&gt;/user/share/themes&lt;/code&gt; directores.
 Once a theme is established, it can udergo additional tuning via the
-&lt;a href="http://www.techrepublic.com/blog/linux-and-open-source/six-must-have-ubuntu-unity-tweaks/"&gt;Unity Tweak Tool&lt;/a&gt;, which is a settings manager for the Unity desktop. 
+&lt;a href="http://www.techrepublic.com/blog/linux-and-open-source/six-must-have-ubuntu-unity-tweaks/"&gt;Unity Tweak Tool&lt;/a&gt;, which is a settings manager for the Unity desktop.
 This configuration tool provides users access to features and configuration options,
 and brings them all together in a polished &amp;amp; easy-to-use interface.
 To install this tool, use&lt;/p&gt;
@@ -421,12 +617,12 @@ To install this tool, use&lt;/p&gt;
 &lt;p&gt;The most transparent and precise way to configure the Unity envirnment is to modify the file
 &lt;code&gt;/etc/lightdm/lightdm.conf&lt;/code&gt;.
 The post "&lt;a href="http://www.mattfischer.com/blog/?p=343"&gt;Understanding lightdm.conf&lt;/a&gt;" is a good read to better understand &lt;code&gt;lightdm.conf&lt;/code&gt;
-but keep in mind that some utilities it suggest are no more. 
+but keep in mind that some utilities it suggest are no more.
 As of Ubuntu Trusy 14.04,
 the command line utility &lt;code&gt;lightdm-set-defaults&lt;/code&gt; is &lt;a href="http://askubuntu.com/questions/251041/how-to-install-lightdm-set-defaults"&gt;no longer available&lt;/a&gt;.
 This is because &lt;code&gt;lightdm&lt;/code&gt; now using a configuration directory &lt;code&gt;/etc/lightdm/lightdm.conf.d/&lt;/code&gt;
 rather than a single configuration file.
-The files in this directory can be edited by hand, new files can be added, or files can be removed. 
+The files in this directory can be edited by hand, new files can be added, or files can be removed.
 There is no manpage for &lt;code&gt;lighdm.conf&lt;/code&gt;, but there is an example that lists all the options
 and a bit about what they do, just look in &lt;code&gt;/usr/share/doc/lightdm/lightdm.conf.gz&lt;/code&gt;
 (If you use vim, you can just edit the file and it will be automagically ungzipped for you).&lt;/p&gt;
@@ -453,7 +649,7 @@ minimpulating the &lt;a href="https://developer.gnome.org/gio/2.39/GSettings.htm
 To support this, there is &lt;a href="https://developer.gnome.org/gio/2.39/gsettings-tool.html"&gt;&lt;code&gt;gsettings&lt;/code&gt;&lt;/a&gt; which offers a simple command line interface to &lt;code&gt;GSettings&lt;/code&gt;.
 &lt;code&gt;GSettings&lt;/code&gt; is a GLib implementation of the &lt;a href="http://en.wikipedia.org/wiki/Dconf"&gt;DConf spec&lt;/a&gt;, which stores its data in a binary database.
 The &lt;code&gt;gsettings&lt;/code&gt; command line tool is simply a tool to access or modify settings via the &lt;code&gt;GSettings&lt;/code&gt; API.&lt;/p&gt;
-&lt;p&gt;Applications using &lt;code&gt;GSettings&lt;/code&gt;/DConf install allication configuration data or schemas. 
+&lt;p&gt;Applications using &lt;code&gt;GSettings&lt;/code&gt;/DConf install allication configuration data or schemas.
 A schema is basically is a list of the available settings for that application.
 There are two types of schemas, standard and relocatable schemas.
 Important to understand that for relocatable schemas we need to provide a
@@ -489,7 +685,7 @@ For example we added a colon followed by the path:&lt;/p&gt;
 
 &lt;p&gt;You'll find other uses for &lt;code&gt;gsettings&lt;/code&gt; on &lt;a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/gsettings.1.html"&gt;its manual page&lt;/a&gt;.
 For example,
-Unity desktop comes with overlay scrollbars enabled by default. 
+Unity desktop comes with overlay scrollbars enabled by default.
 You can disable overlay scroll-bars, if you don't like them.
 Enter the following command in a terminal to disable overlay scrollbar:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;gsettings set com.canonical.desktop.interface scrollbar-mode normal
@@ -546,7 +742,7 @@ Tiny Core is designed to
 run from a RAM copy created at boot time. Besides being fast, this
 protects system files from changes and ensures a pristine system on
 every reboot.
-Easy, fast, and simple renew-ability and stability is a principle goal of Tiny Core. 
+Easy, fast, and simple renew-ability and stability is a principle goal of Tiny Core.
 The core system provides most of what you need for a working environment,
 which they can then tweak from there via loadable applications.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://tinycorelinux.net/install_manual.html"&gt;Frugal&lt;/a&gt; is the typical installation method for Tiny Core.
@@ -585,7 +781,7 @@ Tiny Core handles this with the &lt;code&gt;filetool.sh&lt;/code&gt; script.
 When run with the &lt;code&gt;-b&lt;/code&gt; option this packages up all these files into a single compressed file (&lt;code&gt;mydata.tgz&lt;/code&gt;)
 that it saves in the &lt;code&gt;tce&lt;/code&gt; directory.
 When the script is run with the &lt;code&gt;-r&lt;/code&gt; option it does the reverse and restores the saved files.
-The restore happens automatically as the system boots. 
+The restore happens automatically as the system boots.
 By default the &lt;code&gt;/opt/filetool.lst&lt;/code&gt; file includes the &lt;code&gt;/home&lt;/code&gt; and &lt;code&gt;/opt&lt;/code&gt; directories.
 Remove this entries if you wish (e.g. when backup take a long time).&lt;/p&gt;
 &lt;blockquote&gt;
@@ -593,7 +789,7 @@ Remove this entries if you wish (e.g. when backup take a long time).&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Many options, such as a choice of either an ALSA or OSS sound server, are left up to the user.
 Once inside the environment, the user is then able to connect to the online repositories
-in order to install the applications they desire and configure their system. 
+in order to install the applications they desire and configure their system.
 TCL has a very simple package manager that provides a list of available packages to install.
 The user need only select a package and the manager will download it with all
 required dependencies and install them to the system.&lt;/p&gt;
@@ -604,7 +800,7 @@ or "On Demand" (do not mount at boot, but create a special menu
 section for easy access and display an icon if available).
 (For my purposes of creating a X Terminal, I see no for any of these options other than OnBoot).&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;OnBoot -&lt;/strong&gt; This is the default method. This extension will be installed, and added to the onboot list, to be mounted on the following boots. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OnBoot -&lt;/strong&gt; This is the default method. This extension will be installed, and added to the onboot list, to be mounted on the following boots.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;OnDemand -&lt;/strong&gt; A loading script will be generated for this extension.  Instead of being loaded on boot, the icon/menu entry for this extension will load the extension when you first need it.  This option speeds up your boot time, at the cost of making the first start of the application slower.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Download + Load -&lt;/strong&gt; The extension will be downloaded and installed for this session only.  It will reside within the directory sytem, but since it is not added to the onboot list, it will not be loaded after a reboot.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Download Only -&lt;/strong&gt; The extension will only be downloaded, nothing more will be done.&lt;/li&gt;
@@ -700,7 +896,7 @@ The boot process will waits for them to complete.
 If you need network access later, this might be a good place to wait for the network to come up.
 &lt;code&gt;/opt/bootlocal.sh&lt;/code&gt; is the is the file for all items that don’t need to be waited for.
 This may include loading some non-essential module
-(ISA sound cards, for example), or starting some server. &lt;/p&gt;
+(ISA sound cards, for example), or starting some server.&lt;/p&gt;
 &lt;p&gt;Once &lt;code&gt;/opt/bootsync.sh&lt;/code&gt; is complete (and while &lt;code&gt;/opt/bootlocal.sh&lt;/code&gt;  runs in the background)
 &lt;code&gt;init&lt;/code&gt; regains control.
 As the boot is now complete from &lt;code&gt;init&lt;/code&gt; point of view,
@@ -723,7 +919,7 @@ If an X server is available, and a text-only boot was not requested, X is starte
 &lt;p&gt;&lt;strong&gt;Configure the TCL Image for Installation&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Put the CD-ROM in the Laptop's drive, connect it via Ethernet to the Internet, and turn on the power.&lt;/li&gt;
-&lt;li&gt;When it boots up, selected “Boot Core with X/GUI (TineCore) + Installation Extensions” from the boot menu. This will automatically install the &lt;code&gt;TC_Install&lt;/code&gt; program for installing apps. &lt;/li&gt;
+&lt;li&gt;When it boots up, selected “Boot Core with X/GUI (TineCore) + Installation Extensions” from the boot menu. This will automatically install the &lt;code&gt;TC_Install&lt;/code&gt; program for installing apps.&lt;/li&gt;
 &lt;li&gt;Select "Apps" icon on the bottom and install the following application packages to "OnBoot"&lt;ul&gt;
 &lt;li&gt;cfdisk.tcz&lt;/li&gt;
 &lt;/ul&gt;
@@ -743,7 +939,7 @@ If an X server is available, and a text-only boot was not requested, X is starte
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Boot TCL Image from Hard Disk&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Boot TCL Image from Hard Disk&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Now its time to reboot the system, making sure to remove the CD.  To do this, go to a terminal window and execute these commands&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;umount /mnt/hdc&lt;/code&gt;&lt;/li&gt;
@@ -784,7 +980,7 @@ If an X server is available, and a text-only boot was not requested, X is starte
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Install and Activate SSH&lt;/strong&gt;
 &lt;br/&gt;
-I used "&lt;a href="http://firewallengineer.wordpress.com/2012/04/01/how-to-install-and-configure-openssh-ssh-server-in-tiny-core-linux/"&gt;How to install and configure OpenSSH (SSH Server) in Tiny Core Linux&lt;/a&gt;" as my guide for this work. &lt;/p&gt;
+I used "&lt;a href="http://firewallengineer.wordpress.com/2012/04/01/how-to-install-and-configure-openssh-ssh-server-in-tiny-core-linux/"&gt;How to install and configure OpenSSH (SSH Server) in Tiny Core Linux&lt;/a&gt;" as my guide for this work.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Click on Apps and install&lt;ul&gt;
 &lt;li&gt;openssh.tcz&lt;/li&gt;
@@ -882,7 +1078,7 @@ while the boot waits for them to complete.
 My &lt;code&gt;/opt/bootsync.sh&lt;/code&gt; file looks like this&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;#!/bin/sh&lt;/span&gt;
 &lt;span style="color: #0099FF; font-style: italic"&gt;# put other system startup commands here, the boot process will wait until they complete.&lt;/span&gt;
-&lt;span style="color: #0099FF; font-style: italic"&gt;# Use bootlocal.sh for system startup commands that can run in the background &lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;# Use bootlocal.sh for system startup commands that can run in the background&lt;/span&gt;
 &lt;span style="color: #0099FF; font-style: italic"&gt;# and therefore not slow down the boot process.&lt;/span&gt;
 /usr/bin/sethostname box
 /opt/bootlocal.sh &amp;amp;
@@ -894,7 +1090,7 @@ This may include loading some non-essential module or starting some server.
 My &lt;code&gt;/opt/bootlocal.sh&lt;/code&gt; file looks like this&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;#!/bin/sh&lt;/span&gt;
 &lt;span style="color: #0099FF; font-style: italic"&gt;# put other system startup commands here&lt;/span&gt;
-/usr/local/sbin/basic-firewall noprompt 
+/usr/local/sbin/basic-firewall noprompt
 /usr/local/etc/init.d/openssh start
 /usr/local/sbin/basic-firewall noprompt
 opt/alas
@@ -930,7 +1126,7 @@ My &lt;code&gt;/home/tc/.xsession&lt;/code&gt; file looks like this&lt;/p&gt;
     waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; ! &lt;span style="color: #336666"&gt;echo &lt;/span&gt;failed in waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; &lt;span style="color: #336666"&gt;exit&lt;/span&gt;
     &lt;span style="color: #CC3300"&gt;&amp;quot;$DESKTOP&amp;quot;&lt;/span&gt; 2&amp;gt;/tmp/wm_errors &amp;amp;
     &lt;span style="color: #336666"&gt;export &lt;/span&gt;&lt;span style="color: #003333"&gt;WM_PID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #003333"&gt;$!&lt;/span&gt;
-    &lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground 
+    &lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground
     &lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &amp;amp;
     &lt;span style="color: #555555"&gt;[&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;which &lt;span style="color: #CC3300"&gt;&amp;quot;$ICONS&amp;quot;&lt;/span&gt;.sh&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;ICONS&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;.sh &amp;amp;
     &lt;span style="color: #555555"&gt;[&lt;/span&gt; -d &lt;span style="color: #CC3300"&gt;&amp;quot;$HOME/.X.d&amp;quot;&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; find &lt;span style="color: #CC3300"&gt;&amp;quot;$HOME/.X.d&amp;quot;&lt;/span&gt; -type f -print | &lt;span style="color: #006699; font-weight: bold"&gt;while &lt;/span&gt;&lt;span style="color: #336666"&gt;read &lt;/span&gt;F; &lt;span style="color: #006699; font-weight: bold"&gt;do&lt;/span&gt; . &lt;span style="color: #CC3300"&gt;&amp;quot;$F&amp;quot;&lt;/span&gt;; &lt;span style="color: #006699; font-weight: bold"&gt;done&lt;/span&gt;
@@ -940,7 +1136,7 @@ My &lt;code&gt;/home/tc/.xsession&lt;/code&gt; file looks like this&lt;/p&gt;
     waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; ! &lt;span style="color: #336666"&gt;echo &lt;/span&gt;failed in waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; &lt;span style="color: #336666"&gt;exit&lt;/span&gt;
     &lt;span style="color: #CC3300"&gt;&amp;quot;$DESKTOP&amp;quot;&lt;/span&gt; 2&amp;gt;/tmp/wm_errors &amp;amp;
     &lt;span style="color: #336666"&gt;export &lt;/span&gt;&lt;span style="color: #003333"&gt;WM_PID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #003333"&gt;$!&lt;/span&gt;
-    &lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground 
+    &lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground
     &lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &amp;amp;
     &lt;span style="color: #555555"&gt;[&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;which &lt;span style="color: #CC3300"&gt;&amp;quot;$ICONS&amp;quot;&lt;/span&gt;.sh&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;ICONS&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;.sh &amp;amp;
     &lt;span style="color: #555555"&gt;[&lt;/span&gt; -d &lt;span style="color: #CC3300"&gt;&amp;quot;$HOME/.X.d&amp;quot;&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; find &lt;span style="color: #CC3300"&gt;&amp;quot;$HOME/.X.d&amp;quot;&lt;/span&gt; -type f -print | &lt;span style="color: #006699; font-weight: bold"&gt;while &lt;/span&gt;&lt;span style="color: #336666"&gt;read &lt;/span&gt;F; &lt;span style="color: #006699; font-weight: bold"&gt;do&lt;/span&gt; . &lt;span style="color: #CC3300"&gt;&amp;quot;$F&amp;quot;&lt;/span&gt;; &lt;span style="color: #006699; font-weight: bold"&gt;done&lt;/span&gt;
@@ -956,7 +1152,7 @@ Xvesa -br -screen 1024x768x32 -shadow -3button -mouse /dev/input/mice,5 -noliste
 waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; ! &lt;span style="color: #336666"&gt;echo &lt;/span&gt;failed in waitforX &lt;span style="color: #555555"&gt;||&lt;/span&gt; &lt;span style="color: #336666"&gt;exit&lt;/span&gt;
 &lt;span style="color: #CC3300"&gt;&amp;quot;$DESKTOP&amp;quot;&lt;/span&gt; 2&amp;gt;/tmp/wm_errors &amp;amp;
 &lt;span style="color: #336666"&gt;export &lt;/span&gt;&lt;span style="color: #003333"&gt;WM_PID&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #003333"&gt;$!&lt;/span&gt;
-&lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground 
+&lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.setbackground
 &lt;span style="color: #555555"&gt;[&lt;/span&gt; -x &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.mouse_config &amp;amp;
 &lt;span style="color: #555555"&gt;[&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;which &lt;span style="color: #CC3300"&gt;&amp;quot;$ICONS&amp;quot;&lt;/span&gt;.sh&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;ICONS&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;.sh &amp;amp;
 &lt;span style="color: #555555"&gt;[&lt;/span&gt; -d &lt;span style="color: #CC3300"&gt;&amp;quot;$HOME/.X.d&amp;quot;&lt;/span&gt; &lt;span style="color: #555555"&gt;]&lt;/span&gt; &lt;span style="color: #555555"&gt;&amp;amp;&amp;amp;&lt;/span&gt; find &lt;span style="color: #CC3300"&gt;&amp;quot;$HOME/.X.d&amp;quot;&lt;/span&gt; -type f -print | &lt;span style="color: #006699; font-weight: bold"&gt;while &lt;/span&gt;&lt;span style="color: #336666"&gt;read &lt;/span&gt;F; &lt;span style="color: #006699; font-weight: bold"&gt;do&lt;/span&gt; . &lt;span style="color: #CC3300"&gt;&amp;quot;$F&amp;quot;&lt;/span&gt;; &lt;span style="color: #006699; font-weight: bold"&gt;done&lt;/span&gt;
@@ -986,7 +1182,7 @@ and you will get the TCL command line prompt.&lt;/p&gt;
 &lt;h3&gt;Configuring Remote Computer (Ubuntu Desktop)&lt;/h3&gt;
 &lt;p&gt;On the remote-computer (in my case, a Ubuntu desktop runing &lt;code&gt;lightdm&lt;/code&gt; Display Manager),
 you need to tell the Display Manager to accept logins from a remote X Server.
-This is easily done by configuring the file &lt;code&gt;/etc/lightdm/lightdm.conf&lt;/code&gt; so it contains &lt;/p&gt;
+This is easily done by configuring the file &lt;code&gt;/etc/lightdm/lightdm.conf&lt;/code&gt; so it contains&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;[SeatDefaults]
 user-session=ubuntu
 autologin-user=false
@@ -1010,7 +1206,7 @@ lightweight Window Manger that could run on my ancient hardware.
 I researched my options with the aid of the articles
 "&lt;a href="http://www.engadget.com/2012/10/30/how-to-picking-a-window-manager-linux/"&gt;How-to: Picking a Window Manager in Linux&lt;/a&gt;" and
 "&lt;a href="http://www.junauza.com/2008/08/20-most-nimble-and-simple-x-window.html"&gt;20 Most Nimble and Simple X Window Managers for Linux&lt;/a&gt;".
-I choose &lt;a href="http://fluxbox.org/"&gt;Fluxbox&lt;/a&gt; as my replacement Window Manger because of its simplicity and it widely praised. 
+I choose &lt;a href="http://fluxbox.org/"&gt;Fluxbox&lt;/a&gt; as my replacement Window Manger because of its simplicity and it widely praised.
 You &lt;a href="http://fluxbox.sourceforge.net/docbook/en/html/book1.html"&gt;Fluxbox Documentation&lt;/a&gt; will give most of what you need to configure this Window Manager.
 To install Fluxbox, and a companion tool for supporting desktop icons called fbdesk, use the following:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# install Fluxbox&lt;/span&gt;
@@ -1048,7 +1244,7 @@ file, like their bigger brothers.&lt;/p&gt;
 targeted at budget personal computers.
 &lt;a href="http://en.wikipedia.org/wiki/Celeron"&gt;Introduced in April 1998&lt;/a&gt;, the first Celeron branded CPU was based on the Pentium II branded core.
 Subsequent Celeron branded CPUs were based on the Pentium III, Pentium 4, Pentium M,
-and Intel Core branded processors. 
+and Intel Core branded processors.
 With Damn Small Linux loaded and running &lt;code&gt;cat /proc/cpuinfo&lt;/code&gt;,
 it shows the processor is of Intel CPU family 6 and model 11.
 This maps to Intel product code 80530, which &lt;a href="http://en.wikipedia.org/wiki/List_of_Intel_microprocessors"&gt;makes it a Pentium III (codename Tualatin)&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:A" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
@@ -1130,7 +1326,7 @@ I can't say this about this vintage laptop.&amp;#160;&lt;a class="footnote-backr
 &lt;/li&gt;
 &lt;li id="fn:D"&gt;
 &lt;p&gt;Damn Small Linux also uses by default &lt;a href="http://www.busybox.net/"&gt;Busybox&lt;/a&gt;.
-BusyBox provides several stripped-down Unix tools in a single executable file. 
+BusyBox provides several stripped-down Unix tools in a single executable file.
 Its originally aim was to provide a complete bootable system on a single floppy
 that would serve both as a rescue disk and as an installer for the Debian distribution.
 Busybox's use now is more focused on embedded operating systems with very limited resources.&amp;#160;&lt;a class="footnote-backref" href="#fnref:D" rev="footnote" title="Jump back to footnote 4 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
@@ -1194,7 +1390,7 @@ The program tries to be fully functional and RFC 2131 compliant.&amp;#160;&lt;a 
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</summary><category term="Tiny Core Linux"></category><category term="X Terminal"></category><category term="X Window System"></category></entry><entry><title>Conky for Ubuntu</title><link href="http://jeffskinnerbox.me/posts/2014/May/12/conky-for-ubuntu/" rel="alternate"></link><updated>2014-05-12T12:42:00-04:00</updated><author><name>"Jeff Irland"</name></author><id>tag:jeffskinnerbox.me,2014-05-12:posts/2014/May/12/conky-for-ubuntu/</id><summary type="html">&lt;p&gt;Over a Year ago, I created a &lt;a href="http://jeffskinnerbox.me/posts/2012/Nov/02/conky-for-the-raspberry-pi/"&gt;Conky configuration file for the Raspberry Pi&lt;/a&gt;.
+</summary><category term="Tiny Core Linux"></category><category term="X Terminal"></category><category term="X Window System"></category><category term="Window Manager"></category></entry><entry><title>Conky for Ubuntu</title><link href="http://jeffskinnerbox.me/posts/2014/May/12/conky-for-ubuntu/" rel="alternate"></link><updated>2014-05-12T12:42:00-04:00</updated><author><name>"Jeff Irland"</name></author><id>tag:jeffskinnerbox.me,2014-05-12:posts/2014/May/12/conky-for-ubuntu/</id><summary type="html">&lt;p&gt;Over a Year ago, I created a &lt;a href="http://jeffskinnerbox.me/posts/2012/Nov/02/conky-for-the-raspberry-pi/"&gt;Conky configuration file for the Raspberry Pi&lt;/a&gt;.
 I final got around to tailoring it for my desktop Linux box.
 You find both version on &lt;a href="https://github.com/jeffskinnerbox/dotconky"&gt;GitHub&lt;/a&gt;.
 Screen shot is at the bottom.&lt;/p&gt;
@@ -1395,7 +1591,7 @@ TEXT
 including its own desktop environment,
 all the while using the first computer’s screen and keyboard.
 This sounds like multiple X Servers running.
-One for the monitor and the other managing a graphics window as if it were a second monitor. 
+One for the monitor and the other managing a graphics window as if it were a second monitor.
 Fortunately, X Window System provides tools to do exactly this.
 This has been done by designing a X Client to emulate an X Server that then provides display services to other clients.
 The open-source clients that do this are called &lt;code&gt;Xnest&lt;/code&gt; and &lt;code&gt;Xephyr&lt;/code&gt;.
@@ -1416,13 +1612,13 @@ This can be load with the following:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Xnest&lt;/code&gt; is a Display Server implementing the X11 display server protocol that outputs to a window,
 as apposed to a X display.
 &lt;code&gt;Xnest&lt;/code&gt; is a standard part of the XFree86 and X.org X Servers,
-and provides an X Server that runs inside a standard X Window. 
+and provides an X Server that runs inside a standard X Window.
 In other words, &lt;code&gt;Xnest&lt;/code&gt; opens a window that works like another screen in which the user can open windows, etc.
 At the X Protocol level, &lt;code&gt;Xnest&lt;/code&gt; works like a X Client of the X Server hosting the window,
 and as a X Server with respect to the X Window Manager
 (i.e. applications that opens windows) within the &lt;code&gt;Xnest&lt;/code&gt; session.
 Therefore, &lt;code&gt;Xnest&lt;/code&gt; can be used to run a virtual desktop of another computer
-(which is running X Window) within a window. &lt;/p&gt;
+(which is running X Window) within a window.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Xnest&lt;/code&gt; might come pre-installed in the Ubuntu X Window System
 but it's easy to install and is &lt;a href="http://box.matto.nl/xnest.html"&gt;easy to use&lt;/a&gt;.
 Simply install the package.  No special configuration is require.&lt;/p&gt;
@@ -1533,7 +1729,7 @@ port=177
 or reboot your system so the changes take effect.
 To log into into my Linux system (aka &lt;code&gt;desktop&lt;/code&gt;),
 from the same system as if they are remote to each other,
-I used the following command works well. &lt;/p&gt;
+I used the following command works well.&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;Xephyr :3 -ac -screen 1280x1024 -br -reset -terminate -query desktop 2&amp;gt; /dev/null &amp;amp;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1556,7 +1752,7 @@ Appears &lt;code&gt;Xephyr&lt;/code&gt; is the way to go.&lt;/p&gt;
 &lt;li&gt;&lt;a href="http://forums.opensuse.org/showthread.php/466709-Starting-a-Remote-X-session-using-XDMCP"&gt;Starting a Remote X session using XDMCP&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://askubuntu.com/questions/11189/how-to-use-xdmcpgdm-and-xnest"&gt;How to use XDMCP+GDM and Xnest?&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://wiki.ubuntu.com/xdmcp"&gt;xdmcp&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="X Window System"></category><category term="Xnest"></category><category term="Xephyr"></category></entry><entry><title>HowTo: Linux Maintenance and Filesystem Hygiene</title><link href="http://jeffskinnerbox.me/posts/2014/Mar/31/howto-linux-maintenance-and-filesystem-hygiene/" rel="alternate"></link><updated>2014-03-31T21:23:00-04:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2014-03-31:posts/2014/Mar/31/howto-linux-maintenance-and-filesystem-hygiene/</id><summary type="html">&lt;p&gt;What kind of maintenance does one need to do on an Ubuntu / Debian / Raspberry Pi Linux distributions?
+&lt;/ul&gt;</summary><category term="X Window System"></category><category term="Window Manager"></category><category term="Xnest"></category><category term="Xephyr"></category></entry><entry><title>HowTo: Linux Maintenance and Filesystem Hygiene</title><link href="http://jeffskinnerbox.me/posts/2014/Mar/31/howto-linux-maintenance-and-filesystem-hygiene/" rel="alternate"></link><updated>2014-03-31T21:23:00-04:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2014-03-31:posts/2014/Mar/31/howto-linux-maintenance-and-filesystem-hygiene/</id><summary type="html">&lt;p&gt;What kind of maintenance does one need to do on an Ubuntu / Debian / Raspberry Pi Linux distributions?
 Defrag the drive, clean your registry, update antivirus, etc. just like you need to in Windows?
 None of this is needed in Linux but there is some recommend filesystem hygiene you should be doing.&lt;/p&gt;
 &lt;h2&gt;Gather Information&lt;/h2&gt;
@@ -3496,7 +3692,7 @@ My custom domain name is &lt;code&gt;www.jeffskinnerbox.me&lt;/code&gt;. To do t
 &lt;/ol&gt;
 &lt;h3&gt;Closing&lt;/h3&gt;
 &lt;p&gt;All in all, I am very pleased with Jekyll so far. It did take a little longer than I’d have thought to migrate this blog as it is from WordPress, while also preserving the site’s characteristics, but it didn’t take too long and I love the results.
-I doubt I would ever want to look back! &lt;/p&gt;</summary><category term="IPython"></category><category term="Jekyll"></category><category term="Bootstrap"></category><category term="Blog"></category></entry><entry><title>Building My Linux Box...The Implementation</title><link href="http://jeffskinnerbox.me/posts/2013/Aug/01/building-my-linux-box-the-implementation/" rel="alternate"></link><updated>2013-08-01T00:01:00-04:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2013-08-01:posts/2013/Aug/01/building-my-linux-box-the-implementation/</id><summary type="html">&lt;p&gt;&lt;img class="img-rounded" style="margin: 0px 8px; float: left" alt="Ubuntu 13.04 Raring Ringtail" src="/images/ubuntu-13-04-raring-ringtail.jpg" width="15%" height="15%" /&gt;
+I doubt I would ever want to look back! &lt;/p&gt;</summary><category term="IPython"></category><category term="Jekyll"></category><category term="Bootstrap"></category><category term="Blog"></category></entry><entry><title>Building My Linux Box...The Implementation</title><link href="http://jeffskinnerbox.me/posts/2013/Aug/01/building-my-linux-box-the-implementation/" rel="alternate"></link><updated>2013-08-01T00:01:00-04:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2013-08-01:posts/2013/Aug/01/building-my-linux-box-the-implementation/</id><summary type="html">&lt;p&gt;&lt;img class="img-rounded" style="margin: 0px 8px; float: left" alt="Ubuntu 13.04 Raring Ringtail" src="/images/ubuntu-13-04-raring-ringtail.jpg" width="8%" height="8%" /&gt;
 In an earlier post, I outlined &lt;a href="http://jeffskinnerbox.me/posts/2013/Apr/28/building-my-linux-box-the-plan/"&gt;my plan for building a Linux Box&lt;/a&gt;.  Here I will post how that plan was ultimately implemented. Life has taught me that all good planning is ultimately undone, and at some point, you must improvise.  That has also proven true for this quest to up grade my computation.  Specifically:
 &lt;ul&gt;
 &lt;ul&gt;
@@ -3571,8 +3767,9 @@ sudo dpkg -i logitechmediaserver_7.8.1~1411629722_all.deb
 should be stored in an online service a while back,
 something that doesn't sit well with me, I prefer to keep them on my LAN.
 Consider this to &lt;a href="http://www.instructables.com/id/Wall-Mounted-SqueezePlayer-with-Raspberry-Pi/?ALLSTEPS"&gt;roll your own Squeezebox with a Raspberry Pi&lt;/a&gt;.&lt;/p&gt;
-&lt;h2&gt;Configuring Samsung SCX-4521F Printer/Scanner&lt;/h2&gt;
+&lt;h2&gt;Configuring Printers&lt;/h2&gt;
 
+&lt;h3&gt;Configuring Samsung SCX-4521F Printer/Scanner&lt;/h3&gt;
 &lt;p&gt;When it comes to printers and scanners, Ubuntu advices that you should simply plug it in and try!
 Ubuntu claims that if it's a newer model USB scanner / printer,
 it is likely that it will work immediately without any further driver or software installations.
@@ -3674,6 +3871,22 @@ Given this, I proceeded to using &lt;a href="http://linux.about.com/library/cmd/
 xsane is a X Window application and produces it output in &lt;a href="http://en.wikipedia.org/wiki/Netpbm_format"&gt;PNM format&lt;/a&gt;.
 You can convert this format to PDF (and many other formats) via the utility &lt;a href="http://www.imagemagick.org/script/convert.php``"&gt;&lt;code&gt;convert&lt;/code&gt;&lt;/a&gt;
 (e.g. &lt;code&gt;convert outfile.pnm outfile.pdf&lt;/code&gt;).&lt;/p&gt;
+&lt;h3&gt;Configuring HP LaserJet P2035 for Google Cloud Printing&lt;/h3&gt;
+&lt;p&gt;I later abandoned my Samsung printer for the HP LaserJet P2035;
+a basic black &amp;amp; white workhorse.
+Keeping the multipurpose Samsung working was just too much of a drain on my time.&lt;/p&gt;
+&lt;p&gt;To get this printer working, I choose to use it with &lt;a href="http://www.google.com/cloudprint/learn/#utm_campaign=en&amp;amp;utm_source=en-ha-ww-sk&amp;amp;utm_medium=ha&amp;amp;utm_term=%2Bgoogle%20%2Bcloud%20%2Bprint"&gt;Google Cloud Print&lt;/a&gt;.
+To do this, for the most part, I followed the post
+"&lt;a href="http://askubuntu.com/questions/158874/how-can-i-easily-set-up-a-google-cloud-print-printer"&gt;How can I easily set up a Google Cloud Print printer?&lt;/a&gt;"
+to get my Linux box configured with the Google Cloud Print service.
+I then used "&lt;a href="http://askubuntu.com/questions/172716/how-can-i-import-my-printers-into-google-cloud-print"&gt;How can I import my printer(s) into Google Cloud Print?&lt;/a&gt;"
+to get my printer established within Google Cloud Print.&lt;/p&gt;
+&lt;p&gt;With Google Cloud Print, I'm not only able to print from my Linux desktop,
+but from any Chrome browser when I'm logged in to my Google account.
+So I can print from my Chromebook, Android Phone, etc.
+The next step was to share this print with others,
+and that can be done by following this posting:
+&lt;a href="https://support.google.com/chromebook/answer/2541899?hl=en-GB&amp;amp;rd=1"&gt;Share your printer&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;iPod Support&lt;/h2&gt;
 
 &lt;p&gt;Ubuntu comes with &lt;a href="https://wiki.gnome.org/Apps/Rhythmbox"&gt;Rhythmbox&lt;/a&gt; as its music playing application and can be used to synch with a iPod.
@@ -4033,7 +4246,7 @@ sudo mdadm --detail --scan &amp;gt;&amp;gt; /etc/mdadm/mdadm.conf
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</summary><category term="Linux"></category><category term="Ubuntu"></category><category term="Squeeze Box"></category><category term="Harmony Remote"></category><category term="Chrome"></category><category term="Xbindkeys"></category><category term="KeePass"></category><category term="Wine"></category><category term="RAID"></category></entry><entry><title>GNU Radio and Gqrx SDR Receiver</title><link href="http://jeffskinnerbox.me/posts/2013/Jul/08/gnu-radio-and-gqrx-srd-receiver/" rel="alternate"></link><updated>2013-07-08T00:01:00-04:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2013-07-08:posts/2013/Jul/08/gnu-radio-and-gqrx-srd-receiver/</id><summary type="html">&lt;p&gt;&lt;a href="http://gnuradio.org/redmine/projects/gnuradio/wiki/GNURadioCompanion"&gt;
+</summary><category term="Linux"></category><category term="Ubuntu"></category><category term="Squeeze Box"></category><category term="Harmony Remote"></category><category term="Chrome"></category><category term="Xbindkeys"></category><category term="KeePass"></category><category term="Wine"></category><category term="RAID"></category><category term="Google CLoud Print"></category></entry><entry><title>GNU Radio and Gqrx SDR Receiver</title><link href="http://jeffskinnerbox.me/posts/2013/Jul/08/gnu-radio-and-gqrx-srd-receiver/" rel="alternate"></link><updated>2013-07-08T00:01:00-04:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2013-07-08:posts/2013/Jul/08/gnu-radio-and-gqrx-srd-receiver/</id><summary type="html">&lt;p&gt;&lt;a href="http://gnuradio.org/redmine/projects/gnuradio/wiki/GNURadioCompanion"&gt;
     &lt;img class="img-rounded" style="margin: 0px 8px; float: left" alt="grc logo" src="/images/gnu_radio_logo.png" width="256" height="256" /&gt;
 &lt;/a&gt;
 In &lt;a href="http://jeffskinnerbox.wordpress.com/2013/05/26/rtl-sdr-software-defined-radio-sdr-for-20/"&gt;my last post&lt;/a&gt;, I was using the &lt;a href="http://gnuradio.org/redmine/projects/gnuradio/wiki/Hardware"&gt;RTL2832 TV tuner&lt;/a&gt; dongle to get a simple &lt;a href="http://en.wikipedia.org/wiki/Software-defined_radio"&gt;Software Defined Radio (SDR)&lt;/a&gt; operational.  I wanted to use the &lt;a href="http://sdrsharp.com/"&gt;SDR#&lt;/a&gt; program as my receiver but found that the MS Windows tool would not work and so I targeted &lt;a href="http://www.oz9aec.net/index.php/gnu-radio/gqrx-sdr"&gt;Gqrx&lt;/a&gt; as an alternative. Gqrx is dependent on the &lt;a href="http://gnuradio.org/redmine/projects/gnuradio/wiki"&gt;GNU Radio&lt;/a&gt;.  So in this post, I plan to get Gqrx and GNU Radio up and operational with the &lt;a href="http://rtlsdr.org/"&gt;RTL-SDR dongle&lt;/a&gt;.  I spend some time with other tools to help further verify (with mixed success) that GNU Radio is working.&lt;/p&gt;
@@ -4347,7 +4560,7 @@ If the system is completely locks up, or &lt;a href="http://www.linuxjournal.com
 If your get "&lt;code&gt;CONFIG_MAGIC_SYSRQ=y"&lt;/code&gt;, then its enabled on your kernel.&lt;/p&gt;
 &lt;p&gt;When running a kernel with SysRq compiled in, &lt;code&gt;/proc/sys/kernel/sysrq&lt;/code&gt; controls the functions allowed to be invoked via the SysRq key.  If the file contains "&lt;code&gt;1&lt;/code&gt;", that means that every possible SysRq request is allowed. See &lt;a href="http://lxr.linux.no/linux/Documentation/sysrq.txt"&gt;here&lt;/a&gt; for more on the &lt;code&gt;/proc/sys/kernel/sysrq&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;To actually reboot the machine there is a well know key sequence to follow: REISUB (or REISUO if you want to turn off the system instead of reboot).  Basically, if you keep pressed AltGR + SysRq + R and then while you keep pressed AltGR + SysRq you press E, I, S, U, B with about 1 second between each letter (do not type it fast). Your system will reboot. This  is a safer alternative to just cold rebooting the computer.&lt;/p&gt;
-&lt;p&gt;Mnemonic for REISUB is &lt;strong&gt;R&lt;/strong&gt;eboot &lt;strong&gt;E&lt;/strong&gt;ven &lt;strong&gt;I&lt;/strong&gt;f  &lt;strong&gt;S&lt;/strong&gt;ystem &lt;strong&gt;U&lt;/strong&gt;tterly &lt;strong&gt;B&lt;/strong&gt;roken, and the keys pressed do the following:
+&lt;p&gt;Mnemonic for REISUB is &lt;strong&gt;R&lt;/strong&gt;eboot &lt;strong&gt;E&lt;/strong&gt;ven &lt;strong&gt;I&lt;/strong&gt;f  &lt;strong&gt;S&lt;/strong&gt;ystem &lt;strong&gt;U&lt;/strong&gt;tterly &lt;strong&gt;B&lt;/strong&gt;roken, so while pressing &lt;code&gt;AltGR + SysRq&lt;/code&gt;, press the following  keys:
 &lt;p style="padding-left:60px;"&gt;
 &lt;ul&gt;
 &lt;ul&gt;
@@ -4795,7 +5008,7 @@ x, y &lt;span style="color: #555555"&gt;=&lt;/span&gt; &lt;span style="color: #3
 CS &lt;span style="color: #555555"&gt;=&lt;/span&gt; &lt;span style="color: #336666"&gt;map&lt;/span&gt;&lt;span style="color: #555555"&gt;.&lt;/span&gt;contour(x, y, wave &lt;span style="color: #555555"&gt;+&lt;/span&gt; mean, &lt;span style="color: #FF6600"&gt;15&lt;/span&gt;, linewidths&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #FF6600"&gt;1.5&lt;/span&gt;)
 
 plt&lt;span style="color: #555555"&gt;.&lt;/span&gt;show()
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="Linux"></category><category term="Raspberry Pi"></category><category term="X Window System"></category></entry><entry><title>The Simplest XBee Network</title><link href="http://jeffskinnerbox.me/posts/2013/Mar/20/the-simplest-xbee-network/" rel="alternate"></link><updated>2013-03-20T00:01:00-04:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2013-03-20:posts/2013/Mar/20/the-simplest-xbee-network/</id><summary type="html">&lt;p&gt;&lt;a href="http://jeffskinnerbox.files.wordpress.com/2013/03/simplest-xbee-network.jpg"&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="Linux"></category><category term="Raspberry Pi"></category><category term="X Window System"></category><category term="Window Manager"></category></entry><entry><title>The Simplest XBee Network</title><link href="http://jeffskinnerbox.me/posts/2013/Mar/20/the-simplest-xbee-network/" rel="alternate"></link><updated>2013-03-20T00:01:00-04:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2013-03-20:posts/2013/Mar/20/the-simplest-xbee-network/</id><summary type="html">&lt;p&gt;&lt;a href="http://jeffskinnerbox.files.wordpress.com/2013/03/simplest-xbee-network.jpg"&gt;
     &lt;img class="img-rounded" style="margin: 0px 8px; float: left" alt="SAMSUNG" src="/images/simplest-xbee-network.jpg?w=500" width="250" height="188" /&gt;
 &lt;/a&gt;
 As I continue my investigation of the XBee radio, I'm impressed by the functionality compressed into the the small package, but I have been frustrated by one fact.  It has been a hard road to understand the device and to make it do something useful.  There is a confusing mass of commands and options that can be used.  To make things more difficult for me, it is my nature to study my subject at depth, and understand it well, before I commit myself to a project.  The XBee radios are proving to be a deep subject.  I have been struggling to get a simple 802.15.4 network up and working, at least one that is sufficiently complex to be useful for my needs.&lt;/p&gt;
@@ -6143,7 +6356,7 @@ Much of what is provided here was lifted from the following sources:
     &lt;li&gt;&lt;a href="http://unicorn.mcmaster.ca/teaching/cygwin/cygwin-x-user_guide.pdf"&gt;Cygwin/X User’s Guide&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="https://secweb.cs.odu.edu/~zeil/cs252/website/Lectures/xwinlaunch/page/xwinlaunch.html"&gt;The X Window System&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/ul&gt;&lt;/p&gt;</summary><category term="Raspberry Pi"></category><category term="Linux"></category><category term="X Window System"></category></entry><entry><title>Setting up Git for Arduino and Raspberry Pi Development</title><link href="http://jeffskinnerbox.me/posts/2012/Sep/28/setting-up-git-for-arduino-and-raspberry-pi%20development/" rel="alternate"></link><updated>2012-09-28T00:01:00-04:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2012-09-28:posts/2012/Sep/28/setting-up-git-for-arduino-and-raspberry-pi development/</id><summary type="html">&lt;p&gt;For my future projects, I plan to do a combination of Arduino and RPi development.  The development of the Arduino code will be on my MS Windows PC and the RPi solution will be developed naively within the RPi Linux environment   Given this distributed environment (and my ability to bungle things), I can foresee  potential problems maintain good source code control.  To deal with this, the combination of &lt;a href="http://git-scm.com/"&gt;git&lt;/a&gt; and &lt;a href="https://github.com/"&gt;gethub&lt;/a&gt; seems the right way to proceed .... after all it has worked for the distributed &lt;a href="http://git-scm.com/book/en/Getting-Started-A-Short-History-of-Git"&gt;Linux development community&lt;/a&gt;.
+&lt;/ul&gt;&lt;/p&gt;</summary><category term="Raspberry Pi"></category><category term="Linux"></category><category term="X Window System"></category><category term="Window Manager"></category></entry><entry><title>Setting up Git for Arduino and Raspberry Pi Development</title><link href="http://jeffskinnerbox.me/posts/2012/Sep/28/setting-up-git-for-arduino-and-raspberry-pi%20development/" rel="alternate"></link><updated>2012-09-28T00:01:00-04:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2012-09-28:posts/2012/Sep/28/setting-up-git-for-arduino-and-raspberry-pi development/</id><summary type="html">&lt;p&gt;For my future projects, I plan to do a combination of Arduino and RPi development.  The development of the Arduino code will be on my MS Windows PC and the RPi solution will be developed naively within the RPi Linux environment   Given this distributed environment (and my ability to bungle things), I can foresee  potential problems maintain good source code control.  To deal with this, the combination of &lt;a href="http://git-scm.com/"&gt;git&lt;/a&gt; and &lt;a href="https://github.com/"&gt;gethub&lt;/a&gt; seems the right way to proceed .... after all it has worked for the distributed &lt;a href="http://git-scm.com/book/en/Getting-Started-A-Short-History-of-Git"&gt;Linux development community&lt;/a&gt;.
 &lt;h2&gt;Git on MS Windows&lt;/h2&gt;
 The first thing I did was to set up git within my MS Windows PC.  Given that &lt;a href="http://jeffskinnerbox.wordpress.com/2012/09/09/raspberry-pi-has-arrived/"&gt;I installed Cygwin&lt;/a&gt; when setting up the RPi, that is where I returned to install git.  Therefore, I plan to use git within the Cygwin environment on my PC and not within MS Windows per say.  &lt;a href="http://git-scm.com/downloads"&gt;This could be done&lt;/a&gt;, but my approach allows me to learn git commands once since, Cygwin is a Linux-like environment, everything should look and operate the same.&lt;/p&gt;
 &lt;p&gt;To accomplish this I follow the instructions outline in &lt;a href="http://www.celinio.net/techblog/?p=818"&gt;Installing Git on Cygwin&lt;/a&gt;.  These instructions are very straight forward.  The challenge was in initializing git for my first project, at least it was a challenge for me since git is new tool for me and Cygwin didn't always cooperate.  I had to address this the old fashion way .... read the documentation and trouble logs (vs. doing a web search for someones web post with instructions).  All the important secrets of git can be found widely dispersed and buried deep withing these web sites: &lt;a href="http://git-scm.com/documentation"&gt;Git Documentation&lt;/a&gt; and &lt;a href="http://gitref.org/index.html"&gt;Git Reference&lt;/a&gt;.  Source information from trouble logs will be listed below.&lt;/p&gt;
