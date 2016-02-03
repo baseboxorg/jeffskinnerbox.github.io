@@ -1,5 +1,5 @@
 created: 20140916014247854
-modified: 20150217025807573
+modified: 20160130160720310
 tags: Projects
 title: Laser Scanner, Laser Rangefinders, and Laser Writing
 type: text/vnd.tiddlywiki
@@ -31,6 +31,7 @@ type: text/vnd.tiddlywiki
 ** [[Sparkfun LIDAR Lite|https://www.sparkfun.com/products/13167?utm_source=SparkFun+Customer+Newsletter&utm_campaign=087a09e4d0-RegCustomerNews1-23-15&utm_medium=email&utm_term=0_fa5287abaf-087a09e4d0-7212537]]
 * [[TeraRanger One|http://www.teraranger.com/product/teraranger-one-distance-sensor-for-drones-and-robotics/]]
 * [[ToF Range Finder Sensor|https://www.sparkfun.com/products/12785]]
+* [[How to Use Lidar with the Raspberry Pi|http://hackaday.com/2016/01/22/how-to-use-lidar-with-the-raspberry-pi/]]
 
 !!Laser Writing
 

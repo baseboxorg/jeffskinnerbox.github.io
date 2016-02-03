@@ -1,5 +1,6 @@
 
 Some simple weather station setups:
+* [Weather Station – DHT11, MQTT, Node-RED, Google Chart, Oh My!](http://www.internetoflego.com/weather-station-dht11-mqtt-node-red-google-chart-oh-my/)
 * [Hyper-local Weather Dashboard: Wunderground + Pi Sense HAT](https://github.com/InitialState/wunderground-sensehat/wiki)
 * [How to Monitor Room Temperature With a Raspberry Pi](https://www.jeremymorgan.com/tutorials/raspberry-pi/monitor-room-temperature-raspberry-pi/)
 * [Make a Weather Station With a Raspberry Pi 2](https://www.jeremymorgan.com/tutorials/raspberry-pi/how-to-weather-station-raspberry-pi/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed:+JeremyMorganTutorials+(Jeremy)
@@ -25,6 +26,10 @@ Sample Application with Backbone.js, Twitter Bootstrap, Node.js, Express, and Mo
 [PiClock – Time and Weather Information Overload](http://hackaday.com/2015/06/10/piclock-time-and-weather-information-overload/)
 [Weather Underground APIs](http://www.wunderground.com/weather/api)
 [National Digital Forecast Database (NDFD) Simple Object Access Protocol (SOAP) Web Service](http://graphical.weather.gov/xml/)
+
+[Mockable.io](https://www.mockable.io/#)
+is a simple configurable service to mock out RESTful API or SOAP web-services.
+This online service allows you to quickly define REST API or SOAP endpoints and have them return JSON or XML data.
 
 I have considered purchasing or building my own home weather station.
 I would make it part of my larger plan to instrument my home for automation and monitoring.

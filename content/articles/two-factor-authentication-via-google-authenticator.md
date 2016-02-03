@@ -1,7 +1,7 @@
 Title: Two-Factor Authentication via Google Authenticator
 Date: 2015-11-28 10:16
 Category: Software
-Tags: Security, Two-Factor Authentication
+Tags: Security, Two-Factor Authentication, Google Authenticator
 Slug: two-factor-authentication-via-google-authenticator
 Author: Jeff Irland
 Image: google-authenticator.png

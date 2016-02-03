@@ -1,3 +1,5 @@
+What about [Sublime](https://www.sublimetext.com/) and [Atom](https://atom.io/)
+
 An integrated development environment (IDE) is a programming environment
 that has been packaged as an application program,
 typically consisting of a code editor, a compiler, a debugger,
@@ -37,6 +39,10 @@ See [vim + tmux - OMG!Code][03] for a good video on how these two tools can work
 * [iTerm2  tmux][11] is an integration to [overcome some of the short comings][12]
 of iTerm2 window splits.
     * [Tmuxintegration][17]
+
+# Using the Right Font
+* [Programming Fonts](http://programmingfonts.org/)
+* [Programming Fonts Tester](http://app.programmingfonts.org/)
 
 
 

@@ -8,6 +8,8 @@ Author: Jeff Irland
 Image: cheat-sheet.jpg
 Summary: bla bla bla bla bla bla
 
+https://gigaom.com/2012/07/09/10-google-chromebook-tips-tricks-and-tweaks/
+
 Switching from a PC to a Chromebook comes with a few adjustments.
 For one, you’ll need to have access to a WiFi signal for most Chrome apps to function.
 Also, the Chromebook doesn't have a standard PC keyboard (e.g. no Page Up / Down keys).

@@ -9,7 +9,7 @@ Image: toshiba-chromebook-linux.jpg
 Summary: The price of the Chromebook makes it a very attractive, assuming you can get your favorite tools working on it.  Well, you can install Linux, along with all the tools Linux brings to your development needs. This post is a somewhat disjointed dump of things that I’ve done to create a comfortable working envirnment on a Chromebook.
 
 <a href="http://www.pcmag.com/article2/0,2817,2470486,00.asp">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" title="This Chromebook 2 is thin and light, which is pretty impressive, considering it has a 13.6-inch HD display. The plastic chassis measures just 0.76 by 12.76 by 8.4 inches (HWD) and weighs only 2.95 pounds." alt="chromebook picture" src="{filename}/images/take_a_picture.png" width="500" height="500" />
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="This Chromebook 2 is thin and light, which is pretty impressive, considering it has a 13.6-inch HD display. The plastic chassis measures just 0.76 by 12.76 by 8.4 inches (HWD) and weighs only 2.95 pounds." alt="chromebook picture" src="{filename}/images/toshiba-chromebook-linux.jpg" width="250" height="250" />
 </a>
 I wanted to get a Linux laptop for some lightweight development
 and remote login into my home Linux box
@@ -75,8 +75,6 @@ Google has provided a recommendation list at the sites
 "[10 Top Tweaks and Tips for Chromebook][27]",
 "[Chromebook tips and tricks: Getting the most out of your Chrome OS machine][29]",
 "[15 essential Chrome OS keyboard shortcuts][30]".
-
-https://gigaom.com/2012/07/09/10-google-chromebook-tips-tricks-and-tweaks/
 
 ## Working with Chromebook / Chrome OS
 Switching from a PC to a Chromebook comes with a few adjustments.
@@ -184,6 +182,8 @@ This is literally as simple as typing `xiwi -t gimp` at the Linux command line.
 * [Getting Started with your Chromebook][35]
 * [100 Best Chromebook Tips, Tricks and Time Savers][36]
 * [11 tips to get the most out of your Chromebook][50]
+
+https://gigaom.com/2012/07/09/10-google-chromebook-tips-tricks-and-tweaks/
 
 ## Chrome://Commands
 There are several features that are not available from the Chrome Menu,

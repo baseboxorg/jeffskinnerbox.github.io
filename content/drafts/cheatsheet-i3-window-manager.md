@@ -17,7 +17,7 @@ Summary: The i3 tiling window manager is a nice modern tiling window manager tha
  You can do almost everything from the keyboard, or mix up keyboard and mouse.
  i3 is highly configruable and not dogmatic about tiling geometry and lets you have it your way.
 
-# Install i3
+ ## Install i3
 Install i3, then log out,
 and you log back in change your window manger as i3 from your display manager screen.
 Here is what you should install:
@@ -35,7 +35,7 @@ If you choose the `Alt` keep in mind that you could conflict
 with a lot of application keybindings and commands, so choose `Win` is a good option.
 On a Chromebook, there is no `Win` key, so you best bet is the `Alt`.
 
-# Installing i3 Extentions
+## Installing i3 Extentions
 When i3 is installed,
 the background image is whatever has been set for your X11 root window.
 You need an external app to set a background image.
@@ -50,7 +50,7 @@ exec --no-startup-id feh --bg-scale /path/to/picture
 * `--no-startup-id` disables the startup notification so you don't have an hourglass in your way for 60 seconds.
 * `--bg-scale` makes your image fill the screen, and does not preserve the aspect ratio.
 
-# Tools to Help Discover Key Names
+## Tools to Help Discover Key Names
 Keynames are not always consistent on keyboards,
 so you can find the correct keynames with the `xev` command
 (contained in the `x11-utils` package).
@@ -79,7 +79,7 @@ KeyRelease event, serial 32, synthetic NO, window 0x1000001,
   .
 ```
 
-# Sending Messages to i3 Window Manager
+## Sending Messages to i3 Window Manager
 [i3-msg][02] send messages to i3 window manager
 
 You can do such things as start applications on specific workspaces when i3 starts.
@@ -100,12 +100,12 @@ i3-msg reload
 i3-msg exit
 ```
 
-# Customizing i3status Bar
+## Customizing i3status Bar
 i3’s default status bar, encode in the file `/etc/i3status.conf`,
 is displayed by a tool called [i3status][03].
 Your customized status bar is located in `~/.i3status.conf`.
 
-# Start Applications in Workspaces
+## Start Applications in Workspaces
 start applications on specific workspaces when i3 starts
 http://unix.stackexchange.com/questions/96798/i3wm-start-applications-on-specific-workspaces-when-i3-starts
 
@@ -118,7 +118,7 @@ http://i3wm.org/docs/user-contributed/conky-i3bar.html
 http://sagar.se/using-conky-with-i3.html
 http://blog.kaiserapps.com/2014/02/my-killer-i3-setup.html
 
-# Basic Layout Management
+## Basic Layout Management
 define containers
 
 Every time you open an application it fills the available space.
@@ -154,7 +154,7 @@ To make a tilled window a floater, `$mod+Shift+Space`.
 
 Drag and resize floating window using `$mod+left/right mouse button`.
 
-# Scratchpad
+## Scratchpad
 Scratchpad lets you hide open applications.
 For example, if you open up a text document by clicking the file icon in nautilus,
 in accordance to the tilling window manager,
@@ -168,47 +168,47 @@ If you need to bring back applications from scratch, you can press `$mod+–`.
 These applications will open in floating mode.
 Therefore, to move it back to tilling mode, you can press `$mod+Shift+Space` keys.
 
-# Making Changes to Configuration
+## Making Changes to Configuration
 For most `~/.i3/config` changes, press `$mod+Shift+c` to reload the file and activate changes.
 If that doesn't work then `$mod+Shift+r` restarts i3,
 preserving your layout and open applications.
 To load your new background image you need to log out of i3 and log back in.
 `$mod+Shift+e` exits i3, and then you log back in the usual way with your Linux display manager.
 
-# Auto-start Applications
+## Auto-start Applications
 At launch you configure i3 to run a script to detect/setup
 a second display if attached (using [`xrandr`][04]), open a terminal,
 and run any extra commands as determined by $HOSTNAME:
 
-# Saving the Screen layout
+## Saving the Screen layout
 http://i3wm.org/docs/layout-saving.html
 http://www.slackword.net/?p=733
 
 On a Chromebook
 For a proper Delete key, usei `bindsym $mod+BackSpace exec xdotool key Delete` in your i3 config
 
-# Cheatsheets
+## Cheatsheets
 http://i3wm.org/docs/refcard.pdf
 http://www.cheatography.com/davechild/cheat-sheets/i3-window-manager/
 
-## General
-* `startx i3` start i3 from command line
-* `$mod+<Enter>` open a terminal
-* `$mod+d` open dmenu (text based program launcher)
-* `$mod+r` resize mode (<Esc> or <Enter> to leave resize mode)
-* `$mod+shift+e` exit i3
-* `$mod+shift+r` restart i3 in place
-* `$mod+shift+c` reload config file
-* `$mod+shift+q` kill window (does normal close if application supports it)
+* General
+    * `startx i3` start i3 from command line
+    * `$mod+<Enter>` open a terminal
+    * `$mod+d` open dmenu (text based program launcher)
+    * `$mod+r` resize mode (<Esc> or <Enter> to leave resize mode)
+    * `$mod+shift+e` exit i3
+    * `$mod+shift+r` restart i3 in place
+    * `$mod+shift+c` reload config file
+    * `$mod+shift+q` kill window (does normal close if application supports it)
 
-## Windows
-* `$mod+w` tabbed layout
-* `$mod+e` vertical and horizontal layout (switches to and between them)
-* `$mod+s` stacked layout
-* `$mod+f` fullscreen
+* Windows
+    * `$mod+w` tabbed layout
+    * `$mod+e` vertical and horizontal layout (switches to and between them)
+    * `$mod+s` stacked layout
+    * `$mod+f` fullscreen
 
-## Moving Windows
-* `$mod+shift+<direction key>` Move window in _direction_ (depends on direction keys settings)
+* Moving Windows
+    * `$mod+shift+<direction key>` Move window in _direction_ (depends on direction keys settings)
 
 
 

@@ -18,7 +18,36 @@ what about ethtool, netifd, nm-tool, nmcli, nm-online
 * Fun with ethtool - http://www.linuxjournal.com/content/fun-ethtool
 *  Stop using telnet to test network connectivity - http://scotte.github.io/2015/03/stop-using-telnet/
 
-The NetworkManager daemon attempts to make networking configuration and operation as painless and automatic as possible by managing the primary network connection and other network interfaces, like Ethernet, WiFi, and Mobile Broadband devices. NetworkManager will connect any network device when a connection for that device becomes available, unless that behavior is disabled. Information about networking is exported via a D-Bus interface to any interested application, providing a rich API with which to inspect and control network settings and operation.
+# NetworkManager
+Network Manager aims for Network Connectivity which "Just Works".
+The computer should use the wired network connection when it's plugged in,
+but automatically switch to a wireless connection when the user unplugs it
+and walks away from the desk.
+Likewise, when the user plugs the computer back in,
+the computer should switch back to the wired connection.
+The user should, most times, not even notice that their connection has been managed for them;
+they should simply see uninterrupted network connectivity.
+
+It is the [NetworkManager][51] daemon attempts to make networking configuration
+and operation as painless and automatic as possible
+by managing the primary network connection and
+other network interfaces, like Ethernet, WiFi, and Mobile Broadband devices.
+NetworkManager will connect any network device when a connection for that device becomes available,
+unless that behavior is disabled.
+If using DHCP, NetworkManager is intended to replace [default routes][52],
+obtain IP addresses from a [DHCP server][53], and change [name servers][54] whenever it sees fit.
+In effect, the goal of NetworkManager is to make networking Just Work.
+
+**WARNING:** [Iptables and NetworkManager can conflict][47].
+NetworkManager and iptables have opposite aims.
+Iptables aims to keep any questionable network traffic out.
+NetworkManager aims to keep you connected at all times.
+Therefore if you want security all the time,
+run iptables at boot time.
+If you want security some of the time then NetworkManager might be the right choice.
+Network Manager is used by default in most Linux desktop environments nowadays,
+but it can be disabled (see ["How to disable Network Manager on Linux"][55]),
+if you prefer the old plain network service..
 
 ####################
 * also see
@@ -27,7 +56,13 @@ The NetworkManager daemon attempts to make networking configuration and operatio
     * [Raspberry Pi – control your network traffic with Nagios](https://developer-blog.net/en/hardware-2/raspberry-pi-control-your-network-traffic-with-nagios/)
     * [Raspberry Pi and Distributed Network Monitoring: Iperf](https://netbeez.net/2014/08/19/raspberry-pi-and-distributed-network-monitoring-iperf/)
     * [How to Build a Portable Hacking Station with a Raspberry Pi and Kali Linux](http://lifehacker.com/how-to-build-a-portable-hacking-station-with-a-raspberr-1739297918)
+####################
 
+* Tools to Query about Your or Other IP Addresses
+    * [What is my IP Address][41]- Your IP address and location can be found using this tool.
+    * [Lookup IP Address Location][42] - If you can find out the IP address of an Internet user, you can get an idea what part of the country or world they're in by using our IP Lookup tool.
+    * [Find Email Address Source][43] - how to find and copy an email header and paste it into the Trace Email Analyzer to get the sender's IP address and track the source.
+    * [How to Hide Your IP Address][44] - Borrow a different IP address to go anywhere online and stay hidden.
 * Tools for Querying / Configuring IP Network
     * [`ip`][17] shows and manipulates routing, devices, policy routing, and tunnels
     * [`ifconfig`][16] is a network interface configuration, control, and query tool.
@@ -111,6 +146,7 @@ The NetworkManager daemon attempts to make networking configuration and operatio
     and a und line ser interface to the protocol.
     **Example Usage:** `telnet 192.168.8.1`
 
+####################
 [Howto Check Wireless link quality in Ubuntu Linux](http://www.ubuntugeek.com/howto-check-wireless-link-quality-in-ubuntu-linux.html)
 [A tcpdump Tutorial and Primer](https://danielmiessler.com/study/tcpdump/)
 http://www.cyberciti.biz/networking/nmap-command-examples-tutorials/
@@ -474,7 +510,337 @@ default via 192.168.1.1 dev eth1  proto static
 ## Diagnosing Routing Problems
 http://www.coyotepoint.com/files/downloads/StaticRoutes.pdf
 
-# Definitions and Concepts
+# Firewall
+Linux comes with a host based [firewall][39] called [`netfilter`][36]
+(or sometimes called "iptables" after the tool used to manage netfilter).
+`netfilter` is a set of hooks inside the Linux kernel that allows
+kernel modules to register callback functions with the network stack.
+A registered callback function is then called back for every packet
+that traverses the respective hook within the network stack.
+This Linux based firewall is controlled by the program called [`iptables`][37]
+to handles filtering for IPv4, and [`ip6tables`][38] handles filtering for IPv6.
+When you install Ubuntu, `iptables` is there,
+but it allows all traffic by default.
+The websites [IptablesHowTo][47] and [Linux: 20 Iptables Examples For New SysAdmins][48]
+provide a quick intro to `iptables` for Ubuntu.
+When exposing your server to the Internet,
+having an [effective Firewall policy is very important to secure your sever][49].
+The website ["How To Set Up a Firewall Using Iptables on Ubuntu 14.04"][50]
+can help you set up your Firewall.
+
+Ubuntu has `iptables` but also comes with [`ufw`][45]
+and is considered the default firewall configuration tool for Ubuntu.
+There is also a graphical version [`gufw`][46] can be installed with `sudo apt-get install gufw`.
+Developed to ease `iptables` firewall configuration,
+`ufw` provides a user friendly way to create an IPv4 or IPv6 host-based firewall.
+By default `ufw` is disabled.
+
+## Understanding Firewall Chains
+Managed via `iptables`, there are total 3 default rule chains established for `netfilter`:
+
+**Rules Chains**
+
+* **INPUT** - The default chain is used for packets addressed to the system. Use this to open or close incoming ports (such as 80,25, and 110 etc) and ip addresses / subnet (such as 202.54.1.20/29).
+* **OUTPUT** - The default chain is used when packets are generating from the system. Use this open or close outgoing ports and ip addresses / subnets.
+* **FORWARD** - The default chains is used when packets send through another interface. Usually used when you setup Linux as router. For example, eth0 connected to ADSL/Cable modem and eth1 is connected to local LAN. Use FORWARD chain to send and receive traffic from LAN to the Internet.
+
+**Packet Matching Rules**
+
+1. Each packet starts at the first rule in the chain.
+1. A packet proceeds until it matches a rule.
+1. If a match found, then control will jump to the specified target (such as REJECT, ACCEPT, DROP).
+
+***Target Meanings**
+
+1. The target **ACCEPT** means allow packet.
+1. The target **REJECT** means to drop the packet and send an error message to remote host.
+1. The target **DROP** means drop the packet and do not send an error message to remote host or sending host.
+
+## Displaying the Status of Firewall
+To inspect firewall with line numbers, enter:
+
+```bash
+# firewall status with line numbers
+sudo iptables -n -L -v --line-numbers
+```
+
+Where,
+
+* **-L** : List rules.
+* **-v** : Display detailed information. This option makes the list command show the interface name, the rule options, and the TOS masks. The packet and byte counters are also listed, with the suffix 'K', 'M' or 'G' for 1000, 1,000,000 and 1,000,000,000 multipliers respectively.
+* **-n** : Display IP address and port in numeric format. Do not use DNS to resolve names. This will speed up listing.
+
+## Block All Network Traffic
+This will block all incoming and outgoing traffic including Internet.
+
+```bash
+# block absolutely all traffic, including SSH
+iptable -F
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
+```
+
+**Do not enter above command over remote ssh login session.**
+
+If you want to block all incoming traffic to your system __except__
+ssh connection under Linux,
+do the following:
+
+```bash
+#!/bin/sh
+
+# My system IP/set ip address of server
+SERVER_IP="65.55.12.13"
+
+# Flushing all rules
+iptables -F
+iptables -X
+
+# Setting default filter policy
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
+
+# Allow unlimited traffic on loopback
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A OUTPUT -o lo -j ACCEPT
+
+# Allow incoming ssh only
+iptables -A INPUT -p tcp -s 0/0 -d $SERVER_IP --sport 513:65535 --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp -s $SERVER_IP -d 0/0 --sport 22 --dport 513:65535 -m state --state ESTABLISHED -j ACCEPT
+
+# make sure nothing comes or goes out of this box
+iptables -A INPUT -j DROP
+iptables -A OUTPUT -j DROP
+```
+
+This script only allows incoming ssh.
+No other incoming service or ping request or no outgoing service or request allowed.
+Incoming ssh connection can be either new or already established one
+and that is what specified by state rule '-m state --state NEW,ESTABLISHED'.
+Outgoing ssh connection state can be established only.
+By default this script allows everyone to ssh in by rule -s 0/0.
+If you want this access limited by IP or network address then replace -s 0/0 with IP address.
+
+Source: http://www.cyberciti.biz/tips/linux-iptables-4-block-all-incoming-traffic-but-allow-ssh.html
+
+## Insert Firewall Rules
+To insert one or more rules in the selected chain as the given rule number use the following syntax.
+First find out line numbers, enter:
+
+```bash
+sudo iptables -L INPUT -n --line-numbers
+```
+
+Sample outputs:
+
+```bash
+Chain INPUT (policy DROP)
+num  target     prot opt source               destination
+1    DROP       all  --  202.54.1.1           0.0.0.0/0
+2    ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0           state NEW,ESTABLISHED
+```
+
+To insert rule between 1 and 2, enter:
+
+```bash
+# insert rule between 1 and 2
+iptables -I INPUT 2 -s 202.54.1.2 -j DROP
+```
+
+To view updated rules, enter:
+
+```bash
+iptables -L INPUT -n --line-numbers
+```
+
+Sample outputs:
+
+```bash
+Chain INPUT (policy DROP)
+num  target     prot opt source               destination
+1    DROP       all  --  202.54.1.1           0.0.0.0/0
+2    DROP       all  --  202.54.1.2           0.0.0.0/0
+3    ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0
+```
+
+## Delete Firewall Rules
+To display line number along with other information for existing rules, enter:
+
+```bash
+# firewall status with line numbers
+sudo iptables -n -L -v --line-numbers
+```
+
+You will get the list of IP.
+Look at the number on the left, then use number to delete it.
+For example delete line number 4, enter:
+
+```bash
+# delete iptable rule number 4
+sudo iptables -D INPUT 4
+```
+
+or find source IP 202.54.1.1 and delete from rule:
+
+```bash
+# delete INPUT rule associated with IP 202.54.1.1
+sudo iptables -D INPUT -s 202.54.1.1 -j DROP
+```
+
+Where,
+
+* **-D** : Delete one or more rules from the selected chain
+
+## Drop or Accept Traffic From Mac Address
+Use the following syntax:
+
+```bash
+# drop packets from mac 00:0F:EA:91:04:08
+sudo iptables -A INPUT -m mac --mac-source 00:0F:EA:91:04:08 -j DROP
+
+# only accept traffic for TCP port 8080 from mac 00:0F:EA:91:04:07
+sudo iptables -A INPUT -p tcp --destination-port 22 -m mac --mac-source 00:0F:EA:91:04:07 -j ACCEPT
+```
+
+## Open Range of Ports or IP Addresses
+Use the following syntax to open a range of ports:
+
+```bash
+# open the ports from 7000 to 7010
+iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 7000:7010 -j ACCEPT
+```
+
+Use the following syntax to open a range of IP address:
+
+```bash
+# only accept connection to tcp port 80 (Apache) if ip is between 192.168.1.100 and 192.168.1.200
+iptables -A INPUT -p tcp --destination-port 80 -m iprange --src-range 192.168.1.100-192.168.1.200 -j ACCEPT
+
+# nat example
+iptables -t nat -A POSTROUTING -j SNAT --to-source 192.168.1.20-192.168.1.25
+```
+
+## Restrict the Number of Parallel Connections To a Server Per Client IP
+You can use connlimit module to put such restrictions.
+To allow 3 ssh connections per client host,
+or restric HTTP requests, enter:
+
+```bash
+# allow 3 ssh connections per client host
+sudo iptables -A INPUT -p tcp --syn --dport 22 -m connlimit --connlimit-above 3 -j REJECT
+
+# set HTTP requests to 20:
+sudo iptables -p tcp --syn --dport 80 -m connlimit --connlimit-above 20 --connlimit-mask 24 -j DROP
+```
+
+Where,
+
+* **--connlimit-above 3** : Match if the number of existing connections is above 3.
+* **--connlimit-mask 24** : Group hosts using the prefix length. For IPv4,
+this must be a number between (including) 0 and 32.
+
+## Testing Your Firewall
+Find out if ports are open or not, enter:
+
+```bash
+# identify what ports are open
+netstat -tulpn
+
+# find out if tcp port 80 open or not, enter:
+netstat -tulpn | grep :80
+
+# if port 80 is not open, start Apache
+service httpd start
+
+# make sure iptables allowing access to the port 80
+# iptables -L INPUT -v -n | grep 80
+```
+
+## Saving iptables Rules
+If you were to reboot your machine right after modifing your firewall,
+your iptables configuration would disappear.
+Rather than type this each time you reboot, however, you can save the configuration,
+and have it start up automatically.
+To save the configuration, you can use `iptables-save` and `iptables-restore`.
+`iptables` stores the rules in memory but the ruleset created by
+`iptables-save ruleset-name` can be used to store you rules in a safe place.
+
+```bash
+# dump iptables rules to stdout
+sudo iptables-save
+
+# dump iptable rules to a file so they can be restored later
+sudo iptables-save > /etc/iptables/rules.v4
+
+# restore iptable rules from file
+sudo iptables-restore < /etc/iptables/rules.v4
+```
+For Ubuntu, to load the `iptables` rules files on boot up,
+there is a package with the name `iptables-persistent`
+which does the task of automatic loading of the saved `iptables` rules.
+To do this, the rules must be saved in the file `/etc/iptables/rules.v4` for IPv4
+and `/etc/iptables/rules.v6` for IPv6.
+
+For use, the `iptables-persistent` package must simply be installed.
+
+```bash
+sudo apt-get install iptables-persistent
+```
+
+## Logging Traffic
+If you would like to log dropped packets to syslog,
+this would be the quickest way:
+
+```bash
+sudo iptables -I INPUT 5 -m limit --limit 5/min -j LOG --log-prefix "iptables denied: " --log-level 7
+```
+
+## Flush / Remove All iptables Rules
+Create the script `/root/fw.stop` using text editor:
+
+```bash
+#!/bin/sh
+
+echo "Stopping firewall and allowing everyone..."
+
+## Failsafe - die if /sbin/iptables not found
+[ ! -x "$ipt" ] && { echo "$0: \"${ipt}\" command not found."; exit 1; }
+
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
+
+iptables -F
+iptables -X
+
+iptables -t nat -F
+iptables -t nat -X
+
+iptables -t mangle -F
+iptables -t mangle -X
+
+iptables iptables -t raw -F
+iptables -t raw -X
+```
+
+Make sure you can execute the script via
+`sudo chmod +x /root/fw.stop`
+and then run the script as root user
+`sudo /root/fw.stop`.
+
+You can verify that firewall rules are flushed out via:
+`iptables -L -n -v`
+which should show that all chains will "ACCEPT" packets.
+
+## Protect Your Network from Spamming, Scanning, etc.
+[DROP (Don't Route Or Peer)][40] is an advisory "drop all traffic" list,
+consisting of stolen 'zombie' netblocks and netblocks controlled entirely by professional spammers.
+
+http://www.cyberciti.biz/tips/block-spamming-scanning-with-iptables.html
+
+# WiFi Definitions and Concepts
 All components that can connect into a wireless medium in a network are referred to as **stations**.
 All stations are equipped with wireless network interface controllers (WNICs).
 Wireless stations fall into one of two categories: wireless access points, and clients.
@@ -664,9 +1030,38 @@ could be gathered for this cheat sheet.
 [33]:http://linux.die.net/man/8/iwspy
 [34]:http://linux.about.com/library/cmd/blcmdl8_iwpriv.htm
 [35]:http://www.linuxuser.co.uk/tutorials/monitor-network-traffic-tutorial
-[36]:
-[37]:
-[38]:
-[39]:
-[40]:
-
+[36]:http://www.netfilter.org/
+[37]:http://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/
+[38]:http://www.admin-magazine.com/Archive/2014/20/IPv6-Tables
+[39]:https://en.wikipedia.org/wiki/Firewall_(computing)
+[40]:http://www.spamhaus.org/drop/
+[41]:https://www.whatismyip.com/?iref=home
+[42]:http://whatismyipaddress.com/ip-lookup
+[43]:http://whatismyipaddress.com/trace-email
+[44]:http://whatismyipaddress.com/hide-ip
+[45]:https://help.ubuntu.com/community/UFW
+[46]:https://help.ubuntu.com/community/Gufw
+[47]:https://help.ubuntu.com/community/IptablesHowTo
+[48]:http://www.cyberciti.biz/tips/linux-iptables-examples.html
+[49]:https://www.digitalocean.com/community/tutorials/how-to-choose-an-effective-firewall-policy-to-secure-your-servers
+[50]:https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-iptables-on-ubuntu-14-04
+[51]:https://wiki.gnome.org/Projects/NetworkManager
+[52]:https://en.wikipedia.org/wiki/Default_route
+[53]:https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol
+[54]:https://en.wikipedia.org/wiki/Name_server
+[55]:http://xmodulo.com/disable-network-manager-linux.html
+[56]:
+[57]:
+[58]:
+[59]:
+[60]:
+[61]:
+[62]:
+[63]:
+[64]:
+[65]:
+[66]:
+[67]:
+[68]:
+[69]:
+[70]:

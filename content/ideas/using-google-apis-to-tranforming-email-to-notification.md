@@ -1,36 +1,7 @@
 In the city I live,
 they offer
 
-## Webhook
-[!webhook_logo]:http://blog.formstack.com/wp-content/uploads/2010/08/webhooks_logo-150x150.png
-A webhook is a method of augmenting or altering the behavior of a web page,
-or web application, with custom [callbacks][01].
-So a webhooks are "[user-defined HTTP callbacks][03]" or "[real-time service][02]".
-They are usually triggered by some event, like a comment being posted to a blog.
-When that event occurs, the source site makes an HTTP request to the URI configured for the webhook.
-Users can configure them to cause events on one site to invoke behavior on another.
 
-## Webscript
-Web scripting can add information to a page as a reader uses it or
-let the reader enter information.
-
-* [Server-less Stripe push notifications with webscript.io](http://coovtech.com/posts/push-with-web-script/)
-* https://www.webscript.io/
-
-## WebSocket
-[!websocket_logo]:http://www.appelsiini.net/demo/websocket/img/HTML5_Connectivity_512.png
-* http://stackoverflow.com/questions/23172760/differences-between-webhook-and-websocket
-* Moving Data over the Web: AJAX vs. WebSockets vs. Webhooks - https://blog.safe.com/2014/08/websockets-ajax-webhooks-comparison/
-* What Are WebSockets? - https://www.pubnub.com/blog/2013-09-11-what-are-websockets/
-* Comparisons between WebHooks, WebSockets, and server-sent events - https://www.safaribooksonline.com/library/view/restful-java-patterns/9781783287963/ch06s05.html
-
-## Rest-API
-[!rest_api_logo]:http://static1.squarespace.com/static/5269a9bce4b07233cf8781fe/544eb6abe4b053b088f7237a/55770f60e4b09224e9c7619a/1433866080885/rest-api.png
-A common theme within IoT is the use of the TCP/IP and HTTP protocols using
-APIs adopting the Roy Fielding's [REST architectural style][16] (so-called “RESTful” APIs).
-Nonetheless, a key constraint that Fielding proposed is not always adopted.
-This feature is known as [Hypermedia as the Engine of Application State (HATEOAS)][17]
-or hypermedia APIs for short.
 
 ## IFTTT
 [!ifttt_logo]:http://marketingland.com/wp-content/ml-loads/2012/09/ifttt-logo.jpg
@@ -88,6 +59,8 @@ With some scripting, you can integrate Pushover notifications into your
 application, website, server process, network monitor, or anything else.
 Messages are currently limited to 512 characters,
 including a title of up to 100 characters.
+
+* [PubNub - Deliver mobile push notifications to iOS and Android devices, even when an app is offline](https://www.pubnub.com/products/mobile-push/)
 
 ## Parsing eMail
 IFTTT has many channels for handling email,
@@ -345,13 +318,39 @@ API Management consist of monitoring the use of the API,
 setting limits on the usage,
 enabling/disabling the API, etc.
 
-##############
-Once you get the mail tool working, place a screen shot here
-##############
+# Round Robin Database Tool (RRDtool)
+<a href="http://oss.oetiker.ch/rrdtool/">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="RRDtool is the OpenSource industry standard, high performance data logging and graphing system for time series data. RRDtool can be easily integrated in shell scripts, perl, python, ruby, lua or tcl applications." alt="RRDtool Logo" src="{filename}/images/rrdtool-logo.jpg" width="250" height="250" />
+</a>
+The Round Robin Database Tool (RRDtool) is a open source graphing utility that
+takes data sets you collect and graphs them.
+RRDtool correlates time-series data like network bandwidth, temperatures,
+CPU load or any other data type.
+Data is stored in a circular buffer,
+which allows the system storage footprint to remain constant over time.
+The database will always have the same amount of data points throughout its lifetime.
+When new data comes in the oldest data set is removed (FIFO).
 
-[01]:https://en.wikipedia.org/wiki/Callback_(computer_programming)
-[02]:http://culttt.com/2014/01/22/webhooks/
-[03]:http://timothyfitz.com/2009/02/09/what-webhooks-are-and-why-you-should-care/
+The steps to use RRDtool for data graphing
+
+* Create an empty RRD database using rrdtool create.
+* Utilize a script and/or the cron to add data to the database using rrdtool update.
+* Generate, usually via script, custom output graphs using rrdtool graph.
+
+* [RRDtool](http://oss.oetiker.ch/rrdtool/)
+* [Graph your sensors data with RRDtool](https://michael.bouvy.net/blog/en/2013/04/28/graph-data-rrdtool-sensors-arduino/)
+* [RRDtool tutorial and graph examples](https://calomel.org/rrdtool.html)
+* [Getting Started with RRDtool](http://www.cuddletech.com/articles/rrd/index.html)
+* [rrdtool Round Robin Database Howto Version 1](http://www.generationip.com/documentation/Howto/46-rrdtool-round-robin-database-howto-version-1)
+* []()
+* []()
+* []()
+
+
+
+[01]:
+[02]:
+[03]:
 [04]:http://www.pcworld.com/article/2044579/how-to-use-ifttt-to-automate-your-online-life.html
 [05]:https://ifttt.com/maker
 [06]:https://www.marcus-povey.co.uk/2012/11/07/using-webhooks-with-ifttt-com/
@@ -364,8 +363,8 @@ Once you get the mail tool working, place a screen shot here
 [13]:https://ifttt.com/channels
 [14]:https://github.com/newslynx/ifttthttps://developers.google.com/oauthplayground/
 [15]:https://docs.python.org/2/library/email.html
-[16]:http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm
-[17]:http://restcookbook.com/Basics/hateoas/
+[16]:
+[17]:
 [18]:http://pythonhosted.org/feedparser/introduction.html
 [19]:http://mitchtech.net/connect-raspberry-pi-to-gmail-facebook-twitter-more/
 [20]:https://developers.google.com/gmail/api/

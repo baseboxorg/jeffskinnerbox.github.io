@@ -1,5 +1,6 @@
-
-[Setting up an IoT framework/dashboard with NodeRed, Mosca/Mosquitto and Freeboard.io dashboard](https://primalcortex.wordpress.com/2015/02/25/setting-up-an-iot-frameworkdashboard-with-nodered-moscamosquitto-and-freeboard-io-dashboard/)
+* [Node Knockout 2013: Supercharge Your Node.js App With PubNub](https://www.pubnub.com/blog/2013-10-11-node-knockout-2013-supercharge-your-app-with-pubnub/)
+* [Connecting it All Together – PubNub and Node-RED](http://www.internetoflego.com/connecting-it-all-together-pubnub-and-node-red/)
+* [Setting up an IoT framework/dashboard with NodeRed, Mosca/Mosquitto and Freeboard.io dashboard](https://primalcortex.wordpress.com/2015/02/25/setting-up-an-iot-frameworkdashboard-with-nodered-moscamosquitto-and-freeboard-io-dashboard/)
 
 [Node-RED][03] is a new [industry created open-source tool][02],
 created by the [IBM Emerging Technology team][01],

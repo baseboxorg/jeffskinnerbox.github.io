@@ -97,6 +97,8 @@ HATEOAS is a good vision, and is the [most mature form of REST][50] and [solves 
 but it isn't applied often, but there are increasingly [examples HATOAS implementations][45].
 
 # Pushover
+* [PubNub - Deliver mobile push notifications to iOS and Android devices, even when an app is offline](https://www.pubnub.com/products/mobile-push/)
+
 <a href="https://pushover.net/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Pushover Logo" alt="Pushover Logo" src="/images/pushover-logo.png" width="75" height="75" />
 </a>
@@ -361,6 +363,7 @@ It's interesting that Bug Labs positions Freeboard as an open source alternative
     * [Choosing Your Messaging Protocol: AMQP, MQTT, or STOMP](http://blogs.vmware.com/vfabric/2013/02/choosing-your-messaging-protocol-amqp-mqtt-or-stomp.html)
     * [MQTT and CoAP, IoT Protocols](http://www.eclipse.org/community/eclipse_newsletter/2014/february/article2.php)
     * [IoT Protocol Wars: MQTT vs CoAP vs XMPP](http://www.iotprimer.com/2013/11/iot-protocol-wars-mqtt-vs-coap-vs-xmpp.html)
+    * [PubNub](https://www.pubnub.com/)
     * [Pushover](https://pushover.net/)
 
 

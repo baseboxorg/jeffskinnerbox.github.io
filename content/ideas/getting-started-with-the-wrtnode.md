@@ -27,6 +27,10 @@ VoCore is an open hardware runs OpenWrt. It has WIFI, USB, UART, 20+ GPIOs but s
 * [VOCore Tutorial Gets You Started with Tiny Router](http://hackaday.com/2015/11/15/vocore-tutorial-gets-you-started-with-tiny-router/)
 
 * [Onion Omega](https://onion.io/omega)
+
+* [GL-AR150-ext smart router with External Antenna, 150Mbps OpenWrt Pre-installed](http://www.amazon.com/GL-AR150-ext-External-Antenna-150Mbps-Pre-installed/dp/B015CYI8DY/ref=sr_1_2?ie=UTF8&qid=1454383159&sr=8-2&keywords=GL-AR150)
+    * [GL-AR150 Documentation](http://www.gl-inet.com/docs/smartrouter/)
+    * [GL-AR150 Blog](http://www.gl-inet.com/blog/)
 ###########
 
 # Components that Make Up WRTNode

@@ -22,7 +22,8 @@ Beyond this, cURL offers an boat load of [command line options][04] to get the e
 # Useful Tools
 
 ## Pretty print JSON On The Command Line
-[`jq`][11] is a lightweight and flexible command-line JSON processor.
+[`jq`][11] is a lightweight and flexible command-line JSON processor,
+sort of like a `sed` for JSON data.
 You can use it to slice, filter, map and transform JASON structured data
 with the same ease that `sed`, `awk`, `grep`.
 Install this utility via
@@ -496,11 +497,10 @@ To query for the word "internet", you get the following:
 * [15 Practical Linux cURL Command Examples (cURL Download Examples)](http://www.thegeekstuff.com/2012/04/curl-examples/)
 * [curl tutorial with examples of usage](http://www.yilmazhuseyin.com/blog/dev/curl-tutorial-examples-usage/)
 * [CURL command Tutorial in Linux with Example Usage](http://www.slashroot.in/curl-command-tutorial-linux-example-usage)
+* [An introduction to curl using GitHub's API](https://gist.github.com/caspyin/2288960)
+* [GitHub API v3](https://developer.github.com/v3/)
 * []()
 * []()
-
-[An introduction to curl using GitHub's API](https://gist.github.com/caspyin/2288960)
-[GitHub API v3](https://developer.github.com/v3/)
 
 
 
