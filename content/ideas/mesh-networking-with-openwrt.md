@@ -53,7 +53,7 @@ Next will be Ubiquiti equipment with others supported as development resources p
     * [Experimental research on testbeds for community networks (year 3)]()https://bscw.pangea.org/pub/bscw.cgi/d332070/D4.3.pdf
 
 # Tools
-* [Horst is a diagnostic tool that displays Layer 1 information about the link.](http://br1.einfach.org/tech/horst/)
+* [Horst is a diagnostic tool that displays Layer 1 information about the link](http://br1.einfach.org/tech/horst/)
 * [MTR (My Traceroute) is a tool that continuously runs traceroutes and shows the latency at each hop of the path.](http://www.bitwizard.nl/mtr/)
 * [qMp wireless mesh network monitoring](https://github.com/pedro-nonfree/qmpsantsupc)
 
@@ -68,7 +68,8 @@ Next will be Ubiquiti equipment with others supported as development resources p
 * What a Mesh!: [Part 1-The Ins and Outs Of Mesh Networking](http://www.sensorsmag.com/networking-communications/wireless-sensor/what-a-mesh-part-1-the-ins-and-outs-of-mesh-networking-1530) and [Part 2-Networking Architectures and Protocols](http://www.sensorsmag.com/networking-communications/wireless-sensor/what-a-mesh-part-2-networking-architectures-and-protocols-1544)
 * [Ultra Narrow Band Wireless Mesh Networks](http://tiny-mesh.com/wireless-mesh-network/ultra-narrow-band.html)
 * [CSRmesh for Bluetooth low energy devices](https://wiki.csr.com/wiki/CSRmesh)
-* []()
+* [Hyperboria](https://hyperboria.net/)
+    * [Cjdns implements an encrypted IPv6 network using public-key cryptography for address allocation and a distributed hash table for routing](https://github.com/cjdelisle/cjdns)
 
 
 

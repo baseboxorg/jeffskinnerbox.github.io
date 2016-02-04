@@ -1,7 +1,7 @@
 Title: Having Fun with Wine, VirtualBox, and TurboTax
 Date: 2014-01-15 00:01
 Category: Software
-Tags: Wine, VirtualBox
+Tags: Wine, VirtualBox, TurboTax
 Slug: having-fun-with-wine-virtualbox-and-turbotax
 Author: Jeff Irland
 Image: virtualbox-logo.jpg
@@ -23,7 +23,8 @@ which appears to have at least [some success][05] stories.
 # Installing and Configuring Wine
 Wine can be installed via the following:
 
-```shell
+```bash
+# installing wine
 sudo add-apt-repository ppa:ubuntu-wine/ppa
 sudo apt-get update
 sudo apt-get install wine
@@ -47,7 +48,7 @@ Try the following: `wine notepad.exe`.
 
 # Installing TurboTax with Wine
 Wine is complex and large.
-I don't have the patience for hours of configuring and testing; 
+I don't have the patience for hours of configuring and testing;
 particularly if in the end I can't print or electronically email my tax return.
 I'm going to plung into installing TurboTax via Wine,
 and see if I can get things running with minimal effort.
@@ -58,7 +59,8 @@ So, I put the CD in the drive, right clicked on the setup.exe file, picked the m
 Appears that TurboTax doesn't like Wine's version of the .NET Framework.
 A little [research][10] surggested that I should install .NET 4 via this command:
 
-```shell
+```bash
+# install .NET
 winetricks dotnet40
 ```
 
@@ -87,13 +89,15 @@ deb http://download.virtualbox.org/virtualbox/debian saucy contrib
 
 Downloaded the Oracle public key for the software:
 
-```shell
+```bash
+# get the public key for VirtualBox's repository
 wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
 ```
 
 Now install VirtualBox version 4.3:
 
-```shell
+```bash
+# install VirtualBox
 sudo apt-get update
 sudo apt-get install dkms virtualbox-4.3
 ```

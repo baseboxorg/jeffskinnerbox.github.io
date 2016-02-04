@@ -10,7 +10,8 @@ and create a sensor network for some home automation/monitoring devices.
 really its a [MANET][24] using a [layer 3 mesh routing protocol][36],
 not because it will be easy but because it will be fun)
 * Nodes in this mesh network will be managed via an inexpensive router
-([Western Digital My Net N600][26]) and the nodes will be [WRTnode][25].
+([Western Digital My Net N600][26]) and the nodes will be the [WRTnode][25]
+or the [GL-AR150][44].
 The nodes will then have sensors attached to them.
 * The ideas I have for sensors include ultrasonic water level monitor for my sump pump,
  designed LED lighting for the deck, whole house water leak detection, etc.
@@ -94,7 +95,7 @@ iface eth0 inet static
 Then restart your network interface with `sudo /etc/init.d/networking restart`.
 
 I didn't need to do all this, since my Linux box is running Ubuntu
-(which manages networking in mysterious, dynamic ways).
+(which manages networking in mysterious, dynamic ways via the [NetworkManager][51] daemon).
 I just plugged my Linux box into the router.
 Also, I didn't need to reset the router, as instructed in the OpenWrt instructions
 (in fact it didn't work following the instructions).
@@ -335,10 +336,11 @@ but could be useful if you don't have WiFi or Ethernet connectivity.
 [41]:http://dev.qmp.cat/projects/qmp/wiki/Packages
 [42]:http://qmp.cat/Get_the_software
 [43]:http://en.wikipedia.org/wiki/IPv4_subnetting_reference
-[44]:
+[44]:http://www.gl-inet.com/ar150/
 [45]:
 [46]:
 [47]:
 [48]:
 [49]:
 [50]:
+[51]:https://wiki.gnome.org/Projects/NetworkManager
