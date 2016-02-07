@@ -1,11 +1,10 @@
-Status: draft
 Title: HowTo: Coping With a Changing External IP Address
-Date: 2100-01-01 00:00
+Date: 2016-02-07 13:14
 Category: Software
 Tags: DDNS
 Slug: howto-coping-with-a-changing-external-ip-address
 Author: Jeff Irland
-Image: how-to.png
+Image: how-to.jpg
 Summary: Since I'm not using a static IP for my home router, my ISP can change my IP address as they sees fit. But in order for me to SSH into my home server from outside my local network, I need my home’s router current IP address.  Here a create a simple utility that pushes to my cell phone the new address when my router's IP address changes.
 
 <a href="http://www.pebra.net/blog/2014/02/07/installing-openwrt-on-wd-mynet-n600/">
