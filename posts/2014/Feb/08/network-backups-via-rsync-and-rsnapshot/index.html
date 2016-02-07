@@ -716,7 +716,8 @@ which even prompts me for the system I wish to backup.</p>
 
 <p>Under the <code>backup_user</code> account I established the Cron job for the backups.
 You can use <code>sudo crontab -l</code> to list the contents of crontab.
-To update it, use <code>crontab -e</code> and enter the following:</p>
+To update it, use <code>crontab -e</code> and enter the following
+(Also, restart cron with <code>sudo service cron restart</code> to make sure the changes are in effect):</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># Each task to run has to be defined through a single line</span>
 <span style="color: #0099FF; font-style: italic"># indicating with different fields when the task will be run</span>
 <span style="color: #0099FF; font-style: italic"># and what command to run for the task</span>

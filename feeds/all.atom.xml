@@ -1,5 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Jeff's Skinner Box</title><link href="http://jeffskinnerbox.me/" rel="alternate"></link><link href="http://jeffskinnerbox.me/feeds/all.atom.xml" rel="self"></link><id>http://jeffskinnerbox.me/</id><updated>2016-01-29T19:55:00-05:00</updated><entry><title>HowTo: Connecting to Remote X11 Host from a Mac</title><link href="http://jeffskinnerbox.me/posts/2016/Jan/29/howto-connecting-to-remote-x11-host-from-a-mac/" rel="alternate"></link><updated>2016-01-29T19:55:00-05:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2016-01-29:posts/2016/Jan/29/howto-connecting-to-remote-x11-host-from-a-mac/</id><summary type="html">&lt;p&gt;&lt;a href="http://www.xquartz.org/index.html"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Jeff's Skinner Box</title><link href="http://jeffskinnerbox.me/" rel="alternate"></link><link href="http://jeffskinnerbox.me/feeds/all.atom.xml" rel="self"></link><id>http://jeffskinnerbox.me/</id><updated>2016-02-07T13:14:00-05:00</updated><entry><title>HowTo: Coping With a Changing External IP Address</title><link href="http://jeffskinnerbox.me/posts/2016/Feb/07/howto-coping-with-a-changing-external-ip-address/" rel="alternate"></link><updated>2016-02-07T13:14:00-05:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2016-02-07:posts/2016/Feb/07/howto-coping-with-a-changing-external-ip-address/</id><summary type="html">&lt;p&gt;&lt;a href="http://www.pebra.net/blog/2014/02/07/installing-openwrt-on-wd-mynet-n600/"&gt;
+    &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="Since I'm not using a static IP for my home router, my ISP can change my IP address as they sees fit. But in order for me to SSH into my home server from outside my local network, I need my home’s router current IP address." alt="internet connection picture" src="http://jeffskinnerbox.me/images/internet-connection.png" width="128" height="128" /&gt;
+&lt;/a&gt;
+Some ISPs change the IP address they provide you frequently,
+while others provide it on a long lease but may still change it.
+Most ISPs allocate their range of IP addresses dynamically (using DHCP),
+and the “lease” is often set to 24 hours,
+which is why your address might change frequently.
+For most users, changing IP doesn’t matter,
+but in my case, I need a known address so I can login remotely.
+To do this easily, you could have your ISP give you a fixed address
+(aka a static IP address),
+but if they offer this service at all, they will charge you for it.&lt;/p&gt;
+&lt;p&gt;I don't want to pay for the static IP address, so I need an alternative.
+One alternative is to make use of a &lt;a href="https://en.wikipedia.org/wiki/Dynamic_DNS"&gt;Dynamic DNS (DDNS)&lt;/a&gt; address service.
+These services associate your actual address (in its numerical form)
+with a fixed mnemonic address in real time,
+so as long as you have  mnemonic form, it will point you to  your server.
+This service can also cost you money.
+(e.g. &lt;a href="http://dyn.com/dns/"&gt;Dyn&lt;/a&gt; has stopped their free plans
+but &lt;a href="http://www.noip.com/"&gt;No-IP&lt;/a&gt; provides a quasi-free service).
+Your home router will also need to support the DDNS client.
+Not all routes support DDNS,
+but &lt;a href="https://wiki.openwrt.org/doc/howto/ddns.client"&gt;OpenWrt does&lt;/a&gt; and is &lt;a href="http://www.pebra.net/blog/2014/02/07/installing-openwrt-on-wd-mynet-n600/"&gt;fairly easy to install&lt;/a&gt;
+if you want to go in this direction.&lt;/p&gt;
+&lt;p&gt;The cheapskate alternative is to create a service on your server
+that email or other wish notifies you, when the IP address changes.
+This is practical if the IP address isn't changing too frequently,
+which happens to be my case.
+My choose is to use a  simple service for periodically looking up my IP address,
+specifically using the website &lt;a href="http://ifconfig.co/"&gt;ifconfig.co&lt;/a&gt;.
+The design is to execute the command &lt;code&gt;curl ifconfig.co&lt;/code&gt; periodically,
+check if the IP address has changes, and if so, email or text the change to myself.&lt;/p&gt;
+&lt;p&gt;To do this, I placed the shell program listed below, which I call &lt;code&gt;ip_check&lt;/code&gt;,
+in &lt;code&gt;cron&lt;/code&gt; to run every hour.&lt;/p&gt;
+&lt;!-- -------- Start: Gist Code Snippet --------- --&gt;
+
+&lt;p&gt;&lt;style="padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); font-size: 12px; line-height: 14px; width: 90%;"&gt;
+    &lt;script src="https://gist.github.com/jeffskinnerbox/fd4c1ea2f22a361f4164.js"&gt;&lt;/script&gt;
+&lt;/style&gt;
+&lt;!-- --------- End: Gist Code Snippet ---------- --&gt;&lt;/p&gt;
+&lt;p&gt;To run the script in &lt;a href="https://en.wikipedia.org/wiki/Cron"&gt;&lt;code&gt;cron&lt;/code&gt;&lt;/a&gt; every hour,
+I &lt;a href="http://man7.org/linux/man-pages/man5/crontab.5.html"&gt;edited the cron table&lt;/a&gt; via the command &lt;code&gt;crontab -e&lt;/code&gt;
+and place the following in the table: &lt;code&gt;@hourly  /home/jeff/bin/ip_check -x&lt;/code&gt;.
+Also note that &lt;code&gt;cron&lt;/code&gt; can be temperamental,
+so check out the post "&lt;a href="http://askubuntu.com/questions/23009/reasons-why-crontab-does-not-work"&gt;Reasons why crontab does not work&lt;/a&gt;"
+if you have problems getting it working.&lt;/p&gt;
+&lt;p&gt;The above shell program makes use of the utility &lt;code&gt;apprise&lt;/code&gt;,
+a push notification tool for the &lt;a href="https://pushover.net/"&gt;Pushover&lt;/a&gt; service.
+This will notify me on my cell phone of any changes to the external IP address.&lt;/p&gt;
+&lt;!-- -------- Start: Gist Code Snippet --------- --&gt;
+
+&lt;p&gt;&lt;style="padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); font-size: 12px; line-height: 14px; width: 90%;"&gt;
+    &lt;script src="https://gist.github.com/jeffskinnerbox/13cd61e4d99feb0dcbca.js"&gt;&lt;/script&gt;
+&lt;/style&gt;
+&lt;!-- --------- End: Gist Code Snippet ---------- --&gt;&lt;/p&gt;</summary><category term="DDNS"></category></entry><entry><title>HowTo: Connecting to Remote X11 Host from a Mac</title><link href="http://jeffskinnerbox.me/posts/2016/Jan/29/howto-connecting-to-remote-x11-host-from-a-mac/" rel="alternate"></link><updated>2016-01-29T19:55:00-05:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2016-01-29:posts/2016/Jan/29/howto-connecting-to-remote-x11-host-from-a-mac/</id><summary type="html">&lt;p&gt;&lt;a href="http://www.xquartz.org/index.html"&gt;
     &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="The XQuartz project is an open-source effort to develop a version of the X.Org X Window System that runs on OS X." alt="XQuartz Logo" src="http://jeffskinnerbox.me/images/xquartz-logo.jpg" width="90" height="90" /&gt;
 &lt;/a&gt;
 I want to &lt;a href="http://docstore.mik.ua/orelly/unix3/upt/ch06_10.htm"&gt;run a remote X client&lt;/a&gt; on my Linux desktop (with Ubuntu and X Window System)
@@ -293,7 +348,7 @@ you should not be required to enter the Google Authenticator code.&lt;/p&gt;
 &lt;li&gt;&lt;a href="http://blog.remibergsma.com/2013/06/08/playing-with-two-facor-authentication-in-linux-using-google-authenticator/"&gt;Playing with two-factor authentication in Linux using Google Authenticator&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://serverfault.com/questions/518802/two-factor-ssh-authentication-on-external-address-only"&gt;Two Factor SSH Authentication on external address only&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://blog.nowherelan.com/2014/01/04/two-step-authentication-for-ssh-on-centos-6-using-google-authenticator/"&gt;Two Step Authentication for SSH on Centos 6 Using Google Authenticator&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="Security"></category><category term="Two-Factor Authentication"></category></entry><entry><title>CheatSheet: Vim Commands</title><link href="http://jeffskinnerbox.me/posts/2014/Dec/21/cheatsheet-vim-commands/" rel="alternate"></link><updated>2014-12-21T17:10:00-05:00</updated><author><name>xxx</name></author><id>tag:jeffskinnerbox.me,2014-12-21:posts/2014/Dec/21/cheatsheet-vim-commands/</id><summary type="html">&lt;p&gt;Vi was one of the first text editors I learned (and still my favorite)
+&lt;/ul&gt;</summary><category term="Security"></category><category term="Two-Factor Authentication"></category><category term="Google Authenticator"></category></entry><entry><title>CheatSheet: Vim Commands</title><link href="http://jeffskinnerbox.me/posts/2014/Dec/21/cheatsheet-vim-commands/" rel="alternate"></link><updated>2014-12-21T17:10:00-05:00</updated><author><name>xxx</name></author><id>tag:jeffskinnerbox.me,2014-12-21:posts/2014/Dec/21/cheatsheet-vim-commands/</id><summary type="html">&lt;p&gt;Vi was one of the first text editors I learned (and still my favorite)
 but I still need need a cheat sheet to help me with a command from time to time.
 I know that there hundreds vi/vim cheat sheets online,
 but none organized the way I want.&lt;/p&gt;
@@ -4142,7 +4197,8 @@ which even prompts me for the system I wish to backup.&lt;/p&gt;
 
 &lt;p&gt;Under the &lt;code&gt;backup_user&lt;/code&gt; account I established the Cron job for the backups.
 You can use &lt;code&gt;sudo crontab -l&lt;/code&gt; to list the contents of crontab.
-To update it, use &lt;code&gt;crontab -e&lt;/code&gt; and enter the following:&lt;/p&gt;
+To update it, use &lt;code&gt;crontab -e&lt;/code&gt; and enter the following
+(Also, restart cron with &lt;code&gt;sudo service cron restart&lt;/code&gt; to make sure the changes are in effect):&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# Each task to run has to be defined through a single line&lt;/span&gt;
 &lt;span style="color: #0099FF; font-style: italic"&gt;# indicating with different fields when the task will be run&lt;/span&gt;
 &lt;span style="color: #0099FF; font-style: italic"&gt;# and what command to run for the task&lt;/span&gt;
@@ -4499,7 +4555,8 @@ and it it fails me, resort to &lt;a href="https://www.virtualbox.org/"&gt;Virtua
 which appears to have at least &lt;a href="https://blogs.oracle.com/wbays/entry/turbotax_on_virtualbox_problem_solved"&gt;some success&lt;/a&gt; stories.&lt;/p&gt;
 &lt;h1&gt;Installing and Configuring Wine&lt;/h1&gt;
 &lt;p&gt;Wine can be installed via the following:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo add-apt-repository ppa:ubuntu-wine/ppa
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# installing wine&lt;/span&gt;
+sudo add-apt-repository ppa:ubuntu-wine/ppa
 sudo apt-get update
 sudo apt-get install wine
 sudo apt-get install cabextract
@@ -4518,7 +4575,7 @@ execute one of the already installed Microsoft Windows packages.
 Try the following: &lt;code&gt;wine notepad.exe&lt;/code&gt;.&lt;/p&gt;
 &lt;h1&gt;Installing TurboTax with Wine&lt;/h1&gt;
 &lt;p&gt;Wine is complex and large.
-I don't have the patience for hours of configuring and testing; 
+I don't have the patience for hours of configuring and testing;
 particularly if in the end I can't print or electronically email my tax return.
 I'm going to plung into installing TurboTax via Wine,
 and see if I can get things running with minimal effort.&lt;/p&gt;
@@ -4527,7 +4584,8 @@ and see if I can get things running with minimal effort.&lt;/p&gt;
 &lt;a href="https://ttlc.intuit.com/questions/1899606-error-we-can-t-install-turbotax-on-your-computer-just-yet"&gt;"We can't install TurboTax on your computer just yet..."&lt;/a&gt;.
 Appears that TurboTax doesn't like Wine's version of the .NET Framework.
 A little &lt;a href="http://superuser.com/questions/476872/installing-net-4-0-framework-on-wine-using-winetricks"&gt;research&lt;/a&gt; surggested that I should install .NET 4 via this command:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;winetricks dotnet40
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# install .NET&lt;/span&gt;
+winetricks dotnet40
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -4553,12 +4611,14 @@ deb http://download.virtualbox.org/virtualbox/debian saucy contrib
 
 
 &lt;p&gt;Downloaded the Oracle public key for the software:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# get the public key for VirtualBox&amp;#39;s repository&lt;/span&gt;
+wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now install VirtualBox version 4.3:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get update
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# install VirtualBox&lt;/span&gt;
+sudo apt-get update
 sudo apt-get install dkms virtualbox-4.3
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -4626,7 +4686,7 @@ As to Wine, .... we'll see.&lt;/p&gt;
 sound, graphics, Windows version, and so on.&amp;#160;&lt;a class="footnote-backref" href="#fnref:A" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="Wine"></category><category term="VirtualBox"></category></entry><entry><title>IPython Notebook in Virtualenv</title><link href="http://jeffskinnerbox.me/posts/2013/Oct/06/ipython-notebook-in-virtualenv/" rel="alternate"></link><updated>2013-10-06T00:01:00-04:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2013-10-06:posts/2013/Oct/06/ipython-notebook-in-virtualenv/</id><summary type="html">&lt;p&gt;I discovered a problem with using &lt;a href="http://ipython.org/ipython-doc/rel-1.0.0/interactive/nbconvert.html"&gt;nbconvert&lt;/a&gt; for posting &lt;a href="http://ipython.org/notebook.html"&gt;IPython Notebooks&lt;/a&gt; to my blog.
+&lt;/div&gt;</summary><category term="Wine"></category><category term="VirtualBox"></category><category term="TurboTax"></category></entry><entry><title>IPython Notebook in Virtualenv</title><link href="http://jeffskinnerbox.me/posts/2013/Oct/06/ipython-notebook-in-virtualenv/" rel="alternate"></link><updated>2013-10-06T00:01:00-04:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2013-10-06:posts/2013/Oct/06/ipython-notebook-in-virtualenv/</id><summary type="html">&lt;p&gt;I discovered a problem with using &lt;a href="http://ipython.org/ipython-doc/rel-1.0.0/interactive/nbconvert.html"&gt;nbconvert&lt;/a&gt; for posting &lt;a href="http://ipython.org/notebook.html"&gt;IPython Notebooks&lt;/a&gt; to my blog.
 Basically it doesn't work for my version of IPython, so I looked for an upgrade.
 I found it but its only delivered bundled with the latest version of IPython.
 Currently, I'm stuck with using IPython 0.13.2 on my Ubuntu system, at least if I use the
