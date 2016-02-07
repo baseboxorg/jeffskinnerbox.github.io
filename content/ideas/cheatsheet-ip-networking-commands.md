@@ -395,6 +395,65 @@ iw wlan0 ibss join foo-adhoc 2412
 iw wlan0 ibss leave
 ```
 
+# Finding a device IP Address
+If you are developing software for an Ethernet (or WiFi) device,
+you’ll need to access the board for debugging and/or testing purpose.
+If your board does not have user interface or the serial port is not available,
+you’ll have to find the IP address (assuming it is using DHCP)
+before accessing the board thru `telnet` or `ssh`.
+A simple way to do that is to `ping` the broadcast address
+and then check the `arp` table.
+
+```bash
+# local IP addresses provided to the host
+$ /sbin/ifconfig |grep -B1 "inet addr" |awk '{ if ( $1 == "inet" ) { print $2 } else if ( $2 == "Link" ) { printf "%s:" ,$1 } }' | awk -F: '{ print $1 ": " $3 }'
+eth0: 192.168.1.6
+lo: 127.0.0.1
+wlan0: 192.168.1.13
+
+# ping the devices to make there presence known
+$ ping -b 192.168.1.255
+WARNING: pinging broadcast address
+PING 192.168.1.255 (192.168.1.255) 56(84) bytes of data.
+64 bytes from 192.168.1.153: icmp_seq=1 ttl=64 time=87.5 ms
+64 bytes from 192.168.1.153: icmp_seq=1 ttl=64 time=88.4 ms (DUP!)
+64 bytes from 192.168.1.153: icmp_seq=1 ttl=64 time=99.4 ms (DUP!)
+64 bytes from 192.168.1.153: icmp_seq=2 ttl=64 time=106 ms
+.
+.
+.
+$ arp
+Address                  HWtype  HWaddress           Flags Mask            Iface
+FIOS_Quantum_Gateway.fi  ether   48:5d:36:2e:ee:06   C                     eth0
+NP-12C297031738.fios-ro  ether   cc:6d:a0:ba:03:8b   C                     eth0
+iPhone.fios-router.home  ether   28:cf:e9:a2:eb:ae   C                     eth0
+Chromecast.fios-router.  ether   80:d2:1d:1a:0b:fc   C                     eth0
+AMAC02Q4LRGG8WN.fios-ro  ether   a0:99:9b:19:8c:ff   C                     eth0
+android-2d298f3f1cc4f8a  ether   74:75:48:dc:6e:b3   C                     eth0
+FIOS_Quantum_Gateway.fi  ether   48:5d:36:2e:ee:06   C                     wlan0
+
+$ arp -n
+Address                  HWtype  HWaddress           Flags Mask            Iface
+192.168.1.1              ether   48:5d:36:2e:ee:06   C                     eth0
+192.168.1.171            ether   cc:6d:a0:ba:03:8b   C                     eth0
+192.168.1.2              ether   28:cf:e9:a2:eb:ae   C                     eth0
+192.168.1.153            ether   80:d2:1d:1a:0b:fc   C                     eth0
+192.168.1.4              ether   a0:99:9b:19:8c:ff   C                     eth0
+192.168.1.154            ether   74:75:48:dc:6e:b3   C                     eth0
+192.168.1.1              ether   48:5d:36:2e:ee:06   C                     wlan0
+```
+
+If you cannot find your device,
+it may be configured to ignore `ping `broadcast (in order to avoid denial-of-service attack).
+To enable it, make sure `/proc` file system is mounted and type:
+
+```bash
+# enable ping broadcast response
+echo 0 > /proc/sys/net/ipv4/icmp_echo_ignore_broadcasts
+```
+
+Read more: http://www.cnx-software.com/2010/10/25/finding-a-device-ip-address/#ixzz3zFsxCdUW
+
 # What Devices Are Connected to Your Network
 An easy way to scan your network to see what device are connected is to use [`nmap`][01].
 With this you can find out if some unknown or unwanted device is connected to it.

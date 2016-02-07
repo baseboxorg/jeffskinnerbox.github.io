@@ -779,7 +779,8 @@ echo "Full Backup Underway From '$SOURCE' To '$DESTINATION'"
 
 Under the `backup_user` account I established the Cron job for the backups.
 You can use `sudo crontab -l` to list the contents of crontab.
-To update it, use `crontab -e` and enter the following:
+To update it, use `crontab -e` and enter the following
+(Also, restart cron with `sudo service cron restart` to make sure the changes are in effect):
 
 
 ```bash

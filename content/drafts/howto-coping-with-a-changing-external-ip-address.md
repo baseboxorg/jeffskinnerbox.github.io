@@ -1,13 +1,16 @@
 Status: draft
-Title: HowTo Cope With a Changing External IP Address
+Title: HowTo: Coping With a Changing External IP Address
 Date: 2100-01-01 00:00
 Category: Software
 Tags: DDNS
-Slug: howto-cope-with-a-changing-external-ip-address
+Slug: howto-coping-with-a-changing-external-ip-address
 Author: Jeff Irland
 Image: how-to.png
 Summary: Since I'm not using a static IP for my home router, my ISP can change my IP address as they sees fit. But in order for me to SSH into my home server from outside my local network, I need my home’s router current IP address.  Here a create a simple utility that pushes to my cell phone the new address when my router's IP address changes.
 
+<a href="http://www.pebra.net/blog/2014/02/07/installing-openwrt-on-wd-mynet-n600/">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="Since I'm not using a static IP for my home router, my ISP can change my IP address as they sees fit. But in order for me to SSH into my home server from outside my local network, I need my home’s router current IP address." alt="internet connection picture" src="{filename}/images/internet-connection.png" width="128" height="128" />
+</a>
 Some ISPs change the IP address they provide you frequently,
 while others provide it on a long lease but may still change it.
 Most ISPs allocate their range of IP addresses dynamically (using DHCP),
@@ -26,7 +29,7 @@ with a fixed mnemonic address in real time,
 so as long as you have  mnemonic form, it will point you to  your server.
 This service can also cost you money.
 (e.g. [Dyn][02] has stopped their free plans
-but [No-IP][03] provides a free service).
+but [No-IP][03] provides a quasi-free service).
 Your home router will also need to support the DDNS client.
 Not all routes support DDNS,
 but [OpenWrt does][04] and is [fairly easy to install][05]
@@ -41,14 +44,21 @@ specifically using the website [ifconfig.co][06].
 The design is to execute the command `curl ifconfig.co` periodically,
 check if the IP address has changes, and if so, email or text the change to myself.
 
-To do this, I placed this shell program, which I call `ip_check`,
-in cron to run every hour:
+To do this, I placed the shell program listed below, which I call `ip_check`,
+in `cron` to run every hour.
 
 <!-- -------- Start: Gist Code Snippet --------- -->
 <style="padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); font-size: 12px; line-height: 14px; width: 90%;">
-    <script src="xxx ip_check xxx"></script>
+    <script src="https://gist.github.com/jeffskinnerbox/fd4c1ea2f22a361f4164.js"></script>
 </style>
 <!-- --------- End: Gist Code Snippet ---------- -->
+
+To run the script in [`cron`][09] every hour,
+I [edited the cron table][08] via the command `crontab -e`
+and place the following in the table: `@hourly  /home/jeff/bin/ip_check -x`.
+Also note that `cron` can be temperamental,
+so check out the post "[Reasons why crontab does not work][10]"
+if you have problems getting it working.
 
 The above shell program makes use of the utility `apprise`,
 a push notification tool for the [Pushover][07] service.
@@ -69,3 +79,6 @@ This will notify me on my cell phone of any changes to the external IP address.
 [05]:http://www.pebra.net/blog/2014/02/07/installing-openwrt-on-wd-mynet-n600/
 [06]:http://ifconfig.co/
 [07]:https://pushover.net/
+[08]:http://man7.org/linux/man-pages/man5/crontab.5.html
+[09]:https://en.wikipedia.org/wiki/Cron
+[10]:http://askubuntu.com/questions/23009/reasons-why-crontab-does-not-work

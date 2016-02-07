@@ -19,8 +19,8 @@ The nodes will then have sensors attached to them.
 An ambitious project I know, but for me, its all about the journey,
 not the destination!
 
-[Quick Mesh Project (qMp)][09]
-is a system for easily deploying Mesh/MANET networks using WiFi technology.
+I was considering using [Quick Mesh Project (qMp)][09].
+qMp is a system for easily deploying Mesh/MANET networks using WiFi technology.
 The qMp firmware, based on OpenWrt, works on many embedded WiFi network devices.
 The [qMp website states][18] that, in general
 every device supported by OpenWrt with 4 MB+ Flash and 32 MB+ RAM can work with qMp.
@@ -29,6 +29,18 @@ and I want to use it as my main node (that is, the node I'll use to mange the ne
 for a [Quick Mesh Project (qMp)][09] network.
 The main node needs to be beefy enough so support a web server, network management tools, etc.
 All the other node, much smaller nodes, will be using WRTnode.
+
+I believe a better altenative to qMp is the [Open-Mesh][45]
+routing protocols for ad-hoc networks [BATMAN-Adv][46].
+The name stands for “Better Approach To Mobile Ad-hoc Networking“,
+this is a routing protocol for multi-hop ad-hoc mesh networks.
+BATMAN-Adv is better supported and documented than qMp.
+BATMAN-Adv doesn't claim (and most likely doesn't) to have an easy setup like qMp,
+but this a small consideration when you see the support behind BATMAN-Adv.
+Also, with this project you'll find tools like
+`batadv-vis` to visualize your BATMAN-Adv mesh network,
+`alfred` for flooding the network with data,
+`batctl` is the configuration and debugging tool
 
 Unfortunately, it is stated repeatedly on the OpenWrt blogs that
 OpenWrt does **NOT** support, and will never support,
@@ -56,8 +68,8 @@ plus a on/off switch which is good for how I plan to use it.
 I suspect I got the good price, despite the better or equivalent features to the other routers,
 because its an older model, isn't a Gigabit Ethernet switch, and lacks whip antennas.
 
-# Installation
-The first step for bring up qMp is to install [OpenWrt][16].
+# Flashing the Router
+The first step for bring up the mesh network is to install [OpenWrt][16].
 The [OpenWrt website][15] gives extensive documentation concerning its
 purpose, structure, history, installation, hardware supported, etc.
 Also, my posting on "Getting Started With WRTnode" provides additional insight.
@@ -69,7 +81,7 @@ That is, provide a static IP address and no longer use [DHCP][10] to acquire the
 I found a post concerning [installing OpenWrt install via LAN connection][08]
 which provided some guidance.
 
-# Installing OpenWRT
+## Step 1: Installing OpenWRT
 I first attempted to followed the [procedures outlined by the OpenWrt Wiki][11].
 I downloaded [`openwrt-ar71xx-generic-mynet-n600-squashfs-factory.bin`][27] firmware.
 On some Linux boxes, you need to edit the `/etc/network/interfaces` file
@@ -189,7 +201,7 @@ You do this via the menu / tabs / button sequence listed here:
 * Set Time - `System > General Settings > Provide NTP server`
 * Archive Configuration Settings - `Systems > Backup / Flash Firmware > Actions > Generate archive`
 
-Now that the root login has been set, you should be able to login via `[ssh][35]`.
+Now that the root login has been set, you should be able to login via [`ssh`][35].
 Test it out with `ssh root@192.168.1.200`.
 This is important, because later on in the qMp install,
 you may xxxxxxxxxxxxxxxxxxxxxxxx
@@ -337,8 +349,8 @@ but could be useful if you don't have WiFi or Ethernet connectivity.
 [42]:http://qmp.cat/Get_the_software
 [43]:http://en.wikipedia.org/wiki/IPv4_subnetting_reference
 [44]:http://www.gl-inet.com/ar150/
-[45]:
-[46]:
+[45]:https://www.open-mesh.org/projects/open-mesh/wiki
+[46]:https://www.open-mesh.org/projects/batman-adv/wiki/Doc-overview
 [47]:
 [48]:
 [49]:
