@@ -1,5 +1,5 @@
 created: 20140919014920863
-modified: 20151221020431711
+modified: 20160207191136270
 tags: Projects
 title: Sound Synthesizer
 type: text/vnd.tiddlywiki
@@ -18,3 +18,10 @@ The [[BTC Sound Encoder|http://www.romanblack.com/picsound.htm]]
 is software I have written for the purpose of converting sound (in wave files) to a
 [[1-bit format|http://www.romanblack.com/BTc_alg.htm]]
 that can be played back on very cheap hardware, like a microprocessor chip
+
+[[pyAudioAnalysis: A Python Audio Analysis Library|https://github.com/tyiannak/pyAudioAnalysis/wiki]]
+
+Signals, spectrum, and sound hacker Oona Räisänen's website -
+[[absorptions|http://www.windytan.com/]]
+
+sigidwiki.com is a [[Signal Identification Guide|http://www.sigidwiki.com/wiki/Signal_Identification_Guide]]
