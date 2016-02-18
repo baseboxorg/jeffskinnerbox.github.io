@@ -84,6 +84,11 @@ If you want to convert between different compressed audio formats, generally the
 * [Convert Audio Files From Many Formats In Ubuntu Linux With Sound Converter][08]
 * [Wavbreake][09]
 
+## Direct-Digital Synthesis (DDS)
+[Direct-digital synthesis (DDS)](http://hackaday.com/2016/02/12/embed-with-elliot-audio-playback-with-direct-digital-synthesis/)
+is a sample-playback technique that is useful for adding a little bit of audio
+to your projects without additional hardware.
+
 ## Digital Audio Editor
 * [Audacity](http://audacity.sourceforge.net/)
 

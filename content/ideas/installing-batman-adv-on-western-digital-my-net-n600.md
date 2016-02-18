@@ -1,7 +1,9 @@
 ![qMp logo](/images/qmp_logo.png = 500x500 "Quick Mesh Project is a system for easily deploying Mesh/MANET networks using WiFi technology.")
 
-http://makezine.com/2014/11/26/how-meshnets-are-changing-the-face-of-the-web/
-http://hyperboria.net/
+For installing OpenWRT, check out
+* [BATMAN on OpenWRT](https://wiki.reseaulibre.ca/guides/openwrt+batman/)
+* [Mesh network with OpenWRT routers](http://internet-science.eu/sites/eins/files/uploads/MeshnetworkwithOpenWRTrouters.pdf)
+* [Lab 8: Wireless Mesh Network Setup with DD‐WRT](http://vip.gatech.edu/wiki/images/5/56/WikiLab_8-_Wireless_Mesh_Network_Setup_with_DD-WRT.pdf)
 
 * I'm thinking about diving into [openHAB][20],
 loading it on a [Raspberry Pi][21],

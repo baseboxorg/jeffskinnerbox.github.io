@@ -1,13 +1,3 @@
-Title: Repurpose an Old WiFi Router
-Date: 2100-01-01 00:00
-Category: xxx
-Tags: xxx
-Slug: repurpose-an-old-wifi-router
-Author: Jeff Irland
-Image: DRAFT_stamp.png
-Summary: bla bla bla
-
-
 * [Repurpose an old wifi router for the internet-of-things](http://www.instructables.com/id/Repurpose-an-old-wifi-router-for-the-internet-of-t/?ALLSTEPS)
 * [The Top 6 Alternative Firmwares For Your Router](http://www.makeuseof.com/tag/top-6-alternative-firmwares-router/)
 * [Turn Your Home Router Into a Super-Powered Router with DD-WRT](http://www.howtogeek.com/56612/turn-your-home-router-into-a-super-powered-router-with-dd-wrt/)
@@ -35,7 +25,7 @@ Summary: bla bla bla
 
 ## Mesh Network
 Quick Mesh Project (qMp) is a system for easily deploying Mesh/MANET networks using Wi-Fi technology.
-The qMp firmware, based on OpenWrt, works on many embedded WiFi network devices. 
+The qMp firmware, based on OpenWrt, works on many embedded WiFi network devices.
 * [Quick Mesh Project (qMp)](http://qmp.cat/Home)
     * [Quick deployment network using MANET](http://upcommons.upc.edu/pfc/bitstream/2099.1/14103/1/77789.pdf)
 
@@ -49,3 +39,6 @@ The qMp firmware, based on OpenWrt, works on many embedded WiFi network devices.
 * [TP-LINK TL-WR703N](http://www.cnx-software.com/development-kits/hackable-gadgets/)
 * [OpenWRT on TP-Link WR-703N](http://blog.thestateofme.com/2014/10/16/openwrt-on-tp-link-wr-703n/)
 * [OpenWRT on TP-Link TL-WR703N](http://wiki.openwrt.org/toh/tp-link/tl-wr703n)
+* [GL-AR150-ext smart router with External Antenna, 150Mbps OpenWrt Pre-installed](http://www.amazon.com/GL-AR150-ext-External-Antenna-150Mbps-Pre-installed/dp/B015CYI8DY/ref=sr_1_2?ie=UTF8&qid=1454383159&sr=8-2&keywords=GL-AR150)
+    * [GL-AR150 Documentation](http://www.gl-inet.com/docs/smartrouter/)
+    * [GL-AR150 Blog](http://www.gl-inet.com/blog/)

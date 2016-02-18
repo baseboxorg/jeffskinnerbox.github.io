@@ -499,6 +499,33 @@ xiwi -f xterm
 https://support.google.com/chromebook/answer/1047367?hl=en&ref_topic=2589149
 http://blog.laptopmag.com/how-to-right-click-on-a-chromebook
 
+## Xhost / Xauth
+The X server will not accept connections from just anywhere.
+You don't want everyone to be able to display windows on your screen or read what you type
+(Someone with access to your display can read and write your screens, read your keystrokes, and read your mouse actions).
+The X Server has ways to authenticating connections to it: the host list mechanism (`xhost`)
+and the magic cookie mechanism (`xauth`).
+Then there is `ssh`, the secure shell, that can forward X connections.
+
+Some X Servers can be configured not to listen on the usual TCP port where you would access the X Server.xi
+Notably the default configuration of Debian GNU/Linux is to disable the X server listening on the TCP port.
+If you wish to use remote X on a Debian system, you should re-enable this by altering the way the X server is started. Look at /etc/X11/xinit/xserverrc for a start.
+
+finish finish finish finish
+
+http://www.tldp.org/HOWTO/Remote-X-Apps-6.html
+http://users.stat.umn.edu/~geyer/secure.html
+http://serverfault.com/questions/51005/how-to-use-xauth-to-run-graphical-application-via-other-user-on-linux
+http://www.tldp.org/HOWTO/Remote-X-Apps-6.html
+
+## Changing Host Name
+The Linux instance host name will default to `localhost`.
+[This can be changed][64] to something more appropriate, like `chromebook`, via
+
+```bash
+sudo homstname chromebook
+```
+
 ## Aliases
 To make this all easier to remember, you could create some aliases'.
 Aliases have to be stored in `~/.bashrc` to persist indefinitely
@@ -752,7 +779,7 @@ But you can get make that vision start to happen today—with a new Google tool 
 [61]:https://chrome.google.com/webstore/detail/gistbox-desktop/pdjgfbgklbmmigkmmdbbhfchdldngkml
 [62]:https://developers.google.com/web/tools/chrome-devtools/
 [63]:https://www.codeschool.com/courses/discover-devtools
-[64]:
+[64]:http://www.ducea.com/2006/08/07/how-to-change-the-hostname-of-a-linux-system/
 [65]:
 [66]:
 [67]:

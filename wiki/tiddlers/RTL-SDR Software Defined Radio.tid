@@ -1,5 +1,5 @@
 created: 20140919015727086
-modified: 20151221032401632
+modified: 20160207222431530
 tags: Projects
 title: RTL-SDR Software Defined Radio
 type: text/vnd.tiddlywiki
@@ -62,9 +62,14 @@ type: text/vnd.tiddlywiki
 *[[Software-Defined Radio, Part II|http://spectrum.ieee.org/geek-life/hands-on/softwaredefined-radio-part-ii]]
 *[[Random wire antenna|http://en.wikipedia.org/wiki/Random_wire_antenna]]
 
+!!Amateur Radio-Astronomy
+
+*[[Radio-astronomy with RTL-SDR, RaspberryPI and Amazon AWS IoT|https://www.hackster.io/mariocannistra/radio-astronomy-with-rtl-sdr-raspberrypi-and-amazon-aws-iot-45b617?utm_source=hackster&utm_medium=email&utm_campaign=new_projects]]
+
 !!Radio Waveform Identification and Spectrum Monitoring
 
 *[[Radio Signal Identification Guide|http://www.rtl-sdr.com/signal-identification-guide/]]
+*[[Signal Identification Guide|http://www.sigidwiki.com/wiki/Signal_Identification_Guide]]
 *[[Digital Modes Samples|http://www.kb9ukd.com/digital/]]
 *[[Monitoring the Spectrum: Building Your Own Distributed RF Scanner Array |http://www.rtl-sdr.com/talk-monitoring-spectrum-building-distributed-rf-scanner-array/]]
 
