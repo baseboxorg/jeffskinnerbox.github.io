@@ -10,8 +10,8 @@ They also often have very different objects, such as,
 support for general purpose Internet access requiring low latency and significant bandwidth
 or special purpose like sensor networks where latency and bandwidth a lesser concern.
 
-
 # Types of Networks
+https://wellness.wikispaces.com/Network+Architectures
 Ad-Hoc Network
 :   Within wireless networking, Ad-Hoc is one of the modes of operation for an 802.11 radio.
     It happens at OSI layer 1, the physical layer,
@@ -30,10 +30,13 @@ Mesh Network
     we can create wireless mesh networks purely between client devices without
     any need for centralized Access Points or Routers.
 
-P2P Network
+Peer-to-Peer (P2P) Network
 :   P2P or Peer-to-Peer simply means that clients talk directly to each other without the use of a central server.
     Both Ad-Hoc and Mesh Routing can be described as P2P as they are both instances
     of clients-to-client communication, just at different layers of the OSI model.
+
+Multipeer Connectivity
+:   https://developer.apple.com/library/ios/documentation/MultipeerConnectivity/Reference/MultipeerConnectivityFramework/
 
 Wireless Mesh Network
 :   A Wireless Mesh Network (WMN) is a communications network made up of
@@ -114,46 +117,6 @@ Clearnet
 The Meshnet
 :   Used here, "the meshnet" refers the transitional CJDNS internet overlay network
     currently known as Hyperboria.
-
-# Routing Protocols
-There are more than 70 competing schemes for routing packets across mesh networks.
-Scalable Source Routing (SSR) is a routing protocol for unstructured networks
-such as mobile ad hoc networks, mesh networks, or sensor networks.
-https://en.wikipedia.org/wiki/Wireless_mesh_network#Routing_protocols
-https://en.wikipedia.org/wiki/List_of_ad_hoc_routing_protocols
-http://www.utilitynetworks.co.uk/site/content/introduction-wireless-mesh-routing-protocols-alan-holt
-
-## OLSR Routing Protocol
-Old and well-documented routing protocol
-
-## B.A.T.M.A.N. Mesh
-Developed by Freifunk to replace OLSR
-primarily use case is where a significant number of nodes move around a lot within the mesh area (vehicle based nodes for instance).
-[B.A.T.M.A.N. Mesh Video Playlist](https://www.youtube.com/playlist?list=PLvgZ_9wT_LNdq7SdqJ6VSWspU3vlnEuV9)
-[B.A.T.M.A.N. Advanced](http://www.open-mesh.org/projects/batman-adv/wiki/)
-[Mobile Mesh Networks with the Raspberry Pi – Part 1](http://www.ericerfanian.com/mobile-mesh-networks-with-the-raspberry-pi-part-1/)
-[Subnodes Project](http://subnodes.org/)
-[A Raspberry Pi based batman-adv Mesh network node](http://people.skolelinux.org/pere/blog/A_Raspberry_Pi_based_batman_adv_Mesh_network_node.html)
-[BATMAN on OpenWRT](https://wiki.reseaulibre.ca/guides/openwrt+batman/)
-
-## CJDNS
-The vision of [cjdns](https://github.com/cjdelisle/cjdns)
-([video](https://www.youtube.com/watch?v=NRhMY-gdXDw) and [whitepaper](https://github.com/cjdelisle/cjdns/blob/master/doc/Whitepaper.md#the-router))
-is an Internet where every packet is cryptographically protected
-from source to destination against espionage and forgery,
-getting an IP address is as simple as generating a cryptographic key,
-core routers move data without a single memory look up,
-and denial of service is a term read about in history books.
-Finally, becoming an ISP is no longer confined to the mighty telecoms,
-anyone can do it by running some wires or turning on a wireless device.
-This is the vision of CJDNS.
-CJDNS operates at layer 2 locally, and it can peer with other distant meshnets via a UDP interface on layer 3.
-CJDNS implements an encrypted IPv6 network using public-key cryptography for address allocation and a distributed hash table for routing.
-
-## Babel
-Babel, a level-2 protocal,
-is a loop-avoiding distance-vector routing protocol for IPv6 and IPv4 with fast convergence properties.
-[Babel — a loop-avoiding distance-vector routing protocol](http://www.pps.univ-paris-diderot.fr/~jch/software/babel/)
 
 # Communities Experiment with Mesh Networks
 ![BattlemeshV9](http://www.olsr.org/mediawiki/images/c/c5/BattleMeshV9.png =100x100 "The Wireless Battle of the Mesh is an event that aims to bring together people from across the globe to test the performance of different routing protocols for ad-hoc networks, like Babel, B.A.T.M.A.N, BMX, OLSR, and 802.11s.")(http://battlemesh.org/)
@@ -259,6 +222,7 @@ prevent monitoring, orprevent jamming but some make some
     It runs a peer-to-peer IPv6 network with automatic end-to-end encryption,
     distributed IP address allocation,
     and Distributed Hash Table (DHT) based Source Routing.
+[Meshnet activists rebuilding the internet from scratch](https://www.newscientist.com/article/mg21929294.500-meshnet-activists-rebuilding-the-internet-from-scratch)
 [How Meshnets Are Changing The Face Of The Web](http://makezine.com/2014/11/26/how-meshnets-are-changing-the-face-of-the-web/)
 [How to Connect to a DarkNet](http://www.tinkernut.com/portfolio/connect-to-a-darknet/)
 [Setup CJDNS on Raspberry Pi](http://www.splatcrashbang.com/setup-cjdns-on-raspberry-pi/)
@@ -274,8 +238,69 @@ prevent monitoring, orprevent jamming but some make some
 [VirginiaMesh](https://www.reddit.com/r/VirginiaMesh)
 
 
+[FireChat](http://opengarden.com/about-firechat) mesh or multi-peering / store-and-forward or ???
+:   When pro-democracy protests erupted in Hong Kong,
+    many demonstrators feared the government would shut down the internet.
+    Those fears, combined with congested data networks, drove thousands to download FireChat.
+    The major innovation of FireChat was that it allowed users to chat in groups
+    even when there was no Internet connection available.
+    The app uses available WiFi networks (whether they are connected to the wider Internet or not),
+    Bluetooth and other connections to set up a local network that people could use to chat.
+    It uses a store-and-forward technique where the messages are encrypted,
+    so other users can’t read them, even if the message is stored on a device
+    while trying to find a way to deliver the message.
+    [Why a messaging app meant for festivals became massively popular during Hong Kong protests](http://www.theverge.com/2014/10/16/6981127/firechat-messaging-app-accidental-protest-app-hong-kong)
+* [How FireChat is using an obscure iOS feature to change messaging](http://www.pcworld.com/article/2137265/how-firechat-is-using-an-obscure-ios-feature-to-change-messaging.html)
+* [Thali](http://thaliproject.org/)
+* http://venturebeat.com/2015/10/20/open-garden-uses-firechat-in-tahiti-to-create-a-cell-phone-network-that-eliminates-need-for-carriers/
+* https://play.google.com/store/apps/details?id=com.opengarden.firechat&referrer=utm_source%3Dfirechat.opengarden.com%26utm_medium%3Dweb%26utm_campaign%3Dbutton
+* https://firechat.firebaseapp.com/
+* https://www.npmjs.com/package/firechat
+* [firechat and nearby communication](http://breizh-entropy.org/~nameless/random/posts/firechat_and_nearby_communication/)
+* https://news.ycombinator.com/item?id=7941163
+* [How FireChat Works, Unpacking Bluetooth](https://cctp2p.wordpress.com/2015/04/12/how-firechat-works/)
+* [Cross-Platform Firechat: a possible explanation](http://blog.moritzhaarmann.de/blog/2014/06/25/firechat/)
 
+# Routing Protocols
+There are more than 70 competing schemes for routing packets across mesh networks.
+Scalable Source Routing (SSR) is a routing protocol for unstructured networks
+such as mobile ad hoc networks, mesh networks, or sensor networks.
+https://en.wikipedia.org/wiki/Wireless_mesh_network#Routing_protocols
+https://en.wikipedia.org/wiki/List_of_ad_hoc_routing_protocols
+http://www.utilitynetworks.co.uk/site/content/introduction-wireless-mesh-routing-protocols-alan-holt
 
+## OLSR Routing Protocol
+Old and well-documented routing protocol
+Mesh Networking With OLSR](http://www.dd-wrt.com/wiki/index.php/Mesh_Networking_with_OLSR)
+
+## B.A.T.M.A.N. Mesh
+Developed by Freifunk to replace OLSR
+primarily use case is where a significant number of nodes move around a lot within the mesh area (vehicle based nodes for instance).
+[B.A.T.M.A.N. Mesh Video Playlist](https://www.youtube.com/playlist?list=PLvgZ_9wT_LNdq7SdqJ6VSWspU3vlnEuV9)
+[B.A.T.M.A.N. Advanced](http://www.open-mesh.org/projects/batman-adv/wiki/)
+[Mobile Mesh Networks with the Raspberry Pi – Part 1](http://www.ericerfanian.com/mobile-mesh-networks-with-the-raspberry-pi-part-1/)
+[Subnodes Project](http://subnodes.org/)
+[A Raspberry Pi based batman-adv Mesh network node](http://people.skolelinux.org/pere/blog/A_Raspberry_Pi_based_batman_adv_Mesh_network_node.html)
+[BATMAN on OpenWRT](https://wiki.reseaulibre.ca/guides/openwrt+batman/)
+
+## CJDNS
+The vision of [cjdns](https://github.com/cjdelisle/cjdns)
+([video](https://www.youtube.com/watch?v=NRhMY-gdXDw) and [whitepaper](https://github.com/cjdelisle/cjdns/blob/master/doc/Whitepaper.md#the-router))
+is an Internet where every packet is cryptographically protected
+from source to destination against espionage and forgery,
+getting an IP address is as simple as generating a cryptographic key,
+core routers move data without a single memory look up,
+and denial of service is a term read about in history books.
+Finally, becoming an ISP is no longer confined to the mighty telecoms,
+anyone can do it by running some wires or turning on a wireless device.
+This is the vision of CJDNS.
+CJDNS operates at layer 2 locally, and it can peer with other distant meshnets via a UDP interface on layer 3.
+CJDNS implements an encrypted IPv6 network using public-key cryptography for address allocation and a distributed hash table for routing.
+
+## Babel
+Babel, a level-2 protocal,
+is a loop-avoiding distance-vector routing protocol for IPv6 and IPv4 with fast convergence properties.
+[Babel — a loop-avoiding distance-vector routing protocol](http://www.pps.univ-paris-diderot.fr/~jch/software/babel/)
 
 # Meshing Raspberry Pi
 * [How to Install OpenWrt on Raspberry Pi](https://www.all4os.com/router/how-to-install-openwrt-on-raspberry-pi.html)

@@ -137,6 +137,7 @@ if you prefer the old plain network service..
     across network connections, using TCP or UDP protocol.
     It is designed to be a reliable "back-end" tool that can
     be used directly or easily driven by other programs and scripts.
+    * [`blucat`](http://blucat.sourceforge.net/blucat/) is netcat for Bluethooth
     * [`ncat][23] is a feature-packed networking utility which reads and writes
     data across networks from the command line.
     Ncat was written a much-improved reimplementation of `netcat`. `ncat` will work with IPv4,

@@ -11,8 +11,8 @@
 * [Troubleshooting SSH Connections](https://www.racf.bnl.gov/docs/authentication/ssh/sshtroubleshooting)
 * [Troubleshooting X11 Sessions](https://www.racf.bnl.gov/docs/authentication/ssh/x11troubleshooting)
 * [SSH/OpenSSH/Keys](https://help.ubuntu.com/community/SSH/OpenSSH/Keys)
-* []()
-* []()
+* [How To Set Up Sudo and SSH Keys on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/video-how-to-set-up-sudo-and-ssh-keys-on-ubuntu-14-04)
+* [How to set up SSH keys](https://kyup.com/tutorials/set-ssh-keys/)
 
 Public key authentication is more secure than password authentication.
 This is particularly important if the computer is visible on the internet.
@@ -31,7 +31,7 @@ you should have enough time to disable your old public key
 before they break the passphrase and start using your key.
 Wikipedia has a more detailed explanation of how keys work.
 
-Public key authentication is a much better solution than passwords for most people. In fact, if you don't mind leaving a private key unprotected on your hard disk, you can even use keys to do secure automatic log-ins - as part of a network backup, for example. 
+Public key authentication is a much better solution than passwords for most people. In fact, if you don't mind leaving a private key unprotected on your hard disk, you can even use keys to do secure automatic log-ins - as part of a network backup, for example.
 
 # Logging on the Client
 Use the “-v” parameter to ssh will provide some output as to what is wrong.
@@ -44,7 +44,7 @@ ssh -vvv remoteuser@remotecomputer
 
 # Trouble Shooting
 There are many things that can stop SSH from working.
-Generally problems with SSH connections fall into two groups - network related and server related. 
+Generally problems with SSH connections fall into two groups - network related and server related.
 
 ERROR
 :   ssh: connect to host ServerX port 22: No route to host
