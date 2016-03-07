@@ -11,18 +11,18 @@ and a Linux machine, I will do the whole setup.
 
 By the way, if you want to make an existing Raspberry Pi headless,
 you don't need to follow this whole procedure.
-Just follow steps XXXXXXXXXXXXXXXX.
+Just make sur SSH is working and follow Step 3.
 If you want to also upgrade your existing Raspberry Pi OS to the latest version,
 check out the article "[Raspbian GNU/Linux upgrade from Wheezy to Raspbian Jessie 8][11]".
 
-# Step 1: Download Raspberry Pi Image
+# Step 1: Download Raspberry Pi Image - DONE
 Before you can load a copy of the latest Raspberry Pi image onto your micro SD Card,
 you must first download the official Raspberry Pi operating system, [Raspbian][03]
 (in my case, the version is [Jessie][10]).
 You can get that download [here][02].
 
 The Raspbian download site also lists a check sum for the download file.
-(**NOTE:** In my case, I down loaded the Raspbian file to `/home/jeff/Downloads/`.)
+(In my case, I down loaded the Raspbian file to `/home/jeff/Downloads/`.)
 Check whether the file has been changed from its original state
 by checking its digital signature (SHA1 hash value).
 
@@ -40,7 +40,7 @@ Archive:  2016-02-09-raspbian-jessie.zip
   inflating: 2016-02-09-raspbian-jessie.img
 ```
 
-# Step 2: Write Raspberry Pi Image to SD Card
+# Step 2: Write Raspberry Pi Image to SD Card - DONE
 Next using Linux, you have copied the Raspbian image onto the SD card mounted to your system.
 I'll be using the [Rocketek 11-in-1 4 Slots USB 3.0 Memory Card Reader][04] to create my SD Card.
 Make sure to [choose a reputable SD Card][05] from [here][13], don't go cheap.
@@ -113,9 +113,9 @@ sudo umount /dev/sdj
 Don’t remove SD card from the reader on your computer.
 We’re going to set up the WiFi interface.
 
-# Step 3: Configure your WiFi
+# Step 3: Configure your WiFi - DONE
 Unplug your SD Card reader and plug it back in
-and this will mount the Raspbia image on your Linux box.
+and this will mount the Raspbian image on your Linux box.
 The `df -h` command will show you the device being used, the mount point, and memory used/available.
 
 ```bash
@@ -138,12 +138,15 @@ none            100M   44K  100M   1% /run/user
 You will find two new partitions, in my case `/dev/sdj1` and `/dev/sdj2`.
 As root, you'll need to change directory to the main partition,
 in my case `/media/jeff/23c4ddbc-85fa-4cea-b96b-edae0bb138c9`, to edit the files.
-(**NOTE:** On a Mac, you can’t access EXT4 partitions without fiddling with 3rd party software.)
+
+>**NOTE:** On a Mac, you can’t access EXT4 partitions without fiddling with 3rd party software.
 
 Change directory to root on the SD card via `cd /media/jeff/23c4ddbc-85fa-4cea-b96b-edae0bb138c9/`.
-(**NOTE:** Pay special attention to the path in the files referenced below.
-There is no leading slash since you want to edit the files on your SD Card and not the ones on your host system!)
-Next we're going to configure the network interface by editing the interfaces file `etc/network/interfaces`.
+Pay special attention to the path in the files referenced below.
+There is no leading slash since you want to edit the files on your SD Card
+and not the ones on your host system!
+Next we're going to configure the network interface by
+editing the interfaces file `etc/network/interfaces`.
 Find this block in the file:
 
 ```
@@ -180,107 +183,129 @@ network={
 * `pairwise` could be either CCMP (WPA2) or TKIP (WPA1)
 * `auth_alg` is most probably OPEN, other options are LEAP and SHARED
 
-# Step 4: Boot the Raspberry Pi
+# Step 4: First Time Boot of the Raspberry Pi - DONE
 Now unmount the SD Card, put the SD Card into the Raspberry Pi,
-plug the WiFi in and power it up.
+plug a [WiFi dongle][14] into the Raspberry Pi, and power it up.
 After approximately a minute, the Raspberry Pi will have completely booted up.
 At this point your WiFi router should have automatically assigned an IP to the Raspberry Pi
 (assuming the router is running DHCP).
 
-To access the Raspberry Pi,
-we’ll need to get the IP address it has been assigned,
+To access the Raspberry Pi, we'll need its host name
+(generally this defaults to `raspberrypi`) or
+we’ll need to get the IP address it has been assigned by the network,
 which you can get via your WiFi routers administrate interface or `nmap` or `arp`.
-Try the following:
+To begin your can scan using `nmap -sP`,
+which will run a ping scan on the specified network.
+For instance, `nmap -sP 192.168.1.0/24` will scan the 256 hosts from
+192.168.1.0 through 192.168.1.255 to see if they're available, and report back.
 
 ```bash
-# using nmap to list IP for devices running with port 22 open
-sudo nmap -p22 -sV 192.168.0.0/24
+# ping scan on the specified network
+sudo nmap -sP 192.168.1.0/24
 
 # using arp to find the IP address
 arp -a
 ```
 
-So lets assume from the above output that the Raspberry Pi has an IP address of 192.168.1.89.
-SSH is running on this Raspberry Pi, so it can be accessed at via `ssh pi@192.168.1.89`
+To check to see what devices are running SSH service on port 22:
+
+```bash
+# using nmap to list IP for devices running with port 22 open
+sudo nmap -p22 -sV 192.168.1.0/24
+```
+So lets assume from the above output that the Raspberry Pi has an IP address of 192.168.1.179
+and SSH is running on this Raspberry Pi,
+so it can be accessed at via `ssh pi@192.168.1.179`
 Enter the default password `raspberry` and you will now get to the command prompt.
 If this is your first time for logging in, you will also be a message:
+
+```
+$ ssh pi@192.168.1.179
+The authenticity of host '192.168.1.179 (192.168.1.179)' can't be established.
+ECDSA key fingerprint is a6:45:7d:78:4b:c8:52:72:a0:6b:52:37:c8:e6:73:45.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '192.168.1.179' (ECDSA) to the list of known hosts.
+pi@192.168.1.179's password:
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Sat Feb 27 15:10:01 2016
+```
+
+You may also be get with the message:
 
 ```
 NOTICE: this Raspberry Pi has not been fully configured. Please run 'sudo raspi-config'
 ```
 
+If you get it or not, this should be your next step.
+
+>**NOTE:** When using a keyboard and monitor (not SSH) when logging in,
+the Raspberry Pi OS image [Jessie][10] default behaviour is to boot straight to the desktop GUI,
+not to the Linux command line as done above.
+The motivation is that is the expected behaviour for all modern computers.
 When a new image that contains the `raspi-config` utility is booted the first time,
 the session starts with the `raspi-config` screen
 (This behaviour is driven by the `raspi-config.sh` script in the `/etc/profile.d` directory).
+Under these conditions, you would be prompted for the next step automatically.
 
-# Step X: Configure to Boot into Commandline <-- combine with section below???
-The Raspberry Pi OS image [Jessie][10] default behaviour is to boot straight to the desktop GUI,
-not to the Linux command line.
-The motivation is that is the expected behaviour for all modern computers.
-It is still possible to set the Pi to boot to the command line.
-
-Boot without starting X-server - http://raspberrypi.stackexchange.com/questions/1318/boot-without-starting-x-server
-Trying to turn off X11 in Jessie - http://raspberrypi.stackexchange.com/questions/31439/trying-to-turn-off-x11-in-jessie
-http://www.modmypi.com/blog/boot-to-command-line-raspbian-jessie
-http://ask.xmodulo.com/disable-desktop-gui-raspberry-pi.html
-http://ask.xmodulo.com/boot-into-command-line-ubuntu-debian.html
-
-# Step X: Set the Hostname
-
-# Step X: Configure the Raspberry Pi
+# Step 5: Configure the Raspberry Pi - DONE
 You should now run the `sudo raspi-config` (see [raspi-config documentation][12])
-as prompted to perform some initial configuration of the Raspberry Pi.
+The multiple things can be configured within this configuration tool.
+We need to change the following:
 
-The following things can be configured within the configuration tool:
+* **Expand Filesystem** - select this
+* **Boot Options** - select this and choose "B1 Console"
+* **Advanced Options** - select this and choose "A2 Hostname", enable "A4 SSH", enable "A5 Device Tree", enable "A6 SPI", enable "A7 IC2", enable "A8 Serial"
 
-* **expand_rootfs** - required to allow you to use all the space on your SD card if it is bigger than 2GB. Or you could manually partition if you prefer.
-* **overscan** - not required that relates to using a TV / monitor
-* **change_pass** - it is very important that you change the password as the password is otherwise at the default.
-* **configure_keyboard** - not required as we don't have a keyboard physically connected.
-* **change_locale** - required if not in the UK
-* **change_timezone** - choose appropriate time zone, otherwise UTC (GMT) is used. Note that the Raspberry Pi does not include a realtime clock, but it will use the network time protocol to get the time from the Internet if available.
-* **memory_split** - this allows you to change the amount of memory available for the video and main system. Without a TV / monitor connected then you should set to "224MiB for Arm, 32MiB for VideoCore".
-* **ssh** - leave enabled
-* **finish** - choose the finish option to quit and not show the "not fully configured" message in future. You can always run the configuration tool again by using `sudo raspi-config`.
-
-You should configure to expand the root partition via `expand_rootfs`,
-change the location via `change_locale`,
-set the local time zone via `change_timezone`,
-and then select `finish`.
-
-Finally reboot so that the configuration changes are all applied.
+Finally, select `<Finish>` and reboot so that the configuration changes are all applied.
 
 ```bash
 sudo reboot
 ```
 
-# Step X: Set Up DNS
-Add the DNS server address to /etc/resolv.conf
-
-# Step X: OS Updates
-Let's sure you have all the most current Linux packages.
+# Step 6: OS Updates - DONE
+Let's make sure you have all the most current Linux packages.
 This will patch the Linux operating system and all its GPL applications
 
 ```bash
 # commandline utility for applications upgrade
 sudo apt-get update
-sudo apt-get upgrade
 sudo apt-get dist-upgrade
-
-# graphics utility for applications upgrade
-update-manager -c
+sudo apt-get upgrade
 
 # if packages were installed, reboot
 sudo reboot
 ```
 
-After a successful upgrade, use `hostnamectl` to see your current Raspbian version
+After a successful upgrade and reboot,
+use `hostnamectl` and `vcgencmd` to see your current Raspbian version
+and firmware version using the method shown below:
 
 ```bash
 # check you current OS version
+$ hostnamectl
+   Static hostname: mesh01
+         Icon name: computer
+           Chassis: n/a
+        Machine ID: 66ed98ff0e86414096aa89869d8e8c09
+           Boot ID: d85f8fc7314f427b8049f304baf05b8c
+  Operating System: Raspbian GNU/Linux 8 (jessie)
+            Kernel: Linux 4.1.17+
+      Architecture: arm
+
+# check the firmware version
+$ sudo /opt/vc/bin/vcgencmd version
+Feb  1 2016 17:51:17
+Copyright (c) 2012 Broadcom
+version b3dc56931507f355d503ea69397778643f7a3dc3 (clean) (release)
 ```
 
-# Step XA: Updating Firmware for Raspberry Pi
+# Step 7: Updating Firmware for Raspberry Pi - DONE
 In the case of the Raspberry Pi (RPi), you will want to also upgrade the firmware regularly.
 [Raspbian][07] is the standard Linux operating system distribution for the RPi,
 but it doesn't include firmware.
@@ -296,20 +321,11 @@ sudo BRANCH=next rpi-update
 # if firmeware is installed, reboot
 sudo reboot
 ```
+Rerun the tools `hostnamectl` and `vcgencmd` to see how your
+kernel and firmware may have changed from the earlier step.
 
-# Step XB: Updating Firmware for Raspberry Pi (Adafruit's Occidentalis)
-If your using the [Adafruit's Occidentalis distribution][08],
-this requires a [slightly different update tool][09]
-(`git` needs to be installed):
-
-```bash
-# install tools to upgrade Raspberry Pi's firmware
-sudo wget https://raw.github.com/Hexxeh/rpi-update/master/rpi-update -O /usr/bin/rpi-update
-sudo chmod +x /usr/bin/rpi-update
-```
-
-**NOTE:*** Once these tools have been installed,
-periodically you can update the firmware via the command below:
+Once these tools have been installed,
+periodically you can update the firmware via the commands below:
 
 ```bash
 # periodically you can update the firmware via the command
@@ -321,29 +337,24 @@ sudo BRANCH=next rpi-update
 sudo reboot
 ```
 
-# Step X: Package Installs
-While the Raspberry Pi comes with a a fairly robust set of Linux packages,
+>**NOTE:** If your using the [Adafruit's Occidentalis distribution][08],
+this may require a [slightly different update tool][09]
+
+# Step 8: Package Installs - DONE
+While the Raspberry Pi comes with a fairly robust set of Linux packages,
 it could use some beefing up for most uses.
-For example, while the distribution is likely to already have some python packages installed,
+For example, while the distribution is likely to already have some Python packages installed,
 execute the following to make sure you have all that is needed
 
 ```bash
-sudo apt-get install python
-sudo apt-get install python-dev
-sudo apt-get install libjpeg-dev
-sudo apt-get install libfreetype6-dev
-sudo apt-get install python-setuptools
-sudo apt-get install python-pip
-```
+# frsat install Linux packages
+sudo apt-get install python python-dev libjpeg-dev libfreetype6-dev python-setuptools python-pip
 
-With this done, now its time to install the required Python libraries
-
-```bash
-# first update the Python distribution
+# update the Python distribution
 sudo easy_install -U distribute
 
-# install the RPi GPIO and other packages
-sudo pip install RPi.GPIO install pySerial nose cmd2
+# install the RPi GPIO and other packages via pip
+sudo pip install RPi.GPIO pySerial nose cmd2
 ```
 
 Install X Window utilities and other applications
@@ -353,39 +364,67 @@ Install X Window utilities and other applications
 sudo apt-get install x11-apps x11-xserver-utils xterm
 
 # development tools
-sudo apt-get install markdown git vim vim-gtk microcom node i2c-tools python-smbus
+sudo apt-get install markdown git vim vim-gtk microcom
+sudo apt-get install nodejs build-essential i2c-tools python-smbus
 
-# so you can connect via .local
-sudo apt-get install avahi-daemon netatalk
-
-# handy tools
-sudo apt-get install sendmail
+# so you can discover hosts via Multicast Domain Name System (mDNS)
+sudo apt-get install avahi-daemon
 
 # basic networking tools
-sudo apt-get install wavemon ievent netstat nicstat
+sudo apt-get install wavemon nicstat
+
+# other handy tools
+sudo apt-get install sendmail
 ```
 
-# Step X: Password-less Login via SSH Keys
-Generate SSH Keys on Your Mac (Not the RPi) For Password-less Logins
+# Step 9: Password-less Login via SSH Keys - DONE
+Public key authentication is an alternative means of identifying yourself to a login server,
+instead of typing a password.
+It is more secure and more flexible, but more difficult to set up.
+This is particularly important if the computer is visible on the Internet.
+Also, public key authentication allows you to log into a machine
+without a user typing in a password.
+
+To setup password-less login via public key authentication,
+use the posting "XXX-howto-configure-ssh-public-key-authentication".
+
+# Step 10: Boot Without Starting X Window - DONE
+The Raspberry Pi's Jessie image is configured to automatically bring up the X Window
+graphics system an the supporting GUI.
+Generally, your not going to be using an RPi to support GUI's for users.
+You should turn off X Windows and save yourself some CPU cycles.
+
+You can discover if X Windows being start at boot up via the command:
 
 ```bash
-ssh-keygen -t rsa
-cat ~/.ssh/id_rsa.pub | ssh pi@<ip_address_of_raspberry_pi> "mkdir .ssh;cat >> .ssh/authorized_keys"
+# query to find out if your in graphical or multi-user mode
+$ systemctl get-default
+graphical.target
 ```
 
-Replace  <ip_address_of_raspberry_pi>  with the IP address of the RPi.
-This command will copy the public key generated on the Mac into the authorized_keys file on the Pi.
-You will need to enter the password of the pi user to execute this command.
-If you try to SSH into the machine after this command, no password will be required.
+The response `graphical.target` indicates X Windows is being started on boot up.
+The utility [`systemd`][15] is an init system and system manager that is widely
+becoming the new standard for Linux machines.
 
-# Step X: Install Watchdog
-[Howto Use Linux Watchdog](https://embeddedfreak.wordpress.com/2010/08/23/howto-use-linux-watchdog/)
-[Using the Watchdog Timer in Linux](http://www.jann.cc/2013/02/02/linux_watchdog.html)
-[The Linux Watchdog driver API](https://www.kernel.org/doc/Documentation/watchdog/watchdog-api.txt)
-[Linux Watchdog Daemon - Configuring](http://www.sat.dundee.ac.uk/psc/watchdog/watchdog-configure.html)
-[Keeping your Raspberry Pi alive: enabling Hardware Watchdog under Arch Linux](http://dovgalecs.com/blog/keeping-your-raspberry-pi-alive-enabling-hardware-watchdog-under-arch-linux/)
+To nolong use the GUI and boot into multi-user mode, usde this command
+
+```bash
+# set to multi-user mode
+$ sudo systemctl set-default multi-user.target
+Removed symlink /etc/systemd/system/default.target.
+Created symlink from /etc/systemd/system/default.target to /lib/systemd/system/multi-user.target.
+
+# query to find out if your in graphical or multi-user mode
+$ systemctl get-default
+multi-user.target
+```
+
+Note that at this point the X Server will stil be running.
+You can see this via the command `ps -aux | grep X`.
+You need to reboot the RPi and then you will nolong have X Window running.
 
 # Step X: Configure Firewall
+We’re going to use `ufw` (Uncomplicated FireWall) to restrict access to our Raspberry Pi.
 
 # Step X: Install Fail2Ban
 [How Fail2Ban Works to Protect Services on a Linux Server](https://www.digitalocean.com/community/tutorials/how-fail2ban-works-to-protect-services-on-a-linux-server)
@@ -393,6 +432,13 @@ If you try to SSH into the machine after this command, no password will be requi
 [How to protect SSH with fail2ban](https://kyup.com/tutorials/protect-ssh-fail2ban/)
 [Preventing Brute Force Attacks With Fail2ban On Debian Etch](https://www.howtoforge.com/fail2ban_debian_etch)
 [Using Fail2ban to Secure Your Server](https://www.linode.com/docs/security/using-fail2ban-for-security)
+
+# Step X: Install Watchdog
+[Howto Use Linux Watchdog](https://embeddedfreak.wordpress.com/2010/08/23/howto-use-linux-watchdog/)
+[Using the Watchdog Timer in Linux](http://www.jann.cc/2013/02/02/linux_watchdog.html)
+[The Linux Watchdog driver API](https://www.kernel.org/doc/Documentation/watchdog/watchdog-api.txt)
+[Linux Watchdog Daemon - Configuring](http://www.sat.dundee.ac.uk/psc/watchdog/watchdog-configure.html)
+[Keeping your Raspberry Pi alive: enabling Hardware Watchdog under Arch Linux](http://dovgalecs.com/blog/keeping-your-raspberry-pi-alive-enabling-hardware-watchdog-under-arch-linux/)
 
 # Sources
 * [Raspberry Pi Zero Headless Setup](http://davidmaitland.me/2015/12/raspberry-pi-zero-headless-setup/)
@@ -413,8 +459,8 @@ If you try to SSH into the machine after this command, no password will be requi
 [11]:https://linuxconfig.org/raspbian-gnu-linux-upgrade-from-wheezy-to-raspbian-jessie-8
 [12]:http://elinux.org/RPi_raspi-config
 [13]:http://www.jeffgeerling.com/blogs/jeff-geerling/raspberry-pi-microsd-card
-[14]:
-[15]:
+[14]:http://www.amazon.com/Edimax-EW-7811Un-150Mbps-Raspberry-Supports/dp/B003MTTJOY
+[15]:https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
 [16]:
 [17]:
 [18]:

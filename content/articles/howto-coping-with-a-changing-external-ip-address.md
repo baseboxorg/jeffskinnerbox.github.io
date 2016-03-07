@@ -1,7 +1,7 @@
 Title: HowTo: Coping With a Changing External IP Address
 Date: 2016-02-07 13:14
 Category: Software
-Tags: DDNS
+Tags: How To, DDNS
 Slug: howto-coping-with-a-changing-external-ip-address
 Author: Jeff Irland
 Image: how-to.jpg
@@ -10,10 +10,10 @@ Summary: Since I'm not using a static IP for my home router, my ISP can change m
 <a href="http://www.pebra.net/blog/2014/02/07/installing-openwrt-on-wd-mynet-n600/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Since I'm not using a static IP for my home router, my ISP can change my IP address as they sees fit. But in order for me to SSH into my home server from outside my local network, I need my home’s router current IP address." alt="internet connection picture" src="{filename}/images/internet-connection.png" width="128" height="128" />
 </a>
-Some ISPs change the IP address they provide you frequently,
+Some ISPs frequently change the IP address they provide you,
 while others provide it on a long lease but may still change it.
 Most ISPs allocate their range of IP addresses dynamically (using DHCP),
-and the “lease” is often set to 24 hours,
+and the “lease” is often until you reboot the router or set to 24 hours,
 which is why your address might change frequently.
 For most users, changing IP doesn’t matter,
 but in my case, I need a known address so I can login remotely.

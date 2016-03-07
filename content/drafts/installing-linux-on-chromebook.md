@@ -39,12 +39,11 @@ Installing a traditional Linux environment on your Chromebook is a quick and eas
 because the Chrome OS is a Linux-based operating system.
 You can install an alternative Linux environment and get a fully-fledged Linux desktop
 along side Chromebook.
-There are two main ways to install a traditional Linux environment on your device,
-either in a dual-boot environment using [ChrUbuntu][02],
-or in a chroot environment using [Crouton][03].
-There is a third method.
-The “[Boot from USB][06]” option will allow you to activate booting from USB devices.
-This allows you to boot a full Linux environment from a USB drive without modifying your Chrome OS system.
+There are three main ways to install a traditional Linux environment on your device:
+
+* The traditional dual-boot environment using [ChrUbuntu][02].  So here you have two operating systems, but only one of them can be executing at any one time.
+* [Boot from USB][06] option will allow you to activate booting from USB devices. This is assentually the same as the first method but not booting from the hard drive.
+* Run Linux along side of Chrome OS in a chroot environment using [Crouton][03].  In this case, you have two operating systems concurrently operating.
 
 Crouton appears to be the best supported way of running another OS on top of Chrome OS.
 It’s quite impressive how easy it is to use and
@@ -52,6 +51,16 @@ comes with a [rich set of options][51].
 (By the way, there happens to be a way to merging ChromeOS and Android
 via [ARC Welder][54].)
 
+# Quick Chromebook Introduction
+You can find thousands of apps for the Chromebook on the web
+to do things like create documents, edit photos, and listen to music in the browser.
+Google has provided a recommendation list at the sites
+"[Find apps for your Chromebook][26]",
+"[10 Top Tweaks and Tips for Chromebook][27]",
+"[Chromebook tips and tricks: Getting the most out of your Chrome OS machine][29]",
+"[15 essential Chrome OS keyboard shortcuts][30]".
+
+## Chromebook as a Development Environment
 I'm not the first to consider the Chromebook as an alternative development environment.
 In fact, Martin Malinda's posting
 Ultimate guide for Web Development on Chromebook —
@@ -67,89 +76,73 @@ I will not cover that here, but you can learn more about it at
 [Code School][63] for free.
 DevTools can also optimize your workflow and make life easier.
 
-# Quick Chromebook Introduction
-You can find thousands of apps for the Chromebook on the web
-to do things like create documents, edit photos, and listen to music in the browser.
-Google has provided a recommendation list at the sites
-"[Find apps for your Chromebook][26]",
-"[10 Top Tweaks and Tips for Chromebook][27]",
-"[Chromebook tips and tricks: Getting the most out of your Chrome OS machine][29]",
-"[15 essential Chrome OS keyboard shortcuts][30]".
-
-## Working with Chromebook / Chrome OS
+## Working with Chromebook / Chrome Browser
 Switching from a PC to a Chromebook comes with a few adjustments.
 For one, you’ll need to have access to a WiFi signal for most Chrome apps to function.
 Also, the Chromebook doesn't have a standard PC keyboard (e.g. no Page Up / Down keys).
+For a fuller list of shortcuts,
+see "[Cheatsheet: Chromebook and Chrome OS Keyboard Shortcuts][XXX]".
 
-Google's Chrome OS uses some familiar keyboard shortcuts as well as some unique ones.
-A few of these access Chrome OS settings
-and others take the place of missing physical keys on Chromebook keyboards
-( e.g. Page Up, Page Down, Home, End).
+There are several features that are not available from the Chrome Menu,
+which you can access only from a special URI scheme to
+display some special pages that show information about memory usage, cached files, plug-ins and more.
+These commands start with an `about:` or `chrome://`.
+Check out "[20+ Google Chrome's about: and chrome:// commands][25]" more information,
+or to get a full listing of these commands,
+put "`about:about`" in the Chrome browsers commandline.
+There is even [experimental features][28] offered by Chrome via `chrome://flags`.
 
-| Keys                 | Operation                       |
-|----------------------|---------------------------------|
-| Ctrl+?               | Open help                       |
-| Shift+Esc            | Open task manager               |
-| Ctrl+Alt+/           | Open keyboard shortcut list     |
-| Ctrl+M               | Open file manager               |
-| ALT + [              | Dock window left | 50% width    |
-| Alt + ]              | Dock window right | 50% width   |
-| Alt+ up arrow        | Page Up                         |
-| Alt+ down arrow      | Page Down                       |
-| Ctrl+Alt+ up arrow   | Home                            |
-| Ctrl+Alt+ down arrow | End                             |
-| Ctrl+Tab             | Switch to next browser tab      |
-| Ctrl+W               | Close current tab               |
-| Ctrl+Shift+T         | Reopen last closed tab          |
-| Ctrl+N               | Open new browser window         |
-| Alt+Tab              | Switch to next open window      |
-| Ctrl+Shift+Q         | Sign out of Google account      |
-| Alt+backspace        | Delete file(s) in file manager  |
+## Working With Chrome OS
+Chromebooks are foundationally different from traditional PCs,
+and there are a [lot of misconceptions][66]
+about how they work and what they can and cannot do.
+The fact is, Chromebooks with its Chrome OS are [very capable machines][67].
+First of all, [Chrome OS][68] (designed by Google) is based upon the Linux kernel.
+This gives the OS a great number of things it can exploit.
 
-There is also a number of keyboard shortcuts you’ll need to learn,
-and touchpad motions that are different from the average PC.
+In this section, I'm going to touch on only those things most relievent to
+installing Linux but for some additional Chrome OS commands, tips, and tricks,
+check out the following:
 
-* Click the touchpad with two fingers to open the **right-click menu** .
-* Place two fingers on the touchpad and move up and down or right to left to **scroll**.
-* Click and hold on an item you want to **drag and drop** using one finger. Then, with a second finger move to where you want that item dropped.
-* Swipe left or right quickly using two fingers to **switch between open tabs**.
+* [Chrome Story][37]
+* [100 Tips for Google Chrome][41]
+* [Getting Started with your Chromebook][35]
+* [100 Best Chromebook Tips, Tricks and Time Savers][36]
+* [11 tips to get the most out of your Chromebook][50]
 
-For a fuller list of sharotcuts,
-see "[Cheatsheet: Chromebook and Chrome OS Keyboard Shortcuts][]".
-
-## Crosh
-Crosh is a shell environment known as “chrome shell”
+### Crosh
+Crosh is a shell environment known as “Chrome Shell”
 that is provided with Chrome OS.
-Crosh allows users to run several commands directly from Chrome OS.
+Crosh allows users to run [several commands][65] directly from Chrome OS.
 Developer mode is not required to use crosh.
-The vast majority of linux commands are locked down inside crosh.
+The vast majority of linux commands are locked down inside crosh
+unless you are in [developer mode][69].
+
 Crosh can be accessed by pressing `Ctrl`+`Alt`+`T` on the keyboard.
 This will open a new tab with the crosh terminal.
 **NOTE:** You can actually create as many shells as you want.
 Just hit `Ctrl`+`Alt`+`T` again and a second shell will be opened.
 
-cosh has two separate versions of help.
+`crosh` has two separate versions of help.
 you can access basic help in the crosh window by simple typing `help`.
 This will give you a list of commands that can be used inside crosh.
 To get a list of the more advanced commands type `help_advanced`.
 To access further functionality from crosh such as as the Bash Shell,
-chromeos needs to be in developer mode.
+Chrome OS needs to be in [developer mode][69].
 
 There are several commands included in Chrome OS’s crosh shell.
-You find several of them documented in the articles
-"[10+ Commands Included In Chrome OS’s Hidden Crosh Shell][25]",
-"[Customize Chromebook Chrosh Shell Environment][28]".
+You'll find many of them documented in these articles:
 
-[10 Commands In Chrome’s Crosh Shell](http://efytimes.com/e1/fullnews.asp?edid=124113)
-http://krypted.com/unix/helpful-chrome-os-shell-crosh-commands/
-[25 Helpful Chrome OS Shell (crosh) Commands](http://krypted.com/unix/helpful-chrome-os-shell-crosh-commands/)
-http://www.dudleymediagroup.com/Detail/id/5-tips-after-installing-crouton-on-a-chromebook-2654
+* [25 Helpful Chrome OS Shell (crosh) Commands](http://krypted.com/unix/helpful-chrome-os-shell-crosh-commands/)
+* [10+ Commands Included In Chrome OS’s Hidden Crosh Shell](http://www.howtogeek.com/170648/10-commands-included-in-chrome-oss-hidden-crosh-shell/)
+* [Customize Chromebook Chrosh Shell Environment](https://gist.github.com/aaronhalford/a009bc73498407ae80e2)
+* [10 Commands In Chrome’s Crosh Shell](http://efytimes.com/e1/fullnews.asp?edid=124113)
 
-Crosh even supports full-blown bash with ssh-agent and Vim.
+Crosh even supports full-blown `bash` shell with ssh-agent and Vim.
 To get Vim working, do the following:
 
 ```
-CTRL+ALT T
+CTRL+ALT+T
 crosh> shell
 chrosos@localhost / $ echo $SHELL
 /bin/bash
@@ -166,30 +159,16 @@ You can do this via a Chrome app called [Crosh Window][33]
 When clicked, this app opens a new crosh window without any chrome browser,
 but pressing `Ctrl`+`Alt`+`T` still brings up crosh in the Chrome browser.
 
-## `xiwi` (X11 in a Window)
+### xiwi - X11 in a Chrome OS Window
 One of the most impressive things that you can do with Crouton is run native Linux apps,
 either in a window of their own, or as a browser tab, using [`xiwi`][18].
-Xiwi is a X.org X11 backend running unaccelerated integration with Chromium OS.
+Xiwi is a [X.org][70] X11 backend running unaccelerated integration with Chromium OS.
 With xiwi installed,
-you do not need a X11 desktop environment.
-You can launch apps on an individual basis in a Chromium OS window or tab.
+you can run a X11 desktop environment or
+you can launch apps on an individual basis in a Chromium OS window or tab.
 You can do things like running the GIMP image editor as a Chrome browser tab.
-This is literally as simple as typing `xiwi -t gimp` at the Linux command line.
-
-## Commands, Tips, and Tricks
-* [Chrome Story][37]
-* [100 Tips for Google Chrome][41]
-* [Getting Started with your Chromebook][35]
-* [100 Best Chromebook Tips, Tricks and Time Savers][36]
-* [11 tips to get the most out of your Chromebook][50]
-
-https://gigaom.com/2012/07/09/10-google-chromebook-tips-tricks-and-tweaks/
-
-## Chrome://Commands
-There are several features that are not available from the Chrome Menu,
-which you can access only using the `chrome://commands`.
-
-12 Most Useful Google Chrome Browser chrome:// Commands - http://www.thegeekstuff.com/2011/10/google-chrome-commands/
+This is literally as simple as typing `xiwi -t gimp` within crosh, at the Linux command line.
+More about this below.
 
 # Crouton
 * [Crouton Command Cheat Sheet][16]
@@ -740,10 +719,10 @@ But you can get make that vision start to happen today—with a new Google tool 
 [22]:https://support.google.com/chromebook/?hl=en#topic=3399709
 [23]:https://www.google.com/chromebook/switch/
 [24]:http://www.howtogeek.com/210047/how-to-manage-the-crouton-linux-system-on-your-chromebook/
-[25]:http://www.howtogeek.com/170648/10-commands-included-in-chrome-oss-hidden-crosh-shell/
+[25]:http://techmeasy.blogspot.com/2011/10/20-google-chromes-about-and-chrome.html
 [26]:https://support.google.com/chromebook/answer/1056325?hl=en
 [27]:http://www.technorms.com/35871/top-tweaks-and-tips-for-chromebook
-[28]:https://gist.github.com/aaronhalford/a009bc73498407ae80e2
+[28]:http://beebom.com/2015/10/chrome-flags-guide-to-enhance-web-browsing
 [29]:http://www.pocket-lint.com/news/129107-chromebook-tips-and-tricks-getting-the-most-out-of-your-chrome-os-machine
 [30]:http://www.cnet.com/how-to/15-essential-chrome-os-keyboard-shortcuts/
 [31]:http://www.zdnet.com/article/few-business-takers-yet-but-chromebook-sales-to-grow-7-3-million-this-year/
@@ -780,9 +759,19 @@ But you can get make that vision start to happen today—with a new Google tool 
 [62]:https://developers.google.com/web/tools/chrome-devtools/
 [63]:https://www.codeschool.com/courses/discover-devtools
 [64]:http://www.ducea.com/2006/08/07/how-to-change-the-hostname-of-a-linux-system/
-[65]:
-[66]:
-[67]:
-[68]:
-[69]:
+[65]:http://krypted.com/unix/helpful-chrome-os-shell-crosh-commands/
+[66]:http://www.computerworld.com/article/2474456/cloud-computing/say-what-3-major-misconceptions-about-google-s-chrome-os.html
+[67]:http://www.pcworld.com/article/2691209/5-powerful-things-you-didnt-know-chromebooks-could-do.html
+[68]:https://en.wikipedia.org/wiki/Chrome_OS
+[69]:http://www.howtogeek.com/210817/how-to-enable-developer-mode-on-your-chromebook/
+[70]:http://x.org/wiki/
+[72]:
+[73]:
+[74]:
+[75]:
+[76]:
+[77]:
+[78]:
+[79]:
 [70]:
+[80]:

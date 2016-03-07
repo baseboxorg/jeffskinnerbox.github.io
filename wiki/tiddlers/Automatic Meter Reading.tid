@@ -1,5 +1,5 @@
 created: 20140919015516864
-modified: 20150604011731153
+modified: 20160301155157939
 tags: [[Metering & Monitoring]]
 title: Automatic Meter Reading
 type: text/vnd.tiddlywiki
@@ -18,3 +18,4 @@ type: text/vnd.tiddlywiki
 *[[Electricity Monitoring with a Light-to-Voltage Sensor, MQTT and some Duct Tape|http://hackaday.com/2014/08/01/electricity-monitoring-with-a-light-to-voltage-sensor-mqtt-and-some-duct-tape/]]
 * [[detects whether water is flowing through a pipe|http://www.ohnitsch.net/2015/03/18/measuring-heart-rate-with-a-piezoelectric-vibration-sensor/]]
 * [[WeMo Water|http://www.belkin.com/us/F7C042-Belkin/p/P-F7C042;jsessionid=532E7B1776F8389D17A4620F8AFAD35F/]]
+* [[FLUID - The Learning Water Meter|http://techcrunch.com/2015/09/15/fluid-is-a-smart-water-meter-for-your-home/]]

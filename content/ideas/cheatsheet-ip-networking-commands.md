@@ -128,6 +128,9 @@ if you prefer the old plain network service..
     * [`tshark`][35] the command-line version of Wireshark.
     The main advantage of tshark is that it can be used in scripts.
     Its main disadvantage is that it does not have a GUI.
+* IP Performance
+    * [iPerf3][56] is a tool for active measurements of the maximum achievable bandwidth on IP networks.
+    It supports tuning of various parameters related to timing, bandwidth, loss, and other parameters.
 * IP Networking Utilities
     * [`ping`][25] (Packet Internet Gropper) is like a sonar pulse sent to detect another IP address.
     It is used to test the connection and latency between two network connections.
@@ -166,6 +169,7 @@ http://www.computerhope.com/unix/arp.htm
 http://www.cyberciti.biz/faq/linux-traffic-shaping-using-tc-to-control-http-traffic/
 http://www.cyberciti.biz/faq/linux-ip-command-examples-usage-syntax/
 https://www.digitalocean.com/community/tutorials/how-to-use-iproute2-tools-to-manage-network-configuration-on-a-linux-vps
+[iproute2 cheatsheet](http://baturin.org/docs/iproute2/)
 http://www.computerhope.com/unix/ip.htm
 http://linoxide.com/linux-command/use-ip-command-linux/
 [Wireless Tools for Linux / Wireless Applications for Linux](http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html#links)
@@ -196,7 +200,8 @@ WiFi Configuration Via Command Line
 ####################
 
 Multicast Domain Name System (mDNS)
-(http://www.multicastdns.org/) is one of the features of Bonjour, included in Mac OS X 10.2 or later.
+(http://www.multicastdns.org/) is one of the features of Bonjour, included in Mac OS X 10.2 or later,
+and the linux equivalent called [Avahi][57].
 mDNS resolves host names to IP addresses within small networks that do not include a local name server.
 It is a zero-configuration service,
 using essentially the same programming interfaces,
@@ -1110,8 +1115,8 @@ could be gathered for this cheat sheet.
 [53]:https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol
 [54]:https://en.wikipedia.org/wiki/Name_server
 [55]:http://xmodulo.com/disable-network-manager-linux.html
-[56]:
-[57]:
+[56]:https://iperf.fr/
+[57]:http://www.avahi.org/
 [58]:
 [59]:
 [60]:

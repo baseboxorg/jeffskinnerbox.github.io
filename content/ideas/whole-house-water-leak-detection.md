@@ -4,6 +4,7 @@
 * [Measuring Water Consumption][03]
 * [Water Hero][04]
 * [vibration Sensor](http://www.phidgets.com/products.php?product_id=1104)
+* [Water meter + Arduino = Aquameterduino](http://www.instructables.com/id/Water-meter-Arduino-Aquameterduino-/?ALLSTEPS)
 
 [01]:http://techcrunch.com/2015/09/15/fluid-is-a-smart-water-meter-for-your-home/?ncid=rss&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+Techcrunch+%28TechCrunch%29&utm_content=FaceBook&sr_share=facebook#.yjgy2z:WRLX
 [02]:https://hackaday.io/project/1460-remote-water-consumption-display

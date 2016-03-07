@@ -107,8 +107,37 @@ Overlay Network
     Nodes in the overlay network can be thought of as being connected by virtual or logical links,
     each of which corresponds to a path, perhaps through many physical links, in the underlying network.
 
+Community Network
+:   [Community Networks][08] are established by local not for profit communities
+    to provide an alternative to the local ISP or facility to compensate for lack of access to Internet facilities.
+    Community networks often provide web space, e-mail, and other services for free, without advertising.
+
+Tor
+:   xxx [Tor][07]
+
+Invisible Internet Project (I2P)
+:   xxx [Invisible Internet Project (I2P)][05]
+
+Freenet
+:   xxx [Freenet][06]
+
 Darknet
 :   An anonymizing overlay network, usually running over the internet. Examples: Tor, i2p, freenet.
+
+Deep Web
+:   This is web content that is locked behind pay-walled websites,
+    content accessible through company or academic databases,
+    any kind of database that cannot be searched directly by Google,
+    websites that are not linked to other websites, private websites and forums, etc.
+    A vast amount of website content cannot be indexed by clicking on links, and this is the Deep Web.
+
+Dark Web
+:   Part of the Deep Web is the Dark Web, which includes hidden internet services,
+    usually accessible through Tor but also through alternative
+    anonymising software like [Invisible Internet Project (I2P)][05] and [Freenet][06].
+    By its users, this part of the internet is called the Dark Net.
+    The terminology ‘dark’ refers to the difficulty finding the content rather than
+    its nature being dark: content in the dark web is being intentionally hidden.
 
 Clearnet
 :   The Internet at large, or any network which has no inherent cryptographic
@@ -333,9 +362,19 @@ is a loop-avoiding distance-vector routing protocol for IPv6 and IPv4 with fast 
 [02]:https://en.wikipedia.org/wiki/Hyperlocal
 [03]:http://www.battlemesh.org/
 [04]:https://www.newamerica.org/oti/the-crypto-cat-is-out-of-the-bag/
-[05]:
-[06]:
-[07]:
-[08]:
+[05]:http://i2pproject.net/en/
+[06]:https://freenetproject.org/
+[07]:https://www.torproject.org/
+[08]:https://en.wikipedia.org/wiki/Community_network
 [09]:
 [10]:
+[11]:
+[12]:
+[13]:
+[14]:
+[15]:
+[16]:
+[17]:
+[18]:
+[19]:
+[20]:

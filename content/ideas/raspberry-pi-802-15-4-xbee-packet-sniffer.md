@@ -7,7 +7,7 @@ Author: Jeff Irland
 Image: DRAFT_stamp.png
 Summary: abla bla bla
 
-* [chibiArduino Software Release v1.05 Available Now](http://freaklabs.org/index.php/blog/chibi/chibiarduino-software-release-v1-05-available-now.html)
+* [chibiArduino v1.06 Release Available](http://freaklabs.org/index.php/blog/chibi/chibiarduino-v1-06-release.html)
 * [Sniffing nRF24L01+ Traffic with Wireshark](http://hackaday.com/2014/08/05/sniffing-nrf24l01-traffic-with-wireshark/)
 * [tshark](http://www.linuxuser.co.uk/tutorials/monitor-network-traffic-tutorial)
 
@@ -27,7 +27,9 @@ I narrowed my search further by focusing on something free or at least very ine
 * [SmartRF Protocol Packet Snifferi][04] - The Packet Sniffer is a PC software application used to display and store RF packets captured with a listening RF device.  The "listening RF device" is the issue here, since this must be a 802.15.4 device capable of operating in promiscuous mode.  The site does provide a large list of potential devices you can purchase.
 * [15dot4-tools Project][05] - is a set of 802.15.4 tools, including protocol analyzers and sniffers.  Interesting stuff but it looks likea  "work in progress".
 * [Kisbee Wireless Sniffer][06] - An interesting device (from the guy that brings us a 802.11 sniffer called [Kismet][07]) that works on Android and PC but it costs $120, more than I want to spend.
+
 * [Feeding the Shark - Turning the Freakduino into a Realtime Wireless Protocol Analyzer with Wireshark][08] - The radio device is an Arduino-based solution with an open source protocol stack.  The protocol sniffer software is the open source and very popular WireShark. All for under $50.
+* [Sniffing the Internet of Things with Wireshark, Sensniff, and FreakLabs](http://freaklabs.org/index.php/tutorials/software/sniffing-the-internet-of-things-with-wireshark-sensniff-and-freaklabs.html)
 
 I settled on the last bullet for my solution.  It fully open, made with familiar components, and inexpensive.  I ordered the FreakLabs Freakduino Chibi Wireless Arduino Compatible Board and got to work.
 
@@ -154,7 +156,7 @@ To configure the XBee radios, I used the `XBeeTerm.py` utility I posted in my
 [Configuration Utilities for XBee Radios][35].
 I'm going to setup my traffic generating network with two XBee radios  and I used the configuration file below on both radios:
 
-``` python
+```python
 xxx
 ```
 

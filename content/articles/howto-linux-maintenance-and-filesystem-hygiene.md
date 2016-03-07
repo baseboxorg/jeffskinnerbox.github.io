@@ -1,7 +1,7 @@
 Title: HowTo: Linux Maintenance and Filesystem Hygiene
 Date: 2014-03-31 21:23
 Category: HowTo
-Tags: Linux, Raspberry Pi, Filesystem
+Tags: How To, Linux, Raspberry Pi, Filesystem
 Slug: howto-linux-maintenance-and-filesystem-hygiene
 Author: Jeff Irland
 Image: how-to.jpg

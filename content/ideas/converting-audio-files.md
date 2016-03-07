@@ -9,6 +9,9 @@ Summary: bla bla bla
 
 * [Accelerating Fourier transforms using the Raspberry Pi's GPU](http://www.raspberrypi.org/archives/5934)
 * [HiFiBerry](http://www.hifiberry.com/)
+* [Audio Sensor Development Part 1: Microphone Math](http://www.macetech.com/blog/node/138)
+* [Audio Sensor Development Part 2: EDA, PCB, SPL, PSRR](http://www.macetech.com/blog/node/139)
+* [Audio Sensor Development Part 3: Theory Meets Reality](http://www.macetech.com/blog/node/140)
 
 ## Music and Sound Waves
  * [Art Ludwig's Sound Page](http://www.silcom.com/~aludwig/)

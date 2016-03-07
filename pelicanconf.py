@@ -159,6 +159,7 @@ ADMIN = (('Google Analytics', 'https://www.google.com/analytics/web/?hl=en#repor
 # Links to appear in the "links" section of the sidebar
 PAGE = (('RPi Packages',
          '/pages/linux-and-python-packages-for-my-raspberry-pi'),
+        ('How To', '/tag/how-to'),
         ('Cheat Sheets', '/tag/cheat-sheet'),)
 WIKI = (('Project Ideas', 'http://127.0.0.1:8080/#Potential Projects'),
         ('Things to Study', 'http://127.0.0.1:8080/#Topics for Study'),)

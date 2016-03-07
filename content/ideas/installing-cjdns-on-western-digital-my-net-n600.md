@@ -1,3 +1,5 @@
+[My complete OpenWrt Setup Guide](http://www.jauu.net/2015/03/03/complete-openwrt-guide/)
+
 ![Mesh Network](https://wellness.wikispaces.com/file/view/nwarch02.jpg/30138489/nwarch02.jpg =376x205 "MESH is a federated/distributed node structure in which any nodes can communicate with any other nodes.")(https://wellness.wikispaces.com/Network+Architectures)
 I have been thinking about diving into [openHAB][20],
 loading it on a [Raspberry Pi][21],
@@ -358,7 +360,7 @@ With this all done, save the OpenWrt configuration via
 `Systems > Backup / Flash Firmware > Actions > Generate archive`.
 
 # Installing CJDNS
-
+[Meshbox - cjdns on OpenWrt](https://github.com/SeattleMeshnet/meshbox)
 
 
 [01]:http://support.linksys.com/en-us/support/routers/WRT54G
