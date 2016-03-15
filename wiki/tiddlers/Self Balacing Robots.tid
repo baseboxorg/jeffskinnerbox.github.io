@@ -1,5 +1,5 @@
 created: 20140919013836507
-modified: 20150221015610928
+modified: 20160314152657051
 tags: Projects
 title: Self Balacing Robots
 type: text/vnd.tiddlywiki
@@ -11,3 +11,11 @@ type: text/vnd.tiddlywiki
 * [[Control Theory Seminar|http://focus.ti.com/docs/training/catalog/events/event.jhtml?sku=OLT214002&sp_rid_pod4=NzQ0MDMwMzkzNTMS1&sp_mid_pod4=45597282]]
 * [[Evolutionary optimization of PID parameters for empirically identified system|http://wemakethings.net/2013/12/01/pid_genetics/]]
 * [[Balance Wheel|http://hackaday.io/project/4267-balance-wheel]]
+
+!!Embedded Proportional Integral Derivative (PID) Temperature Controller
+* [[Part 1: The Circuit|http://www.allaboutcircuits.com/projects/embedded-pid-temperature-control-part-1-the-circuit/]],
+* [[Part 2: Board-Level Integration|http://www.allaboutcircuits.com/projects/embedded-pid-temperature-control-part-2-board-level-integration/]].
+* [[Part 3: Implementation and Visualization|http://www.allaboutcircuits.com/projects/embedded-pid-temperature-control-part-3-implementation-and-visualization/]],
+* [[Part 4: The Scilab GUI|http://www.allaboutcircuits.com/projects/embedded-pid-temperature-control-part-4-the-scilab-gui/]],
+* [[Part 5: Adjusting Gains|http://www.allaboutcircuits.com/projects/embedded-pid-temperature-control-part-5-adjusting-gains/]],
+* [[Part 6: Ziegler–Nichols Tuning|http://www.allaboutcircuits.com/projects/embedded-pid-temperature-control-part-6-zieglernichols-tuning/]]

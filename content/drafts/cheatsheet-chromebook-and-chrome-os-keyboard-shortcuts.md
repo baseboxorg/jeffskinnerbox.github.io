@@ -6,9 +6,10 @@ Tags: Chrome, Chromebook
 Slug: cheatsheet-chromebook-and-chrome-os-keyboard-shortcuts
 Author: Jeff Irland
 Image: cheat-sheet.jpg
-Summary: bla bla bla bla bla bla
+Summary: Chromebooks keyboard isn't your 101-key US traditional keyboard, so your old reliable tricks don't always work the same way.  Never the less, Chromebook does support shortcuts for a fastest way to power through tasks you perform multiple times per day.  This HowTo documents many of the useful shortcuts that are available on Chromebook using the Chrome Operating System.
 
 https://gigaom.com/2012/07/09/10-google-chromebook-tips-tricks-and-tweaks/
+https://www.shortcutworld.com/shortcuts.php?l=en&p=linux&application=Chrome
 
 Switching from a PC to a Chromebook comes with a few adjustments.
 For one, you’ll need to have access to a WiFi signal for most Chrome apps to function.
@@ -98,7 +99,6 @@ This will give you a list of commands that can be used inside crosh.
 To get a list of the more advanced commands type `help_advanced`.
 To access further functionality from crosh such as as the Bash Shell,
 chromeos needs to be in dev
-
 
 
 

@@ -15,6 +15,10 @@
 * [Tiny Titan is a sub-$1,000 classroom supercomputer](http://tinytitan.github.io/)
 * [GCHQ Builds A Raspberry Pi Cluster](http://www.i-programmer.info/news/91-hardware/8385-gchq-builds-a-raspberry-pi-cluster.html)
 * [Raspberry Pi Zero Cluster Packs a Punch](https://hackaday.com/2016/01/25/raspberry-pi-zero-cluster-packs-a-punch/#more-187972)
+* [Raspberry Pi Cluster](http://likemagicappears.com/projects/raspberry-pi-cluster/)
+
+## Spark
+* [Spark Or Hadoop : Which Is The Best Big Data Framework?](https://www.linkedin.com/pulse/spark-hadoop-which-best-big-data-framework-chaaranpall-lambba?trk=eml-b2_content_ecosystem_digest-recommended_articles-103-null&midToken=AQFNblHgIt9-6A&fromEmail=fromEmail&ut=0pSjPikaB8JD81)
 
 ## Distributed Processing Tools
 * [Jubatus is a distributed processing framework and streaming machine learning library](http://jubat.us/en/)

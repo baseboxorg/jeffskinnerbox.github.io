@@ -17,7 +17,7 @@ Summary: The i3 tiling window manager is a nice modern tiling window manager tha
  You can do almost everything from the keyboard, or mix up keyboard and mouse.
  i3 is highly configruable and not dogmatic about tiling geometry and lets you have it your way.
 
- ## Install i3
+ ## Installing i3
 Install i3, then log out,
 and you log back in change your window manger as i3 from your display manager screen.
 Here is what you should install:
@@ -113,10 +113,10 @@ How do you implement layout with the autostarting of applications in the i3 wind
 http://unix.stackexchange.com/questions/134980/how-do-you-implement-layout-with-the-autostarting-of-applications-in-the-i3-wind
 
 Conky on i3
-https://bbs.archlinux.org/viewtopic.php?id=168415
-http://i3wm.org/docs/user-contributed/conky-i3bar.html
-http://sagar.se/using-conky-with-i3.html
-http://blog.kaiserapps.com/2014/02/my-killer-i3-setup.html
+* https://bbs.archlinux.org/viewtopic.php?id=168415
+* http://i3wm.org/docs/user-contributed/conky-i3bar.html
+* http://sagar.se/using-conky-with-i3.html
+* http://blog.kaiserapps.com/2014/02/my-killer-i3-setup.html
 
 ## Basic Layout Management
 define containers

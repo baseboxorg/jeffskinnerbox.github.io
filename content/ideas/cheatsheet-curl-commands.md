@@ -3,9 +3,10 @@ Slug: cheatsheet-curl-commands
 Status: hidden
 
 See the following for more examples:
-* [curl usage explained](http://curl.haxx.se/docs/manual.html)
 * [cURL your way to freedom](http://grahamnic.wordpress.com/2013/05/06/mac-os-curl-your-way-to-freedom/)
 * [curl tutorial with examples of usage](http://www.yilmazhuseyin.com/blog/dev/curl-tutorial-examples-usage/)
+* [Using cURL to automate HTTP jobs](https://curl.haxx.se/docs/httpscripting.html)
+* [Manual -- curl usage explained](https://curl.haxx.se/docs/manual.html)
 
 [cURL][03] is a command line tool for getting or sending files using URL syntax.
 cURL uses the client-side URL transfer library [`libcurl`][01],

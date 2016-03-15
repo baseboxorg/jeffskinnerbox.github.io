@@ -83,8 +83,8 @@ and was inspired by the impementation outline in the posting
 </style>
 <!-- --------- End: Gist Code Snippit ---------- -->
 
-This proved too crud for my taste, but is generic and could work for any IMAP
-basded email service.
+This proved too crud for my taste, but is generic and could work for any
+[IMAP based email service][01].
 I want to take advantage of Gmail's APIs to get a more eligent approch.
 
 # Gmail API
@@ -123,13 +123,58 @@ See these slides - https://docs.google.com/presentation/d/1KqevSqe6ygWVj4U-wlarK
     </a>
 </div>
 
+# Gmail API Quickstart
+To create an application that makes requests to the Gmail API,
+I choose to use the [Python Quickstart tool][44] provided by Google API.
+This is a simple Python command-line application that uses
+your Client ID to make request to the Gmail API.
+
+## Step 1: Turn on the Gmail API
+## Step 2: Install the Google Client Library
+
 ## OAuth 2.0 client IDs (Authentication and Authorization)
 Like other Google REST APIs,
 the Gmail API uses [Google's Identity Platform][26] (based on [OAuth 2.0][27])
 to handle authentication and authorization.
-Your app will specify one or more scopes: strings which identify resources that it needs to access.
+Your app will specify one or more scopes:
+strings which identify resources that it needs to access.
 The Gmail API supports a number of fine-grained [authorization scopes][28]
 to allow only the level of access required.
+
+## API Key
+When calling an API that does not access private user data,
+you can use a simple [API key][34].
+This key is used to authenticate your application for accounting purposes.
+You can use API Keys for:
+
+* Data that the data owner has identified as public, such as a public calendar or blog.
+* Data that is owned by a Google service such as Google Maps or Google Translate. (Access limitations might apply.)
+
+If you do need to access private user data,
+you must use OAuth 2.0 Client ID.
+Using an API key does not require user action or consent.
+API keys do not grant access to any user account information,
+only access to the API, and are not used for authorization.
+
+Going back to the [Google Developer Console for credential creation][31],
+select your project, create API Key,
+select "Server Key", and name it "water-usage-server-key".
+You also have the option to restrict this key to a specific IP address for it use.
+This gave me (with an option to down load this to JSON file for safe keeping):
+
+```
+Name
+    water-usage-server-key
+
+API Key
+    AIzaSyAiHrySc7bt81CO0L7vcF9YHP8DeuZKvoY
+```
+
+If you are only calling APIs that do not require user data,
+then API keys might be simpler to use than OAuth 2.0 access tokens.
+However, if your application already uses an OAuth 2.0 access token,
+then there is no need to generate an API key as well.
+Google ignores passed API keys if a passed OAuth 2.0 access token is already associated with the corresponding project.
 
 ### Create a Project (Application)
 You need to identify your personal gmail account
@@ -268,40 +313,6 @@ The `gmail-label.py` utility also creates the file `gmail-python-quickstart.json
 }
 ```
 
-## API Key
-When calling an API that does not access private user data,
-you can use a simple [API key][34].
-This key is used to authenticate your application for accounting purposes.
-You can use API Keys for:
-
-* Data that the data owner has identified as public, such as a public calendar or blog.
-* Data that is owned by a Google service such as Google Maps or Google Translate. (Access limitations might apply.)
-
-If you do need to access private user data,
-you must use OAuth 2.0 Client ID.
-Using an API key does not require user action or consent.
-API keys do not grant access to any user account information,
-only access to the API, and are not used for authorization.
-
-Going back to the [Google Developer Console for credential creation][31],
-select your project, create API Key,
-select "Server Key", and name it "water-usage-server-key".
-You also have the option to restrict this key to a specific IP address for it use.
-This gave me (with an option to down load this to JSON file for safe keeping):
-
-```
-Name
-    water-usage-server-key
-
-API Key
-    AIzaSyAiHrySc7bt81CO0L7vcF9YHP8DeuZKvoY
-```
-
-If you are only calling APIs that do not require user data,
-then API keys might be simpler to use than OAuth 2.0 access tokens.
-However, if your application already uses an OAuth 2.0 access token,
-then there is no need to generate an API key as well.
-Google ignores passed API keys if a passed OAuth 2.0 access token is already associated with the corresponding project.
 
 # Using Google's API Management Toods to Manually Creating OAuth Tokens
 You can [generating OAuth tokens with Google's OAuth 2.0 Playground][45].
@@ -317,6 +328,13 @@ go to the [API Manager site][47] and turn on the monitoring  for your API.
 API Management consist of monitoring the use of the API,
 setting limits on the usage,
 enabling/disabling the API, etc.
+
+# MongoDB
+[MongoDB][17] (from hu**mongo**us) is a [document-oriented database][02].
+Classified as a [NoSQL database][03],
+MongoDB isn't like a traditional table-based relational database structure in
+favor of JSON-like documents with dynamic schemas (MongoDB calls the format [BSON][16]),
+making the integration of data in certain types of applications easier and faster.
 
 # Round Robin Database Tool (RRDtool)
 <a href="http://oss.oetiker.ch/rrdtool/">
@@ -348,9 +366,9 @@ The steps to use RRDtool for data graphing
 
 
 
-[01]:
-[02]:
-[03]:
+[01]:http://whatismyipaddress.com/imap
+[02]:https://en.wikipedia.org/wiki/Document-oriented_database
+[03]:http://nosql-database.org/
 [04]:http://www.pcworld.com/article/2044579/how-to-use-ifttt-to-automate-your-online-life.html
 [05]:https://ifttt.com/maker
 [06]:https://www.marcus-povey.co.uk/2012/11/07/using-webhooks-with-ifttt-com/
@@ -363,8 +381,8 @@ The steps to use RRDtool for data graphing
 [13]:https://ifttt.com/channels
 [14]:https://github.com/newslynx/ifttthttps://developers.google.com/oauthplayground/
 [15]:https://docs.python.org/2/library/email.html
-[16]:
-[17]:
+[16]:http://bsonspec.org/
+[17]:https://www.mongodb.org/
 [18]:http://pythonhosted.org/feedparser/introduction.html
 [19]:http://mitchtech.net/connect-raspberry-pi-to-gmail-facebook-twitter-more/
 [20]:https://developers.google.com/gmail/api/

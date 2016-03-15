@@ -231,6 +231,8 @@ to the consoles UART via a [TTL to USB][19] or other such serial converter.
 I choose not to do this right now,
 but could be useful if you don't have WiFi or Ethernet connectivity.
 
+* [RS-232 vs. TTL Serial Communication](https://www.sparkfun.com/tutorials/215?_ga=1.132009867.562203984.1457131060)
+
 ## Step 1: Installing OpenWRT
 I first attempted to followed the [procedures outlined by the OpenWrt Wiki][11].
 I downloaded [`openwrt-ar71xx-generic-mynet-n600-squashfs-factory.bin`][27] firmware.

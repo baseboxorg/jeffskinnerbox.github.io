@@ -365,17 +365,21 @@ sudo apt-get install x11-apps x11-xserver-utils xterm
 
 # development tools
 sudo apt-get install markdown git vim vim-gtk microcom
-sudo apt-get install nodejs build-essential i2c-tools python-smbus
+sudo apt-get install nodejs-legacy npm build-essential i2c-tools python-smbus
 
 # so you can discover hosts via Multicast Domain Name System (mDNS)
 sudo apt-get install avahi-daemon
 
 # basic networking tools
-sudo apt-get install wavemon nicstat
+sudo apt-get install wavemon nicstat nmap
 
 # other handy tools
 sudo apt-get install sendmail
 ```
+
+To avoid a [potential namespace collision][17] for the word "node",
+specifically as it relates to [Node.js][16],
+make sure to use the `nodejs-legacy` package for Node.js.
 
 # Step 9: Password-less Login via SSH Keys - DONE
 Public key authentication is an alternative means of identifying yourself to a login server,
@@ -390,7 +394,7 @@ use the posting "XXX-howto-configure-ssh-public-key-authentication".
 
 # Step 10: Boot Without Starting X Window - DONE
 The Raspberry Pi's Jessie image is configured to automatically bring up the X Window
-graphics system an the supporting GUI.
+graphics system and the supporting GUI.
 Generally, your not going to be using an RPi to support GUI's for users.
 You should turn off X Windows and save yourself some CPU cycles.
 
@@ -406,7 +410,7 @@ The response `graphical.target` indicates X Windows is being started on boot up.
 The utility [`systemd`][15] is an init system and system manager that is widely
 becoming the new standard for Linux machines.
 
-To nolong use the GUI and boot into multi-user mode, usde this command
+To nolong use the GUI and boot into multi-user mode, use this command
 
 ```bash
 # set to multi-user mode
@@ -419,7 +423,7 @@ $ systemctl get-default
 multi-user.target
 ```
 
-Note that at this point the X Server will stil be running.
+Note that at this point the X Server will still be running.
 You can see this via the command `ps -aux | grep X`.
 You need to reboot the RPi and then you will nolong have X Window running.
 
@@ -439,6 +443,13 @@ We’re going to use `ufw` (Uncomplicated FireWall) to restrict access to our Ra
 [The Linux Watchdog driver API](https://www.kernel.org/doc/Documentation/watchdog/watchdog-api.txt)
 [Linux Watchdog Daemon - Configuring](http://www.sat.dundee.ac.uk/psc/watchdog/watchdog-configure.html)
 [Keeping your Raspberry Pi alive: enabling Hardware Watchdog under Arch Linux](http://dovgalecs.com/blog/keeping-your-raspberry-pi-alive-enabling-hardware-watchdog-under-arch-linux/)
+
+# Step X: Clone the SD Card
+* [Backup, Restore, Customize and Clone your Raspberry Pi SD Cards (tutorial)](http://sysmatt.blogspot.com/2014/08/backup-restore-customize-and-clone-your.html)
+* [Duplicating Your Raspberry Pi’s SDHC Card](https://programmaticponderings.wordpress.com/2013/02/12/duplicating-your-raspberry-pis-sdhc-card/)
+* [CLONE AN SD CARD ON LINUX, UBUNTU 12.04](http://rricketts.com/clone-an-sd-card-on-linux-ubuntu-12-04/)
+* [Back-up a Raspberry Pi SD card using a Mac](https://smittytone.wordpress.com/2013/09/06/back-up-a-raspberry-pi-sd-card-using-a-mac/)
+* [How to Clone Raspberry Pi SD Cards Using the Command Line in OS X](http://computers.tutsplus.com/articles/how-to-clone-raspberry-pi-sd-cards-using-the-command-line-in-os-x--mac-59911)
 
 # Sources
 * [Raspberry Pi Zero Headless Setup](http://davidmaitland.me/2015/12/raspberry-pi-zero-headless-setup/)
@@ -461,8 +472,8 @@ We’re going to use `ufw` (Uncomplicated FireWall) to restrict access to our Ra
 [13]:http://www.jeffgeerling.com/blogs/jeff-geerling/raspberry-pi-microsd-card
 [14]:http://www.amazon.com/Edimax-EW-7811Un-150Mbps-Raspberry-Supports/dp/B003MTTJOY
 [15]:https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
-[16]:
-[17]:
+[16]:https://nodejs.org/en/
+[17]:http://stackoverflow.com/questions/21168141/cannot-install-packages-using-node-package-manager-in-ubuntu
 [18]:
 [19]:
 [20]:

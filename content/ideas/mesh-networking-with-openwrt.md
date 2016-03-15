@@ -2,6 +2,7 @@ What a Mesh!
 * [Part 1-The Ins and Outs Of Mesh Networking](http://www.sensorsmag.com/networking-communications/wireless-sensor/what-a-mesh-part-1-the-ins-and-outs-of-mesh-networking-1530)
 * [Part 2-Networking Architectures and Protocols](http://www.sensorsmag.com/networking-communications/wireless-sensor/what-a-mesh-part-2-networking-architectures-and-protocols-1544)
 * [Introduction to wireless mesh routing protocols](http://www.sensorsmag.com/networking-communications/wireless-sensor/what-a-mesh-part-2-networking-architectures-and-protocols-1544)
+* [Could You Make Your Own Internet?](https://www.youtube.com/watch?v=OnKMkX0qS3Y)
 
 Given there are so many mesh network protocols / packages to select from,
 how does one pick the right platform?

@@ -17,3 +17,4 @@
 # UPS Solutions
 * [Emergency Power Based on Cordless Drill Batteries](http://hackaday.com/2015/01/31/emergency-power-based-on-cordless-drill-batteries/)
 * [UPS PIco - Uninterruptible Power Supply with Peripherals and I2C control Interface](http://www.rpiblog.com/2015/01/ups-pico-uninterruptible-power-supply.html)
+* [Ultimate Battery Backup Mod](http://hackaday.com/2016/03/05/ultimate-battery-backup-mod/)
