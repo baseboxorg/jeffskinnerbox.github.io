@@ -60,7 +60,7 @@ The `apcupsd` takes care of all this, so you don't need to create a
 [persistent device name][08].
 
 Never the less, if your curious about where things are located,
-running of the `lsusb` command above tells us 
+running of the `lsusb` command above tells us
 UPS's VendorID:ProductID pair is `051d:0002`.
 Using the `udevadm info -a -n /dev/bus/usb/003/005` command,
 you conclude that the serial number of the device is `0000:00:14.0`.
@@ -75,7 +75,7 @@ udevadm info -a -n /dev/bus/usb/003/005 | grep ATTRS{serial}
 
 Armed with this information and following guidance from [this post][09],
 I could have update the [UDEV rules][08].
-**Don't do this**, since I believe it will cause problems with `apcupsd`.
+But **Don't Do This**, since I believe it will cause problems with `apcupsd`.
 It appears that the daemon is designed to deal with all this.
 
 ## Installing and Configuring the UPS Daemon
@@ -93,7 +93,7 @@ Next you edit the `apcupsd` configuration file `/etc/apcupsd/apcupsd.conf`.
 Here are the modifications I made to this file:
 
 ```bash
-# UPS name, max 8 characters 
+# UPS name, max 8 characters
 UPSNAME HOME_UPS
 
 # Defines the type of cable connecting the UPS to your computer.
@@ -103,7 +103,7 @@ UPSCABLE usb
 UPSTYPE usb
 
 # with a usb type UPS apcupsd can autodetect the device,
-# so you should comment out the DEVICE setting 
+# so you should comment out the DEVICE setting
 #DEVICE /dev/ttyS0
 
 # UPS should do a self test every two weeks
@@ -143,16 +143,16 @@ See the output below:
 # UPS status check
 $ apcaccess status
 APC      : 001,036,0901
-DATE     : 2015-02-07 10:59:40 -0500  
+DATE     : 2015-02-07 10:59:40 -0500
 HOSTNAME : desktop
 VERSION  : 3.14.10 (13 September 2011) debian
 UPSNAME  : desktop
 CABLE    : USB Cable
 DRIVER   : USB UPS Driver
 UPSMODE  : Stand Alone
-STARTTIME: 2015-02-07 10:59:39 -0500  
-MODEL    : Back-UPS NS1080G 
-STATUS   : ONLINE 
+STARTTIME: 2015-02-07 10:59:39 -0500
+MODEL    : Back-UPS NS1080G
+STATUS   : ONLINE
 LINEV    : 121.0 Volts
 LOADPCT  :  20.0 Percent Load Capacity
 BCHARGE  : 100.0 Percent
@@ -172,13 +172,13 @@ CUMONBATT: 0 seconds
 XOFFBATT : N/A
 SELFTEST : NO
 STATFLAG : 0x07000008 Status Flag
-SERIALNO : 3B1405X05714  
+SERIALNO : 3B1405X05714
 BATTDATE : 2014-01-28
 NOMINV   : 120 Volts
 NOMBATTV :  24.0 Volts
 NOMPOWER : 650 Watts
 FIRMWARE : 914.L2   .D USB FW:
-END APC  : 2015-02-07 10:59:43 -0500 
+END APC  : 2015-02-07 10:59:43 -0500
 ```
 
 This shows that the UPS daemon is configured to do the following thing:
@@ -198,7 +198,7 @@ These parameters say something about how the UPS is perfroming
 
 STARTTIME: 2015-02-07 10:59:39 -0500
 :   The time/date that `apcupsd` was started.
-STATUS   : ONLINE 
+STATUS   : ONLINE
 :   The current status of the UPS (ONLINE, ONBATT, etc.)
 LINEV    : 121.0 Volts
 :   The current line voltage as returned by the UPS.

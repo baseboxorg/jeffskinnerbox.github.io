@@ -12,7 +12,7 @@ Summary: The price of the Chromebook makes it a very attractive, assuming you ca
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="This Chromebook 2 is thin and light, which is pretty impressive, considering it has a 13.6-inch HD display. The plastic chassis measures just 0.76 by 12.76 by 8.4 inches (HWD) and weighs only 2.95 pounds." alt="chromebook picture" src="{filename}/images/toshiba-chromebook-linux.jpg" width="250" height="250" />
 </a>
 I wanted to get a Linux laptop for some lightweight development
-and remote login into my home Linux box
+and remote login into my home Linux box,
 but I couldn't justify the price tag for my limited needs.
 [Chromebook's are cheap & popular][31]
 and can be purchased for $300 or less
@@ -54,7 +54,7 @@ via [ARC Welder][54].)
 # Quick Chromebook Introduction
 You can find thousands of apps for the Chromebook on the web
 to do things like create documents, edit photos, and listen to music in the browser.
-Google has provided a recommendation list at the sites
+Google has provided a recommendation list at the sites like
 "[Find apps for your Chromebook][26]",
 "[10 Top Tweaks and Tips for Chromebook][27]",
 "[Chromebook tips and tricks: Getting the most out of your Chrome OS machine][29]",

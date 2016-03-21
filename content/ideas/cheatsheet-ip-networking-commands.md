@@ -51,6 +51,7 @@ if you prefer the old plain network service..
 
 ####################
 * also see
+    * [10 basic examples of linux netstat command](http://www.binarytides.com/linux-netstat-command-examples/)
     * [tshark - Monitor network traffic tutorial](http://www.linuxuser.co.uk/tutorials/monitor-network-traffic-tutorial)
     * [10 Free Server & Network Monitoring Tools that Kick Ass](http://sixrevisions.com/tools/10-free-server-network-monitoring-tools-that-kick-ass/)
     * [Raspberry Pi – control your network traffic with Nagios](https://developer-blog.net/en/hardware-2/raspberry-pi-control-your-network-traffic-with-nagios/)
@@ -195,7 +196,14 @@ WiFi Configuration Via Command Line
 
 ####################
 
-
+####################
+Subnet and IP Calculator
+IP Subnet Calculator for IPv4/v6
+http://www.gestioip.net/cgi-bin/subnet_calculator.cgi
+http://www.subnetonline.com/pages/subnet-calculators/ipv6-subnet-calculator.php
+http://www.tunnelsup.com/subnet-calculator
+http://www.ipv6calculator.net/
+####################
 
 ####################
 
@@ -904,6 +912,16 @@ which should show that all chains will "ACCEPT" packets.
 consisting of stolen 'zombie' netblocks and netblocks controlled entirely by professional spammers.
 
 http://www.cyberciti.biz/tips/block-spamming-scanning-with-iptables.html
+
+###############################
+The firewall of Linux is in the hands of `iptables`
+(which works with the underlying `netfilter` system).
+Although incredibly powerful this makes using `iptables` complicated,
+an so tends to make simple tasks complicated.
+A much simpler front end for `iptables` is `ufw` (Uncomplicated Firewall).
+The article "How To Setup a Firewall with UFW on an Ubuntu and Debian Cloud Server"
+gives a good introductory tutorial on how to use `ufw`.
+###############################
 
 # WiFi Definitions and Concepts
 All components that can connect into a wireless medium in a network are referred to as **stations**.

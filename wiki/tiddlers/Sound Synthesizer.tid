@@ -1,5 +1,5 @@
 created: 20140919014920863
-modified: 20160207222320618
+modified: 20160319154702696
 tags: Projects
 title: Sound Synthesizer
 type: text/vnd.tiddlywiki
@@ -10,6 +10,7 @@ type: text/vnd.tiddlywiki
 * [[SuperCollider - real-time audio synthesis and algorithmic composition|http://supercollider.sourceforge.net/]]
 * [[Overtone|https://overtone.github.io/]]
 * [[Synth Secrets Exposed!|http://hackaday.com/2015/11/08/synth-secrets-exposed/]]
+* [[How to produce electronic music with the Raspberry Pi|https://opensource.com/life/16/3/make-music-raspberry-pi-milkytracker]]
 
 [[Freesound|http://www.freesound.org/]]
 aims to create a huge collaborative database of audio snippets, samples, recordings, bleeps, ... released under Creative Commons licenses that allow their reuse.

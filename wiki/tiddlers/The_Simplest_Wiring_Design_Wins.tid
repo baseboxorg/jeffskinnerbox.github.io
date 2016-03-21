@@ -1,7 +1,7 @@
 created: 20141031234102555
-modified: 20150321143126534
+modified: 20160320154121090
 tags: Pontifications
-title: The simplest wiring design wins
+title: The Simplest Wiring Design Wins
 type: text/vnd.tiddlywiki
 
 !What it mean
@@ -24,7 +24,7 @@ You move to other "wiring" when the environment force it, but TCP/IP (and it sui
 Along with this is peer-to-peer communication with APIs (as apposed to pub-sub which is a popular ~IoT model).
 
 !What are the supporting trend
-*[[Device will increasingly become Ethernet or WiFi tethered|Cheap WiFi Chips]],eliminating the need for a [[Gateway|The IoT Gateway]].
+*[[Device will increasingly become Ethernet or WiFi tethered|Cheap WiFi Chips on the Edge]],eliminating the need for a [[Gateway|The IoT Gateway]].
 *Devices will be addressed directly like any computer today.
 *Addressing the device via a cloud-based solution will be very natural.
 *Devices must take on a service oriented architectural paradigm since a single device will play different roles for different use cases.

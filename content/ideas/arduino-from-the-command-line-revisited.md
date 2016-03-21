@@ -8,7 +8,9 @@ Image: DRAFT_stamp.png
 Summary: bla bla bla
 
 Check this out
-[Arduino IDE Now Supports Building Software In The Command Line](http://www.lifehacker.com.au/2015/11/arduino-ide-now-supports-building-software-in-the-command-line/)
+* [Arduino IDE Now Supports Building Software In The Command Line](http://www.lifehacker.com.au/2015/11/arduino-ide-now-supports-building-software-in-the-command-line/)
+* [Arduino Development; There’s a Makefile for That](http://hackaday.com/2015/10/01/arduino-development-theres-a-makefile-for-that/)
+* [Embed with Elliot: Microcontroller Makefiles](http://hackaday.com/2016/03/15/embed-with-elliot-microcontroller-makefiles/)
 
 For someone like myself, who is at home with Linux as my OS and Vim as my editor,
 using the Arduino IDE for Arduino coding is a step back into the stone age.

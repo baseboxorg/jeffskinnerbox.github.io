@@ -3,6 +3,7 @@ What a Mesh!
 * [Part 2-Networking Architectures and Protocols](http://www.sensorsmag.com/networking-communications/wireless-sensor/what-a-mesh-part-2-networking-architectures-and-protocols-1544)
 * [Introduction to wireless mesh routing protocols](http://www.sensorsmag.com/networking-communications/wireless-sensor/what-a-mesh-part-2-networking-architectures-and-protocols-1544)
 * [Could You Make Your Own Internet?](https://www.youtube.com/watch?v=OnKMkX0qS3Y)
+* [Hyperboria 101 - Moving Through the Mesh](http://n-o-d-e.net/post/139284891496/hyperboria-101-moving-through-the-mesh)
 
 Given there are so many mesh network protocols / packages to select from,
 how does one pick the right platform?
@@ -151,7 +152,7 @@ The Meshnet
 # Communities Experiment with Mesh Networks
 ![BattlemeshV9](http://www.olsr.org/mediawiki/images/c/c5/BattleMeshV9.png =100x100 "The Wireless Battle of the Mesh is an event that aims to bring together people from across the globe to test the performance of different routing protocols for ad-hoc networks, like Babel, B.A.T.M.A.N, BMX, OLSR, and 802.11s.")(http://battlemesh.org/)
 Some of the interest in mesh networking is about getting around traditional ISPs,
-or as an emergency backup network in the event of a disaster,
+or as an emergency backup network in the event of a disaster,gg
 or providing [true secrecy][04] / privacy / anonymity from the paring eyes of governments,
 or promoting [hyperlocality][02],
 or just experimenting with the latest mesh networking protocols.
@@ -326,6 +327,9 @@ anyone can do it by running some wires or turning on a wireless device.
 This is the vision of CJDNS.
 CJDNS operates at layer 2 locally, and it can peer with other distant meshnets via a UDP interface on layer 3.
 CJDNS implements an encrypted IPv6 network using public-key cryptography for address allocation and a distributed hash table for routing.
+
+## Telehash
+[TMesh](https://github.com/telehash/TMesh/blob/master/TMesh.md)
 
 ## Babel
 Babel, a level-2 protocal,

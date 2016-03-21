@@ -3,6 +3,15 @@
 [fc00](https://www.fc00.org/about)
 [hyperboria/docs](https://github.com/hyperboria/docs)
 [Could You Make Your Own Internet?](https://www.youtube.com/watch?v=OnKMkX0qS3Y)
+[Managing DNS for moving devices with cjdns and consul](https://rickvandeloo.com/2016/01/31/managing-dns-for-moving-devices-with-cjdns-and-consul/)
+
+[ELI5 Why I don't seem to need port forwarding with CJDNS](https://www.reddit.com/r/darknetplan/comments/18umsp/eli5_why_i_dont_seem_to_need_port_forwarding_with/)
+[Installing and Configuring CJDNS on Ubuntu Linux](https://brianturchyn.net/installing-and-configuring-cjdns-on-ubuntu-linux/)
+[Using a CJDNS Tunnel for Site-Site Encryption](https://web.johncook.uk/articles/vps/cjdns-tunnel)
+
+[Nightfall](https://github.com/kpcyrd/nightfall)
+[yrd - cjdns swiss army knife](https://github.com/kpcyrd/yrd)
+[cjdns & hyperboria](https://events.sublab.io/system/attachments/6/original/praesi.pdf?1431710274)
 
 <a href="https://hyperboria.net/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Hyperboria is a peer-to-peer IPv6 network with automatic end-to-end encryption, distributed IP address allocatioonnd  the cjdns routing protocol. " alt="hyperboria-logo" src="{filename}/images/hyperboria-logo.png" width="270" height="58" />
@@ -191,7 +200,7 @@ So your instance of cjdns can verify that someone else has the correct password,
 and that the password was meant only for you, and only you can decrypt that password.
 
 # Step X: Find a Peering Node - DONE
-cjdns's network operates on a friend-of-a-friend model.
+cjdns's network operates on a [friend-of-a-friend model][28].
 This means, that to connect to the network you need to find nodes, called peers,
 which allow you to connect to the network.
 To get into an existing network (e.g. Hyperboria),
@@ -457,8 +466,157 @@ To find out more about peering, check out these sources:
 * [Connect your node to your friend's node](https://github.com/cjdelisle/cjdns#3-connect-your-node-to-your-friends-node)
 * [Peers](https://github.com/hyperboria/peers)
 
+# Step X: Open-Up the firewall - DONE
+Within `/opt/cjdns/cjdroute.conf` look up the port being used to peer with other cjdns nodes.
+look for line "bind":"0.0.0.0:<PORT>" within the  "UDPInterface" section.
+In my case the port is 57291.
+For cjdns to work properly, packets must flow through this port, and so it must be open.
+Generally it will be closed but to check use[nmap][38][^D] or [`netstat`][35][^E]:
+
+[^D]:
+    Nmap ("Network Mapper") is a free and open source (license) utility for
+    network discovery and security auditing.
+    Many systems and network administrators also find it useful for tasks such as network inventory,
+    managing service upgrade schedules, and monitoring host or service uptime.
+
+[^E]:
+    netstat ("network statistics") is a command-line tool that displays network connections
+    (both incoming and outgoing), routing tables, and a number of network interface
+    (network interface controller or software-defined network interface) and network protocol statistics.
+
+```bash
+# to list port that have something listening on it
+netstat -an | grep LISTEN
+
+# if the output is empty, then the port is closed
+netstat -an | grep 57291
+```
+
+The firewall of Linux is in the hands of `iptables`
+(which works with the underlying `netfilter` system).
+Although incredibly powerful this makes using `iptables` complicated,
+an so tends to make simple tasks complicated.
+A much simpler front end for `iptables` is [`ufw` (Uncomplicated Firewall)][31].
+The article "[How To Setup a Firewall with UFW on an Ubuntu and Debian Cloud Server][32]"
+gives a good introductory tutorial on how to use `ufw`.
+
+First, lets ensure that UFW is configured to support IPv6
+so that will configure both your IPv4 and IPv6 firewall rules.
+Execute the following:
+
+```bash
+# if the command returns yes, the ufw is configured to support bot IPv4 and IPv6
+$ grep IPV6 /etc/default/ufw
+IPV6=yes
+$
+```
+
+Make sure "IPv6" is set to "yes".
+If not, edit the file, change it, and then restart the firewall with:
+
+```bash
+sudo ufw disable
+sudo ufw enable
+```
+
+To open the 57291 to allow UDP packets, use the command: `sudo ufw allow 57291/udp`.
+
+```bash
+# ufw command structure looks like this:
+# ufw [--dry-run] [options] [rule syntax]
+
+# open port 57291 for UDP packets
+$ sudo ufw allow 57291/udp
+Rule added
+Rule added (v6)
+
+# for safe measure, make sure port 22 is open so SSH continues to work
+$ sudo ufw allow 22/tcp
+Skipping adding existing rule
+Skipping adding existing rule (v6)
+$
+
+# check the status of the firewall
+$ sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+57291/udp                  ALLOW       Anywhere
+22/tcp                     ALLOW       Anywhere
+57291/udp                  ALLOW       Anywhere (v6)
+22/tcp                     ALLOW       Anywhere (v6)
+
+$
+```
+
+Now check externally to the cjdns device to see what ports are open
+
+```bash
+
+$ sudo nmap -Pn mesh01
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2016-03-18 13:55 EDT
+Nmap scan report for mesh01 (192.168.1.181)
+Host is up (0.066s latency).
+Not shown: 999 filtered ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 74:DA:38:56:03:CD (Unknown)
+
+Nmap done: 1 IP address (1 host up) scanned in 20.13 seconds
+$
+
+# UDP port scan on port 57291
+sudo nmap -sU -Pn -p 57291 mesh01
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2016-03-18 14:34 EDT
+Nmap done: 1 IP address (0 hosts up) scanned in 0.85 seconds
+$
+
+# second scan
+$ sudo nmap -sU -Pn -p 57291 mesh01
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2016-03-18 15:00 EDT
+Nmap scan report for mesh01 (192.168.1.181)
+Host is up (0.043s latency).
+PORT      STATE  SERVICE
+57291/udp closed unknown
+MAC Address: 74:DA:38:56:03:CD (Unknown)
+
+Nmap done: 1 IP address (1 host up) scanned in 0.88 seconds
+$
+```
+
+>**Note** that UDP scanning is [problematic][36] and so unreliable because
+of the lack of a confirming SYN-ACK or other packet as with TCP.
+As such, many false positives can occur from UDP port scans.
+When a generic UDP packet is sent to a UDP port of a remote host,
+one of the following occurs:
+* If the UDP port is open, the packet is accepted, no response packet is sent. This might be interpreted as closed by the software tools.
+* If the UDP port is closed, an ICMP packet is sent in response with the appropriate error code such as "Destination Unreachable".
+[Scanning UDP ports is more inference-based][37], since it does not rely on
+acknowledgements from the remote host like TCP does,
+but instead collects all ICMP errors the remote host sends for each closed port.
+Therefore, closed ports are detected by the presence of ICMP response packets,
+open ports are detected by the lack of response packets.
+
+Next you must make sure your local network router firewall is open on the same port
+and forwarded to your cjdns node.
+In my case, my router has an admin portal on `192.168.1.1`
+where I can do [port forwarding on my FIOS router][33].
+
+To check if a port is open on your network router,
+use "[You Get Signal][34]".
+This is a free website utility for remotely verifying
+if a port is open or closed.
+It is useful to users who wish to verify port forwarding,
+check to see if a server is running,
+or a firewall or ISP is blocking certain ports.
+
 # Step X: Starting Up cjdns - DONE
-With this update to `/opt/cjdns/cjdroute.conf`,
+With the updates to `/opt/cjdns/cjdroute.conf`
+and openning of the proper prots on your firewalls,
 your ready to start-up cjdns with the command[^C]:
 
 [^C]:
@@ -470,14 +628,16 @@ your ready to start-up cjdns with the command[^C]:
 ```bash
 cd /opt/cjdns
 
-# get WARNING message with this and doesnt' see to  work
-# or you could do the following (pi owns the process)
+# get WARNING message with this and doesn't' seem to work
+sudo ./cjdroute < cjdroute.conf
+
+# you could do the following (pi owns the process)
 sudo cat cjdroute.conf | ./cjdroute
 
-# or you could do the following (nobody owns the process)
+# you could do the following (nobody owns the process)
 sudo sh -c './cjdroute < cjdroute.conf'
 
-# or another method (nobody owns the process)
+# maybe the best method (nobody owns the process)
 sudo -s
 ./cjdroute < cjdroute.conf
 ```
@@ -503,7 +663,7 @@ To stop cjdns, just do the following:
 sudo killall cjdroute
 ```
 
-# Step X: Check for Listening Services - DONE
+# Step X: Check for Listening Services
 Once you start running cjdns, you become a IPv6 host.
 Linux may automatically reconfigure network services to use this new address.
 Unless you specifically desire this, you'll need to suppress Linux from making these network changes.
@@ -549,7 +709,6 @@ It shows this host is up,
 has no services running on ports 1-65535, and has a firewall.
 Note that there is one port open, port 22 for SSH.
 
-#################
 If you see anything open, fix it.
 Edit `/etc/ssh/sshd_config` to read:
 
@@ -558,6 +717,33 @@ ListenAddress 192.168.1.1
 ```
 
 [See instructions](https://github.com/hyperboria/cjdns#4-secure-your-system---check-for-listening-services)
+#################
+
+# Step X: Check for Packets
+A key feather of cjdns it request from Linux the generation of virtual network interfaces
+that do not connect to a wire but to a process that simulates the network.
+Often these devices are called [TUN or TAP][39].
+TUN is used with routing, while TAP is used for creating a network bridge.
+
+TUN (namely network TUNnel) simulates a network layer device
+and it operates with layer 3 packets like IP packets.
+TUN has a companion device called TAP (namely network TAP) and it
+simulates a link layer device and it operates with layer 2 packets like Ethernet frames.
+
+The TUN TAP device appears the same to the kernel in that it can't tell whether
+the data comes from a wire connected to an ethernet interfaces or from a userland application.
+When data is written it is forwarded to the userland application
+rather than a physical interface device eg. `eth0`.
+
+With cjdns running and you execute `ifconfig`,
+you'll see there is a network interface called `tun0`.
+If you `killall cjdroute` (i.e. terminate cjdns), you will see that `tun0` disappears.
+
+#################
+Running `ifconfig tun0` should reveal some RX / TX packets.
+
+to sniff for ethernet cjdns traffic
+`tcpdump -nn -s0 -t -vv -e -i wlan0 ether proto 0xfc00`
 #################
 
 # Step X: Check Your Connectivity to Hyperboria
@@ -588,6 +774,39 @@ http://meshbits.io/getting-started-with-meshnet-on-linux/
 # Step X: Peering with You Own Nodes
 Now you could also create your own network by creating one or more nodes,
 just like the one your creating now on a Raspberry Pi, and peer with them.
+
+```json
+// Jeff Irland's experimental cjdns node (mesh01)
+"71.171.94.138:57291": {
+    "login": "default-login",
+    "password": "lvgfl2cpw3lktw2btyxtlrj6j3mzg29",
+    "publicKey": "tnr01bu2ms6b5dx3mhsx31kbsngxltkrpk1gsgcdlcb9srzdubq0.k",
+    "ipv6": "fc30:e192:ae61:b973:4ae5:9383:423a:4200",
+    "peerName": "jeff_irland_mesh01",
+    "contact": "jeff.irland@verizon.net",
+    "location": "Leesburg, VA"
+}
+```
+
+Assuming William Jevons is a friend and I wish to allow INbound connection,
+I need to provide William the following 4 items:
+
+1. My external IPv4
+1. The port found in my conf file here: // Bind to this port. "bind": "0.0.0.0:yourportnumberishere",
+1. The unique password that you uncommented or created: "password": "thisisauniquestring_002"
+1. My public key: "publicKey": "thisisauniqueKEY_001.k"
+1. His username: "William Jevons"
+
+My firends login credentials will look something like this (with your IPv4 and port):
+
+```json
+"1.2.3.4:56789": {
+    "login": "William Jevons",
+    "password": "thisisauniquestring_002",
+    "publicKey": "thisIsJustForAnExampleDoNotUseThisInYourConfFile_1.k"
+}
+```
+
 
 # Admin Interface
 [Admin Interface](https://github.com/hyperboria/cjdns#admin-interface)
@@ -697,13 +916,23 @@ show you how to use `systemctl` to run cjdns at start-up.
 [28]:https://github.com/hyperboria/docs/blob/master/faq/peering.md#why-should-i-prefer-the-friend-of-a-friend-model
 [29]:https://github.com/hyperboria/cjdns/blob/master/doc/non-root-user.md
 [30]:http://stackoverflow.com/questions/82256/how-do-i-use-sudo-to-redirect-output-to-a-location-i-dont-have-permission-to-wr
-[31]:
-[32]:
-[33]:
-[34]:
-[35]:
-[36]:
-[37]:
-[38]:
-[39]:
+[31]:https://www.linux.com/learn/tutorials/863701-an-introduction-to-uncomplicated-firewall-ufw
+[32]:https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server
+[33]:https://www.verizon.com/support/residential/quick-guides/port-forwarding.htm
+[34]:http://www.yougetsignal.com/tools/open-ports/
+[35]:http://www.binarytides.com/linux-netstat-command-examples/
+[36]:https://en.wikipedia.org/wiki/Port_scanner#UDP_scanning
+[37]:https://community.qualys.com/docs/DOC-1185
+[38]:https://nmap.org/
+[39]:http://www.naturalborncoder.com/virtualization/2014/10/17/understanding-tun-tap-interfaces/
+[40]:
+[40]:
+[40]:
+[40]:
+[40]:
+[40]:
+[40]:
+[40]:
+[40]:
+[40]:
 [40]:

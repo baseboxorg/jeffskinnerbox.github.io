@@ -1,5 +1,5 @@
 created: 20140919015727086
-modified: 20160207222431530
+modified: 20160319164832743
 tags: Projects
 title: RTL-SDR Software Defined Radio
 type: text/vnd.tiddlywiki
@@ -127,3 +127,7 @@ type: text/vnd.tiddlywiki
 * [[HackRF One|https://greatscottgadgets.com/hackrf/]]
 * [[HackRF Blue|http://hackrfblue.com/]]
 * [[RF Analyzer - Display for HackRF on an Android Device|http://tech.mantz-it.com/2014/10/rf-analyzer-explore-frequency-spectrum.html]]
+
+!!Mor SDR Projects
+* [[Triple Threat RTL-SDR System Reads Trunked Radio|http://hackaday.com/2016/03/07/triple-threat-rtl-sdr-system-reads-trunked-radio/]]
+* [[Embedded rtl-sdr setup: RTL-SDR + OpenWRT = OMG!!|http://rtl-sdr.sceners.org/?p=40]]

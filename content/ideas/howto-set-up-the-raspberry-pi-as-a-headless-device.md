@@ -347,7 +347,7 @@ For example, while the distribution is likely to already have some Python packag
 execute the following to make sure you have all that is needed
 
 ```bash
-# frsat install Linux packages
+# first install Python packages
 sudo apt-get install python python-dev libjpeg-dev libfreetype6-dev python-setuptools python-pip
 
 # update the Python distribution
@@ -370,11 +370,11 @@ sudo apt-get install nodejs-legacy npm build-essential i2c-tools python-smbus
 # so you can discover hosts via Multicast Domain Name System (mDNS)
 sudo apt-get install avahi-daemon
 
-# basic networking tools
-sudo apt-get install wavemon nicstat nmap
+# basic networking / firewall tools
+sudo apt-get install tcpdump wavemon nicstat nmap ufw
 
 # other handy tools
-sudo apt-get install sendmail
+sudo apt-get install sendmail lynx
 ```
 
 To avoid a [potential namespace collision][17] for the word "node",
@@ -427,6 +427,8 @@ Note that at this point the X Server will still be running.
 You can see this via the command `ps -aux | grep X`.
 You need to reboot the RPi and then you will nolong have X Window running.
 
+# Step X: Running X Window When You Want It
+
 # Step X: Configure Firewall
 We’re going to use `ufw` (Uncomplicated FireWall) to restrict access to our Raspberry Pi.
 
@@ -450,6 +452,15 @@ We’re going to use `ufw` (Uncomplicated FireWall) to restrict access to our Ra
 * [CLONE AN SD CARD ON LINUX, UBUNTU 12.04](http://rricketts.com/clone-an-sd-card-on-linux-ubuntu-12-04/)
 * [Back-up a Raspberry Pi SD card using a Mac](https://smittytone.wordpress.com/2013/09/06/back-up-a-raspberry-pi-sd-card-using-a-mac/)
 * [How to Clone Raspberry Pi SD Cards Using the Command Line in OS X](http://computers.tutsplus.com/articles/how-to-clone-raspberry-pi-sd-cards-using-the-command-line-in-os-x--mac-59911)
+
+# Step X: Raspberry Pi as a Microcontroller
+* [How to configure Raspberry Pi as a microcontroller](https://opensource.com/life/16/3/how-configure-raspberry-pi-microcontroller)
+* [Node.js app with forever running as a service daemon](http://www.slidequest.com/q/70ang)
+* [Node.js and Forever as a Service: Simple Upstart and Init Scripts for Ubuntu](https://www.exratione.com/2013/02/nodejs-and-forever-as-a-service-simple-upstart-and-init-scripts-for-ubuntu/)
+* [Starting Node Forever Scripts at Boot w/ CentOS](http://blog.aronduby.com/starting-node-forever-scripts-at-boot-w-centos/)
+* [PM2: Advanced, production process manager for Node.js](http://pm2.keymetrics.io/)
+* [Goodbye node-forever, hello PM2](http://devo.ps/blog/goodbye-node-forever-hello-pm2/)
+* [NPM a Day Series - pm2 vs nodemon vs forever](https://www.youtube.com/watch?v=84d35TwX3fA)
 
 # Sources
 * [Raspberry Pi Zero Headless Setup](http://davidmaitland.me/2015/12/raspberry-pi-zero-headless-setup/)

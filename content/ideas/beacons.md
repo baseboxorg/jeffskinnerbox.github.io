@@ -1,9 +1,10 @@
 
-[Beacon tracking with Node.js and Raspberry Pi](https://medium.com/truth-labs/beacon-tracking-with-node-js-and-raspberry-pi-794afa880318#.ol4qucksj)
-[Immersive Theatre via iBeacons with Dustin Freeman](http://hackaday.com/2015/12/18/immersive-theatre-via-ibeacons-with-dustin-freeman/)
-[The Beacon Experiments: Low-Energy Bluetooth Devices in Action](http://blog.shinetech.com/2014/02/17/the-beacon-experiments-low-energy-bluetooth-devices-in-action/)
-[Guide to iBeacon Hardware](http://beekn.net/guide-to-ibeacons/)
-[Sensorberg – Open Source Beacon Management](http://sensorberg-dev.github.io/)
+* [Beacon tracking with Node.js and Raspberry Pi](https://medium.com/truth-labs/beacon-tracking-with-node-js-and-raspberry-pi-794afa880318#.ol4qucksj)
+* [Immersive Theatre via iBeacons with Dustin Freeman](http://hackaday.com/2015/12/18/immersive-theatre-via-ibeacons-with-dustin-freeman/)
+* [The Beacon Experiments: Low-Energy Bluetooth Devices in Action](http://blog.shinetech.com/2014/02/17/the-beacon-experiments-low-energy-bluetooth-devices-in-action/)
+* [Guide to iBeacon Hardware](http://beekn.net/guide-to-ibeacons/)
+* [Sensorberg – Open Source Beacon Management](http://sensorberg-dev.github.io/)
+* [Will BLE be the death of traditional RTLS? - the follow up](https://www.linkedin.com/pulse/ble-death-traditional-rtls-follow-up-mark-brown?trk=eml-b2_content_ecosystem_digest-network_publishes-49-null&midToken=AQFNblHgIt9-6A&fromEmail=fromEmail&ut=2dOzXtHst4JD81)
 
 # How Do They Work
 * [How do iBeacons work?](http://www.warski.org/blog/2014/01/how-ibeacons-work/)
@@ -11,9 +12,13 @@
 * [Hackaday Dictionary: Bluetooth Low Energy](http://hackaday.com/2015/12/02/hackaday-dictionary-bluetooth-low-energy/)
 * [How to Build Low-Power Wireless Links for the Internet of Things Using Bluetooth 4.1](http://www.digikey.com/en/articles/techzone/2014/jun/how-to-build-low-power-wireless-links-for-the-internet-of-things-using-bluetooth-41)
 * [Bluetooth Fights Back Against Thread](http://www.eetimes.com/document.asp?doc_id=1323126)
+* [The Physical Web vs. iBeacons vs. Eddystone vs. IoT](http://www.nanalyze.com/2016/03/the-physical-web-vs-ibeacons-vs-eddystone-vs-iot/)
 
 # iBeacon
 [The Hitchhikers Guide to iBeacon Hardware: A Comprehensive Report by Aislelabs (2015)](http://www.aislelabs.com/reports/beacon-guide/)
+
+# Eddystone
+* [Chrome for Android Gets Support for Google's Eddystone Beacon Platform](http://gadgets.ndtv.com/apps/news/chrome-for-android-gets-support-for-googles-eddystone-beacon-platform-801234)
 
 # UriBeacon
 UriBeacon (pronounced YUR-ee-BEE-kun) is evolving to become part of the
@@ -36,6 +41,7 @@ these are the tools you use to access Eddystone-URL beacon content on the Physic
 Eddystone, iBeacon and Bluetooth certified
 
 [Meet Google’s “Eddystone”—a flexible, open source iBeacon fighter](http://arstechnica.com/gadgets/2015/07/meet-googles-eddystone-a-flexible-open-source-ibeacon-fighter/)
+
 
 
 [01]:https://google.github.io/physical-web/

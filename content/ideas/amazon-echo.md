@@ -3,6 +3,7 @@
 * [Control Nest Devices with Amazon Echo](http://hackaday.com/2015/07/25/control-nest-devices-with-amazon-echo/)
 * [Amazon’s AI Escapes its Hardware Prison](http://hackaday.com/2015/08/04/amazons-ai-escapes-its-hardware-prison/)
 * [Amazon Echo: Automate tasks with a talking Raspberry Pi](http://liliputing.com/2015/07/amazon-echo-automate-tasks-with-a-talking-raspberry-pi.html)
+* [Voice Control RGB LED](https://www.hackster.io/pirumpi/voice-control-rgb-led-dd0ba5?utm_source=hackster&utm_medium=email&utm_campaign=new_projects)
 
 # Amazon Alexa Voice Services
 * [Let Alexa Control Your Life; Guide to Voice-Enable Everything](http://hackaday.com/2015/12/26/let-alexa-control-your-life-guide-to-voice-enable-everything/)
