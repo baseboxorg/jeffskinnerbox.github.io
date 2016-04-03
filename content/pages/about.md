@@ -37,6 +37,7 @@ something that I tinkered with when I left college.
 Back then I was tempted to build a [MITS Altair 8800][05]
 when it was reviewed in [Popular Electronics][06] magazine.
 It was a computing device which had no applications and a 450 dollar price tag in 1975!
+([Unlike me, soom people put down the money and became rich and famous][12])
 I was shocked by what $35 could get you and even more shocked by the robustness of the [maker community][04].
 I ordered my Raspberry Pi in June 2012, it arrived in September, and I was hooked.
 Temporally (I think, who knows how long),
@@ -55,7 +56,7 @@ So [Jeff's Skinner Box][07] is a personal blog with a diverse set of technical p
 Many of the project concern Arduino and Raspberry Pi platforms,
 but you'll also find radio topics like RTL-SDR and XBee,
 software topics concerning X Windows System and Conky,
-design a web site using Pelican and Github, 
+design a web site using Pelican and Github,
 and even how to building a Linux box or automate backups for multiple platforms using Rsnapshot.
 The common objective is to learn something new!
 
@@ -76,3 +77,4 @@ The common objective is to learn something new!
 [09]:https://learn.adafruit.com/embedded-linux-board-comparison/overview
 [10]:http://www.forbes.com/sites/gilpress/2014/08/18/its-official-the-internet-of-things-takes-over-big-data-as-the-most-hyped-technology/
 [11]:http://en.wikipedia.org/wiki/Internet_of_Things
+[12]:https://www.youtube.com/watch?v=X5lpOskKF9I&feature=youtu.be

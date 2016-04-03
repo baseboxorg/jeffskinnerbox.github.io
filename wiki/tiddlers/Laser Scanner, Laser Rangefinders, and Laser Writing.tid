@@ -1,5 +1,5 @@
 created: 20140916014247854
-modified: 20160314141700965
+modified: 20160329015544417
 tags: Projects
 title: Laser Scanner, Laser Rangefinders, and Laser Writing
 type: text/vnd.tiddlywiki
@@ -33,6 +33,7 @@ type: text/vnd.tiddlywiki
 * [[ToF Range Finder Sensor|https://www.sparkfun.com/products/12785]]
 * [[How to Use Lidar with the Raspberry Pi|http://hackaday.com/2016/01/22/how-to-use-lidar-with-the-raspberry-pi/]]
 * [[Petite Package Provides Powerful Robot|http://hackaday.com/2016/03/13/petite-package-provides-powerful-robot/]]
+* [[sweep: Scanning LiDAR|http://scanse.io/]]
 
 !!Laser Writing
 

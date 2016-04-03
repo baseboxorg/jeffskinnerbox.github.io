@@ -56,6 +56,14 @@ via "[meshnet activism][09]".
 By installing and running cjdns on a home computer, for example,
 that computer becomes a cjdns node that can be networked
 with any other machine that is also running the protocol.
+cjdns is hardware and protocol-agnostic.
+It doesn't care how the nodes are actually communicating,
+allowing it to serve as a bridge between otherwise incompatible networks.
+So a cjdns router could include a single WiFi interface using a layer 2 mesh
+to communicate with multiple peers,
+or it could using multiple point to point links to communicate with a single peer each,
+or it could use wired Ethernet,
+and it can even bridge over existing networks including the Internet.
 You can find a more extensive explanation of cjdns objectives
 within [Project Goals][13] and [whitepaper][14] documents on Github.
 
@@ -835,6 +843,9 @@ Most of you might have come across a service called Reddit and some of you might
 If you try connecting to http://uppit.us through regular internet,
 you cannot access the service, but once you started using cjdns & connected to Hyperboaria,
 only then you can get access to uppit.us service.
+
+# cjdns NAT Gateway
+* [CJDNS NAT Gateway](https://github.com/cjdelisle/cjdns/blob/master/doc/nat-gateway.md)
 
 # 3rd Party Tools for managing/working with cjdns
 * [cjdns Tools](https://github.com/hyperboria/docs/blob/master/ctrls.md)

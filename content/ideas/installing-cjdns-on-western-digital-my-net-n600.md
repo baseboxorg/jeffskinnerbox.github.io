@@ -1,49 +1,11 @@
 [My complete OpenWrt Setup Guide](http://www.jauu.net/2015/03/03/complete-openwrt-guide/)
 
 ![Mesh Network](https://wellness.wikispaces.com/file/view/nwarch02.jpg/30138489/nwarch02.jpg =376x205 "MESH is a federated/distributed node structure in which any nodes can communicate with any other nodes.")(https://wellness.wikispaces.com/Network+Architectures)
-I have been thinking about diving into [openHAB][20],
-loading it on a [Raspberry Pi][21],
-and create a sensor network for some home automation/monitoring devices.
-I have also explored using [OpenWrt][22] and [qMp][09] as the network.
-I choose [mesh networking][23],
-really its a [MANET][24] using a [layer 3 mesh routing protocol][36] like CJDNS,
-or a level 2 mesh routing protocal like BATMAN-Adv.
-Nodes in this mesh network will be gateway'ed and managed via an inexpensive router
-(maybe a [Linksys WRT54G][55] or [Western Digital My Net N600][26])
-and the nodes will be the [WRTnode][25] or the [GL-AR150][44].
-The nodes would then have sensors attached to them.
-The ideas I have for sensors include ultrasonic water level monitor for my sump pump,
-designed LED lighting for the deck, whole house water leak detection, etc.
-An ambitious project I know, but for me, its all about the journey,
-not the destination!
-
-I was considering using [Quick Mesh Project (qMp)][09].
-qMp is a system for easily deploying Mesh/MANET networks using WiFi technology.
-The qMp firmware, based on OpenWrt, works on many embedded WiFi network devices.
-The [qMp website states][18] that, in general
-every device supported by OpenWrt with 4 MB+ Flash and 32 MB+ RAM can work with qMp.
-I have an old [Linksys WRT54G][01] V8 wireless router
-and I want to use it as my main node (that is, the node I'll use to mange the network)
-for a [Quick Mesh Project (qMp)][09] network.
-The main node needs to be beefy enough so support a web server, network management tools, etc.
-All the other node, much smaller nodes, will be using WRTnode.
-
-I believe a better alternative to qMp is the [Open-Mesh][45]
-routing protocols for ad-hoc networks [BATMAN-Adv][46].
-The name stands for “Better Approach To Mobile Ad-hoc Networking“,
-this is a routing protocol for multi-hop ad-hoc mesh networks.
-BATMAN-Adv is better supported and documented than qMp.
-BATMAN-Adv doesn't claim (and most likely doesn't) to have an easy setup like qMp,
-but this a small consideration when you see the support behind BATMAN-Adv.
-Also, with this project you'll find tools like
-`batadv-vis` to visualize your BATMAN-Adv mesh network,
-`alfred` for flooding the network with data,
-`batctl` is the configuration and debugging tool.
 
 ![CJDNS](https://upload.wikimedia.org/wikipedia/commons/f/f8/Cjdns_logo.png =668x257 "CJDNS is a networking protocol, a system of digital rules for message exchange between computers. The philosophy behind cjdns is that networks should be easy to set up, protocols should scale up smoothly and security should be ubiquitous.")
-After a deeper and wider exploration of my mesh networking options,
-I finally settle on [CJDNS][47].
-The CJDNS protocol operates at layer 2 locally,
+In my exploration of my mesh networking options,
+I found [CJDNS][47].
+The CJDNS protocol operates at layer 3 locally,
 and it can [peer][53] with other distant CJDNS networks via a UDP interface on layer 3.
 CJDNS implements an encrypted IPv6 network using public-key cryptography for address allocation
 and a distributed hash table for routing.
@@ -373,7 +335,7 @@ With this all done, save the OpenWrt configuration via
 [06]:http://blog.michael.kuron-germany.de/2013/04/tp-link-tl-wdr3600/comment-page-1/
 [07]:http://goughlui.com/2013/09/20/tp-link-tl-wr740n-cheapest-dd-wrtopenwrt-router-ever/
 [08]:http://www.pebra.net/blog/2014/02/07/installing-openwrt-on-wd-mynet-n600/
-[09]:http://qmp.cat/Home
+[09]:
 [10]:http://whatismyipaddress.com/dhcp
 [11]:http://wiki.openwrt.org/toh/wd/n600
 [12]:http://wiki.openwrt.org/toh/tp-link/tl-wdr3500
@@ -382,14 +344,14 @@ With this all done, save the OpenWrt configuration via
 [15]:http://wiki.openwrt.org/
 [16]:http://en.wikipedia.org/wiki/OpenWrt
 [17]:http://www.smallnetbuilder.com/wireless/wireless-features/31794-inside-story-apple-airport-express-2012-and-wd-my-net-n900?start=1
-[18]:http://qmp.cat/Supported_devices
+[18]:
 [19]:http://www.adafruit.com/product/954
-[20]:http://www.openhab.org/
-[21]:http://www.raspberrypi.org/
-[22]:https://openwrt.org/
-[23]:http://en.wikipedia.org/wiki/Mesh_networking
-[24]:http://en.wikipedia.org/wiki/Mobile_ad_hoc_network
-[25]:http://wrtnode.com/
+[20]:
+[21]:
+[22]:
+[23]:
+[24]:
+[25]:
 [26]:http://www.wdc.com/wdproducts/library/UM/ENG/4779-705072.pdf
 [27]:http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/openwrt-ar71xx-generic-mynet-n600-squashfs-factory.bin
 [28]:http://kb.linksys.com/Linksys/ukp.aspx?pid=80&vw=1&articleid=3733
@@ -408,9 +370,9 @@ With this all done, save the OpenWrt configuration via
 [41]:http://dev.qmp.cat/projects/qmp/wiki/Packages
 [42]:http://qmp.cat/Get_the_software
 [43]:http://en.wikipedia.org/wiki/IPv4_subnetting_reference
-[44]:http://www.gl-inet.com/ar150/
-[45]:https://www.open-mesh.org/projects/open-mesh/wiki
-[46]:https://www.open-mesh.org/projects/batman-adv/wiki/Doc-overview
+[44]:
+[45]:
+[46]:
 [47]:https://github.com/cjdelisle/cjdns/blob/master/doc/Whitepaper.md
 [48]:http://hyperboria.net/
 [49]:https://projectmeshnet.wordpress.com/

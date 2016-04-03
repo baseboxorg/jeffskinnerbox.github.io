@@ -2,7 +2,7 @@
 
 * [Security basics with GPG, OpenSSH and OpenSSL](http://www.integralist.co.uk/posts/security-basics.html)
 * [OpenPGP Best Practices](https://help.riseup.net/en/security/message-security/openpgp/best-practices)
-* []()
+* [GnuPG Commands - Examples](http://www.spywarewarrior.com/uiuc/gpg/gpg-com-4.htm#4-3)
 
 * [How To Use GPG to Encrypt and Sign Messages on an Ubuntu 12.04 VPS](https://www.digitalocean.com/community/tutorials/how-to-use-gpg-to-encrypt-and-sign-messages-on-an-ubuntu-12-04-vps)
 * [Creating GPG Keys](https://fedoraproject.org/wiki/Creating_GPG_Keys)
@@ -24,10 +24,14 @@ and [encryption tools][03] like gpg.
 
 # How Public Key Encryption Works
 How do you validate the identity of the party they are talking to
-and do you communicate securely with them once validated?
+and do you communicate securely with them once validated[^A]?
 Many schemes that attempt to answer this question require,
 at least at some point, the transfer of a password or other identifying credentials,
 over an insecure medium.
+
+[^A]
+:   Password authentication and file encryption use a [different methodology][05]
+    for authentication than you would use to secure a website.
 
 To get around this issue,
 GPG relies on a security concept known as public key encryption.
@@ -41,6 +45,30 @@ but only be decrypted by the designated user
 If both of the parties create public/private key pairs and give each other their public encrypting keys,
 they can both encrypt messages to each other.
 
+# Someone Sends Their Encryption Key
+* [Encrypting and decrypting documents](https://www.gnupg.org/gph/en/manual/x110.html)
+* [Is it possible to use a gpg public key to encrypt a message without importing the key?](http://serverfault.com/questions/696178/is-it-possible-to-use-a-gpg-public-key-to-encrypt-a-message-without-importing-th)
+
+If someone send you their encription key, with it, you can encript text and return them a secure message.
+For example, if you recieve the key below:
+
+```
+xxx
+```
+
+Place this key in a file, we'll call it here `bobs_key.txt`,
+and we have atext file we wish to encript called `bobs_message.txt`,
+then we can create the encripted message as follows:
+
+```bash
+# xxx
+gpg --output jeff-irland-connection-credentrials.gpg --encrypt --recipient stuart@gathman.org jeff-irland-connection-credentrials.json
+
+# xxx
+
+gpg --output jeff-irland-connection-credentrials.gpg --encrypt jeff-irland-connection-credentrials.json
+```
+
 # Key Server or Key Ring
 In computer security, a key server is a computer that receives and then serves existing cryptographic keys to users or other programs. The users' programs can be working on the same network as the key server or on another networked computer.
 keyserver = ~/.gnupg
@@ -49,7 +77,7 @@ keyserver = ~/.gnupg
 * [SKS OpenPGP Public Key Server](http://keys.gnupg.net/)
 
 
-# Set Up GPG Keys
+# Generate Your GPG Keys
 GPG is often installed by default on Linux, but it is not,
 you can install it with: `sudo apt-get install gnupg`.
 
@@ -364,7 +392,39 @@ and then call GPG on the message file with no flags: `gpg file_name`.
 The software will prompt you as necessary.
 Alternatively, you can spesify the output file
 
+You'll recieve a file containing a block of text like this
+(note that it incldues the phrase "-----BEGIN PGP MESSAGE-----"):
+
+```
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+hQIMA9Ko+tyDxjORARAAl9cfnpYDSLRPiKw0KzbVxpMI7L+xaNxHEluypfJZT4WC
+O/kcd/QLyGWef4l1TNIFifyJoqSpwNMFE+NYNwum+Bs9kM228b8LsITZIYpTdk42
+8iqnigEGN6zYAktthnQxs2LObRkXdT7uTAdR1OYuPUPQ3c+GC6JUjyh7u/x9M0WQ
+EbRiFJ5WUtUaH8zC7yxYdbG28KQ05hfUOTZSvzM+rw8hZrJVOFTgOz1lfbVD/Acl
+7TT3r6/YPBZuOfopjXtFULQlRzvx5WRZpq7rEbqzOXFVgFe2NWfZYPXI3lKvrrGj
+/vZanEZeEOQ6eE+HjQCTntm4qbeBBwaByP8fuQTWjRjvE/AibJ4oDrPZ14wZ2HHz
+XDO961dWbjf+7AW9v6PXOB6GpWRVIbv8lk7wrLiALKtOXskkIzvFqv3PjEi3uU+N
+lZ0uSPYQYK4ZWOGnB7tamYZ9Fy63kpS+3jerOJc7lcpvFGpnrmwhHEq7kSde509D
+J9zi4N778CIwm07wEcxUQ/1xiBkAA4NY3rDheJ1vo97AftifhTT9yMxRfkxEQai7
+MMrcf9m2IMmFHlmRUdTWr7TsugM1rmA78et3O0b6k6C2f1aQKbzt4YT+vtwle7/0
+qLJZi1vN6NSXs/40nE5jnbuyM1mQpzzYUGKHfkYm8N9xA1JmuFxAszk8uTjrClbS
+wEIB1/jT0ywho/mrWAd16TFp3Rg63+w5vOZmzpJuXEVF1kbyIYDsVlccOeUNiPw7
+1KXl6OGKudfoYcxrma3QfP9Z+U0mwUBgLQah8ODTRZwnsFR5/hc7Wuq8rDKBKNnE
+Wcg2+QaJdySYBtUMYNyO9TYRDzvBF0a9nW1BVsBMs3wYL/dJ7BnRKE3wI6kBTSaB
+g3pvwpS/SXFk2PVDWXUDQLT82iOIH3j8JDXLb0eq5TA0wZYLpkBlVHoVKdevvvBM
+7jhLlujY5QbQVVMHSvJ0OnbRRpvqRrmNdU161ynYtSNX5s4vyQsTrCGeLMgzkzs6
+AaW/0BY7wM3c5ziGrz/YgJtvkbY=
+=j/wj
+-----END PGP MESSAGE-----
+```
+
 ```bash
+# decripted file sent to stdout
+gpg --decrypt foo.txt.gpg
+
+# decripted file sent to foo.txt file
 gpg --decrypt foo.txt.gpg --output foo.txt
 ```
 
@@ -405,7 +465,7 @@ You must delete your private key for this key pair from your private key ring fi
 [02]:https://help.riseup.net/en/security/human-security
 [03]:https://help.riseup.net/en/security/message-security/openpgp/best-practices
 [04]:https://www.techopedia.com/definition/23150/ascii-armor
-[05]:
+[05]:https://letsencrypt.org/
 [06]:
 [07]:
 [08]:

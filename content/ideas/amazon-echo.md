@@ -13,6 +13,14 @@
 * [New Alexa Skills Kit Template: Build a Trivia Skill in under an Hour](https://developer.amazon.com/public/community/post/TxDJWS16KUPVKO/New-Alexa-Skills-Kit-Template-Build-a-Trivia-Skill-in-under-an-Hour?mkt_tok=3RkMMJWWfF9wsRokvqjLZKXonjHpfsX66e4vWKK2lMI%2F0ER3fOvrPUfGjI4CSsNnI%2BSLDwEYGJlv6SgFSrfFMapt17gOUhk%3D)
 * [Introduction to Voice Design with Amazon's Alexa](https://www.udemy.com/amazonalexa/?mkt_tok=3RkMMJWWfF9wsRokvqjLZKXonjHpfsX66e4vWKK2lMI%2F0ER3fOvrPUfGjI4CSsNnI%2BSLDwEYGJlv6SgFSrfFMapt17gOUhk%3D)
 
+# Amazon Alexa App Services
+* [Providing Home Cards for the Amazon Alexa App](https://developer.amazon.com/appsandservices/solutions/alexa/alexa-skills-kit/docs/providing-home-cards-for-the-amazon-alexa-app?mkt_tok=3RkMMJWWfF9wsRokvavJZKXonjHpfsX66e4vWKK2lMI%2F0ER3fOvrPUfGjI4FTcViI%2BSLDwEYGJlv6SgFSrfFMapt17gOUhk%3D#Creating%20a%20Home%20Card%20to%20Display%20Text%20and%20an%20Image)
+* []()
+
+# Make You Own Amazon Alexa Device
+* [Amazon shows you how to make an Echo with Raspberry Pi](http://www.engadget.com/2016/03/25/amazon-shows-you-how-to-make-an-echo-with-raspberry-pi/)
+* []()
+
 # Role-Your-Own Echo
 * [Voice Command with No Echo](http://hackaday.com/2015/08/30/voice-command-with-no-echo/)
 * [Speech Recognition with Arduino and BitVoicer Server](https://www.hackster.io/msb4180/speech-recognition-with-arduino-and-bitvoicer-server-460477?ref=newsletter&utm_source=Hackster.io+newsletter&utm_campaign=251e92bd71-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-251e92bd71-140225889)
@@ -40,6 +48,11 @@ such as reading you news headlines, sending commands for home automation, etc.
 In it's current implementation, Jasper uses a Linux based text-to-speech and speech-to-text package.
 It has been [recommended to use a web-based API instead][55],
 specifically the [AT&T Speech API][56].
+
+>AT&T will disable access to its Speech API effective October 1, 2016.
+AT&T has transferred the rights to the Speech API to Interactions.
+Interactions is committed to continue development and innovation using the WATSON Speech engine.
+
 This API is being used by [Jibbigo][57], a smart phone language translation app.
 The API is well documented, requires your registration for an API key, but free for limited use.
 The main limitation with this free Speech API is its rate limit,

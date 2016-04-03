@@ -5,6 +5,9 @@ What a Mesh!
 * [Could You Make Your Own Internet?](https://www.youtube.com/watch?v=OnKMkX0qS3Y)
 * [Hyperboria 101 - Moving Through the Mesh](http://n-o-d-e.net/post/139284891496/hyperboria-101-moving-through-the-mesh)
 
+* [A (Mostly) Complete OpenWRT Tutorial](https://mattventura.net/2009/08/17/a-mostly-complete-openwrt-tutorial/)
+* [OpenWRT: basic network configuration](http://superuser.com/questions/742084/openwrt-basic-network-configuration)
+
 Given there are so many mesh network protocols / packages to select from,
 how does one pick the right platform?
 You see wide variation in the maturity and features supported by the different platforms.

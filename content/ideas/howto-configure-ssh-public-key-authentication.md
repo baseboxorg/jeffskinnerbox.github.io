@@ -7,11 +7,15 @@ This is particularly important if the computer is visible on the internet.
 Using SSH, [along with a few other tricks][08],
 will drastically improve the security of your computer.
 
-In conventional password authentication,
+In conventional password authentication[^A],
 you prove you are who you claim to be by proving that you know the correct password.
 The only way to prove you know the password is to tell the server what you think the password is.
 This means that if the server has been hacked,
 or spoofed, an attacker can learn your password.
+
+[^A]
+:   Password authentication and file encryption use a [different methodology][13]
+    for authentication than you would use to secure a website.
 
 Public key authentication solves this problem.
 You generate a key pair, consisting of a public key (which everybody is allowed to know)
@@ -315,7 +319,7 @@ Here are some good references:
 [10]:https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04
 [11]:https://en.wikipedia.org/wiki/Internet_bot
 [12]:https://www.digitalocean.com/community/tutorials/how-fail2ban-works-to-protect-services-on-a-linux-server
-[13]:
+[13]:https://letsencrypt.org/
 [14]:
 [15]:
 [16]:

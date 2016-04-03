@@ -19,7 +19,8 @@ Follow us: @ProgrammableWeb on Twitter | ProgrammableWeb on Facebook
 
 # AWS IoT
 * [AWS IoT](http://aws.amazon.com/iot/)
-*
+* [Smart Environmental Monitoring](https://www.hackster.io/alapisco/smart-environmental-monitoring-2552bb?utm_source=hackster&utm_medium=email&utm_campaign=new_projects)
+
 # Waylay.io
 * Waylay - http://www.waylay.io/
 * http://waylayio.github.io/integration/2015/10/24/webscripts.html

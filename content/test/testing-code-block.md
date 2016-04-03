@@ -9,7 +9,7 @@ If you want some syntax highlighting, you'll need to install Pygments (installed
 The Pelican documentation will tell you that the Pygments package is baked right in,
 and it is kind-of.
 Something not made clear in the Pelican documentation is that
-much of the good stuff in Markdown, like Pygments and syntax highlighting, has to be explicitly activated. 
+much of the good stuff in Markdown, like Pygments and syntax highlighting, has to be explicitly activated.
 
 Python Markdown comes with several [extras][10], and one of the extension supported is called [CodeHilite][11].
 To get this all to work, you must include something like this in your `pelicanconf.py` file:
@@ -43,20 +43,27 @@ Standard Markdown converts text with four spaces at the beginning of each line i
 This first example is using just indenting:
 
     # Example using simply indentation
-    
+
     #!/bin/bash
-    
+
     usage() {
 	    echo "Usage: $0 filename"
 	    exit 1
     }
-     
-    # define is_file_exits function 
+
+    # define is_file_exits function
     # $f -> store argument passed to the script
     is_file_exits() {
 	    local f="$1"
 	    [[ -f "$f" ]] && return 0 || return 1
     }
+
+What happens if you have a very long line of text that runs beyond the right had side of the page?
+
+    What happens if you have a very long line of text that runs beyond the right had side of the page?  Do you get a scroll bar at the bottom of the code block, or does it wrap around or does it just truncate the line?
+
+**This page http://innerdot.com/iot/a-guide-to-getting-started-with-a-sensor-on-nitrogenio-part-1
+wraps code blocks.  Find out how it does it.**
 
 ## GitHub Formated Markdown Code Block
 Pelican also supports [GitHub Flavored Markdown (GFM)][08] style code blocks,
@@ -68,13 +75,13 @@ _(**NOTE:** Although fenced code blocks don't have to be preceded by a blank lin
 # Example using Fenced Blocks
 
 #!/bin/bash
-    
+
 usage() {
     echo "Usage: $0 filename"
     exit 1
 }
-     
-# define is_file_exits function 
+
+# define is_file_exits function
 # $f -> store argument passed to the script
 is_file_exits() {
     local f="$1"
@@ -89,13 +96,13 @@ Below is an example (with no language given in the fenced block):
 
 ```
 #!/bin/bash
-    
+
 usage() {
     echo "Usage: $0 filename"
     exit 1
 }
-     
-# define is_file_exits function 
+
+# define is_file_exits function
 # $f -> store argument passed to the script
 is_file_exits() {
     local f="$1"
@@ -131,9 +138,9 @@ For example, to syntax highlight C++ code, start the block with `~~~~.cpp` to ge
 
 ~~~~.cpp
 // Hello.cc
-//   how to compile: either  
+//   how to compile: either
 //     make Hello
-//   or  
+//   or
 //     g++     Hello.cc   -o Hello
 //   usage:
 //     Hello
@@ -148,7 +155,7 @@ using namespace std;
 int main(int argc, char* argv[]) {
     cout << ":-) hello world" << endl ;
 }
-~~~~ 
+~~~~
 
 When you use the `~~~~` Fenced Blocks, you can also emphasized certain lines of code.
 You can do this by telling Markdown what lines to highlight in the first fence.
@@ -212,20 +219,20 @@ The posting "[Adding code snippets to your blog][05]"
 show you how to use [GitHug Gist][06] to add code listings to your blog.
 The example below is a code snippits from [here][07].
 
-<!-- -------- Start: Gist Code Snippit --------- --> 
+<!-- -------- Start: Gist Code Snippit --------- -->
 <style="padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); font-size: 12px; line-height: 14px; width: 90%;">
     <script src="https://gist.github.com/jeffskinnerbox/6663095.js"></script>
 </style>
-<!-- --------- End: Gist Code Snippit ---------- --> 
+<!-- --------- End: Gist Code Snippit ---------- -->
 
 The file content to create this is as follows:
 
 ```
-<!-- -------- Start: Gist Code Snippit --------- --> 
+<!-- -------- Start: Gist Code Snippit --------- -->
 <style="padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); font-size: 12px; line-height: 14px; width: 90%;">
     <script src="https://gist.github.com/jeffskinnerbox/6663095.js"></script>
 </style>
-<!-- --------- End: Gist Code Snippit ---------- --> 
+<!-- --------- End: Gist Code Snippit ---------- -->
 ```
 
 

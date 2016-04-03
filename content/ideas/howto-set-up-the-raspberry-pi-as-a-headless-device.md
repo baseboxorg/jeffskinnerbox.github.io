@@ -51,7 +51,7 @@ The easiest way to find this is just unplug your card reader from the USB port,
 run `df -h`, then plug it back in, and run `df -h` again.
 
 ~~~~{.bash hl_lines="28"}
-# with the SD card reader unpluged
+# with the SD card reader unplugged
 $ df -h
 Filesystem      Size  Used Avail Use% Mounted on
 udev            3.9G   12K  3.9G   1% /dev
@@ -113,6 +113,12 @@ sudo umount /dev/sdj
 Don’t remove SD card from the reader on your computer.
 We’re going to set up the WiFi interface.
 
+>**NOTE:** You could immediately put the SD Card in the RPi and boot it up,
+but you will have no WiFi access.
+You can get around this by using a console cable to make the file modification
+outline in the next step.
+[Adafruit has good description on how to use a console cable][20].
+
 # Step 3: Configure your WiFi - DONE
 Unplug your SD Card reader and plug it back in
 and this will mount the Raspbian image on your Linux box.
@@ -167,9 +173,12 @@ iface wlan0 inet dhcp
 Now open the file `etc/wpa_supplicant/wpa_supplicant.conf` in an editor
 and add the following to the bottom of the file:
 
-```
+```bash
+# home wifi network settings
 network={
+    id_str="home"
     ssid="<your-network-ssid-name>"
+    scan_ssid=1
     psk="<your-network-password>"
     proto=RSN
     key_mgmt=WPA-PSK
@@ -178,10 +187,18 @@ network={
 }
 ```
 
-* `proto` could be either RSN (WPA2) or WPA (WPA1).
+* `id_str` is used to set up custom network settings, depending on which access point we are connected to
+* `scan_ssid` is 1 tells your wifi adapter to look for the networks automatically and connect when in range
+* `ssid` is the name of the wireless network (what you typically see when you search for wifi connections)
+* `psk` is the WiFi password if the network is WPA/WPA2 encrypted, leave out for open or WEP networks
+* `proto` could be either RSN (WPA2) or WPA (WPA1)
 * `key_mgmt` could be either WPA-PSK (most probably) or WPA-EAP (enterprise networks)
 * `pairwise` could be either CCMP (WPA2) or TKIP (WPA1)
 * `auth_alg` is most probably OPEN, other options are LEAP and SHARED
+
+If you want to include other WiFi networks,
+just add another `network` structure to the file `etc/wpa_supplicant/wpa_supplicant.conf`.
+(See examples [here][18] and [here][19])
 
 # Step 4: First Time Boot of the Raspberry Pi - DONE
 Now unmount the SD Card, put the SD Card into the Raspberry Pi,
@@ -364,8 +381,11 @@ Install X Window utilities and other applications
 sudo apt-get install x11-apps x11-xserver-utils xterm
 
 # development tools
-sudo apt-get install markdown git vim vim-gtk microcom
+sudo apt-get install markdown git vim vim-gtk microcom screen
 sudo apt-get install nodejs-legacy npm build-essential i2c-tools python-smbus
+
+# AWS IoT Device SDK to connect hardware device to AWS IoT.
+sudo npm install aws-iot-device-sdk
 
 # so you can discover hosts via Multicast Domain Name System (mDNS)
 sudo apt-get install avahi-daemon
@@ -374,12 +394,39 @@ sudo apt-get install avahi-daemon
 sudo apt-get install tcpdump wavemon nicstat nmap ufw
 
 # other handy tools
-sudo apt-get install sendmail lynx
+sudo apt-get install sendmail lynx gnome-terminal
 ```
 
-To avoid a [potential namespace collision][17] for the word "node",
+>**NOTE:** To avoid a [potential namespace collision][17] for the word "node",
 specifically as it relates to [Node.js][16],
 make sure to use the `nodejs-legacy` package for Node.js.
+
+Appears that getting my favorite browser,
+[Chrome][22] or its open source version [Chromium][23],
+on the Raspberry Pi [got a bit harder][21].
+The default browser for the RPi has been [Midori][24].
+
+```bash
+# install the midori browser
+sudo apt-get install midori
+```
+
+Google Chrome on your armhf architecture is problematic
+because of licensing issues with ARM and bugs with ARM's proprietary drivers.
+It appears to be supported on the amd64 architecture.
+If your using the amd64 architecture,
+use the `midori` browser,
+goto the Chrome download website
+`https://www.google.com/chrome/browser/desktop/index.html`
+and get the `.deb` package from Google,
+and install it with `sudo dpkg -i ....`.
+
+# Step 8A: Load Personal Tools (Optional)
+
+```bash
+https://github.com/jeffskinnerbox/.vim.git
+https://github.com/jeffskinnerbox/.bash.git
+```
 
 # Step 9: Password-less Login via SSH Keys - DONE
 Public key authentication is an alternative means of identifying yourself to a login server,
@@ -394,7 +441,7 @@ use the posting "XXX-howto-configure-ssh-public-key-authentication".
 
 # Step 10: Boot Without Starting X Window - DONE
 The Raspberry Pi's Jessie image is configured to automatically bring up the X Window
-graphics system and the supporting GUI.
+graphics system and the supporting GUI (aka [X Window System Display Manager][28]).
 Generally, your not going to be using an RPi to support GUI's for users.
 You should turn off X Windows and save yourself some CPU cycles.
 
@@ -410,7 +457,7 @@ The response `graphical.target` indicates X Windows is being started on boot up.
 The utility [`systemd`][15] is an init system and system manager that is widely
 becoming the new standard for Linux machines.
 
-To nolong use the GUI and boot into multi-user mode, use this command
+To no long use the GUI and boot into multi-user mode, use this command
 
 ```bash
 # set to multi-user mode
@@ -425,12 +472,60 @@ multi-user.target
 
 Note that at this point the X Server will still be running.
 You can see this via the command `ps -aux | grep X`.
-You need to reboot the RPi and then you will nolong have X Window running.
+You need to reboot the RPi and then you will no long have X Window running.
 
-# Step X: Running X Window When You Want It
+# Step X: Running X Window Clients When You Want It - DONE
+You can run [X Window clients][27] on the Raspberry Pi
+(like the `midora` browser)
+without any problem if you `ssh -X` into the RPi from a machine running
+the [X Window System][25] [X.Org Server][26].
+
+A simple test to see this work is to run `xeyes` on the Raspberry Pi.
+A pair of eyes that track you mouse movement should appear in the display
+of the machine from which your perfroming the `ssh -X`.
+The `xeyes` X Window client is running on the RPi
+using the display and XServer of our local machine.
+
+If your not using, `ssh` to connect with the Raspberry Pi,
+but just using a terminal, say with [screen][29] using a [console cable][30],
+your not going to be able run X Window System applications.
+You must be connected via TCP/IP.
+
+# Step X: Static IP Address
+Now that your Raspberry Pi connects automatically to your WiFi network every time it is tuned on,
+you may want to specify a static IP address to communicate with your RPi.
+
+For example, to set the static IP address to `192.168.100.50`
+update the file `/etc/network/interfaces` so it looks like this:
+
+```
+auto lo
+iface lo inet loopback
+iface eth0 inet dhcp
+allow-hotplug wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface default inet static
+address 192.168.100.50
+netmask 255.255.255.0
+network 192.168.100.0
+broadcast 192.168.100.255
+gateway 192.168.100.1
+```
+
+* [Smart Environmental Monitoring](https://www.hackster.io/alapisco/smart-environmental-monitoring-2552bb?utm_source=hackster&utm_medium=email&utm_campaign=new_projects)
+* [How do I set up a static ip address on wifi?](https://www.raspberrypi.org/forums/viewtopic.php?f=91&t=49350)
+
+# Step X: configure Raspberry Pi as a Microcontroller
+[How to configure Raspberry Pi as a microcontroller](https://opensource.com/life/16/3/how-configure-raspberry-pi-microcontroller)
 
 # Step X: Configure Firewall
 We’re going to use `ufw` (Uncomplicated FireWall) to restrict access to our Raspberry Pi.
+
+* [UncomplicatedFirewall](https://wiki.ubuntu.com/UncomplicatedFirewall)
+
+# Step X: Security
+* [IoT Security: Tips to Protect your Device from Bad Hackers](https://www.hackster.io/charifmahmoudi/iot-security-tips-to-protect-your-device-from-bad-hackers-768093?utm_source=Hackster.io+newsletter&utm_campaign=3e0b3a91f6-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-3e0b3a91f6-140225889)
 
 # Step X: Install Fail2Ban
 [How Fail2Ban Works to Protect Services on a Linux Server](https://www.digitalocean.com/community/tutorials/how-fail2ban-works-to-protect-services-on-a-linux-server)
@@ -461,6 +556,7 @@ We’re going to use `ufw` (Uncomplicated FireWall) to restrict access to our Ra
 * [PM2: Advanced, production process manager for Node.js](http://pm2.keymetrics.io/)
 * [Goodbye node-forever, hello PM2](http://devo.ps/blog/goodbye-node-forever-hello-pm2/)
 * [NPM a Day Series - pm2 vs nodemon vs forever](https://www.youtube.com/watch?v=84d35TwX3fA)
+* [Monit](https://mmonit.com/monit/#slideshow)
 
 # Sources
 * [Raspberry Pi Zero Headless Setup](http://davidmaitland.me/2015/12/raspberry-pi-zero-headless-setup/)
@@ -485,6 +581,26 @@ We’re going to use `ufw` (Uncomplicated FireWall) to restrict access to our Ra
 [15]:https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
 [16]:https://nodejs.org/en/
 [17]:http://stackoverflow.com/questions/21168141/cannot-install-packages-using-node-package-manager-in-ubuntu
-[18]:
-[19]:
-[20]:
+[18]:http://raspberrypi.stackexchange.com/questions/11631/how-to-setup-multiple-wifi-networks
+[19]:https://www.raspberrypi.org/forums/viewtopic.php?f=91&t=14226
+[20]:https://learn.adafruit.com/adafruits-raspberry-pi-lesson-5-using-a-console-cable/overview
+[21]:http://conoroneill.net/running-the-latest-chromium-45-on-debian-jessie-on-your-raspberry-pi-2/
+[22]:https://www.google.com/chrome/browser/desktop/index.html
+[23]:https://www.chromium.org/
+[24]:http://midori-browser.org/
+[25]:https://en.wikipedia.org/wiki/X_Window_System
+[26]:https://en.wikipedia.org/wiki/X.Org_Server
+[27]:http://www.tldp.org/HOWTO/XWindow-Overview-HOWTO/arch-overview.html
+[28]:https://en.wikipedia.org/wiki/X_display_manager_(program_type)
+[29]:http://aperiodic.net/screen/start
+[30]:https://learn.adafruit.com/adafruits-raspberry-pi-lesson-5-using-a-console-cable/overview
+[31]:
+[32]:
+[33]:
+[34]:
+[35]:
+[36]:
+[37]:
+[38]:
+[39]:
+[40]:

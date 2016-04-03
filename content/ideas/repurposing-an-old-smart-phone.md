@@ -7,7 +7,7 @@ I did a quick search of the web to get some ideas on how to re-purpose this smar
 and I was intrigued by the following ideas: [remotely view and control your IP camera][03],
 or [turn your phone into a IP camera][04],
 or even [camera remote control][08],
-[untethered navigation][05], 
+[untethered navigation][05],
 [VoIP or video phone][06],
 [emergency phone][07],
 [garage/workshop intercom][09],
@@ -61,7 +61,7 @@ Other stuff
 * [HOWTO: GSM Base Station with the BeagleBone Black, Debian GNU/Linux and a USRP](http://discourse.criticalengineering.org/t/howto-gsm-base-station-with-the-beaglebone-black-debian-gnu-linux-and-a-usrp/56)
 * [Obtaining a SIM](https://learn.adafruit.com/adafruit-fona-mini-gsm-gprs-cellular-phone-module/obtaining-a-sim)
 * [Turning Android into a Robotic Operating System](http://www.technolabsz.com/2012/03/ros-on-android-phone.html)
-* []()
+* [IoT IP camera teardown and getting root password](http://jelmertiete.com/2016/03/14/IoT-IP-camera-teardown-and-getting-root-password/)
 * []()
 
 

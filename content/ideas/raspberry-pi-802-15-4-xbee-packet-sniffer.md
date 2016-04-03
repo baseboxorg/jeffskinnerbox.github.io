@@ -8,6 +8,8 @@ Image: DRAFT_stamp.png
 Summary: abla bla bla
 
 * [chibiArduino v1.06 Release Available](http://freaklabs.org/index.php/blog/chibi/chibiarduino-v1-06-release.html)
+* [Sniffing the Internet of Things with Wireshark, Sensniff, and FreakLabs](http://freaklabs.org/index.php/tutorials/software/sniffing-the-internet-of-things-with-wireshark-sensniff-and-freaklabs.html)
+* [sensniff - Live Traffic Capture and Sniffer for IEEE 802.15.4 networks](https://github.com/g-oikonomou/sensniff)
 * [Sniffing nRF24L01+ Traffic with Wireshark](http://hackaday.com/2014/08/05/sniffing-nrf24l01-traffic-with-wireshark/)
 * [tshark](http://www.linuxuser.co.uk/tutorials/monitor-network-traffic-tutorial)
 

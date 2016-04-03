@@ -1,5 +1,5 @@
 created: 20141226143823014
-modified: 20160319162745513
+modified: 20160327013038225
 tags: [[Test Gear]]
 title: Oscilloscope Tutorials and Tips
 type: text/vnd.tiddlywiki
@@ -25,6 +25,9 @@ so its time to learn how to use it like a pro.
 * [[From Digital to RF - Using a scope to easily debug in the time and frequency domains|http://www.rohde-schwarz-usa.com/Webinar-Digital-to-RF-Oscilloscope.html?mkt_tok=3RkMMJWWfF9wsRojsqXBZKXonjHpfsXx6u0pWbHr08Yy0EZ5VunJEUWy3YAAT9Q/cOedCQkZHblFnV8KTq2gSqgNrqIK]]
 * [[Tektronix Manuals and Documentation|http://www.tek.com/downloads]]
 ** [[Application Notes|http://www.afc-ingenieros.com/uploads/Afc/InfoTecn/Osciloscopios/pdf/]]
+
+!!Videos
+* [[Rigol Oscilloscope Basics|https://www.youtube.com/playlist?list=PLwOVNTOStjiCTHXOoszZYqMcMRtXGIA8P]]
 
 !!Evaluation
 * [[Evaluating Oscilloscopes - Part 1|http://circuitcellar.com/cc-blog/evaluating-oscilloscopes-part-1/#at_pco=smlre-1.0&at_si=569e738305ad0ffb&at_ab=per-2&at_pos=3&at_tot=4]], [[Part 2|http://circuitcellar.com/cc-blog/evaluating-oscilloscopes-part-2/]], [[Part 3|http://circuitcellar.com/cc-blog/evaluating-oscilloscopes-part-3/]], [[Part 4|http://circuitcellar.com/cc-blog/evaluating-oscilloscopes-part-4/]]
