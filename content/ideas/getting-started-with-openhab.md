@@ -7,6 +7,9 @@
 * [OpenHAB App](https://play.google.com/store/apps/details?id=org.openhab.habdroid&hl=en)
 * [Uber Home Automation w/ Arduino & Pi](http://www.instructables.com/id/Uber-Home-Automation-w-Arduino-Pi/?ALLSTEPS)
 
+# Alternatives ot openHAB
+* [5 open source home automation tools](https://opensource.com/life/16/3/5-open-source-home-automation-tools?sc_cid=70160000000q67uAAA)
+
 # OpenRemote
 * [OpenRemote](http://www.openremote.org/display/HOME/OpenRemote)
 

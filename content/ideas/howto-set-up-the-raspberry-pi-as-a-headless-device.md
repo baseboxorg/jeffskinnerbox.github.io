@@ -90,6 +90,7 @@ where we need to write the Raspbian image to the SD Card
 (see more detail instructions [here][06]).
 
 ```bash
+# go to directory with the RPi image
 cd /home/jeff/Downloads
 
 # unmount the sd card reader
@@ -171,7 +172,8 @@ iface wlan0 inet dhcp
 ```
 
 Now open the file `etc/wpa_supplicant/wpa_supplicant.conf` in an editor
-and add the following to the bottom of the file:
+and add the following to the bottom of the file so your
+Raspberry Pi can connect automatically to your WiFi network:
 
 ```bash
 # home wifi network settings
@@ -366,6 +368,7 @@ execute the following to make sure you have all that is needed
 ```bash
 # first install Python packages
 sudo apt-get install python python-dev libjpeg-dev libfreetype6-dev python-setuptools python-pip
+sudo pip install virtualenv virtualenvwrapper
 
 # update the Python distribution
 sudo easy_install -U distribute
@@ -374,7 +377,7 @@ sudo easy_install -U distribute
 sudo pip install RPi.GPIO pySerial nose cmd2
 ```
 
-Install X Window utilities and other applications
+Install X Window utilities, development tools, and other applications
 
 ```bash
 # some X Window utilities
@@ -383,8 +386,9 @@ sudo apt-get install x11-apps x11-xserver-utils xterm
 # development tools
 sudo apt-get install markdown git vim vim-gtk microcom screen
 sudo apt-get install nodejs-legacy npm build-essential i2c-tools python-smbus
+sudo npm install -g jshint
 
-# AWS IoT Device SDK to connect hardware device to AWS IoT.
+# AWS IoT Device SDK to connect hardware device to AWS IoT
 sudo npm install aws-iot-device-sdk
 
 # so you can discover hosts via Multicast Domain Name System (mDNS)
@@ -394,7 +398,7 @@ sudo apt-get install avahi-daemon
 sudo apt-get install tcpdump wavemon nicstat nmap ufw
 
 # other handy tools
-sudo apt-get install sendmail lynx gnome-terminal
+sudo apt-get install sendmail gnome-terminal
 ```
 
 >**NOTE:** To avoid a [potential namespace collision][17] for the word "node",
@@ -405,32 +409,75 @@ Appears that getting my favorite browser,
 [Chrome][22] or its open source version [Chromium][23],
 on the Raspberry Pi [got a bit harder][21].
 The default browser for the RPi has been [Midori][24].
+Another popular lightweight browser is [links2][31]
+which can running in both graphics and text mode.
+An of course there is the text mode browser [lynx][32].
+While Midori is prettier, Links2 appears to be the faster graphics browser.
 
 ```bash
-# install the midori browser
-sudo apt-get install midori
+# install the midori and links2 browser
+sudo apt-get install midori links2
+
+# to execute the midori browser
+midori &
+midori http://www.google.com &
+
+# to execute the links browser in grapics mode
+links2 -g &
+links2 -g http://www.google.com &
+
+# to execute the links browser in text mode
+gnome-terminal -x sh -c 'links2 http://www.google.com'
+
+# to execute the lynx browser
+gnome-terminal -x sh -c 'lynx'
+gnome-terminal -x sh -c 'lynx http://www.google.com'
 ```
 
-Google Chrome on your armhf architecture is problematic
+Google Chrome on your [ARM architecture][33] is problematic
 because of licensing issues with ARM and bugs with ARM's proprietary drivers.
 It appears to be supported on the amd64 architecture.
 If your using the amd64 architecture,
-use the `midori` browser,
+use the `midori` or `links2` browsers,
 goto the Chrome download website
 `https://www.google.com/chrome/browser/desktop/index.html`
 and get the `.deb` package from Google,
 and install it with `sudo dpkg -i ....`.
 
-# Step 8A: Load Personal Tools (Optional)
+# Step 8A: Load Personal Tools (Optional) - DONE
+Now that all the Linux packages have been loaded,
+time to install my personal tools on the device.
 
 ```bash
-https://github.com/jeffskinnerbox/.vim.git
-https://github.com/jeffskinnerbox/.bash.git
+# install tools for vim text editor
+cd ~
+git clone https://github.com/jeffskinnerbox/.vim.git
+ln -s ~/.vim/vimrc ~/.vimrc
+
+# install tools for bash shell
+cd ~
+git clone https://github.com/jeffskinnerbox/.bash.git
+ln -s ~/.bash/bashrc ~/.bashrc
+ln -s ~/.bash/bash_login ~/.bash_login
+ln -s ~/.bash/bash_logout ~/.bash_logout
+ln -s ~/.bash/bash_profile ~/.bash_profile
+ln -s ~/.bash/dircolors.old ~/.dircolors
+sudo cp virtualenvwrapper.sh virtualenvwrapper_lazy.sh /usr/local/bin
+
+# install X configuration files
+cd ~
+git clone https://github.com/jeffskinnerbox/.X.git
+ln -s ~/.X/xbindkeysrc ~/.xbindkeysrc
+ln -s ~/.X/Xresources ~/.Xresources
+ln -s ~/.X/xsessionrc ~/.xsessionrc
 ```
 
 # Step 9: Password-less Login via SSH Keys - DONE
-Public key authentication is an alternative means of identifying yourself to a login server,
-instead of typing a password.
+<a href="http://www.openssh.com/">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="{filename}/images/openssh-logo.png" width="194" height="191" />
+</a>
+Public key authentication is an alternative means of
+identifying yourself to a login server, instead of typing a password.
 It is more secure and more flexible, but more difficult to set up.
 This is particularly important if the computer is visible on the Internet.
 Also, public key authentication allows you to log into a machine
@@ -475,8 +522,11 @@ You can see this via the command `ps -aux | grep X`.
 You need to reboot the RPi and then you will no long have X Window running.
 
 # Step X: Running X Window Clients When You Want It - DONE
+<a href="http://www.xquartz.org/index.html">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="The XQuartz project is an open-source effort to develop a version of the X.Org X Window System that runs on OS X." alt="XQuartz Logo" src="{filename}/images/xquartz-logo.jpg" width="90" height="90" />
+</a>
 You can run [X Window clients][27] on the Raspberry Pi
-(like the `midora` browser)
+(like the `midori` browser)
 without any problem if you `ssh -X` into the RPi from a machine running
 the [X Window System][25] [X.Org Server][26].
 
@@ -489,78 +539,213 @@ using the display and XServer of our local machine.
 If your not using, `ssh` to connect with the Raspberry Pi,
 but just using a terminal, say with [screen][29] using a [console cable][30],
 your not going to be able run X Window System applications.
-You must be connected via TCP/IP.
+You **must** be connected via TCP/IP to the Raspberry Pi.
 
-# Step X: Static IP Address
-Now that your Raspberry Pi connects automatically to your WiFi network every time it is tuned on,
-you may want to specify a static IP address to communicate with your RPi.
+# Step X: Static IP Address - DONE
+Currently, your Raspberry Pi connects automatically to your WiFi network
+every time it is tuned on,
+but you may want to specify a static IP address to communicate with your RPi.
 
-For example, to set the static IP address to `192.168.100.50`
-update the file `/etc/network/interfaces` so it looks like this:
+For example, to set the static IP address to `192.168.100.50`,
+you'll need to update the file `/etc/network/interfaces`.
+This file currently looks like this:
 
 ```
+# Include files from /etc/network/interfaces.d:
+source-directory /etc/network/interfaces.d
+
 auto lo
 iface lo inet loopback
-iface eth0 inet dhcp
+
+iface eth0 inet manual
+
+auto wlan0
 allow-hotplug wlan0
-iface wlan0 inet manual
-wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
-iface default inet static
-address 192.168.100.50
-netmask 255.255.255.0
-network 192.168.100.0
-broadcast 192.168.100.255
-gateway 192.168.100.1
+iface wlan0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 
-* [Smart Environmental Monitoring](https://www.hackster.io/alapisco/smart-environmental-monitoring-2552bb?utm_source=hackster&utm_medium=email&utm_campaign=new_projects)
-* [How do I set up a static ip address on wifi?](https://www.raspberrypi.org/forums/viewtopic.php?f=91&t=49350)
+For your static IP address, modify file `/etc/network/interfaces` to look like:
 
-# Step X: configure Raspberry Pi as a Microcontroller
-[How to configure Raspberry Pi as a microcontroller](https://opensource.com/life/16/3/how-configure-raspberry-pi-microcontroller)
+```
+# Include files from /etc/network/interfaces.d:
+source-directory /etc/network/interfaces.d
 
-# Step X: Configure Firewall
-We’re going to use `ufw` (Uncomplicated FireWall) to restrict access to our Raspberry Pi.
+auto lo
+iface lo inet loopback
 
-* [UncomplicatedFirewall](https://wiki.ubuntu.com/UncomplicatedFirewall)
+iface eth0 inet manual
 
-# Step X: Security
-* [IoT Security: Tips to Protect your Device from Bad Hackers](https://www.hackster.io/charifmahmoudi/iot-security-tips-to-protect-your-device-from-bad-hackers-768093?utm_source=Hackster.io+newsletter&utm_campaign=3e0b3a91f6-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-3e0b3a91f6-140225889)
+auto wlan0
+allow-hotplug wlan0
+iface wlan0 inet manual
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 
-# Step X: Install Fail2Ban
-[How Fail2Ban Works to Protect Services on a Linux Server](https://www.digitalocean.com/community/tutorials/how-fail2ban-works-to-protect-services-on-a-linux-server)
-[How To Protect SSH with Fail2Ban on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04)
-[How to protect SSH with fail2ban](https://kyup.com/tutorials/protect-ssh-fail2ban/)
-[Preventing Brute Force Attacks With Fail2ban On Debian Etch](https://www.howtoforge.com/fail2ban_debian_etch)
-[Using Fail2ban to Secure Your Server](https://www.linode.com/docs/security/using-fail2ban-for-security)
+iface default inet static
+    address 192.168.100.50
+    netmask 255.255.255.0
+    network 192.168.100.0
+    broadcast 192.168.100.255
+    gateway 192.168.100.1
+```
+
+# Step X: Configure Firewall - DONE
+I recommend using [`ufw` (Uncomplicated FireWall)][34] to restrict access to the Raspberry Pi.
+The Linux kernel provides a packet filtering system called [`netfilter`][35],
+and the traditional interface for manipulating `netfilter` are the [`iptables`][36] suite of commands.
+`iptables` provide a complete firewall solution that is highly configurable and flexible
+but can be daunting task.
+To make things easier, several frontends for `iptables` have been created over the years.
+
+`ufw` is one of those frontends and its aims is to provide an
+easy to use interface for people unfamiliar with firewall concepts,
+while at the same time simplifies complicated `iptables` commands
+to help an adminstrator who knows what he or she is doing.
+
+# Step X: Basic Security - DONE
+Beyond the basic security take in Step XXX,
+you should minimize your exposure to network security attacks
+and following some of the tips outlined in the postings
+"[IoT Security: Tips to Protect your Device from Bad Hackers][37]"
+and "[Secure your Raspberry Pi][38]" is a good start.
+
+# Step X: Install Fail2Ban - DONE
+Recently I examined my desktop computer's `sshd` log file `/var/log/auth.log`
+([log samples from sshd][42]) looking for failed login attempts
+I saw a list of well over 100 attempts, from mainly one IP (125.88.177.90 - Guangdong, China),
+trying to login via SSH as root or bin user.
+
+```bash
+# attacks on just port 22
+$ cat /var/log/auth.log | grep 'sshd.*Failed' | grep 'port 22' | wc
+    171    2814   18950
+
+# attacks on any port
+$ cat /var/log/auth.log | grep 'sshd.*Failed' | wc
+  11066  182457 1229596
+```
+
+I also noticed that the attacher is attempting to use multiple originating ports in an effort
+to subvert delays required between multiple logins (see this [article][40]).
+I decided it was time to pay a little bit more attention to security!
+
+The article "[Keeping SSH Access Secure][41]" provides some good suggestions.
+One method, not referenced in this article, is how you could
+rate-limit `iptables` rules to address this issue (from this [source][39]:
+
+```bash
+# block connections if the login fails 10 times in 1 hour on port 22
+iptables -I INPUT -p tcp --dport 22 -m state --state NEW -m recent --set
+iptables -I INPUT -p tcp --dport 22 -m state --state NEW -m recent --update --seconds 3600 --hitcount 10 -j DROP
+```
+
+This blocks connections if the login fails ten times in one hour on port 22.
+
+Another easy answer would be to limit `ssh` access from wlan interface only.
+This works if you have no plans to `ssh` into your device from the Internet,
+effectively cuts out the attacks from the Internet.
+But of course, if your neighbors nerdy 13 year old wants to mess with your WiFi,
+you still could have some attacks.
+
+So its just a matter of time before the attack is on another port, or user account, or network interface,
+therefore using [Fail2Ban][43] or something similar may be in order.
+`fail2ban` reads the `sshd` log entries (and other log files)
+and bans the originating address when there are too many failures.
+Generally Fail2Ban is then used to update firewall rules to reject
+the IP addresses for a specified amount of time, although any arbitrary other action
+(e.g. sending an email) could also be configured.
+Out of the box Fail2Ban comes with filters for various services (apache, courier, ssh, etc).
+
+For the installation and configuration of Fail2Ban,
+check out "[HowToxxx][]".
+While Fail2Ban does provide additional protection, the use of two factor authentication
+(see "[HowToxxx][]")
+or public/private key authentication mechanisms
+(see "[HowToxxx][]")
+provide the best protection overall.
 
 # Step X: Install Watchdog
-[Howto Use Linux Watchdog](https://embeddedfreak.wordpress.com/2010/08/23/howto-use-linux-watchdog/)
-[Using the Watchdog Timer in Linux](http://www.jann.cc/2013/02/02/linux_watchdog.html)
-[The Linux Watchdog driver API](https://www.kernel.org/doc/Documentation/watchdog/watchdog-api.txt)
-[Linux Watchdog Daemon - Configuring](http://www.sat.dundee.ac.uk/psc/watchdog/watchdog-configure.html)
-[Keeping your Raspberry Pi alive: enabling Hardware Watchdog under Arch Linux](http://dovgalecs.com/blog/keeping-your-raspberry-pi-alive-enabling-hardware-watchdog-under-arch-linux/)
+<a href="http://dovgalecs.com/blog/keeping-your-raspberry-pi-alive-enabling-hardware-watchdog-under-arch-linux/">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="A watchdog timer is a piece of hardware or software that can be used to automatically detect software anomalies and reset the processor if any occur. Generally speaking, a watchdog timer is based on a counter that counts down from some initial value to zero." alt="watchdog" src="{filename}/images/watchdog.jpg" width="115" height="110" />
+</a>
+A [Watchdog][44] is a kind of peripheral that will boot your device
+if it doesn’t get "fed" at regular times or intervals
+Therefore, it can prevent your system from hanging.
+It’s a nice feature to have,
+specially if there’s nobody around to press the "reset" button for you.
+
+Watchdog's can be built with hardware or software,
+but they do differ in the types of problems they can address.
+A hardware watchdog resets the system automatically even when the CPU crashes.
+A software watchdog can do something only when given a slice of CPU time.
+The end result is that a software watchdog can fail to respond to total system crash.
+
+Luckily, the Raspberry Pi's BCM2835 and BCM2708 SoC chip have a hardware watchdog built in.
+For how to make use of the watchdog and additional information, check out these sources:
+
+* [Proper Watchdog Timer Use](http://betterembsw.blogspot.com/2014/05/proper-watchdog-timer-use.html)
+* [Auto-reboot a hung Raspberry Pi using the on-board watchdog timer](http://blog.ricardoarturocabral.com/2013/01/auto-reboot-hung-raspberry-pi-using-on.html)
+* [Using the Internal WatchDog Timer for the Raspberry Pi](http://www.switchdoc.com/2014/11/reliable-projects-using-internal-watchdog-timer-raspberry-pi/)
+* [Using the Watchdog Timer in Linux](http://www.jann.cc/2013/02/02/linux_watchdog.html)
+* [Howto Use Linux Watchdog](https://embeddedfreak.wordpress.com/2010/08/23/howto-use-linux-watchdog/)
+* [Linux Watchdog Daemon - Configuring](http://www.sat.dundee.ac.uk/psc/watchdog/watchdog-configure.html)
+* [The Linux Watchdog driver API](https://www.kernel.org/doc/Documentation/watchdog/watchdog-api.txt)
 
 # Step X: Clone the SD Card
-* [Backup, Restore, Customize and Clone your Raspberry Pi SD Cards (tutorial)](http://sysmatt.blogspot.com/2014/08/backup-restore-customize-and-clone-your.html)
-* [Duplicating Your Raspberry Pi’s SDHC Card](https://programmaticponderings.wordpress.com/2013/02/12/duplicating-your-raspberry-pis-sdhc-card/)
-* [CLONE AN SD CARD ON LINUX, UBUNTU 12.04](http://rricketts.com/clone-an-sd-card-on-linux-ubuntu-12-04/)
-* [Back-up a Raspberry Pi SD card using a Mac](https://smittytone.wordpress.com/2013/09/06/back-up-a-raspberry-pi-sd-card-using-a-mac/)
-* [How to Clone Raspberry Pi SD Cards Using the Command Line in OS X](http://computers.tutsplus.com/articles/how-to-clone-raspberry-pi-sd-cards-using-the-command-line-in-os-x--mac-59911)
+There are a few reasons you might want to duplicate (clone/copy)
+your Raspberry Pi’s SD Card.
+One reason is to create a backup.
+An even better reason maybe is that you spent untold hours installing and configuring
+software on your Raspberry Pi,
+and you want to set up a second Raspberry Pi,
+but didn’t want to spend the time to duplicate the previous efforts.
 
-# Step X: Raspberry Pi as a Microcontroller
-* [How to configure Raspberry Pi as a microcontroller](https://opensource.com/life/16/3/how-configure-raspberry-pi-microcontroller)
-* [Node.js app with forever running as a service daemon](http://www.slidequest.com/q/70ang)
-* [Node.js and Forever as a Service: Simple Upstart and Init Scripts for Ubuntu](https://www.exratione.com/2013/02/nodejs-and-forever-as-a-service-simple-upstart-and-init-scripts-for-ubuntu/)
-* [Starting Node Forever Scripts at Boot w/ CentOS](http://blog.aronduby.com/starting-node-forever-scripts-at-boot-w-centos/)
-* [PM2: Advanced, production process manager for Node.js](http://pm2.keymetrics.io/)
-* [Goodbye node-forever, hello PM2](http://devo.ps/blog/goodbye-node-forever-hello-pm2/)
-* [NPM a Day Series - pm2 vs nodemon vs forever](https://www.youtube.com/watch?v=84d35TwX3fA)
-* [Monit](https://mmonit.com/monit/#slideshow)
+To clone your SD Card:
 
-# Sources
-* [Raspberry Pi Zero Headless Setup](http://davidmaitland.me/2015/12/raspberry-pi-zero-headless-setup/)
-* [Raspberry Pi 2: Basic setup without any cables (headless)](http://blog.self.li/post/63281257339/raspberry-pi-part-1-basic-setup-without-cables)
+1. Remove the original SD Card from Raspberry Pi and insert it into a card reader on your computer.
+1. Locate where the SD Card is mounted on your computer.
+1. Use the `dd` (convert and copy a file) command to duplicate the contents of the SD Card to your computer.
+1. Unmount original SD Card. Mount the new SD Card.
+1. Reverse the process by copying the duplicate file (i.e. the backup file) to the new SD Card.
+1. Unmount the newly created duplicate SD Card.
+
+```bash
+# go to a directory where you can store the copied SD Card
+cd /home/jeff/tmp
+
+# we'll assume
+#     sde: this is the primary hard drive
+#     sde1: this is the SD card
+
+# write the sd card copy to the file system
+sudo dd bs=4M if=/dev/sde1 of=sd-card.bin
+
+# ensure the write cache is flushed and unmount
+sync
+sudo umount /dev/sde1
+
+#  take sd card image you just created and writes it to the device
+sudo dd bs=4M if=sd-card.bin of=/dev/sde1
+
+# ensure the write cache is flushed and unmount
+sync
+sudo umount /dev/sde1
+```
+
+You should now be able to insert the cloded SD Card into a brand new Raspberry Pi and boot it up,
+without any problems.
+But obviously, there are some things you may want to change on a cloned Raspberry Pi.
+For example, you should change the cloned Raspberry Pi’s host name,
+so it doesn’t conflict with the original Raspberry Pi on the network.
+This is easily done:
+
+```bash
+# modify the host name
+sudo vi /etc/hostname
+
+# restart the advertised host name
+sudo /etc/init.d/hostname.sh start
+```
 
 
 
@@ -594,13 +779,23 @@ We’re going to use `ufw` (Uncomplicated FireWall) to restrict access to our Ra
 [28]:https://en.wikipedia.org/wiki/X_display_manager_(program_type)
 [29]:http://aperiodic.net/screen/start
 [30]:https://learn.adafruit.com/adafruits-raspberry-pi-lesson-5-using-a-console-cable/overview
-[31]:
-[32]:
-[33]:
-[34]:
-[35]:
-[36]:
-[37]:
-[38]:
-[39]:
-[40]:
+[31]:http://links.twibright.com/
+[32]:http://lynx.browser.org/
+[33]:https://en.wikipedia.org/wiki/ARM_architecture
+[34]:https://wiki.ubuntu.com/UncomplicatedFirewall
+[35]:https://www.digitalocean.com/community/tutorials/a-deep-dive-into-iptables-and-netfilter-architecture
+[36]:http://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/
+[37]:https://www.hackster.io/charifmahmoudi/iot-security-tips-to-protect-your-device-from-bad-hackers-768093?utm_source=Hackster.io+newsletter&utm_campaign=3e0b3a91f6-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-3e0b3a91f6-140225889
+[38]:http://jjjjango.blogspot.com/2015/01/secure-your-raspberry-pi.html
+[39]:https://www.debian-administration.org/article/187/Using_iptables_to_rate-limit_incoming_connections
+[40]:http://security.stackexchange.com/questions/67602/closely-spaced-failed-logins-in-auth-log
+[41]:https://www.debian-administration.org/article/87/Keeping_SSH_access_secure
+[42]:http://ossec-docs.readthedocs.org/en/latest/log_samples/auth/sshd.html
+[43]:http://www.fail2ban.org/wiki/index.php/Main_Page
+[44]:http://www.embedded.com/electronics-blogs/beginner-s-corner/4023849/Introduction-to-Watchdog-Timers
+[45]:
+[46]:
+[47]:
+[48]:
+[49]:
+[50]:

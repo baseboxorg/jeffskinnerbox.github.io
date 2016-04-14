@@ -1,4 +1,5 @@
 
+* [GPG Cheatsheet](http://irtfweb.ifa.hawaii.edu/~lockhart/gpg/gpg-cs.html)
 
 * [Security basics with GPG, OpenSSH and OpenSSL](http://www.integralist.co.uk/posts/security-basics.html)
 * [OpenPGP Best Practices](https://help.riseup.net/en/security/message-security/openpgp/best-practices)
@@ -62,10 +63,12 @@ then we can create the encripted message as follows:
 
 ```bash
 # xxx
-gpg --output jeff-irland-connection-credentrials.gpg --encrypt --recipient stuart@gathman.org jeff-irland-connection-credentrials.json
+gpg --output credentrials.gpg --encrypt --recipient stuart@gathman.org jeff-irland-connection-credentrials.json
 
 # xxx
+gpg -e -u jeff.irland@verizon.net -r stuart@gathman.org jeff-irland-connection-credentrials.json
 
+# xxx
 gpg --output jeff-irland-connection-credentrials.gpg --encrypt jeff-irland-connection-credentrials.json
 ```
 
@@ -288,14 +291,15 @@ IAnGHMdhpXJ5XpQF1AYeYkT5
 -----END PGP PUBLIC KEY BLOCK-----
 $
 ```
- If you later issue the revocation certificate,
- it notifies others that the public key is not to be used.
- Users may still use a revoked public key to verify old signatures,
- but not encrypt messages.
- As long as you still have access to the private key,
- messages received previously may still be decrypted.
 
- # Revoking a Key
+If you later issue the revocation certificate,
+it notifies others that the public key is not to be used.
+Users may still use a revoked public key to verify old signatures,
+but not encrypt messages.
+As long as you still have access to the private key,
+messages received previously may still be decrypted.
+
+# Revoking a Key
 When you want to implement your revocation certificate,
 you must import it into your local keyserver as follows:
 

@@ -2,7 +2,6 @@
 [CJDNS NAT Gateway](https://github.com/cjdelisle/cjdns/blob/master/doc/nat-gateway.md)
 [fc00](https://www.fc00.org/about)
 [hyperboria/docs](https://github.com/hyperboria/docs)
-[Could You Make Your Own Internet?](https://www.youtube.com/watch?v=OnKMkX0qS3Y)
 [Managing DNS for moving devices with cjdns and consul](https://rickvandeloo.com/2016/01/31/managing-dns-for-moving-devices-with-cjdns-and-consul/)
 
 [ELI5 Why I don't seem to need port forwarding with CJDNS](https://www.reddit.com/r/darknetplan/comments/18umsp/eli5_why_i_dont_seem_to_need_port_forwarding_with/)
@@ -41,7 +40,8 @@ each node in a communication path must give up your idenity.
 Given Hyperboria's usage focus is on freedom of access and free speech,
 [Hyperboria makes a logical case][28] for this less than guaranteed, absolute anonymity.
 
-So Hyperboria is a decentralized alternative to the Internet (aka [clearnet][12])
+So Hyperboria is a decentralized alternative network (see this [video][40])
+to the Internet (aka [clearnet][12])
 with privacy, security, and scalability as the main features.
 Networks like Hyperboria are called a [darknet][10] as the are an overlay network
 that can only be accessed with specific authorization.
@@ -207,6 +207,17 @@ these these trusted nodes will encrypt that password with that public key.
 So your instance of cjdns can verify that someone else has the correct password,
 and that the password was meant only for you, and only you can decrypt that password.
 
+To operate properly, the `cjdroute.conf` file must be correctly formatted
+or it fails to operate properly without warning.
+The [Hyperboria website][41] recommends checking the file with a [Javascript lint utility][42], `jshint`.
+
+```bash
+sudo jshint ./cjdroute.conf
+```
+
+> **NOTE:** This will allow comments, but jshint is designed for Javascripts
+and may not display errors and warnings etc. in all cases.
+
 # Step X: Find a Peering Node - DONE
 cjdns's network operates on a [friend-of-a-friend model][28].
 This means, that to connect to the network you need to find nodes, called peers,
@@ -255,26 +266,6 @@ From **[https://pad.meshwith.me/p/public](https://pad.meshwith.me/p/public)**
 }
 ```
 
-```json
-"176.31.171.15:8988": {
-    "website": "http://meshnet.pl/node/alien",
-    "phone": "+48 537-833-468",
-    "jabber_xmpp": "thenaturator@dukgo.com, nullpointer@dukgo.com",
-    "password": "meshnetpl2public000xyz",
-    "publicKey": "3p1pj08w7tqnfd9p5gwrwpd8kpjbu5nmw2twkwbfullzlwt8jkg0.k"
-}
-```
-
-```json
-"176.9.105.201:4464": {
-    "login":"public",
-    "password":"ir88xwtel72fen3ch7aug603s26nu3a",
-    "publicKey":"yrgb0xwfr9pz8swvnv6m9by8zw7v7uxxhl07qz318cjuvfgs1fc0.k",
-    "contact":"webmaster@jazzanet.com"
-    "location": "Germany"
-}
-```
-
 From **[https://jointhe.hyperboria.network/](https://jointhe.hyperboria.network/)**
 
 ```json
@@ -286,15 +277,36 @@ From **[https://jointhe.hyperboria.network/](https://jointhe.hyperboria.network/
 }
 ```
 
-# Step X: Peering with Public Node - DONE
-Now copy this information above concerning the public node
-and paste it into the `cjdroute.conf` file generated earlier.
+I'm not going to provide these public peers access to my machine,
+but it I did, I would give `coyo@darkdna.net`
+(who is making the INbound connection) the following 4 items:
+
+1. My external IPv4
+1. The port found in my conf file here: // Bind to this port. "bind": "0.0.0.0:yourportnumberishere",
+1. The unique password that you uncommented or created: "password": "thisisauniquestring_002"
+1. My public key: "publicKey": "thisisauniqueKEY_001.k"
+1. His username: "William Jevons"
+
+# Step X: Peering with a Node - DONE
+If I was to use the information above concerning the public node,
+I would paste it into the `cjdroute.conf` file generated earlier.
+Instead, I'll be peering with someone I know and who has provide me their credentials:
+
+```json
+"70.184.247.44:4995": {
+  "password":"vNL3hST9wQnBzCnD5JO32EEIN3sVlfc",
+  "publicKey":"pgsx1w3fr74rskxfs6uufmyy72rgkt46u9hy7r9zcz9uvc3wj4j0.k",
+  "contact": "stuart@gathman.org",
+  "location": "Fairfax,VA,USA"
+}
+```
+
 The peer information goes into the "connectTo" section under the "UDPInterface" section.
 Note that under UDPInterface there are separate sections for IPv4 and IPv6 based peers.
-This is a IPv6 peer.
+This is a IPv4 peer.
 Make sure you don't mix them up.
 
-To initiate the connection **OUTbound**
+To initiate the connection **OUTbound** to this cjdns peer,
 you make updates to the `/opt/cjdns/cjdroute.conf` file.
 Within `cjdroute.conf`, search for "UDPInterface" and you will see:
 
@@ -307,7 +319,7 @@ Within `cjdroute.conf`, search for "UDPInterface" and you will see:
         [
             {
                 // Bind to this port.
-                "bind": "0.0.0.0:57291",
+                "bind": "0.0.0.0:10848",
 
                 // Nodes to connect to (IPv4 only).
                 "connectTo":
@@ -326,7 +338,7 @@ Within `cjdroute.conf`, search for "UDPInterface" and you will see:
             },
             {
                 // Bind to this port.
-                "bind": "[::]:57291",
+                "bind": "[::]:10848",
 
                 // Nodes to connect to (IPv6 only).
                 "connectTo":
@@ -339,8 +351,7 @@ Within `cjdroute.conf`, search for "UDPInterface" and you will see:
 ```
 
 In the "Nodes to connect to (IPv4 only)" section,
-place your peering friends, in this case they are public nodes.
-Using the  public node examples above, you get:
+I'll place my peering friend:
 
 ```json
 // Interfaces to connect to the switch core.
@@ -351,7 +362,7 @@ Using the  public node examples above, you get:
         [
             {
                 // Bind to this port.
-                "bind": "0.0.0.0:57291",
+                "bind": "0.0.0.0:10848",
 
                 // Nodes to connect to (IPv4 only).
                 "connectTo":
@@ -367,27 +378,16 @@ Using the  public node examples above, you get:
                     // },
                     // Ask somebody who is already connected.
 
-                    // From https://pad.meshwith.me/p/public
-                    // hostname: li1045-56.members.linode.com
-                    // IPv4: 45.33.82.56:50492
-                    // IPv6: fcf1:4069:e3c4:6e66:9460:b92b:b156:cb9f
-                    "45.33.82.56:50492": {
-                        "password": "dustgard+d6f06c921bc26e8ede35fb5a8d97692f58b6d241",
-                        "publicKey": "h8dzr60ylqk7dx47mlfk6tdu0gyuk0vtpckbn1lvp2hl6c764bj0.k"
-                    },
-
-                    // From https://jointhe.hyperboria.network/
-                    // hostname: seanode.meshwith.me
-                    // IPv4: 74.221.208.153:25521
-                    // IPv6: ???
-                    "74.221.208.153:25521": {
-                        "password": "jljwnfutfpt1nz3yjsj0dscpf7",
-                        "publicKey": "8hgr62ylugxjyyhxkz254qtz60p781kbswmhhywtbb5rpzc5lxj0.k"
+                    "70.184.247.44:4995": {
+                        "password":"vNL3hST9wQnBzCnD5JO32EEIN3sVlfc",
+                        "publicKey":"pgsx1w3fr74rskxfs6uufmyy72rgkt46u9hy7r9zcz9uvc3wj4j0.k",
+                        "contact": "stuart@gathman.org",
+                        "location": "Fairfax,VA,USA"
                     }
-            },
+                },
             {
                 // Bind to this port.
-                "bind": "[::]:57291",
+                "bind": "[::]:10848",
 
                 // Nodes to connect to (IPv6 only).
                 "connectTo":
@@ -430,7 +430,7 @@ and provide information to your friend from the following code block:
         // Adding a unique password for each peer is advisable
         // so that leaks can be isolated.
         /*
-        "your.external.ip.goes.here:57291": {
+        "your.external.ip.goes.here:10848": {
             "login": "default-login",
             "password":"lvgfl5cpw3lkkw2bty2tlrj6j3m7g29",
             "publicKey":"tnr03bu2ms6i5dn3mhsx31kbs7gxlokrpk8gsgcdlcbksrzd2bq0.k",
@@ -440,31 +440,20 @@ and provide information to your friend from the following code block:
     ],
 ```
 
-I'm not going to provide these public peers access to my machine.
-I will show how to establish INbound peering in another section
-when I peer with my own systems.
-
-########################################
-I'm not going to provide the public peers access to my machine,
-but it I did,
-give William Jevons (who is making the INbound connection) the following 4 items:
-
-1. My external IPv4
-1. The port found in my conf file here: // Bind to this port. "bind": "0.0.0.0:yourportnumberishere",
-1. The unique password that you uncommented or created: "password": "thisisauniquestring_002"
-1. My public key: "publicKey": "thisisauniqueKEY_001.k"
-1. His username: "William Jevons"
-
-My firends login credentials will look something like this (with your IPv4 and port):
+Ideally, I would provide information like this, in this format:
 
 ```json
-"1.2.3.4:56789": {
-    "login": "William Jevons",
-    "password": "thisisauniquestring_002",
-    "publicKey": "thisIsJustForAnExampleDoNotUseThisInYourConfFile_1.k"
+// Jeff Irland's experimental cjdns node (mesh01)
+"71.171.94.138:10848": {
+    "login": "default-login",
+    "password": "lvgfl2cpw3lktw2btyxtlrj6j3mzg29",
+    "publicKey": "3wqkmjxsxld3lvgzp76mpbtzqqmt454kwrdsp7j0tjh2mgn580z0.k",
+    "ipv6": "fc00:f3d3:8434:d96a:dc78:f224:32e4:b890",
+    "peerName": "jeff_irland_mesh01",
+    "contact": "jeff.irland@verizon.net",
+    "location": "Leesburg, VA"
 }
 ```
-########################################
 
 To find out more about peering, check out these sources:
 
@@ -474,10 +463,10 @@ To find out more about peering, check out these sources:
 * [Connect your node to your friend's node](https://github.com/cjdelisle/cjdns#3-connect-your-node-to-your-friends-node)
 * [Peers](https://github.com/hyperboria/peers)
 
-# Step X: Open-Up the firewall - DONE
+# Step X: Open-Up the firewall
 Within `/opt/cjdns/cjdroute.conf` look up the port being used to peer with other cjdns nodes.
 look for line "bind":"0.0.0.0:<PORT>" within the  "UDPInterface" section.
-In my case the port is 57291.
+In my case the port is 10848.
 For cjdns to work properly, packets must flow through this port, and so it must be open.
 Generally it will be closed but to check use[nmap][38][^D] or [`netstat`][35][^E]:
 
@@ -497,7 +486,7 @@ Generally it will be closed but to check use[nmap][38][^D] or [`netstat`][35][^E
 netstat -an | grep LISTEN
 
 # if the output is empty, then the port is closed
-netstat -an | grep 57291
+netstat -an | grep 10848
 ```
 
 The firewall of Linux is in the hands of `iptables`
@@ -527,14 +516,14 @@ sudo ufw disable
 sudo ufw enable
 ```
 
-To open the 57291 to allow UDP packets, use the command: `sudo ufw allow 57291/udp`.
+To open the 10848 to allow UDP packets, use the command: `sudo ufw allow 10848/udp`.
 
 ```bash
 # ufw command structure looks like this:
 # ufw [--dry-run] [options] [rule syntax]
 
-# open port 57291 for UDP packets
-$ sudo ufw allow 57291/udp
+# open port 10848 for UDP packets
+$ sudo ufw allow 10848/udp
 Rule added
 Rule added (v6)
 
@@ -550,9 +539,9 @@ Status: active
 
 To                         Action      From
 --                         ------      ----
-57291/udp                  ALLOW       Anywhere
+10848/udp                  ALLOW       Anywhere
 22/tcp                     ALLOW       Anywhere
-57291/udp                  ALLOW       Anywhere (v6)
+10848/udp                  ALLOW       Anywhere (v6)
 22/tcp                     ALLOW       Anywhere (v6)
 
 $
@@ -575,21 +564,21 @@ MAC Address: 74:DA:38:56:03:CD (Unknown)
 Nmap done: 1 IP address (1 host up) scanned in 20.13 seconds
 $
 
-# UDP port scan on port 57291
-sudo nmap -sU -Pn -p 57291 mesh01
+# UDP port scan on port 10848
+sudo nmap -sU -Pn -p 10848 mesh01
 
 Starting Nmap 6.40 ( http://nmap.org ) at 2016-03-18 14:34 EDT
 Nmap done: 1 IP address (0 hosts up) scanned in 0.85 seconds
 $
 
 # second scan
-$ sudo nmap -sU -Pn -p 57291 mesh01
+$ sudo nmap -sU -Pn -p 10848 mesh01
 
 Starting Nmap 6.40 ( http://nmap.org ) at 2016-03-18 15:00 EDT
 Nmap scan report for mesh01 (192.168.1.181)
 Host is up (0.043s latency).
 PORT      STATE  SERVICE
-57291/udp closed unknown
+10848/udp closed unknown
 MAC Address: 74:DA:38:56:03:CD (Unknown)
 
 Nmap done: 1 IP address (1 host up) scanned in 0.88 seconds
@@ -622,7 +611,7 @@ It is useful to users who wish to verify port forwarding,
 check to see if a server is running,
 or a firewall or ISP is blocking certain ports.
 
-# Step X: Starting Up cjdns - DONE
+# Step X: Starting Up cjdns
 With the updates to `/opt/cjdns/cjdroute.conf`
 and openning of the proper prots on your firewalls,
 your ready to start-up cjdns with the command[^C]:
@@ -785,7 +774,7 @@ just like the one your creating now on a Raspberry Pi, and peer with them.
 
 ```json
 // Jeff Irland's experimental cjdns node (mesh01)
-"71.171.94.138:57291": {
+"71.171.94.138:10848": {
     "login": "default-login",
     "password": "lvgfl2cpw3lktw2btyxtlrj6j3mzg29",
     "publicKey": "tnr01bu2ms6b5dx3mhsx31kbsngxltkrpk1gsgcdlcb9srzdubq0.k",
@@ -936,14 +925,14 @@ show you how to use `systemctl` to run cjdns at start-up.
 [37]:https://community.qualys.com/docs/DOC-1185
 [38]:https://nmap.org/
 [39]:http://www.naturalborncoder.com/virtualization/2014/10/17/understanding-tun-tap-interfaces/
-[40]:
-[40]:
-[40]:
-[40]:
-[40]:
-[40]:
-[40]:
-[40]:
-[40]:
-[40]:
-[40]:
+[40]:https://www.youtube.com/watch?v=OnKMkX0qS3Y
+[41]:https://github.com/hyperboria/docs/blob/master/tips-and-tricks.md
+[42]:http://jshint.com/install/
+[43]:
+[44]:
+[45]:
+[46]:
+[47]:
+[48]:
+[49]:
+[50]:

@@ -1,5 +1,5 @@
 created: 20141125030141346
-modified: 20160319153934146
+modified: 20160412134345155
 title: Retro Technology
 type: text/vnd.tiddlywiki
 
@@ -8,6 +8,8 @@ type: text/vnd.tiddlywiki
 
 [[Harmonic Analyzer|https://www.youtube.com/watch?v=NAsM30MAHLg]]
 - A nineteenth century mechanical computer that performed Fourier analysis by using gears, springs and levers to calculate with sines and cosines.
+And of course, someone in the maker community has made a
+[[plywood version of the harmonic analyzer|http://hackaday.com/2016/04/11/fourier-machine-mimics-michelson-original-in-plywood/]].
 
 AT&T produced the video "[[Seeing the Digital Future|https://www.youtube.com/watch?v=avHo0-qU8xo]]" and
 brags about things like the Data-Phone which could transmit

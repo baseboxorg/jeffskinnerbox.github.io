@@ -26,7 +26,8 @@ but anybody who has your public key can verify that a particular signature is ge
 
 Each key is a large number with special mathematical properties.
 The private key is kept on the computer you log in from,
-while the public key is stored on the `.ssh/authorized_keys` file on all the computers you want to log in to.
+while the public key is stored on the `.ssh/authorized_keys`
+file on all the computers you want to log in to.
 When you log in to a computer,
 the SSH server uses the public key to "lock" messages in a way that can only be
 "unlocked" by your private key.
@@ -281,15 +282,11 @@ The utility [fail2ban][09] was created to help mitigate these attacks.
 Fail2ban monitors the logs of common services to spot patterns in authentication failures,
 and then alters the firewall rules to ban addresses
 that have unsuccessfully attempted to log in a certain number of times.
+
 A good article to understand how fail2ban works is
 "[How Fail2Ban Works to Protect Services on a Linux Server][12]".
 To get fail2ban up and running, check out the article
-[How To Protect SSH with Fail2Ban on Ubuntu 14.04][10].
-Also check out:
-
-* [How to protect SSH with fail2ban](https://kyup.com/tutorials/protect-ssh-fail2ban/)
-* [Preventing Brute Force Attacks With Fail2ban On Debian Etc.](https://www.howtoforge.com/fail2ban_debian_etch)
-* [Using Fail2ban to Secure Your Server](https://www.linode.com/docs/security/using-fail2ban-for-security)
+[HowTo: Install and COnfigure Fail2Ban][XXX].
 
 # Trouble Shooting
 There are many things that can stop SSH from working.
@@ -316,7 +313,7 @@ Here are some good references:
 [07]:http://docstore.mik.ua/orelly/networking_2ndEd/ssh/index.htm
 [08]:http://www.unixlore.net/articles/five-minutes-to-even-more-secure-ssh.html
 [09]:http://www.fail2ban.org/
-[10]:https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04
+[10]:
 [11]:https://en.wikipedia.org/wiki/Internet_bot
 [12]:https://www.digitalocean.com/community/tutorials/how-fail2ban-works-to-protect-services-on-a-linux-server
 [13]:https://letsencrypt.org/

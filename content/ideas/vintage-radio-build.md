@@ -1,7 +1,21 @@
-Steam Punk Radio
+# Crystal Radio
+A crystal radio is basically a high Q resonator tied to an antenna and an envelope detector.
+These days the envelope detector is a point contact diode such as a 1N34 Germanium diode.
+
+The resonant circuit passes a specific wavelength (or more specifically range of wavelengths depending on its Q). The diode detector provides the amplitude or envelope of the signal(s) within that wavelength. A high impedance or highly sensitive ear piece converts this envelope to an audible signal that you can listen to.
+
+The neat thing about crystal radios is that no active RF amplification is used. The radio is powered by the incoming radio signal that it is tuned to. More sophisticated crystal sets might have more than one tuned stage, perhaps 3 or 4 to minimize receiver bandwidth for maximum sensitivity and selectivity.
+
+The primary receiver used on the Titanic’s Marconi station was basically a 3-stage crystal radio except that it used a magnetic detector rather than a semiconductor
+[Marconi Magnetic Detector](http://www.sparkmuseum.com/MAGGIE.HTM)
+[Spark Museum](http://www.sparkmuseum.com/RADIOS.HTM)
+[The Xtal Set Society](https://www.midnightscience.net/)
+[Antique Wireless Association](http://www.antiquewireless.org/)
+
 
 # History
 * [Early Radio History](http://earlyradiohistory.us/index.html)
+* [Introduction to LC Oscillators circa 1974 US Air Force Training Film](https://www.youtube.com/watch?v=1uSBKUsKpYQ)
 
 # Transmitter
 * [Build a 1929 Style TNT Transmitter](http://members.shaw.ca/ve7sl/tnt.html)
@@ -11,11 +25,11 @@ Steam Punk Radio
 * []()
 * []()
 
-# Reciever
+# Receiver
 * [Alfred P. Morgan: A Generation’s Radio Hacker](http://hackaday.com/2015/12/11/alfred-p-morgan-a-generations-radio-hacker/)
 * [Hacking When It Counts: The Great Depression](http://hackaday.com/2016/01/07/hacking-when-it-counts-the-great-depression/)
-* []()
-* []()
+* [Jim's Crystal Radio Page](http://www.hobbytech.com/crystalradio/crystalradio.htm)
+* [Crystal Radio Schematic Selector Page](http://makearadio.com/crystal/crystal-schematics.php)
 
 # Building Radios from Scatch Components
 * [The Voice of the Crystal ](http://www.amazon.com/dp/0967190509/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=363R5Y466YLW&coliid=I12STRWY8ZX3RV)
