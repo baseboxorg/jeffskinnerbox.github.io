@@ -1,7 +1,7 @@
 Title: Building My Linux Box...The Implementation
 Date: 2013-08-01 00:01
 Category: Software
-Tags: Linux, Ubuntu, Squeeze Box, Harmony Remote, Chrome, Xbindkeys, KeePass, Wine, RAID, Google CLoud Print
+Tags: Linux, Ubuntu, Squeeze Box, Harmony Remote, Chrome, Xbindkeys, KeePass, Wine, RAID, Google Cloud Print
 Slug: building-my-linux-box-the-implementation
 Author: Jeff Irland
 Image: ubuntu-13-04-raring-ringtail.jpg

@@ -1,13 +1,21 @@
+Title: My Exploration of Hard Cider Brewing
+Date: 2016-04-13 21:55
+Category: Misc
+Tags: Hard Cider, Applejack
+Slug: my-exploration-of-hard-cider-brewing
+Author: Jeff Irland
+Image: apple.jpg
+Summary: On October 25, 2014, I plunged into my first attempt at making hard apple cider. My ultimate goal is to create something close to my concept of the ideal hard cider. A cider with a high ABV but with a sweet apple flavor. I brewed several batches, systematically varying my methods and ingredients.  The result was very a very nice combination of hard cider and applejack.
+
 <a href="http://www.raspberrypi-spy.co.uk/2015/11/raspberry-pi-family-photo-by-raspi-tv/">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" title="My one gallon fermenter and airlock brewing my very first batch of hard cider." alt="hard cider" src="{filename}/images/hard-cider-fermenter.jpg" width=5% height=5% />
+    <img class="img-rounded" style="image-orientation: 90deg; margin: 0px 8px; float: left" title="My one gallon fermenter and airlock brewing my very first batch of hard cider." alt="hard cider" src="{filename}/images/hard-cider-fermenter.jpg" width=20% height=20% />
 </a>
 Hard apple cider is the kindest of the do-it-yourself homemade alcoholic beverages.
 Beer must be cumbersomely boiled, wine is expensive and temperamental,
 and poorly distilled spirits can blow up your house.
 They all take so much equipment, so much research, and give all the beer, wine, and spirits
 on the market, why bother.
-On the other hand, hard cider is a relative cakewalk to make at home
-and might be worth while doing.
+On the other hand, hard cider is a relative cakewalk to make at home.
 
 For me, its is a worth while endeavor to pick up the [art of fermenting cider][04].
 I have purchased a few good hard apple cider where I live,
@@ -45,10 +53,11 @@ Higher ABV may make it more harsh and less apple-tasting.
 Also, a fully fermented cider is very, very dry.
 It will still having some apply flavor,
 it is a long way for the refreshing taste of sweet apply cider.
+
 My solution to this, in an effort to create my ideal hard apple cider,
 was to do two things.
 First, to get the high ABV,
-I took a portion of the hard cider, made it into applejack,
+I took a portion of the hard cider, made it into [applejack][10],
 and then mixed it back into the hard cider.
 Second, to get the sweet apple taste I wanted,
 I [back-sweeten][09] the hard cider with a combination of brown sugar and sweet apple cider.
@@ -62,12 +71,13 @@ I concluded my mixing of hard cider with applejack is a unique receipt,
 so it deserves a name.
 Using the fact that the word "applejack" is derives from "jacking"
 (an American colonial term for freeze distillation),
-I choose to call it "Jeff's Jacked Hard Cider",
-or "Jeff's Jacked",
-or sometimes more lovingly called "My [Hooch][12]".
+I choose to call it "**Jeff's Jacked Hard Cider**",
+or "**Jeff's Jacked**",
+or sometimes more lovingly called "**My [Hooch][12]**".
+
 You can find my receipt [here][14].
 
-My next brewing adventure will be some varation of [Apple Pie Moonshine][15]!
+My next brewing adventure will be some variation of [Apple Pie Moonshine][15]!
 
 
 
