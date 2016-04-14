@@ -80,7 +80,7 @@ If you want some syntax highlighting, you'll need to install Pygments (installed
 The Pelican documentation will tell you that the Pygments package is baked right in,
 and it is kind-of.
 Something not made clear in the Pelican documentation is that
-much of the good stuff in Markdown, like Pygments and syntax highlighting, has to be explicitly activated. </p>
+much of the good stuff in Markdown, like Pygments and syntax highlighting, has to be explicitly activated.</p>
 <p>Python Markdown comes with several <a href="http://pythonhosted.org/Markdown/extensions/extra.html">extras</a>, and one of the extension supported is called <a href="https://pythonhosted.org/Markdown/extensions/code_hilite.html">CodeHilite</a>.
 To get this all to work, you must include something like this in your <code>pelicanconf.py</code> file:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># List of the extensions that the Markdown processor will use.
@@ -117,7 +117,7 @@ usage() {
     exit 1
 }
 
-# define is_file_exits function 
+# define is_file_exits function
 # $f -&gt; store argument passed to the script
 is_file_exits() {
     local f=&quot;$1&quot;
@@ -126,6 +126,13 @@ is_file_exits() {
 </pre></div>
 
 
+<p>What happens if you have a very long line of text that runs beyond the right had side of the page?</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">What happens if you have a very long line of text that runs beyond the right had side of the page?  Do you get a scroll bar at the bottom of the code block, or does it wrap around or does it just truncate the line?
+</pre></div>
+
+
+<p><strong>This page http://innerdot.com/iot/a-guide-to-getting-started-with-a-sensor-on-nitrogenio-part-1
+wraps code blocks.  Find out how it does it.</strong></p>
 <h2>GitHub Formated Markdown Code Block</h2>
 <p>Pelican also supports <a href="https://help.github.com/articles/github-flavored-markdown">GitHub Flavored Markdown (GFM)</a> style code blocks,
 known as <a href="https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks">Fenced Blocks</a> via the Markdown extention CodeHilite.
@@ -140,7 +147,7 @@ usage() {
     exit 1
 }
 
-# define is_file_exits function 
+# define is_file_exits function
 # $f -&gt; store argument passed to the script
 is_file_exits() {
     local f=&quot;$1&quot;
@@ -172,7 +179,7 @@ usage<span style="color: #555555">()</span> <span style="color: #555555">{</span
     <span style="color: #336666">exit </span>1
 <span style="color: #555555">}</span>
 
-<span style="color: #0099FF; font-style: italic"># define is_file_exits function </span>
+<span style="color: #0099FF; font-style: italic"># define is_file_exits function</span>
 <span style="color: #0099FF; font-style: italic"># $f -&gt; store argument passed to the script</span>
 is_file_exits<span style="color: #555555">()</span> <span style="color: #555555">{</span>
     <span style="color: #336666">local </span><span style="color: #003333">f</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;$1&quot;</span>
@@ -205,9 +212,9 @@ chmod o-w /mnt/backup
 you'll need to use a slightly different format.
 For example, to syntax highlight C++ code, start the block with <code>~~~~.cpp</code> to get:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">// Hello.cc</span>
-<span style="color: #0099FF; font-style: italic">//   how to compile: either  </span>
+<span style="color: #0099FF; font-style: italic">//   how to compile: either</span>
 <span style="color: #0099FF; font-style: italic">//     make Hello</span>
-<span style="color: #0099FF; font-style: italic">//   or  </span>
+<span style="color: #0099FF; font-style: italic">//   or</span>
 <span style="color: #0099FF; font-style: italic">//     g++     Hello.cc   -o Hello</span>
 <span style="color: #0099FF; font-style: italic">//   usage:</span>
 <span style="color: #0099FF; font-style: italic">//     Hello</span>
@@ -290,13 +297,13 @@ The example below is a code snippits from <a href="https://gist.github.com/jeffs
 <p><style="padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); font-size: 12px; line-height: 14px; width: 90%;">
     <script src="https://gist.github.com/jeffskinnerbox/6663095.js"></script>
 </style>
-<!-- --------- End: Gist Code Snippit ---------- --> </p>
+<!-- --------- End: Gist Code Snippit ---------- --></p>
 <p>The file content to create this is as follows:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">&lt;!-- -------- Start: Gist Code Snippit --------- --&gt; 
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">&lt;!-- -------- Start: Gist Code Snippit --------- --&gt;
 &lt;style=&quot;padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); font-size: 12px; line-height: 14px; width: 90%;&quot;&gt;
     &lt;script src=&quot;https://gist.github.com/jeffskinnerbox/6663095.js&quot;&gt;&lt;/script&gt;
 &lt;/style&gt;
-&lt;!-- --------- End: Gist Code Snippit ---------- --&gt; 
+&lt;!-- --------- End: Gist Code Snippit ---------- --&gt;
 </pre></div><script type= "text/javascript">
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
         var mathjaxscript = document.createElement('script');
@@ -360,6 +367,11 @@ The example below is a code snippits from <a href="https://gist.github.com/jeffs
         <li class="list-group-item">
             <a href="/pages/linux-and-python-packages-for-my-raspberry-pi/index.html" target="_blank">
                 RPi Packages
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="/tag/how-to/index.html" target="_blank">
+                How To
             </a>
         </li>
         <li class="list-group-item">
