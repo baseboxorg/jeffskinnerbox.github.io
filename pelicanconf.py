@@ -74,7 +74,6 @@ TAG_CLOUD_MAX_ITEMS = 100   # Maximum number of tags in the cloud.
 # root-relative URLs. Preview the site locally via python -m SimpleHTTPServer
 # at http://localhost:8000/.
 # When deploying to production, uncomment SITEURL, generate, and deploy.
-SITEURL = ''
 # SITEURL = '/home/jeff/blogging'
 RELATIVE_URLS = True        # always set to False when you're ready to publish
 

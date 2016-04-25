@@ -346,7 +346,8 @@ is a loop-avoiding distance-vector routing protocol for IPv6 and IPv4 with fast 
 * [MicroMesh - IoT Mesh Network](https://hackaday.io/project/2492-micromesh-iot-mesh-network)
 * [How Meshnets Are Changing The Face Of The Web](http://makezine.com/2014/11/26/how-meshnets-are-changing-the-face-of-the-web/)
 
-* [Mesh Networking Playlist](https://www.youtube.com/playlist?list=PLrIDWbyydDJCPIF5nN9mGa5aMU-ml4mdL)
+## OpenWRT
+* [My complete OpenWrt Setup Guide](http://www.jauu.net/2015/03/03/complete-openwrt-guide/)
 
 # Tools
 * [Horst is a diagnostic tool that displays Layer 1 information about the link](http://br1.einfach.org/tech/horst/)
@@ -363,6 +364,7 @@ is a loop-avoiding distance-vector routing protocol for IPv6 and IPv4 with fast 
 * What a Mesh!: [Part 1-The Ins and Outs Of Mesh Networking](http://www.sensorsmag.com/networking-communications/wireless-sensor/what-a-mesh-part-1-the-ins-and-outs-of-mesh-networking-1530) and [Part 2-Networking Architectures and Protocols](http://www.sensorsmag.com/networking-communications/wireless-sensor/what-a-mesh-part-2-networking-architectures-and-protocols-1544)
 * [Ultra Narrow Band Wireless Mesh Networks](http://tiny-mesh.com/wireless-mesh-network/ultra-narrow-band.html)
 * [CSRmesh for Bluetooth low energy devices](https://wiki.csr.com/wiki/CSRmesh)
+* [Mesh Networking Playlist](https://www.youtube.com/playlist?list=PLrIDWbyydDJCPIF5nN9mGa5aMU-ml4mdL)
 
 
 

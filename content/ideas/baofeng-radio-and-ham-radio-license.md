@@ -40,6 +40,12 @@ Maybe I could even do some exploring of spectrum mysteries like
 # Studying for Ham Radio License
 * [ARRL Ham Radio License Support Page](http://www.arrl.org/ham-radio-license-manual)
 * [HAMSTUDY](https://hamstudy.org/)
+* [HamTestOnline](https://www.hamradiolicenseexam.com/)
+* [Gordon West Training Resources From The W5YI Group](http://www.gordonwestradioschool.com/main/page_w5yi_training_resources.html)
+* [Amateur Radio Exam Practice](http://aa9pw.com/radio/)
+
+* [Which Exam to Take?](https://www.hamradiolicenseexam.com/which-exam.htm)
+
 
 
 [01]:http://www.bbc.com/news/magazine-24910397

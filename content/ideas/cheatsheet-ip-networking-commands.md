@@ -583,11 +583,19 @@ default via 192.168.1.1 dev eth1  proto static
 ## Diagnosing Routing Problems
 http://www.coyotepoint.com/files/downloads/StaticRoutes.pdf
 
+# Network Address Translation (NAT)
+* [Network Address Translation (NAT) Tutorial](http://www.karlrupp.net/en/computer/nat_tutorial)
+
 # Firewall
 Linux comes with a host based [firewall][39] called [`netfilter`][36]
 (or sometimes called "iptables" after the tool used to manage netfilter).
+`netfilter` is the framework in the Linux kernel,
+which implements the rule and filters provided by the user,
+through an interface available to user called `iptables`.
 `netfilter` is a set of hooks inside the Linux kernel that allows
-kernel modules to register callback functions with the network stack.
+kernel modules to register callback functions with the network stack
+("[A Deep Dive into Iptables and Netfilter Architecture][58]"
+gives a nice description of these hook and callbacks).
 A registered callback function is then called back for every packet
 that traverses the respective hook within the network stack.
 This Linux based firewall is controlled by the program called [`iptables`][37]
@@ -608,26 +616,117 @@ Developed to ease `iptables` firewall configuration,
 `ufw` provides a user friendly way to create an IPv4 or IPv6 host-based firewall.
 By default `ufw` is disabled.
 
+>**NOTE:** When working with firewalls,
+take care not to lock yourself out of your own server by blocking SSH traffic
+(port 22, by default).
+If you lose access due to your firewall settings,
+you may need to connect to it via the console to fix your access.
+Once you are connected via the console, you can change your firewall rules to allow SSH access.
+If your currently saved firewall rules allow SSH access, another method is to reboot your system.
+
 ## Understanding Firewall Chains
-Managed via `iptables`, there are total 3 default rule chains established for `netfilter`:
+[![iptables diagram](http://static.thegeekstuff.com/wp-content/uploads/2011/01/iptables-table-chain-rule-structure.png "iptables firewall is used to manage packet filtering and NAT rules. IPTables comes with all Linux distributions. Understanding how to setup and configure iptables will help you manage your Linux firewall effectively.")](http://www.thegeekstuff.com/2011/01/iptables-fundamentals/)
+[![iptables flow](https://danielmiessler.com/images/DM_NF2.png "how traffic moves through netfilter")](https://danielmiessler.com/study/iptables/)
+Managed via `iptables`, there are total of 4 default tables established for `netfilter`.
+These tables might contain multiple chains.
+Chains might contain multiple rules.
+Rules are defined for the packets.
 
-**Rules Chains**
+**Filter Table Rules Chains**
+Filter is default table for iptables. So, if you don’t define you own table,
+you’ll be using filter table. Iptables’s filter table has the following built-in chains.
 
-* **INPUT** - The default chain is used for packets addressed to the system. Use this to open or close incoming ports (such as 80,25, and 110 etc) and ip addresses / subnet (such as 202.54.1.20/29).
-* **OUTPUT** - The default chain is used when packets are generating from the system. Use this open or close outgoing ports and ip addresses / subnets.
-* **FORWARD** - The default chains is used when packets send through another interface. Usually used when you setup Linux as router. For example, eth0 connected to ADSL/Cable modem and eth1 is connected to local LAN. Use FORWARD chain to send and receive traffic from LAN to the Internet.
+* **INPUT** - This chain is used to control the behavior for incoming connections. Use this to open or close incoming ports (such as 80,25, and 110 etc) and ip addresses / subnet (such as 202.54.1.20/29).
+* **OUTPUT** - This chain is used for outgoing connections. Use this open or close outgoing ports and ip addresses / subnets.
+* **FORWARD** - This chain is used for incoming connections that aren’t actually being delivered locally. Usually used when you setup Linux as router. For example, eth0 connected to ADSL/Cable modem and eth1 is connected to local LAN. Use FORWARD chain to send and receive traffic from LAN to the Internet.
 
-**Packet Matching Rules**
+**NAT Table Rules Chains**
+Iptable’s NAT table has the following built-in chains.
+
+* **PREROUTING** - Alters packets before routing. i.e Packet translation happens immediately after the packet comes to the system (and before routing). This helps to translate the destination ip address of the packets to something that matches the routing on the local server. This is used for DNAT (destination NAT).
+* **POSTROUTING** - Alters packets after routing. i.e Packet translation happens when the packets are leaving the system. This helps to translate the source ip address of the packets to something that might match the routing on the desintation server. This is used for SNAT (source NAT).
+* **OUTPUT** - NAT for locally generated packets on the firewall.
+
+**Mangle Table Rules Chains**
+Iptables’s Mangle table is for specialized packet alteration.
+This alters QOS bits in the TCP header.
+The Mangle table has built-in chains for PREROUTING, OUTPUT, FORWARD, INPUT, POSTROUTING.
+
+**Raw Table Rules Chains**
+Iptable’s Raw table is for configuration excemptions.
+The Raw table has built-in chains for PREROUTING, OUTPUT.
+
+> **NOTE:**
+Even though pinging an external host seems like something that would
+only need to traverse the output chain,
+keep in mind that to return the data, the input chain will be used as well.
+When using `iptables` to lock down your system,
+remember that a lot of protocols will require two-way communication,
+so both the input and output chains will need to be configured properly.
+SSH is a common protocol that people forget to allow on both chains.
+
+### Default Chain Policy
+Before going in and configuring specific rules,
+you need to understand the default behavior of the three chains.
+That is, what does `iptables` do if the connection doesn’t match any existing rules?
+To see what your policy chains for unmatched traffic, run the `iptables -L` command:
+
+```bash
+# what is the default policy
+$ sudo iptables -L | grep policy
+Chain INPUT (policy ACCEPT)
+Chain FORWARD (policy ACCEPT)
+Chain OUTPUT (policy ACCEPT)
+```
+
+More times than not, you’ll want your system to accept connections by default.
+Here how you can set policy to this default condition:
+
+```bash
+# set policy to ACCEPT all packets
+sudo iptables --policy INPUT ACCEPT
+sudo iptables --policy OUTPUT ACCEPT
+sudo iptables --policy FORWARD ACCEPT
+```
+
+If you are establishing a highly secure system,
+you may rather deny all connections and manually specify which ones you want to allow to connect.
+In this case, the default policy of your chains is to DROP.
+
+```bash
+# set policy to DROP all packets
+sudo iptables --policy INPUT DROP
+sudo iptables --policy OUTPUT DROP
+sudo iptables --policy FORWARD DROP
+```
+
+### Connection Responses
+With your default chain policies configured,
+you can start adding rules to `iptables` so it knows what to do when it
+encounters a connection from or to a particular IP address or port.
+This process boils down to:
 
 1. Each packet starts at the first rule in the chain.
 1. A packet proceeds until it matches a rule.
-1. If a match found, then control will jump to the specified target (such as REJECT, ACCEPT, DROP).
+1. If a match found, then control will jump to the specified target of REJECT, ACCEPT, DROP, RETURN.
 
-***Target Meanings**
+* The target **ACCEPT** means allow the connection (packet).
+* The target **DROP** means drop the connection (packet) act like it never happened. Do not send an error message to remote host or sending host. This is best if you don’t want the source to realize your system exists.
+* The target **REJECT** means to drop connection (packet) and send an error message to remote host.  This is best if you don’t want a particular source to connect to your system, but you want them to know that your firewall blocked them.
+* The target **RETURN** means the firewall will stop executing the next set of rules in the current chain for this packet. The control will be returned to the calling chain.
 
-1. The target **ACCEPT** means allow packet.
-1. The target **REJECT** means to drop the packet and send an error message to remote host.
-1. The target **DROP** means drop the packet and do not send an error message to remote host or sending host.
+The best way to show the difference between these targets
+is to show what it looks like when a PC tries to ping a Linux machine with `iptables`
+configured for each one of these settings.
+
+`ping` response when the connection is allowed (ACCEPT):
+![iptable accept]({filename}/images/iptables-target-accept.jpg "ping response when the connection is allowed (ACCEPT)")
+
+`ping` response when the connection is not allowed or doesn't exist (DROP):
+![iptable drop]({filename}/images/iptables-target-drop.jpg "ping response when the connection is not allowed or doesn't exist (DROP)")
+
+`ping` response when the connection is blocked or connecting improperly (REJECT):
+![iptable reject]({filename}/images/iptables-target-reject.jpg "ping response when the connection is blocked or connecting improperly (REJECT)")
 
 ## Displaying the Status of Firewall
 To inspect firewall with line numbers, enter:
@@ -642,6 +741,27 @@ Where,
 * **-L** : List rules.
 * **-v** : Display detailed information. This option makes the list command show the interface name, the rule options, and the TOS masks. The packet and byte counters are also listed, with the suffix 'K', 'M' or 'G' for 1000, 1,000,000 and 1,000,000,000 multipliers respectively.
 * **-n** : Display IP address and port in numeric format. Do not use DNS to resolve names. This will speed up listing.
+
+The rules in the `iptables –list` command output contains the following fields:
+
+* **num** - Rule number within the particular chain
+* **target** - Special target variable that we discussed above
+* **prot** - Protocols. tcp, udp, icmp, etc.,
+* **opt** - Special options for that specific rule.
+* **source** - Source ip-address of the packet
+* **destination** - Destination ip-address for the packet
+
+## Status / Stop / Restart Iptables Firewall Service
+[Ubuntu: Stat / Stop / Restart Iptables Firewall Service](http://www.cyberciti.biz/faq/ubuntu-start-stop-iptables-service/)
+
+## Logging Firewall Activity
+* [How to Log Linux IPTables Firewall Dropped Packets to a Log File](http://www.thegeekstuff.com/2012/08/iptables-log-packets/)
+* [Force iptables to log messages to a different log file](http://www.cyberciti.biz/tips/force-iptables-to-log-messages-to-a-different-log-file.html)
+* [How can I configure syslog.conf file, to log iptables messages in a separate file?](http://unix.stackexchange.com/questions/96484/how-can-i-configure-syslog-conf-file-to-log-iptables-messages-in-a-separate-fil)
+
+iptables logs = /var/log/syslog
+
+Do note, however, that logging every single packet marked for dropping is liable to fill up your log filesystem really, really fast
 
 ## Block All Network Traffic
 This will block all incoming and outgoing traffic including Internet.
@@ -698,12 +818,58 @@ If you want this access limited by IP or network address then replace -s 0/0 wit
 
 Source: http://www.cyberciti.biz/tips/linux-iptables-4-block-all-incoming-traffic-but-allow-ssh.html
 
-## Insert Firewall Rules
+## Blocking All Traffic from a Specific IP
+* [Iptables Drop IP Address](http://www.cyberciti.biz/faq/linux-iptables-drop/)
+
+```bash
+# Block from an IP
+iptables -A INPUT -s 11.22.33.44 -j DROP
+
+# If you want to block only on an specific NIC
+iptables -A INPUT -s 11.22.33.44 -i eth0 -j DROP
+
+# block traffic for a specific port
+iptables -A INPUT -s 11.22.33.44 -p tcp -dport 22 -j DROP
+
+# Using a Network and not only one IP
+iptables -A INPUT -s 11.22.33.0/24 -j DROP
+
+# log action before blocking traffic from IP
+iptables -A INPUT -s 11.22.33.44 -j LOG --log-prefix "blocking all traffic"
+iptables -A INPUT -s 11.22.33.44 -j DROP
+```
+
+Source: https://www.garron.me/en/linux/iptables-manual.html
+
+## Stopping a Brute Force Attacks
+You can also use `iptables` to stop brute force attacks to your server.
+For example: Allow only three attempts to log through `ssh` before banning the IP for 15 minutes,
+this should let legitimate users to log to the servers, but bots will not be able.
+
+```bash
+iptables -F
+iptables -A INPUT -i lo -p all -j ACCEPT
+iptables -A OUTPUT -o lo -p all -j ACCEPT
+iptables -A INPUT -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A INPUT -p tcp --dport ssh -j ACCEPT
+iptables -A INPUT -p tcp --dport www -j ACCEPT
+iptables -I INPUT -p tcp --dport 22 -i eth0 -m state --state NEW -m recent --set
+iptables -I INPUT -p tcp --dport 22 -i eth0 -m state --state NEW -m recent --update --seconds 900 --hitcount 3 -j DROP
+iptables -P INPUT DROP
+```
+
+Source: https://www.garron.me/en/linux/iptables-manual.html
+
+## Edit Firewall Rules
+* [How to edit iptables rules](https://fedoraproject.org/wiki/How_to_edit_iptables_rules)
+* [How do you PREPEND an iptables rather than APPEND?](http://serverfault.com/questions/374993/how-do-you-prepend-an-iptables-rather-than-append)
+* [Insert an iptables rule on a specific line number with a comment, and restore all rules after reboot](https://snipt.net/johan_adriaans/insert-an-iptables-rule-on-a-specific-line-number-with-a-comment-and-restore-all-rules-after-reboot/)
+
 To insert one or more rules in the selected chain as the given rule number use the following syntax.
 First find out line numbers, enter:
 
 ```bash
-sudo iptables -L INPUT -n --line-numbers
+sudo iptables -L INPUT -v --line-numbers
 ```
 
 Sample outputs:
@@ -725,7 +891,7 @@ iptables -I INPUT 2 -s 202.54.1.2 -j DROP
 To view updated rules, enter:
 
 ```bash
-iptables -L INPUT -n --line-numbers
+iptables -L INPUT -v --line-numbers
 ```
 
 Sample outputs:
@@ -765,6 +931,41 @@ sudo iptables -D INPUT -s 202.54.1.1 -j DROP
 Where,
 
 * **-D** : Delete one or more rules from the selected chain
+
+## Deleting / Editing Rules
+* [How To List and Delete Iptables Firewall Rules](https://www.digitalocean.com/community/tutorials/how-to-list-and-delete-iptables-firewall-rules)
+
+## Show and Clear Packet Counts
+* [How To List and Delete Iptables Firewall Rules](https://www.digitalocean.com/community/tutorials/how-to-list-and-delete-iptables-firewall-rules)
+
+## Saving Rules
+If you change the `iptables` rules and restart the computer,
+it will restart with the previous set of rules.
+To preserver your rules, first check that you have made changes correctly using `sudo iptables -L`
+then save them so they are use upon reboot.
+For Ubuntu, this can be done by using `iptables-persistent`
+(installed via `sudo apt-get install iptables-persistent`):
+
+```bash
+sudo /etc/init.d/iptables-persistent save
+sudo /etc/init.d/iptables-persistent reload
+```
+
+You can also make you own backup copy of the currently active `iptables` rules via:
+
+```bash
+# make backup of currently active iptables rules
+sudo iptables-save > /etc/iptables/backup_rules.v4
+sudo ip6tables-save > /etc/iptables/backup_rules.v6
+```
+
+And to restore `iptables` rules from a file:
+
+```bash
+# restore iptables rules from backup
+sudo iptables-restore < /etc/iptables/backup_rules.v4
+sudo ip6tables-restore < /etc/iptables/backup_rules.v6
+```
 
 ## Drop or Accept Traffic From Mac Address
 Use the following syntax:
@@ -831,6 +1032,10 @@ service httpd start
 # iptables -L INPUT -v -n | grep 80
 ```
 
+## Adding Comments to iptables Rules
+* [Adding comments to iptables rules](https://major.io/2010/07/26/adding-comments-to-iptables-rules/)
+* [commenting iptables rules](http://www.twam.info/software/linux/gentoo/commenting-iptables-rules)
+
 ## Saving iptables Rules
 If you were to reboot your machine right after modifing your firewall,
 your iptables configuration would disappear.
@@ -870,6 +1075,12 @@ this would be the quickest way:
 sudo iptables -I INPUT 5 -m limit --limit 5/min -j LOG --log-prefix "iptables denied: " --log-level 7
 ```
 
+## Port Forwarding
+* [Port Forwarding Using iptables](http://www.systutorials.com/816/port-forwarding-using-iptables/)
+* [Iptables Forward Multiple Ports](https://ndtri128.wordpress.com/2014/05/19/iptables-forward-multiple-ports/)
+* [Setting Up Gateway Using iptables and route on Linux](http://www.systutorials.com/1372/setting-up-gateway-using-iptables-and-route-on-linux/)
+* [SSH Port Forwarding on Linux](http://www.systutorials.com/39648/port-forwarding-using-ssh-tunnel/)
+
 ## Flush / Remove All iptables Rules
 Create the script `/root/fw.stop` using text editor:
 
@@ -904,7 +1115,7 @@ and then run the script as root user
 `sudo /root/fw.stop`.
 
 You can verify that firewall rules are flushed out via:
-`iptables -L -n -v`
+`iptables -L -v`
 which should show that all chains will "ACCEPT" packets.
 
 ## Protect Your Network from Spamming, Scanning, etc.
@@ -1135,7 +1346,7 @@ could be gathered for this cheat sheet.
 [55]:http://xmodulo.com/disable-network-manager-linux.html
 [56]:https://iperf.fr/
 [57]:http://www.avahi.org/
-[58]:
+[58]:https://www.digitalocean.com/community/tutorials/a-deep-dive-into-iptables-and-netfilter-architecture
 [59]:
 [60]:
 [61]:

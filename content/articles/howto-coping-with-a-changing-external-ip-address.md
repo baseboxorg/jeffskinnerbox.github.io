@@ -7,7 +7,7 @@ Author: Jeff Irland
 Image: how-to.jpg
 Summary: Since I'm not using a static IP for my home router, my ISP can change my IP address as they sees fit. But in order for me to SSH into my home server from outside my local network, I need my home’s router current IP address.  Here a create a simple utility that pushes to my cell phone the new address when my router's IP address changes.
 
-<a href="http://www.pebra.net/blog/2014/02/07/installing-openwrt-on-wd-mynet-n600/">
+<a href="http://whatismyipaddress.com/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Since I'm not using a static IP for my home router, my ISP can change my IP address as they sees fit. But in order for me to SSH into my home server from outside my local network, I need my home’s router current IP address." alt="internet connection picture" src="{filename}/images/internet-connection.png" width="128" height="128" />
 </a>
 Some ISPs frequently change the IP address they provide you,

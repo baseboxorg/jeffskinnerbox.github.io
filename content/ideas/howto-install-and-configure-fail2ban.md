@@ -1,7 +1,25 @@
+Status: draft
+Title: HowTo: Install and Configure Fail2Ban
+Date: 2100-01-01 00:00
+Category: Software
+Tags: Fail2Ban, Security
+Slug: howto-install-and-configure-fail2ban
+Author: Jeff Irland
+Image: draft-stamp.png
+Summary: Fail2ban is an intrusion prevention software framework that protects computers from brute-force attacks.  It scans log files and bans IP addresses that show malicious signs, such as, too many password failures.  Fail2Ban then updates firewall rules to reject the IP addresses for a specified amount of time, although any arbitrary other action (e.g. sending an email) could also be configured.
+
+<a href="http://www.fail2ban.org/wiki/index.php/Main_Page">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time." alt="fail2ban logo" src="{filename}/images/fail2ban-logo.jpg" width="200" height="200" /></a>
 Recently I examined my desktop computer's `sshd` log file `/var/log/auth.log`
-([log samples from sshd][01]) looking for failed login attempts
-I saw a list of well over 100 attempts, from mainly one IP (125.88.177.90 - Guangdong, China),
-trying to login via SSH as root or bin user.
+([log samples from sshd][01]) looking for failed login attempts.
+What I saw was a list of well over 100 attempts from a few IP addresses
+(125.88.177.90 - Guangdong, China,
+58.218.205.97 - Jiangsu region of China,
+58.218.204.248 - Jiangsu region of China,
+185.110.132.54 - Moscow, Russia),
+trying to login via SSH as root or admin user.
+In other works, attempting a [brute-force attacks][08].
+To see these login attempts, I did the following:
 
 ```bash
 # attacks on just port 22
@@ -29,82 +47,137 @@ iptables -I INPUT -p tcp --dport 22 -m state --state NEW -m recent --update --se
 
 This blocks connections if the login fails ten times in one hour on port 22.
 
-Another easy answer would be to limit `ssh` access from wlan interface only.
+Another easy answer would be to limit `ssh` access from the `wlan` network interface only.
 This works if you have no plans to `ssh` into your device from the Internet,
 effectively cuts out the attacks from the Internet.
 But of course, if your neighbors nerdy 13 year old wants to mess with your WiFi,
 you still could have some attacks.
 
 So its just a matter of time before the attack is on another port, or user account, or network interface,
-therefore using [Fail2Ban][04] or something similar may be in order.
+therefore using [Fail2Ban][04] or something similar
+(an alternative is [Droplan][06])
+may be in order.
 `fail2ban` reads the `sshd` log entries (and other log files)
 and bans the originating address when there are too many failures.
 Generally Fail2Ban is then used to update firewall rules to reject
 the IP addresses for a specified amount of time, although any arbitrary other action
 (e.g. sending an email) could also be configured.
-Out of the box Fail2Ban comes with filters for various services (apache, courier, ssh, etc).
+Out of the box Fail2Ban comes with filters for various services (apache, courier, ssh, etc.).
 
 While Fail2Ban does provide additional protection, the use of two factor authentication
-(see "[HowToxxx][]")
+(see "[Two-Factor Authentication via Google Authenticator][07]")
 or public/private key authentication mechanisms
-(see "[HowToxxx][]")
-provide the best protection overall.
+(see "[HowTo: Configure SSH Public Key Authentication][XXX]")
+as your primary defense provide the best protection overall.
 
 # Step 0: Getting to Know iptables
-* http://www.thegeekstuff.com/2011/01/iptables-fundamentals/
-* https://help.ubuntu.com/community/IptablesHowTo
-* https://www.garron.me/en/linux/iptables-manual.html
-* http://www.karlrupp.net/en/computer/nat_tutorial
-* http://www.slashroot.in/linux-iptables-firewall-tutorial-getting-started-basics
+<a href="http://www.netfilter.org/">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="netfilter is a set of hooks inside the Linux kernel that allows kernel modules to register callback functions with the network stack. A registered callback function is then called back for every packet that traverses the respective hook within the network stack.
+iptables is a generic table structure for the definition of rulesets. Each rule within an IP table consists of a number of classifiers (iptables matches) and one connected action (iptables target)." alt="netfilter logo" src="{filename}/images/netfilter-logo.png" width="265" height="72" /></a>
+Linux comes with a host based [firewall][12] called [`netfilter`][09]
+(or sometimes called "iptables" after the tool used to manage netfilter).
+`netfilter` is a set of hooks inside the Linux kernel that allows
+kernel modules to register callback functions with the network stack.
+A registered callback function is then called back for every packet
+that traverses the respective hook within the network stack.
+
+The Linux based firewall `netfilter` is controlled by the program called [`iptables`][10].
+`iptables` handles filtering for IPv4, and [`ip6tables`][11] handles filtering for IPv6.
+When you install Ubuntu, `iptables` is there,
+but it allows all traffic to flow through by default.
+The websites [IptablesHowTo][13] and [Linux: 20 Iptables Examples For New SysAdmins][14]
+provide a quick intro to `iptables` for Ubuntu.
+When exposing your server to the Internet,
+having an [effective Firewall policy is very important to secure your sever][15].
+The website ["How To Set Up a Firewall Using Iptables on Ubuntu 14.04"][16]
+can help you set up your Firewall.
+
+`iptable` is a dense subject, and hard to master,
+but here are some sources to get you knowledgeable:
+
+* [The Beginner’s Guide to iptables, the Linux Firewall](http://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/)
+* [Linux IPTABLES Firewall Tutorial: Getting Started with Basics](http://www.slashroot.in/linux-iptables-firewall-tutorial-getting-started-basics)
+* [What is a Firewall and How Does It Work?](https://www.digitalocean.com/community/tutorials/what-is-a-firewall-and-how-does-it-work)
+* [A Deep Dive into Iptables and Netfilter Architecture](https://www.digitalocean.com/community/tutorials/a-deep-dive-into-iptables-and-netfilter-architecture)
+* [How To Set Up a Firewall Using Iptables on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-iptables-on-ubuntu-14-04)
+* [Linux Firewall Tutorial: IPTables Tables, Chains, Rules Fundamentals](http://www.thegeekstuff.com/2011/01/iptables-fundamentals/)
+* [iptables: Small manual and tutorial with some examples and tips](https://www.garron.me/en/linux/iptables-manual.html)
+* [IptablesHowTo](https://help.ubuntu.com/community/IptablesHowTo)
+
+Ubuntu has `iptables` but also comes with [`ufw`][45]
+and is considered the default firewall configuration tool for Ubuntu.
+There is also a graphical version [`gufw`][46] can be installed with `sudo apt-get install gufw`.
+Developed to ease `iptables` firewall configuration,
+`ufw` provides a user friendly way to create an IPv4 or IPv6 host-based firewall.
+By default `ufw` is disabled.
 
 # Step 1: Install Fail2Ban
 We will be installing a daemon called `fail2ban` that scans log files
-and automatically bans suspicious IP address with `iptables`.
+and automatically bans suspicious IP address using `iptables`.
 Install `fail2ban` with the following command:
 
 ```bash
+# install the software
 sudo apt-get install fail2ban
 
+# copy the example configuration file and make it live
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 ```
 
+`fail2ban` should start automatically after the install.
+You can check this via `sudo service fail2ban status`.
+You should see your `iptables` rules updated to something like:
+
+```bash
+# list the chain rules in service
+$ sudo iptables -t filter --list
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+fail2ban-ssh  tcp  --  anywhere             anywhere             multiport dports ssh
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
+
+Chain fail2ban-ssh (1 references)
+target     prot opt source               destination
+RETURN     all  --  anywhere             anywhere
+```
+
+# Step 2: Configure Fail2Ban
 You can use `fail2ban` with any service that makes log files like Apache, FTP, etc.
-The configuration for different services can be found in `/etc/fail2ban/jail.conf`.
-The default configuration only monitors SSH and bans the suspicious IP
-after 6 unsuccessful attempts for 600 seconds.
+The configuration for different services can be found in `/etc/fail2ban/jail.local`.
 You can change this settings by adding appropriate lines in `/etc/fail2ban/jail.local`.
-For example, I want to permamently ban the suspicious IP address after only 2 attempts.
+For example, I want to permanently ban the suspicious IP address after 10 attempts.
 Apart from that, I want to ban access for this IP on all ports,
-so I changed default banaction to iptables-allports.
-So, part of my `jail.local` file looks like this:
+so I changed default `banaction` to `iptables-allports`.
+So, part of my `/etc/fail2ban/jail.local` file looks like this:
 
-```bash
+```
 [ssh]
-banaction = iptables-allports
-bantime = -1
-maxretry = 2
+
+enabled  = true
+port     = ssh
+filter   = sshd
+logpath  = /var/log/auth.log
+banaction = iptables-allports    ; ban retrys on any port
+bantime  = 600                   ; ip address is banned for 10 minutes
+maxretry = 10                    ; allow the ip address retry a max of 10 times
 ```
 
-However, you'll soon realized that all IP bans disappear from `iptables` after reboot.
-To deal with this issue,
-added the following line to my `/etc/fail2ban/action.d/iptables-allports.conf`
-file to the `actionstart`:
+> **NOTE:** If I want to permanently ban a suspicious IP address,
+I would set the ban time as follows: `bantime = -1  ; ip address permanently banned`.
 
-```bash
-cat /etc/fail2ban/ip.list-<name> | while read IP; do iptables -I fail2ban-<name> 1 -s $IP -j DROP; done
-```
-and following line to the `actionban`
+If you have an active [brute force attack][05] underway on SSH,
+you can check out the `/var/log/auth.log`
+(use `tailf /var/log/auth.log | grep 'sshd.*Failed'`).
+You should see 10 login attempts, followed by at least a 10 minute pause,
+and then the attacks may begin again for 10 attempts.
 
-```bash
-echo '<ip>/24' >> /etc/fail2ban/ip.list-<name>
-```
-
-These commands log the banned IP addresses to the `/etc/fail2ban/ip.list` file,
-and after restart, the contest of this file is added to the `iptables`.
-IP address are stored in `ip.list` file with suffix `/24`.
-In that way `iptables` will block the whole range from xxx.xxx.xxx.0 to xxx.xxx.xxx.255.
-
-When you did the necessary updates of the config files, make sure to restart service:
+When you did the necessary updates of the configuration files,
+make sure to restart service:
 
 ```bash
 sudo service fail2ban restart
@@ -116,8 +189,135 @@ and check current bans with:
 sudo iptables -L -n --line
 ```
 
-# Step 2: Configure Fail2Ban
+# Step 3: Permanently Banning of an IP Address
+The post "[Make your Raspberry Pi more secure][04]"
+shows how you can use `fail2ban` to permanently ban IP addresses,
+but I prefer not to do it this way.
+It would be easy to forget that I installed `fail2ban`,
+and if IP Addresses start getting block that are not intended,
+I may forget where to look to fix the problem.
+My preference is to ban these IP Address via a more obvious Linux tool,
+that is, directly via `iptables`.
 
+You may want to log the traffic that is being blocking, this way,
+your able to see which IP tried to access the server but I blocked.
+
+```bash
+# log action before blocking traffic from IP
+sudo iptables -A INPUT -s 125.88.177.90 -j LOG --log-prefix "blocking all traffic"
+sudo iptables -A INPUT -s 125.88.177.90 -j DROP
+```
+
+Your firewall now looks like this:
+
+```bash
+# list the chain rules in service with line numbers
+$ sudo iptables --list --line-numbers
+Chain INPUT (policy ACCEPT)
+num  target     prot opt source               destination
+1    fail2ban-ssh  tcp  --  anywhere             anywhere
+2    LOG        all  --  125.88.177.90        anywhere             LOG level warning prefix "blocking all traffic"
+3    DROP       all  --  125.88.177.90        anywhere
+
+Chain FORWARD (policy ACCEPT)
+num  target     prot opt source               destination
+
+Chain OUTPUT (policy ACCEPT)
+num  target     prot opt source               destination
+
+Chain fail2ban-ssh (1 references)
+num  target     prot opt source               destination
+1    REJECT     all  --  125.88.177.87        anywhere             reject-with icmp-port-unreachable
+2    RETURN     all  --  anywhere             anywhere
+
+# list the chain rules in service as iptables commands
+$ sudo iptables -S
+-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+-N fail2ban-ssh
+-A INPUT -p tcp -j fail2ban-ssh
+-A INPUT -s 125.88.177.90/32 -j LOG --log-prefix "blocking all traffic"
+-A INPUT -s 125.88.177.90/32 -j DROP
+-A fail2ban-ssh -s 58.218.204.30/32 -j REJECT --reject-with icmp-port-unreachable
+-A fail2ban-ssh -j RETURN
+```
+
+Keep in mind that this type of logging can create considerable amounts of data
+if you subject to frequent attacks.
+
+>**NOTE:** To remove logging rule (delete rule 2 from INPUT chain): `sudo iptables -D INPUT 2`.
+
+# Step 4: Save Firewall Rules
+The firewall rules created so far will not survive a reboot of your system.
+To overcome this,
+you need to use the `iptables-save` or `iptables-persistent` commands.
+
+```bash
+# make backup of current itables rules
+sudo cp /etc/iptables/rules.v4 /etc/iptables/backup_rules.v4
+
+# make backup of currently active rules
+sudo iptables-save > $HOME/tmp/backup_rules.v4
+
+# make the currently active rules persistent over reboots
+# (ie load them into /etc/iptables/rules.v4)
+sudo /etc/init.d/iptables-persistent save
+```
+
+My saved firewall rules look like this:
+
+```bash
+# list active firewall rules
+$ sudo iptables -S
+-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+-N fail2ban-ssh
+-A INPUT -p tcp -j fail2ban-ssh
+-A INPUT -s 125.88.177.90/32 -j DROP
+-A INPUT -s 58.218.204.30/32 -j DROP
+-A INPUT -s 58.218.205.97/32 -j DROP
+-A INPUT -s 58.218.204.248/32 -j DROP
+-A INPUT -s 185.110.132.54/32 -j DROP
+-A INPUT -s 125.88.177.87/32 -j DROP
+-A INPUT -s 59.45.79.25/32 -j DROP
+-A INPUT -s 221.229.162.7/32 -j DROP
+-A INPUT -s 58.218.211.244/32 -j DROP
+-A INPUT -s 58.218.211.11/32 -j DROP
+-A INPUT -s 14.182.87.101/32 -j DROP
+-A INPUT -s 58.218.199.166/32 -j DROP
+-A INPUT -s 59.45.79.24/32 -j DROP
+-A INPUT -s 122.141.236.69/32 -j DROP
+-A INPUT -s 58.218.204.107/32 -j DROP
+-A INPUT -s 81.243.48.52/32 -j DROP
+-A INPUT -s 125.88.177.90/32 -j DROP
+-A INPUT -s 1.93.129.5/32 -j DROP
+-A INPUT -s 58.218.199.166/32 -j DROP
+-A INPUT -s 59.45.79.24/32 -j DROP
+-A INPUT -s 58.218.204.107/32 -j DROP
+-A fail2ban-ssh -j RETURN
+```
+
+To restore iptables rule that you may have saved
+
+```bash
+# make your backup rules your active rules
+sudo iptables-restore < $HOME/tmp/backup_rules.v4
+```
+
+# Step 5: Periodical Check of Status
+You will have [brute force attacks][05] on SSH from time to time,
+and so you should be checking you logs regularly.
+You could periodically run the following command to see what is getting pass your
+"`DROP`" rules in the `INPUT` chain.
+
+```bash
+# attacks on any port
+tailf /var/log/auth.log | grep 'sshd.*Failed'
+```
+
+# Sources
 * [Install and configure fail2ban](http://iot-projects.com/index.php?id=make-your-raspberry-pi-more-secure)
 * [Install and Config Fail2Ban in Debian 7 Wheezy](http://www.pontikis.net/blog/fail2ban-install-config-debian-wheezy)
 * [How Fail2Ban Works to Protect Services on a Linux Server](https://www.digitalocean.com/community/tutorials/how-fail2ban-works-to-protect-services-on-a-linux-server)
@@ -132,10 +332,17 @@ sudo iptables -L -n --line
 [01]:http://ossec-docs.readthedocs.org/en/latest/log_samples/auth/sshd.html
 [02]:http://security.stackexchange.com/questions/67602/closely-spaced-failed-logins-in-auth-log
 [03]:https://www.debian-administration.org/article/187/Using_iptables_to_rate-limit_incoming_connections
-[04]:
-[05]:
-[06]:
-[07]:
-[08]:
-[09]:
-[10]:
+[04]:http://iot-projects.com/index.php?id=make-your-raspberry-pi-more-secure
+[05]:https://en.wikipedia.org/wiki/Brute-force_attack
+[06]:https://www.digitalocean.com/community/tutorials/how-to-automatically-firewall-digitalocean-private-network-interfaces-with-droplan
+[07]:http://jeffskinnerbox.me/posts/2015/Nov/28/two-factor-authentication-via-google-authenticator/
+[08]:https://en.wikipedia.org/wiki/Brute-force_attack
+[09]:http://www.netfilter.org/
+[10]:http://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/
+[11]:http://www.admin-magazine.com/Archive/2014/20/IPv6-Tables
+[12]:https://en.wikipedia.org/wiki/Firewall_(computing)
+[13]:https://help.ubuntu.com/community/IptablesHowTo
+[14]:http://www.cyberciti.biz/tips/linux-iptables-examples.html
+[15]:https://www.digitalocean.com/community/tutorials/how-to-choose-an-effective-firewall-policy-to-secure-your-servers
+[16]:https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-iptables-on-ubuntu-14-04
+

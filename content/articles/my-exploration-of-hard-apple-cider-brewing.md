@@ -7,7 +7,7 @@ Author: Jeff Irland
 Image: apple.jpg
 Summary: On October 25, 2014, I plunged into my first attempt at making hard apple cider. My ultimate goal is to create something close to my concept of the ideal hard cider. A cider with a high ABV but with a sweet apple flavor. I brewed several batches, systematically varying my methods and ingredients.  The result was very, very nice combination of hard cider and applejack.
 
-<a href="http://www.raspberrypi-spy.co.uk/2015/11/raspberry-pi-family-photo-by-raspi-tv/">
+<a href="http://www.hardciderproject.com/">
     <img class="img-rounded" style="image-orientation: 90deg; margin: 0px 8px; float: left" title="My one gallon fermenter and airlock brewing my very first batch of hard cider." alt="hard cider" src="{filename}/images/hard-cider-fermenter.jpg" width=20% height=20% />
 </a>
 Hard apple cider is the kindest of the do-it-yourself homemade alcoholic beverages.

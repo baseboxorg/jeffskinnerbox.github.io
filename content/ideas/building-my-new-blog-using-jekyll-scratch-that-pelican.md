@@ -1,3 +1,6 @@
+
+[Pelican Themes](http://pelicanthemes.com/)
+
 Status: draft
 Title: Building My New Blog Using Jekyll...Scratch That...Pelican
 Date: 2100-01-01 00:00
@@ -8,7 +11,7 @@ Author: Jeff Irland
 Image: pelican_logo.png
 Summary: This article give a "how I setup Pelican" outline from start to finish. It shows you how to install Pelican, add supporting tools like Markdown, Disqus, Google Analytics, Bootstrap, etc.  It also show you how to use tools Make and GitHub to create a easy to maintain workflow.
 
-Consider followint the layout of [Building a Website with Jekyll](http://nordness.net/posts/how-i-made-this-site/).
+Consider following the layout of [Building a Website with Jekyll](http://nordness.net/posts/how-i-made-this-site/).
 Consider replacing some of your document with references like this - [Creating your blog with Pelican](http://chdoig.github.io/create-pelican-blog.html)
 Checkout - https://github.com/DandyDev/pelican-bootstrap3
 
