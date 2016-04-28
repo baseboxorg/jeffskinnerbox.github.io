@@ -5,18 +5,18 @@ Category: Software
 Tags: Raspberry Pi
 Slug: howto-set-up-the-raspberry-pi-as-a-headless-device
 Author: Jeff Irland
-Image: draft-stamp.png
+Image: how-to.jpg
 Summary: bla bla bla bla bla bla
 
 <a href="http://www.raspberrypi-spy.co.uk/2015/11/raspberry-pi-family-photo-by-raspi-tv/">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" title="The Raspberry Pi is a series of credit card–sized single-board computers developed in England, United Kingdom by the Raspberry Pi Foundation with the intent to promote the teaching of basic computer science in schools and developing countries." alt="rpi family" src="{filename}/images/rasperbby-pi-family.jpg" width="175" height="117" />
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="The Raspberry Pi is a series of credit card–sized single-board computers developed in England, United Kingdom by the Raspberry Pi Foundation with the intent to promote the teaching of basic computer science in schools and developing countries." alt="rpi family" src="{filename}/images/raspberry-pi-family.jpg" width="175" height="117" />
 </a>
 I have set up all my Raspberry Pi's as [headless devices][01].
 For one thing, I want to SSH into my devices so I don't want
 or need a monitor/keyboard.
 The real trick on going headless is doing the initial setup of the device
 without an HDMI monitor or a keyboard / mouse,
-requjired by the [typical RPi setup][45].
+required by the [typical RPi setup][45].
 Using just a SD Card reader/writer, a USB WiFi adapter,
 and a Linux machine, I will do the whole setup.
 
@@ -24,7 +24,7 @@ By the way, if you want to make an existing Raspberry Pi headless,
 you don't need to follow this whole procedure.
 Just make sure SSH is working and follow Step 3.
 If you want to also upgrade your existing Raspberry Pi OS to the latest version,
-check out the article "[Raspbian GNU/Linux upgrade from Wheezy to Raspbian Jessie 8][11]".
+check out the article ["Raspbian GNU/Linux upgrade from Wheezy to Raspbian Jessie 8"][11].
 
 # Step 1: Download Raspberry Pi Image
 Before you can load a copy of the latest Raspberry Pi image onto your micro SD Card,
@@ -201,8 +201,8 @@ network={
 ```
 
 * `id_str` is used to set up custom network settings, depending on which access point we are connected to
-* `scan_ssid` is 1 tells your wifi adapter to look for the networks automatically and connect when in range
-* `ssid` is the name of the wireless network (what you typically see when you search for wifi connections)
+* `scan_ssid` is 1 tells your WiFi adapter to look for the networks automatically and connect when in range
+* `ssid` is the name of the wireless network (what you typically see when you search for WiFi connections)
 * `psk` is the WiFi password if the network is WPA/WPA2 encrypted, leave out for open or WEP networks
 * `proto` could be either RSN (WPA2) or WPA (WPA1)
 * `key_mgmt` could be either WPA-PSK (most probably) or WPA-EAP (enterprise networks)
@@ -485,7 +485,7 @@ ln -s ~/.X/xsessionrc ~/.xsessionrc
 
 # Step 9: Password-less Login via SSH Keys
 <a href="http://www.openssh.com/">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="{filename}/images/openssh-logo.png" width="194" height="191" />
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="{filename}/images/openssh-logo.png" width="97" height="95" />
 </a>
 Public key authentication is an alternative means of
 identifying yourself to a login server, instead of typing a password.
@@ -495,7 +495,7 @@ Also, public key authentication allows you to log into a machine
 without a user typing in a password.
 
 To setup password-less login via public key authentication,
-use the posting "[HowTo: Configure SSH Public Key Authentication][XXX]".
+use the posting ["HowTo: Configure SSH Public Key Authentication"][XXX].
 
 # Step 10: Boot Without Starting X Window
 The Raspberry Pi's Jessie image is configured to automatically bring up the X Window
@@ -536,7 +536,7 @@ You need to reboot the RPi and then you will no long have X Window running.
 <a href="http://www.xquartz.org/index.html">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="The XQuartz project is an open-source effort to develop a version of the X.Org X Window System that runs on OS X." alt="XQuartz Logo" src="{filename}/images/xquartz-logo.jpg" width="90" height="90" />
 </a>
-Dispite the fact that you boot without X Windows starting,
+Despite the fact that you boot without X Windows starting,
 you can run [X Window clients][27] on the Raspberry Pi
 (like the `midori` browser)
 without any problem if you `ssh -X` into the RPi from a machine running
@@ -544,7 +544,7 @@ the [X Window System][25] [X.Org Server][26].
 
 A simple test to see this work is to run `xeyes` on the Raspberry Pi.
 A pair of eyes that track you mouse movement should appear in the display
-of the machine from which your perfroming the `ssh -X`.
+of the machine from which your performing the `ssh -X`.
 The `xeyes` X Window client is running on the RPi
 using the display and XServer of our local machine.
 
@@ -612,16 +612,11 @@ To make things easier, several frontends for `iptables` have been created over t
 `ufw` is one of those frontends and its aims is to provide an
 easy to use interface for people unfamiliar with firewall concepts,
 while at the same time simplifies complicated `iptables` commands
-to help an adminstrator who knows what he or she is doing.
+to help an administrator who knows what he or she is doing.
 
-# Step 14: Basic Security
-Beyond the basic security take in Step XXX,
-you should minimize your exposure to network security attacks
-and following some of the tips outlined in the postings
-"[IoT Security: Tips to Protect your Device from Bad Hackers][37]"
-and "[Secure your Raspberry Pi][38]" is a good start.
-
-# Step 15: Install Fail2Ban
+# Step 14: Install Fail2Ban
+<a href="http://www.fail2ban.org/wiki/index.php/Main_Page">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time." alt="fail2ban logo" src="{filename}/images/fail2ban-logo.png" width="75" height="75" /></a>
 Recently I examined my desktop computer's `sshd` log file `/var/log/auth.log`
 ([log samples from sshd][42]) looking for failed login attempts
 I saw a list of well over 100 attempts, from mainly one IP (125.88.177.90 - Guangdong, China),
@@ -641,7 +636,7 @@ I also noticed that the attacher is attempting to use multiple originating ports
 to subvert delays required between multiple logins (see this [article][40]).
 I decided it was time to pay a little bit more attention to security!
 
-The article "[Keeping SSH Access Secure][41]" provides some good suggestions.
+The article ["Keeping SSH Access Secure"][41] provides some good suggestions.
 One method, not referenced in this article, is how you could
 rate-limit `iptables` rules to address this issue (from this [source][39]:
 
@@ -666,17 +661,24 @@ and bans the originating address when there are too many failures.
 Generally Fail2Ban is then used to update firewall rules to reject
 the IP addresses for a specified amount of time, although any arbitrary other action
 (e.g. sending an email) could also be configured.
-Out of the box Fail2Ban comes with filters for various services (apache, courier, ssh, etc).
+Out of the box Fail2Ban comes with filters for various services (apache, courier, ssh, etc.).
 
 For the installation and configuration of Fail2Ban,
-check out "[HowTo: Install and Configure Fail2Ban][XXX]"
+check out ["HowTo: Install and Configure Fail2Ban"][XXX]
 While Fail2Ban does provide additional protection, the use of two factor authentication
-(see "[Two-Factor Authentication via Google Authenticator][46]") can increase your protestion.
+(see ["Two-Factor Authentication via Google Authenticator"][46]) can increase your protection.
 The use of public/private key authentication mechanisms
-(see "[HowTo: Configure SSH Public Key Authentication][XXX]")
+(see ["HowTo: Configure SSH Public Key Authentication"][XXX])
 can provide the best protection overall.
 
-# Step X: Install Watchdog
+# Step 15: Basic Security
+Beyond the basic security take in Step 14,
+you should minimize your exposure to other network security attacks
+and following some of the tips outlined in the postings
+["IoT Security: Tips to Protect your Device from Bad Hackers"][37]
+and ["Secure your Raspberry Pi"][38] is a good start.
+
+# Step 16: Install Watchdog
 <a href="http://dovgalecs.com/blog/keeping-your-raspberry-pi-alive-enabling-hardware-watchdog-under-arch-linux/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="A watchdog timer is a piece of hardware or software that can be used to automatically detect software anomalies and reset the processor if any occur. Generally speaking, a watchdog timer is based on a counter that counts down from some initial value to zero." alt="watchdog" src="{filename}/images/watchdog.jpg" width="115" height="110" />
 </a>
@@ -744,7 +746,7 @@ sync
 sudo umount /dev/sde1
 ```
 
-You should now be able to insert the cloded SD Card into a brand new Raspberry Pi and boot it up,
+You should now be able to insert the cloned SD Card into a brand new Raspberry Pi and boot it up,
 without any problems.
 But obviously, there are some things you may want to change on a cloned Raspberry Pi.
 For example, you should change the cloned Raspberry Pi’s host name,

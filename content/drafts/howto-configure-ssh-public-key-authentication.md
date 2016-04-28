@@ -5,9 +5,8 @@ Category: Software
 Tags: Public Key Authentication, Security
 Slug: howto-configure-ssh-public-key-authentication
 Author: Jeff Irland
-Image: draft-stamp.png
-Summary: bla bla bla bla bla bla
-Public key authentication is an alternative and more secure means of identifying yourself to a login server, instead of typing a password. It is more secure and more flexible, but more involved in its set-up. It can also be used to provide a password-less login experiance when using SSH and it can authenticate the system your loging into, thereby assuring your not being spoofed.
+Image: how-to.jpg
+Summary: Public key authentication is an alternative and more secure means of identifying yourself to a login server, instead of typing a password. It is more secure and more flexible, but more involved in its set-up. It can also be used to provide a password-less login experience when using SSH and it can authenticate the system your logging into, thereby assuring your not being spoofed.
 
 <a href="http://www.openssh.com/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="{filename}/images/openssh-logo.png" width="194" height="191" />
@@ -18,15 +17,13 @@ This is particularly important if the computer is visible on the internet.
 Using SSH, [along with a few other tricks][08],
 will drastically improve the security of your computer.
 
-In conventional password authentication[^A],
+In conventional password authentication
 you prove you are who you claim to be by proving that you know the correct password.
+(Password authentication and file encryption use a [different methodology][13]
+for authentication than you would use to secure a website.)
 The only way to prove you know the password is to tell the server what you think the password is.
 This means that if the server has been hacked,
 or spoofed, an attacker can learn your password.
-
-[^A]
-:   Password authentication and file encryption use a [different methodology][13]
-    for authentication than you would use to secure a website.
 
 Public key authentication solves this problem.
 You generate a key pair, consisting of a public key (which everybody is allowed to know)
@@ -227,7 +224,7 @@ and check to make sure that only the key(s) you wanted were added.
 
 This procedure has created the file  `.ssh/authorized_keys` under the home directory
 of the remote system.
-Yyour i`d_rsa.pub` file has been copied into `.ssh/authorized_keys`.
+Your `d_rsa.pub` file has been copied into `.ssh/authorized_keys`.
 
 If you do not have password-based SSH access to your server available,
 you will have to do the [above process manually][04].
@@ -307,7 +304,7 @@ You can do this by putting the following line into `/etc/ssh/sshd_config`:
 PermitRootLogin no
 ```
 
-# Step 9: Protecting SSH with fail2ban
+# Step 9: Protecting SSH with Fail2Ban
 Any server that is exposed to the Internet is susceptible to attacks from malicious parties.
 If your system requires authentication,
 illegitimate users and [bots][11] will attempt to break into your system by repeatedly
@@ -329,9 +326,9 @@ and then alters the firewall rules to ban addresses
 that have unsuccessfully attempted to log in a certain number of times.
 
 A good article to understand how fail2ban works is
-"[How Fail2Ban Works to Protect Services on a Linux Server][12]".
+["How Fail2Ban Works to Protect Services on a Linux Server"][12].
 To get fail2ban up and running, check out the article
-[HowTo: Install and Configure Fail2Ban][XXX].
+["HowTo: Install and Configure Fail2Ban"][XXX].
 
 # Trouble Shooting
 There are many things that can stop SSH from working.

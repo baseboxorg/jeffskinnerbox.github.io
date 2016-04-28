@@ -1,3 +1,8 @@
+# Amazon Echo How To
+* [New Alexa Skills Kit Template: Step-by-Step Guide to Build a Fact Skill](https://developer.amazon.com/public/community/post/Tx3DVGG0K0TPUGQ/New-Alexa-Skills-Kit-Template-Step-by-Step-Guide-to-Build-a-Fact-Skill)
+* [Alexa How Tos](https://developer.amazon.com/public/community/blog/tag/How+To)
+* [Understanding the Smart Home Skill API](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/overviews/understanding-the-smart-home-skill-api?mkt_tok=eyJpIjoiTmpKaE1UVmhPV00wTWpBMiIsInQiOiI4VEhrcHU4RGtERkl6VlBRaU85WXNodlhPTXZ4VzdRNGdjRWFkalZDNXljUmNOT0FPVktKYm5PaUpvc1pxOENUVW1WYzlqWGhpS3FaUUVTYTJOQlFpK3B0NThNK3lWZGF6UGRneTY1elVwcz0ifQ%3D%3D)
+
 # Amazon Echo
 * [Ask Hackaday: Is Amazon Echo the Future of Home Automation?](http://hackaday.com/2015/04/14/ask-hackaday-is-amazon-echo-the-future-of-home-automation/)
 * [Control Nest Devices with Amazon Echo](http://hackaday.com/2015/07/25/control-nest-devices-with-amazon-echo/)

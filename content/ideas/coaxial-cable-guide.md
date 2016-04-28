@@ -1,10 +1,13 @@
 Title: Coaxial Cable Guide
 Date: 2100-01-01 00:00
-Category: 
+Category:
 Tags: Coaxial Cable
 Slug: coaxial-cable-guide
 Author: Jeff Irland
 Summary: bla bla bla
+
+Essentials of Connector Technology
+* [element14 Essentials: Connectors I](https://www.element14.com/community/docs/DOC-81482?CMP=EMC-NEWSLETTER-APR16-ESSENTIALS-CONNECTORS-1)
 
 ## Coaxial Cable Types
 [Coaxial cable][02] (aka "coax") is a common type of shielded data transmission cable,
@@ -55,7 +58,7 @@ Some of the widely used connector types are:
 * [MCX][06] - Micro Coaxial connectors are coaxial RF connectors  th a snap-on interface and usually have a 50 Ω impedance (occasionally 75 Ω also) . They offer broadband capability from DC to 6 GHz.
 * [BNC][07] - The BNC connector is a miniature quick connect/disconnect RF connector used for coaxial cable and ideally suited for cable termination for miniature-to-subminiature coaxial cable (e.g., RG-58, RG-59). They are used with radio, television, and other radio-frequency electronic equipment, and test instruments. BNC connectors are made to match the characteristic impedance of cable at either 50 Ω or 75 Ω and frequencies below 4 GHz.
 * [PL259][08] - Also goes by UHF connector, or Amphenol coaxial connector, it is a threaded RF connector design, from an era when UHF referred to frequencies over 30 MHz. The UHF connector is the most common connector in amateur radio applications up to 150 MHz.
-* [F-Type][09] - The F connector is a coaxial RF connector commonly used for "over the air" terrestrial television, cable television, satellite television, and cable modems. It is usually connected to RG-6/U coax cable or with RG-59/U cable. 
+* [F-Type][09] - The F connector is a coaxial RF connector commonly used for "over the air" terrestrial television, cable television, satellite television, and cable modems. It is usually connected to RG-6/U coax cable or with RG-59/U cable.
 
 ## Sources
 * [Coaxial Cable FAQs](http://www.cableorganizer.com/articles/coaxial-cable-faqs.html)

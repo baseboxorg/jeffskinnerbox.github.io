@@ -5,11 +5,11 @@ Category: Software
 Tags: Fail2Ban, Security
 Slug: howto-install-and-configure-fail2ban
 Author: Jeff Irland
-Image: draft-stamp.png
+Image: how-to.jpg
 Summary: Fail2ban is an intrusion prevention software framework that protects computers from brute-force attacks.  It scans log files and bans IP addresses that show malicious signs, such as, too many password failures.  Fail2Ban then updates firewall rules to reject the IP addresses for a specified amount of time, although any arbitrary other action (e.g. sending an email) could also be configured.
 
 <a href="http://www.fail2ban.org/wiki/index.php/Main_Page">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" title="Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time." alt="fail2ban logo" src="{filename}/images/fail2ban-logo.jpg" width="200" height="200" /></a>
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time." alt="fail2ban logo" src="{filename}/images/fail2ban-logo.png" width="100" height="100" /></a>
 Recently I examined my desktop computer's `sshd` log file `/var/log/auth.log`
 ([log samples from sshd][01]) looking for failed login attempts.
 What I saw was a list of well over 100 attempts from a few IP addresses
@@ -35,9 +35,9 @@ I also noticed that the attacher is attempting to use multiple originating ports
 to subvert delays required between multiple logins (see this [article][02]).
 I decided it was time to pay a little bit more attention to security!
 
-The article "[Keeping SSH Access Secure][41]" provides some good suggestions.
+The article ["Keeping SSH Access Secure"][17] provides some good suggestions.
 One method, not referenced in this article, is how you could
-rate-limit `iptables` rules to address this issue (from this [source][03]:
+rate-limit `iptables` rules to address this issue (from this [source][03]):
 
 ```bash
 # block connections if the login fails 10 times in 1 hour on port 22
@@ -65,9 +65,9 @@ the IP addresses for a specified amount of time, although any arbitrary other ac
 Out of the box Fail2Ban comes with filters for various services (apache, courier, ssh, etc.).
 
 While Fail2Ban does provide additional protection, the use of two factor authentication
-(see "[Two-Factor Authentication via Google Authenticator][07]")
+(see ["Two-Factor Authentication via Google Authenticator"][07])
 or public/private key authentication mechanisms
-(see "[HowTo: Configure SSH Public Key Authentication][XXX]")
+(see ["HowTo: Configure SSH Public Key Authentication"][XXX])
 as your primary defense provide the best protection overall.
 
 # Step 0: Getting to Know iptables
@@ -190,7 +190,7 @@ sudo iptables -L -n --line
 ```
 
 # Step 3: Permanently Banning of an IP Address
-The post "[Make your Raspberry Pi more secure][04]"
+The post ["Make your Raspberry Pi more secure"][04]
 shows how you can use `fail2ban` to permanently ban IP addresses,
 but I prefer not to do it this way.
 It would be easy to forget that I installed `fail2ban`,
@@ -345,4 +345,4 @@ tailf /var/log/auth.log | grep 'sshd.*Failed'
 [14]:http://www.cyberciti.biz/tips/linux-iptables-examples.html
 [15]:https://www.digitalocean.com/community/tutorials/how-to-choose-an-effective-firewall-policy-to-secure-your-servers
 [16]:https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-iptables-on-ubuntu-14-04
-
+[17]:https://www.debian-administration.org/article/87/Keeping_SSH_access_secure
