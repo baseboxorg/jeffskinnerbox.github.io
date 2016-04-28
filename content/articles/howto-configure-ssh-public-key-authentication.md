@@ -1,6 +1,5 @@
-Status: draft
 Title: HowTo: Configure SSH Public Key Authentication
-Date: 2100-01-01 00:00
+Date: 2016-04-27 21:24
 Category: Software
 Tags: Public Key Authentication, Security
 Slug: howto-configure-ssh-public-key-authentication
@@ -58,7 +57,7 @@ The general process of creating a passwordless login is as follows:
 1. Put the public key on any remote machines with `ssh-copy-id`.
 1. Login to the remote machine without entering the password
 
-# Step 1: Start on the Local Machine
+### Step 1: Start on the Local Machine
 To establish your SSH based authentication,
 your start on the local machine, that is,
 the system from which you log into the remote machine.
@@ -69,7 +68,7 @@ Secure Shell (SSH) needs to already be installed and configured.
 To install, just do `sudo apt-get install openssh-server`
 and [follow the procedures here to configure][06].
 
-# Step 2: Checking for Existing SSH Keys
+### Step 2: Checking for Existing SSH Keys
 Before you generate an SSH key,
 you should check to see if you have any existing SSH keys.
 To do this, open terminal and enter:
@@ -90,7 +89,7 @@ If you see an existing public and private key pair listed
 that you would like to use to connect to your remote machine,
 you can add your SSH key to the `ssh-agent`.
 
-# Step 3: Generating a New SSH Key
+### Step 3: Generating a New SSH Key
 After you've checked for existing SSH keys,
 you can generate a new SSH key to use for authentication,
 then add it to the `ssh-agent`.
@@ -142,7 +141,7 @@ You'll be prompted with a screen like this:
 
 [![passphrase-screen]({filename}/image/private-key-passphrase.png "An SSH key passphrase is a secondary form of security that gives you a little time when your keys are stolen. If your RSA key has a strong passphrase, it might take your attacker a few hours to guess by brute force. That extra time should be enough to log in to any computers you have an account on, delete your old key from the .ssh/authorized_keys file, and add a new key.")](https://help.ubuntu.com/community/SSH/OpenSSH/Keys)
 
-# Step 3B: Changing Your Passphrase
+### Step 3B: Changing Your Passphrase
 Sooner or later you'll want to change the passphrase on your private key.
 You can change the passphrase for an existing private keys without regenerating the key pair.
 Just type the command `ssh-keygen -p`.
@@ -159,7 +158,7 @@ Enter same passphrase again:
 Your identification has been saved with the new passphrase.
 ```
 
-## Step 3C: Retrieve Your Public Key from Your Private Key
+### Step 3C: Retrieve Your Public Key from Your Private Key
 The following command will retrieve the public key from a private key:
 
 ```bash
@@ -172,7 +171,7 @@ and you were only able to download the private key portion of the key pair.
 
 >**NOTE:** You cannot retrieve the private key if you only have the public key.
 
-# Step 4: Adding your SSH Key to the ssh-agent
+### Step 4: Adding your SSH Key to the ssh-agent
 The `ssh-agent` is responsible for manging you multiple keys.
 You enter the passphrase once, and after that,
 `ssh-agent` keeps your key in its memory and pulls it up whenever it is asked for it.
@@ -198,7 +197,7 @@ ssh-add ~/.ssh/id_rsa
 You can have a look at your currently loaded keys by using `ssh-add -l`.
 This is also important if you need to forward your SSH credentials (shown below).
 
-# Step 5: Copy Public Key to Remote Machine
+### Step 5: Copy Public Key to Remote Machine
 Now you must provide the public keys to your remote machine.
 The easiest way to copy your public key is to use a utility called `ssh-copy-id`.
 For this method to work,
@@ -235,7 +234,7 @@ However, if you've created them manually and need to fix permissions.
 You can run the following commands to do this:
 `chmod 700 ~/.ssh` and `chmod 600 ~/.ssh/authorized_keys`.
 
-# Step 5B: Granting Access to Multiple Keys
+### Step 5B: Granting Access to Multiple Keys
 The `.ssh/authorized_keys` file you created above uses a very simple format:
 it can contain many keys as long as you put one key on each line in the file.
 If you have multiple keys (for example, one on each of your laptops)
@@ -250,7 +249,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSkT3A1j89RT/540ghIMHXIVwNlAEM3WtmqVG7YN/w
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzlL9Wo8ywEFXSvMJ8FYmxP6HHHMDTyYAWwM3AOtsc96DcYVQIJ5VsydZf5/4NWuq55MqnzdnGB2IfjQvOrW4JEn0cI5UFTvAG4PkfYZb00Hbvwho8JsSAwChvWU6IuhgiiUBofKSMMifKg+pEJ0dLjks2GUcfxeBwbNnAgxsBvY6BCXRfezIddPlqyfWfnftqnafIFvuiRFB1DeeBr24kik/550MaieQpJ848+MgIeVCjko4NPPLssJ/1jhGEHOTlGJpWKGDqQK+QBaOQZh7JB7ehTK+pwIFHbUaeAkr66iVYJuC05iA7ot9FZX8XGkxgmhlnaFHNf0l8ynosanqt henry@laptop2
 ```
 
-# Step 6: Logging on the Remote Machine
+### Step 6: Logging on the Remote Machine
 If you have successfully completed one of the procedures above,
 you should be able to log into the remote machine without the remote account's password.
 The login process is the same:
@@ -260,7 +259,7 @@ The login process is the same:
 ssh user_name@remote_machine
 ```
 
-# Step 7: Disabling Password Authentication on Remote Machine
+### Step 7: Disabling Password Authentication on Remote Machine
 If you were able to login to your remote machine using SSH without a password,
 you have successfully configured SSH key-based authentication to your remote account.
 However, your password-based authentication mechanism is still active,
@@ -290,7 +289,7 @@ On Ubuntu or Debian machines, you can issue this command: `sudo service ssh rest
 After completing this step,
 **all** accounts on the remote machine will only allow login using SSH keys.
 
-# Step 8: Disabling SSH Login as Root on Remote Machine
+### Step 8: Disabling SSH Login as Root on Remote Machine
 For security purposes, you may want to not allow anyone to log into
 the remote machine as root over SSH.
 You still want the root account to exist,
@@ -304,7 +303,7 @@ You can do this by putting the following line into `/etc/ssh/sshd_config`:
 PermitRootLogin no
 ```
 
-# Step 9: Protecting SSH with Fail2Ban
+### Step 9: Protecting SSH with Fail2Ban
 Any server that is exposed to the Internet is susceptible to attacks from malicious parties.
 If your system requires authentication,
 illegitimate users and [bots][11] will attempt to break into your system by repeatedly
@@ -328,7 +327,7 @@ that have unsuccessfully attempted to log in a certain number of times.
 A good article to understand how fail2ban works is
 ["How Fail2Ban Works to Protect Services on a Linux Server"][12].
 To get fail2ban up and running, check out the article
-["HowTo: Install and Configure Fail2Ban"][XXX].
+["HowTo: Install and Configure Fail2Ban"][15].
 
 # Trouble Shooting
 There are many things that can stop SSH from working.
@@ -361,3 +360,4 @@ Here are some good references:
 [12]:https://www.digitalocean.com/community/tutorials/how-fail2ban-works-to-protect-services-on-a-linux-server
 [13]:https://letsencrypt.org/
 [14]:https://linuxacademy.com/blog/linux/linux-commands-for-beginners-sudo/
+[15]:http://jeffskinnerbox.me/posts/2016/Apr/27/howto-install-and-configure-fail2ban/

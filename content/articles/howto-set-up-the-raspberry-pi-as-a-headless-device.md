@@ -1,12 +1,11 @@
-Status: draft
 Title: HowTo: Set-Up the Raspberry Pi as a Headless Device
-Date: 2100-01-01 00:00
+Date: 2016-04-27 21:23
 Category: Software
 Tags: Raspberry Pi
 Slug: howto-set-up-the-raspberry-pi-as-a-headless-device
 Author: Jeff Irland
 Image: how-to.jpg
-Summary: bla bla bla bla bla bla
+Summary: This is a step-by-step guide of how to set up your Raspberry Pi as a "headless" computer, that is, access it via network connections without a keyboard or display.  This is done by configuring the Raspberry Pi without needing any kind of monitor or keyboard attached. I go a little further by showing how to upgrade the firmware / OS / development tools, bootup without X Windows, setup password-less login, and establish some basic security.
 
 <a href="http://www.raspberrypi-spy.co.uk/2015/11/raspberry-pi-family-photo-by-raspi-tv/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="The Raspberry Pi is a series of credit card–sized single-board computers developed in England, United Kingdom by the Raspberry Pi Foundation with the intent to promote the teaching of basic computer science in schools and developing countries." alt="rpi family" src="{filename}/images/raspberry-pi-family.jpg" width="175" height="117" />
@@ -26,7 +25,7 @@ Just make sure SSH is working and follow Step 3.
 If you want to also upgrade your existing Raspberry Pi OS to the latest version,
 check out the article ["Raspbian GNU/Linux upgrade from Wheezy to Raspbian Jessie 8"][11].
 
-# Step 1: Download Raspberry Pi Image
+### Step 1: Download Raspberry Pi Image
 Before you can load a copy of the latest Raspberry Pi image onto your micro SD Card,
 you must first download the official Raspberry Pi operating system, [Raspbian][03]
 (in my case, the version is [Jessie][10]).
@@ -51,7 +50,7 @@ Archive:  2016-02-09-raspbian-jessie.zip
   inflating: 2016-02-09-raspbian-jessie.img
 ```
 
-# Step 2: Write Raspberry Pi Image to SD Card
+### Step 2: Write Raspberry Pi Image to SD Card
 Next using Linux, you have copied the Raspbian image onto the SD card mounted to your system.
 I'll be using the [Rocketek 11-in-1 4 Slots USB 3.0 Memory Card Reader][04] to create my SD Card.
 Make sure to [choose a reputable SD Card][05] from [here][13], don't go cheap.
@@ -131,7 +130,7 @@ You can get around this by using a console cable to make the file modification
 outline in the next step.
 [Adafruit has good description on how to use a console cable][20].
 
-# Step 3: Configure your WiFi
+### Step 3: Configure your WiFi
 Unplug your SD Card reader and plug it back in
 and this will mount the Raspbian image on your Linux box.
 The `df -h` command will show you the device being used, the mount point, and memory used/available.
@@ -213,7 +212,7 @@ If you want to include other WiFi networks,
 just add another `network` structure to the file `etc/wpa_supplicant/wpa_supplicant.conf`.
 (See examples [here][18] and [here][19])
 
-# Step 4: First Time Boot of the Raspberry Pi
+### Step 4: First Time Boot of the Raspberry Pi
 Now unmount the SD Card, put the SD Card into the Raspberry Pi,
 plug a [WiFi dongle][14] into the Raspberry Pi, and power it up.
 After approximately a minute, the Raspberry Pi will have completely booted up.
@@ -283,7 +282,7 @@ the session starts with the `raspi-config` screen
 (This behaviour is driven by the `raspi-config.sh` script in the `/etc/profile.d` directory).
 Under these conditions, you would be prompted for the next step automatically.
 
-# Step 5: Configure the Raspberry Pi
+### Step 5: Configure the Raspberry Pi
 You should now run the `sudo raspi-config` (see [raspi-config documentation][12])
 The multiple things can be configured within this configuration tool.
 We need to change the following:
@@ -298,7 +297,7 @@ Finally, select `<Finish>` and reboot so that the configuration changes are all 
 sudo reboot
 ```
 
-# Step 6: OS Updates
+### Step 6: OS Updates
 Let's make sure you have all the most current Linux packages.
 This will patch the Linux operating system and all its GPL applications
 
@@ -335,7 +334,7 @@ Copyright (c) 2012 Broadcom
 version b3dc56931507f355d503ea69397778643f7a3dc3 (clean) (release)
 ```
 
-# Step 7: Updating Firmware for Raspberry Pi
+### Step 7: Updating Firmware for Raspberry Pi
 In the case of the Raspberry Pi (RPi), you will want to also upgrade the firmware regularly.
 [Raspbian][07] is the standard Linux operating system distribution for the RPi,
 but it doesn't include firmware.
@@ -370,7 +369,7 @@ sudo reboot
 >**NOTE:** If your using the [Adafruit's Occidentalis distribution][08],
 this may require a [slightly different update tool][09]
 
-# Step 8: Package Installs
+### Step 8: Package Installs
 While the Raspberry Pi comes with a fairly robust set of Linux packages,
 it could use some beefing up for most uses.
 For example, while the distribution is likely to already have some Python packages installed,
@@ -455,7 +454,7 @@ goto the Chrome download website
 and get the `.deb` package from Google,
 and install it with `sudo dpkg -i ....`.
 
-# Step 8A: Load Personal Tools (Optional)
+### Step 8A: Load Personal Tools (Optional)
 Now that all the Linux packages have been loaded,
 time to install my personal tools on the device.
 
@@ -483,7 +482,7 @@ ln -s ~/.X/Xresources ~/.Xresources
 ln -s ~/.X/xsessionrc ~/.xsessionrc
 ```
 
-# Step 9: Password-less Login via SSH Keys
+### Step 9: Password-less Login via SSH Keys
 <a href="http://www.openssh.com/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="{filename}/images/openssh-logo.png" width="97" height="95" />
 </a>
@@ -495,9 +494,9 @@ Also, public key authentication allows you to log into a machine
 without a user typing in a password.
 
 To setup password-less login via public key authentication,
-use the posting ["HowTo: Configure SSH Public Key Authentication"][XXX].
+use the posting ["HowTo: Configure SSH Public Key Authentication"][47].
 
-# Step 10: Boot Without Starting X Window
+### Step 10: Boot Without Starting X Window
 The Raspberry Pi's Jessie image is configured to automatically bring up the X Window
 graphics system and the supporting GUI (aka [X Window System Display Manager][28]).
 Generally, your not going to be using an RPi to support GUI's for users.
@@ -532,7 +531,7 @@ Note that at this point the X Server will still be running.
 You can see this via the command `ps -aux | grep X`.
 You need to reboot the RPi and then you will no long have X Window running.
 
-# Step 11: Running X Window Clients When You Want It
+### Step 11: Running X Window Clients When You Want It
 <a href="http://www.xquartz.org/index.html">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="The XQuartz project is an open-source effort to develop a version of the X.Org X Window System that runs on OS X." alt="XQuartz Logo" src="{filename}/images/xquartz-logo.jpg" width="90" height="90" />
 </a>
@@ -553,7 +552,7 @@ but just using a terminal, say with [screen][29] using a [console cable][30],
 your not going to be able run X Window System applications.
 You **must** be connected via TCP/IP to the Raspberry Pi.
 
-# Step 12: Static IP Address
+### Step 12: Static IP Address
 Currently, your Raspberry Pi connects automatically to your WiFi network
 every time it is tuned on,
 but you may want to specify a static IP address to communicate with your RPi.
@@ -601,7 +600,7 @@ iface default inet static
     gateway 192.168.100.1
 ```
 
-# Step 13: Configure Firewall
+### Step 13: Configure Firewall
 I recommend using [`ufw` (Uncomplicated FireWall)][34] to restrict access to the Raspberry Pi.
 The Linux kernel provides a packet filtering system called [`netfilter`][35],
 and the traditional interface for manipulating `netfilter` are the [`iptables`][36] suite of commands.
@@ -614,7 +613,7 @@ easy to use interface for people unfamiliar with firewall concepts,
 while at the same time simplifies complicated `iptables` commands
 to help an administrator who knows what he or she is doing.
 
-# Step 14: Install Fail2Ban
+### Step 14: Install Fail2Ban
 <a href="http://www.fail2ban.org/wiki/index.php/Main_Page">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time." alt="fail2ban logo" src="{filename}/images/fail2ban-logo.png" width="75" height="75" /></a>
 Recently I examined my desktop computer's `sshd` log file `/var/log/auth.log`
@@ -664,21 +663,21 @@ the IP addresses for a specified amount of time, although any arbitrary other ac
 Out of the box Fail2Ban comes with filters for various services (apache, courier, ssh, etc.).
 
 For the installation and configuration of Fail2Ban,
-check out ["HowTo: Install and Configure Fail2Ban"][XXX]
+check out ["HowTo: Install and Configure Fail2Ban"][48]
 While Fail2Ban does provide additional protection, the use of two factor authentication
 (see ["Two-Factor Authentication via Google Authenticator"][46]) can increase your protection.
 The use of public/private key authentication mechanisms
-(see ["HowTo: Configure SSH Public Key Authentication"][XXX])
+(see ["HowTo: Configure SSH Public Key Authentication"][47])
 can provide the best protection overall.
 
-# Step 15: Basic Security
+### Step 15: Basic Security
 Beyond the basic security take in Step 14,
 you should minimize your exposure to other network security attacks
 and following some of the tips outlined in the postings
 ["IoT Security: Tips to Protect your Device from Bad Hackers"][37]
 and ["Secure your Raspberry Pi"][38] is a good start.
 
-# Step 16: Install Watchdog
+### Step 16: Install Watchdog
 <a href="http://dovgalecs.com/blog/keeping-your-raspberry-pi-alive-enabling-hardware-watchdog-under-arch-linux/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="A watchdog timer is a piece of hardware or software that can be used to automatically detect software anomalies and reset the processor if any occur. Generally speaking, a watchdog timer is based on a counter that counts down from some initial value to zero." alt="watchdog" src="{filename}/images/watchdog.jpg" width="115" height="110" />
 </a>
@@ -705,7 +704,7 @@ For how to make use of the watchdog and additional information, check out these 
 * [Linux Watchdog Daemon - Configuring](http://www.sat.dundee.ac.uk/psc/watchdog/watchdog-configure.html)
 * [The Linux Watchdog driver API](https://www.kernel.org/doc/Documentation/watchdog/watchdog-api.txt)
 
-# Step X: Clone the SD Card
+### Step 17: Clone the SD Card
 There are a few reasons you might want to duplicate (clone/copy)
 your Raspberry Pi’s SD Card.
 One reason is to create a backup.
@@ -809,7 +808,5 @@ sudo /etc/init.d/hostname.sh start
 [44]:http://www.embedded.com/electronics-blogs/beginner-s-corner/4023849/Introduction-to-Watchdog-Timers
 [45]:https://www.raspberrypi.org/help/noobs-setup/
 [46]:http://jeffskinnerbox.me/posts/2015/Nov/28/two-factor-authentication-via-google-authenticator/
-[47]:
-[48]:
-[49]:
-[50]:
+[47]:http://jeffskinnerbox.me/posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/
+[48]:http://jeffskinnerbox.me/posts/2016/Apr/27/howto-install-and-configure-fail2ban/

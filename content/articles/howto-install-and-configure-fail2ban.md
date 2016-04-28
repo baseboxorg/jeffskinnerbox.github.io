@@ -1,6 +1,5 @@
-Status: draft
 Title: HowTo: Install and Configure Fail2Ban
-Date: 2100-01-01 00:00
+Date: 2016-04-27 21:27
 Category: Software
 Tags: Fail2Ban, Security
 Slug: howto-install-and-configure-fail2ban
@@ -67,10 +66,10 @@ Out of the box Fail2Ban comes with filters for various services (apache, courier
 While Fail2Ban does provide additional protection, the use of two factor authentication
 (see ["Two-Factor Authentication via Google Authenticator"][07])
 or public/private key authentication mechanisms
-(see ["HowTo: Configure SSH Public Key Authentication"][XXX])
+(see ["HowTo: Configure SSH Public Key Authentication"][18])
 as your primary defense provide the best protection overall.
 
-# Step 0: Getting to Know iptables
+### Step 0: Getting to Know iptables
 <a href="http://www.netfilter.org/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="netfilter is a set of hooks inside the Linux kernel that allows kernel modules to register callback functions with the network stack. A registered callback function is then called back for every packet that traverses the respective hook within the network stack.
 iptables is a generic table structure for the definition of rulesets. Each rule within an IP table consists of a number of classifiers (iptables matches) and one connected action (iptables target)." alt="netfilter logo" src="{filename}/images/netfilter-logo.png" width="265" height="72" /></a>
@@ -111,7 +110,7 @@ Developed to ease `iptables` firewall configuration,
 `ufw` provides a user friendly way to create an IPv4 or IPv6 host-based firewall.
 By default `ufw` is disabled.
 
-# Step 1: Install Fail2Ban
+### Step 1: Install Fail2Ban
 We will be installing a daemon called `fail2ban` that scans log files
 and automatically bans suspicious IP address using `iptables`.
 Install `fail2ban` with the following command:
@@ -146,7 +145,7 @@ target     prot opt source               destination
 RETURN     all  --  anywhere             anywhere
 ```
 
-# Step 2: Configure Fail2Ban
+### Step 2: Configure Fail2Ban
 You can use `fail2ban` with any service that makes log files like Apache, FTP, etc.
 The configuration for different services can be found in `/etc/fail2ban/jail.local`.
 You can change this settings by adding appropriate lines in `/etc/fail2ban/jail.local`.
@@ -189,7 +188,7 @@ and check current bans with:
 sudo iptables -L -n --line
 ```
 
-# Step 3: Permanently Banning of an IP Address
+### Step 3: Permanently Banning of an IP Address
 The post ["Make your Raspberry Pi more secure"][04]
 shows how you can use `fail2ban` to permanently ban IP addresses,
 but I prefer not to do it this way.
@@ -248,7 +247,7 @@ if you subject to frequent attacks.
 
 >**NOTE:** To remove logging rule (delete rule 2 from INPUT chain): `sudo iptables -D INPUT 2`.
 
-# Step 4: Save Firewall Rules
+### Step 4: Save Firewall Rules
 The firewall rules created so far will not survive a reboot of your system.
 To overcome this,
 you need to use the `iptables-save` or `iptables-persistent` commands.
@@ -306,7 +305,7 @@ To restore iptables rule that you may have saved
 sudo iptables-restore < $HOME/tmp/backup_rules.v4
 ```
 
-# Step 5: Periodical Check of Status
+### Step 5: Periodical Check of Status
 You will have [brute force attacks][05] on SSH from time to time,
 and so you should be checking you logs regularly.
 You could periodically run the following command to see what is getting pass your
@@ -346,3 +345,4 @@ tailf /var/log/auth.log | grep 'sshd.*Failed'
 [15]:https://www.digitalocean.com/community/tutorials/how-to-choose-an-effective-firewall-policy-to-secure-your-servers
 [16]:https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-iptables-on-ubuntu-14-04
 [17]:https://www.debian-administration.org/article/87/Keeping_SSH_access_secure
+[18]:http://jeffskinnerbox.me/posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/
