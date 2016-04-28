@@ -84,7 +84,7 @@ help:
 	@echo '   make upgrade                   upgrade the Pelican package'
 	@echo '   make process                   create thumbnails for the web site'
 	@echo '   make regenerate                regenerate files upon modification'
-	@echo '   make gethub_pelican            push the contents of website into Github'
+	@echo '   make github_pelican            push the contents of website into Github'
 	@echo '                                    and post to Github Website'
 	@echo '   make github_tiddlywiki         push the content of the wiki into Github'
 	@echo '                                    and post to Heroku Website'
@@ -228,7 +228,7 @@ backup: html
 
 
 # push the contents of website into Github and post contents on Github Website
-gethub_pelican:
+github_pelican:
 	ghp-import $(OUTPUTDIR)
 	git push origin gh-pages:master
 	git add --all
@@ -249,7 +249,7 @@ github_tiddlywiki:
 
 
 # place contents in Github and push to Website
-github: backup publish gethub_pelican github_tiddlywiki
+github: backup publish github_pelican github_tiddlywiki
 
 
 # Versions of tools being used
