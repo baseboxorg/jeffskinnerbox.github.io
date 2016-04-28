@@ -142,7 +142,7 @@ In my case, I used the <a href="https://play.google.com/store/apps/details?id=co
 <h3>Step 3</h3>
 <p>Next you need to install the Google Authenticator<a href="http://tldp.org/HOWTO/User-Authentication-HOWTO/x115.html">PAM module</a>.
 To install the package on Ubuntu, run the following command:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install libpam-google-authenticator
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install libpam-google-authenticator
 </pre></div>
 
 
@@ -172,21 +172,21 @@ You's do this by making modification to the <a href="http://tldp.org/HOWTO/User-
 for Linux.
 To do so, open the <code>/etc/pam.d/sshd</code> file on your system
 and add the following line to the file:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">auth required pam_google_authenticator.so
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>auth required pam_google_authenticator.so
 </pre></div>
 
 
 <p>Next, open the <code>/etc/ssh/sshd_config</code> file,
 locate the <code>ChallengeResponseAuthentication</code> line,
 and change it to read as follows:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">ChallengeResponseAuthentication yes
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>ChallengeResponseAuthentication yes
 </pre></div>
 
 
 <p>(<strong>NOTE:</strong> If the <code>ChallengeResponseAuthentication</code> line doesn’t already exist,
 add the above line to the file.)</p>
 <p>Finally, restart the SSH server, so your changes will take effect, via ths command:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo service ssh restart
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo service ssh restart
 </pre></div>
 
 
@@ -203,16 +203,16 @@ when the connection originates from certain sources.
 This is natively already supported by PAM.
 The <code>pam_access.so</code> module can be used to check the source against local subnets:</p>
 <p>make sure you have the following in <code>/etc/pam.d/sshd</code>:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># use Google Authenticator</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># use Google Authenticator</span>
 <span style="color: #0099FF; font-style: italic"># The ‘nullok’ option tells PAM whenever no config for 2-factor authentication is found,</span>
 <span style="color: #0099FF; font-style: italic"># it should just ignore it. This will prevent you from being locked out.</span>
-auth <span style="color: #555555">[</span><span style="color: #003333">success</span><span style="color: #555555">=</span>1 <span style="color: #003333">default</span><span style="color: #555555">=</span>ignore<span style="color: #555555">]</span> pam_access.so <span style="color: #003333">accessfile</span><span style="color: #555555">=</span>/etc/security/access-local.conf
+auth <span style="color: #555555">[</span><span style="color: #003333">success</span><span style="color: #555555">=</span><span style="color: #FF6600">1</span> <span style="color: #003333">default</span><span style="color: #555555">=</span>ignore<span style="color: #555555">]</span> pam_access.so <span style="color: #003333">accessfile</span><span style="color: #555555">=</span>/etc/security/access-local.conf
 auth required pam_google_authenticator.so nullok
 </pre></div>
 
 
 <p>Add create the file <code>/etc/security/access-local.conf</code> with the following contents:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># skip one-time password if logging in from the local network</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># skip one-time password if logging in from the local network</span>
 <span style="color: #0099FF; font-style: italic"># only allow from local IP range</span>
 + : ALL : 192.168.1.0/24
 + : ALL : LOCAL

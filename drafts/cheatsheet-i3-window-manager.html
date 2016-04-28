@@ -111,7 +111,7 @@ Jeff's Skinner Box&nbsp;            </a>
 Install i3, then log out,
 and you log back in change your window manger as i3 from your display manager screen.
 Here is what you should install:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install i3 i3lock xautolock i3status feh wmctrl x11-utils
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install i3 i3lock xautolock i3status feh wmctrl x11-utils
 </pre></div>
 
 
@@ -130,7 +130,7 @@ You need an external app to set a background image.
 <code>feh</code> is a nice little app for this.
 Open <code>~/i3/config</code> and configure a background image
 by adding line like this anywhere in the file:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">exec</span> --no-startup-id feh --bg-scale /path/to/picture
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #336666">exec</span> --no-startup-id feh --bg-scale /path/to/picture
 </pre></div>
 
 
@@ -144,7 +144,7 @@ so you can find the correct keynames with the <code>xev</code> command
 (contained in the <code>x11-utils</code> package).
 Run <code>xev</code> with no options, and then press keys to see their names and keycodes.
 Here is an example when pushing and relasing the "q" key:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">jeff@desktop: ~ $ xev
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>jeff@desktop: ~ $ xev
   .
   .
   .
@@ -171,7 +171,7 @@ KeyRelease event, serial 32, synthetic NO, window 0x1000001,
 <p>You can do such things as start applications on specific workspaces when i3 starts.
 For example, to start firefox on workspace 2,
 or to logout of i3, etc.:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># start firefox on workspace called 2:Web</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># start firefox on workspace called 2:Web</span>
 i3-msg <span style="color: #CC3300">&#39;workspace 2:Web; exec firefox&#39;</span>
 
 <span style="color: #0099FF; font-style: italic"># rename a workspace from 2:Web to FireFox</span>

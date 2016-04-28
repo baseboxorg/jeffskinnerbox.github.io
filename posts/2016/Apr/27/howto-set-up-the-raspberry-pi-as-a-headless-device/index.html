@@ -1,0 +1,1103 @@
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>HowTo: Set-Up the Raspberry Pi as a Headless Device - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="http://jeffskinnerbox.me/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="HowTo: Set-Up the Raspberry Pi as a Headless Device"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/posts/2016/Apr/27/howto-set-up-the-raspberry-pi-as-a-headless-device/"/>
+            <meta property="og:description" content="This is a step-by-step guide of how to set up your Raspberry Pi as a "headless" computer, that is, access it via network connections without a keyboard or display. This is done by configuring the Raspberry Pi without needing any kind of monitor or keyboard attached. I go a little further by showing how to upgrade the firmware / OS / development tools, bootup without X Windows, setup password-less login, and establish some basic security."/>
+
+    <!-- Bootstrap -->
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
+
+        <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://jeffskinnerbox.me/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/pages/about-me/">About Me</a></li>
+                    <li><a href="http://jeffskinnerbox-wiki.herokuapp.com/">MicroContent</a></li>
+                    <li><a href="/pages/open-notebook/">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+<!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://jeffskinnerbox.me/posts/2016/Apr/27/howto-set-up-the-raspberry-pi-as-a-headless-device/"
+                       rel="bookmark"
+                       title="Permalink to HowTo: Set-Up the Raspberry Pi as a Headless Device">
+                        HowTo: Set-Up the Raspberry Pi as a Headless Device
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-04-27T21:23:00-04:00"> Wednesday&nbsp;&nbsp;&nbsp;&nbsp;April 27, 2016</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/raspberry-pi/">Raspberry Pi</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p><a href="http://www.raspberrypi-spy.co.uk/2015/11/raspberry-pi-family-photo-by-raspi-tv/">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="The Raspberry Pi is a series of credit card–sized single-board computers developed in England, United Kingdom by the Raspberry Pi Foundation with the intent to promote the teaching of basic computer science in schools and developing countries." alt="rpi family" src="http://jeffskinnerbox.me/images/raspberry-pi-family.jpg" width="175" height="117" />
+</a>
+I have set up all my Raspberry Pi's as <a href="http://internetofthingsagenda.techtarget.com/definition/headless-system">headless devices</a>.
+For one thing, I want to SSH into my devices so I don't want
+or need a monitor/keyboard.
+The real trick on going headless is doing the initial setup of the device
+without an HDMI monitor or a keyboard / mouse,
+required by the <a href="https://www.raspberrypi.org/help/noobs-setup/">typical RPi setup</a>.
+Using just a SD Card reader/writer, a USB WiFi adapter,
+and a Linux machine, I will do the whole setup.</p>
+<p>By the way, if you want to make an existing Raspberry Pi headless,
+you don't need to follow this whole procedure.
+Just make sure SSH is working and follow Step 3.
+If you want to also upgrade your existing Raspberry Pi OS to the latest version,
+check out the article <a href="https://linuxconfig.org/raspbian-gnu-linux-upgrade-from-wheezy-to-raspbian-jessie-8">"Raspbian GNU/Linux upgrade from Wheezy to Raspbian Jessie 8"</a>.</p>
+<h3>Step 1: Download Raspberry Pi Image</h3>
+<p>Before you can load a copy of the latest Raspberry Pi image onto your micro SD Card,
+you must first download the official Raspberry Pi operating system, <a href="https://www.raspbian.org/">Raspbian</a>
+(in my case, the version is <a href="https://www.raspberrypi.org/blog/raspbian-jessie-is-here/">Jessie</a>).
+You can get that download <a href="https://www.raspberrypi.org/downloads/raspbian/">here</a>.</p>
+<p>The Raspbian download site also lists a check sum for the download file.
+(In my case, I down loaded the Raspbian file to <code>/home/jeff/Downloads/</code>.)
+Check whether the file has been changed from its original state
+by checking its digital signature (SHA1 hash value).</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># validate file is uncorrupted via check of digital signature</span>
+$ sha1sum /home/jeff/Downloads/2016-02-09-raspbian-jessie.zip
+da329713833e0785ffd94796304b7348803381db  /home/jeff/Downloads/2016-02-09-raspbian-jessie.zip
+</pre></div>
+
+
+<p>Next you need to unzip the file to retrieve the Linux image file:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>$ unzip 2016-02-09-raspbian-jessie.zip
+Archive:  2016-02-09-raspbian-jessie.zip
+  inflating: 2016-02-09-raspbian-jessie.img
+</pre></div>
+
+
+<h3>Step 2: Write Raspberry Pi Image to SD Card</h3>
+<p>Next using Linux, you have copied the Raspbian image onto the SD card mounted to your system.
+I'll be using the <a href="http://www.amazon.com/gp/product/B00GVRHON2?psc=1&amp;redirect=true&amp;ref_=oh_aui_detailpage_o00_s01">Rocketek 11-in-1 4 Slots USB 3.0 Memory Card Reader</a> to create my SD Card.
+Make sure to <a href="http://www.wirelesshack.org/best-micro-sd-card-for-the-raspberry-pi-model-2.html">choose a reputable SD Card</a> from <a href="http://www.jeffgeerling.com/blogs/jeff-geerling/raspberry-pi-microsd-card">here</a>, don't go cheap.</p>
+<p>When using your card reader,
+you'll need to know the device name of the reader.
+The easiest way to find this is just unplug your card reader from the USB port,
+run <code>df -h</code>, then plug it back in, and run <code>df -h</code> again.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># with the SD card reader unplugged</span>
+$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3.9G   12K  3.9G   1% /dev
+tmpfs           783M  1.7M  781M   1% /run
+/dev/sda3       110G   14G   90G  14% /
+none            4.0K     <span style="color: #FF6600">0</span>  4.0K   0% /sys/fs/cgroup
+none            5.0M     <span style="color: #FF6600">0</span>  5.0M   0% /run/lock
+none            3.9G   90M  3.8G   3% /run/shm
+none            100M   80K  100M   1% /run/user
+/dev/sda1       461M  132M  306M  31% /boot
+/dev/md0        917G  224G  647G  26% /home
+/dev/sdb        3.6T  2.5T  950G  73% /mnt/backup
+
+<span style="color: #0099FF; font-style: italic"># with the SD card reader plugged in USB</span>
+$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3.9G   12K  3.9G   1% /dev
+tmpfs           783M  1.8M  781M   1% /run
+/dev/sda3       110G   14G   90G  14% /
+none            4.0K     <span style="color: #FF6600">0</span>  4.0K   0% /sys/fs/cgroup
+none            5.0M     <span style="color: #FF6600">0</span>  5.0M   0% /run/lock
+none            3.9G   90M  3.8G   3% /run/shm
+none            100M   80K  100M   1% /run/user
+/dev/sda1       461M  132M  306M  31% /boot
+/dev/md0        917G  224G  647G  26% /home
+/dev/sdb        3.6T  2.5T  950G  73% /mnt/backup
+<span style="background-color: #ffffcc">/dev/sdj1        15G   32K   15G   1% /media/jeff/3CB1-D9D9
+</span></pre></div>
+
+
+<p>Note that in my example above, the new device is <code>/dev/sdj1</code>.
+The last part (the number 1) is the partition number
+but we want to write to the whole SD card, not just one partition.
+Therefore you need to remove that part when creating the image.
+With this information, and know the location of the Raspbian image and
+where we need to write the Raspbian image to the SD Card
+(see more detail instructions <a href="https://www.raspberrypi.org/documentation/installation/installing-images/linux.md">here</a>).</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># go to directory with the RPi image</span>
+<span style="color: #336666">cd</span> /home/jeff/Downloads
+
+<span style="color: #0099FF; font-style: italic"># unmount the sd card reader</span>
+sudo umount /dev/sdj
+
+<span style="color: #0099FF; font-style: italic"># write the image to the sd card reader</span>
+sudo dd <span style="color: #003333">bs</span><span style="color: #555555">=</span>4M <span style="color: #006699; font-weight: bold">if</span><span style="color: #555555">=</span>2016-02-09-raspbian-jessie.img <span style="color: #003333">of</span><span style="color: #555555">=</span>/dev/sdj
+
+<span style="color: #0099FF; font-style: italic"># ensure the write cache is flushed</span>
+sync
+
+<span style="color: #0099FF; font-style: italic"># check the integrity of the sd card image</span>
+sudo dd <span style="color: #003333">bs</span><span style="color: #555555">=</span>4M <span style="color: #006699; font-weight: bold">if</span><span style="color: #555555">=</span>/dev/sdj <span style="color: #003333">of</span><span style="color: #555555">=</span>copy-from-sd-card.img
+sudo truncate --reference 2016-02-09-raspbian-jessie.img copy-from-sd-card.img
+diff -s 2016-02-09-raspbian-jessie.img copy-from-sd-card.img
+
+<span style="color: #0099FF; font-style: italic"># unmount the sd card reader</span>
+sudo umount /dev/sdj
+</pre></div>
+
+
+<p>Don’t remove SD card from the reader on your computer.
+We’re going to set up the WiFi interface.</p>
+<blockquote>
+<p><strong>NOTE:</strong> You could immediately put the SD Card in the RPi and boot it up,
+but you will have no WiFi access.
+You can get around this by using a console cable to make the file modification
+outline in the next step.
+<a href="https://learn.adafruit.com/adafruits-raspberry-pi-lesson-5-using-a-console-cable/overview">Adafruit has good description on how to use a console cable</a>.</p>
+</blockquote>
+<h3>Step 3: Configure your WiFi</h3>
+<p>Unplug your SD Card reader and plug it back in
+and this will mount the Raspbian image on your Linux box.
+The <code>df -h</code> command will show you the device being used, the mount point, and memory used/available.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3.9G   12K  3.9G   1% /dev
+tmpfs           783M  1.8M  781M   1% /run
+/dev/sda3       110G   14G   91G  13% /
+none            4.0K     <span style="color: #FF6600">0</span>  4.0K   0% /sys/fs/cgroup
+none            5.0M     <span style="color: #FF6600">0</span>  5.0M   0% /run/lock
+none            3.9G   15M  3.9G   1% /run/shm
+none            100M   44K  100M   1% /run/user
+/dev/sda1       461M  132M  306M  31% /boot
+/dev/md0        917G  232G  639G  27% /home
+/dev/sdd        3.6T  2.5T  984G  72% /mnt/backup
+/dev/sdj2       3.7G  3.3G  206M  95% /media/jeff/23c4ddbc-85fa-4cea-b96b-edae0bb138c9
+/dev/sdj1        60M   20M   41M  34% /media/jeff/boot
+</pre></div>
+
+
+<p>You will find two new partitions, in my case <code>/dev/sdj1</code> and <code>/dev/sdj2</code>.
+As root, you'll need to change directory to the main partition,
+in my case <code>/media/jeff/23c4ddbc-85fa-4cea-b96b-edae0bb138c9</code>, to edit the files.</p>
+<blockquote>
+<p><strong>NOTE:</strong> On a Mac, you can’t access EXT4 partitions without fiddling with 3rd party software.</p>
+</blockquote>
+<p>Change directory to root on the SD card via <code>cd /media/jeff/23c4ddbc-85fa-4cea-b96b-edae0bb138c9/</code>.
+Pay special attention to the path in the files referenced below.
+There is no leading slash since you want to edit the files on your SD Card
+and not the ones on your host system!
+Next we're going to configure the network interface by
+editing the interfaces file <code>etc/network/interfaces</code>.
+Find this block in the file:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>allow-hotplug wlan0
+iface wlan0 inet manual
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+</pre></div>
+
+
+<p>Then change it to this:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>auto wlan0
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+</pre></div>
+
+
+<p>Now open the file <code>etc/wpa_supplicant/wpa_supplicant.conf</code> in an editor
+and add the following to the bottom of the file so your
+Raspberry Pi can connect automatically to your WiFi network:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># home wifi network settings</span>
+<span style="color: #003333">network</span><span style="color: #555555">={</span>
+    <span style="color: #003333">id_str</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;home&quot;</span>
+    <span style="color: #003333">ssid</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;&lt;your-network-ssid-name&gt;&quot;</span>
+    <span style="color: #003333">scan_ssid</span><span style="color: #555555">=</span>1
+    <span style="color: #003333">psk</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;&lt;your-network-password&gt;&quot;</span>
+    <span style="color: #003333">proto</span><span style="color: #555555">=</span>RSN
+    <span style="color: #003333">key_mgmt</span><span style="color: #555555">=</span>WPA-PSK
+    <span style="color: #003333">pairwise</span><span style="color: #555555">=</span>CCMP
+    <span style="color: #003333">auth_alg</span><span style="color: #555555">=</span>OPEN
+<span style="color: #555555">}</span>
+</pre></div>
+
+
+<ul>
+<li><code>id_str</code> is used to set up custom network settings, depending on which access point we are connected to</li>
+<li><code>scan_ssid</code> is 1 tells your WiFi adapter to look for the networks automatically and connect when in range</li>
+<li><code>ssid</code> is the name of the wireless network (what you typically see when you search for WiFi connections)</li>
+<li><code>psk</code> is the WiFi password if the network is WPA/WPA2 encrypted, leave out for open or WEP networks</li>
+<li><code>proto</code> could be either RSN (WPA2) or WPA (WPA1)</li>
+<li><code>key_mgmt</code> could be either WPA-PSK (most probably) or WPA-EAP (enterprise networks)</li>
+<li><code>pairwise</code> could be either CCMP (WPA2) or TKIP (WPA1)</li>
+<li><code>auth_alg</code> is most probably OPEN, other options are LEAP and SHARED</li>
+</ul>
+<p>If you want to include other WiFi networks,
+just add another <code>network</code> structure to the file <code>etc/wpa_supplicant/wpa_supplicant.conf</code>.
+(See examples <a href="http://raspberrypi.stackexchange.com/questions/11631/how-to-setup-multiple-wifi-networks">here</a> and <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=91&amp;t=14226">here</a>)</p>
+<h3>Step 4: First Time Boot of the Raspberry Pi</h3>
+<p>Now unmount the SD Card, put the SD Card into the Raspberry Pi,
+plug a <a href="http://www.amazon.com/Edimax-EW-7811Un-150Mbps-Raspberry-Supports/dp/B003MTTJOY">WiFi dongle</a> into the Raspberry Pi, and power it up.
+After approximately a minute, the Raspberry Pi will have completely booted up.
+At this point your WiFi router should have automatically assigned an IP to the Raspberry Pi
+(assuming the router is running DHCP).</p>
+<p>To access the Raspberry Pi, we'll need its host name
+(generally this defaults to <code>raspberrypi</code>) or
+we’ll need to get the IP address it has been assigned by the network,
+which you can get via your WiFi routers administrate interface or <code>nmap</code> or <code>arp</code>.
+To begin your can scan using <code>nmap -sP</code>,
+which will run a ping scan on the specified network.
+For instance, <code>nmap -sP 192.168.1.0/24</code> will scan the 256 hosts from
+192.168.1.0 through 192.168.1.255 to see if they're available, and report back.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># ping scan on the specified network</span>
+sudo nmap -sP 192.168.1.0/24
+
+<span style="color: #0099FF; font-style: italic"># using arp to find the IP address</span>
+arp -a
+</pre></div>
+
+
+<p>To check to see what devices are running SSH service on port 22:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># using nmap to list IP for devices running with port 22 open</span>
+sudo nmap -p22 -sV 192.168.1.0/24
+</pre></div>
+
+
+<p>So lets assume from the above output that the Raspberry Pi has an IP address of 192.168.1.179
+and SSH is running on this Raspberry Pi,
+so it can be accessed at via <code>ssh pi@192.168.1.179</code>
+Enter the default password <code>raspberry</code> and you will now get to the command prompt.
+If this is your first time for logging in, you will also be a message:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>$ ssh pi@192.168.1.179
+The authenticity of host &#39;192.168.1.179 (192.168.1.179)&#39; can&#39;t be established.
+ECDSA key fingerprint is a6:45:7d:78:4b:c8:52:72:a0:6b:52:37:c8:e6:73:45.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added &#39;192.168.1.179&#39; (ECDSA) to the list of known hosts.
+pi@192.168.1.179&#39;s password:
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Sat Feb 27 15:10:01 2016
+</pre></div>
+
+
+<p>You may also be get with the message:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>NOTICE: this Raspberry Pi has not been fully configured. Please run &#39;sudo raspi-config&#39;
+</pre></div>
+
+
+<p>If you get it or not, this should be your next step.</p>
+<blockquote>
+<p><strong>NOTE:</strong> When using a keyboard and monitor (not SSH) when logging in,
+the Raspberry Pi OS image <a href="https://www.raspberrypi.org/blog/raspbian-jessie-is-here/">Jessie</a> default behaviour is to boot straight to the desktop GUI,
+not to the Linux command line as done above.
+The motivation is that is the expected behaviour for all modern computers.
+When a new image that contains the <code>raspi-config</code> utility is booted the first time,
+the session starts with the <code>raspi-config</code> screen
+(This behaviour is driven by the <code>raspi-config.sh</code> script in the <code>/etc/profile.d</code> directory).
+Under these conditions, you would be prompted for the next step automatically.</p>
+</blockquote>
+<h3>Step 5: Configure the Raspberry Pi</h3>
+<p>You should now run the <code>sudo raspi-config</code> (see <a href="http://elinux.org/RPi_raspi-config">raspi-config documentation</a>)
+The multiple things can be configured within this configuration tool.
+We need to change the following:</p>
+<ul>
+<li><strong>Expand Filesystem</strong> - select this</li>
+<li><strong>Boot Options</strong> - select this and choose "B1 Console"</li>
+<li><strong>Advanced Options</strong> - select this and choose "A2 Hostname", enable "A4 SSH", enable "A5 Device Tree", enable "A6 SPI", enable "A7 IC2", enable "A8 Serial"</li>
+</ul>
+<p>Finally, select <code>&lt;Finish&gt;</code> and reboot so that the configuration changes are all applied.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo reboot
+</pre></div>
+
+
+<h3>Step 6: OS Updates</h3>
+<p>Let's make sure you have all the most current Linux packages.
+This will patch the Linux operating system and all its GPL applications</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># commandline utility for applications upgrade</span>
+sudo apt-get update
+sudo apt-get dist-upgrade
+sudo apt-get upgrade
+
+<span style="color: #0099FF; font-style: italic"># if packages were installed, reboot</span>
+sudo reboot
+</pre></div>
+
+
+<p>After a successful upgrade and reboot,
+use <code>hostnamectl</code> and <code>vcgencmd</code> to see your current Raspbian version
+and firmware version using the method shown below:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># check you current OS version</span>
+$ hostnamectl
+   Static hostname: mesh01
+         Icon name: computer
+           Chassis: n/a
+        Machine ID: 66ed98ff0e86414096aa89869d8e8c09
+           Boot ID: d85f8fc7314f427b8049f304baf05b8c
+  Operating System: Raspbian GNU/Linux <span style="color: #FF6600">8</span> <span style="color: #555555">(</span>jessie<span style="color: #555555">)</span>
+            Kernel: Linux 4.1.17+
+      Architecture: arm
+
+<span style="color: #0099FF; font-style: italic"># check the firmware version</span>
+$ sudo /opt/vc/bin/vcgencmd version
+Feb  <span style="color: #FF6600">1</span> <span style="color: #FF6600">2016</span> 17:51:17
+Copyright <span style="color: #555555">(</span>c<span style="color: #555555">)</span> <span style="color: #FF6600">2012</span> Broadcom
+version b3dc56931507f355d503ea69397778643f7a3dc3 <span style="color: #555555">(</span>clean<span style="color: #555555">)</span> <span style="color: #555555">(</span>release<span style="color: #555555">)</span>
+</pre></div>
+
+
+<h3>Step 7: Updating Firmware for Raspberry Pi</h3>
+<p>In the case of the Raspberry Pi (RPi), you will want to also upgrade the firmware regularly.
+<a href="http://www.raspbian.org/">Raspbian</a> is the standard Linux operating system distribution for the RPi,
+but it doesn't include firmware.
+Never the less, tools for updating the firmware are included in the Raspbian distribution of Linux.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># install firmware update tool</span>
+sudo apt-get install rpi-update
+
+<span style="color: #0099FF; font-style: italic"># check for and install any required Raspberry Pi firmware upgrades</span>
+sudo <span style="color: #003333">BRANCH</span><span style="color: #555555">=</span>next rpi-update
+
+<span style="color: #0099FF; font-style: italic"># if firmeware is installed, reboot</span>
+sudo reboot
+</pre></div>
+
+
+<p>Rerun the tools <code>hostnamectl</code> and <code>vcgencmd</code> to see how your
+kernel and firmware may have changed from the earlier step.</p>
+<p>Once these tools have been installed,
+periodically you can update the firmware via the commands below:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># periodically you can update the firmware via the command</span>
+
+<span style="color: #0099FF; font-style: italic"># check for and install any required Raspberry Pi firmware upgrades</span>
+sudo <span style="color: #003333">BRANCH</span><span style="color: #555555">=</span>next rpi-update
+
+<span style="color: #0099FF; font-style: italic"># if firmeware is installed, reboot</span>
+sudo reboot
+</pre></div>
+
+
+<blockquote>
+<p><strong>NOTE:</strong> If your using the <a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/overview">Adafruit's Occidentalis distribution</a>,
+this may require a <a href="https://github.com/Hexxeh/rpi-update">slightly different update tool</a></p>
+</blockquote>
+<h3>Step 8: Package Installs</h3>
+<p>While the Raspberry Pi comes with a fairly robust set of Linux packages,
+it could use some beefing up for most uses.
+For example, while the distribution is likely to already have some Python packages installed,
+execute the following to make sure you have all that is needed</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># first install Python packages</span>
+sudo apt-get install python python-dev libjpeg-dev libfreetype6-dev python-setuptools python-pip
+sudo pip install virtualenv virtualenvwrapper
+
+<span style="color: #0099FF; font-style: italic"># update the Python distribution</span>
+sudo easy_install -U distribute
+
+<span style="color: #0099FF; font-style: italic"># install the RPi GPIO and other packages via pip</span>
+sudo pip install RPi.GPIO pySerial nose cmd2
+</pre></div>
+
+
+<p>Install X Window utilities, development tools, and other applications</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># some X Window utilities</span>
+sudo apt-get install x11-apps x11-xserver-utils xterm
+
+<span style="color: #0099FF; font-style: italic"># development tools</span>
+sudo apt-get install markdown git vim vim-gtk microcom screen
+sudo apt-get install nodejs-legacy npm build-essential i2c-tools python-smbus
+sudo npm install -g jshint
+
+<span style="color: #0099FF; font-style: italic"># AWS IoT Device SDK to connect hardware device to AWS IoT</span>
+sudo npm install aws-iot-device-sdk
+
+<span style="color: #0099FF; font-style: italic"># so you can discover hosts via Multicast Domain Name System (mDNS)</span>
+sudo apt-get install avahi-daemon
+
+<span style="color: #0099FF; font-style: italic"># basic networking / firewall tools</span>
+sudo apt-get install tcpdump wavemon nicstat nmap ufw
+
+<span style="color: #0099FF; font-style: italic"># other handy tools</span>
+sudo apt-get install sendmail gnome-terminal
+</pre></div>
+
+
+<blockquote>
+<p><strong>NOTE:</strong> To avoid a <a href="http://stackoverflow.com/questions/21168141/cannot-install-packages-using-node-package-manager-in-ubuntu">potential namespace collision</a> for the word "node",
+specifically as it relates to <a href="https://nodejs.org/en/">Node.js</a>,
+make sure to use the <code>nodejs-legacy</code> package for Node.js.</p>
+</blockquote>
+<p>Appears that getting my favorite browser,
+<a href="https://www.google.com/chrome/browser/desktop/index.html">Chrome</a> or its open source version <a href="https://www.chromium.org/">Chromium</a>,
+on the Raspberry Pi <a href="http://conoroneill.net/running-the-latest-chromium-45-on-debian-jessie-on-your-raspberry-pi-2/">got a bit harder</a>.
+The default browser for the RPi has been <a href="http://midori-browser.org/">Midori</a>.
+Another popular lightweight browser is <a href="http://links.twibright.com/">links2</a>
+which can running in both graphics and text mode.
+An of course there is the text mode browser <a href="http://lynx.browser.org/">lynx</a>.
+While Midori is prettier, Links2 appears to be the faster graphics browser.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># install the midori and links2 browser</span>
+sudo apt-get install midori links2
+
+<span style="color: #0099FF; font-style: italic"># to execute the midori browser</span>
+midori &amp;
+midori http://www.google.com &amp;
+
+<span style="color: #0099FF; font-style: italic"># to execute the links browser in grapics mode</span>
+links2 -g &amp;
+links2 -g http://www.google.com &amp;
+
+<span style="color: #0099FF; font-style: italic"># to execute the links browser in text mode</span>
+gnome-terminal -x sh -c <span style="color: #CC3300">&#39;links2 http://www.google.com&#39;</span>
+
+<span style="color: #0099FF; font-style: italic"># to execute the lynx browser</span>
+gnome-terminal -x sh -c <span style="color: #CC3300">&#39;lynx&#39;</span>
+gnome-terminal -x sh -c <span style="color: #CC3300">&#39;lynx http://www.google.com&#39;</span>
+</pre></div>
+
+
+<p>Google Chrome on your <a href="https://en.wikipedia.org/wiki/ARM_architecture">ARM architecture</a> is problematic
+because of licensing issues with ARM and bugs with ARM's proprietary drivers.
+It appears to be supported on the amd64 architecture.
+If your using the amd64 architecture,
+use the <code>midori</code> or <code>links2</code> browsers,
+goto the Chrome download website
+<code>https://www.google.com/chrome/browser/desktop/index.html</code>
+and get the <code>.deb</code> package from Google,
+and install it with <code>sudo dpkg -i ....</code>.</p>
+<h3>Step 8A: Load Personal Tools (Optional)</h3>
+<p>Now that all the Linux packages have been loaded,
+time to install my personal tools on the device.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># install tools for vim text editor</span>
+<span style="color: #336666">cd</span> ~
+git clone https://github.com/jeffskinnerbox/.vim.git
+ln -s ~/.vim/vimrc ~/.vimrc
+
+<span style="color: #0099FF; font-style: italic"># install tools for bash shell</span>
+<span style="color: #336666">cd</span> ~
+git clone https://github.com/jeffskinnerbox/.bash.git
+ln -s ~/.bash/bashrc ~/.bashrc
+ln -s ~/.bash/bash_login ~/.bash_login
+ln -s ~/.bash/bash_logout ~/.bash_logout
+ln -s ~/.bash/bash_profile ~/.bash_profile
+ln -s ~/.bash/dircolors.old ~/.dircolors
+sudo cp virtualenvwrapper.sh virtualenvwrapper_lazy.sh /usr/local/bin
+
+<span style="color: #0099FF; font-style: italic"># install X configuration files</span>
+<span style="color: #336666">cd</span> ~
+git clone https://github.com/jeffskinnerbox/.X.git
+ln -s ~/.X/xbindkeysrc ~/.xbindkeysrc
+ln -s ~/.X/Xresources ~/.Xresources
+ln -s ~/.X/xsessionrc ~/.xsessionrc
+</pre></div>
+
+
+<h3>Step 9: Password-less Login via SSH Keys</h3>
+<p><a href="http://www.openssh.com/">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="http://jeffskinnerbox.me/images/openssh-logo.png" width="97" height="95" />
+</a>
+Public key authentication is an alternative means of
+identifying yourself to a login server, instead of typing a password.
+It is more secure and more flexible, but more difficult to set up.
+This is particularly important if the computer is visible on the Internet.
+Also, public key authentication allows you to log into a machine
+without a user typing in a password.</p>
+<p>To setup password-less login via public key authentication,
+use the posting <a href="http://jeffskinnerbox.me/posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/">"HowTo: Configure SSH Public Key Authentication"</a>.</p>
+<h3>Step 10: Boot Without Starting X Window</h3>
+<p>The Raspberry Pi's Jessie image is configured to automatically bring up the X Window
+graphics system and the supporting GUI (aka <a href="https://en.wikipedia.org/wiki/X_display_manager_(program_type)">X Window System Display Manager</a>).
+Generally, your not going to be using an RPi to support GUI's for users.
+You should turn off X Windows and save yourself some CPU cycles.</p>
+<p>You can discover if X Windows being start at boot up via the command:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># query to find out if your in graphical or multi-user mode</span>
+$ systemctl get-default
+graphical.target
+</pre></div>
+
+
+<p>The response <code>graphical.target</code> indicates X Windows is being started on boot up.
+The utility <a href="https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units"><code>systemd</code></a> is an init system and system manager that is widely
+becoming the new standard for Linux machines.</p>
+<p>To no long use the GUI and boot into multi-user mode, use this command</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># set to multi-user mode</span>
+$ sudo systemctl set-default multi-user.target
+Removed symlink /etc/systemd/system/default.target.
+Created symlink from /etc/systemd/system/default.target to /lib/systemd/system/multi-user.target.
+
+<span style="color: #0099FF; font-style: italic"># query to find out if your in graphical or multi-user mode</span>
+$ systemctl get-default
+multi-user.target
+</pre></div>
+
+
+<p>Note that at this point the X Server will still be running.
+You can see this via the command <code>ps -aux | grep X</code>.
+You need to reboot the RPi and then you will no long have X Window running.</p>
+<h3>Step 11: Running X Window Clients When You Want It</h3>
+<p><a href="http://www.xquartz.org/index.html">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="The XQuartz project is an open-source effort to develop a version of the X.Org X Window System that runs on OS X." alt="XQuartz Logo" src="http://jeffskinnerbox.me/images/xquartz-logo.jpg" width="90" height="90" />
+</a>
+Despite the fact that you boot without X Windows starting,
+you can run <a href="http://www.tldp.org/HOWTO/XWindow-Overview-HOWTO/arch-overview.html">X Window clients</a> on the Raspberry Pi
+(like the <code>midori</code> browser)
+without any problem if you <code>ssh -X</code> into the RPi from a machine running
+the <a href="https://en.wikipedia.org/wiki/X_Window_System">X Window System</a> <a href="https://en.wikipedia.org/wiki/X.Org_Server">X.Org Server</a>.</p>
+<p>A simple test to see this work is to run <code>xeyes</code> on the Raspberry Pi.
+A pair of eyes that track you mouse movement should appear in the display
+of the machine from which your performing the <code>ssh -X</code>.
+The <code>xeyes</code> X Window client is running on the RPi
+using the display and XServer of our local machine.</p>
+<p>If your not using, <code>ssh</code> to connect with the Raspberry Pi,
+but just using a terminal, say with <a href="http://aperiodic.net/screen/start">screen</a> using a <a href="https://learn.adafruit.com/adafruits-raspberry-pi-lesson-5-using-a-console-cable/overview">console cable</a>,
+your not going to be able run X Window System applications.
+You <strong>must</strong> be connected via TCP/IP to the Raspberry Pi.</p>
+<h3>Step 12: Static IP Address</h3>
+<p>Currently, your Raspberry Pi connects automatically to your WiFi network
+every time it is tuned on,
+but you may want to specify a static IP address to communicate with your RPi.</p>
+<p>For example, to set the static IP address to <code>192.168.100.50</code>,
+you'll need to update the file <code>/etc/network/interfaces</code>.
+This file currently looks like this:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span># Include files from /etc/network/interfaces.d:
+source-directory /etc/network/interfaces.d
+
+auto lo
+iface lo inet loopback
+
+iface eth0 inet manual
+
+auto wlan0
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+</pre></div>
+
+
+<p>For your static IP address, modify file <code>/etc/network/interfaces</code> to look like:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span># Include files from /etc/network/interfaces.d:
+source-directory /etc/network/interfaces.d
+
+auto lo
+iface lo inet loopback
+
+iface eth0 inet manual
+
+auto wlan0
+allow-hotplug wlan0
+iface wlan0 inet manual
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+
+iface default inet static
+    address 192.168.100.50
+    netmask 255.255.255.0
+    network 192.168.100.0
+    broadcast 192.168.100.255
+    gateway 192.168.100.1
+</pre></div>
+
+
+<h3>Step 13: Configure Firewall</h3>
+<p>I recommend using <a href="https://wiki.ubuntu.com/UncomplicatedFirewall"><code>ufw</code> (Uncomplicated FireWall)</a> to restrict access to the Raspberry Pi.
+The Linux kernel provides a packet filtering system called <a href="https://www.digitalocean.com/community/tutorials/a-deep-dive-into-iptables-and-netfilter-architecture"><code>netfilter</code></a>,
+and the traditional interface for manipulating <code>netfilter</code> are the <a href="http://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/"><code>iptables</code></a> suite of commands.
+<code>iptables</code> provide a complete firewall solution that is highly configurable and flexible
+but can be daunting task.
+To make things easier, several frontends for <code>iptables</code> have been created over the years.</p>
+<p><code>ufw</code> is one of those frontends and its aims is to provide an
+easy to use interface for people unfamiliar with firewall concepts,
+while at the same time simplifies complicated <code>iptables</code> commands
+to help an administrator who knows what he or she is doing.</p>
+<h3>Step 14: Install Fail2Ban</h3>
+<p><a href="http://www.fail2ban.org/wiki/index.php/Main_Page">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time." alt="fail2ban logo" src="http://jeffskinnerbox.me/images/fail2ban-logo.png" width="75" height="75" /></a>
+Recently I examined my desktop computer's <code>sshd</code> log file <code>/var/log/auth.log</code>
+(<a href="http://ossec-docs.readthedocs.org/en/latest/log_samples/auth/sshd.html">log samples from sshd</a>) looking for failed login attempts
+I saw a list of well over 100 attempts, from mainly one IP (125.88.177.90 - Guangdong, China),
+trying to login via SSH as root or bin user.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># attacks on just port 22</span>
+$ cat /var/log/auth.log | grep <span style="color: #CC3300">&#39;sshd.*Failed&#39;</span> | grep <span style="color: #CC3300">&#39;port 22&#39;</span> | wc
+    <span style="color: #FF6600">171</span>    <span style="color: #FF6600">2814</span>   18950
+
+<span style="color: #0099FF; font-style: italic"># attacks on any port</span>
+$ cat /var/log/auth.log | grep <span style="color: #CC3300">&#39;sshd.*Failed&#39;</span> | wc
+  <span style="color: #FF6600">11066</span>  <span style="color: #FF6600">182457</span> 1229596
+</pre></div>
+
+
+<p>I also noticed that the attacher is attempting to use multiple originating ports in an effort
+to subvert delays required between multiple logins (see this <a href="http://security.stackexchange.com/questions/67602/closely-spaced-failed-logins-in-auth-log">article</a>).
+I decided it was time to pay a little bit more attention to security!</p>
+<p>The article <a href="https://www.debian-administration.org/article/87/Keeping_SSH_access_secure">"Keeping SSH Access Secure"</a> provides some good suggestions.
+One method, not referenced in this article, is how you could
+rate-limit <code>iptables</code> rules to address this issue (from this <a href="https://www.debian-administration.org/article/187/Using_iptables_to_rate-limit_incoming_connections">source</a>:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># block connections if the login fails 10 times in 1 hour on port 22</span>
+iptables -I INPUT -p tcp --dport <span style="color: #FF6600">22</span> -m state --state NEW -m recent --set
+iptables -I INPUT -p tcp --dport <span style="color: #FF6600">22</span> -m state --state NEW -m recent --update --seconds <span style="color: #FF6600">3600</span> --hitcount <span style="color: #FF6600">10</span> -j DROP
+</pre></div>
+
+
+<p>This blocks connections if the login fails ten times in one hour on port 22.</p>
+<p>Another easy answer would be to limit <code>ssh</code> access from wlan interface only.
+This works if you have no plans to <code>ssh</code> into your device from the Internet,
+effectively cuts out the attacks from the Internet.
+But of course, if your neighbors nerdy 13 year old wants to mess with your WiFi,
+you still could have some attacks.</p>
+<p>So its just a matter of time before the attack is on another port, or user account, or network interface,
+therefore using <a href="http://www.fail2ban.org/wiki/index.php/Main_Page">Fail2Ban</a> or something similar may be in order.
+<code>fail2ban</code> reads the <code>sshd</code> log entries (and other log files)
+and bans the originating address when there are too many failures.
+Generally Fail2Ban is then used to update firewall rules to reject
+the IP addresses for a specified amount of time, although any arbitrary other action
+(e.g. sending an email) could also be configured.
+Out of the box Fail2Ban comes with filters for various services (apache, courier, ssh, etc.).</p>
+<p>For the installation and configuration of Fail2Ban,
+check out <a href="http://jeffskinnerbox.me/posts/2016/Apr/27/howto-install-and-configure-fail2ban/">"HowTo: Install and Configure Fail2Ban"</a>
+While Fail2Ban does provide additional protection, the use of two factor authentication
+(see <a href="http://jeffskinnerbox.me/posts/2015/Nov/28/two-factor-authentication-via-google-authenticator/">"Two-Factor Authentication via Google Authenticator"</a>) can increase your protection.
+The use of public/private key authentication mechanisms
+(see <a href="http://jeffskinnerbox.me/posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/">"HowTo: Configure SSH Public Key Authentication"</a>)
+can provide the best protection overall.</p>
+<h3>Step 15: Basic Security</h3>
+<p>Beyond the basic security take in Step 14,
+you should minimize your exposure to other network security attacks
+and following some of the tips outlined in the postings
+<a href="https://www.hackster.io/charifmahmoudi/iot-security-tips-to-protect-your-device-from-bad-hackers-768093?utm_source=Hackster.io+newsletter&amp;utm_campaign=3e0b3a91f6-2015_4_17_Top_projects4_16_2015&amp;utm_medium=email&amp;utm_term=0_6ff81e3e5b-3e0b3a91f6-140225889">"IoT Security: Tips to Protect your Device from Bad Hackers"</a>
+and <a href="http://jjjjango.blogspot.com/2015/01/secure-your-raspberry-pi.html">"Secure your Raspberry Pi"</a> is a good start.</p>
+<h3>Step 16: Install Watchdog</h3>
+<p><a href="http://dovgalecs.com/blog/keeping-your-raspberry-pi-alive-enabling-hardware-watchdog-under-arch-linux/">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="A watchdog timer is a piece of hardware or software that can be used to automatically detect software anomalies and reset the processor if any occur. Generally speaking, a watchdog timer is based on a counter that counts down from some initial value to zero." alt="watchdog" src="http://jeffskinnerbox.me/images/watchdog.jpg" width="115" height="110" />
+</a>
+A <a href="http://www.embedded.com/electronics-blogs/beginner-s-corner/4023849/Introduction-to-Watchdog-Timers">Watchdog</a> is a kind of peripheral that will boot your device
+if it doesn’t get "fed" at regular times or intervals
+Therefore, it can prevent your system from hanging.
+It’s a nice feature to have,
+specially if there’s nobody around to press the "reset" button for you.</p>
+<p>Watchdog's can be built with hardware or software,
+but they do differ in the types of problems they can address.
+A hardware watchdog resets the system automatically even when the CPU crashes.
+A software watchdog can do something only when given a slice of CPU time.
+The end result is that a software watchdog can fail to respond to total system crash.</p>
+<p>Luckily, the Raspberry Pi's BCM2835 and BCM2708 SoC chip have a hardware watchdog built in.
+For how to make use of the watchdog and additional information, check out these sources:</p>
+<ul>
+<li><a href="http://betterembsw.blogspot.com/2014/05/proper-watchdog-timer-use.html">Proper Watchdog Timer Use</a></li>
+<li><a href="http://blog.ricardoarturocabral.com/2013/01/auto-reboot-hung-raspberry-pi-using-on.html">Auto-reboot a hung Raspberry Pi using the on-board watchdog timer</a></li>
+<li><a href="http://www.switchdoc.com/2014/11/reliable-projects-using-internal-watchdog-timer-raspberry-pi/">Using the Internal WatchDog Timer for the Raspberry Pi</a></li>
+<li><a href="http://www.jann.cc/2013/02/02/linux_watchdog.html">Using the Watchdog Timer in Linux</a></li>
+<li><a href="https://embeddedfreak.wordpress.com/2010/08/23/howto-use-linux-watchdog/">Howto Use Linux Watchdog</a></li>
+<li><a href="http://www.sat.dundee.ac.uk/psc/watchdog/watchdog-configure.html">Linux Watchdog Daemon - Configuring</a></li>
+<li><a href="https://www.kernel.org/doc/Documentation/watchdog/watchdog-api.txt">The Linux Watchdog driver API</a></li>
+</ul>
+<h3>Step 17: Clone the SD Card</h3>
+<p>There are a few reasons you might want to duplicate (clone/copy)
+your Raspberry Pi’s SD Card.
+One reason is to create a backup.
+An even better reason maybe is that you spent untold hours installing and configuring
+software on your Raspberry Pi,
+and you want to set up a second Raspberry Pi,
+but didn’t want to spend the time to duplicate the previous efforts.</p>
+<p>To clone your SD Card:</p>
+<ol>
+<li>Remove the original SD Card from Raspberry Pi and insert it into a card reader on your computer.</li>
+<li>Locate where the SD Card is mounted on your computer.</li>
+<li>Use the <code>dd</code> (convert and copy a file) command to duplicate the contents of the SD Card to your computer.</li>
+<li>Unmount original SD Card. Mount the new SD Card.</li>
+<li>Reverse the process by copying the duplicate file (i.e. the backup file) to the new SD Card.</li>
+<li>Unmount the newly created duplicate SD Card.</li>
+</ol>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># go to a directory where you can store the copied SD Card</span>
+<span style="color: #336666">cd</span> /home/jeff/tmp
+
+<span style="color: #0099FF; font-style: italic"># we&#39;ll assume</span>
+<span style="color: #0099FF; font-style: italic">#     sde: this is the primary hard drive</span>
+<span style="color: #0099FF; font-style: italic">#     sde1: this is the SD card</span>
+
+<span style="color: #0099FF; font-style: italic"># write the sd card copy to the file system</span>
+sudo dd <span style="color: #003333">bs</span><span style="color: #555555">=</span>4M <span style="color: #006699; font-weight: bold">if</span><span style="color: #555555">=</span>/dev/sde1 <span style="color: #003333">of</span><span style="color: #555555">=</span>sd-card.bin
+
+<span style="color: #0099FF; font-style: italic"># ensure the write cache is flushed and unmount</span>
+sync
+sudo umount /dev/sde1
+
+<span style="color: #0099FF; font-style: italic">#  take sd card image you just created and writes it to the device</span>
+sudo dd <span style="color: #003333">bs</span><span style="color: #555555">=</span>4M <span style="color: #006699; font-weight: bold">if</span><span style="color: #555555">=</span>sd-card.bin <span style="color: #003333">of</span><span style="color: #555555">=</span>/dev/sde1
+
+<span style="color: #0099FF; font-style: italic"># ensure the write cache is flushed and unmount</span>
+sync
+sudo umount /dev/sde1
+</pre></div>
+
+
+<p>You should now be able to insert the cloned SD Card into a brand new Raspberry Pi and boot it up,
+without any problems.
+But obviously, there are some things you may want to change on a cloned Raspberry Pi.
+For example, you should change the cloned Raspberry Pi’s host name,
+so it doesn’t conflict with the original Raspberry Pi on the network.
+This is easily done:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># modify the host name</span>
+sudo vi /etc/hostname
+
+<span style="color: #0099FF; font-style: italic"># restart the advertised host name</span>
+sudo /etc/init.d/hostname.sh start
+</pre></div><script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+		? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js'
+		: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+            var disqus_identifier = 'howto-set-up-the-raspberry-pi-as-a-headless-device';
+            var disqus_url = 'http://jeffskinnerbox.me/posts/2016/Apr/27/howto-set-up-the-raspberry-pi-as-a-headless-device/';
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="http://jeffskinnerbox.me/pages/about-me/" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <a href="http://jeffskinnerbox.me/pages/about-me/">
+                        <img class="img-rounded" src="http://jeffskinnerbox.me/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                    </a>
+                </div>
+
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook/index.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+<li class="list-group-item"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Site Pages</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="/pages/linux-and-python-packages-for-my-raspberry-pi/index.html" target="_blank">
+                RPi Packages
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="/tag/how-to/index.html" target="_blank">
+                How To
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="/tag/cheat-sheet/index.html" target="_blank">
+                Cheat Sheets
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-puzzle-piece fa-lg"></i><span class="icon-label">MicroContent</span></h4>
+    <ul class="list-group" id="wiki">
+        <li class="list-group-item">
+            <a href="http://jeffskinnerbox-wiki.herokuapp.com/#Potential Projects" target="_blank">
+                Project Ideas
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://jeffskinnerbox-wiki.herokuapp.com/#Topics for Study" target="_blank">
+                Things to Study
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">External Links</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://tiddlywiki.com/" target="_blank">
+                TiddlyWiki
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+    <ul class="list-group" id="social">
+        <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-github"></i> Github
+        </a></li>
+        <li class="list-group-item"><a href="https://hackaday.io/jeffskinnerbox" target="_blank">
+            <i class="fa fa-hacker-news"></i> Hackaday
+        </a></li>
+        <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-twitter"></i> Twitter
+        </a></li>
+        <li class="list-group-item"><a href="https://www.flickr.com/photos/104241758@N03/" target="_blank">
+            <i class="fa fa-flickr"></i> Flickr
+        </a></li>
+        <li class="list-group-item"><a href="https://delicious.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-delicious"></i> Delicious
+        </a></li>
+        <li class="list-group-item"><a href="https://www.pinterest.com/jeffskinnerbox/my-electronics-projects-and-other-diversions/" target="_blank">
+            <i class="fa fa-pinterest"></i> Pinterest
+        </a></li>
+        <li class="list-group-item"><a href="http://getpocket.com/a/queue/" target="_blank">
+            <i class="fa fa-chevron-circle-down"></i> Pocket
+        </a></li>
+        <li class="list-group-item"><a href="http://jeffskinnerbox.tumblr.com/" target="_blank">
+            <i class="fa fa-tumblr"></i> Tumblr
+        </a></li>
+        <li class="list-group-item"><a href="http://instagram.com/jeffskinnerbox" target="_blank">
+            <i class="fa fa-instagram"></i> Instagram
+        </a></li>
+        <li class="list-group-item"><a href="https://www.facebook.com/jeff.irland" target="_blank">
+            <i class="fa fa-facebook"></i> Facebook
+        </a></li>
+        <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+            <i class="fa fa-linkedin"></i> Linkedin
+        </a></li>
+        <li class="list-group-item"><a href="http://www.commandlinefu.com/commands/by/jeffskinnerbox" target="_blank">
+            <i class="fa fa-terminal"></i> CommandLineFu
+        </a></li>
+        <li class="list-group-item"><a href="https://disqus.com/by/jeffskinnerbox/" target="_blank">
+            <i class="fa fa-comment"></i> DISQUS
+        </a></li>
+    </ul>
+</li> 
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+<li class="list-group-item"><h4><i class="fa fa-thumbs-up fa-lg"></i><span class="icon-label">Reposted At</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://www.eeweb.com/websites/jeffs-skinner-box" target="_blank">
+                EEWeb.com
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-group-item"><h4><i class="fa fa-gears fa-lg"></i><span class="icon-label">Admin</span></h4>
+    <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a43272292w73270397p83408137/" target="_blank">
+                Google Analytics
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io" target="_blank">
+                Web Site Source Code
+            </a>
+        </li>
+    </ul>
+</li>
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by/index.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://tiddlywiki.com/" target="_blank">TiddlyWiki</a>,
+            <a href="http://ipython.org/notebook.html" target="_blank">Python Notebook</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by/index.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
+            <small>
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://jeffskinnerbox.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://jeffskinnerbox.me/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://jeffskinnerbox.me/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://jeffskinnerbox.me/theme/js/github.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-43272292-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>

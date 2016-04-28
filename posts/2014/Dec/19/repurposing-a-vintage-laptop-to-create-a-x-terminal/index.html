@@ -299,7 +299,7 @@ but what are the important things one should take away from all this?</p>
 <p>You can configure Ubuntu to run different Window Managers within any given Desktop Environment.
 This makes it a bit of a challenge in knowing what window manager your using.
 Detecting which Window Manager your using require you to sort of know what to look for.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># detect the window manager you are using</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># detect the window manager you are using</span>
 ps -ef | egrep <span style="color: #CC3300">&quot;xfwm|twm|metacity|beryl|compiz&quot;</span> | grep -v egrep
 </pre></div>
 
@@ -307,7 +307,7 @@ ps -ef | egrep <span style="color: #CC3300">&quot;xfwm|twm|metacity|beryl|compiz
 <p>What is the Display Manager being used?
 The Display Manager runs before you log in, and as such, it's by the system is configured.
 On a Ubuntu system, you can find the Display Manager being used via</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># print our the Display Manager being used</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># print our the Display Manager being used</span>
 cat /etc/X11/default-display-manager
 </pre></div>
 
@@ -326,7 +326,7 @@ and my Linux desktop as my Display Manager connected via XDMCP,
 but I had significant Window Manager problems.
 Basically, it would not start when I logged in.
 I discovered this via this script:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># detect the window manager you are using</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># detect the window manager you are using</span>
 ps -ef | egrep <span style="color: #CC3300">&quot;xfwm|twm|metacity|beryl|compiz|fluxbox&quot;</span> | grep -v egrep
 </pre></div>
 
@@ -339,7 +339,7 @@ Time to try another Window Manager.</p>
 <p>There are a few ways to run X windows applications remotely
 (i.e. running an X Windows application on a remote computer and having the graphical part show up on your local computer).
 For something quick, use the <a href="https://help.ubuntu.com/community/SSH/OpenSSH/Configuring">SSH method</a> in an <code>xterm</code> window:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">ssh -X login@remote-computer
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>ssh -X login@remote-computer
 </pre></div>
 
 
@@ -392,7 +392,7 @@ The <a href="https://www.youtube.com/watch?v=SZU9XzJBgVc">debate concerning GNOM
 <li><strong>Head-Up Display (HUD) –</strong> allows hotkey searching for top menu bar items from the keyboard, without the need for using the mouse, by pressing and releasing the Alt key.</li>
 <li><strong>Indicators –</strong> a notification area containing displays for the clock, network and battery status, sound volume, etc.</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># Just notes</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># Just notes</span>
 
 <span style="color: #0099FF; font-style: italic"># make sure the last entry of the .xsessionrc file is run in the background</span>
 
@@ -420,7 +420,7 @@ Once a theme is established, it can udergo additional tuning via the
 This configuration tool provides users access to features and configuration options,
 and brings them all together in a polished &amp; easy-to-use interface.
 To install this tool, use</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install unity-tweak-tool
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install unity-tweak-tool
 </pre></div>
 
 
@@ -440,17 +440,17 @@ and a bit about what they do, just look in <code>/usr/share/doc/lightdm/lightdm.
 running a command When X starts, when the greeter starts, or when the user session starts
 may be the more useful for our purposes.
 For example, when <code>lightdm</code> starts X you can run a command or script, like <code>xset</code> perhaps.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">display-setup-script=[script|command]
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>display-setup-script=[script|command]
 </pre></div>
 
 
 <p>You can do something similar when the greeter starts:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">greeter-setup-script=[script|command]
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>greeter-setup-script=[script|command]
 </pre></div>
 
 
 <p>or when the user session starts:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">session-setup-script=[script|command]
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>session-setup-script=[script|command]
 </pre></div>
 
 
@@ -467,7 +467,7 @@ path on top of the normal schema name like <code>org.gnome.login-screen</code>.
 An application does not need to know where or how the data is stored,
 just how to access that data and recieve a notification if and when the data changes.</p>
 <p>To list all the available schemas<sup id="fnref:F"><a class="footnote-ref" href="#fn:F" rel="footnote">6</a></sup>, enter</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">gsettings list-schemas
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>gsettings list-schemas
 </pre></div>
 
 
@@ -475,13 +475,13 @@ just how to access that data and recieve a notification if and when the data cha
 Keys are the actual settings we manipulate.
 We can list them with <code>gsettings list-keys &lt;schema name&gt;</code>.
 For example,</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">gsettings list-keys org.gnome.login-screen
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>gsettings list-keys org.gnome.login-screen
 </pre></div>
 
 
 <p>You can also list both the keys and their current values by running <code>gsettings list-recursively &lt;schema&gt;</code>.
 For example,</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">gsettings list-recursively org.gnome.login-screen
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>gsettings list-recursively org.gnome.login-screen
 </pre></div>
 
 
@@ -489,7 +489,7 @@ For example,</p>
 Other than the path we treat the the two types of schemas the same way from the command line.
 The location of the relocatable schemas are within the path and not in the default location.
 For example we added a colon followed by the path:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">gsettings list-recursively org.gnome.login-screen:/org/mate/panel/objects/object_0/
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>gsettings list-recursively org.gnome.login-screen:/org/mate/panel/objects/object_0/
 </pre></div>
 
 
@@ -498,25 +498,25 @@ For example,
 Unity desktop comes with overlay scrollbars enabled by default.
 You can disable overlay scroll-bars, if you don't like them.
 Enter the following command in a terminal to disable overlay scrollbar:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">gsettings set com.canonical.desktop.interface scrollbar-mode normal
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>gsettings set com.canonical.desktop.interface scrollbar-mode normal
 </pre></div>
 
 
 <p>If you want to get back overlay bars, enter following command:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">gsettings reset com.canonical.desktop.interface scrollbar-mode
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>gsettings reset com.canonical.desktop.interface scrollbar-mode
 </pre></div>
 
 
 <p>With all these oppertunities to reconfigure Unity, the possibilities of screwing thing up are very high.
 In case some settings are messed up and you want to <a href="http://www.webupd8.org/2012/10/how-to-reset-compiz-and-unity-in-ubuntu.html">reset Unity and Compiz</a> to their default settings,
 the standard way is to use</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># Careful ... this will reset all Unity &amp; Compiz to their default options</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># Careful ... this will reset all Unity &amp; Compiz to their default options</span>
 unity-reset
 </pre></div>
 
 
 <p>To restart Unity after running the above command (or restart it any time), use the command</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">setsid unity
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>setsid unity
 </pre></div>
 
 
@@ -858,7 +858,7 @@ everything to include,
 and <code>/opt/.xfiletool.lst</code> lists everything to exclude.
 Exclusions will override inclusions.
 My <code>/opt/.filetool.lst</code> file looks like this</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">opt
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>opt
 home
 usr/local/etc/ssh
 etc/passwd
@@ -868,7 +868,7 @@ etc/group
 
 
 <p>My <code>/opt/.xfiletool.lst</code> file looks like this</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Cache
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>Cache
 cache
 .cache
 XUL.mfasl
@@ -886,7 +886,7 @@ mnt
 <p><code>bootsync.sh</code> is the entry point for all items you need to run on boot,
 while the boot waits for them to complete.
 My <code>/opt/bootsync.sh</code> file looks like this</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/bin/sh</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic">#!/bin/sh</span>
 <span style="color: #0099FF; font-style: italic"># put other system startup commands here, the boot process will wait until they complete.</span>
 <span style="color: #0099FF; font-style: italic"># Use bootlocal.sh for system startup commands that can run in the background</span>
 <span style="color: #0099FF; font-style: italic"># and therefore not slow down the boot process.</span>
@@ -898,7 +898,7 @@ My <code>/opt/bootsync.sh</code> file looks like this</p>
 <p><code>bootlocal.sh</code> is the entry point for all items that don’t need to be waited for.
 This may include loading some non-essential module or starting some server.
 My <code>/opt/bootlocal.sh</code> file looks like this</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/bin/sh</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic">#!/bin/sh</span>
 <span style="color: #0099FF; font-style: italic"># put other system startup commands here</span>
 /usr/local/sbin/basic-firewall noprompt
 /usr/local/etc/init.d/openssh start
@@ -912,7 +912,7 @@ usr/local/etc/asound.state
 <p>The program <code>sudo wpa_passphrase &lt;YourSSID&gt; &lt;YourPassword&gt;</code> was used to
 created the network WPA2 WiFi credentials and placed in the file
 <code>/opt/wpa_supplicant.conf</code>.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #003333">network</span><span style="color: #555555">={</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #003333">network</span><span style="color: #555555">={</span>
     <span style="color: #003333">ssid</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;74LL5&quot;</span>
     <span style="color: #0099FF; font-style: italic">#psk=&quot;dfjgrigreiodjdeghry&quot;</span>
     <span style="color: #003333">psk</span><span style="color: #555555">=</span>8477c7110cf5edex3e07aa82345fxefc4f2da4sd9x8fcc4ad3x83fef6d2416df
@@ -924,48 +924,48 @@ created the network WPA2 WiFi credentials and placed in the file
 starts any X-dependant programs you’ve configured,
 and starts up the configured window manager.
 My <code>/home/tc/.xsession</code> file looks like this</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># This script will start a local X Window envirnment or use a remote Display Manager</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># This script will start a local X Window envirnment or use a remote Display Manager</span>
 
 <span style="color: #0099FF; font-style: italic"># Set to 1 if your wish to use remote Display Manager</span>
 <span style="color: #003333">REMOTE</span><span style="color: #555555">=</span>1
 
-<span style="color: #006699; font-weight: bold">if</span> <span style="color: #555555">[</span> <span style="color: #003333">$REMOTE</span> <span style="color: #555555">==</span> 1 <span style="color: #555555">]</span>;
+<span style="color: #006699; font-weight: bold">if</span> <span style="color: #555555">[</span> <span style="color: #003333">$REMOTE</span> <span style="color: #555555">==</span> <span style="color: #FF6600">1</span> <span style="color: #555555">]</span>;
 <span style="color: #006699; font-weight: bold">then</span>
-<span style="color: #006699; font-weight: bold">    </span>Xvesa -query desktop -br -screen 1024x768x32 -shadow -3button -mouse /dev/input/mice,5 -I &gt;/dev/null 2&gt;&amp;1 &amp;
-    <span style="color: #336666">export </span><span style="color: #003333">XPID</span><span style="color: #555555">=</span><span style="color: #003333">$!</span>
-    waitforX <span style="color: #555555">||</span> ! <span style="color: #336666">echo </span>failed in waitforX <span style="color: #555555">||</span> <span style="color: #336666">exit</span>
-    <span style="color: #CC3300">&quot;$DESKTOP&quot;</span> 2&gt;/tmp/wm_errors &amp;
-    <span style="color: #336666">export </span><span style="color: #003333">WM_PID</span><span style="color: #555555">=</span><span style="color: #003333">$!</span>
+    Xvesa -query desktop -br -screen 1024x768x32 -shadow -3button -mouse /dev/input/mice,5 -I &gt;/dev/null 2&gt;&amp;<span style="color: #FF6600">1</span> &amp;
+    <span style="color: #336666">export</span> <span style="color: #003333">XPID</span><span style="color: #555555">=</span><span style="color: #003333">$!</span>
+    waitforX <span style="color: #555555">||</span> ! <span style="color: #336666">echo</span> failed in waitforX <span style="color: #555555">||</span> <span style="color: #336666">exit</span>
+    <span style="color: #CC3300">&quot;</span><span style="color: #003333">$DESKTOP</span><span style="color: #CC3300">&quot;</span> 2&gt;/tmp/wm_errors &amp;
+    <span style="color: #336666">export</span> <span style="color: #003333">WM_PID</span><span style="color: #555555">=</span><span style="color: #003333">$!</span>
     <span style="color: #555555">[</span> -x <span style="color: #003333">$HOME</span>/.setbackground <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #003333">$HOME</span>/.setbackground
     <span style="color: #555555">[</span> -x <span style="color: #003333">$HOME</span>/.mouse_config <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #003333">$HOME</span>/.mouse_config &amp;
-    <span style="color: #555555">[</span> <span style="color: #006699; font-weight: bold">$(</span>which <span style="color: #CC3300">&quot;$ICONS&quot;</span>.sh<span style="color: #006699; font-weight: bold">)</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">ICONS</span><span style="color: #006699; font-weight: bold">}</span>.sh &amp;
-    <span style="color: #555555">[</span> -d <span style="color: #CC3300">&quot;$HOME/.X.d&quot;</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> find <span style="color: #CC3300">&quot;$HOME/.X.d&quot;</span> -type f -print | <span style="color: #006699; font-weight: bold">while </span><span style="color: #336666">read </span>F; <span style="color: #006699; font-weight: bold">do</span> . <span style="color: #CC3300">&quot;$F&quot;</span>; <span style="color: #006699; font-weight: bold">done</span>
+    <span style="color: #555555">[</span> <span style="color: #006699; font-weight: bold">$(</span>which <span style="color: #CC3300">&quot;</span><span style="color: #003333">$ICONS</span><span style="color: #CC3300">&quot;</span>.sh<span style="color: #006699; font-weight: bold">)</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #AA0000">${</span><span style="color: #003333">ICONS</span><span style="color: #AA0000">}</span>.sh &amp;
+    <span style="color: #555555">[</span> -d <span style="color: #CC3300">&quot;</span><span style="color: #003333">$HOME</span><span style="color: #CC3300">/.X.d&quot;</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> find <span style="color: #CC3300">&quot;</span><span style="color: #003333">$HOME</span><span style="color: #CC3300">/.X.d&quot;</span> -type f -print | <span style="color: #006699; font-weight: bold">while</span> <span style="color: #336666">read</span> F; <span style="color: #006699; font-weight: bold">do</span> . <span style="color: #CC3300">&quot;</span><span style="color: #003333">$F</span><span style="color: #CC3300">&quot;</span>; <span style="color: #006699; font-weight: bold">done</span>
 <span style="color: #006699; font-weight: bold">else</span>
-<span style="color: #006699; font-weight: bold">    </span>Xvesa -br -screen 1024x768x32 -shadow -3button -mouse /dev/input/mice,5 -nolisten tcp -I &gt;/dev/null 2&gt;&amp;1 &amp;
-    <span style="color: #336666">export </span><span style="color: #003333">XPID</span><span style="color: #555555">=</span><span style="color: #003333">$!</span>
-    waitforX <span style="color: #555555">||</span> ! <span style="color: #336666">echo </span>failed in waitforX <span style="color: #555555">||</span> <span style="color: #336666">exit</span>
-    <span style="color: #CC3300">&quot;$DESKTOP&quot;</span> 2&gt;/tmp/wm_errors &amp;
-    <span style="color: #336666">export </span><span style="color: #003333">WM_PID</span><span style="color: #555555">=</span><span style="color: #003333">$!</span>
+    Xvesa -br -screen 1024x768x32 -shadow -3button -mouse /dev/input/mice,5 -nolisten tcp -I &gt;/dev/null 2&gt;&amp;<span style="color: #FF6600">1</span> &amp;
+    <span style="color: #336666">export</span> <span style="color: #003333">XPID</span><span style="color: #555555">=</span><span style="color: #003333">$!</span>
+    waitforX <span style="color: #555555">||</span> ! <span style="color: #336666">echo</span> failed in waitforX <span style="color: #555555">||</span> <span style="color: #336666">exit</span>
+    <span style="color: #CC3300">&quot;</span><span style="color: #003333">$DESKTOP</span><span style="color: #CC3300">&quot;</span> 2&gt;/tmp/wm_errors &amp;
+    <span style="color: #336666">export</span> <span style="color: #003333">WM_PID</span><span style="color: #555555">=</span><span style="color: #003333">$!</span>
     <span style="color: #555555">[</span> -x <span style="color: #003333">$HOME</span>/.setbackground <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #003333">$HOME</span>/.setbackground
     <span style="color: #555555">[</span> -x <span style="color: #003333">$HOME</span>/.mouse_config <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #003333">$HOME</span>/.mouse_config &amp;
-    <span style="color: #555555">[</span> <span style="color: #006699; font-weight: bold">$(</span>which <span style="color: #CC3300">&quot;$ICONS&quot;</span>.sh<span style="color: #006699; font-weight: bold">)</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">ICONS</span><span style="color: #006699; font-weight: bold">}</span>.sh &amp;
-    <span style="color: #555555">[</span> -d <span style="color: #CC3300">&quot;$HOME/.X.d&quot;</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> find <span style="color: #CC3300">&quot;$HOME/.X.d&quot;</span> -type f -print | <span style="color: #006699; font-weight: bold">while </span><span style="color: #336666">read </span>F; <span style="color: #006699; font-weight: bold">do</span> . <span style="color: #CC3300">&quot;$F&quot;</span>; <span style="color: #006699; font-weight: bold">done</span>
+    <span style="color: #555555">[</span> <span style="color: #006699; font-weight: bold">$(</span>which <span style="color: #CC3300">&quot;</span><span style="color: #003333">$ICONS</span><span style="color: #CC3300">&quot;</span>.sh<span style="color: #006699; font-weight: bold">)</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #AA0000">${</span><span style="color: #003333">ICONS</span><span style="color: #AA0000">}</span>.sh &amp;
+    <span style="color: #555555">[</span> -d <span style="color: #CC3300">&quot;</span><span style="color: #003333">$HOME</span><span style="color: #CC3300">/.X.d&quot;</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> find <span style="color: #CC3300">&quot;</span><span style="color: #003333">$HOME</span><span style="color: #CC3300">/.X.d&quot;</span> -type f -print | <span style="color: #006699; font-weight: bold">while</span> <span style="color: #336666">read</span> F; <span style="color: #006699; font-weight: bold">do</span> . <span style="color: #CC3300">&quot;</span><span style="color: #003333">$F</span><span style="color: #CC3300">&quot;</span>; <span style="color: #006699; font-weight: bold">done</span>
 <span style="color: #006699; font-weight: bold">fi</span>
 </pre></div>
 
 
 <p>My <code>/home/tc/.local/bin/localX.sh</code> file looks like this</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># This script will start a local X Window envirnment</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># This script will start a local X Window envirnment</span>
 
-Xvesa -br -screen 1024x768x32 -shadow -3button -mouse /dev/input/mice,5 -nolisten tcp -I &gt;/dev/null 2&gt;&amp;1 &amp;
-<span style="color: #336666">export </span><span style="color: #003333">XPID</span><span style="color: #555555">=</span><span style="color: #003333">$!</span>
-waitforX <span style="color: #555555">||</span> ! <span style="color: #336666">echo </span>failed in waitforX <span style="color: #555555">||</span> <span style="color: #336666">exit</span>
-<span style="color: #CC3300">&quot;$DESKTOP&quot;</span> 2&gt;/tmp/wm_errors &amp;
-<span style="color: #336666">export </span><span style="color: #003333">WM_PID</span><span style="color: #555555">=</span><span style="color: #003333">$!</span>
+Xvesa -br -screen 1024x768x32 -shadow -3button -mouse /dev/input/mice,5 -nolisten tcp -I &gt;/dev/null 2&gt;&amp;<span style="color: #FF6600">1</span> &amp;
+<span style="color: #336666">export</span> <span style="color: #003333">XPID</span><span style="color: #555555">=</span><span style="color: #003333">$!</span>
+waitforX <span style="color: #555555">||</span> ! <span style="color: #336666">echo</span> failed in waitforX <span style="color: #555555">||</span> <span style="color: #336666">exit</span>
+<span style="color: #CC3300">&quot;</span><span style="color: #003333">$DESKTOP</span><span style="color: #CC3300">&quot;</span> 2&gt;/tmp/wm_errors &amp;
+<span style="color: #336666">export</span> <span style="color: #003333">WM_PID</span><span style="color: #555555">=</span><span style="color: #003333">$!</span>
 <span style="color: #555555">[</span> -x <span style="color: #003333">$HOME</span>/.setbackground <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #003333">$HOME</span>/.setbackground
 <span style="color: #555555">[</span> -x <span style="color: #003333">$HOME</span>/.mouse_config <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #003333">$HOME</span>/.mouse_config &amp;
-<span style="color: #555555">[</span> <span style="color: #006699; font-weight: bold">$(</span>which <span style="color: #CC3300">&quot;$ICONS&quot;</span>.sh<span style="color: #006699; font-weight: bold">)</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #006699; font-weight: bold">${</span><span style="color: #003333">ICONS</span><span style="color: #006699; font-weight: bold">}</span>.sh &amp;
-<span style="color: #555555">[</span> -d <span style="color: #CC3300">&quot;$HOME/.X.d&quot;</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> find <span style="color: #CC3300">&quot;$HOME/.X.d&quot;</span> -type f -print | <span style="color: #006699; font-weight: bold">while </span><span style="color: #336666">read </span>F; <span style="color: #006699; font-weight: bold">do</span> . <span style="color: #CC3300">&quot;$F&quot;</span>; <span style="color: #006699; font-weight: bold">done</span>
+<span style="color: #555555">[</span> <span style="color: #006699; font-weight: bold">$(</span>which <span style="color: #CC3300">&quot;</span><span style="color: #003333">$ICONS</span><span style="color: #CC3300">&quot;</span>.sh<span style="color: #006699; font-weight: bold">)</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #AA0000">${</span><span style="color: #003333">ICONS</span><span style="color: #AA0000">}</span>.sh &amp;
+<span style="color: #555555">[</span> -d <span style="color: #CC3300">&quot;</span><span style="color: #003333">$HOME</span><span style="color: #CC3300">/.X.d&quot;</span> <span style="color: #555555">]</span> <span style="color: #555555">&amp;&amp;</span> find <span style="color: #CC3300">&quot;</span><span style="color: #003333">$HOME</span><span style="color: #CC3300">/.X.d&quot;</span> -type f -print | <span style="color: #006699; font-weight: bold">while</span> <span style="color: #336666">read</span> F; <span style="color: #006699; font-weight: bold">do</span> . <span style="color: #CC3300">&quot;</span><span style="color: #003333">$F</span><span style="color: #CC3300">&quot;</span>; <span style="color: #006699; font-weight: bold">done</span>
 </pre></div>
 
 
@@ -973,9 +973,9 @@ waitforX <span style="color: #555555">||</span> ! <span style="color: #336666">e
 <p>To find the linux kernel version for the TCL your runing <code>uname -or</code>.
 To check the running version of TCL, you can run the <code>version</code> command.
 For example:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">tc@XT:~<span style="color: #003333">$ </span>uname -or
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>tc@XT:~$ uname -or
 3.8.13-tinycore GNU/Linux
-tc@XT:~<span style="color: #003333">$ </span>version
+tc@XT:~$ version
 5.2
 </pre></div>
 
@@ -984,7 +984,7 @@ tc@XT:~<span style="color: #003333">$ </span>version
 <p>To kill the Xvesa X Server on TCL, press the <code>Ctrl+Alt+Del</code> key combination,
 and you will get the TCL command line prompt.</p>
 <p>To start the X Winodw System, do the following</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># start the X Window System and brings up the Xvesa X Server using the remote Display Manager</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># start the X Window System and brings up the Xvesa X Server using the remote Display Manager</span>
 . ./.xsession
 </pre></div>
 
@@ -993,7 +993,7 @@ and you will get the TCL command line prompt.</p>
 <p>On the remote-computer (in my case, a Ubuntu desktop runing <code>lightdm</code> Display Manager),
 you need to tell the Display Manager to accept logins from a remote X Server.
 This is easily done by configuring the file <code>/etc/lightdm/lightdm.conf</code> so it contains</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">[SeatDefaults]
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>[SeatDefaults]
 user-session=ubuntu
 autologin-user=false
 xserver-allow-tcp=true
@@ -1019,7 +1019,7 @@ I researched my options with the aid of the articles
 I choose <a href="http://fluxbox.org/">Fluxbox</a> as my replacement Window Manger because of its simplicity and it widely praised.
 You <a href="http://fluxbox.sourceforge.net/docbook/en/html/book1.html">Fluxbox Documentation</a> will give most of what you need to configure this Window Manager.
 To install Fluxbox, and a companion tool for supporting desktop icons called fbdesk, use the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># install Fluxbox</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># install Fluxbox</span>
 sudo apt-get install fluxbox fbdesk
 </pre></div>
 
@@ -1035,7 +1035,7 @@ It also turns out that they work better for some video chips than the normal
 XF86 xservers.</p>
 <p>But one very important thing is they do NOT use the XF86Config
 file, like their bigger brothers.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Xvesa -query desktop -br -screen 1024x768x32 -shadow
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>Xvesa -query desktop -br -screen 1024x768x32 -shadow
 </pre></div>
 
 

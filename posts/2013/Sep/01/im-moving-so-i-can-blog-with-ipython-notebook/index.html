@@ -149,7 +149,7 @@ The site “<a href="http://www.andrewmunsell.com/tutorials/jekyll-by-example/in
 <h3>Installing Jekyll</h3>
 <p>Following the instructions on the <a href="http://jekyllrb.com/docs/quickstart/">Jekyll</a> and <a href="http://askubuntu.com/questions/305884/how-to-install-jekyll">Ubuntu</a> web sites,
 I used the following to install the required software and get a skeleton established for my blog.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install ruby1.9.1-dev
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install ruby1.9.1-dev
 sudo apt-get install rdiscount
 sudo gem install jekyll
 sudo apt-get install rake
@@ -166,18 +166,18 @@ and then set your browse to <code>http://localhost:4000</code>.</p>
 First I need to export my site, and I can do this by going to
 <code>https://jeffskinnerbox.wordpress.com/wp-admin/export.php</code> and, executing the commands there,
 place the HTML file created in a temporary place.  Then install these tools:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo gem install jekyll-import --pre
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo gem install jekyll-import --pre
 sudo gem install hpricot
 </pre></div>
 
 
 <p>To do the actual conversion and down loading of the site, you use the command:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">jekyll import wordpressdotcom --source ~/tmp/jeff039sskinnerbox.wordpress.2013-08-14.xml
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>jekyll import wordpressdotcom --source ~/tmp/jeff039sskinnerbox.wordpress.2013-08-14.xml
 </pre></div>
 
 
 <h3>Creating Your Local Git Repository</h3>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cd ~/myblog
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>cd ~/myblog
 git init
 git add .
 git commit -m &#39;Initial commit&#39;
@@ -193,7 +193,7 @@ The steps to get the web site up and running go like this:</p>
 <li>On my GitHub site, I created a new Repository call jeffskinnerbox.github.com </li>
 <li>From the PC, load the web site to the GitHub Repository:</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">git remote add origin http://github.com/jeffskinnerbox/jeffskinnerbox.github.com
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>git remote add origin http://github.com/jeffskinnerbox/jeffskinnerbox.github.com
 git push -u origin master
 </pre></div>
 

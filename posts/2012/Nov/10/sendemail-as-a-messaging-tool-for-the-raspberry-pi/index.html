@@ -102,7 +102,7 @@ Jeff's Skinner Box&nbsp;            </a>
 <h2>SendEmail</h2>
 <a href="http://www.debianadmin.com/how-to-sendemail-from-the-command-line-using-a-gmail-account-and-others.html#more-706">SendEmail</a> is a lightweight, completely command line based, <a href="http://computer.howstuffworks.com/e-mail-messaging/email3.htm">SMTP email agent</a>. It is written in Perl and designed to be used on the command line, in bash scripts, Perl programs, within web sites, etc.</p>
 <p>I installed SendEmail on my RPi via this command:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install sendemail
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install sendemail
 </pre></div>
 
 
@@ -110,12 +110,12 @@ Jeff's Skinner Box&nbsp;            </a>
 
 <p>When I ran sendEmail the first time, it complained about some missing libraries.  I installed the missing libraries and this cleared the error.  Clearly, the sendEmail package needs some work since this dependency should have been taken care of by <code>apt-get</code>.</p>
 <p>I ran it again using this command:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sendEmail -f pi@RedRPi -t &lt;my_user_name&gt;@verzion.net -u &quot;Test Email from RedRPi&quot; -m &quot;My test message.&quot; -s smtp.gmail.com:587  -o tls=yes -xu &lt;my_user_name&gt; -xp &lt;my_password&gt;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sendEmail -f pi@RedRPi -t &lt;my_user_name&gt;@verzion.net -u <span style="color: #CC3300">&quot;Test Email from RedRPi&quot;</span> -m <span style="color: #CC3300">&quot;My test message.&quot;</span> -s smtp.gmail.com:587  -o <span style="color: #003333">tls</span><span style="color: #555555">=</span>yes -xu &lt;my_user_name&gt; -xp &lt;my_password&gt;
 </pre></div>
 
 
 <p>With this, sendEmail threw an error message:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">invalid SSL_version specified at /usr/share/perl5/IO/Socket/SSL.pm line 332
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>invalid SSL_version specified at /usr/share/perl5/IO/Socket/SSL.pm line 332
 </pre></div>
 
 
@@ -125,7 +125,7 @@ Jeff's Skinner Box&nbsp;            </a>
 <h2>SMS Messaging</h2>
 Another messaging mechanism that I plan to use is Short Message Service (SMS).  To do this, you can use a <a href="http://en.wikipedia.org/wiki/SMS_gateway">SMS gateway</a> which will transform an email into an SMS message.  The down side is that there isn't a single gateway but <a href="http://en.wikipedia.org/wiki/List_of_SMS_gateways">one for each of the cellular carries</a>.</p>
 <p>Here is an example for AT&amp;T cell phones:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sendEmail -f pi@RedRPi -t &lt;cell_phone_number&gt;@txt.att.net -u &quot;Test Email from RedRPi&quot; -m &quot;My test message.&quot; -s smtp.gmail.com:587  -o tls=yes -xu &lt;my_user_name&gt; -xp &lt;my_password&gt;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sendEmail -f pi@RedRPi -t &lt;cell_phone_number&gt;@txt.att.net -u <span style="color: #CC3300">&quot;Test Email from RedRPi&quot;</span> -m <span style="color: #CC3300">&quot;My test message.&quot;</span> -s smtp.gmail.com:587  -o <span style="color: #003333">tls</span><span style="color: #555555">=</span>yes -xu &lt;my_user_name&gt; -xp &lt;my_password&gt;
 </pre></div>
             </div>
             <!-- /.entry-content -->

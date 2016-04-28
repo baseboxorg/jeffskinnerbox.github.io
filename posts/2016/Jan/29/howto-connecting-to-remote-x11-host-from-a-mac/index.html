@@ -127,7 +127,7 @@ Just follow the instructions given <a href="http://www.cyberciti.biz/faq/apple-o
 clicking on the XQuartz logo gives you a XTerm.
 Within the XTerm,
 you can run an application on the remote system using the following commands:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># execute a XTerm on the remove system and display on you local Mac</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># execute a XTerm on the remove system and display on you local Mac</span>
 ssh -X -C user@server-ip
 
 <span style="color: #0099FF; font-style: italic"># execute an app on the remote system, go to background, and display on your local Mac</span>
@@ -164,7 +164,7 @@ These are configuration parameters for X client applications, such as:</p>
 <p>Consider the X program <code>xterm</code>.
 You want to make the background black and the foreground white.
 This can be achieved by passing some command line arguments to xterm:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># xterm with background black and foreground white</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># xterm with background black and foreground white</span>
 xterm -bg black -fg white
 </pre></div>
 
@@ -172,7 +172,7 @@ xterm -bg black -fg white
 <p>This is fine if you want this for only one time,
 but if you want it to be the default, you put it in a configuration file
 <code>.Xresources</code> or <code>.Xdefaults</code> as follows:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">XTerm*background: black
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>XTerm*background: black
 XTerm*foreground: white
 </pre></div>
 
@@ -197,7 +197,7 @@ Use of <code>.Xdefaults</code> comes at the cost that basically
 all X programs needs to parse this file every time you run one.
 A better way is to put the configuration options in <code>.Xresources</code>
 and store the configuration in the X server’s resource database by using the <code>xrdb</code> command:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># intialize user configurable resources using the X server resource database utility, xrdb</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># intialize user configurable resources using the X server resource database utility, xrdb</span>
 xrdb -merge <span style="color: #003333">$HOME</span>/.Xresources
 </pre></div>
 

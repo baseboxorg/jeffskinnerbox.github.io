@@ -101,7 +101,7 @@ Jeff's Skinner Box&nbsp;            </a>
                 </div>
                 <p>I want to deliver sound from my Raspberry Pi's (RPi) Audio Output 3.5mm jack.  I'll need to get audio drivers working on Audio Out, and to test it, I'll need some sound files and players.  I'm choosing the <a href="http://www.alsa-project.org/main/index.php/Main_Page">Advanced Linux Sound Architecture (ALSA)</a> drivers because its widely supported and because <a href="http://en.wikipedia.org/wiki/Advanced_Linux_Sound_Architecture">ALSA</a> not only provides audio but  <a href="http://en.wikipedia.org/wiki/Musical_Instrument_Digital_Interface">Musical Instrument Digital Interface (MIDI)</a> functionality to Linux.   I'll also be using the popular command line MP3 players, <a href="http://linux.die.net/man/1/mpg321">mpg321</a> and the WAV player that comes with ALSA, <a href="http://linux.die.net/man/1/aplay">aplay</a>.</p>
 <p>To get things going, I installed ALSA, a MP3 tools, and a WAV to MP3 conversion tool via the following commands:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install alsa-utils
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install alsa-utils
 sudo apt-get install mpg321
 sudo apt-get install lame
 </pre></div>
@@ -116,7 +116,7 @@ sudo apt-get install lame
 </a>
 </center></p>
 <p>The <code>snd-bcm2835</code> module appears to be already installed. RPi has a Broadcom  <a href="http://www.broadcom.com/products/BCM2835">BCM2835</a> <a href="http://www.androidauthority.com/how-it-works-systems-on-a-chip-soc-93587/">system on a chip (SoC)</a> which is a High Definition 1080p Embedded Multimedia Applications Processor.  <code>snd-bcm2835</code> is the sound driver.  If  <code>lsmod</code> doesn't list the <code>snd-bcn2835</code> module, then it can be installed via the following command:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo modprobe snd-bcm2835
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo modprobe snd-bcm2835
 </pre></div>
 
 
@@ -124,7 +124,7 @@ sudo apt-get install lame
 
 <p>By default, the RPi audio output is set to automatically select the digital HDMI interface if its being used, otherwise the analog audio output. You can force it to use a specific interface via the sound mixer controls.  <a href="http://linux.die.net/man/1/amixer"><code>amixer</code></a> allows command-line control of the mixer for the ALSA driver.</p>
 <p>You can force the RPi to use a specific interface using the command <code>amixer cset numid=3 N</code> where the <code>N</code> parameter means the following: 0=auto, 1=analog, 2=hdmi.  Therefore, to force the Raspberry Pi to use the analog output:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">amixer cset numid=3 1
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>amixer cset <span style="color: #003333">numid</span><span style="color: #555555">=</span><span style="color: #FF6600">3</span> 1
 </pre></div>
 
 
@@ -132,9 +132,9 @@ sudo apt-get install lame
 
 <p>With this done, you should be ready for a simple test.  Plug a speaker into the (RPi) Audio Output 3.5mm jack.  I used a simple battery powered<a href="http://www.ihomeaudio.com/iHM60GX/"> iHM60 iHome</a> speaker.  The jack will not deliver much power, so the speaker needs to be powered.</p>
 <p>To test the RPi audio, you can play a WAV file (<a href="http://www.jahozafat.com/php/sounds/?id=gog&amp;media=WAVS&amp;type=Movies&amp;movie=Full_Metal_Jacket&amp;quote=numnuts.txt&amp;file=numnuts.wav">download this</a> ... excellent for user-error notification) with <code><a href="http://linux.die.net/man/1/aplay">aplay</a></code>, <a href="http://linux.die.net/man/1/mpg321"><code>mpg321</code></a> for MP3 files, or use the <a href="http://linux.die.net/man/1/speaker-test"><code>speaker-test</code></a> command if you don't have a WAV/MP3 file.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">aplay numnuts.wav
-speaker-test -t sine -f 440 -c 2 -s 1
-mpg321 &quot;Mannish Boy.mp3&quot;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>aplay numnuts.wav
+speaker-test -t sine -f <span style="color: #FF6600">440</span> -c <span style="color: #FF6600">2</span> -s 1
+mpg321 <span style="color: #CC3300">&quot;Mannish Boy.mp3&quot;</span>
 </pre></div>
 
 
@@ -167,12 +167,12 @@ The RPi built-in sound chips don't have a "master volume" control, and as a resu
 </center></p>
 <p>For most changes to <code>/etc/asound.conf</code> you will need to restart the sound server for the changes to take effect.
 You can do this via</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo /etc/init.d/alsa-utils restart
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo /etc/init.d/alsa-utils restart
 </pre></div>
 
 
 <p>I attempted to implement the software volume controls outline in a <a href="http://www.gentoo-wiki.info/HOWTO_Softvol">softvol how-to</a> that I found, but I couldn't get it to work.  I did some additional digging, and I found a solution buried within a python script for a <a href="http://learn.adafruit.com/reading-a-analog-in-and-controlling-audio-volume-with-the-raspberry-pi/overview">Adafruit project</a>.  The following works for controlling the volume (in this case, reducing the volume to 80% of maximum):</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">amixer cset numid=1 -- 80%
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>amixer cset numid=1 -- 80%
 </pre></div>
 
 

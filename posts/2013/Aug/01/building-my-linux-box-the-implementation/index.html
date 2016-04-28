@@ -148,19 +148,19 @@ Just go to <a href="https://www.google.com/intl/en-US/chrome/browser/desktop/ind
 Specifically, I have the Squeezebox Classic (<a href="http://www.logitech.com/assets/32377/squeezeboxclassic-ownersguide.pdf">Owner's Guide</a>).
 On my old PC, I had installed the SlimServer which would provide the music stream.  I want to now reestablish that capability on the Linux box. The post <a href="http://www.ehow.com/how_7314755_use-squeezebox-ubuntu.html">How to Use Squeezebox With Ubuntu</a> and the <a href="http://wiki.slimdevices.com/index.php/DebianPackage">Logitech SqueezeBox Wiki</a> gives you all the information you should need.</p>
 <p>The Ubuntu (Debian) software for the <a href="http://wiki.slimdevices.com/index.php/Logitech_Media_Server">SqueezeCenter</a> or now called the Logitech Media Server (formerly known as SlimServer) is maintained by Logitech, and therefore, will not be installed via <code>get-apt</code>.  To make it part of the package resource list (used to locate archives of the package distribution system in use on the system), you need to update the <a href="http://linux.die.net/man/5/sources.list"><code>/etc/apt/sources.list</code></a> file.  To do this, do the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo vim /etc/apt/sources.list
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo vim /etc/apt/sources.list
 </pre></div>
 
 
 <p>Scroll to the bottom of the file and enter the following information and then save:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># This software is not part of Ubuntu, but is offered by Logitech for the</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># This software is not part of Ubuntu, but is offered by Logitech for the</span>
 <span style="color: #0099FF; font-style: italic"># Logitech Media Server (formerly known as SqueezeCenter or SlimServer).</span>
 deb http://debian.slimdevices.com stable main
 </pre></div>
 
 
 <p>Now do the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get remove --purge logitechmediaserver
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get remove --purge logitechmediaserver
 sudo apt-get update
 sudo apt-get install logitechmediaserver
 </pre></div>
@@ -180,7 +180,7 @@ then the port is closed or there is no process (i.e <code>squeezeboxserver</code
 Use these procedures to <a href="http://www.tixati.com/optimize/open-ports-linux.html">open ports on a Linux firewall</a>.</p>
 <p><strong>Note:</strong> Because of a bug (conflict with the version of Perl I'm using),
     I had to install a beta version directly using</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># See http://forums.slimdevices.com/showthread.php?101237-Logitech-Media-Server-7-8-0-now-available!</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># See http://forums.slimdevices.com/showthread.php?101237-Logitech-Media-Server-7-8-0-now-available!</span>
 <span style="color: #0099FF; font-style: italic"># Download the Debian package from http://downloads.slimdevices.com/nightly/?ver=7.8</span>
 sudo dpkg -i logitechmediaserver_7.8.1~1411629722_all.deb
 </pre></div>
@@ -212,7 +212,7 @@ They claim, by and large, you should simple plug them in and your ready to scan.
 However, some scanners, like mine, require more effort.</p>
 <p>SANE isn't typically installed with the Ubuntu distribution,
 but you can install SANE via</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install sane xsane libsane-extras
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install sane xsane libsane-extras
 </pre></div>
 
 
@@ -220,7 +220,7 @@ but you can install SANE via</p>
 <a href="http://linux.about.com/library/cmd/blcmdl1_scanimage.htm"><code>scanimage</code></a> that is a command-line interface to control image acquisition
 devices such as flatbed scanners or cameras.
 When I ran it, I got the following results</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">$ scanimage --list-devices
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>$ scanimage --list-devices
 
 No scanners were identified. If you were expecting something different,
 check that the scanner is plugged in, turned on and detected by the
@@ -234,14 +234,14 @@ and I needed to install the Samsung Unified Linux Driver.
 I did the repository setup and package install recommended at
 <a href="http://www.bchemnet.com/suldr/index.html">The Samsung Unified Linux Driver Repository</a>.
 The install I did was</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install suld-driver-4.00.39 suld-configurator-2-qt4
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install suld-driver-4.00.39 suld-configurator-2-qt4
 </pre></div>
 
 
 <p>I then added my login user to the <code>scanner</code> group via <code>sudo usermod -a -G scanner jeff</code>.
 I ran the command <code>sane-find-scanner</code> to see if I'm now able to detect the scanner,
 and I got the following disappointing results.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">$ sudo sane-find-scanner
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>$ sudo sane-find-scanner
 
   # sane-find-scanner will now attempt to detect your scanner. If the
   # result is different from what you expected, first make sure your
@@ -268,12 +268,12 @@ could not fetch string descriptor: Pipe error
 The work already done above covers step 1 of this article
 and step 2 isn't relevant (since I can already print).
 I need to perform step 3, that is</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install samsungmfp-scanner
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install samsungmfp-scanner
 </pre></div>
 
 
 <p>Now I re-ran the command <code>scanimage --list-devices</code> and got the following</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">$ scanimage --list-devices
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>$ scanimage --list-devices
 device `smfp:SAMSUNG SCX-4x21 Series on USB:0&#39; is a SAMSUNG SCX-4x21 Series on USB:0 Scanner
 </pre></div>
 
@@ -283,7 +283,7 @@ device `smfp:SAMSUNG SCX-4x21 Series on USB:0&#39; is a SAMSUNG SCX-4x21 Series 
 <p>After some more research and using <code>lsusb | grep Samsung</code> and <code>cat /lib/udev/rules.d/40-libsane.rules | grep 3419</code>,
 I discover there is no udev rule for the SCX-4521F scanner.
 Therefore, I place the following lines in <code>/lib/udev/rules.d/40-libsane.rules</code></p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># Samsung SCX-4521F
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span># Samsung SCX-4521F
 ATTRS{idVendor}==&quot;04e8&quot;, ATTRS{idProduct}==&quot;3419&quot;, ENV{libsane_matched}=&quot;yes&quot;
 </pre></div>
 
@@ -315,7 +315,7 @@ and that can be done by following this posting:
 <p>Ubuntu comes with <a href="https://wiki.gnome.org/Apps/Rhythmbox">Rhythmbox</a> as its music playing application and can be used to synch with a iPod.
 Also, you'll want to install several Rhythmbox <a href="http://www.webupd8.org/2012/08/rhythmbox-third-party-plugins-ubuntu-ppa.html">plugins</a>.
 That can be done via</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo add-apt-repository ppa:fossfreedom/rhythmbox-plugins
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo add-apt-repository ppa:fossfreedom/rhythmbox-plugins
 sudo add-apt-repository ppa:phw/musicbrainz
 sudo apt-get update
 sudo apt-get install rhythmbox-plugin-complete
@@ -326,7 +326,7 @@ sudo apt-get install rhythmbox-plugin-complete
 <h2>Setting-Up Harmony Remote</h2>
 
 <p>I have the <a href="http://www.logitech.com/en-us/product/harmony-remote-650">Logitech Harmony 650 Universal Remote Control</a> for my home theater system.  To program the device, it must be tethered to a web site via a Windows or Mac PC.  The Harmony web site does reference some <a href="http://forums.logitech.com/t5/Harmony-Remotes/Harmony-Linux-support/td-p/294061">Linux support done by others</a>.  The posting "<a href="http://openattitude.com/2011/01/27/how-to-set-up-a-harmony-remote-using-linux/">How to set up a Harmony remote using Linux</a>" and "<a href="http://madabar.com/techblog/2011/09/09/logitech-harmony-universal-remote-linux-software-support/">Logitech Harmony Universal Remote Linux Software Support</a>" give you the basics of what you need to do.  Within these sites you lean about the utilities <a href="http://www.phildev.net/harmony/"><code>concordance</code></a> and <code><a href="http://sourceforge.net/projects/congruity/">congruity</a></code>. The first utility provides most of the functionality of the Windows software provided by Logitech and the second is a GUI application for programming Logitech Harmony remote using concordance.  To install these utilities, do the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install concordance
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install concordance
 sudo apt-get install congruity
 </pre></div>
 
@@ -358,9 +358,9 @@ These devices use the <a href="http://www.logitech.com/en-us/promotions/6072">L
 </a>
 I was a bit concerned about the ability of the receiver to support multiple device (i.e. the keyboard) simultaneously under Linux.
 Doing a quick search I found a post discussing how to do the <a href="http://askubuntu.com/questions/113984/is-logitechs-unifying-receiver-supported">device pairing under Linux</a>.  <a href="https://lekensteyn.nl/logitech-unifying.html#ltunify">To install</a> the <a href="https://git.lekensteyn.nl/ltunify/"><code>ltunify</code></a> pairing software, and do the pairing, do the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">cd</span> ~/src
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #336666">cd</span> ~/src
 git clone https://git.lekensteyn.nl/ltunify.git
-<span style="color: #336666">cd </span>ltunify
+<span style="color: #336666">cd</span> ltunify
 make install-home
 </pre></div>
 
@@ -394,17 +394,17 @@ make install-home
 </ul>
 </ul>
 Now we need a mechanism to re-map mouse (or keyboard) button inputs.  <a href="https://wiki.archlinux.org/index.php/Xbindkeys"><code>Xbindkeys</code></a> is is a X Windows program that enables us to bind commands to certain keys or key combinations on the keyboard and it will also work for the mouse.  The file  <code>~/.xbindkeysrc</code> is what <code>xbindkeys</code> uses as a configuration file to link a command to a key/button on your keyboard/mouse.  There is also <code>xbindkeys_config</code> is an easy to use gtk program for configuring <code>xbindkeys</code>. To install these tools, do the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install xautomation xbindkeys xbindkeys-config
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install xautomation xbindkeys xbindkeys-config
 </pre></div>
 
 
 <p>To create your initial xbindkeys configuration file, just run the following command:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">xbindkeys --defaults &amp;gt; <span style="color: #003333">$HOME</span>/.xbindkeysrc
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>xbindkeys --defaults &amp;gt; <span style="color: #003333">$HOME</span>/.xbindkeysrc
 </pre></div>
 
 
 <p>The syntax of the contents of .xbindskesrc is simple and is illustrated below:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># short comment</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># short comment</span>
     <span style="color: #CC3300">&quot;command to start&quot;</span>
         associated key
 </pre></div>
@@ -412,7 +412,7 @@ Now we need a mechanism to re-map mouse (or keyboard) button inputs.  <a href="
 
 <p>The <code>"command to start"</code> is simply a shell command (that you can run from a terminal),  and <code>"associated key"</code> is the key or button.</p>
 <p>Now, using an editor, update the <code>.xbindkeysrc</code> file to include the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># Do a Page Down when mouse left-side down button is pressed
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span># Do a Page Down when mouse left-side down button is pressed
 &quot;xte &#39;key Page_Down&#39;&quot;
     b:8
 # Do a Page Up when mouse left-side up button is pressed
@@ -431,7 +431,7 @@ Now we need a mechanism to re-map mouse (or keyboard) button inputs.  <a href="
 
 
 <p>To activate any modification of the <code>.xbindkeysrc</code> configuration file, your have to restart xbindkeys.   This can be done via:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">pkill xbindkeys
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>pkill xbindkeys
 xbindkeys
 </pre></div>
 
@@ -454,7 +454,7 @@ I have been using the MS Windows based <a href="https://www.splashid.com/">Spla
 </ul>
 </ul>
 The first step was to get KeePass installed in Ubuntu.  I found it on the <a href="http://en.wikipedia.org/wiki/Ubuntu_Software_Center">Ubuntu Software Center</a> or you can use:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install keepass2 keepass2-doc
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install keepass2 keepass2-doc
 </pre></div>
 
 
@@ -471,7 +471,7 @@ Slake didn't have an offical tool for the Linux desktop,
 but <a href="http://www.makeuseof.com/tag/linux-loving-slack-users-heres-an-app-for-you/">ScudCloud</a> provide the unofficial Slack client for Ubuntu.
 <a href="https://github.com/raelgc/scudcloud/">And it's open source</a>.</p>
 <p>To install the Slake client, and its spelling checker, do the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-add-repository -y ppa:rael-gc/scudcloud
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-add-repository -y ppa:rael-gc/scudcloud
 sudo apt-get update
 sudo apt-get install scudcloud
 sudo apt-get install hunspell-en-us
@@ -480,7 +480,7 @@ sudo apt-get install hunspell-en-us
 
 <p>If you want to use a Slack icon instead of ScudCloud
 (which is not possible to include in this package due to copyright)</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo dpkg-divert --add --rename --divert /opt/scudcloud/resources/scudcloud.png.real /opt/scudcloud/resources/scudcloud.png
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo dpkg-divert --add --rename --divert /opt/scudcloud/resources/scudcloud.png.real /opt/scudcloud/resources/scudcloud.png
 sudo cp ~/scudcloud.png /opt/scudcloud/resources/
 sudo chmod +r /opt/scudcloud/resources/scudcloud.png
 </pre></div>
@@ -489,7 +489,7 @@ sudo chmod +r /opt/scudcloud/resources/scudcloud.png
 <h2>Installing Wine</h2>
 
 <p><a href="http://www.winehq.org/">Wine</a> allows you to run many Windows programs on Linux. Instead of simulating internal Windows logic like a virtual machine or emulator, Wine translates Windows API calls into Linux calls.  I used the following to install Wine:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo add-apt-repository ppa:ubuntu-wine/ppa
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo add-apt-repository ppa:ubuntu-wine/ppa
 sudo apt-get update
 sudo apt-get install wine
 </pre></div>
@@ -533,7 +533,7 @@ I had already installed one <a href="http://en.wikipedia.org/wiki/Solid-state_dr
     <li>Install <a href="http://en.wikipedia.org/wiki/Mdadm">mdadm</a>, which is the Linux utility used to manage software RAID devices.</li>
 </ul>
 </ul></p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install mdadm
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install mdadm
 </pre></div>
 
 
@@ -543,7 +543,7 @@ I had already installed one <a href="http://en.wikipedia.org/wiki/Solid-state_dr
 </ul>
 </ul>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo fdisk /dev/sdc
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo fdisk /dev/sdc
 </pre></div>
 
 
@@ -553,7 +553,7 @@ I had already installed one <a href="http://en.wikipedia.org/wiki/Solid-state_dr
 </ul>
 </ul>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 missing /dev/sdc1
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 missing /dev/sdc1
 </pre></div>
 
 
@@ -564,7 +564,7 @@ I had already installed one <a href="http://en.wikipedia.org/wiki/Solid-state_dr
 </ul>
 </ul>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo mkfs -t ext3 -j -L RAID-ONE /dev/md0
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo mkfs -t ext3 -j -L RAID-ONE /dev/md0
 </pre></div>
 
 
@@ -574,7 +574,7 @@ I had already installed one <a href="http://en.wikipedia.org/wiki/Solid-state_dr
 </ul>
 </ul>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo mkdir /mnt/raid1
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo mkdir /mnt/raid1
 sudo mount /dev/md0 /mnt/raid1&lt;/code&gt;&lt;/p&gt;
 </pre></div>
 
@@ -585,7 +585,7 @@ sudo mount /dev/md0 /mnt/raid1&lt;/code&gt;&lt;/p&gt;
 </ul>
 </ul>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -avxHAXS --delete --progress /home/* /mnt/raid1
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo rsync -avxHAXS --delete --progress /home/* /mnt/raid1
 </pre></div>
 
 
@@ -595,7 +595,7 @@ sudo mount /dev/md0 /mnt/raid1&lt;/code&gt;&lt;/p&gt;
 </ul>
 </ul>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -avxHAXS --delete --progress /home /home_backup
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo rsync -avxHAXS --delete --progress /home /home_backup
 </pre></div>
 
 
@@ -607,7 +607,7 @@ sudo mount /dev/md0 /mnt/raid1&lt;/code&gt;&lt;/p&gt;
 </ul>
 </ul>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo fdisk /dev/sdb1
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo fdisk /dev/sdb1
 </pre></div>
 
 
@@ -617,7 +617,7 @@ sudo mount /dev/md0 /mnt/raid1&lt;/code&gt;&lt;/p&gt;
 </ul>
 </ul>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">mdadm /dev/md0 --add /dev/sdb1
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>mdadm /dev/md0 --add /dev/sdb1
 </pre></div>
 
 
@@ -627,7 +627,7 @@ sudo mount /dev/md0 /mnt/raid1&lt;/code&gt;&lt;/p&gt;
 </ul>
 </ul>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo mdadm -D /dev/md0
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo mdadm -D /dev/md0
 </pre></div>
 
 
@@ -637,7 +637,7 @@ sudo mount /dev/md0 /mnt/raid1&lt;/code&gt;&lt;/p&gt;
 </ul>
 </ul>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo cp /etc/mdadm/mdadm.conf /etc/mdadm/mdadm.conf_backup
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo cp /etc/mdadm/mdadm.conf /etc/mdadm/mdadm.conf_backup
 sudo mdadm --detail --scan &gt;&gt; /etc/mdadm/mdadm.conf
 </pre></div><script type= "text/javascript">
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {

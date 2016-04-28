@@ -128,7 +128,7 @@ You are supposed to be able to kill any process with <code>kill -9 <em>pid</em
 <p>Zombies can be identified in the output from the process status command <code>ps</code> by the presence of a "Z" in the "STAT" column. Zombies that exist for more than a short period of time typically indicate a bug in the parent program, or just an uncommon decision to reap children.  A zombie process is not the same as an orphan process. An orphan process is a process that is still executing, but whose parent has died. They do not become zombie processes; instead, they are adopted by init (process ID 1), which waits on its children.
 <h2>Standard Reboot Commands</h2>
 The vast majority of your systm shut downs or reboots will follow one of these two forms.  The first will halt the system so you can power it off and the second will reboot the system:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># power off system</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># power off system</span>
 shutdown -h now
 
 <span style="color: #0099FF; font-style: italic"># reboot the system</span>

@@ -112,7 +112,7 @@ Some of the maintenance activities listed here, you're going to need some basic 
 This next section shows you how to get that information.</p>
 <h4>Distribution Name and Version</h4>
 <p>To determine which Linux version / build / release / distribution you are running:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># kernel name and release</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># kernel name and release</span>
 uname -sr
 
 <span style="color: #0099FF; font-style: italic"># kernel version</span>
@@ -126,7 +126,7 @@ lsb_release -a
 
 <p>Use one of the following command to get a listing of all the physical hard drives
 (and virutal drives) on the system:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># terminal commandline utilities to list disk drives</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># terminal commandline utilities to list disk drives</span>
 hwinfo --disk --short
 sudo lshw -class disk -class storage -short
 
@@ -136,7 +136,7 @@ sudo lshw-gtk &amp;
 
 
 <p>For the Raspberry Pi, you can list the installed firmware version via:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># list the Raspberry Pi&#39;s firmware version</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># list the Raspberry Pi&#39;s firmware version</span>
 /opt/vc/bin/vcgencmd version
 </pre></div>
 
@@ -149,7 +149,7 @@ and the graphical tools <a href="http://www.webupd8.org/2011/07/how-to-get-hardw
 and its applications.</p>
 <h4>Install Operating System and Application Patches/Updates</h4>
 <p>This will patch the Linux operating system and all its GPL applications</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># commandline utility for applications upgrade</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># commandline utility for applications upgrade</span>
 sudo apt-get update; sudo apt-get dist-upgrade
 
 <span style="color: #0099FF; font-style: italic"># graphics utility for applications upgrade</span>
@@ -165,14 +165,14 @@ Never the less, tools for updating the firmware are included in the Raspbian dis
 That tool is <code>sudo apt-get install rpi-update</code>.
 I'm using the <a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/overview">Adafruit's Occidentalis distribution</a>, so this requires a
 <a href="https://github.com/Hexxeh/rpi-update">slightly different update tool</a> (<code>git</code> needs to be installed):</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># install tools to upgrade Raspberry Pi&#39;s firmware</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># install tools to upgrade Raspberry Pi&#39;s firmware</span>
 sudo wget https://raw.github.com/Hexxeh/rpi-update/master/rpi-update -O /usr/bin/rpi-update
 sudo chmod +x /usr/bin/rpi-update
 </pre></div>
 
 
 <p>Once the tool has been installed, periodically you can update the firmware via these commands:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># check for and install any required Raspberry Pi firmware upgrades</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># check for and install any required Raspberry Pi firmware upgrades</span>
 sudo <span style="color: #003333">BRANCH</span><span style="color: #555555">=</span>next rpi-update
 sudo reboot
 </pre></div>
@@ -186,7 +186,7 @@ and are not showing any signs of pending failure.</p>
 <h4>Check Storage and Inode Usage</h4>
 <p>If you let some directories get really full, like above 95% full, you will see some serious system problems.
 Check on the status of directory systems storage space and inode usage:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">df
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>df
 df -i
 </pre></div>
 
@@ -195,35 +195,35 @@ df -i
 <p><a href="http://sourceforge.net/apps/trac/smartmontools/wiki">Smartmontools</a> is a set of applications that can test hard drives
 and read their hardware SMART statistics (install with <code>sudo apt-get install smartmontools</code>).
 To ensure that your drive supports <a href="http://en.wikipedia.org/wiki/S.M.A.R.T.">SMART</a>, type the following for each physical drive:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo smartctl -i /dev/sda
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo smartctl -i /dev/sda
 </pre></div>
 
 
 <p>If <code>smartctl</code> can access the drive, you should turn on some SMART features.
 I ran the following command on my three drives (example for the <code>/dev/sda</code> drive):</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo smartctl -s on -o on -S on /dev/sda
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo smartctl -s on -o on -S on /dev/sda
 </pre></div>
 
 
 <p>Check the disk's overall health:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo smartctl -H /dev/sda
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo smartctl -H /dev/sda
 </pre></div>
 
 
 <p>If it doesn’t return PASSED, you should immediately backup all your data.
 A short, but more extensive test is</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo smartctl -t short /dev/sda
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo smartctl -t short /dev/sda
 </pre></div>
 
 
 <p>You can do a long self-test, but this can take a significant amount of time.
 You might want to run it overnight and check for the results in the morning.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo smartctl -t long /dev/sda
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo smartctl -t long /dev/sda
 </pre></div>
 
 
 <p>To check results, run the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo smartctl -l selftest /dev/sda
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo smartctl -l selftest /dev/sda
 </pre></div>
 
 
@@ -244,7 +244,7 @@ to minimize the risk of filesystem corruption.
 You can check out the article "<a href="http://xmodulo.com/2014/03/automatic-filesystem-checks-repair-linux.html">How to set up automatic filesystem checks and repair on Linux</a>"
 but to do force a one-time filesystem check on the next reboot,
 do the following</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo touch /forcefsck
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo touch /forcefsck
 </pre></div>
 
 
@@ -252,7 +252,7 @@ do the following</p>
 it will force filesystem check the next time you boot up.
 After successful booting, <code>/forcefsck</code> will automatically be removed.</p>
 <p>An alternative is to shut down the system with the <code>-F</code> option like this:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo shutdown -r -F now
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo shutdown -r -F now
 </pre></div>
 
 
@@ -269,35 +269,35 @@ and can become a problem for the <code>/boot</code> directory.</p>
 You can clean them up under your <code>$HOME</code> as a normal user
 (You can do it for the entire system as root, but that can be extremely dangerous.)
 Use the command below to get a list of candidates:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">find $HOME -type f -name &quot;*~&quot; -print
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>find $HOME -type f -name &quot;*~&quot; -print
 </pre></div>
 
 
 <p>After that appears to do what you want, add the -exec part.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">find $HOME -type f -name &quot;*~&quot; -print -exec rm {} \;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>find $HOME -type f -name &quot;*~&quot; -print -exec rm {} \;
 </pre></div>
 
 
 <p>Kernel crashes, when they happen, write the core dump files under <code>/var</code>.
 Assuming you aren't saving them for debugging, you can do this to get a listing:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo find /var -type f -name &quot;core&quot; -print
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo find /var -type f -name &quot;core&quot; -print
 </pre></div>
 
 
 <p>Some applications create temporary files in their own directories:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">rm -rf ${HOME}/.macromedia/* ${HOME}/.adobe/*
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>rm -rf ${HOME}/.macromedia/* ${HOME}/.adobe/*
 </pre></div>
 
 
 <h4>Clean-Up Old Log Files</h4>
 <p>You can also remove old compress log files from the system with</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rm -v /var/log/*.gz
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo rm -v /var/log/*.gz
 </pre></div>
 
 
 <h4>Clean-Up Installation Packages</h4>
 <p>To remove partial packages, clean the cache, remove unused dependencies use:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># For software packages remove partial packages, clean the cache, remove unused dependencies</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># For software packages remove partial packages, clean the cache, remove unused dependencies</span>
 sudo apt-get autoclean
 sudo apt-get clean
 sudo apt-get autoremove
@@ -308,31 +308,31 @@ sudo apt-get autoremove
 <p>You also need to do something similar for kernel installations.
 You'll find the amount of space being used by the current kernel
 and old kernel installation packages in <code>/boot</code> by running:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">df -h /boot
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>df -h /boot
 </pre></div>
 
 
 <p>The current Linux kernel installation (and the one you most definitely must keep)
 can be identified via:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">uname -r
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>uname -r
 </pre></div>
 
 
 <p>Run the following command to list all packages that you no longer need:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># list all the kernel packages installed on the system</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># list all the kernel packages installed on the system</span>
 dpkg -l <span style="color: #CC3300">&#39;linux-*&#39;</span>
 
 <span style="color: #0099FF; font-style: italic"># print the currently active kernel version</span>
 uname -r | sed <span style="color: #CC3300">&quot;s/\(.*\)-\([^0-9]\+\)/\1/&quot;</span>
 
 <span style="color: #0099FF; font-style: italic"># list all the currently loaded old kernel packages, that is other than the active one</span>
-dpkg -l <span style="color: #CC3300">&#39;linux-*&#39;</span> | sed <span style="color: #CC3300">&#39;/^ii/!d;/&#39;&quot;$(uname -r | sed &quot;</span>s/<span style="color: #CC3300; font-weight: bold">\(</span>.*<span style="color: #CC3300; font-weight: bold">\)</span>-<span style="color: #CC3300; font-weight: bold">\(</span><span style="color: #555555">[</span>^0-9<span style="color: #555555">]</span><span style="color: #CC3300; font-weight: bold">\+\)</span>/<span style="color: #CC3300; font-weight: bold">\1</span>/<span style="color: #CC3300">&quot;)&quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39;</span>
+dpkg -l <span style="color: #CC3300">&#39;linux-*&#39;</span> | sed <span style="color: #CC3300">&#39;/^ii/!d;/&#39;&quot;</span><span style="color: #006699; font-weight: bold">$(</span>uname -r | sed <span style="color: #CC3300">&quot;s/\(.*\)-\([^0-9]\+\)/\1/&quot;</span><span style="color: #006699; font-weight: bold">)</span><span style="color: #CC3300">&quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39;</span>
 </pre></div>
 
 
 <p>You can use the above command to permanently delete <strong>ALL</strong> older kernels:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># USE WITH CAUTION: perminately delete old kernel packages</span>
-sudo apt-get remove --purge <span style="color: #006699; font-weight: bold">$(</span>dpkg -l <span style="color: #CC3300">&#39;linux-*&#39;</span> | sed <span style="color: #CC3300">&#39;/^ii/!d;/&#39;&quot;$(uname -r | sed &quot;</span>s/<span style="color: #CC3300; font-weight: bold">\(</span>.*<span style="color: #CC3300; font-weight: bold">\)</span>-<span style="color: #CC3300; font-weight: bold">\(</span><span style="color: #555555">[</span>^0-9<span style="color: #555555">]</span><span style="color: #CC3300; font-weight: bold">\+\)</span>/<span style="color: #CC3300; font-weight: bold">\1</span>/<span style="color: #CC3300">&quot;)&quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39;</span><span style="color: #006699; font-weight: bold">)</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># USE WITH CAUTION: perminately delete old kernel packages</span>
+sudo apt-get remove --purge <span style="color: #006699; font-weight: bold">$(</span>dpkg -l <span style="color: #CC3300">&#39;linux-*&#39;</span> | sed <span style="color: #CC3300">&#39;/^ii/!d;/&#39;&quot;</span><span style="color: #006699; font-weight: bold">$(</span>uname -r | sed <span style="color: #CC3300">&quot;s/\(.*\)-\([^0-9]\+\)/\1/&quot;</span><span style="color: #006699; font-weight: bold">)</span><span style="color: #CC3300">&quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39;</span><span style="color: #006699; font-weight: bold">)</span>
 </pre></div>
 
 
@@ -341,14 +341,14 @@ have an old kernel or two to fall back to
 (just in case the new one doesn't work with your system).
 At the very least, if you've just upgraded the kernel,
 reboot before deleting the older versions.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># USE WITH CAUTION: to remove a specific kernel package, in this case 3.13.0-49</span>
-sudo apt-get remove --purge <span style="color: #006699; font-weight: bold">$(</span>dpkg -l <span style="color: #CC3300">&#39;linux-*&#39;</span> | sed <span style="color: #CC3300">&#39;/^ii/!d;/&#39;&quot;$(uname -r | sed &quot;</span>s/<span style="color: #CC3300; font-weight: bold">\(</span>.*<span style="color: #CC3300; font-weight: bold">\)</span>-<span style="color: #CC3300; font-weight: bold">\(</span><span style="color: #555555">[</span>^0-9<span style="color: #555555">]</span><span style="color: #CC3300; font-weight: bold">\+\)</span>/<span style="color: #CC3300; font-weight: bold">\1</span>/<span style="color: #CC3300">&quot;)&quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39;</span> | grep 3.13.0-49<span style="color: #006699; font-weight: bold">)</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># USE WITH CAUTION: to remove a specific kernel package, in this case 3.13.0-49</span>
+sudo apt-get remove --purge <span style="color: #006699; font-weight: bold">$(</span>dpkg -l <span style="color: #CC3300">&#39;linux-*&#39;</span> | sed <span style="color: #CC3300">&#39;/^ii/!d;/&#39;&quot;</span><span style="color: #006699; font-weight: bold">$(</span>uname -r | sed <span style="color: #CC3300">&quot;s/\(.*\)-\([^0-9]\+\)/\1/&quot;</span><span style="color: #006699; font-weight: bold">)</span><span style="color: #CC3300">&quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39;</span> | grep 3.13.0-49<span style="color: #006699; font-weight: bold">)</span>
 </pre></div>
 
 
 <p>And if you happen to blow away all the kernel images (as I have done more than once),
 get your current kernel version back by executing <code>uname -r</code> and then reinstall it with:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install linux-image-x.x.x-xx
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install linux-image-x.x.x-xx
 </pre></div>
 
 
@@ -356,7 +356,7 @@ get your current kernel version back by executing <code>uname -r</code> and then
 <h2>When the Hard Disk Goes South</h2>
 <p>For basic disk errors, you could try letting Linux heal itself with <code>fsck</code> at boot up.
 To do this, shut down the system with the -F option like this:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo shutdown -r -F now
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo shutdown -r -F now
 </pre></div>
 
 
@@ -383,19 +383,19 @@ it is very important to unmount the filesystem before running it.</em></p>
 <p>First take the system to <a href="http://www.cyberciti.biz/tips/linux-changing-run-levels.html">runlevel one (single user mode)</a>.
 Unmount the filesystem, and then run <code>fsck</code>.
 For example, if the filesystem in question is <code>/home</code> (or its device named <code>/dev/sdh</code>) then type command:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">umount /home
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>umount /home
 <span style="color: #0099FF; font-style: italic"># or</span>
 umount /dev/sdh
 </pre></div>
 
 
 <p>Once <code>fsck</code> finished, remount the filesystem:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">mount /home
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>mount /home
 </pre></div>
 
 
 <p>Now start the check/repair via the command</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">fsck -y /dev/sdh
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>fsck -y /dev/sdh
 </pre></div>
 
 
@@ -404,7 +404,7 @@ fixed or corrected you don not use the <code>-y</code> option.
 Any files that are recovered are placed in
 the <code>/home/lost+found</code> directory by <code>fsck</code> command.</p>
 <p>Once fsck finished, remount the filesystem:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">mount /home
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>mount /home
 </pre></div>
 
 
@@ -416,7 +416,7 @@ This very important information, and if totally lost, its catastrophic.
 Luckily, redundant superblock information is maintained,
 and therefore, <a href="http://linuxexpresso.wordpress.com/2010/03/31/repair-a-broken-ext4-superblock-in-ubuntu/">this too can be repaired</a>.
 You can find the location of the superblocks via</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># find the location of superblocks</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># find the location of superblocks</span>
 sudo umount /dev/sdh
 sudo dumpe2fs /dev/sdh | grep -i superblock
 </pre></div>
@@ -424,7 +424,7 @@ sudo dumpe2fs /dev/sdh | grep -i superblock
 
 <p>The superblock labeled as "Primary" is the culprit, so you choose another to take its place.
 Pick another superblock number and use it as the <code>-b</code> options parameter.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo e2fsck -y -b 32768 /dev/sdh
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo e2fsck -y -b 32768 /dev/sdh
 </pre></div>
 
 
@@ -452,7 +452,7 @@ this could very well be the source of your file space problem.</em></p>
 </blockquote>
 <p>A useful command for finding what's eating up all the space is the <a href="http://linoxide.com/linux-command/linux-du-command/">"disk usage" command, <code>du</code></a>.
 Running the following command:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo du -s -h -x /*
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo du -s -h -x /*
 </pre></div>
 
 
@@ -479,7 +479,7 @@ But, in general, you won't break your system if you delete files in the followin
 These log files will quickly fill if there are problems within the system.</p>
 <p>To investigate if they may be the source your filesystem full,
 find the top ten largest files and directories in  <code>/var/log</code>:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># print number of bytes in the 10 largest files and directories in /var/log</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># print number of bytes in the 10 largest files and directories in /var/log</span>
 sudo du -a -b /var/log | sort -n -r | head -n 10
 </pre></div>
 
@@ -487,7 +487,7 @@ sudo du -a -b /var/log | sort -n -r | head -n 10
 <p>To clean up the offending log file,
 you can use the <code>: &gt;</code> operation to truncate the file to zero bytes.
 For example, this will reduce the <code>syslog</code> and <code>kern.log</code> files to zero bytes:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># reduce syslog and kern.log to zero bites</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># reduce syslog and kern.log to zero bites</span>
 sudo su
 <span style="color: #336666">cd</span> /var/log
 : &gt; syslog
@@ -504,13 +504,13 @@ When this happens, the file is essentially invisible to other processes,
 but it still takes on physical space on the drive.
 Tools like <code>du</code> will not see it.</p>
 <p>To find these deleted but open files, run the utility <a href="http://www.thegeekstuff.com/2012/08/lsof-command-examples/">lsof</a></p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># list open but deleted files</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># list open but deleted files</span>
 sudo lsof -nP | grep <span style="color: #CC3300">&#39;(deleted)&#39;</span>
 </pre></div>
 
 
 <p>To find out how much space is taken up by these deleted but open files, run:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># total space used by open but deleted files</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># total space used by open but deleted files</span>
 sudo lsof -nP | awk <span style="color: #CC3300">&#39;/deleted/ { sum+=$8 } END { print sum }&#39;</span>
 </pre></div>
 
@@ -518,7 +518,7 @@ sudo lsof -nP | awk <span style="color: #CC3300">&#39;/deleted/ { sum+=$8 } END 
 <p><code>lsof</code> will list all open files,
 <code>awk</code> then searches for the deleted files, and sums up the file sizes (in bytes).</p>
 <p>To get a list of process ID (PID) that own these file that are not redundant, use</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># process IDs of open but deleted files</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># process IDs of open but deleted files</span>
 sudo lsof -nP | grep <span style="color: #CC3300">&#39;(deleted)&#39;</span> | awk <span style="color: #CC3300">&#39;{ print $2 }&#39;</span> | sort | uniq
 </pre></div>
 
@@ -544,7 +544,7 @@ For example, if <code>2746</code> is the process ID with in <code>/proc</code> w
 the coresponding file must be truncate zero bytes.
 This can be done by switching to full root mode, find the effected files, and truncate them.
 For an example with a PID of <code>2746</code></p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo -s
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo -s
 cd /proc/2746/fd
 ls -l | grep &#39;(deleted)&#39; | awk &#39;{ print $9 }&#39;
 </pre></div>
@@ -553,18 +553,18 @@ ls -l | grep &#39;(deleted)&#39; | awk &#39;{ print $9 }&#39;
 <p>The numbers produced by the last command is the file to be truncate.
 For example, if one of the numbers produce is <code>12</code>, then use this operation
 to truncate the file to zero bytes</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">:&gt; /proc/2746/fd/12
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>:&gt; /proc/2746/fd/12
 </pre></div>
 
 
 <p>You could automate all of the above with this command line</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># for all open but deleted files associated with process 2746, trunctate the file to 0 bytes</span>
-<span style="color: #003333">PID</span><span style="color: #555555">=</span>2746 ; <span style="color: #336666">cd</span> /proc/<span style="color: #003333">$PID</span>/fd ; ls -l | grep <span style="color: #CC3300">&#39;(deleted)&#39;</span> | awk <span style="color: #CC3300">&#39;{ print $9 }&#39;</span> | <span style="color: #006699; font-weight: bold">while </span><span style="color: #336666">read </span>FILE; <span style="color: #006699; font-weight: bold">do</span> :&gt; /proc/<span style="color: #003333">$PID</span>/fd/<span style="color: #003333">$FILE</span>; <span style="color: #006699; font-weight: bold">done</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># for all open but deleted files associated with process 2746, trunctate the file to 0 bytes</span>
+<span style="color: #003333">PID</span><span style="color: #555555">=</span><span style="color: #FF6600">2746</span> ; <span style="color: #336666">cd</span> /proc/<span style="color: #003333">$PID</span>/fd ; ls -l | grep <span style="color: #CC3300">&#39;(deleted)&#39;</span> | awk <span style="color: #CC3300">&#39;{ print $9 }&#39;</span> | <span style="color: #006699; font-weight: bold">while</span> <span style="color: #336666">read</span> FILE; <span style="color: #006699; font-weight: bold">do</span> :&gt; /proc/<span style="color: #003333">$PID</span>/fd/<span style="color: #003333">$FILE</span>; <span style="color: #006699; font-weight: bold">done</span>
 </pre></div>
 
 
 <p>Finally, it's a good idea to do a <a href="http://www.cyberciti.biz/faq/linux-force-fsck-on-the-next-reboot-or-boot-sequence/">forced full file system check</a> on the next reboot.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># file system check on next reboot</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># file system check on next reboot</span>
 sudo touch /forcefsck
 
 <span style="color: #0099FF; font-style: italic"># or</span>

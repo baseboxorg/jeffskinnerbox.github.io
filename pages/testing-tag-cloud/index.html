@@ -75,7 +75,7 @@ Jeff's Skinner Box&nbsp;            </a>
         <div class="entry-content" style="background-image: url('/home/jeff/blogging/content/images/banners-bkgrds/scratchpad-yellow-blueline.jpg'); background-repeat: repeat;">
             <h2>The Back Story</h2>
 <p>To sort tags in alphabetical order, use</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">{% for tag in tag_cloud|sort) %}
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>{% for tag in tag_cloud|sort) %}
     &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-xs&quot;&gt;
     &lt;a class=&quot;tag-{{ tag.1 }}&quot; href=&quot;{{ SITEURL }}/{{ tag.0.url }}&quot;&gt;
         {{ tag.0 }}
@@ -98,7 +98,7 @@ Jeff's Skinner Box&nbsp;            </a>
         &nbsp;
     {% endif %}</p>
 <p>To sort by number of articles in tag</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">{% for tag in tag_cloud|sort(attribute=&#39;1&#39;) %}
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>{% for tag in tag_cloud|sort(attribute=&#39;1&#39;) %}
     &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-xs&quot;&gt;
     &lt;a class=&quot;tag-{{ tag.1 }}&quot; href=&quot;{{ SITEURL }}/{{ tag.0.url }}&quot;&gt;
         {{ tag.0 }}

@@ -109,8 +109,8 @@ The first thing I did was to set up git within my MS Windows PC.  Given that <
 <p>To accomplish this I follow the instructions outline in <a href="http://www.celinio.net/techblog/?p=818">Installing Git on Cygwin</a>.  These instructions are very straight forward.  The challenge was in initializing git for my first project, at least it was a challenge for me since git is new tool for me and Cygwin didn't always cooperate.  I had to address this the old fashion way .... read the documentation and trouble logs (vs. doing a web search for someones web post with instructions).  All the important secrets of git can be found widely dispersed and buried deep withing these web sites: <a href="http://git-scm.com/documentation">Git Documentation</a> and <a href="http://gitref.org/index.html">Git Reference</a>.  Source information from trouble logs will be listed below.</p>
 <p>So how did I do it?  It's easy once you successively done it once.  First let me state the context; for the exercise I'm doing, I'm attempting to place my <code>.bashrc, .profile, .vimrc</code>, and a few other configuration files under gits control.  The basic sequence of operation is to initialize the git environment, configure some parameters, and then add the files.  It goes like this (I'll let you research the git documentation, just like I did, to understand the command.  Trust me, this is good for you!):
 <p style="padding-left:30px;"></p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">git init
-git config --global user.name &quot;jeffskinnerbox&quot;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>git init
+git config --global user.name <span style="color: #CC3300">&quot;jeffskinnerbox&quot;</span>
 git config --global user.email jeff.irland@verizon.net
 git config --global core.editor vim
 git config --global merge.tool vimdiff
@@ -124,12 +124,12 @@ You may be asking,<a href="http://techcrunch.com/2012/07/14/what-exactly-is-gith
 <p>I didn't say much about how to set up github, but trust me, it is as simple as outlined above.  It's via git that all the real work takes place.  GitHub is all about giving you an off-site, web-access-able, complete version controlled historical record of your code that can be shared with others.
 <h2>Back to Git within Cygwin</h2>
 Now that we have established github and initialized, configured, and added files to the Cygwin environment  we can associated the PC and github environments.  It wasn't clear to me, from the git documentation, how to best do this association.  Using  <code>git clone</code> isn't intuitive to me, but it seems to work.  This is how I did it:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">git clone https://github.com/jeffskinnerbox/Cygwin-Configuration-Files.git
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>git clone https://github.com/jeffskinnerbox/Cygwin-Configuration-Files.git
 </pre></div>
 
 
 <p><em><span style="text-decoration:underline;">Warning</span> ...</em> You may, as I did, get the following error:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Cloning into &#39;Cygwin-Configuration-Files&#39;...
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>Cloning into &#39;Cygwin-Configuration-Files&#39;...
 error: error setting certificate verify locations:
 CAfile: /usr/ssl/certs/ca-bundle.crt
 CApath: none while accessing https://github.com/jeffskinnerbox/Cygwin-Configuration-Files.git/info/refs
@@ -139,18 +139,18 @@ fatal: HTTP request failed
 
 <p>If you get the above error, <a href="http://codeforthesoul.blogspot.com/2012/09/git-error-about-missing-certificates-on.html">the problem</a> is that Cygwin hasn't installed the ca-certificates package.  Run the <a href="http://www.cygwin.com/install.html">Cygwin installer</a> again, and add that package; after that <code>git clone</code> should start working.</p>
 <p>The next step is to commit your files to the git local repository within the PC under Cygwin.  To do this, execute the following command:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">git commit
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>git commit
 </pre></div>
 
 
 <p>You will be put into vim to provide a comment that will be posted with the git version.  Why vim?  Because you executed the command <code>git config --global core.editor vim</code>  earlier.  If you don't want to use vim for adding comments under git, supply another editor when you do the configuration step.</p>
 <p>The next step, which strictly isn't required but a nice to have, is to associate a descriptive identifier with the github repository.  The descriptor I used is "Cygwin-Configuration-Files".  The command I used is:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">git remote add Cygwin-Configuration-Files https://github.com/jeffskinnerbox/Cygwin-Configuration-Files.git
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>git remote add Cygwin-Configuration-Files https://github.com/jeffskinnerbox/Cygwin-Configuration-Files.git
 </pre></div>
 
 
 <p>The final step is to push your local files to the github repository,</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">git push Cygwin-Configuration-Files
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>git push Cygwin-Configuration-Files
 </pre></div>
 
 

@@ -161,7 +161,7 @@ The next step for me was just do a basic test of getting two XBee device communi
 </ol>
 </ol>
 Above you'll find a picture of the configuration, and below is the Arduino sketch I used.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">/*</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic">/*</span>
 <span style="color: #0099FF; font-style: italic"> *  Xbee Test via Blink LED</span>
 <span style="color: #0099FF; font-style: italic"> *</span>
 <span style="color: #0099FF; font-style: italic"> *Turns on an LED on for one second, then off for one second, repeatedly.</span>
@@ -215,13 +215,13 @@ Above you'll find a picture of the configuration, and below is the Arduino ske
 <p>While the MS Windows based Digi X-CTU tool is just fine, I want to use the RPi's and Python to access the XBee serial communication API, and its advanced features, for one or more XBee devices.  I prefer simple utilities, that can be scripted within the Linux shell.  Call me a Linux snob if you wish, but I don't care for MS Windows!</p>
 <p>In my post "<a href="http://jeffskinnerbox.wordpress.com/2012/12/22/selecting-xbee-radios-and-supporting-softwaretools/">Selecting XBee Radios and Supporting Software Tools</a>", I referenced a Python package that could be used to create my utilitiesd, call python-xbee, and I will be using it here. It claims to provides a semi-complete implementation of the XBee binary API protocol and allows a developer to send and receive the information they desire without dealing with the raw communication details. It also claims the  library is compatible with both XBee 802.15.4 (Series 1) and XBee ZigBee (Series 2) modules, normal and PRO.</p>
 <p>First, we need to load some additional required Python Packages, that being <a href="http://pyserial.sourceforge.net/">pySerial</a> and <a href="https://nose.readthedocs.org/en/latest/">Nose</a>. pySerial extends python's capabilities to include interacting with a serial port and Nose is a package providing a very easy way to build tests, based on the Python class <a href="http://docs.python.org/2/library/unittest.html">unittest</a>.  (Don't let this all scare you away, these are necessary but your not going to use them directly).  To load these package:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo pip install pySerial
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo pip install pySerial
 sudo pip install nose
 </pre></div>
 
 
 <p>Download the python-xbee tools from <a href="http://code.google.com/p/python-xbee/">Google Code</a> or <a href="http://pypi.python.org/pypi/XBee/2.0.0">Python Org</a> and place them into the RPi's $HOME/src.  The README file provides installation instructions.  It states that the following command automatically test and install the package for you:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo python setup.py install
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo python setup.py install
 </pre></div>
 
 
@@ -234,14 +234,14 @@ sudo pip install nose
 <h2>Identifying the RPi USB device used by the XBee</h2>
 
 <p>Since the python-xbee library wants to talk to the via a Linux serial devices, I'm using the <a href="http://www.adafruit.com/products/70">USB FTDI TTL-232 Cable</a> (<a href="http://www.ftdichip.com/">FTDI</a> is the <a href="http://en.wikipedia.org/wiki/Universal_Serial_Bus">USB</a> chip manufacturer) used in the XBee configuration step done earlier.  I connected the cable to the RPi USB port  and then we need to find the serial tty the cable is associated with.  To do this, it takes a bit of detective work. Run the commands:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">lsusb
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>lsusb
 dmesg | grep Manufacturer
 dmesg | grep FTDI
 </pre></div>
 
 
 <p>A better command might be (but I'm not sure it will work every time):</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">dmesg | grep -i usb | grep -i tty
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>dmesg | grep -i usb | grep -i tty
 </pre></div>
 
 
@@ -271,8 +271,8 @@ The XBeeTerm utility will  easily configure the XBee radios for API mode and se
 <p><script src="https://gist.github.com/jeffskinnerbox/6663187.js"></script></p>
 
 <p>As they stand right now, these files could not be processed by <code>XBeeTerm.py</code> because of the comments (included to make the contents understandable).  To clean this up, the command <code>sed '/^#/d; s/([^$])#.<em>/\1/'</code>will remove all shell type comments from a file and <code>sed 's/[ \t]</em>$//'</code>will remove unneeded white space.  Putting this all together and you can use this to prepare the above files for <code>XBeeTerm.py</code>:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sed &#39;/^#/d; s/\([^$]\)#.*/\1/&#39; Config-Coordinator.txt | sed &#39;s/[ \t]*$//&#39; &gt; coord.txt
-sed &#39;/^#/d; s/\([^$]\)#.*/\1/&#39; Config-End-Device.txt | sed &#39;s/[ \t]*$//&#39; &gt; endd.txt
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sed <span style="color: #CC3300">&#39;/^#/d; s/\([^$]\)#.*/\1/&#39;</span> Config-Coordinator.txt | sed <span style="color: #CC3300">&#39;s/[ \t]*$//&#39;</span> &gt; coord.txt
+sed <span style="color: #CC3300">&#39;/^#/d; s/\([^$]\)#.*/\1/&#39;</span> Config-End-Device.txt | sed <span style="color: #CC3300">&#39;s/[ \t]*$//&#39;</span> &gt; endd.txt
 </pre></div>
 
 
@@ -280,7 +280,7 @@ sed &#39;/^#/d; s/\([^$]\)#.*/\1/&#39; Config-End-Device.txt | sed &#39;s/[ \t]*
 <p><a href="http://jeffskinnerbox.files.wordpress.com/2013/01/xbeeterm-script.jpg"><img class="aligncenter size-full wp-image-1262" alt="XBeeTerm Script" src="http://jeffskinnerbox.files.wordpress.com/2013/01/xbeeterm-script.jpg" width="500" height="205" /></a></p>
 <p>The yellow text is responses back from the XBee serial terminal and the red text is from the XBee radio itself.  Since all the red text is "OK", all the commands took and the XBee radio is now configured as a Coordinator.  Now repeat this for the End Device XBee radio.</p>
 <p>In this example, I have one End Device but what if you have multiple devices, do you need a <code>Config-End-Device.txt </code>file for each end device?  The only change within the configuration file is the radio's address, which is established via the ATMY command.  Here is a trick to avoid the need for multiple files.  First, configure all your End Devices using the configuration file.  Then, for each radio, modify the ATMY use the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">echo -e &quot;baudrate 9600\nserial /dev/ttyUSB0\n+++\nATMY AAA1\nATWR\nATFR\nexit&quot; | python XBeeTerm.py
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #336666">echo</span> -e <span style="color: #CC3300">&quot;baudrate 9600\nserial /dev/ttyUSB0\n+++\nATMY AAA1\nATWR\nATFR\nexit&quot;</span> | python XBeeTerm.py
 </pre></div>
 
 

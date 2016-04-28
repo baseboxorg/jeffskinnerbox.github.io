@@ -124,16 +124,16 @@ From the research I have done, I have found that the NooElec TV28T dongle provid
 <p>The dongle will not provide the desired SDR function out of the box.  It must first be configured (aka hacked) to stream the I/Q samples to the USB output.  This is where <a href="http://sdr.osmocom.org/trac/wiki/rtl-sdr">Antii Palosaari's</a> discovery comes into play.  The wiki's <a href="http://rtlsdr.org/">rtlsdr.org</a> and <a href="http://sdr.osmocom.org/trac/">OsmoSDR</a> are good sources for disparate information concerning RTL2832U based SDR, typically called RTL-SDR.  For my purposes, I wanted to get something initially working on my PC (Linux OS) but ultimately I wanted to have the dongle attached to a Raspberry Pi (RPi) and have the RPi be a server or archive of I/Q samples (sort of a intelligent wide band scanner as done in <a href="http://www.jpmeijers.com/drupal/node/15">Raspberry Pi and DVB-T receivers</a> and here <a href="http://www.hamradioscience.com/raspberry-pi-as-remote-server-for-rtl2832u-sdr/">Raspberry Pi as Remote Server for RTL2832u SDR</a> and here <a href="http://www.jpmeijers.com/drupal/node/15">SDR with Raspberry Pi and DVB-T receivers</a>) that could be processed by my PC.  Therefore, the first step is to get the dongle and a good SDR processor working on my PC.
 <h2>Building rtl-sdr Library and Capture Tools</h2>
 The  OsmoSDR wiki has some good instructions on <a href="http://sdr.osmocom.org/trac/wiki/rtl-sdr#Buildingthesoftware">how to build the rtl-sdr software</a>. I basically followed the wiki's instructions but I had to first install <a href="http://www.cmake.org/">cmake</a> (<code>sudo apt-get install cmake</code>) and <a href="http://www.libusb.org/">libusb</a> (<code>sudo apt-get install libusb-1.0-0-dev</code>) to get a successful make.  I then using the following commands:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cd ~/src
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #336666">cd</span> ~/src
 git clone git://git.osmocom.org/rtl-sdr.git
-cd rtl-sdr/
+<span style="color: #336666">cd</span> rtl-sdr/
 mkdir build
-cd build
+<span style="color: #336666">cd</span> build
 cmake ../
 make
 sudo make install
 sudo ldconfig
-cmake ../ -DINSTALL_UDEV_RULES=ON
+cmake ../ -DINSTALL_UDEV_RULES<span style="color: #555555">=</span>ON
 </pre></div>
 
 
@@ -160,16 +160,16 @@ rtl_fm -W -f 99.5M | play -r 32k -t raw -e signed-integer -b 16 -c 1 -V1 -</code
 <h2>Getting SDR# Running in Linux (didn't work)</h2>
 The  rtlsdr.org wiki has some instructions on <a href="http://rtlsdr.org/softwarelinux">how to get SDR# working within Linux</a>.  Also, the <a href="http://sdrsharp.com/">SDR# home page</a> has a link called <a href="http://pastebin.com/tgYwRBQt">One shot install script for Linux</a>. Both these sites require you to build the software from source code. Mono is able to run Microsoft .NET applications in Linux.  I attempted this and got errors that I could not figure out (I'm not a MS Windows developer type and I'm not interested becoming one!).</p>
 <p>Given this, I chose a different path. I found another posting that claim to <a href="http://opensource.telkomspeedy.com/wiki/index.php/SDR:_SDRSharp_Ubuntu_12.04">get SDR# running in Linux</a>. In this case, only executable will be loaded, not source code that needs to be compiled. You can download SDR# executable from this <a href="http://sdrsharp.com/index.php/downloads">posting</a>.  You'll also need to install <a href="http://www.mono-project.com/Main_Page">mono</a> and <a href="http://www.portaudio.com/">PortAudio</a>.  Here is how I did it:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install mono-complete monodevelop
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install mono-complete monodevelop
 sudo apt-get install libportaudio2
-cd ~/src
+<span style="color: #336666">cd</span> ~/src
 mkdir sdrsharp
-cd sdrsharp
+<span style="color: #336666">cd</span> sdrsharp
 </pre></div>
 
 
 <p>Within <code>~/src/sdrsharp</code>, install the downloaded SDR# zip file and unzip it.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cd sdr-nightly
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #336666">cd</span> sdr-nightly
 ln -s /usr/local/lib/librtlsdr.so librtlsdr.dll
 ln -s /usr/lib/i386-linux-gnu/libportaudio.so.2 libportaudio.so
 </pre></div>
@@ -180,12 +180,12 @@ ln -s /usr/lib/i386-linux-gnu/libportaudio.so.2 libportaudio.so
 <p>The next logical SDR tool to try would be the Linux-based <a href="http://www.oz9aec.net/index.php/gnu-radio/gqrx-sdr">Gqrx SDR receiver</a>, but in this case, it is dependent on <a href="http://gnuradio.org/redmine/projects/gnuradio/wiki">GNU Radio</a>.  I'm attempting to delay my conquest of GNU Radio until I do some experimenting with the dongle.  So lets turn our attention to a much simpler tool.
 <h2>Getting RTL-SDR Scanner Running</h2>
 <a href="http://eartoearoak.com/software/rtlsdr-scanner">RTLSDR Scanner</a> is a simple frequency scanning GUI using the OsmoSDR rtl-sdr library.  I more or less followed the <a href="http://eartoearoak.com/software/rtlsdr-scanner/rtlsdr-scanner-installation">installation instructions</a> but they are confusing/out-of-date and you'll needed to do some adjustments.  The OsmoSDR rtlsdr library has already been installed earlier in the text, so its not listed here.  To get the required files for RTLSDR Scanner:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install python python-wxgtk2.8 python-matplotlib python-numpy
-cd ~/src
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install python python-wxgtk2.8 python-matplotlib python-numpy
+<span style="color: #336666">cd</span> ~/src
 git clone git://github.com/roger-/pyrtlsdr.git
-cd pyrtlsdr
+<span style="color: #336666">cd</span> pyrtlsdr
 sudo setup.py
-cd ~/src
+<span style="color: #336666">cd</span> ~/src
 git clone git://github.com/EarToEarOak/RTLSDR-Scanner.git
 </pre></div>
 
@@ -196,7 +196,7 @@ git clone git://github.com/EarToEarOak/RTLSDR-Scanner.git
 With this, I found I could run <code>~/src/pyrtlsdr/demo_waterfall.py</code>.  Make sure to read the comments in the file to understand how to change the center frequency, gain, etc.  The image below is <code>demo_waterfall.py</code> tuned to the amateur radio <a href="http://en.wikipedia.org/wiki/6-meter_band">6 meters band</a>.  The image is called a <a href="http://en.wikipedia.org/wiki/Spectrogram">spectrogram</a> (sometimes call spectral waterfall) is a dynamic, visual representation of the spectrum of frequencies in the RF signal.  Blue is low signal strength, where yellow, and red are higher strengths.</p>
 <p>To get
 <code>~/src/RTLSDR-Scanner/src/rtlsdr_scan.py</code> to work, I had to do some coping of files as shown below:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cp ~/src/pyrtlsdr/rtlsdr/rtlsdr.py  ~/src/RTLSDR-Scanner/src/rtlsdr.py
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>cp ~/src/pyrtlsdr/rtlsdr/rtlsdr.py  ~/src/RTLSDR-Scanner/src/rtlsdr.py
 cp ~/src/pyrtlsdr/rtlsdr/librtlsdr.py  ~/src/RTLSDR-Scanner/src/librtlsdr.py
 </pre></div>
 

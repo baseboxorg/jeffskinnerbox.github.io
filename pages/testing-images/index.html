@@ -76,7 +76,7 @@ Jeff's Skinner Box&nbsp;            </a>
             <h2>The Back Story</h2>
 <p>Python Markdown comes with several <a href="http://docs.getpelican.com/en/3.3.0/">extras</a>, and one of the extension supported is called <a href="http://jeffskinnerbox.wordpress.com/">CodeHilite</a>.
 To get this all to work, you must include something like this in your <code>pelicanconf.py</code> file:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># List of the extensions that the Markdown processor will use.
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span># List of the extensions that the Markdown processor will use.
 MD_EXTENSIONS = [&#39;extra&#39;, &#39;codehilite(noclasses=True, pygments_style=manni, guess_lang=False)&#39;]
 </pre></div>
 
@@ -84,21 +84,21 @@ MD_EXTENSIONS = [&#39;extra&#39;, &#39;codehilite(noclasses=True, pygments_style
 <h2>Markdown Image Formatting</h2>
 <p>Markdown uses a syntax like <code>[text](link-URL)</code> to support hyperlinks in text.
 It uses a similar syntax for images, like</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">![alt text](image-URL &quot;hover text&quot;)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>![alt text](image-URL &quot;hover text&quot;)
 [![alt text](image-URL &quot;hover text&quot;)](link-URL)
 </pre></div>
 
 
 <p>Here is an example when using a file stored within the pelican directory structure
 (also hover the mouse over the image to see the text):</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">![Wolf Trap]({filename}/images/wolf_trap.jpg &quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot;)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>![Wolf Trap]({filename}/images/wolf_trap.jpg &quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot;)
 </pre></div>
 
 
 <p><img alt="Wolf Trap" src="http://jeffskinnerbox.me/images/wolf_trap.jpg" title="Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182" /></p>
 <p>Can we change the size of the image?
 Now trying some tricks from the web that works for some version of Markdown:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">![Wolf Trap]({filename}/images/wolf_trap.jpg =50x50 &quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot;)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>![Wolf Trap]({filename}/images/wolf_trap.jpg =50x50 &quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot;)
 _Lorem ipsum dolor sit amet, ....
 </pre></div>
 
@@ -108,7 +108,7 @@ _Lorem ipsum dolor sit amet, ....
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
 <p>Here is an another example using a file from the web
 (also hover the mouse over the image to see the text):</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Full image is placed here
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>Full image is placed here
 ![alt text](http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg &quot;Skinner Box:  operant conditioning cage&quot;)
 _Lorem ipsum dolor sit amet, ....
 </pre></div>
@@ -119,8 +119,8 @@ _Lorem ipsum dolor sit amet, ....
 <em><a href="http://www.lipsum.com/">Lorem ipsum</a> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
 <p>You can also access some of the HTML features</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">_Lorem ipsum dolor sit amet, ....
-[<span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://www.google.com.au/images/nav_logo7.png&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>](http://google.com.au/)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>_Lorem ipsum dolor sit amet, ....
+[&lt;<span style="color: #330099; font-weight: bold">img</span> <span style="color: #330099">src</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;http://www.google.com.au/images/nav_logo7.png&quot;</span>&gt;](http://google.com.au/)
 _Lorem ipsum dolor sit amet, ....
 </pre></div>
 
@@ -129,7 +129,7 @@ _Lorem ipsum dolor sit amet, ....
 <a href="http://google.com.au/"><img src="http://www.google.com.au/images/nav_logo7.png"></a>
 <em><a href="http://www.lipsum.com/">Lorem ipsum</a> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
 <p>And now for something different</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">_Lorem ipsum dolor sit amet, ....
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>_Lorem ipsum dolor sit amet, ....
 [![Foo](http://www.google.com.au/images/nav_logo7.png)](http://google.com.au/)
 </pre></div>
 
@@ -138,8 +138,8 @@ _Lorem ipsum dolor sit amet, ....
 <a href="http://google.com.au/"><img alt="Foo" src="http://www.google.com.au/images/nav_logo7.png" /></a></p>
 <h2>HTML Image Formatting</h2>
 <p>You can also use standard HTML image syntax, which allows you to scale the width and height of the image.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">100 x 100 pixel image is here
-<span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;Some text for you&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;100&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;100&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>100 x 100 pixel image is here
+&lt;<span style="color: #330099; font-weight: bold">img</span> <span style="color: #330099">src</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg&quot;</span> <span style="color: #330099">title</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;Some text for you&quot;</span> <span style="color: #330099">width</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;100&quot;</span> <span style="color: #330099">height</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;100&quot;</span>&gt;
 _Lorem ipsum dolor sit amet, ....
 </pre></div>
 
@@ -150,9 +150,9 @@ _Lorem ipsum dolor sit amet, ....
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
 <h3>Float Image</h3>
 <p>By using some more HTML mojo, you float the image left or right.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;div</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;float: left&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
-    <span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;200&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;200&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
-<span style="color: #330099; font-weight: bold">&lt;/div&gt;</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #330099; font-weight: bold">div</span> <span style="color: #330099">style</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;float: left&quot;</span>&gt;
+    &lt;<span style="color: #330099; font-weight: bold">img</span> <span style="color: #330099">src</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg&quot;</span> <span style="color: #330099">width</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;200&quot;</span> <span style="color: #330099">height</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;200&quot;</span>&gt;
+&lt;/<span style="color: #330099; font-weight: bold">div</span>&gt;
 _Lorem ipsum dolor sit amet, ....
 </pre></div>
 
@@ -171,11 +171,11 @@ width="20%" height="20%" will not work!</p>
 </blockquote>
 <h3>Selectable Image</h3>
 <p>And using a little more HTML mojo, you can make the image take you to a URL (select the image below with the mouse):</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;div</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;float: right&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
-    <span style="color: #330099; font-weight: bold">&lt;a</span> <span style="color: #330099">href=</span><span style="color: #CC3300">&quot;http://webspace.ship.edu/cgboer/skinner.html&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
-        <span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;200&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;200&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
-    <span style="color: #330099; font-weight: bold">&lt;/a&gt;</span>
-<span style="color: #330099; font-weight: bold">&lt;/div&gt;</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #330099; font-weight: bold">div</span> <span style="color: #330099">style</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;float: right&quot;</span>&gt;
+    &lt;<span style="color: #330099; font-weight: bold">a</span> <span style="color: #330099">href</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;http://webspace.ship.edu/cgboer/skinner.html&quot;</span>&gt;
+        &lt;<span style="color: #330099; font-weight: bold">img</span> <span style="color: #330099">src</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg&quot;</span> <span style="color: #330099">width</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;200&quot;</span> <span style="color: #330099">height</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;200&quot;</span>&gt;
+    &lt;/<span style="color: #330099; font-weight: bold">a</span>&gt;
+&lt;/<span style="color: #330099; font-weight: bold">div</span>&gt;
 _Lorem ipsum dolor sit amet, ....
 </pre></div>
 
@@ -189,12 +189,12 @@ _Lorem ipsum dolor sit amet, ....
 <p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
 <p>Now moving to the left, adding a hyperlink, and a few other bells &amp; whistles:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">_Lorem ipsum dolor sit amet, ....
-<span style="color: #330099; font-weight: bold">&lt;div</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;float: left&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
-    <span style="color: #330099; font-weight: bold">&lt;a</span> <span style="color: #330099">href=</span><span style="color: #CC3300">&quot;http://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
-        <span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;margin: 0px 8px&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;HP Omni Book XE3 being used as a X Terminal using Tiny Core Linux&quot;</span> <span style="color: #330099">alt=</span><span style="color: #CC3300">&quot;Laptop X Terminal&quot;</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;70&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;70&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
-    <span style="color: #330099; font-weight: bold">&lt;/a&gt;</span>
-<span style="color: #330099; font-weight: bold">&lt;/div&gt;</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>_Lorem ipsum dolor sit amet, ....
+&lt;<span style="color: #330099; font-weight: bold">div</span> <span style="color: #330099">style</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;float: left&quot;</span>&gt;
+    &lt;<span style="color: #330099; font-weight: bold">a</span> <span style="color: #330099">href</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;http://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg&quot;</span>&gt;
+        &lt;<span style="color: #330099; font-weight: bold">img</span> <span style="color: #330099">class</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;margin: 0px 8px&quot;</span> <span style="color: #330099">title</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;HP Omni Book XE3 being used as a X Terminal using Tiny Core Linux&quot;</span> <span style="color: #330099">alt</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;Laptop X Terminal&quot;</span> <span style="color: #330099">src</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;http://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg&quot;</span> <span style="color: #330099">width</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;70&quot;</span> <span style="color: #330099">height</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;70&quot;</span>&gt;
+    &lt;/<span style="color: #330099; font-weight: bold">a</span>&gt;
+&lt;/<span style="color: #330099; font-weight: bold">div</span>&gt;
 _Lorem ipsum dolor sit amet, ....
 </pre></div>
 
@@ -208,11 +208,11 @@ _Lorem ipsum dolor sit amet, ....
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
 <h3>Adding Formating Features to the Image</h3>
 <p>You can also add additional features to the image, like rounded corners</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;div</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;float: right&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
-    <span style="color: #330099; font-weight: bold">&lt;a</span> <span style="color: #330099">href=</span><span style="color: #CC3300">&quot;http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
-        <span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;Seagate Backup Plus&quot;</span> <span style="color: #330099">alt=</span><span style="color: #CC3300">&quot;Backup Plus Pic&quot;</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;200&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;200&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
-    <span style="color: #330099; font-weight: bold">&lt;/a&gt;</span>
-<span style="color: #330099; font-weight: bold">&lt;/div&gt;</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #330099; font-weight: bold">div</span> <span style="color: #330099">style</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;float: right&quot;</span>&gt;
+    &lt;<span style="color: #330099; font-weight: bold">a</span> <span style="color: #330099">href</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/&quot;</span>&gt;
+        &lt;<span style="color: #330099; font-weight: bold">img</span> <span style="color: #330099">class</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">title</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;Seagate Backup Plus&quot;</span> <span style="color: #330099">alt</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;Backup Plus Pic&quot;</span> <span style="color: #330099">src</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg&quot;</span> <span style="color: #330099">width</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;200&quot;</span> <span style="color: #330099">height</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;200&quot;</span>&gt;
+    &lt;/<span style="color: #330099; font-weight: bold">a</span>&gt;
+&lt;/<span style="color: #330099; font-weight: bold">div</span>&gt;
 _Lorem ipsum dolor sit amet, ....
 </pre></div>
 
@@ -226,8 +226,8 @@ _Lorem ipsum dolor sit amet, ....
 <p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
 <p>Now lets place somes border space around the image so the text isn't touching it.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;a</span> <span style="color: #330099">href=</span><span style="color: #CC3300">&quot;http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
-    <span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;margin: 0px 8px; float: left&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;Seagate Backup Plus&quot;</span> <span style="color: #330099">alt=</span><span style="color: #CC3300">&quot;Backup Plus Pic&quot;</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099; font-weight: bold">/&gt;&lt;/a&gt;</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #330099; font-weight: bold">a</span> <span style="color: #330099">href</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/&quot;</span>&gt;
+    &lt;<span style="color: #330099; font-weight: bold">img</span> <span style="color: #330099">class</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;margin: 0px 8px; float: left&quot;</span> <span style="color: #330099">title</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;Seagate Backup Plus&quot;</span> <span style="color: #330099">alt</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;Backup Plus Pic&quot;</span> <span style="color: #330099">src</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg&quot;</span> <span style="color: #330099">width</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099">height</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;150&quot;</span> /&gt;&lt;/<span style="color: #330099; font-weight: bold">a</span>&gt;
 _Lorem ipsum dolor sit amet, ....
 </pre></div>
 
@@ -238,7 +238,7 @@ _Lorem ipsum dolor sit amet, ....
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
 <h3>Retrieving Images From Different Locations</h3>
 <p>Now lets do a image that is stored within the directory <code>content/images</code>:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;margin: 0px 8px; float: left&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot;</span> <span style="color: #330099">alt=</span><span style="color: #CC3300">&quot;Wolf Trap&quot;</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;{filename}/images/wolf_trap.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099; font-weight: bold">/&gt;</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #330099; font-weight: bold">img</span> <span style="color: #330099">class</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;margin: 0px 8px; float: left&quot;</span> <span style="color: #330099">title</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot;</span> <span style="color: #330099">alt</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;Wolf Trap&quot;</span> <span style="color: #330099">src</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;{filename}/images/wolf_trap.jpg&quot;</span> <span style="color: #330099">width</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099">height</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;150&quot;</span> /&gt;
 _Lorem ipsum dolor sit amet, ....
 </pre></div>
 
@@ -247,7 +247,7 @@ _Lorem ipsum dolor sit amet, ....
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
 <p>Now pull the image file for the blogs directory system and modify it default format:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">![Wolf Trap]({filename}/images/wolf_trap.jpg &quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot; { margin: 0px 8px; float: left; width: 200px height: 200px; })
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>![Wolf Trap]({filename}/images/wolf_trap.jpg &quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot; { margin: 0px 8px; float: left; width: 200px height: 200px; })
 _Lorem ipsum dolor sit amet, ....
 </pre></div>
 
@@ -256,10 +256,10 @@ _Lorem ipsum dolor sit amet, ....
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
 <p>Now lets float an image right but take it from the blogs <code>images/</code> directory within HTML:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">_Lorem ipsum dolor sit amet, ....
- <span style="color: #330099; font-weight: bold">&lt;a</span> <span style="color: #330099">href=</span><span style="color: #CC3300">&quot;https://unity.ubuntu.com/&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
-    <span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;margin: 0px 8px; float: right&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;Unity is the Desktop Environment that is shippped as the default Ubuntu installation, and claims it&#39;s focus is on simplicity and consistency across multiple devices (e.g. across TV, mobile, tablet, and desktop)&quot;</span> <span style="color: #330099">alt=</span><span style="color: #CC3300">&quot;Ubuntu Unity Logo&quot;</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;/images/ubuntu-unity-logo.png&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;100&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;100&quot;</span> <span style="color: #330099; font-weight: bold">/&gt;</span>
-<span style="color: #330099; font-weight: bold">&lt;/a&gt;</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>_Lorem ipsum dolor sit amet, ....
+ &lt;<span style="color: #330099; font-weight: bold">a</span> <span style="color: #330099">href</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;https://unity.ubuntu.com/&quot;</span>&gt;
+    &lt;<span style="color: #330099; font-weight: bold">img</span> <span style="color: #330099">class</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;margin: 0px 8px; float: right&quot;</span> <span style="color: #330099">title</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;Unity is the Desktop Environment that is shippped as the default Ubuntu installation, and claims it&#39;s focus is on simplicity and consistency across multiple devices (e.g. across TV, mobile, tablet, and desktop)&quot;</span> <span style="color: #330099">alt</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;Ubuntu Unity Logo&quot;</span> <span style="color: #330099">src</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;/images/ubuntu-unity-logo.png&quot;</span> <span style="color: #330099">width</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;100&quot;</span> <span style="color: #330099">height</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;100&quot;</span> /&gt;
+&lt;/<span style="color: #330099; font-weight: bold">a</span>&gt;
 _Lorem ipsum dolor sit amet, ....
 </pre></div>
 
@@ -272,7 +272,7 @@ _Lorem ipsum dolor sit amet, ....
 <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>
 <h3>Pull Images from Flickr</h3>
 <p>You can just as easily retrive images from personal stach maintained in Flickr.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;margin: 0px 8px; float: left&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;HP Omni Book XE3 being used as a X Terminal using Tiny Core Linux&quot;</span> <span style="color: #330099">alt=</span><span style="color: #CC3300">&quot;Laptop X Terminal&quot;</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;https://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;25%&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;25%&quot;</span><span style="color: #330099; font-weight: bold">/&gt;</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #330099; font-weight: bold">img</span> <span style="color: #330099">class</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;margin: 0px 8px; float: left&quot;</span> <span style="color: #330099">title</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;HP Omni Book XE3 being used as a X Terminal using Tiny Core Linux&quot;</span> <span style="color: #330099">alt</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;Laptop X Terminal&quot;</span> <span style="color: #330099">src</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;https://farm8.staticflickr.com/7524/15871118402_2996fc7d79_b.jpg&quot;</span> <span style="color: #330099">width</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;25%&quot;</span> <span style="color: #330099">height</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;25%&quot;</span>/&gt;
 I store some of my blog photos on Flickr. ....
 </pre></div>
 

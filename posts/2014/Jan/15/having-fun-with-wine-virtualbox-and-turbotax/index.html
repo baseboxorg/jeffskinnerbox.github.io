@@ -115,7 +115,7 @@ and it it fails me, resort to <a href="https://www.virtualbox.org/">VirtualBox</
 which appears to have at least <a href="https://blogs.oracle.com/wbays/entry/turbotax_on_virtualbox_problem_solved">some success</a> stories.</p>
 <h1>Installing and Configuring Wine</h1>
 <p>Wine can be installed via the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># installing wine</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># installing wine</span>
 sudo add-apt-repository ppa:ubuntu-wine/ppa
 sudo apt-get update
 sudo apt-get install wine
@@ -144,7 +144,7 @@ and see if I can get things running with minimal effort.</p>
 <a href="https://ttlc.intuit.com/questions/1899606-error-we-can-t-install-turbotax-on-your-computer-just-yet">"We can't install TurboTax on your computer just yet..."</a>.
 Appears that TurboTax doesn't like Wine's version of the .NET Framework.
 A little <a href="http://superuser.com/questions/476872/installing-net-4-0-framework-on-wine-using-winetricks">research</a> surggested that I should install .NET 4 via this command:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># install .NET</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># install .NET</span>
 winetricks dotnet40
 </pre></div>
 
@@ -165,19 +165,19 @@ Instead, I install VirtualBox from the Oracle maintained repository,
 following the <a href="https://www.virtualbox.org/wiki/Linux_Downloads">procedures outlined by Oracle</a>.
 I added the following lines (for the approprate linux distribution; mine is saucy)
 to the <code>/etc/apt/sources.list</code> file:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># Oracle&#39;s software repository for VirtualBox
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span># Oracle&#39;s software repository for VirtualBox
 deb http://download.virtualbox.org/virtualbox/debian saucy contrib
 </pre></div>
 
 
 <p>Downloaded the Oracle public key for the software:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># get the public key for VirtualBox&#39;s repository</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># get the public key for VirtualBox&#39;s repository</span>
 wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
 </pre></div>
 
 
 <p>Now install VirtualBox version 4.3:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># install VirtualBox</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># install VirtualBox</span>
 sudo apt-get update
 sudo apt-get install dkms virtualbox-4.3
 </pre></div>

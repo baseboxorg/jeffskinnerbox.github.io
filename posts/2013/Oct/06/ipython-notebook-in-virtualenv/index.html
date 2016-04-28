@@ -127,7 +127,7 @@ The steps I outline below were derived from the posts:
 <p>It's wise to check for an existing installations of virtualenv and its companion tools.
 It appears possible (but I'm not sure) to install multiple copies if you mix package management tools
 like apt-get, pip, and easy_install.  So first perform this check to see if you get any response:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">virtualenv --version
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>virtualenv --version
 virtualenvwrapper --version
 </pre></div>
 
@@ -140,14 +140,14 @@ Use the virtualenvwrapper script to make working with and changing to/from multi
 <p>I'm installing virtualenv and virtualenvwrapper but will not be using only the later here.
 I want the tool installed for potential future use, but for now,
 I will only have a single virtual environment that I need to work with.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo pip install virtualenv
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo pip install virtualenv
 sudo pip install virtualenvwrapper
 </pre></div>
 
 
 <h3>Step 2: Create a Virtualenv</h3>
 <p>The following command creates a clean virtualenv devoid of any packages in a directory called <code>_notebook</code>.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">$ virtualenv --no-site-packages _notebook
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>$ virtualenv --no-site-packages _notebook
 New python executable in _notebook/bin/python
 Installing Setuptools........................................done.
 Installing Pip...............................................done.
@@ -155,7 +155,7 @@ Installing Pip...............................................done.
 
 
 <p>The way virtualenv works is that it creates the directory <code>_notebook</code> symlinks to your global python installation, as you can see clearly using the tree utility.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">$ tree -d _notebook
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>$ tree -d _notebook
 _notebook
 ├── bin
 ├── include
@@ -184,10 +184,10 @@ _notebook
 │           ├── setuptools
 │           │   ├── _backport
 │           │   │   └── hashlib
-│           │   ├── command
+│           │   ├── <span style="color: #336666">command</span>
 │           │   └── tests
 │           └── setuptools-0.9.8-py2.7.egg-info
-└── local
+└── <span style="color: #336666">local</span>
     ├── bin -&gt; /home/jeff/myblog/_notebook/bin
     ├── include -&gt; /home/jeff/myblog/_notebook/include
     └── lib -&gt; /home/jeff/myblog/_notebook/lib
@@ -201,21 +201,21 @@ Do you want this virtualenv to use packages from your system site-packages, if n
 pass in the <code>-–no-site-packages</code> switch when creating your virtualenv.</p>
 <h3>Step 3: Use the Environment</h3>
 <p>So we now have a new virtualenv, it now has to be activated. To do this, change to the virtualenv directory you just created and source the activation script from the bin directory in your virtualenv:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">~/myblog$ cd _notebook
-~/myblog/_notebook$ source bin/activate
-(_notebook)~/myblog/_notebook$ 
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>~/myblog$ <span style="color: #336666">cd</span> _notebook
+~/myblog/_notebook$ <span style="color: #336666">source</span> bin/activate
+<span style="color: #555555">(</span>_notebook<span style="color: #555555">)</span>~/myblog/_notebook$ 
 </pre></div>
 
 
 <p>Notice that the command prompt is modified after the sourcing.
 When you activate a virtualenv, it modifies your current prompt to prepend the name of the virtualenv in parentheses so that you know at a glance you have it active.
 Other than the prompt change, the main changes the activate script makes are:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">VIRTUAL_ENV=&quot;/home/jeff/myblog/_notebook&quot;
-export VIRTUAL_ENV
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #003333">VIRTUAL_ENV</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;/home/jeff/myblog/_notebook&quot;</span>
+<span style="color: #336666">export</span> VIRTUAL_ENV
 
-_OLD_VIRTUAL_PATH=&quot;$PATH&quot;
-PATH=&quot;$VIRTUAL_ENV/bin:$PATH&quot;
-export PATH
+<span style="color: #003333">_OLD_VIRTUAL_PATH</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;</span><span style="color: #003333">$PATH</span><span style="color: #CC3300">&quot;</span>
+<span style="color: #003333">PATH</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;</span><span style="color: #003333">$VIRTUAL_ENV</span><span style="color: #CC3300">/bin:</span><span style="color: #003333">$PATH</span><span style="color: #CC3300">&quot;</span>
+<span style="color: #336666">export</span> PATH
 </pre></div>
 
 
@@ -225,17 +225,17 @@ This means through the magic of the Python site module the site-packages in your
 <h3>Step 4: Installing Packages in Virtualenv</h3>
 <p>Now that we are in the virtual envirnment, if you list the installed python packages,
 you'll find very little:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">(_notebook)~/myblog/_notebook$ pip freeze
-argparse==1.2.1
-wsgiref==0.1.2
-(_notebook)~/myblog/_notebook$
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #555555">(</span>_notebook<span style="color: #555555">)</span>~/myblog/_notebook$ pip freeze
+<span style="color: #003333">argparse</span><span style="color: #555555">==</span>1.2.1
+<span style="color: #003333">wsgiref</span><span style="color: #555555">==</span>0.1.2
+<span style="color: #555555">(</span>_notebook<span style="color: #555555">)</span>~/myblog/_notebook$
 </pre></div>
 
 
 <p>Now you can simply install your desired additional packages using pip.
 This does not require <code>sudo</code> access, as all the packages are installed in the virtualenv  <code>_notebook</code> created.
 For my IPython Notebook blogging effort, I require the following packages:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">pip install numpy
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>pip install numpy
 pip install matplotlib
 pip install pandas
 pip install scipy
@@ -245,13 +245,13 @@ easy_install yolk
 
 <p>To install the basemap for matplotlib, you'll need to <a href="http://matplotlib.org/basemap/users/installing.html">download</a> the source from Matplotlib Org website.
 Basemap is an add-on toolkit for matplotlib that lets you plot data on map projections with coastlines, lakes, rivers and political boundaries.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">tar -zxvf basemap-1.0.7.tar.gz
-cd basemap-1.0.7
-cd geos-3.3.3
-export GEOS_DIR=&quot;/home/jeff/myblog/_notebook/lib&quot;
-./configure --prefix=$GEOS_DIR
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>tar -zxvf basemap-1.0.7.tar.gz
+<span style="color: #336666">cd</span> basemap-1.0.7
+<span style="color: #336666">cd</span> geos-3.3.3
+<span style="color: #336666">export</span> <span style="color: #003333">GEOS_DIR</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;/home/jeff/myblog/_notebook/lib&quot;</span>
+./configure --prefix<span style="color: #555555">=</span><span style="color: #003333">$GEOS_DIR</span>
 make; make install
-cd ..
+<span style="color: #336666">cd</span> ..
 python setup.py install
 </pre></div>
 
@@ -261,9 +261,9 @@ python setup.py install
 These dependencies should be load automatically, but in case there are problems,
 they are <a href="http://ipython.org/ipython-doc/stable/install/install.html">documented on the IPython website</a>.
 You can download the latest IPython package from the <a href="https://pypi.python.org/pypi/ipython">Python Org website</a>.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">unzip ipython-1.1.0.zip 
-cd ipython-1.1.0
-easy_install ipython[all]
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>unzip ipython-1.1.0.zip 
+<span style="color: #336666">cd</span> ipython-1.1.0
+easy_install ipython<span style="color: #555555">[</span>all<span style="color: #555555">]</span>
 </pre></div>
 
 
@@ -284,7 +284,7 @@ and <a href="http://www.silverwareconsulting.com/index.cfm/2012/7/24/Getting-Sta
 <h2>Warning Message</h2>
 <p>For reasons I don't full understand, after installing virtualenv, I repeatedly
 got the warning message below:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">/usr/local/bin/virtualenv:5: UserWarning: Module dap was already imported from None, but /usr/lib/python2.7/dist-packages is being added to sys.path
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>/usr/local/bin/virtualenv:5: UserWarning: Module dap was already imported from None, but /usr/lib/python2.7/dist-packages is being added to sys.path
 </pre></div>
 
 

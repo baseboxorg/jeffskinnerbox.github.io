@@ -122,7 +122,7 @@ and the <code>Metacity</code> X Window Manager.
 In the examples below, I sometimes use other components to demonstrate the robustness of the approach.
 Specifically, I'm using the <a href="http://awesome.naquadah.org/">Awesome X Windows Manager</a>
 This can be load with the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install awesome awesome-extra
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install awesome awesome-extra
 </pre></div>
 
 
@@ -140,14 +140,14 @@ Therefore, <code>Xnest</code> can be used to run a virtual desktop of another co
 <p><code>Xnest</code> might come pre-installed in the Ubuntu X Window System
 but it's easy to install and is <a href="http://box.matto.nl/xnest.html">easy to use</a>.
 Simply install the package.  No special configuration is require.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install xnest
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install xnest
 </pre></div>
 
 
 <h3>Simple Test of Xnest</h3>
 <p>To open a window containing a new X Display (i.e. display :3) and running xclock,
 execute the following commands in an <code>xterm</code>.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Xnest :3 -geometry 1280x1024+200+200 -name &quot;Xnest Test Window&quot; 2&gt; /dev/null &amp;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>Xnest :3 -geometry 1280x1024+200+200 -name &quot;Xnest Test Window&quot; 2&gt; /dev/null &amp;
 xclock -display :3 &amp;
 </pre></div>
 
@@ -162,7 +162,7 @@ xclock -display :3 &amp;
 <p>In the above, there isn't a window manager.
 To include a window manager, you simple need to start one up, but again, within display :3.
 And you can tile on a <code>xterm</code> and the <code>xeye</code>.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">DISPLAY=:3 awesome &amp;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>DISPLAY=:3 awesome &amp;
 DISPLAY=:3 xterm &amp;
 DISPLAY=:3 xeyes &amp;
 </pre></div>
@@ -172,14 +172,14 @@ DISPLAY=:3 xeyes &amp;
 <p>For this discussion, you can think of <a href="http://nims11.wordpress.com/2012/06/24/nested-x-servers-with-xephyr/"><code>Xephyr</code></a> as an improved <code>Xnest</code>.
 Also, the use of the <code>Xephyr</code> X Server instead of <code>Xnest</code> is generally recommended.
 You can install <code>Xephyr</code> with the following.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install xserver-xephyr
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install xserver-xephyr
 </pre></div>
 
 
 <h3>Simple Test of Xephyr</h3>
 <p>To open a <code>Xephyr</code> window with a specific size and suppress trace / error messaging,
 do the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Xephyr -ac -screen 1280x1024 -br -reset -terminate 2&gt; /dev/null :3 &amp;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>Xephyr -ac -screen 1280x1024 -br -reset -terminate 2&gt; /dev/null :3 &amp;
 </pre></div>
 
 
@@ -194,14 +194,14 @@ do the following:</p>
 <li><strong>2&gt; /dev/null</strong> redirects trace and error messages</li>
 </ul>
 <p>To add a <code>xterm</code> into another account and the GNOME Window Manager, you could do the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Xephyr -ac -screen 1280x1024 -br -reset -terminate 2&gt; /dev/null :3 &amp;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>Xephyr -ac -screen 1280x1024 -br -reset -terminate 2&gt; /dev/null :3 &amp;
 DISPLAY=:3.0 gnome-wm &amp;
 DISPLAY=:3.0 ssh -X jennie@desktop xterm
 </pre></div>
 
 
 <p>Or you could start a GNOME Desktop session, and this will being with it its display manager</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Xephyr -ac -screen 1280x1024 -br -reset -terminate 2&gt; /dev/null :3 &amp;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>Xephyr -ac -screen 1280x1024 -br -reset -terminate 2&gt; /dev/null :3 &amp;
 DISPLAY=:3 gnome-session &amp;
 DISPLAY=:3.0 ssh -XfC jennie@desktop xterm
 </pre></div>
@@ -227,7 +227,7 @@ XDMCP is not enabled by default on most modern UNIX distributions.
 You will have to enable remote logins to your X Display Manager.
 To enable XDMCP on my LXDE based system,
 I configuring the file <code>/etc/lightdm/lightdm.conf</code> so it contains</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">[SeatDefaults]
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>[SeatDefaults]
 user-session=ubuntu
 autologin-user=false
 xserver-allow-tcp=true
@@ -248,7 +248,7 @@ or reboot your system so the changes take effect.
 To log into into my Linux system (aka <code>desktop</code>),
 from the same system as if they are remote to each other,
 I used the following command works well.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Xephyr :3 -ac -screen 1280x1024 -br -reset -terminate -query desktop 2&gt; /dev/null &amp;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>Xephyr :3 -ac -screen 1280x1024 -br -reset -terminate -query desktop 2&gt; /dev/null &amp;
 </pre></div>
 
 

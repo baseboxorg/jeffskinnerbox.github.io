@@ -110,10 +110,10 @@ In <a href="http://jeffskinnerbox.wordpress.com/2013/05/26/rtl-sdr-software-defi
 <p>Also within this post, I venture out from gqrx to examine a few other tools.  I don't cover much territory, nor have much success.  The insperation to examine these other tools comes mainly from the lengthy post "<a href="http://superkuh.com/rtlsdr.html#simple_ra">RTL-SDR and GNU Radio with Realtek RTL2832U [Elonics E4000/Raphael Micro R820T] software defined radio receiver</a>".  Also check out "<a href="http://blog.opensecurityresearch.com/2012/06/getting-started-with-gnu-radio-and-rtl.html">Getting Started with GNU Radio and RTL-SDR (on Backtrack)</a>".
 <h2>Build GNU Radio on Ubuntu</h2>
 The GNU Radio web site has <a href="http://gnuradio.org/redmine/projects/gnuradio/wiki/InstallingGR#Using-the-build-gnuradio-script">specific instructions</a> and a build script for installing it on Ubuntu (I'm using version 13.04).  This process claims it may take 1-2 hours to do the install (for me it ran in 1 hour 14 minutes).  The steps are as follows:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cd ~/src
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #336666">cd</span> ~/src
 mkdir ~/gnuradio
-cd ~/gnuradio
-wget http://www.sbrac.org/files/build-gnuradio &amp;&amp; chmod a+x ./build-gnuradio &amp;&amp; ./build-gnuradio --verbose
+<span style="color: #336666">cd</span> ~/gnuradio
+wget http://www.sbrac.org/files/build-gnuradio <span style="color: #555555">&amp;&amp;</span> chmod a+x ./build-gnuradio <span style="color: #555555">&amp;&amp;</span> ./build-gnuradio --verbose
 </pre></div>
 
 
@@ -125,7 +125,7 @@ wget http://www.sbrac.org/files/build-gnuradio &amp;&amp; chmod a+x ./build-gnur
 </a>
 To verify that the software is working, best thing is to create the typical "Hello, World" program, just we might have done for our first foray into C++, Python, or other programming language.  In the world of GNU Radio, this program has come to be the phone dial tone. To do this, I followed the video <a href="http://www.youtube.com/watch?v=xxe87CdIq-s">The "Hello World" of GNU Radio: Dial Tone</a> and the <a href="http://gnuradio.org/redmine/projects/gnuradio/wiki/TutorialsWritePythonApplications">gnuradio.org</a>.  I did this using the <a href="http://gnuradio.org/redmine/projects/gnuradio/wiki/GNURadioCompanion">GNU Radio Companion</a> (executable located at <code>/usr/local/bin/gnuradio-companion</code>).  GNU Radio Companion (GRC) is a graphical tool for creating signal flow graphical models and generating Python source code for the model created.</p>
 <p>GRC's generated flow and code for the "Hello, World" program is listed below. The Python code for the dial tone program was placed in the home directory, and in my case, it was called <code>dail_tone.py</code>. While it can be executed via the <code>gnuradio-companion</code>, it can also be executed via <code>python dial_tone.py</code>. The user interface for the GRC and the corresponding Python code it generated is listed below:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/usr/bin/env python</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic">#!/usr/bin/env python</span>
 <span style="color: #0099FF; font-style: italic">##################################################</span>
 <span style="color: #0099FF; font-style: italic"># Gnuradio Python Flow Graph</span>
 <span style="color: #0099FF; font-style: italic"># Title: Dial Tone</span>
@@ -280,14 +280,14 @@ Using the following postings as a guide:
 I had sufficient success to convince myself that GNU Radio was work.
 <h2>Building Gqrx on Ubuntu</h2>
 Gqrx is a software defined AM, FM and SSB software defined radio receiver for RTL-SDR based dongles (as well as the <a href="http://en.wikipedia.org/wiki/Universal_Software_Radio_Peripheral">Universal Software Radio Peripherals</a> and <a href="http://sdr.osmocom.org/trac/wiki/Hardware">Osmo SDR devices</a>).  It features a  <a href="http://en.wikipedia.org/wiki/Qt_(framework)">Qt GUI</a>.  As a QT program, you'll need to make sure you have QT4 installed (version 5 will not work) and that you have the <a href="http://en.wikipedia.org/wiki/Qt_Creator"><code>qtcreator</code></a> tool is installed:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install qt4-default
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install qt4-default
 sudo apt-get install phonon-backend-gstreamer
 </pre></div>
 
 
 <p>Now download the source for <a href="http://www.oz9aec.net/index.php/gnu-radio/gqrx-sdr">Gqrx via its page on GitHub</a>  and extract it into your target directory. The posting <a href="http://www.thepowerbase.com/2012/06/getting-started-with-rtl-sdr/2/">Getting Started With RTL-SDR</a> and the <a href="https://github.com/csete/gqrx/blob/master/README.md">README</a> on the GitHub site where useful in understanding how to do the install.  I did the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">git clone git://github.com/csete/gqrx.git
-cd gqrx
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>git clone git://github.com/csete/gqrx.git
+<span style="color: #336666">cd</span> gqrx
 qmake gqrx.pro
 make
 </pre></div>
@@ -306,7 +306,7 @@ Click "OK" and the screen below will pop up.  Make sure you have the RTL-SDR d
 <h2>Building Multimode Radio Receiver</h2>
 This radio receiver is capable of demodulating muitiple modes, specifically AM, FM, USB, LSB , WFM. TV-FM, PAL-FM. It's easy to use and  has an automated scanning and spectral zoom features where clicking on the spectrogram or panorama to tune to the frequency of interest.</p>
 <p>Multimode documentation is sparse to non existent. The posts "<a href="http://foxgulch.com/WordPress/?p=615">Using the Realtek RTL2832 USB “dongle” as a gnuradio multimode receiver</a>" and "<a href="http://superkuh.com/rtlsdr.html#multimodeappnote">RTL-SDR and GNU Radio with Realtek RTL2832U [Elonics E4000/Raphael Micro R820T] software defined radio receiver</a>" and "<a href="http://blog.opensecurityresearch.com/2012/06/getting-started-with-gnu-radio-and-rtl.html">Getting Started with GNU Radio and RTL-SDR (on Backtrack)</a>" gave some important hints on how to install multimode and get it operational.  I did the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cd ~
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #336666">cd</span> ~
 svn co https://www.cgran.org/svn/projects/multimode/trunk/ ~/src/multimode
 make install
 </pre></div>
@@ -315,16 +315,16 @@ make install
 <p>When I executed <code>multimode.py</code>, it didn't product a display.  I suspect its some subtle Python code problem, or more likely.  incompatibility with the latest GNU Radio libraries.  For now, I'm going to abandon this.
 <h2>GNU Radio Signal Scanner</h2>
 <a href="http://www.techmeology.co.uk/gr-scan/">gr-scan</a> is a program  built upon GNU Radio, rtl-sdr, and the OsmoSDR Source Block.  This receiver constantly changes frequencies in a set order looking for a frequency that has someone transmitting. It is intended to scan a range of frequencies and print a list of discovered signals.  Installation involved the following steps:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cd ~./src
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #336666">cd</span> ~./src
 mkdir gr-scan
-cd gr-scan
+<span style="color: #336666">cd</span> gr-scan
 </pre></div>
 
 
 <p>with your browser, download: <code>http://www.techmeology.co.uk/gr-scan/gr-scan-2012082301.tar.gz</code></p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">gzip -d gr-scan-2012082301.tar.gz
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>gzip -d gr-scan-2012082301.tar.gz
 tar -xvvf gr-scan-2012082301.tar
-cd gr-scan-2012082301
+<span style="color: #336666">cd</span> gr-scan-2012082301
 make
 </pre></div>
 

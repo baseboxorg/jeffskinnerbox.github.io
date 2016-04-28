@@ -161,14 +161,14 @@ place it in the <code>fstab</code> file so its mounted every time at boot up.</p
 <h2>Install rsync, grsync, and rsnapshot</h2>
 <p>Rsync should already be installed on most Linux system.
 You can install it, and the <a href="http://www.opbyte.it/grsync/">grsync</a> &amp; <a href="http://www.rsnapshot.org/">rsnapshot</a> tools, using this command:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install rsync grsync rsnapshot
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install rsync grsync rsnapshot
 </pre></div>
 
 
 <h2>Select Backup Storage Location</h2>
 <p>I want to create directory for the backups that are readable by all users, but writable by only root.
 To do this, do the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">mkdir /mnt/backup
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>mkdir /mnt/backup
 chmod a+rwx /mnt/backup
 chmod o-w /mnt/backup
 </pre></div>
@@ -181,7 +181,7 @@ chmod o-w /mnt/backup
 and then doing an undo can be a tedious job.
 Rsync can be run in a "dry run" mode to show you the output of the command.
 For example, this will make a copy of <code>~/tmp</code>:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">rsync -azv --dry-run /home/jeff/tmp/ /home/jeff/tmp/copy-of-tmp
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>rsync -azv --dry-run /home/jeff/tmp/ /home/jeff/tmp/copy-of-tmp
 </pre></div>
 
 
@@ -194,14 +194,14 @@ I want to preserves file timestamp, symbolic links, permissions, and owner/group
 This can be done using the rsync option <code>-a</code>.
 Additional options used are <code>-z</code> to enable compression,
 and <code>-v</code> to provide verbose status output.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv /home/jeff/src/rtl-sdr/ /mnt/backup/rsync-test1
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo rsync -azv /home/jeff/src/rtl-sdr/ /mnt/backup/rsync-test1
 </pre></div>
 
 
 <p>The <code>sudo</code> is required since I have made <code>/mnt/backup</code> writable only by root.
 The presence or absence of the terminating <code>/</code> within the rsync command line is important.
 The following two commands produce different results:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv /home/jeff/Documents/<span style="color: #CC3300">&quot;My Maps&quot;</span>/ /mnt/backup/rsync-test2
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo rsync -azv /home/jeff/Documents/<span style="color: #CC3300">&quot;My Maps&quot;</span>/ /mnt/backup/rsync-test2
 sudo rsync -azv /home/jeff/Documents/<span style="color: #CC3300">&quot;My Maps&quot;</span> /mnt/backup/rsync-test3
 </pre></div>
 
@@ -212,7 +212,7 @@ This is an important subtlety to remember!</p>
 <h3>Testing rsync on a Remote System</h3>
 <p>In this case, my Linux desktop machine is the local system and RPi is the remote machine.
 The Linux desktop has the external drive used for backups.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv pi@RedRPi:/home/pi/src/nRF24L01 /mnt/backup/rsync-test4
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo rsync -azv pi@RedRPi:/home/pi/src/nRF24L01 /mnt/backup/rsync-test4
 </pre></div>
 
 
@@ -220,7 +220,7 @@ The Linux desktop has the external drive used for backups.</p>
 You will get a subsequent prompt for the login as <code>pi</code> on the <code>RedRPi</code> system,
 and then the data will be transfered to the external drive.
 But when performing beyond your the firewall, you should use ssh<sup id="fnref:A1"><a class="footnote-ref" href="#fn:A1" rel="footnote">2</a></sup>, as shown below:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh pi@RedRPi:/home/pi/src/ /mnt/backup/rsync-test5
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo rsync -azv -e ssh pi@RedRPi:/home/pi/src/ /mnt/backup/rsync-test5
 </pre></div>
 
 
@@ -228,16 +228,16 @@ But when performing beyond your the firewall, you should use ssh<sup id="fnref:A
 checkout "<a href="http://www.thegeekstuff.com/2011/07/rsync-over-ssh-without-password/">How to Setup Rsync with SSH on UNIX / Linux (rsync without password)</a>".
 This is sometime you will want to do to support automatic, unattended backups.
 Basically, your going to do the following on the machine that will store the backups<sup id="fnref:B"><a class="footnote-ref" href="#fn:B" rel="footnote">3</a></sup>:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">cd</span> <span style="color: #003333">$HOME</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #336666">cd</span> <span style="color: #003333">$HOME</span>
 mkdir .ssh
-chmod 755 .ssh
+chmod <span style="color: #FF6600">755</span> .ssh
 ssh-keygen -N <span style="color: #CC3300">&quot;&quot;</span> -f /<span style="color: #003333">$HOME</span>/.ssh/id_rsa
 ssh-copy-id -i /<span style="color: #003333">$HOME</span>/.ssh/id_rsa.pub pi@RedRPi
 ssh-copy-id -i /<span style="color: #003333">$HOME</span>/.ssh/id_rsa.pub pi@BlackRPi
 sudo bash
 <span style="color: #336666">cd</span> /root
 mkdir .ssh
-chmod 755 .ssh
+chmod <span style="color: #FF6600">755</span> .ssh
 ssh-keygen -N <span style="color: #CC3300">&quot;&quot;</span> -f /root/.ssh/id_rsa
 ssh-copy-id -i /root/.ssh/id_rsa.pub pi@RedRPi
 ssh-copy-id -i /root/.ssh/id_rsa.pub pi@BlackRPi
@@ -246,7 +246,7 @@ ssh-copy-id -i /root/.ssh/id_rsa.pub pi@BlackRPi
 
 
 <p>Now repeat the example above:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh pi@RedRPi:/home/pi/src/ /mnt/backup/rsync-test5a
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo rsync -azv -e ssh pi@RedRPi:/home/pi/src/ /mnt/backup/rsync-test5a
 </pre></div>
 
 
@@ -258,13 +258,13 @@ you might want to exclude one or more files (or directories) from the backup.
 You might also want to exclude a specific file type from rsync.
 Let's run a backup of <code>pi@RedRPi:/home/pi/</code>
 but leave out the <code>tmp</code> and <code>src</code> directories.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh --exclude <span style="color: #CC3300">&#39;tmp&#39;</span> --exclude <span style="color: #CC3300">&#39;src&#39;</span> pi@RedRPi:/home/pi/ /mnt/backup/rsync-test6
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo rsync -azv -e ssh --exclude <span style="color: #CC3300">&#39;tmp&#39;</span> --exclude <span style="color: #CC3300">&#39;src&#39;</span> pi@RedRPi:/home/pi/ /mnt/backup/rsync-test6
 </pre></div>
 
 
 <p>You could also create a file that contains the exclude list <code>tmp</code> and <code>src</code>.
 This would look like:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv --exclude-from <span style="color: #CC3300">&#39;exclude-list.txt&#39;</span> pi@RedRPi:/home/pi/ /mnt/backup/rsync-test6
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo rsync -azv --exclude-from <span style="color: #CC3300">&#39;exclude-list.txt&#39;</span> pi@RedRPi:/home/pi/ /mnt/backup/rsync-test6
 </pre></div>
 
 
@@ -272,14 +272,14 @@ This would look like:</p>
 <p>The above examples works fine as long as the source login (in this case <code>pi</code> on the <code>RedRPi</code> system)
 has the appropriate permissions.
 For example, this will fail:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh  pi@RedRPi:/root/ /mnt/backup/rsync-test7
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo rsync -azv -e ssh  pi@RedRPi:/root/ /mnt/backup/rsync-test7
 </pre></div>
 
 
 <p>It fails because the user <code>pi</code> doesn't have <code>root</code> permissions
 and the directory <code>/root/</code> can only be entered by the user <code>root</code>.
 You might want to attempt to do the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh root@RedRPi:/root/ /mnt/backup/rsync-test7
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo rsync -azv -e ssh root@RedRPi:/root/ /mnt/backup/rsync-test7
 </pre></div>
 
 
@@ -288,7 +288,7 @@ In this case you'll be prompted to provide the RedRPi's root password,
 but the root login may not have a password<sup id="fnref:C"><a class="footnote-ref" href="#fn:C" rel="footnote">4</a></sup>.</p>
 <p>The way around all this is to use the <code>--rsync-path</code> option for rsync.
 This will work:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh --rsync-path<span style="color: #555555">=</span><span style="color: #CC3300">&quot;sudo rsync&quot;</span> pi@RedRPi:/root /mnt/backup/rsync-test7
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo rsync -azv -e ssh --rsync-path<span style="color: #555555">=</span><span style="color: #CC3300">&quot;sudo rsync&quot;</span> pi@RedRPi:/root /mnt/backup/rsync-test7
 </pre></div>
 
 
@@ -321,7 +321,7 @@ If we want to continue to prompt for host key checks,
 then we can add the configuration to our script.
 This can be done with OpenSSH’s <code>-o</code> option.
 Here’s an example in which we run the hostname command on a remote server:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">ssh -o <span style="color: #003333">StrictHostKeyChecking</span><span style="color: #555555">=</span>no <span style="color: #CC3300; font-weight: bold">\</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>ssh -o <span style="color: #003333">StrictHostKeyChecking</span><span style="color: #555555">=</span>no <span style="color: #CC3300; font-weight: bold">\</span>
     -o <span style="color: #003333">UserKnownHostsFile</span><span style="color: #555555">=</span>/dev/null <span style="color: #CC3300; font-weight: bold">\</span>
     -q user@host /usr/bin/hostname -s
 </pre></div>
@@ -329,7 +329,7 @@ Here’s an example in which we run the hostname command on a remote server:</p>
 
 <p>To set this configuration system-wide,
 place these entries in <code>ssh_config</code>:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">StrictHostKeyChecking no
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>StrictHostKeyChecking no
 UserKnownHostsFile /dev/null
 LogLevel QUIET
 </pre></div>
@@ -343,20 +343,20 @@ LogLevel QUIET
 </ul>
 <p>Add this to <code>/etc/ssh/ssh_conf</code> file to disable the host key checking
 and the warnings<sup id="fnref:E"><a class="footnote-ref" href="#fn:E" rel="footnote">6</a></sup> for all users who access systems who's names end in 'RPi'.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Host *RPi
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>Host *RPi
     StrictHostKeyChecking no
     UserKnownHostsFile=/dev/null
 </pre></div>
 
 
 <p>In addition, add the following to the <code>$HOME/.ssh/config</code> file:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">UserKnownHostsFile  ~/.ssh/known_hosts
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>UserKnownHostsFile  ~/.ssh/known_hosts
 </pre></div>
 
 
 <p>Make these changes active by restarting the ssh services via the command <code>sudo service ssh restart</code>.</p>
 <p>With ssh properly configured, a command like</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh --rsync-path<span style="color: #555555">=</span><span style="color: #CC3300">&quot;sudo rsync&quot;</span> pi@BlackRPi:/root/.rpi-firmware/ /mnt/backup/rsync-test8
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo rsync -azv -e ssh --rsync-path<span style="color: #555555">=</span><span style="color: #CC3300">&quot;sudo rsync&quot;</span> pi@BlackRPi:/root/.rpi-firmware/ /mnt/backup/rsync-test8
 </pre></div>
 
 
@@ -366,20 +366,20 @@ It will run without user intervention; just what we need for automated backups!<
 <h3>Creating Backup Users on Remote Servers</h3>
 <p>On all the remote systems (i.e. RedRPi and BlackRPi) you need to create the login
 and establish its ssh authentication keys.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo adduser backup_user --disabled-password -u 400
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo adduser backup_user --disabled-password -u 400
 sudo mkdir /home/backup_user/.ssh
-sudo chmod 700 /home/backup_user/.ssh
+sudo chmod <span style="color: #FF6600">700</span> /home/backup_user/.ssh
 </pre></div>
 
 
 <p>Now create a rsync wrapper script:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo mkdir /home/backup_user/bin
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo mkdir /home/backup_user/bin
 sudo vim /home/backup_user/bin/rsync-wrapper.sh
 </pre></div>
 
 
 <p>Enter the following in this file to create the script:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/bin/bash</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic">#!/bin/bash</span>
 
 <span style="color: #0099FF; font-style: italic"># This script is a wrapper around rsync, so that rsync can run as root,</span>
 <span style="color: #0099FF; font-style: italic"># and at the same time, eliminate any security risks.</span>
@@ -398,9 +398,9 @@ sudo vim /home/backup_user/bin/rsync-wrapper.sh
 
 
 <p>Now change the mode and owner of this file:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo chown backup_user:backup_user /home/backup_user/*
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo chown backup_user:backup_user /home/backup_user/*
 sudo chown backup_user:backup_user /home/backup_user/bin/rsync-wrapper.sh
-sudo chmod 754 /home/backup_user/bin/rsync-wrapper.sh
+sudo chmod <span style="color: #FF6600">754</span> /home/backup_user/bin/rsync-wrapper.sh
 </pre></div>
 
 
@@ -413,7 +413,7 @@ as root without being being prompted for a password.
 For security reasons, we what only the these tools to have <code>sudo</code> privileges.
 Using <a href="http://www.sudo.ws/sudo/sudoers.man.html"><code>visudo</code></a> command, edit the <a href="http://www.sudo.ws/visudo.man.html"><code>/etc/sudoers</code></a><sup id="fnref:F"><a class="footnote-ref" href="#fn:F" rel="footnote">7</a></sup> file by adding the following
 to the bottom of the file.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># allows this user to not need a password to sudo the specified command(s)</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># allows this user to not need a password to sudo the specified command(s)</span>
 backup_user    <span style="color: #003333">ALL</span><span style="color: #555555">=</span>NOPASSWD:    /usr/bin/rsync
 </pre></div>
 
@@ -423,7 +423,7 @@ backup_user    <span style="color: #003333">ALL</span><span style="color: #55555
 (with a UID of less that 500<sup id="fnref:G"><a class="footnote-ref" href="#fn:G" rel="footnote">8</a></sup>)
 which will run the rsync / rsnapshot utilities
 and establish its <code>ssh</code> authentication keys.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo adduser backup_user -u 400
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo adduser backup_user -u 400
 sudo chown backup_user:backup_user /home/backup_user/*
 sudo su backup_user
 <span style="color: #336666">cd</span> ~
@@ -441,7 +441,7 @@ can't freely move through the whole directory system , write files, and such.
 Again using the <a href="http://www.sudo.ws/sudo/sudoers.man.html"><code>visudo</code></a> command,
 edit the <a href="http://www.sudo.ws/visudo.man.html"><code>/etc/sudoers</code></a> file by adding the following
 to the bottom of the file.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># allows this user to not need a password to sudo the specified command(s)</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># allows this user to not need a password to sudo the specified command(s)</span>
 backup_user    <span style="color: #003333">ALL</span><span style="color: #555555">=</span>NOPASSWD:    /usr/bin/rsync
 backup_user    <span style="color: #003333">ALL</span><span style="color: #555555">=</span>NOPASSWD:    /usr/bin/rsnapshot
 </pre></div>
@@ -469,7 +469,7 @@ don't forget to add it to the list, to avoid an infinite loop.)</p>
 <p>rsnapshot also provides a non-command-line method for excluding file, which is what I'm using.
 Specifically, I have defined exclusion files for Linux and Windows based systems.
 For Linux, the file is called <code>rsync-exclude-desktop</code> and <code>rsync-exclude-RPi</code> and look something like this:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">- /var/lib/pacman/sync/*
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>- /var/lib/pacman/sync/*
 - /lost+found
 - /media/*
 - /cdrom/*
@@ -483,7 +483,7 @@ For Linux, the file is called <code>rsync-exclude-desktop</code> and <code>rsync
 
 
 <p>For Windows, the file is called <code>rsync-exclude-windows</code>:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">- /cygdrive/c/System\ Volume\ Information/*
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>- /cygdrive/c/System\ Volume\ Information/*
 - /cygdrive/c/Windows/System32/winevt/*
 - /cygdrive/c/Windows/System32/catroot/*
 - /cygdrive/c/Windows/System32/catroot2/*
@@ -520,7 +520,7 @@ you need to edit a configuration file<sup id="fnref:I"><a class="footnote-ref" h
 The configuration elements I edited are below
 (<code>/usr/share/doc/rsnapshot/examples/rsnapshot.conf.default.gz</code>
 can be used as a starting point):</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># location where backups will be stored</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># location where backups will be stored</span>
 snapshot_root   /mnt/backup/
 
 <span style="color: #0099FF; font-style: italic"># rsync command executed on the remote system</span>
@@ -564,7 +564,7 @@ This all required to maintain the security of the remote systems, and was discus
 <h2>Testing rsnapshot</h2>
 <p>rsnapshot provides an easy way to check that your configuration file doesn't contain any syntax errors.
 Simply type:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsnapshot configtest
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo rsnapshot configtest
 </pre></div>
 
 
@@ -573,7 +573,7 @@ If there is a problem, it will spit errors at you.
 If you get errors, check that you have separated items in the file using tabs
 (spaces are not allowed in the configuration file).</p>
 <p>The final step to test your configuration is to run rsnapshot in test mode, using the <code>-t</code> option:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsnapshot -t hourly
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo rsnapshot -t hourly
 </pre></div>
 
 
@@ -586,7 +586,7 @@ This initial run is likely to run a long time, and shouldn't be do via cron as d
 You can setup commands or scripts, which will be repeatedly run at a set time.</p>
 <p>For crontab, I created a wrapper script and
 placed it in <code>/home/backup_user/bin/rsnapshot-wrapper.sh</code>:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/bin/bash</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic">#!/bin/bash</span>
 
 <span style="color: #0099FF; font-style: italic"># This script is a wrapper around rsnapshot, so status information is logged</span>
 <span style="color: #0099FF; font-style: italic"># and notification are made via Pushover app.  It also makes sure the log file</span>
@@ -612,26 +612,26 @@ placed it in <code>/home/backup_user/bin/rsnapshot-wrapper.sh</code>:</p>
 <span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;options passed to rsnapshot: &quot;</span> <span style="color: #003333">$@</span> &gt;&gt; <span style="color: #003333">$LOG</span>
 
 <span style="color: #0099FF; font-style: italic"># Now execute the script</span>
-/usr/bin/sudo /usr/bin/rsnapshot <span style="color: #CC3300">&quot;$@&quot;</span> &gt;&gt; <span style="color: #003333">$LOG</span> 2&gt;&amp;1
+/usr/bin/sudo /usr/bin/rsnapshot <span style="color: #CC3300">&quot;</span><span style="color: #003333">$@</span><span style="color: #CC3300">&quot;</span> &gt;&gt; <span style="color: #003333">$LOG</span> 2&gt;&amp;1
 <span style="color: #003333">EXITSTATUS</span><span style="color: #555555">=</span><span style="color: #003333">$?</span>
 
 <span style="color: #0099FF; font-style: italic"># Capture scripts end time and calculate run time</span>
 <span style="color: #003333">ENDTIME</span><span style="color: #555555">=</span><span style="color: #CC3300">`</span>date +%s<span style="color: #CC3300">`</span>
 <span style="color: #003333">INTERVAL</span><span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">$((</span>ENDTIME <span style="color: #555555">-</span> STARTTIME<span style="color: #006699; font-weight: bold">))</span>
-<span style="color: #003333">RUNTIME</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;$(($INTERVAL / 60)) min. $(($INTERVAL % 60)) sec.&quot;</span>
+<span style="color: #003333">RUNTIME</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;</span><span style="color: #006699; font-weight: bold">$((</span><span style="color: #003333">$INTERVAL</span> <span style="color: #555555">/</span> <span style="color: #FF6600">60</span><span style="color: #006699; font-weight: bold">))</span><span style="color: #CC3300"> min. </span><span style="color: #006699; font-weight: bold">$((</span><span style="color: #003333">$INTERVAL</span> <span style="color: #555555">%</span> <span style="color: #FF6600">60</span><span style="color: #006699; font-weight: bold">))</span><span style="color: #CC3300"> sec.&quot;</span>
 
 <span style="color: #0099FF; font-style: italic"># Place time-stamped completion message in the Log</span>
-<span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;rsnapshot exited with status $EXITSTATUS&quot;</span> &gt;&gt; <span style="color: #003333">$LOG</span>
+<span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;rsnapshot exited with status </span><span style="color: #003333">$EXITSTATUS</span><span style="color: #CC3300">&quot;</span> &gt;&gt; <span style="color: #003333">$LOG</span>
 <span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;+++++ rsnapshot ran&quot;</span> <span style="color: #003333">$RUNTIME</span> <span style="color: #CC3300">&quot;and script completed on `date` +++++&quot;</span> &gt;&gt; <span style="color: #003333">$LOG</span>
 
 <span style="color: #0099FF; font-style: italic"># Send status notification to Pushover app</span>
-/home/jeff/bin/apprise -t <span style="color: #CC3300">&quot;Incremental Backup Status&quot;</span> -m <span style="color: #CC3300">&quot;Filesystem backup took $RUNTIME and completed on `date` with exit status $EXITSTATUS.  Log file $LOG has $LOGSIZE lines.&quot;</span>
+/home/jeff/bin/apprise -t <span style="color: #CC3300">&quot;Incremental Backup Status&quot;</span> -m <span style="color: #CC3300">&quot;Filesystem backup took </span><span style="color: #003333">$RUNTIME</span><span style="color: #CC3300"> and completed on `date` with exit status </span><span style="color: #003333">$EXITSTATUS</span><span style="color: #CC3300">.  Log file </span><span style="color: #003333">$LOG</span><span style="color: #CC3300"> has </span><span style="color: #003333">$LOGSIZE</span><span style="color: #CC3300"> lines.&quot;</span>
 
 <span style="color: #0099FF; font-style: italic"># Truncate the log file if needed</span>
 <span style="color: #006699; font-weight: bold">if</span> <span style="color: #555555">[</span> <span style="color: #003333">$LOGSIZE</span> -ge <span style="color: #003333">$MAXLINES</span> <span style="color: #555555">]</span>
 <span style="color: #006699; font-weight: bold">then</span>
-<span style="color: #006699; font-weight: bold">    </span><span style="color: #003333">LINECUT</span><span style="color: #555555">=</span><span style="color: #CC3300">`</span>expr <span style="color: #003333">$LOGSIZE</span> - <span style="color: #003333">$MINLINES</span><span style="color: #CC3300">`</span>
-    sed -i <span style="color: #CC3300">&quot;1,$LINECUT d&quot;</span> <span style="color: #003333">$LOG</span>
+    <span style="color: #003333">LINECUT</span><span style="color: #555555">=</span><span style="color: #CC3300">`</span>expr <span style="color: #003333">$LOGSIZE</span> - <span style="color: #003333">$MINLINES</span><span style="color: #CC3300">`</span>
+    sed -i <span style="color: #CC3300">&quot;1,</span><span style="color: #003333">$LINECUT</span><span style="color: #CC3300"> d&quot;</span> <span style="color: #003333">$LOG</span>
     sed -i <span style="color: #CC3300">&quot;1i ////////////////  File truncated here on `date`. //////////////// &quot;</span> <span style="color: #003333">$LOG</span>
 <span style="color: #006699; font-weight: bold">fi</span>
 </pre></div>
@@ -643,7 +643,7 @@ That is, a true copy and not using
 <a href="http://www.linfo.org/hard_link.html">hard links</a> to files that haven't changed.
 To do this, I create the script below,
 which even prompts me for the system I wish to backup.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/bin/bash</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic">#!/bin/bash</span>
 
 <span style="color: #0099FF; font-style: italic">#set -x</span>
 
@@ -660,32 +660,32 @@ which even prompts me for the system I wish to backup.</p>
 
 <span style="color: #003333">DIR</span><span style="color: #555555">=</span><span style="color: #CC3300">`</span>date +%Y_%b_%d_%H_%M<span style="color: #CC3300">`</span>
 
-<span style="color: #006699; font-weight: bold">while </span><span style="color: #336666">true</span>; <span style="color: #006699; font-weight: bold">do</span>
-<span style="color: #006699; font-weight: bold">    </span><span style="color: #336666">read</span> -p <span style="color: #CC3300">&quot;What would you like to backup? (&#39;desktop&#39;, &#39;RedRPi&#39;, &#39;BlackRPi&#39;, or &#39;SaraPC&#39;)  &quot;</span> answer
+<span style="color: #006699; font-weight: bold">while</span> true; <span style="color: #006699; font-weight: bold">do</span>
+    <span style="color: #336666">read</span> -p <span style="color: #CC3300">&quot;What would you like to backup? (&#39;desktop&#39;, &#39;RedRPi&#39;, &#39;BlackRPi&#39;, or &#39;SaraPC&#39;)  &quot;</span> answer
     <span style="color: #006699; font-weight: bold">case</span> <span style="color: #003333">$answer</span> in
         <span style="color: #CC3300">&#39;desktop&#39;</span> <span style="color: #555555">)</span>
-            <span style="color: #003333">ARGUMENTS</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;$ARGS $EXCL_DESKTOP&quot;</span>
+            <span style="color: #003333">ARGUMENTS</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;</span><span style="color: #003333">$ARGS</span><span style="color: #CC3300"> </span><span style="color: #003333">$EXCL_DESKTOP</span><span style="color: #CC3300">&quot;</span>
             <span style="color: #003333">SOURCE</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;/.&quot;</span>
-            <span style="color: #003333">DESTINATION</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;/mnt/backup/full-backup/desktop/$DIR&quot;</span>
-            <span style="color: #336666">break</span>;;
+            <span style="color: #003333">DESTINATION</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;/mnt/backup/full-backup/desktop/</span><span style="color: #003333">$DIR</span><span style="color: #CC3300">&quot;</span>
+            break;;
         <span style="color: #CC3300">&#39;RedRPi&#39;</span> <span style="color: #555555">)</span>
-            <span style="color: #003333">ARGUMENTS</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;$ARGS $EXCL_RPI $REMOTE_WRAPPER $SSH_ARGS&quot;</span>
+            <span style="color: #003333">ARGUMENTS</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;</span><span style="color: #003333">$ARGS</span><span style="color: #CC3300"> </span><span style="color: #003333">$EXCL_RPI</span><span style="color: #CC3300"> </span><span style="color: #003333">$REMOTE_WRAPPER</span><span style="color: #CC3300"> </span><span style="color: #003333">$SSH_ARGS</span><span style="color: #CC3300">&quot;</span>
             <span style="color: #003333">SOURCE</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;backup_user@RedRPi:/&quot;</span>
-            <span style="color: #003333">DESTINATION</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;/mnt/backup/full-backup/RedRPi/$DIR&quot;</span>
-            <span style="color: #336666">break</span>;;
+            <span style="color: #003333">DESTINATION</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;/mnt/backup/full-backup/RedRPi/</span><span style="color: #003333">$DIR</span><span style="color: #CC3300">&quot;</span>
+            break;;
         <span style="color: #CC3300">&#39;BlackRPi&#39;</span> <span style="color: #555555">)</span>
-            <span style="color: #003333">ARGUMENTS</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;$ARGS $EXCL_RPI $REMOTE_WRAPPER $SSH_ARGS&quot;</span>
+            <span style="color: #003333">ARGUMENTS</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;</span><span style="color: #003333">$ARGS</span><span style="color: #CC3300"> </span><span style="color: #003333">$EXCL_RPI</span><span style="color: #CC3300"> </span><span style="color: #003333">$REMOTE_WRAPPER</span><span style="color: #CC3300"> </span><span style="color: #003333">$SSH_ARGS</span><span style="color: #CC3300">&quot;</span>
             <span style="color: #003333">SOURCE</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;backup_user@BlackRPi:/&quot;</span>
-            <span style="color: #003333">DESTINATION</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;/mnt/backup/full-backup/BlackRPi/$DIR&quot;</span>
-            <span style="color: #336666">break</span>;;
+            <span style="color: #003333">DESTINATION</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;/mnt/backup/full-backup/BlackRPi/</span><span style="color: #003333">$DIR</span><span style="color: #CC3300">&quot;</span>
+            break;;
         <span style="color: #CC3300">&#39;SaraPC&#39;</span> <span style="color: #555555">)</span>
-            <span style="color: #003333">ARGUMENTS</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;$ARGS $EXCL_WINDOWS --fake-super $SSH_ARGS&quot;</span>
+            <span style="color: #003333">ARGUMENTS</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;</span><span style="color: #003333">$ARGS</span><span style="color: #CC3300"> </span><span style="color: #003333">$EXCL_WINDOWS</span><span style="color: #CC3300"> --fake-super </span><span style="color: #003333">$SSH_ARGS</span><span style="color: #CC3300">&quot;</span>
             <span style="color: #003333">SOURCE</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;Sara@SaraPC:/&quot;</span>
-            <span style="color: #003333">DESTINATION</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;/mnt/backup/full-backup/SaraPC/$DIR&quot;</span>
-            <span style="color: #336666">break</span>;;
+            <span style="color: #003333">DESTINATION</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;/mnt/backup/full-backup/SaraPC/</span><span style="color: #003333">$DIR</span><span style="color: #CC3300">&quot;</span>
+            break;;
         <span style="color: #555555">[</span>Qq<span style="color: #555555">]</span>* <span style="color: #555555">)</span>
             <span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;Exiting script.&quot;</span>
-            <span style="color: #336666">exit</span>;;
+            exit;;
         * <span style="color: #555555">)</span>
             <span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;Please answer &#39;desktop&#39;, &#39;RedRPi&#39;, &#39;BlackRPi&#39;, &#39;SaraPC&#39; or &#39;q&#39; to quit&quot;</span>;;
     <span style="color: #006699; font-weight: bold">esac</span>
@@ -697,20 +697,20 @@ which even prompts me for the system I wish to backup.</p>
 <span style="color: #0099FF; font-style: italic"># Place in the log file information concerning the execution of this script</span>
 <span style="color: #336666">echo</span> -e <span style="color: #CC3300">&quot;\n\n####&quot;</span> <span style="color: #003333">$answer</span> <span style="color: #CC3300">&quot;full-backup script started on `date` ####&quot;</span> &gt;&gt; <span style="color: #003333">$LOG</span>
 <span style="color: #336666">echo</span> -n <span style="color: #CC3300">&quot;options passed to rsync: &quot;</span> &gt;&gt; <span style="color: #003333">$LOG</span>
-<span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;$ARGUMENTS $SOURCE $DESTINATION&quot;</span> &gt;&gt; <span style="color: #003333">$LOG</span>
+<span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;</span><span style="color: #003333">$ARGUMENTS</span><span style="color: #CC3300"> </span><span style="color: #003333">$SOURCE</span><span style="color: #CC3300"> </span><span style="color: #003333">$DESTINATION</span><span style="color: #CC3300">&quot;</span> &gt;&gt; <span style="color: #003333">$LOG</span>
 
 <span style="color: #0099FF; font-style: italic"># Now execute the script, also capture scripts end time, calculate run time,</span>
 <span style="color: #0099FF; font-style: italic"># and send status notification to Pushover app</span>
-<span style="color: #555555">(</span> <span style="color: #003333">STARTTIME</span><span style="color: #555555">=</span><span style="color: #CC3300">`</span>date +%s<span style="color: #CC3300">`</span> ; <span style="color: #336666">eval</span> /usr/bin/rsync <span style="color: #CC3300">&quot;$ARGUMENTS $SOURCE $DESTINATION&quot;</span> &gt;&gt; <span style="color: #003333">$LOG</span> 2&gt;&amp;1 ;<span style="color: #CC3300; font-weight: bold">\</span>
+<span style="color: #555555">(</span> <span style="color: #003333">STARTTIME</span><span style="color: #555555">=</span><span style="color: #CC3300">`</span>date +%s<span style="color: #CC3300">`</span> ; <span style="color: #336666">eval</span> /usr/bin/rsync <span style="color: #CC3300">&quot;</span><span style="color: #003333">$ARGUMENTS</span><span style="color: #CC3300"> </span><span style="color: #003333">$SOURCE</span><span style="color: #CC3300"> </span><span style="color: #003333">$DESTINATION</span><span style="color: #CC3300">&quot;</span> &gt;&gt; <span style="color: #003333">$LOG</span> 2&gt;&amp;<span style="color: #FF6600">1</span> ;<span style="color: #CC3300; font-weight: bold">\</span>
 <span style="color: #003333">EXITSTATUS</span><span style="color: #555555">=</span><span style="color: #003333">$?</span> ;<span style="color: #CC3300; font-weight: bold">\</span>
-<span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;rsync terminated with exit status $EXITSTATUS.&quot;</span> &gt;&gt; <span style="color: #003333">$LOG</span> ;<span style="color: #CC3300; font-weight: bold">\</span>
+<span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;rsync terminated with exit status </span><span style="color: #003333">$EXITSTATUS</span><span style="color: #CC3300">.&quot;</span> &gt;&gt; <span style="color: #003333">$LOG</span> ;<span style="color: #CC3300; font-weight: bold">\</span>
 <span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;####&quot;</span> <span style="color: #003333">$answer</span> <span style="color: #CC3300">&quot;full-backup script completed at `date` ####&quot;</span> &gt;&gt; <span style="color: #003333">$LOG</span> ;<span style="color: #CC3300; font-weight: bold">\</span>
 <span style="color: #003333">ENDTIME</span><span style="color: #555555">=</span><span style="color: #CC3300">`</span>date +%s<span style="color: #CC3300">`</span> ;<span style="color: #CC3300; font-weight: bold">\</span>
 <span style="color: #003333">INTERVAL</span><span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">$((</span>ENDTIME <span style="color: #555555">-</span> STARTTIME<span style="color: #006699; font-weight: bold">))</span> ;<span style="color: #CC3300; font-weight: bold">\</span>
-<span style="color: #003333">RUNTIME</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;$(($INTERVAL / 60)) min. $(($INTERVAL % 60)) sec.&quot;</span> ;<span style="color: #CC3300; font-weight: bold">\</span>
-/home/jeff/bin/apprise -t <span style="color: #CC3300">&quot;Full Backup Status&quot;</span> -m <span style="color: #CC3300">&quot;Filesystem backup took $RUNTIME and completed on `date` with exit status $EXITSTATUS.&quot;</span> <span style="color: #555555">)</span> &amp;
+<span style="color: #003333">RUNTIME</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;</span><span style="color: #006699; font-weight: bold">$((</span><span style="color: #003333">$INTERVAL</span> <span style="color: #555555">/</span> <span style="color: #FF6600">60</span><span style="color: #006699; font-weight: bold">))</span><span style="color: #CC3300"> min. </span><span style="color: #006699; font-weight: bold">$((</span><span style="color: #003333">$INTERVAL</span> <span style="color: #555555">%</span> <span style="color: #FF6600">60</span><span style="color: #006699; font-weight: bold">))</span><span style="color: #CC3300"> sec.&quot;</span> ;<span style="color: #CC3300; font-weight: bold">\</span>
+/home/jeff/bin/apprise -t <span style="color: #CC3300">&quot;Full Backup Status&quot;</span> -m <span style="color: #CC3300">&quot;Filesystem backup took </span><span style="color: #003333">$RUNTIME</span><span style="color: #CC3300"> and completed on `date` with exit status </span><span style="color: #003333">$EXITSTATUS</span><span style="color: #CC3300">.&quot;</span> <span style="color: #555555">)</span> &amp;
 
-<span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;Full Backup Underway From &#39;$SOURCE&#39; To &#39;$DESTINATION&#39;&quot;</span>
+<span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;Full Backup Underway From &#39;</span><span style="color: #003333">$SOURCE</span><span style="color: #CC3300">&#39; To &#39;</span><span style="color: #003333">$DESTINATION</span><span style="color: #CC3300">&#39;&quot;</span>
 </pre></div>
 
 
@@ -718,7 +718,7 @@ which even prompts me for the system I wish to backup.</p>
 You can use <code>sudo crontab -l</code> to list the contents of crontab.
 To update it, use <code>crontab -e</code> and enter the following
 (Also, restart cron with <code>sudo service cron restart</code> to make sure the changes are in effect):</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># Each task to run has to be defined through a single line</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># Each task to run has to be defined through a single line</span>
 <span style="color: #0099FF; font-style: italic"># indicating with different fields when the task will be run</span>
 <span style="color: #0099FF; font-style: italic"># and what command to run for the task</span>
 <span style="color: #0099FF; font-style: italic">#</span>
@@ -765,17 +765,17 @@ To update it, use <code>crontab -e</code> and enter the following
 <span style="color: #0099FF; font-style: italic">#     |      |          |         |         |            |</span>
 <span style="color: #0099FF; font-style: italic">#     m      h         dom       mon       dow</span>
 <span style="color: #0099FF; font-style: italic">#   minute  hour  day-of-month  month   day-of-week   command</span>
-      0     */4         *         *         *         /home/backup_user/bin/rsnapshot-wrapper.sh hourly
-     30      2          *         *         *         /home/backup_user/bin/rsnapshot-wrapper.sh daily
-     30     10          *         *         6         /home/backup_user/bin/rsnapshot-wrapper.sh weekly
-     30     14          1         *         *         /home/backup_user/bin/rsnapshot-wrapper.sh monthly
+      <span style="color: #FF6600">0</span>     */4         *         *         *         /home/backup_user/bin/rsnapshot-wrapper.sh hourly
+     <span style="color: #FF6600">30</span>      <span style="color: #FF6600">2</span>          *         *         *         /home/backup_user/bin/rsnapshot-wrapper.sh daily
+     <span style="color: #FF6600">30</span>     <span style="color: #FF6600">10</span>          *         *         <span style="color: #FF6600">6</span>         /home/backup_user/bin/rsnapshot-wrapper.sh weekly
+     <span style="color: #FF6600">30</span>     <span style="color: #FF6600">14</span>          <span style="color: #FF6600">1</span>         *         *         /home/backup_user/bin/rsnapshot-wrapper.sh monthly
 </pre></div>
 
 
 <p>Finally, within some of the scripts above,
 you'll the utility <code>apprise</code>.
 This utility make use of the push notification <a href="https://pushover.net/">Pushover</a>:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/bin/bash</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic">#!/bin/bash</span>
 
 <span style="color: #0099FF; font-style: italic"># This utility does a push notification to the service Pushover - https://pushover.net/</span>
 
@@ -783,12 +783,12 @@ This utility make use of the push notification <a href="https://pushover.net/">P
 <span style="color: #003333">USERKEY</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;&lt;key&gt;&quot;</span>
 
 <span style="color: #0099FF; font-style: italic"># Parse command line options</span>
-<span style="color: #003333">USAGE</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;Usage: `basename $0` [-h] -t title -m message&quot;</span>
-<span style="color: #006699; font-weight: bold">while </span><span style="color: #336666">getopts </span>ht:m: OPT; <span style="color: #006699; font-weight: bold">do</span>
-<span style="color: #006699; font-weight: bold">    case</span> <span style="color: #CC3300">&quot;$OPT&quot;</span> in
+<span style="color: #003333">USAGE</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;Usage: `basename </span><span style="color: #003333">$0</span><span style="color: #CC3300">` [-h] -t title -m message&quot;</span>
+<span style="color: #006699; font-weight: bold">while</span> <span style="color: #336666">getopts</span> ht:m: OPT; <span style="color: #006699; font-weight: bold">do</span>
+    <span style="color: #006699; font-weight: bold">case</span> <span style="color: #CC3300">&quot;</span><span style="color: #003333">$OPT</span><span style="color: #CC3300">&quot;</span> in
         h<span style="color: #555555">)</span>
             <span style="color: #336666">echo</span> <span style="color: #003333">$USAGE</span>
-            <span style="color: #336666">exit </span>0
+            <span style="color: #336666">exit</span> 0
             ;;
         t<span style="color: #555555">)</span>
             <span style="color: #003333">TITLE</span><span style="color: #555555">=</span><span style="color: #003333">$OPTARG</span>
@@ -799,28 +799,28 @@ This utility make use of the push notification <a href="https://pushover.net/">P
         <span style="color: #CC3300; font-weight: bold">\?</span><span style="color: #555555">)</span>
             <span style="color: #0099FF; font-style: italic"># getopts issues an error message</span>
             <span style="color: #336666">echo</span> <span style="color: #003333">$USAGE</span> &gt;&amp;2
-            <span style="color: #336666">exit </span>1
+            <span style="color: #336666">exit</span> 1
             ;;
     <span style="color: #006699; font-weight: bold">esac</span>
 <span style="color: #006699; font-weight: bold">done</span>
 
 <span style="color: #0099FF; font-style: italic"># Send message to Pushover to create notification</span>
 curl --silent <span style="color: #CC3300; font-weight: bold">\</span>
-    -F <span style="color: #CC3300">&quot;token=$APPTOKEN&quot;</span> <span style="color: #CC3300; font-weight: bold">\</span>
-    -F <span style="color: #CC3300">&quot;user=$USERKEY&quot;</span> <span style="color: #CC3300; font-weight: bold">\</span>
-    -F <span style="color: #CC3300">&quot;message=$MESSAGE&quot;</span> <span style="color: #CC3300; font-weight: bold">\</span>
+    -F <span style="color: #CC3300">&quot;token=</span><span style="color: #003333">$APPTOKEN</span><span style="color: #CC3300">&quot;</span> <span style="color: #CC3300; font-weight: bold">\</span>
+    -F <span style="color: #CC3300">&quot;user=</span><span style="color: #003333">$USERKEY</span><span style="color: #CC3300">&quot;</span> <span style="color: #CC3300; font-weight: bold">\</span>
+    -F <span style="color: #CC3300">&quot;message=</span><span style="color: #003333">$MESSAGE</span><span style="color: #CC3300">&quot;</span> <span style="color: #CC3300; font-weight: bold">\</span>
     -F <span style="color: #CC3300">&quot;device=desktop&quot;</span> <span style="color: #CC3300; font-weight: bold">\</span>
-    -F <span style="color: #CC3300">&quot;title=$TITLE&quot;</span> <span style="color: #CC3300; font-weight: bold">\</span>
+    -F <span style="color: #CC3300">&quot;title=</span><span style="color: #003333">$TITLE</span><span style="color: #CC3300">&quot;</span> <span style="color: #CC3300; font-weight: bold">\</span>
     -F <span style="color: #CC3300">&quot;sound=spacealarm&quot;</span> <span style="color: #CC3300; font-weight: bold">\</span>
     https://api.pushover.net/1/messages.json | grep <span style="color: #CC3300">&#39;&quot;status&quot;:1&#39;</span> &gt; /dev/null
 
 <span style="color: #0099FF; font-style: italic"># Check the exit code to identify an error</span>
-<span style="color: #006699; font-weight: bold">if</span> <span style="color: #555555">[</span> <span style="color: #003333">$?</span> -eq 0 <span style="color: #555555">]</span>;
+<span style="color: #006699; font-weight: bold">if</span> <span style="color: #555555">[</span> <span style="color: #003333">$?</span> -eq <span style="color: #FF6600">0</span> <span style="color: #555555">]</span>;
     <span style="color: #006699; font-weight: bold">then</span>
-<span style="color: #006699; font-weight: bold">        </span><span style="color: #336666">exit </span>0
+        <span style="color: #336666">exit</span> 0
     <span style="color: #006699; font-weight: bold">else</span>
-<span style="color: #006699; font-weight: bold">        </span><span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;apprise failed&quot;</span>
-        <span style="color: #336666">exit </span>1
+        <span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;apprise failed&quot;</span>
+        <span style="color: #336666">exit</span> 1
 <span style="color: #006699; font-weight: bold">fi</span>
 </pre></div>
 
@@ -831,7 +831,7 @@ To increase the security of the overall scheme,
 on the remote systems and on the local system,
 remove the user password from the <code>backup_user</code>
 and set the shell to a NOOP command.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># increase security by deleting password and remove login shell</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># increase security by deleting password and remove login shell</span>
 sudo passwd --delete backup_user
 sudo usermod -s /bin/false backup_user
 </pre></div>

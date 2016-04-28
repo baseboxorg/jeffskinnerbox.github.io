@@ -141,7 +141,7 @@ It is important to remember that the X server is the is the software program whi
 </ul>
 </ul>
 Setting the DISPLAY variable depends of your shell, but for the Bourne, Bash or Korn shell, you could do the following to connect with the systems local display:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">export DISPLAY=localhost:0.0
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>export DISPLAY=localhost:0.0
 </pre></div>
 
 
@@ -152,22 +152,22 @@ So you see, as the user, you have full control over where you wish to display th
 The <a href="http://www.xfree86.org/current/xhost.1.html"><code>xhost</code></a> program is used to add and delete host (computer) names or user names to the list of machines and users that are allowed to make connections to the X server. This provides a rudimentary form of privacy control and security.  A typical use is as follows: Let's call the computer you are sitting at the "local host" and the computer you want to connect to the "remote host". You first use xhost to specify which computer you want to give permission to connect to the X server of the local host. Then you connect to the remote host using telnet. Next you set the DISPLAY variable on the remote host. You want to set this DISPLAY variable to the local host. Now when you start up a program on the remote host, its GUI will show up on the local host (not on the remote host).</p>
 <p>For example, assume the IP address of the local host is 128.100.2.16 and the IP address of the remote host is 17.200.10.5.</p>
 <p>On the local host, type the following at the command line:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">xhost + 17.200.10.5
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>xhost + 17.200.10.5
 </pre></div>
 
 
 <p>Log on to the remote host</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">telnet 17.200.10.5
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>telnet 17.200.10.5
 </pre></div>
 
 
 <p>On the remote host (through the telnet connection), instruct the remote host to display windows on the local host by typing:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">export DISPLAY=128.100.2.16:0.0
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>export DISPLAY=128.100.2.16:0.0
 </pre></div>
 
 
 <p>Now when you type xterm on the remote host, you should see an xterm window on the local host.  You should remove the remote host from your access control list as follows.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">xhost - 17.200.10.5
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>xhost - 17.200.10.5
 </pre></div>
 
 
@@ -188,7 +188,7 @@ Even with the <code>xhost</code> and <code>xauth</code> methods, the  the X pro
 <p>SSH can do something called "<a href="http://docstore.mik.ua/orelly/networking_2ndEd/ssh/ch09_01.htm#ch09-31407">X Forwarding</a>" makes the communication secure by "<a href="http://en.wikipedia.org/wiki/Tunneling_protocol">tunneling</a>" the X protocol over the SSH secure link.  Forwarding is a type of interaction with another network application, through a inter-mediator, in this case SSH. SSH intercepts a service request from some other program on one side of an SSH connection, sends it across the encrypted connection, and delivers it to the intended recipient on the other side. This process is mostly transparent to both sides of the connection: each believes it is talking directly to its partner and has no knowledge that forwarding is taking place.  This is called tunneling since X protocol is encapsulated within the a SSH protocol.</p>
 <p>When setting up an SSH tunnel for X11, the Xauth key will automatically be copied to the remote system(in a munged form to reduce the risk of forgery) and the DISPLAY variable will be set.</p>
 <p>To turn on X forwarding over ssh, use the command line switch <code>-X</code> or write the following in your local ssh configuration file:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Host remote.host.name ForwardX11 yes
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>Host remote.host.name ForwardX11 yes
 </pre></div>
 
 
@@ -213,7 +213,7 @@ The X Display Manager (XDM) is an optional part of the X Window System that is u
 <h2>Enough of the X Journey ... Now in Conclusion</h2>
 So what does the iSSH give me? I can now sit on the couch, watch TV, and simultaneously login into the RPi with full X Windows support.  Some would call this Nirvana but I call it just VERY NICE.  The iPad/iSSH combination isn't the perfect user experience but Zingersoft did a good job.</p>
 <p>By the way .... the above iPad screen shot of the X Server display with a globe was rendered using the following code:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/usr/bin/env python</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic">#!/usr/bin/env python</span>
 
 <span style="color: #0099FF; font-style: italic"># Source: http://www.scipy.org/Cookbook/Matplotlib/Maps</span>
 

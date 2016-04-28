@@ -223,7 +223,7 @@ You'll find many of them documented in these articles:</p>
 </ul>
 <p>Crosh even supports full-blown <code>bash</code> shell with ssh-agent and Vim.
 To get Vim working, do the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">CTRL+ALT+T
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>CTRL+ALT+T
 crosh&gt; shell
 chrosos@localhost / $ echo $SHELL
 /bin/bash
@@ -259,7 +259,7 @@ More about this below.</p>
 <p>When a new version of Crouton comes out,
 the software in your chroot will be outdated.
 It won’t automatically update itself, but you can update it fairly quickly.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># enter your chroot and run the following command.</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># enter your chroot and run the following command.</span>
 croutonversion -u -d -c
 
 <span style="color: #0099FF; font-style: italic"># trusty is the name of your chroot</span>
@@ -273,7 +273,7 @@ whe a new version of Crouton comes out,
 the software in your chroot will not automatically update itself.
 To update it, enter your chroot and run the following command.
 That means this command must be run from that Crouton Linux system:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">croutonversion -u -d -c
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>croutonversion -u -d -c
 </pre></div>
 
 
@@ -281,7 +281,7 @@ That means this command must be run from that Crouton Linux system:</p>
 replacing “name” with the name of your chroot.
 If you didn’t specify a name,
 it’s probably the name of the release you installed — for example, “trusty”, in my case.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># trusty is the name of the Linux version to be installed</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># trusty is the name of the Linux version to be installed</span>
 sudo sh ~/Downloads/crouton -u -n trusty
 </pre></div>
 
@@ -364,7 +364,7 @@ with the <code>trusty</code> version of Ubuntu.
 You’ll find other targets here too — Ubuntu’s Unity desktop, KDE, GNOME, LXDE, Enlightenment,
 and even command-line only targets like “core” and “cli-extra” if you don’t need a fancy desktop.
 To get a listing, use the commands below:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># see a list of targets</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># see a list of targets</span>
 sh ~/Downloads/crouton -t <span style="color: #336666">help</span>
 
 <span style="color: #0099FF; font-style: italic"># see a list of Linux distributions and their releases</span>
@@ -373,7 +373,7 @@ sh ~/Downloads/crouton -r list
 
 
 <p>I used the following command line to install my system:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># install your desired Ubuntu release and targets (NOTE: drive is not encripted)</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># install your desired Ubuntu release and targets (NOTE: drive is not encripted)</span>
 sudo sh ~/Downloads/crouton -r trusty -t xfce-desktop,x11,xiwi,keyboard,extension,core,cli-extra
 </pre></div>
 
@@ -397,14 +397,14 @@ they will be places in
 <p>The Crouton <a href="https://github.com/dnschneid/crouton/wiki">Wiki</a> discusses <a href="https://github.com/dnschneid/crouton/wiki/Security">security</a>
 and points out that crouton is not, and cannot be, as secure as Chromium OS in verified mode.
 If this is a concern, you can use the second "-e" option to encrypt the Linux instance.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># install your desired Ubuntu release and targets and encript the drive</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># install your desired Ubuntu release and targets and encript the drive</span>
 sudo sh ~/Downloads/crouton -e -r trusty -t xfce-desktop,x11,xiwi,keyboard,extension,core,cli-extra
 </pre></div>
 
 
 <h2>Step 6: Test It Out</h2>
 <p>You can now test out your Ubuntu instance by entering your chroot in commandline mode via:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># enter command line mode of Linux instance</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># enter command line mode of Linux instance</span>
 sudo enter-chroot -n trusty
 </pre></div>
 
@@ -426,11 +426,11 @@ While you may already fined i3 installed,
 you can install i3 from via the chroot
 (i.e. <code>Ctrl+Alt+T</code> then <code>shell</code> then <code>sudo enter-chroot -n trusty</code>).
 Make sure you using the latest version of i3 via <code>i3wm.org</code> site:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># make sure you have the latest linux packages</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># make sure you have the latest linux packages</span>
 sudo apt-get update <span style="color: #555555">&amp;&amp;</span> sudo apt-get dist-upgrade
 
 <span style="color: #0099FF; font-style: italic"># this ubuntu repository is provides the latest stable release of i3</span>
-sudo <span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe&quot;</span> &gt;&gt; /etc/apt/sources.list
+sudo <span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;deb http://debian.sur5r.net/i3/ </span><span style="color: #006699; font-weight: bold">$(</span>lsb_release -c -s<span style="color: #006699; font-weight: bold">)</span><span style="color: #CC3300"> universe&quot;</span> &gt;&gt; /etc/apt/sources.list
 sudo apt-get update
 sudo apt-get --allow-unauthenticated install sur5r-keyring
 sudo apt-get update
@@ -443,7 +443,7 @@ sudo apt-get install i3
 <p>Your can <a href="https://github.com/dnschneid/crouton/wiki/i3">run i3 from within xfce by placing it in the "Application Autostart"</a>,
 but but you can jump right into from crosh shell if you set up your
 <code>.xinitrc</code> file to execute i3.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># add exec i3 to ~/.xinitrc</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># add exec i3 to ~/.xinitrc</span>
 <span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;exec i3&quot;</span> &gt; ~/.xinitrc
 
 <span style="color: #0099FF; font-style: italic"># launch i3 directly from the crosh shell</span>
@@ -471,7 +471,7 @@ type <code>Ctrl</code>+<code>Alt</code>+<code>T</code> to bring up a Chrome Shel
 Then type <code>shell</code> at the prompt to get to the root Linux shell
 (this can only be done in <a href="https://software.intel.com/en-us/blogs/2014/07/01/chrome-os-whats-developer-mode">Developer Mode</a>).
 Now within this window, enter one of the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># command line only</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># command line only</span>
 sudo enter-chroot -n trusty
 
 <span style="color: #0099FF; font-style: italic"># run full Xfce Window Manger</span>
@@ -513,7 +513,7 @@ and you close the Chromium OS window.
 Also, xiwi doesn't know you current directory so use full paths
 (e.g. <code>sudo enter-chroot -b xiwi gimp ~/Downloads/img.jpg</code>).</p>
 <p>For example,</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># run the program node-red in the background</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># run the program node-red in the background</span>
 sudo startxiwi -b node-red
 
 <span style="color: #0099FF; font-style: italic"># run the program node-red in the foreground (also brings up an additional window)</span>
@@ -545,7 +545,7 @@ http://www.tldp.org/HOWTO/Remote-X-Apps-6.html</p>
 <h2>Changing Host Name</h2>
 <p>The Linux instance host name will default to <code>localhost</code>.
 <a href="http://www.ducea.com/2006/08/07/how-to-change-the-hostname-of-a-linux-system/">This can be changed</a> to something more appropriate, like <code>chromebook</code>, via</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo homstname chromebook
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo homstname chromebook
 </pre></div>
 
 
@@ -557,29 +557,29 @@ Aliases have to be stored in <code>~/.bashrc</code> to persist indefinitely
 If you launch applications via aliases,
 the xiwi command will not know about them.
 You can add the <a href="https://github.com/dnschneid/crouton/wiki/crouton-in-a-Chromium-OS-window-(xiwi)">following snippet</a> to your <code>~/.bashrc</code> to handle basic aliases:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># Wrap xiwi so that aliases work</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># Wrap xiwi so that aliases work</span>
 xiwi<span style="color: #555555">()</span> <span style="color: #555555">{</span>
-    <span style="color: #336666">local </span><span style="color: #003333">xiwiargs</span><span style="color: #555555">=</span><span style="color: #CC3300">&#39;&#39;</span>
-    <span style="color: #006699; font-weight: bold">while</span> <span style="color: #555555">[</span> <span style="color: #CC3300">&quot;${1#-}&quot;</span> !<span style="color: #555555">=</span> <span style="color: #CC3300">&quot;$1&quot;</span> <span style="color: #555555">]</span>; <span style="color: #006699; font-weight: bold">do</span>
-<span style="color: #006699; font-weight: bold">        </span><span style="color: #003333">xiwiargs</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;$xiwiargs $1&quot;</span>
+    <span style="color: #336666">local</span> <span style="color: #003333">xiwiargs</span><span style="color: #555555">=</span><span style="color: #CC3300">&#39;&#39;</span>
+    <span style="color: #006699; font-weight: bold">while</span> <span style="color: #555555">[</span> <span style="color: #CC3300">&quot;</span><span style="color: #AA0000">${</span><span style="color: #003333">1</span>#-<span style="color: #AA0000">}</span><span style="color: #CC3300">&quot;</span> !<span style="color: #555555">=</span> <span style="color: #CC3300">&quot;</span><span style="color: #003333">$1</span><span style="color: #CC3300">&quot;</span> <span style="color: #555555">]</span>; <span style="color: #006699; font-weight: bold">do</span>
+        <span style="color: #003333">xiwiargs</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;</span><span style="color: #003333">$xiwiargs</span><span style="color: #CC3300"> </span><span style="color: #003333">$1</span><span style="color: #CC3300">&quot;</span>
         <span style="color: #336666">shift</span>
-<span style="color: #336666">    </span><span style="color: #006699; font-weight: bold">done</span>
-<span style="color: #006699; font-weight: bold">    </span><span style="color: #336666">local </span><span style="color: #003333">cmd</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;`alias &quot;</span><span style="color: #003333">$1</span><span style="color: #CC3300">&quot; 2&gt;/dev/null`&quot;</span>
-    <span style="color: #006699; font-weight: bold">if</span> <span style="color: #555555">[</span> -z <span style="color: #CC3300">&quot;$cmd&quot;</span> <span style="color: #555555">]</span>; <span style="color: #006699; font-weight: bold">then</span>
-<span style="color: #006699; font-weight: bold">        </span><span style="color: #003333">cmd</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;$1&quot;</span>
+    <span style="color: #006699; font-weight: bold">done</span>
+    <span style="color: #336666">local</span> <span style="color: #003333">cmd</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;`alias &quot;</span><span style="color: #003333">$1</span><span style="color: #CC3300">&quot; 2&gt;/dev/null`&quot;</span>
+    <span style="color: #006699; font-weight: bold">if</span> <span style="color: #555555">[</span> -z <span style="color: #CC3300">&quot;</span><span style="color: #003333">$cmd</span><span style="color: #CC3300">&quot;</span> <span style="color: #555555">]</span>; <span style="color: #006699; font-weight: bold">then</span>
+        <span style="color: #003333">cmd</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;</span><span style="color: #003333">$1</span><span style="color: #CC3300">&quot;</span>
     <span style="color: #006699; font-weight: bold">else</span>
-<span style="color: #006699; font-weight: bold">        </span><span style="color: #336666">eval</span> <span style="color: #CC3300">&quot;cmd=${cmd#*=}&quot;</span>
-        <span style="color: #003333">cmd</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;env $cmd&quot;</span>
+        <span style="color: #336666">eval</span> <span style="color: #CC3300">&quot;cmd=</span><span style="color: #AA0000">${</span><span style="color: #003333">cmd</span>#*=<span style="color: #AA0000">}</span><span style="color: #CC3300">&quot;</span>
+        <span style="color: #003333">cmd</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;env </span><span style="color: #003333">$cmd</span><span style="color: #CC3300">&quot;</span>
     <span style="color: #006699; font-weight: bold">fi</span>
-<span style="color: #006699; font-weight: bold">    </span><span style="color: #336666">shift</span>
-<span style="color: #336666">    eval</span> <span style="color: #CC3300">&quot;/usr/local/bin/xiwi $xiwiargs $cmd \&quot;\$@\&quot;&quot;</span>
+    <span style="color: #336666">shift</span>
+    <span style="color: #336666">eval</span> <span style="color: #CC3300">&quot;/usr/local/bin/xiwi </span><span style="color: #003333">$xiwiargs</span><span style="color: #CC3300"> </span><span style="color: #003333">$cmd</span><span style="color: #CC3300"> \&quot;\$@\&quot;&quot;</span>
 <span style="color: #555555">}</span>
 </pre></div>
 
 
 <p>For example, to create an alias for starting i3, xfce, and command line version of Ubuntu
 I putting the following in my  <code>~/.bashrc</code> file:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>
 </pre></div>
 
 
@@ -618,7 +618,7 @@ to secure shell into the <code>desktop</code> system using the login <code>jeff<
 <p>Linux may stop working after a Chrome OS update.
 If that's the case, update all the installed targets using the following command
 (in Chrome OS, open a terminal using <code>Ctrl</code>+<code>Alt</code>+<code>T</code>, then type "shell"):</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># trusty is the name of your chroot</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># trusty is the name of your chroot</span>
 sudo sh -e ~/Downloads/crouton -u -n trusty
 </pre></div>
 
@@ -663,7 +663,7 @@ and make sure no other chroot intances are running.</p>
 <p>Push the file to Google Drive
 http://www.howtogeek.com/196635/an-official-google-drive-for-linux-is-here-sort-of-maybe-this-is-all-well-ever-get/</p>
 <p>https://developers.google.com/drive/v2/reference/files/insert</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># move to the directory where you want the backup saved</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># move to the directory where you want the backup saved</span>
 <span style="color: #336666">cd</span> ~/Downloads
 
 <span style="color: #0099FF; font-style: italic"># backup your chroot files</span>
@@ -675,7 +675,7 @@ xxx
 
 
 <p>You can restore the backup later with the following command:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># restore your backup</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># restore your backup</span>
 sudo edit-chroot -r trusty
 </pre></div>
 
@@ -686,7 +686,7 @@ You can run the following command while installing Crouton.
 The Crouton installer script will restore your chroot
 from the backup file you provide,
 so replace <code>backupfile.tar.gz</code> with the name of the backup file you want to restore.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># restore backup to a powerwashed Chromebook</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># restore backup to a powerwashed Chromebook</span>
 sudo sh ~/Downloads/crouton -f backupfile.tar.gz
 </pre></div>
 

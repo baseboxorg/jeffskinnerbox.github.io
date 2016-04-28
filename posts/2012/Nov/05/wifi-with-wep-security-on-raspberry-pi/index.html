@@ -112,7 +112,7 @@ See <strong>Epilogue No. 3</strong> for the solution to this dilemma.</p>
 
 <p>Once I got the RPi USB port properly powered, I followed the Adafruit's <a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/occidentalis-v0-dot-1#wifi-support">instructions</a>.  I updated the<code>/etc/network/interfaces</code> file with the following:</p>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">########## DID NOT WORK FOR ME ##########</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic">########## DID NOT WORK FOR ME ##########</span>
 
 <span style="color: #0099FF; font-style: italic"># The loopback network interface</span>
 auto lo
@@ -152,7 +152,7 @@ iface wlan0 inet dhcp
 
 <p>After the typical thrashing about, it came to me that I'm not using WAP security (which is implied by the<code>/etc/network/interfaces</code> file content) but I'm using WEP.  I did some web searching and found a site that claimed to address <a href="http://www.gc-linux.org/wiki/WL:Wifi_Configuration">Debian WiFi WEP configuration</a>.  This provided me the needed command syntax for the solution.   I updated the<code>/etc/network/interfaces</code> file with the following:</p>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># The loopback network interface</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># The loopback network interface</span>
 auto lo
 iface lo inet loopback
 
@@ -178,7 +178,7 @@ iface wlan0 inet dhcp
 
 <p>The wireless device now has an IP address and data seems to be flowing.  In an effort to further convince myself that the WiFi was working, I disconnected the wired ethernet connection and attempted to re-login in via <code>ssh -X pi@RedRPi.local</code>, over the wireless interface. This failed, giving the message:</p>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">ssh: Could not resolve hostname RedRPi.local: hostname nor servname provided, or not known
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>ssh: Could not resolve hostname RedRPi.local: hostname nor servname provided, or not known
 </pre></div>
 
 
@@ -207,7 +207,7 @@ iface wlan0 inet dhcp
 This is a vast improvement over WEP, but <a href="http://phys.org/news/2014-03-wpa2-wireless.html">not completely unbreakable</a>.
 I followed the procedures outline in <a href="http://www.howtogeek.com/167425/how-to-setup-wi-fi-on-your-raspberry-pi-via-the-command-line/">How to Setup Wi-Fi On Your Raspberry Pi via the Command Line</a>.</p>
 <p>The results are these two files: <code>/etc/network/interfaces</code></p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># The loopback network interface</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># The loopback network interface</span>
 auto lo
 iface lo inet loopback
 
@@ -223,7 +223,7 @@ iface default inet dhcp
 
 
 <p>and the file <code>/etc/wpa_supplicant/wpa_supplicant.conf</code> </p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #003333">ctrl_interface</span><span style="color: #555555">=</span><span style="color: #003333">DIR</span><span style="color: #555555">=</span>/var/run/wpa_supplicant <span style="color: #003333">GROUP</span><span style="color: #555555">=</span>netdev
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #003333">ctrl_interface</span><span style="color: #555555">=</span><span style="color: #003333">DIR</span><span style="color: #555555">=</span>/var/run/wpa_supplicant <span style="color: #003333">GROUP</span><span style="color: #555555">=</span>netdev
 <span style="color: #003333">update_config</span><span style="color: #555555">=</span>1
 
 <span style="color: #003333">network</span><span style="color: #555555">={</span>

@@ -83,7 +83,7 @@ Something not made clear in the Pelican documentation is that
 much of the good stuff in Markdown, like Pygments and syntax highlighting, has to be explicitly activated.</p>
 <p>Python Markdown comes with several <a href="http://pythonhosted.org/Markdown/extensions/extra.html">extras</a>, and one of the extension supported is called <a href="https://pythonhosted.org/Markdown/extensions/code_hilite.html">CodeHilite</a>.
 To get this all to work, you must include something like this in your <code>pelicanconf.py</code> file:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># List of the extensions that the Markdown processor will use.
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span># List of the extensions that the Markdown processor will use.
 MD_EXTENSIONS = [&#39;extra&#39;, &#39;codehilite(noclasses=True, pygments_style=manni, guess_lang=False)&#39;]
 </pre></div>
 
@@ -108,7 +108,7 @@ More detail is provided below.</p>
 <h2>Standard Markdown Code Blocks</h2>
 <p>Standard Markdown converts text with four spaces at the beginning of each line into a code block.
 This first example is using just indenting:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># Example using simply indentation
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span># Example using simply indentation
 
 #!/bin/bash
 
@@ -127,7 +127,7 @@ is_file_exits() {
 
 
 <p>What happens if you have a very long line of text that runs beyond the right had side of the page?</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">What happens if you have a very long line of text that runs beyond the right had side of the page?  Do you get a scroll bar at the bottom of the code block, or does it wrap around or does it just truncate the line?
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>What happens if you have a very long line of text that runs beyond the right had side of the page?  Do you get a scroll bar at the bottom of the code block, or does it wrap around or does it just truncate the line?
 </pre></div>
 
 
@@ -138,7 +138,7 @@ wraps code blocks.  Find out how it does it.</strong></p>
 known as <a href="https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks">Fenced Blocks</a> via the Markdown extention CodeHilite.
 Just wrap your code in three back-ticks <code>```</code> and you won't need to indent it by four spaces.
 <em>(<strong>NOTE:</strong> Although fenced code blocks don't have to be preceded by a blank line—unlike indented code blocks, it is recommend placing a blank line before them to make the raw Markdown easier to read.)</em></p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># Example using Fenced Blocks
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span># Example using Fenced Blocks
 
 #!/bin/bash
 
@@ -172,18 +172,18 @@ Below is an example (with no language given in the fenced block):</p>
 10
 11
 12
-13</pre></div></td><td class="code"><div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/bin/bash</span>
+13</pre></div></td><td class="code"><div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic">#!/bin/bash</span>
 
 usage<span style="color: #555555">()</span> <span style="color: #555555">{</span>
-    <span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;Usage: $0 filename&quot;</span>
-    <span style="color: #336666">exit </span>1
+    <span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;Usage: </span><span style="color: #003333">$0</span><span style="color: #CC3300"> filename&quot;</span>
+    <span style="color: #336666">exit</span> 1
 <span style="color: #555555">}</span>
 
 <span style="color: #0099FF; font-style: italic"># define is_file_exits function</span>
 <span style="color: #0099FF; font-style: italic"># $f -&gt; store argument passed to the script</span>
 is_file_exits<span style="color: #555555">()</span> <span style="color: #555555">{</span>
-    <span style="color: #336666">local </span><span style="color: #003333">f</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;$1&quot;</span>
-    <span style="color: #555555">[[</span> -f <span style="color: #CC3300">&quot;$f&quot;</span> <span style="color: #555555">]]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #006699; font-weight: bold">return </span>0 <span style="color: #555555">||</span> <span style="color: #006699; font-weight: bold">return </span>1
+    <span style="color: #336666">local</span> <span style="color: #003333">f</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;</span><span style="color: #003333">$1</span><span style="color: #CC3300">&quot;</span>
+    <span style="color: #555555">[[</span> -f <span style="color: #CC3300">&quot;</span><span style="color: #003333">$f</span><span style="color: #CC3300">&quot;</span> <span style="color: #555555">]]</span> <span style="color: #555555">&amp;&amp;</span> <span style="color: #006699; font-weight: bold">return</span> <span style="color: #FF6600">0</span> <span style="color: #555555">||</span> <span style="color: #006699; font-weight: bold">return</span> 1
 <span style="color: #555555">}</span>
 </pre></div>
 </td></tr></table>
@@ -194,14 +194,14 @@ In your fenced block, add an optional language identifier and we'll run it throu
 You can find out which keywords are valid as language identifiers by
 perusing the GitHub's Language Savant <a href="http://pythonhosted.org/Markdown/extensions/extra.html">languages.yml</a> file.
 For example, to syntax highlight Ruby code, start the block with <code>```ruby</code> to get:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">require</span> <span style="color: #CC3300">&#39;redcarpet&#39;</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #336666">require</span> <span style="color: #CC3300">&#39;redcarpet&#39;</span>
 markdown <span style="color: #555555">=</span> <span style="color: #336600">Redcarpet</span><span style="color: #555555">.</span>new(<span style="color: #CC3300">&quot;Hello World!&quot;</span>)
 <span style="color: #336666">puts</span> markdown<span style="color: #555555">.</span>to_html
 </pre></div>
 
 
 <p>Or using  <code>```bash</code> gets you:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># this is a comment line</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># this is a comment line</span>
 mkdir /mnt/backup
 chmod a+rwx /mnt/backup
 chmod o-w /mnt/backup
@@ -211,7 +211,7 @@ chmod o-w /mnt/backup
 <p>If you choose to uses <code>~~~~</code> as it means to identify a code block,
 you'll need to use a slightly different format.
 For example, to syntax highlight C++ code, start the block with <code>~~~~.cpp</code> to get:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">// Hello.cc</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic">// Hello.cc</span>
 <span style="color: #0099FF; font-style: italic">//   how to compile: either</span>
 <span style="color: #0099FF; font-style: italic">//     make Hello</span>
 <span style="color: #0099FF; font-style: italic">//   or</span>
@@ -221,8 +221,8 @@ For example, to syntax highlight C++ code, start the block with <code>~~~~.cpp</
 <span style="color: #0099FF; font-style: italic">//   features:</span>
 <span style="color: #0099FF; font-style: italic">//     uses cout to write text</span>
 
-<span style="color: #009999">#include &lt;iostream&gt;</span>
-<span style="color: #009999">#include &lt;cstdlib&gt;</span>
+<span style="color: #009999">#include</span> <span style="color: #0099FF; font-style: italic">&lt;iostream&gt;</span><span style="color: #009999"></span>
+<span style="color: #009999">#include</span> <span style="color: #0099FF; font-style: italic">&lt;cstdlib&gt;</span><span style="color: #009999"></span>
 
 <span style="color: #006699; font-weight: bold">using</span> <span style="color: #006699; font-weight: bold">namespace</span> std;
 
@@ -235,7 +235,7 @@ For example, to syntax highlight C++ code, start the block with <code>~~~~.cpp</
 <p>When you use the <code>~~~~</code> Fenced Blocks, you can also emphasized certain lines of code.
 You can do this by telling Markdown what lines to highlight in the first fence.
 In the example below, lines 4 and 9 are emphasized (e.g. <code>~~~~{.python hl_lines="4 9"}</code>).</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/usr/bin/python</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic">#!/usr/bin/python</span>
 
 <span style="color: #0099FF; font-style: italic"># Dictionaries map keys to values.</span>
 <span style="background-color: #ffffcc">fred <span style="color: #555555">=</span> { <span style="color: #CC3300">&#39;mike&#39;</span>: <span style="color: #FF6600">456</span>, <span style="color: #CC3300">&#39;bill&#39;</span>: <span style="color: #FF6600">399</span>, <span style="color: #CC3300">&#39;sarah&#39;</span>: <span style="color: #FF6600">521</span> }
@@ -262,7 +262,7 @@ fred[<span style="color: #CC3300">&#39;wilma&#39;</span>] <span style="color: #5
 highlighting to code blocks using <a href="http://pygments.org/">Pygments</a>.
 In this case, the text must all be tabbed in 4 spaces, including the fenced block, which is <code>:::</code>.
 For the example below, indent the text but begin with <code>:::java hl_lines="9 10 11 12 13"</code>.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">/* CallingMethodsInSameClass.java</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic">/* CallingMethodsInSameClass.java</span>
 <span style="color: #0099FF; font-style: italic">*</span>
 <span style="color: #0099FF; font-style: italic">* illustrates how to call static methods a class</span>
 <span style="color: #0099FF; font-style: italic">* from a method in the same class</span>
@@ -299,7 +299,7 @@ The example below is a code snippits from <a href="https://gist.github.com/jeffs
 </style>
 <!-- --------- End: Gist Code Snippit ---------- --></p>
 <p>The file content to create this is as follows:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">&lt;!-- -------- Start: Gist Code Snippit --------- --&gt;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>&lt;!-- -------- Start: Gist Code Snippit --------- --&gt;
 &lt;style=&quot;padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); font-size: 12px; line-height: 14px; width: 90%;&quot;&gt;
     &lt;script src=&quot;https://gist.github.com/jeffskinnerbox/6663095.js&quot;&gt;&lt;/script&gt;
 &lt;/style&gt;

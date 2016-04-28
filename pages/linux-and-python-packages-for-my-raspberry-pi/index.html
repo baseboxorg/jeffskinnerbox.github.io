@@ -118,42 +118,42 @@ This could include things like
 <p>I'm loading software via the Linux
 <a href="http://en.wikipedia.org/wiki/Advanced_Packaging_Tool"><code>apt-get</code></a>
 utility and you need to make sure its database is up to date. First thing to do is to update apt-get's local database with server's pkglist's files.  Then checks for outdated packages in the system and automatically upgrades them.  Execute the following commands:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get update
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get update
 sudo apt-get upgrade
 </pre></div>
 
 
 <p>To do similar updates for Python, use the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo easy_install -U distribute
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo easy_install -U distribute
 </pre></div>
 
 
 <h4>Search for Package or Package Description</h4>
 <p>Some times you don't know package name but aware of some keywords to search the package.  To search for packages, use the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">apt-cache search <span style="color: #CC3300">&quot;text-to-search&quot;</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>apt-cache search <span style="color: #CC3300">&quot;text-to-search&quot;</span>
 apt-cache search <span style="color: #CC3300">&quot;text-to-search&quot;</span> | grep <span style="color: #CC3300">&quot;more-search-text&quot;</span>
 </pre></div>
 
 
 <h4>Erase Package and Configuration File</h4>
 <p>To completely erase from you Linux system, you can use the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">apt-get --purge remove <span style="color: #555555">{</span>package-name<span style="color: #555555">}</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>apt-get --purge remove <span style="color: #555555">{</span>package-name<span style="color: #555555">}</span>
 </pre></div>
 
 
 <h4>List All Installed Packages</h4>
 <p>You can use following command to find out all Linux package names available on your system:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">dpkg -l
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>dpkg -l
 </pre></div>
 
 
 <p>Suppose you want to find out if a specific package is installed, say its "apache-perl", you type the command:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">dpkg -s apache-perl
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>dpkg -s apache-perl
 </pre></div>
 
 
 <p>To get a list of all the Python packages installed you can use:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">pip freeze --local
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>pip freeze --local
 </pre></div>
 
 
@@ -162,7 +162,7 @@ apt-cache search <span style="color: #CC3300">&quot;text-to-search&quot;</span> 
 <p>Python is an interpreted, object-oriented, high-level programming language  attractive for rapid application development, as well as for use as a scripting or glue language to connect existing components together. Python's simple, easy to learn syntax emphasizes readability and therefore reduces the cost of program maintenance.  While the Raspberry Pi Linux distribution is likely to already have some python packages installed, execute the following to make sure you have all that is needed (see
 <a href="http://www.youtube.com/watch?v=jI8VBP1wEZU">distribute and easy_install</a>
  more details).</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install python
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install python
 sudo apt-get install python-dev
 sudo apt-get install libjpeg-dev
 sudo apt-get install libfreetype6-dev
@@ -172,12 +172,12 @@ sudo apt-get install python-pip
 
 
 <p>With this done, now its time to install the required Python libraries but first, update the Python distribution by running</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo easy_install -U distribute
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo easy_install -U distribute
 </pre></div>
 
 
 <p>Finally you can install the Raspberry Pi GPIO (General Purpose Input/Ouput) and other packages:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo pip install RPi.GPIO
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo pip install RPi.GPIO
 sudo pip install pySerial
 sudo pip install nose
 sudo pip install cmd2
@@ -195,7 +195,7 @@ is a foundation package for scientific computing with Python.  Besides its obvi
 contains modules for optimization, linear algebra, integration, interpolation, special functions, FFT, signal and image processing, ODE solvers, and other tasks common in science and engineering. The The basic data structure in SciPy is a multidimensional array provided by the NumPy module.  And to round things off,
 <a href="http://pandas.pydata.org/">pandas</a>
 is a Python package providing fast, flexible, and expressive data structures designed to make working with structured (tabular, multidimensional, potentially heterogeneous) and time series data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical data analysis in Python.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install python-matplotlib
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install python-matplotlib
 sudo apt-get install python-mpltoolkits.basemap
 sudo apt-get install python-numpy
 sudo apt-get install python-scipy
@@ -206,7 +206,7 @@ sudo apt-get install python-pandas
 <p>PyQt4 PyQt is a set of Python  bindings for
 <a href="http://qt.digia.com/">Digia's Qt</a>
 cross platform framework that is widely used for developing application software with a graphical user interface (GUI).</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install python-qt4
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install python-qt4
 </pre></div>
 
 
@@ -215,7 +215,7 @@ cross platform framework that is widely used for developing application softwar
 can do much more than the standard Python. IPython is an interactive shell for the Python programming language that offers enhanced introspection, additional shell syntax, tab completion and rich history. IPython allows non-blocking interaction with Tkinter, GTK, Qt and wxWidgets (the standard Python shell only allows interaction with Tkinter).  IPython provide a rich
 <a href="http://en.wikipedia.org/wiki/Rich_Internet_application">text web interface</a>
 (i.e. Web application that has many of the characteristics of desktop application software delivered by way of a browser) called Notebook.  For scientific and engineering work, it is often presented as a companion tool to Matplotlib.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install ipython ipython-doc ipython-notebook ipython-qtconsole
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install ipython ipython-doc ipython-notebook ipython-qtconsole
 </pre></div>
 
 
@@ -226,13 +226,13 @@ then convert it to structurally valid XHTML (or HTML).
 The idea is that a Markdown-formatted document should be publishable as-is,
 as plain text, without requiring conversion to HTML.
 I use it extensively for my software documentationm.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install markdown
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install markdown
 </pre></div>
 
 
 <h4>X Window Utilities</h4>
 <p>The <code>x11-apps</code> package provides a miscellaneous assortment of X applications that ship with the X Window System, including <code>xclock</code> (graphical clocks), <code>xconsole</code> (monitors system console messages), <code>xeyes</code> (demo program ... eyes track the pointer), <code>xload</code> (monitor for the system load average), <code>xwd</code> (utility for taking screenshots), etc. <code>xterm</code> is the standard terminal emulator for the X Window System. The <code>x11-xserver-utils</code> package provides a miscellaneous assortment of X Server utilities that ship with the X Window System, including <code>xrdb</code> (a tool to manage the X server resource database), <code>xsetroot</code> (a tool for tailoring the appearance of the root window)</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install x11-apps
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install x11-apps
 sudo apt-get install x11-xserver-utils
 sudo apt-get install xterm
 </pre></div>
@@ -242,7 +242,7 @@ sudo apt-get install xterm
 <p>Synaptic is a graphical package management program for Linux software. It provides the same features as the <code>apt-get</code> command line utility with a X Windows GUI front-end.  While I will not be using X Windows at this moment, in the future I will and
 <a href="http://en.wikipedia.org/wiki/Synaptic_(software)">synaptic</a>
 is a very nice alternative to <code>apt-get</code> when in in X Windows.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install synaptic
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install synaptic
 </pre></div>
 
 
@@ -252,7 +252,7 @@ is a very nice alternative to <code>apt-get</code> when in in X Windows.</p>
 also has a large following, but I think everyone needs to be prepared to use
 <a href="http://en.wikipedia.org/wiki/Vim_(text_editor)">vim</a>
 if your serious about Linux.  The RPi Linux distribution appears to have <code>vi</code> loaded but <code>vim</code> is a superior tool.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install vim
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install vim
 sudo apt-get install vim-gtk
 </pre></div>
 
@@ -262,7 +262,7 @@ Configuring vim is a major topic, covered by many web sites and books, but you'l
 <a href="https://github.com/jeffskinnerbox/dotvim">GitHub</a>.</p>
 <h4>PyRoom</h4>
 <p>PyRoom is a a fullscreen editor without buttons, widgets, formatting options, menus and with only the minimum of required dialog windows, it doesn't have any distractions and lets you focus on writing and only writing.  It is the polar opposite of Vim, and as such, is a good editor for the novice or casual user, but requires X Windows and Python.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install pyroom
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install pyroom
 </pre></div>
 
 
@@ -270,7 +270,7 @@ Configuring vim is a major topic, covered by many web sites and books, but you'l
 <p>Given that I plan to hack some <em>to-be-determined</em> applications using the RPi, I should consider establish some tools for  source code management. The last time I did serious software development in Linux (really Unix), I was using Source Code Control System (SCCS). The tools are much improved now and
 <a href="http://git-scm.com/documentation"><code>git</code></a>
 is hands down the way to go.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install git
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install git
 </pre></div>
 
 
@@ -278,20 +278,20 @@ is hands down the way to go.</p>
 <p>We all have a favorite browser and I choose
 <a href="http://www.chromium.org/Home"><code>chromium</code></a>
 for my RPi.  Chromium serves as a base for Google Chrome, which is Chromium re-branded (name and logo) with very few additions.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install chromium
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install chromium
 </pre></div>
 
 
 <h4>Apache</h4>
 <p>Apache is a very popular web server and I will make use of it for any web application that are required. It can be installed, along with its required scripting language, via the command below.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo aptitude install apache2 php5
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo aptitude install apache2 php5
 </pre></div>
 
 
 <h4>Conky</h4>
 <p><a href="http://conky.sourceforge.net/">Conky</a>
 is a system monitor tool for X Windows.  Conky is highly configurable and is able to monitor many system variables including the status of the CPU, memory, swap space, disk storage, temperatures, processes, network interfaces, battery power, system messages, e-mail inboxes, Linux updates, runs many popular music players, and much more.  To install the standard Conky package, use the following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install conky-std
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install conky-std
 </pre></div>
 
 
@@ -300,21 +300,21 @@ is a system monitor tool for X Windows.  Conky is highly configurable and is a
 is a command-line outgoing email
 <a href="http://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">SMTP</a>
 client. It is used for sending e-mails from the command line, and can therefore be easily embedded into other applications or scripts. It great for integrating email into shell or python scripts. All fields of the sent emails (such as the sender and reply-to addresses, recipients, message body, subject and attachments) are specified as command-line arguments, as well as other parameters (such as the SMTP server name, user and password for SMTP account, network timeouts, etc.).</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install sendemail
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install sendemail
 </pre></div>
 
 
 <h4>SSHFS</h4>
 <p><a href="https://help.ubuntu.com/community/SSHFS">SSHFS</a> (SSH Filesystem)
 is a file system client to mount and interact with directories and files located on a remote server or workstation. SSHFS requires no special software on the remote side, just a SSH server with support for the SFTP extension. SSHFS is an alternative to traditional network file system, such as NFS, OpenAFS or Samba. Setting up these network file systems requires administrator access on both systems, but not for SSHFS.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install sshfs
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install sshfs
 </pre></div>
 
 
 <h4>Advanced Linux Sound Architecture (ALSA)</h4>
 <p>The <a href="http://en.wikipedia.org/wiki/Advanced_Linux_Sound_Architecture">Advanced Linux Sound Architecture (ALSA)</a>
 provides audio and MIDI functionality to the Linux operating system. Is structured as Linux kernel module and provides an API for device drivers for sound cards.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install alsa-utils
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install alsa-utils
 sudo apt-get install mpg321
 sudo apt-get install lame
 </pre></div>
@@ -329,7 +329,7 @@ And full tools and documentation for build new voices are available through Carn
 <a href="http://festvox.org/index.html">FestVox</a> project.</p>
 <p><a href="http://www.speech.cs.cmu.edu/flite/">Flite</a> (festival-lite) is a small,
 fast run-time synthesis engine developed at CMU and primarily designed for small embedded machines and/or large servers. Flite is designed as an alternative synthesis engine to Festival for voices built using the FestVox suite of voice building tools.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install festival
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install festival
 sudo apt-get install flite
 </pre></div>
 
@@ -343,14 +343,14 @@ but has a graphical front-end, plus some integrated sorting and filtering opti
 that support
 <a href="http://en.wikipedia.org/wiki/Promiscuous_mode">promiscuous mode</a>
 into that mode, in order to see all traffic visible on that interface, not just traffic addressed to one of the interface's configured addresses and broadcast/multicast traffic.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install wireshark
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install wireshark
 </pre></div>
 
 
 <h4>Microcom</h4>
 <p><a href="http://manpages.ubuntu.com/manpages/lucid/man1/microcom.1.html">Microcom</a>
 is a minimalistic terminal program for accessing devices (e.g. switches) via a serial connection. it features connection via rs232 serial interfaces (including setting of transferrates) as well as in "telnetmode" as specified in rfc2217.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install microcom
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install microcom
 </pre></div>
 
 
@@ -359,7 +359,7 @@ is a minimalistic terminal program for accessing devices (e.g. switches) via a s
 <a href="http://en.wikipedia.org/wiki/Wiring_(development_platform)">Wiring</a>
 platform and is programmed using a Wiring-based language (syntax and libraries), similar to C++ with some slight simplifications and modifications.  What is installed here is the Arduino 
 <a href="http://en.wikipedia.org/wiki/Integrated_development_environment">integrated development environment</a> (IDE).</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install arduino
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install arduino
 </pre></div>
 
 
@@ -371,7 +371,7 @@ on my RPi so I can work in both environments at will. While editing files on a m
 <a href="http://bash.cyberciti.biz/guide/Shebang">shebang</a>
 will stop working.  Editing them under DOS is the origin of the problem, since a DOS based text editor will inject the extra carriage return character at the end of the text line.</p>
 <p>To fix this problem, you can quickly convert an ASCII text file from DOS format (carriage return and line break) to the Unix format (line break), you can use the tool <code>dos2unix</code>.  Run this utility on the effected file and shebang should work once again.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install dos2unix
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install dos2unix
 </pre></div>
 
 
@@ -381,7 +381,7 @@ will stop working.  Editing them under DOS is the origin of the problem, since 
 which claims to be designed primarily for use on the screen and high resolution rendering. It is a
 <a href="http://en.wikipedia.org/wiki/Monospaced_font">monospaced</a>
 font designed for source code listing, terminal emulators, and similar uses.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install fonts-inconsolata
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install fonts-inconsolata
 </pre></div>
 
 
