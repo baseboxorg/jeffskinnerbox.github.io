@@ -3,7 +3,7 @@ DEBUG ?= 0
 # Use Bash shell instead of the default /bin/sh
 SHELL := /bin/bash
 
-# Shell loops will continue past errors without this.
+# Shell loops will continue past errors without this
 EXIT_ON_ERROR = set -e
 
 # Parameters set for debugging
