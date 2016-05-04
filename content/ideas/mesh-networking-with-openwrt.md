@@ -348,6 +348,7 @@ is a loop-avoiding distance-vector routing protocol for IPv6 and IPv4 with fast 
 
 ## OpenWRT
 * [My complete OpenWrt Setup Guide](http://www.jauu.net/2015/03/03/complete-openwrt-guide/)
+* [Creating a basic Batman-adv mesh](http://www.radiusdesk.com/technical_discussions/batman_basic)
 
 # Tools
 * [Horst is a diagnostic tool that displays Layer 1 information about the link](http://br1.einfach.org/tech/horst/)

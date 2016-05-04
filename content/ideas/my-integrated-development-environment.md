@@ -1,4 +1,5 @@
 What about [Sublime](https://www.sublimetext.com/) and [Atom](https://atom.io/)
+[A tmux Primer](https://danielmiessler.com/study/tmux/)
 
 An integrated development environment (IDE) is a programming environment
 that has been packaged as an application program,

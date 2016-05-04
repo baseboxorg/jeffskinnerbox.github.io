@@ -11,7 +11,9 @@ Some simple weather station setups:
 
 * [Weather Font](http://www.dafont.com/weather.font)
 
-[OpenWeatherMap](http://openweathermap.org/)
+* [OpenWeatherMap](http://openweathermap.org/)
+* [cli-weather](https://www.npmjs.com/package/cli-weather)
+* [node-red-node-weather-underground](https://www.npmjs.com/package/node-red-node-weather-underground)
 
 Gulp - http://gulpjs.com/
 Mocha - http://mochajs.org/

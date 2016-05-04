@@ -32,17 +32,18 @@ The primary receiver used on the Titanic’s Marconi station was basically a 3-s
 * [Two transistor superheterodyne shortwave receiver](http://hackaday.com/2015/03/08/simple-superheterodyne-sw-receiver-harks-back-almost-100-years/)
 * []()
 
-# Building Radios from Scatch Components
+# Building Radios and Components from Sketch
 * [The Voice of the Crystal ](http://www.amazon.com/dp/0967190509/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=363R5Y466YLW&coliid=I12STRWY8ZX3RV)
 * [Build a Universal Coil Winding Machine](http://www.amazon.com/Build-Universal-Coil-Winding-Machine/dp/187808710X/ref=pd_sim_14_4?ie=UTF8&dpID=41MuvM7FzXL&dpSrc=sims&preST=_AC_UL160_SR124%2C160_&refRID=09DR6PYCCF9HGTF78H2C)
 * [Fun With Tubes](http://www.funwithtubes.net/)
 * [Instruments of Amplification: Fun with Homemade Tubes, Transistors, and More](http://www.amazon.com/Instruments-Amplification-Homemade-Tubes-Transistors/dp/0967190517/ref=pd_sim_14_1?ie=UTF8&dpID=41pjdMXQsFL&dpSrc=sims&preST=_AC_UL160_SR103%2C160_&refRID=09DR6PYCCF9HGTF78H2C)
 * [Crystadyne](http://www.a-reny.com/iexplorer/cristadyne.html)
 * [Hacking When it Counts: POW Canteen Radios](http://hackaday.com/2016/04/21/hacking-when-it-counts-pow-canteen-radios/#more-201155)
+* [Lint And Dog Hair Supercapacitor](http://hackaday.com/2016/04/30/lint-and-dog-hair-supercapacitor/)
 
 # Other
 * [Alfred Powell Morgan's "The Boy Electrician"](https://books.google.com/books/about/The_Boy_Electrician.html?id=G09NAAAAYAAJ)
 * [Cool Homemade Stuff etc.](http://www.sparkbangbuzz.com/index.html)
 * [Home Made Farnsworth Fusor](http://hackaday.com/2016/03/26/home-made-farnsworth-fusor/)
-* []()
-* []()
+* [H. P. Friedrichs` "The Voice of the Crystal"](http://www.hpfriedrichs.com/mybooks/votc/bks-votc.htm)
+* [H. P. Friedrichs` "Instruments of Amplification: Fun with Homemade Tubes, Transistors, and More"](http://www.hpfriedrichs.com/mybooks/ioa/bks-ioa.htm)

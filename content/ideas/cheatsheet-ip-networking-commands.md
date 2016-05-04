@@ -1,3 +1,9 @@
+[A Subnetting Primer](https://danielmiessler.com/study/subnetting/)
+[Firewalls](https://danielmiessler.com/study/firewalls/)
+[An IPTABLES Primer](https://danielmiessler.com/study/iptables/)
+[An NMAP Primer](https://danielmiessler.com/study/nmap/)
+[20 Myths of WiFi Interferance](http://www.wifiadvies.be/20-myths-of-wi-fi-interference/)
+
 Most network configuration manuals still refer to `ifconfig` and `route`
 as the primary network configuration tools,
 but `ifconfig` is known to behave inadequately in modern network environments.
@@ -57,6 +63,8 @@ if you prefer the old plain network service..
     * [Raspberry Pi – control your network traffic with Nagios](https://developer-blog.net/en/hardware-2/raspberry-pi-control-your-network-traffic-with-nagios/)
     * [Raspberry Pi and Distributed Network Monitoring: Iperf](https://netbeez.net/2014/08/19/raspberry-pi-and-distributed-network-monitoring-iperf/)
     * [How to Build a Portable Hacking Station with a Raspberry Pi and Kali Linux](http://lifehacker.com/how-to-build-a-portable-hacking-station-with-a-raspberr-1739297918)
+    * [A tcpdump Primer with Examples](https://danielmiessler.com/study/tcpdump/)
+    * []()
 ####################
 
 * Tools to Query about Your or Other IP Addresses

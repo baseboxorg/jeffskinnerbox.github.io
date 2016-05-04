@@ -1,5 +1,6 @@
 
-[Pelican Themes](http://pelicanthemes.com/)
+* Something to emulate - [Daniel Miessler's Blog](https://danielmiessler.com/)
+* [Pelican Themes](http://pelicanthemes.com/)
 
 Status: draft
 Title: Building My New Blog Using Jekyll...Scratch That...Pelican
