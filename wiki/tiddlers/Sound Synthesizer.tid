@@ -1,10 +1,11 @@
 created: 20140919014920863
-modified: 20160319154702696
+modified: 20160430011529922
 tags: Projects
 title: Sound Synthesizer
 type: text/vnd.tiddlywiki
 
 * [[Sonic Pi - Audible Computing|http://sonic-pi.net/]]
+* [[Code Music with Sonic Pi|https://www.raspberrypi.org/magpi-issues/Essentials_Sonic_Pi-v1.pdf]]
 * [[Csound is an incredibly powerful signal processor.|http://www.csounds.com/]]
 * [[An Introductory Guide to Csound on the BeagleBone and the Raspberry Pi, as well other Linux-powered tinyware|http://www.csounds.com/journal/issue18/beagle_pi.html]]
 * [[SuperCollider - real-time audio synthesis and algorithmic composition|http://supercollider.sourceforge.net/]]

@@ -1,7 +1,7 @@
 Title: HowTo: Configure SSH Public Key Authentication
 Date: 2016-04-27 21:24
 Category: Software
-Tags: Public Key Authentication, Security
+Tags: How To, Public Key Authentication, Security
 Slug: howto-configure-ssh-public-key-authentication
 Author: Jeff Irland
 Image: how-to.jpg
@@ -139,7 +139,7 @@ re-enter your passphrase every time you use your keys.
 On Ubuntu, you'll need to enter only once after you have logged in.
 You'll be prompted with a screen like this:
 
-[![passphrase-screen]({filename}/image/private-key-passphrase.png "An SSH key passphrase is a secondary form of security that gives you a little time when your keys are stolen. If your RSA key has a strong passphrase, it might take your attacker a few hours to guess by brute force. That extra time should be enough to log in to any computers you have an account on, delete your old key from the .ssh/authorized_keys file, and add a new key.")](https://help.ubuntu.com/community/SSH/OpenSSH/Keys)
+[![passphrase-screen]({filename}/images/private-key-passphrase.png "An SSH key passphrase is a secondary form of security that gives you a little time when your keys are stolen. If your RSA key has a strong passphrase, it might take your attacker a few hours to guess by brute force. That extra time should be enough to log in to any computers you have an account on, delete your old key from the .ssh/authorized_keys file, and add a new key.")](https://help.ubuntu.com/community/SSH/OpenSSH/Keys)
 
 ### Step 3B: Changing Your Passphrase
 Sooner or later you'll want to change the passphrase on your private key.

@@ -1,5 +1,5 @@
 created: 20141226143823014
-modified: 20160327013038225
+modified: 20160430005911452
 tags: [[Test Gear]]
 title: Oscilloscope Tutorials and Tips
 type: text/vnd.tiddlywiki
@@ -19,6 +19,8 @@ so its time to learn how to use it like a pro.
 * [[Adafruit Oscilloscope Tutorials|http://www.adafruit.com/blog/2011/12/16/analog-oscilloscope-tutorials/]]
 * [[XYZs of Oscilloscopes|http://ecee.colorado.edu/~mcclurel/txyzscopes.pdf]]
 * [[Probe Fundamentals|http://www.ece.vt.edu/cel/docs/Probe_Fundamentals_Tektronix.pdf]]
+* [[7 Tips for Better Oscilloscope Probe Selection and Usage|http://electronicdesign.com/test-measurement/7-tips-better-oscilloscope-probe-selection-and-usage]]
+* [[What is oscilloscope system bandwidth and how do I find the bandwidth of the scope + probe?|https://keysightoscilloscopeblog.com/2016/03/30/what-is-oscilloscope-system-bandwidth-and-how-do-i-find-it/]]
 * [[Introduction to Oscilloscopes Lab Experiment|https://www.noisebridge.net/images/8/8d/Tektronix--IntroToOscilliscopesLab.pdf]]
 * [[Oscilloscope and Data Logger Application Notes|https://www.picotech.com/library/application-notes]]
 * [[Tektronix Oscilloscope Tutorial|http://www.tek.com/learning/oscilloscope-tutorial]]
@@ -44,10 +46,11 @@ so its time to learn how to use it like a pro.
 * [[Why Digital Oscilloscopes Appear Noisy|https://www.youtube.com/watch?v=Znwp0pK8Tzk]]
 * [[How NOT To Blow Up Your Oscilloscope!|https://www.youtube.com/watch?v=xaELqAo4kkQ]]
 * [[Mysteries of x1 Oscilloscope Probes Revealed|https://www.youtube.com/watch?v=OiAmER1OJh4]]
-* [[Bode Plotting on Your Osciloscope|https://www.youtube.com/watch?v=uMH2hGvqhlE]]
 * [[w2aew|https://www.youtube.com/channel/UCiqd3GLTluk2s_IBt7p_LjA]]
 * [[Do yourself a favor, read this.|http://keysightoscilloscopeblog.com/2016/03/09/do-yourself-a-favor-read-this/]]
 * [[This Quick Trick Makes Your Oscilloscope Measurement 1,000 Times Better|http://keysightoscilloscopeblog.com/2016/03/07/this-quick-trick-makes-your-oscilloscope-measurement-1000-times-better/]]
+* [[How to Create Bode Plots on an Oscilloscope|https://keysightoscilloscopeblog.com/2016/04/13/how-to-create-bode-plots-on-an-oscilloscope/]]
+* [[Bode Plotting on Your Osciloscope|https://www.youtube.com/watch?v=uMH2hGvqhlE]]
 
 !!Tools
 * [[Controlling a Rigol oscilloscope using Linux and Python|http://www.cibomahto.com/2010/04/controlling-a-rigol-oscilloscope-using-linux-and-python/]]

@@ -363,6 +363,7 @@ These are the sources for the commands documented above in the tables.
 These links should be explored to see what additional information
 could be gathered for this cheat sheet.
 
+* [A vim Tutorial and Primer](https://danielmiessler.com/study/vim/)
 * [Another Vim Cheat Sheet](http://www.terminally-incoherent.com/blog/reference/vim-cheat-sheet/)
 * [Vim Cheatsheet](http://www.terminally-incoherent.com/blog/2008/10/27/vim-cheatsheet/)
 * [Jonathan Oxer's Cheat Sheets](http://jon.oxer.com.au/cheatsheet/vim)

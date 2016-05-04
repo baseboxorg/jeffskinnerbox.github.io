@@ -1,7 +1,7 @@
 Title: HowTo: Install and Configure Fail2Ban
 Date: 2016-04-27 21:27
 Category: Software
-Tags: Fail2Ban, Security
+Tags: How To, Fail2Ban, Security
 Slug: howto-install-and-configure-fail2ban
 Author: Jeff Irland
 Image: how-to.jpg

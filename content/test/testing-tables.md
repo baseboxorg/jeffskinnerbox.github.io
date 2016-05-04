@@ -46,7 +46,7 @@ My fix is in `content/extra/custom.css` and is listed blow:
 
 /* This will provide some visual improvements to Markdown's formating of tables */
 table, th, td {
-    margin-left: auto; 
+    margin-left: auto;
     margin-right: auto;
     border: 1px solid black;
 }
@@ -114,6 +114,29 @@ you get the following:
 | row 5, col 1 | row 5, col 2     | row 5, col 3 | row 5, col 4     |
 
 Test of inline MathJax: $\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}}$
+
+## Tables With Images
+Yes, you can do images within the tables!
+So with this code:
+
+```
+| Default Justified | Left Justified | Right Justified | Centered Justified |
+| ----------------- |:-------------- | ---------------:|:------------------:|
+| row 1, col 1 | row 1, col 2     | row 1, col 3 | _this should be italics_   |
+| [![Pelican Logo](/images/logos/thumbnail/pelican_logo.png)](http://blog.getpelican.com/) | **this should be bold** | row 2, col 3 | row 2, col 4     |
+| [![IPython Logo](/images/logos/thumbnail/ipython_notebook_logo.png)](http://ipython.org/notebook.html) | [![Gist Logo](/images/logos/thumbnail/gist_logo.jpg)](https://github.com/signup/free?return_to=gist) | [![Disqus Logo](/images/logos/thumbnail/disqus_logo.png)](http://disqus.com/) | [![Atom Logo](/images/logos/thumbnail/atom_logo.png)](http://atomenabled.org/) |
+| `this should be code` | row 4, col 2     | ![BATMAN-Adv]({filename}/images/batman-adv-logo.png "BATMAN-Adv Mesh Network Software") | row 4, col 4     |
+
+```
+
+you get the following:
+
+| Default Justified | Left Justified | Right Justified | Centered Justified |
+| ----------------- |:-------------- | ---------------:|:------------------:|
+| row 1, col 1 | row 1, col 2     | row 1, col 3 | _this should be italics_   |
+| [![Pelican Logo](/images/logos/thumbnail/pelican_logo.png)](http://blog.getpelican.com/) | **this should be bold** | row 2, col 3 | row 2, col 4     |
+| [![IPython Logo](/images/logos/thumbnail/ipython_notebook_logo.png)](http://ipython.org/notebook.html) | [![Gist Logo](/images/logos/thumbnail/gist_logo.jpg)](https://github.com/signup/free?return_to=gist) | [![Disqus Logo](/images/logos/thumbnail/disqus_logo.png)](http://disqus.com/) | [![Atom Logo](/images/logos/thumbnail/atom_logo.png)](http://atomenabled.org/) |
+| `this should be code` | row 4, col 2     | ![BATMAN-Adv]({filename}/images/batman-adv-logo.png "BATMAN-Adv Mesh Network Software") | row 4, col 4     |
 
 
 [01]:http://stackoverflow.com/questions/16099153/table-not-render-when-use-redcarpet-in-jekyll-github-pages

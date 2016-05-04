@@ -5,7 +5,7 @@ Tags: Raspberry Pi, XBee
 Slug: configuration-utilities-for-xbee-radios
 Author: Jeff Irland
 Image: xbee-module-series-1-1mw-with-wire-antenna-xb24-awi-001.jpg
-Summary: In this post, I provide a python utility thace can be used to configure and test Xbee radios.  Its a command interpretors used to send AT Commands to the XBee with output is color coded to help distinguish user input, from XBee radio output, and from interpretors output.
+Summary: In this post, I provide a python utility that can be used to configure and test Xbee radios.  Its a command interpretors used to send AT Commands to the XBee with output is color coded to help distinguish user input, from XBee radio output, and from interpretors output.
 
 <a href="http://jeffskinnerbox.files.wordpress.com/2012/10/xbee-module-series-1-1mw-with-wire-antenna-xb24-awi-001.jpg">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="XBee Module - Series 1 - 1mW with Wire Antenna - XB24-AWI-001" alt="XBee Series 1" src="/images/xbee-module-series-1-1mw-with-wire-antenna-xb24-awi-001.jpg" width="20%" height="20%" />
@@ -20,7 +20,7 @@ Along with the XBee radios, I purchased adapter boards designed to make it easie
 <center>
 <a href="http://jeffskinnerbox.files.wordpress.com/2012/10/xbee-pinout.jpg">
     <img class="size-full wp-image-418" title="Xbee Pin Out" alt="XBee Pinout" src="/images/xbee-pinout.jpg" width="545" height="333" />
-</a> 
+</a>
 </center>
 <ol>
 <ol>
@@ -38,7 +38,7 @@ Along with the XBee radios, I purchased adapter boards designed to make it easie
 </ol>
 <a href="http://www.ladyada.net/make/xbee/configure.html">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Xbee Adaptor connected with USB FTDI TTL-232 Cable" alt="XBee Adaptor" src="/images/xbee_ftdi_powered.jpg" width="20%" height="10%" />
-</a> 
+</a>
 The DTR, RTS, RST and RX pins (going <em>into</em> the XBee) pass through a level converter chip that brings the levels to 3.3V. Adafruit claims you can use pretty much anywhere between 2.7 to 5.5V data to communicate with the XBee. The breakout pins on the bottom of the board are not level shifted and you should try to keep data going directly into the XBee pin under 3.3V
 
 <h2>XBee Initial Configuration and Testing</h2>

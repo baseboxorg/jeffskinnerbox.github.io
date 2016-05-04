@@ -1,7 +1,7 @@
 Title: HowTo: Set-Up the Raspberry Pi as a Headless Device
 Date: 2016-04-27 21:23
 Category: Software
-Tags: Raspberry Pi
+Tags: How To, Raspberry Pi, WiFi, Linux, Public Key Authentication, Security
 Slug: howto-set-up-the-raspberry-pi-as-a-headless-device
 Author: Jeff Irland
 Image: how-to.jpg
@@ -288,7 +288,7 @@ The multiple things can be configured within this configuration tool.
 We need to change the following:
 
 * **Expand Filesystem** - select this
-* **Boot Options** - select this and choose "B1 Console"
+* **Boot Options** - select this and choose "B2 Console" - You will **not** need a password to get console access. _Somewhat of a security risk but nice to have if you need to recover from major problem._
 * **Advanced Options** - select this and choose "A2 Hostname", enable "A4 SSH", enable "A5 Device Tree", enable "A6 SPI", enable "A7 IC2", enable "A8 Serial"
 
 Finally, select `<Finish>` and reboot so that the configuration changes are all applied.
@@ -306,6 +306,9 @@ This will patch the Linux operating system and all its GPL applications
 sudo apt-get update
 sudo apt-get dist-upgrade
 sudo apt-get upgrade
+
+# clean up any packages nolonger needed
+sudo apt-get autoremove
 
 # if packages were installed, reboot
 sudo reboot
@@ -391,7 +394,7 @@ Install X Window utilities, development tools, and other applications
 
 ```bash
 # some X Window utilities
-sudo apt-get install x11-apps x11-xserver-utils xterm
+sudo apt-get install x11-apps x11-xserver-utils xterm wmctrl
 
 # development tools
 sudo apt-get install markdown git vim vim-gtk microcom screen
@@ -467,12 +470,13 @@ ln -s ~/.vim/vimrc ~/.vimrc
 # install tools for bash shell
 cd ~
 git clone https://github.com/jeffskinnerbox/.bash.git
+rm .bashrc .bash_logout
 ln -s ~/.bash/bashrc ~/.bashrc
 ln -s ~/.bash/bash_login ~/.bash_login
 ln -s ~/.bash/bash_logout ~/.bash_logout
 ln -s ~/.bash/bash_profile ~/.bash_profile
 ln -s ~/.bash/dircolors.old ~/.dircolors
-sudo cp virtualenvwrapper.sh virtualenvwrapper_lazy.sh /usr/local/bin
+sudo cp ~/.bash/virtualenvwrapper.sh ~/.bash/virtualenvwrapper_lazy.sh /usr/local/bin
 
 # install X configuration files
 cd ~
@@ -708,10 +712,14 @@ For how to make use of the watchdog and additional information, check out these 
 There are a few reasons you might want to duplicate (clone/copy)
 your Raspberry Pi’s SD Card.
 One reason is to create a backup.
-An even better reason maybe is that you spent untold hours installing and configuring
+Another reason maybe is that you spent untold hours installing and configuring
 software on your Raspberry Pi,
 and you want to set up a second Raspberry Pi,
 but didn’t want to spend the time to duplicate the previous efforts.
+
+> **Caution:** If the two device have different firmware, you could have problems.
+Firmware is stored within the hardware and not transferable via the SD Card.
+Make sure all your devices are at the same firmware level or you could have unpredictable results.
 
 To clone your SD Card:
 
@@ -746,9 +754,9 @@ sudo umount /dev/sde1
 ```
 
 You should now be able to insert the cloned SD Card into a brand new Raspberry Pi and boot it up,
-without any problems.
-But obviously, there are some things you may want to change on a cloned Raspberry Pi.
-For example, you should change the cloned Raspberry Pi’s host name,
+but you will likely run into some problems.
+There are some things you want to change on the cloned Raspberry Pi SC Card.
+For one thing, you should change the cloned Raspberry Pi’s host name
 so it doesn’t conflict with the original Raspberry Pi on the network.
 This is easily done:
 
@@ -759,6 +767,18 @@ sudo vi /etc/hostname
 # restart the advertised host name
 sudo /etc/init.d/hostname.sh start
 ```
+
+Another thing concerns the password-less login via SSH keys your might have established.
+The credentials on the cloned SC Card will not allow you to login
+and if you set `PasswordAuthentication` to "no" with the `/etc/ssh/sshd_config` file,
+then you can't use SSH to login via a password either.
+(see ["HowTo: Configure SSH Public Key Authentication"][47]).
+You'll need to set this to "yes".
+
+You may also find that firmware could be an issue.
+Your cloned software may not be compatible with the firmware on the hardware
+(firmware is stored within the hardware and not transferable via the SD Card).
+This can cause mysterious problems (like WiFi adapter not working, just to name one).
 
 
 

@@ -1,7 +1,7 @@
 Title: Network Backups via Rsync and Rsnapshot
 Date: 2014-02-08 00:01
 Category: Software
-Tags: Linux, Rsync, Rsnapshot
+Tags: Linux, Rsync, Rsnapshot, Backup
 Slug: network-backups-via-rsync-and-rsnapshot
 Author: Jeff Irland
 Image: backup-vault.png
