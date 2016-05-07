@@ -89,7 +89,18 @@ A BATMAN-Adv network of nodes can be imagined as a large distributed switch
 where each node has a single switch port to which any other bridge or switch can be connected.
 
 http://ifbat0.blogspot.com/2013/03/batman-advanced-brief-intro.html
+
 ## Packet Routing and Transmission
+The [virtual Ethernet interface][45] ([tap][46]) is used to emulate the switch.
+This switch sends and receives the packets.
+The packet is retransmitted by each node at layer 2 only;
+the packet is never brought up to higher levels during transmission.
+This means any transmission looks like one hop to all the higher layers (layer 3 and up)
+no matter how many nodes are in the network.
+At layer 2, the routing protocol must handle the data traffic BATMAN-Adv uses its own Ethernet type 0x0842.
+These Ethernet-Frames are sent to find the routing information.
+Each data traffic Ethernet-Frame is encapsulated in a 0x0842 Ethernet frame.
+
 ## Node identification
 ## Bridging Interfaces
 ## Packet Loss and Encryption
@@ -372,8 +383,8 @@ Any device running Linux can be setup to work as a mesh entry point.
 [42]:https://www.open-mesh.org/projects/batman-adv/wiki/Gateways
 [43]:https://www.open-mesh.org/projects/batman-adv/wiki/NetworkCoding
 [44]:https://downloads.open-mesh.org/batman/manpages/batctl.8.html
-[45]:
-[46]:
+[45]:https://linuxconfig.org/configuring-virtual-network-interfaces-in-linux
+[46]:http://www.innervoice.in/blogs/2013/12/08/tap-interfaces-linux-bridge/
 [47]:
 [48]:
 [49]:

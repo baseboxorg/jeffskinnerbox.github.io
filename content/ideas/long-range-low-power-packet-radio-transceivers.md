@@ -13,6 +13,8 @@ http://staging.thethingsnetwork.org/wiki/LoRaWAN/Overview
 
 # Adiafruit Products
 * [Adafruit RFM69HCW and RFM9X LoRa Packet Radio Breakouts](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts/overview)
+* [RFM69 to MQTT Gateway on the Super-Cheap](http://hackaday.com/2015/11/14/rfm69-to-mqtt-gateway-on-the-super-cheap/)
+* [Introduction to the RFM69HW Transceiver](http://www.allaboutcircuits.com/projects/introduction-to-the-rfm69hw-transceiver/)
 * [Adafruit Feather](https://www.adafruit.com/feather)
 
 # SparkFun Products
@@ -21,9 +23,12 @@ http://staging.thethingsnetwork.org/wiki/LoRaWAN/Overview
     * [LowPowerLab Hook Library](https://github.com/LowPowerLab/RFM69)
     * [Radiohead Library](http://www.airspayce.com/mikem/arduino/RadioHead/)
 
-# Open Source Projects
+# The Things Network
+![img](http://thethingsnetwork.org/static/ttn/media/The%20Things%20Uitlijning.svg)
 * [The Things Network](http://thethingsnetwork.org/)
-    * [Washington DC Region Things Network community](http://thethingsnetwork.org/c/washington/)
+* [The Things Network Calderdale](http://www.rs-online.com/designspark/electronics/eng/blog/the-things-network-calderdale)
+* [Washington DC Region Things Network community](http://thethingsnetwork.org/c/washington/)
+* [Building a Raspberry Pi Powered LoRaWAN Gateway](http://www.rs-online.com/designspark/electronics/eng/blog/building-a-raspberry-pi-powered-lorawan-gateway)
 
 # XBee / ZigBee Projects
 * [KappaIO - Open Source ZigBee Gateway Framework](https://kappa.io/)
@@ -126,4 +131,11 @@ by sharing knowledge and experience to guarantee interoperability between operat
 [11]:
 [12]:http://mwrf.com/markets/understanding-ultra-narrowband-modulation
 [13]:http://www.vmsk.org/Textbook.pdf
+[14]:
+[15]:
+[16]:
+[17]:
+[18]:
+[19]:
+[20]:
 

@@ -40,6 +40,8 @@ The primary receiver used on the Titanic’s Marconi station was basically a 3-s
 * [Crystadyne](http://www.a-reny.com/iexplorer/cristadyne.html)
 * [Hacking When it Counts: POW Canteen Radios](http://hackaday.com/2016/04/21/hacking-when-it-counts-pow-canteen-radios/#more-201155)
 * [Lint And Dog Hair Supercapacitor](http://hackaday.com/2016/04/30/lint-and-dog-hair-supercapacitor/)
+* [Home Brew Vacuum Tubes Are Easier Than You Think](http://hackaday.com/2016/05/04/home-brew-vacuum-tubes-are-easier-than-you-think/)
+* [Artisanal Vacuum Tubes: Hackaday Shows You How](http://hackaday.com/2014/11/21/artisanal-vacuum-tubes-hackaday-shows-you-how/)
 
 # Other
 * [Alfred Powell Morgan's "The Boy Electrician"](https://books.google.com/books/about/The_Boy_Electrician.html?id=G09NAAAAYAAJ)
@@ -47,3 +49,5 @@ The primary receiver used on the Titanic’s Marconi station was basically a 3-s
 * [Home Made Farnsworth Fusor](http://hackaday.com/2016/03/26/home-made-farnsworth-fusor/)
 * [H. P. Friedrichs` "The Voice of the Crystal"](http://www.hpfriedrichs.com/mybooks/votc/bks-votc.htm)
 * [H. P. Friedrichs` "Instruments of Amplification: Fun with Homemade Tubes, Transistors, and More"](http://www.hpfriedrichs.com/mybooks/ioa/bks-ioa.htm)
+* [Homemade Lightbulb](http://www.instructables.com/id/Homemade-Lightbulb/?ALLSTEPS)
+* [Home Made Diodes From Copper Oxide](http://hackaday.com/2016/05/01/home-made-diodes-from-copper-oxide/)
