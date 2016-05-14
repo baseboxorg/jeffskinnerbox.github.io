@@ -1,7 +1,10 @@
 # Amazon Echo How To
 * [New Alexa Skills Kit Template: Step-by-Step Guide to Build a Fact Skill](https://developer.amazon.com/public/community/post/Tx3DVGG0K0TPUGQ/New-Alexa-Skills-Kit-Template-Step-by-Step-Guide-to-Build-a-Fact-Skill)
+* [New Alexa Skills Kit Template: Step-by-Step Guide to Build a How-To Skill](https://developer.amazon.com/public/community/post/TxKALMUNLHZPAP/New-Alexa-Skills-Kit-Template:-Step-by-Step-Guide-to-Build-a-How-To-Skill?mkt_tok=eyJpIjoiWWpGaE16YzFZVGMxTUdJMSIsInQiOiJJZHZJWUF2V2lcL2FUR2txU0d1NUo4dmd5akVKRjR2QVRMN2RWTGRTYllsb3d4WVltdENqY2ZGY2VKMW1KcjN2Y0FwMFI2Qld2RDJuYVdzak5tVzRvSE56UFhKQTRZRzZyOWpHQ0NzUFhTcGs9In0%3D)
 * [Alexa How Tos](https://developer.amazon.com/public/community/blog/tag/How+To)
 * [Understanding the Smart Home Skill API](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/overviews/understanding-the-smart-home-skill-api?mkt_tok=eyJpIjoiTmpKaE1UVmhPV00wTWpBMiIsInQiOiI4VEhrcHU4RGtERkl6VlBRaU85WXNodlhPTXZ4VzdRNGdjRWFkalZDNXljUmNOT0FPVktKYm5PaUpvc1pxOENUVW1WYzlqWGhpS3FaUUVTYTJOQlFpK3B0NThNK3lWZGF6UGRneTY1elVwcz0ifQ%3D%3D)
+* [Developing Alexa Skills Locally with Node.js (part 1 of 6)](https://developer.amazon.com/public/community/post/Tx3DV6ANE5HTG9H/Big-Nerd-Ranch-Series-Developing-Alexa-Skills-Locally-with-Node-js-Setting-Up-Yo)
+* [Using Alexa Skills Kit and AWS IoT to Voice Control Connected Devices](https://developer.amazon.com/public/community/post/Tx3828JHC7O9GZ9/Using-Alexa-Skills-Kit-and-AWS-IoT-to-Voice-Control-Connected-Devices?mkt_tok=eyJpIjoiWmpFNE9XVTBaRFpoWXpNNSIsInQiOiJNYUc3NHZDUm1cL08xUjhZSXdSMkU4WHptbXNPRzlQc1lCbVdORVBcL2M3dmllXC9LU1wvVml5Yk1QN21sait1ZkVDYm5NXC9wZVAwbjZ4RWwxVUM1ZVlJVnFXajc1cldnYm1hSXZtZzdZbU9UdnhFPSJ9)
 
 # Amazon Echo
 * [Ask Hackaday: Is Amazon Echo the Future of Home Automation?](http://hackaday.com/2015/04/14/ask-hackaday-is-amazon-echo-the-future-of-home-automation/)

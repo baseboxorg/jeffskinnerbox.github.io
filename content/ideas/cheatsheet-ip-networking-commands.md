@@ -65,7 +65,6 @@ if you prefer the old plain network service..
     * [Raspberry Pi and Distributed Network Monitoring: Iperf](https://netbeez.net/2014/08/19/raspberry-pi-and-distributed-network-monitoring-iperf/)
     * [How to Build a Portable Hacking Station with a Raspberry Pi and Kali Linux](http://lifehacker.com/how-to-build-a-portable-hacking-station-with-a-raspberr-1739297918)
     * [A tcpdump Primer with Examples](https://danielmiessler.com/study/tcpdump/)
-    * []()
 ####################
 
 * Tools to Query about Your or Other IP Addresses
@@ -94,11 +93,13 @@ if you prefer the old plain network service..
     * [`iwconfig`][18] is used to display and change the parameters of the
     wireless network interface (e.g. interface name, frequency, SSID).
     It may also be used to display the wireless statistics (extracted from `/proc/net/wireless`).
+    Note that `iwconfig` is depreciated, you should use `iw` instead.
     * [`iwpriv`][34] is the companion tool to `iwconfig`. `iwpriv` deals with
     parameters and setting specific to each driver (as opposed to `iwconfig`
     which deals with generic ones).
     * [`iwlist`][12] allow to initiate scanning and list frequencies, bit-rates, encryption keys, etc.
     **Example Usage:** `iwlist wlan0 scan`
+    * [`wpa_supplicant`][03]
 * Tools for Monitoring / Scanning IP Network
     * [`nmap`][29] (network mapper) is a security tool for network exploration,
     q security scanning, and auditing.
@@ -132,7 +133,7 @@ if you prefer the old plain network service..
     * [`tcpdump`][31] is a common packet analyzer that runs under the command line.
     It allows the user to display TCP/IP and other packets being transmitted or
     received over a network to which the computer is attached.
-    * [`wireshark`][32] (orginally called `ethereal`) is the world's de facto
+    * [`wireshark`][32] (originally called `ethereal`) is the world's de facto
     network protocol analyzer letting you do deep inspection of hundreds of protocols,
     live capture, and offline analysis.
     * [`tshark`][35] the command-line version of Wireshark.
@@ -144,13 +145,15 @@ if you prefer the old plain network service..
 * IP Networking Utilities
     * [`ping`][25] (Packet Internet Gropper) is like a sonar pulse sent to detect another IP address.
     It is used to test the connection and latency between two network connections.
+    * [`dig`][59] (domain information groper) is a flexible tool for interrogating DNS name servers.
+    It performs DNS lookups and displays the answers that are returned from the name server(s) that were queried.
     * [`traceroute`][26] (trace route) is a diagnostic tool for displaying the route
     (path) and measuring transit delays of packets across an IP network.
     * [`netcat` or `nc`][22] is a [highly functional][21] Unix utility which reads and writes data
     across network connections, using TCP or UDP protocol.
     It is designed to be a reliable "back-end" tool that can
     be used directly or easily driven by other programs and scripts.
-    * [`blucat`](http://blucat.sourceforge.net/blucat/) is netcat for Bluethooth
+    * [`blucat`](http://blucat.sourceforge.net/blucat/) is netcat for Bluetooth
     * [`ncat][23] is a feature-packed networking utility which reads and writes
     data across networks from the command line.
     Ncat was written a much-improved reimplementation of `netcat`. `ncat` will work with IPv4,
@@ -1356,7 +1359,7 @@ could be gathered for this cheat sheet.
 [56]:https://iperf.fr/
 [57]:http://www.avahi.org/
 [58]:https://www.digitalocean.com/community/tutorials/a-deep-dive-into-iptables-and-netfilter-architecture
-[59]:
+[59]:http://www.thegeekstuff.com/2012/02/dig-command-examples/
 [60]:
 [61]:
 [62]:

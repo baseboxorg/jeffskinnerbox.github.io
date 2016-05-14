@@ -1,4 +1,5 @@
-[My complete OpenWrt Setup Guide](http://www.jauu.net/2015/03/03/complete-openwrt-guide/)
+*[My complete OpenWrt Setup Guide](http://www.jauu.net/2015/03/03/complete-openwrt-guide/)
+* [CJDNS Adhoc node](http://www.instructables.com/id/CJDNS-Adhoc-Node/?ALLSTEPS)
 
 ![Mesh Network](https://wellness.wikispaces.com/file/view/nwarch02.jpg/30138489/nwarch02.jpg =376x205 "MESH is a federated/distributed node structure in which any nodes can communicate with any other nodes.")(https://wellness.wikispaces.com/Network+Architectures)
 

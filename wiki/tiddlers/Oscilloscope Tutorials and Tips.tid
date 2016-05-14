@@ -1,5 +1,5 @@
 created: 20141226143823014
-modified: 20160507162758064
+modified: 20160514152216899
 tags: [[Test Gear]]
 title: Oscilloscope Tutorials and Tips
 type: text/vnd.tiddlywiki
@@ -52,6 +52,7 @@ so its time to learn how to use it like a pro.
 * [[This Quick Trick Makes Your Oscilloscope Measurement 1,000 Times Better|http://keysightoscilloscopeblog.com/2016/03/07/this-quick-trick-makes-your-oscilloscope-measurement-1000-times-better/]]
 * [[How to Create Bode Plots on an Oscilloscope|https://keysightoscilloscopeblog.com/2016/04/13/how-to-create-bode-plots-on-an-oscilloscope/]]
 * [[Bode Plotting on Your Osciloscope|https://www.youtube.com/watch?v=uMH2hGvqhlE]]
+* [[Oscilloscope High Res vs Average Modes|https://www.youtube.com/watch?v=036Ems1z-o0&feature=em-uploademail]]
 
 !!Tools
 * [[Controlling a Rigol oscilloscope using Linux and Python|http://www.cibomahto.com/2010/04/controlling-a-rigol-oscilloscope-using-linux-and-python/]]

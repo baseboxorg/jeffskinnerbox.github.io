@@ -46,6 +46,19 @@ Maybe I could even do some exploring of spectrum mysteries like
 
 * [Which Exam to Take?](https://www.hamradiolicenseexam.com/which-exam.htm)
 
+# History of Ham
+The origin of the term "Ham" is not clear but the prevailing theory is the following.
+In the early part of the 20th Century,
+Radio was proving its usefulness and electronic experimenters would homebrew their own radio stations,
+and begin broadcasting.
+The burgeoning commercial radio broadcasters would compete head to head
+for the radio crystal listening audience (themselves early adopters).
+Broadcast professionals would refer to the homebrewers as "Hams"
+as in bad actors.
+Through the power of lobbying organizations,
+the Hams of the day were relegated to one small part of radio spectrum.
+In the 1920's, Hiram Percy Maxim saw the value of a public with radios transceivers for emergency communications,
+and founded the American Radio Relay League (ARRL).
 
 
 [01]:http://www.bbc.com/news/magazine-24910397

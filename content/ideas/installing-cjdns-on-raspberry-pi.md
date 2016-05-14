@@ -1,16 +1,18 @@
-[Hyperboria DNS solution](http://nxter.org/hyperboria-adopts-nxt-aliases-for-dns-solution/)
-[CJDNS NAT Gateway](https://github.com/cjdelisle/cjdns/blob/master/doc/nat-gateway.md)
-[fc00](https://www.fc00.org/about)
-[hyperboria/docs](https://github.com/hyperboria/docs)
-[Managing DNS for moving devices with cjdns and consul](https://rickvandeloo.com/2016/01/31/managing-dns-for-moving-devices-with-cjdns-and-consul/)
-
-[ELI5 Why I don't seem to need port forwarding with CJDNS](https://www.reddit.com/r/darknetplan/comments/18umsp/eli5_why_i_dont_seem_to_need_port_forwarding_with/)
-[Installing and Configuring CJDNS on Ubuntu Linux](https://brianturchyn.net/installing-and-configuring-cjdns-on-ubuntu-linux/)
-[Using a CJDNS Tunnel for Site-Site Encryption](https://web.johncook.uk/articles/vps/cjdns-tunnel)
-
-[Nightfall](https://github.com/kpcyrd/nightfall)
-[yrd - cjdns swiss army knife](https://github.com/kpcyrd/yrd)
-[cjdns & hyperboria](https://events.sublab.io/system/attachments/6/original/praesi.pdf?1431710274)
+* [CJDNS Adhoc node](http://www.instructables.com/id/CJDNS-Adhoc-Node/?ALLSTEPS)
+* [Hyperboria DNS solution](http://nxter.org/hyperboria-adopts-nxt-aliases-for-dns-solution/)
+* [CJDNS NAT Gateway](https://github.com/cjdelisle/cjdns/blob/master/doc/nat-gateway.md)
+* [fc00](https://www.fc00.org/about)
+* [hyperboria/docs](https://github.com/hyperboria/docs)
+* [Managing DNS for moving devices with cjdns and consul](https://rickvandeloo.com/2016/01/31/managing-dns-for-moving-devices-with-cjdns-and-consul/)
+*
+* [ELI5 Why I don't seem to need port forwarding with CJDNS](https://www.reddit.com/r/darknetplan/comments/18umsp/eli5_why_i_dont_seem_to_need_port_forwarding_with/)
+* [Installing and Configuring CJDNS on Ubuntu Linux](https://brianturchyn.net/installing-and-configuring-cjdns-on-ubuntu-linux/)
+* [Using a CJDNS Tunnel for Site-Site Encryption](https://web.johncook.uk/articles/vps/cjdns-tunnel)
+*
+* [Nightfall](https://github.com/kpcyrd/nightfall)
+* [yrd - cjdns swiss army knife](https://github.com/kpcyrd/yrd)
+* [cjdns & hyperboria](https://events.sublab.io/system/attachments/6/original/praesi.pdf?1431710274)
+* [airmesh](http://www.netlore.co.uk/airmesh/)
 
 <a href="https://hyperboria.net/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Hyperboria is a peer-to-peer IPv6 network with automatic end-to-end encryption, distributed IP address allocatioonnd  the cjdns routing protocol. " alt="hyperboria-logo" src="{filename}/images/hyperboria-logo.png" width="270" height="58" />

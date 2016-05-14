@@ -379,6 +379,9 @@ For example, while the distribution is likely to already have some Python packag
 execute the following to make sure you have all that is needed
 
 ```bash
+# package management tools
+sudo apt-get install software-properties-common
+
 # first install Python packages
 sudo apt-get install python python-dev libjpeg-dev libfreetype6-dev python-setuptools python-pip
 sudo pip install virtualenv virtualenvwrapper
@@ -401,8 +404,10 @@ sudo apt-get install markdown git vim vim-gtk microcom screen
 sudo apt-get install nodejs-legacy npm build-essential i2c-tools python-smbus
 sudo npm install -g jshint
 
-# AWS IoT Device SDK to connect hardware device to AWS IoT
-sudo npm install aws-iot-device-sdk
+# LinSSID displays the information available from iwlist tool in graphical format
+sudo add-apt-repository ppa:wseverin/ppa
+sudo apt-get update
+sudo apt-get install linssid
 
 # so you can discover hosts via Multicast Domain Name System (mDNS)
 sudo apt-get install avahi-daemon

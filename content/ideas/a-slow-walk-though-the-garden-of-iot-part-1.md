@@ -364,6 +364,10 @@ It's interesting that Bug Labs positions Freeboard as an open source alternative
     * [Choosing Your Messaging Protocol: AMQP, MQTT, or STOMP](http://blogs.vmware.com/vfabric/2013/02/choosing-your-messaging-protocol-amqp-mqtt-or-stomp.html)
     * [MQTT and CoAP, IoT Protocols](http://www.eclipse.org/community/eclipse_newsletter/2014/february/article2.php)
     * [IoT Protocol Wars: MQTT vs CoAP vs XMPP](http://www.iotprimer.com/2013/11/iot-protocol-wars-mqtt-vs-coap-vs-xmpp.html)
+    * [Minimal MQTT: Building a Broker](http://hackaday.com/2016/05/09/minimal-mqtt-building-a-broker/)
+    * [Introduction to the MQTT Protocol on NodeMCU](http://www.allaboutcircuits.com/projects/introduction-to-the-mqtt-protocol-on-nodemcu/)
+    * [MQTT Essentials: Part 1 – Introducing MQTT](http://www.hivemq.com/blog/mqtt-essentials-part-1-introducing-mqtt)
+    * [muMQTT](https://play.google.com/store/apps/details?id=at.tripwire.mqtt.client&hl=en)
     * [PubNub](https://www.pubnub.com/)
     * [Pushover](https://pushover.net/)
 

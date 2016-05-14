@@ -7,6 +7,13 @@ What a Mesh!
 
 * [A (Mostly) Complete OpenWRT Tutorial](https://mattventura.net/2009/08/17/a-mostly-complete-openwrt-tutorial/)
 * [OpenWRT: basic network configuration](http://superuser.com/questions/742084/openwrt-basic-network-configuration)
+* [Part 3 OpenWRT B.A.T.M.A.N. Mesh](https://www.youtube.com/watch?v=SB_MAqxVPTs&list=PLvgZ_9wT_LNdq7SdqJ6VSWspU3vlnEuV9)
+
+Increasingly you hear the observation that the centralization of the Internet
+and the services built on it has given governments far too much control.
+There is a urgent call to decentralize the net at all levels, including the transport level.
+An Internet without centralized telecommunications infrastructure can be hard to envision.
+When people try to come to terms with this, usually it comes out as "mesh networking".
 
 Given there are so many mesh network protocols / packages to select from,
 how does one pick the right platform?
@@ -349,6 +356,8 @@ is a loop-avoiding distance-vector routing protocol for IPv6 and IPv4 with fast 
 ## OpenWRT
 * [My complete OpenWrt Setup Guide](http://www.jauu.net/2015/03/03/complete-openwrt-guide/)
 * [Creating a basic Batman-adv mesh](http://www.radiusdesk.com/technical_discussions/batman_basic)
+* [Hosting Two WiFi Networks on One OpenWrt Router](https://www.smallbusinesstech.net/more-complicated-instructions/openwrt/hosting-two-wifi-networks-on-one-openwrt-router)
+* [How to connect OpenWRT behind another router](https://forum.openwrt.org/viewtopic.php?id=44660)
 
 # Tools
 * [Horst is a diagnostic tool that displays Layer 1 information about the link](http://br1.einfach.org/tech/horst/)
