@@ -316,20 +316,22 @@ You could periodically run the following command to see what is getting pass you
 tailf /var/log/auth.log | grep 'sshd.*Failed'
 ```
 
-Also, you may find some duplicate rules in your `/etc/iptables/rules.v4` file.
-You find the duplicate rules, you can use `sort /etc/iptables/rules.v4 | uniq --repeated`.
-This will list all rows in the file that appear more than once.
+In time, you may find some duplicate rules sneak into your `/etc/iptables/rules.v4` file.
+You find the duplicate rules via `sort /etc/iptables/rules.v4 | uniq --repeated`.
+This will list all rows in the file that appear more than once
+and then you can go in a delete them.
 
 You may also be interested in where all your attacks are coming from.
 That is, you want to find out where a given IP address is physically located on earth.
 Sites like [Geo IP Tool][19] give you a web site to lookup this information.
 There are also command line tools that can be used, like [`geoiplookup`][20]
 and via `curl ipinfo.io/<ip-address>` (both documented [here][21]).
+
 Below is a script that creates a simple report from your rules file.
 
 ```bash
 # geo-locations of blocked ip addresses in json format
-sort /etc/iptables/rules.v4 | uniq | grep DROP | awk '{ print $4 }' | sed 's/\/[0-9]*//'i | while read line; do curl ipinfo.io/$line 2>/dev/null ; done | jq -c '{ city: .city , region: .region , country: .country , ip: .ip }'
+sort /etc/iptables/rules.v4 | uniq | grep DROP | awk '{ print $4 }' | sed 's/\/[0-9]*//' | while read line; do curl ipinfo.io/$line 2>/dev/null ; done | jq -c '{ city: .city , region: .region , country: .country , ip: .ip }'
 ```
 
 # Sources

@@ -493,7 +493,7 @@ ln -s ~/.X/xsessionrc ~/.xsessionrc
 
 ### Step 9: Password-less Login via SSH Keys
 <a href="http://www.openssh.com/">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="{filename}/images/openssh-logo.png" width="97" height="95" />
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="{filename}/images/openssh-logo.png" width="92" height="90" />
 </a>
 Public key authentication is an alternative means of
 identifying yourself to a login server, instead of typing a password.
@@ -542,7 +542,7 @@ You need to reboot the RPi and then you will no long have X Window running.
 
 ### Step 11: Running X Window Clients When You Want It
 <a href="http://www.xquartz.org/index.html">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" title="The XQuartz project is an open-source effort to develop a version of the X.Org X Window System that runs on OS X." alt="XQuartz Logo" src="{filename}/images/xquartz-logo.jpg" width="90" height="90" />
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="The XQuartz project is an open-source effort to develop a version of the X.Org X Window System that runs on OS X." alt="XQuartz Logo" src="{filename}/images/xquartz-logo.jpg" width="70" height="70" />
 </a>
 Despite the fact that you boot without X Windows starting,
 you can run [X Window clients][27] on the Raspberry Pi

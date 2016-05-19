@@ -311,6 +311,17 @@ Although this isn’t mesh networking,
 you'll be using it to install all your software,
 since you'll loose Internet connectivity until you get the mesh full operational.
 
+If you logged into the device,
+you can get the IP address of the WiFi and Ethernet interfaces via
+
+```bash
+# local IP addresses provided to the system
+/sbin/ifconfig |grep -B1 "inet addr" |awk '{ if ( $1 == "inet" ) { print $2 } else if ( $2 == "Link" ) { printf "%s:" ,$1 } }' | awk -F: '{ print $1 ": " $3 }'
+
+# extenal IP address
+curl ipecho.net/plain ; echo "   - external IP address"
+```
+
 Starting with the gateway, find the IP Address of the two interface `wlan0` and `eth0`
 
 ```bash

@@ -1,5 +1,5 @@
 created: 20141226143823014
-modified: 20160514152216899
+modified: 20160519003951411
 tags: [[Test Gear]]
 title: Oscilloscope Tutorials and Tips
 type: text/vnd.tiddlywiki
@@ -19,9 +19,10 @@ so its time to learn how to use it like a pro.
 * [[Adafruit Oscilloscope Tutorials|http://www.adafruit.com/blog/2011/12/16/analog-oscilloscope-tutorials/]]
 * [[XYZs of Oscilloscopes|http://ecee.colorado.edu/~mcclurel/txyzscopes.pdf]]
 * [[Probe Fundamentals|http://www.ece.vt.edu/cel/docs/Probe_Fundamentals_Tektronix.pdf]]
+* [[Capturing Intermittent or Infrequent Events|https://keysightoscilloscopeblog.com/2016/05/18/capturing-infrequent-events-why-oscilloscope-update-rate-matters/]]
 * [[7 Tips for Better Oscilloscope Probe Selection and Usage|http://electronicdesign.com/test-measurement/7-tips-better-oscilloscope-probe-selection-and-usage]]
 * [[What is oscilloscope system bandwidth and how do I find the bandwidth of the scope + probe?|https://keysightoscilloscopeblog.com/2016/03/30/what-is-oscilloscope-system-bandwidth-and-how-do-i-find-it/]]
-* [[How to measure your oscilloscope (and probe)’s bandwidth yourself – Keysight Oscilloscopes|https://keysightoscilloscopeblog.com/2016/05/04/how-to-measure-your-oscilloscope-and-probes-bandwidth/]]
+* [[How to measure your oscilloscope (and probe)’s bandwidth yourself|https://keysightoscilloscopeblog.com/2016/05/04/how-to-measure-your-oscilloscope-and-probes-bandwidth/]]
 * [[Introduction to Oscilloscopes Lab Experiment|https://www.noisebridge.net/images/8/8d/Tektronix--IntroToOscilliscopesLab.pdf]]
 * [[Oscilloscope and Data Logger Application Notes|https://www.picotech.com/library/application-notes]]
 * [[Tektronix Oscilloscope Tutorial|http://www.tek.com/learning/oscilloscope-tutorial]]

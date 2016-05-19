@@ -26,7 +26,7 @@ what about ethtool, netifd, nm-tool, nmcli, nm-online
 *  Stop using telnet to test network connectivity - http://scotte.github.io/2015/03/stop-using-telnet/
 
 # NetworkManager
-Network Manager aims for Network Connectivity which "Just Works".
+NetworkManager aims for Network Connectivity which "Just Works".
 The computer should use the wired network connection when it's plugged in,
 but automatically switch to a wireless connection when the user unplugs it
 and walks away from the desk.
@@ -39,6 +39,7 @@ It is the [NetworkManager][51] daemon attempts to make networking configuration
 and operation as painless and automatic as possible
 by managing the primary network connection and
 other network interfaces, like Ethernet, WiFi, and Mobile Broadband devices.
+NetworkManager also has a command-line tool for controlling it, called [`nmcli`][60].
 NetworkManager will connect any network device when a connection for that device becomes available,
 unless that behavior is disabled.
 If using DHCP, NetworkManager is intended to replace [default routes][52],
@@ -129,6 +130,7 @@ if you prefer the old plain network service..
     **Example Usage:** `iwevent`
     * [`iwspy`][33] is used to set a list of addresses to monitor in a
     wireless network interface and to read back quality of link information for each of those.
+    * [`rfkill`][61] - tool for enabling and disabling wireless devices
 * IP Network Packet Analysis
     * [`tcpdump`][31] is a common packet analyzer that runs under the command line.
     It allows the user to display TCP/IP and other packets being transmitted or
@@ -1360,8 +1362,8 @@ could be gathered for this cheat sheet.
 [57]:http://www.avahi.org/
 [58]:https://www.digitalocean.com/community/tutorials/a-deep-dive-into-iptables-and-netfilter-architecture
 [59]:http://www.thegeekstuff.com/2012/02/dig-command-examples/
-[60]:
-[61]:
+[60]:https://manpages.debian.org/cgi-bin/man.cgi?sektion=1&query=nmcli&apropos=0&manpath=sid&locale=en
+[61]:http://linux.die.net/man/1/rfkill
 [62]:
 [63]:
 [64]:
