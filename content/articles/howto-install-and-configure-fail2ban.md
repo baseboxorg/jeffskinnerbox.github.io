@@ -316,6 +316,22 @@ You could periodically run the following command to see what is getting pass you
 tailf /var/log/auth.log | grep 'sshd.*Failed'
 ```
 
+Also, you may find some duplicate rules in your `/etc/iptables/rules.v4` file.
+You find the duplicate rules, you can use `sort /etc/iptables/rules.v4 | uniq --repeated`.
+This will list all rows in the file that appear more than once.
+
+You may also be interested in where all your attacks are coming from.
+That is, you want to find out where a given IP address is physically located on earth.
+Sites like [Geo IP Tool][19] give you a web site to lookup this information.
+There are also command line tools that can be used, like [`geoiplookup`][20]
+and via `curl ipinfo.io/<ip-address>` (both documented [here][21]).
+Below is a script that creates a simple report from your rules file.
+
+```bash
+# geo-locations of blocked ip addresses in json format
+sort /etc/iptables/rules.v4 | uniq | grep DROP | awk '{ print $4 }' | sed 's/\/[0-9]*//'i | while read line; do curl ipinfo.io/$line 2>/dev/null ; done | jq -c '{ city: .city , region: .region , country: .country , ip: .ip }'
+```
+
 # Sources
 * [Install and configure fail2ban](http://iot-projects.com/index.php?id=make-your-raspberry-pi-more-secure)
 * [Install and Config Fail2Ban in Debian 7 Wheezy](http://www.pontikis.net/blog/fail2ban-install-config-debian-wheezy)
@@ -346,3 +362,6 @@ tailf /var/log/auth.log | grep 'sshd.*Failed'
 [16]:https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-iptables-on-ubuntu-14-04
 [17]:https://www.debian-administration.org/article/87/Keeping_SSH_access_secure
 [18]:http://jeffskinnerbox.me/posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/
+[19]:https://geoiptool.com/
+[20]:http://linux.die.net/man/1/geoiplookup
+[21]:http://xmodulo.com/geographic-location-ip-address-command-line.html
