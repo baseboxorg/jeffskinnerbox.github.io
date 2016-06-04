@@ -100,5 +100,7 @@ The Python program on the RPi is also very simple, except for one point.  Linux
 
 <p><script src="https://gist.github.com/jeffskinnerbox/6663336.js"></script></p>
 
+The above script imports `pretty.py` which you can find here - [`https://gist.github.com/jeffskinnerbox/6663095`](https://gist.github.com/jeffskinnerbox/6663095).
+
 <h2>Closing</h2>
 It doesn't get much simpler than this. With a little work, you might make something useful out of this technique but its very limited in the types of problems that it could handle. Never the less, it was a good diversion for me to clear my mind. Now back to the XBee's core capabilites, the 802.15.4 protocol, and the other minutia!
