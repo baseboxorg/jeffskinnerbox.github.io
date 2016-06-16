@@ -1,11 +1,23 @@
-Status: draft
-Date: 2100-01-01 00:00
-Category: Software
-Tags: Ripping
-Slug: howto-ripping-cds-from-the-linux-command-line
-Author: Jeff Irland
-Image: how-to.jpg
-Summary: bla bla bla
+
+* [How to Get Music Onto Your Android Phone Without iTunes](http://www.howtogeek.com/150995/how-to-get-music-onto-your-android-phone-without-itunes/)
+* [Amazon Music for Android](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000454841)
+* [Getting Started with Google Play Music on Ubuntu](http://www.omgubuntu.co.uk/2011/11/getting-started-with-google-music-on-ubuntu)
+* [Control Your Android from a Browser with AirDroid](http://www.howtogeek.com/105813/control-your-android-from-a-browser-with-airdroid/)
+* [SideSync](http://www.samsung.com/us/sidesync/)
+
+# Google Play Music Manager
+Google Play Music
+Google's Music Manager can be used to upload your songs
+from your computer to your Google Play library.
+You can upload up to 50,000 songs and listen on your mobile device, computer, or Android TV.
+
+* [How To Upload Music To Google Play](http://www.instructables.com/id/How-To-Upload-Music-To-Google-Play/)
+* [How to upload songs to Google Play Music using the Chrome browser](http://www.cnet.com/how-to/how-to-upload-songs-to-google-play-music-using-the-chrome-browser/)
+* [How to Put Your Music Collection Online and Access It From Any Device](How to Put Your Music Collection Online and Access It From Any Device)
+* [Ways to Listen to Music & Media on Alexa](https://www.amazon.com/gp/help/customer/display.html?nodeId=201549700)
+* [Pair Your Mobile Device with Echo](https://www.amazon.com/gp/help/customer/display.html?nodeId=201549660)
+
+
 
 I have a habit of buying the [Compact Disc (CD)][06] albums of the music I love,
 ripping the CDs to my digital music library,
@@ -35,7 +47,7 @@ The data can be saved to a file or directed to standard output in WAV, AIFF, AIF
 (MPEG Audio Layer III, generally know as MP3,
 is the most widely used encode scheme in use, but it is not open source,
 technically you need to provide a royalty fee to use the format.
-`[lame`][13] is a program which can be used to create MP3 file.)
+[`lame`][13] is a program which can be used to create MP3 file.)
 
 But first, lets install all the tools you'll need and discribed below:
 
@@ -98,7 +110,7 @@ For the OGG format:
 # encoding a wav to ogg with tags
 oggenc -a "Joe Walash" -G "Rock" -d "1973" -N "1" -t "Rocky Mountain Way" -l "The Smoker You Drink, The Player You Get" -q 10 track01.cdda.wav -o "Rocky Mountain Way.ogg"
 
-# to test if the tags are right, use Rhythmbox 
+# to test if the tags are right, use Rhythmbox
 rhythmbox Rocky Mountain Way.ogg
 ```
 
@@ -149,7 +161,7 @@ GENRE=`cddb-tool query $SERVER 5 $USER $HOST $CDDB_ID | awk '{ print $2 }'`
 # print the albums title, year, genre, and track titles
 cddb-tool read $SERVER 5 $USER $HOST $GENRE $CDDB_ID
 
-# parse out the title of the first track 
+# parse out the title of the first track
 cddb-tool read $SERVER 5 $USER $HOST $GENRE $CDDB_ID | grep TTITLE0 | sed 's/TTITLE0=//'
 ```
 

@@ -1,9 +1,12 @@
-[ip vs. ifconfig - WILT](http://www.innervoice.in/blogs/2015/11/27/ip-vs-ifconfig-wilt/)
-[A Subnetting Primer](https://danielmiessler.com/study/subnetting/)
-[Firewalls](https://danielmiessler.com/study/firewalls/)
-[An IPTABLES Primer](https://danielmiessler.com/study/iptables/)
-[An NMAP Primer](https://danielmiessler.com/study/nmap/)
-[20 Myths of WiFi Interferance](http://www.wifiadvies.be/20-myths-of-wi-fi-interference/)
+* [What are useful command-line network monitors on Linux](http://xmodulo.com/useful-command-line-network-monitors-linux.html)
+* [8 Linux Commands: To Find Out Wireless Network Speed, Signal Strength And Other Information](http://www.cyberciti.biz/tips/linux-find-out-wireless-network-speed-signal-strength.html)
+
+* [ip vs. ifconfig - WILT](http://www.innervoice.in/blogs/2015/11/27/ip-vs-ifconfig-wilt/)
+* [A Subnetting Primer](https://danielmiessler.com/study/subnetting/)
+* [Firewalls](https://danielmiessler.com/study/firewalls/)
+* [An IPTABLES Primer](https://danielmiessler.com/study/iptables/)
+* [An NMAP Primer](https://danielmiessler.com/study/nmap/)
+* [20 Myths of WiFi Interferance](http://www.wifiadvies.be/20-myths-of-wi-fi-interference/)
 
 Most network configuration manuals still refer to `ifconfig` and `route`
 as the primary network configuration tools,
@@ -26,6 +29,10 @@ what about ethtool, netifd, nm-tool, nmcli, nm-online
 *  Stop using telnet to test network connectivity - http://scotte.github.io/2015/03/stop-using-telnet/
 
 # NetworkManager
+NetworkManager is a service for Linux which manages various networking interfaces,
+including physical such as Ethernet and wireless,
+and virtual such as VPN and other tunnels.
+NetworkManager can be configured to control some or all of a system’s interfaces.
 NetworkManager aims for Network Connectivity which "Just Works".
 The computer should use the wired network connection when it's plugged in,
 but automatically switch to a wireless connection when the user unplugs it
@@ -45,6 +52,8 @@ unless that behavior is disabled.
 If using DHCP, NetworkManager is intended to replace [default routes][52],
 obtain IP addresses from a [DHCP server][53], and change [name servers][54] whenever it sees fit.
 In effect, the goal of NetworkManager is to make networking Just Work.
+For maximum control, it may make sense to [disable NetworkManager][55]
+on some or all your interfaces.
 
 **WARNING:** [Iptables and NetworkManager can conflict][47].
 NetworkManager and iptables have opposite aims.
@@ -54,8 +63,25 @@ Therefore if you want security all the time,
 run iptables at boot time.
 If you want security some of the time then NetworkManager might be the right choice.
 Network Manager is used by default in most Linux desktop environments nowadays,
-but it can be disabled (see ["How to disable Network Manager on Linux"][55]),
-if you prefer the old plain network service..
+but it can be disabled (see ["How to disable Network Manager on Linux"][55]
+and ["How do I prevent Network Manager from controlling an interface?"][62]),
+if you prefer the old plain network service.
+
+Within the Ubuntu and Debian distributions,
+one way to tell NetworkManager to stop controlling a particular interface
+is by telling NetworkManager to ignore ALL interfaces listed in the `/etc/network/interfaces` file.
+This is done by adding the following lines to the Network Manager configuration file:
+
+```
+[main]
+plugins=ifupdown
+
+[ifupdown]
+managed=false
+```
+
+Since this will only affect interfaces listed in the `/etc/network/interfaces` file,
+any interface not listed there will remain under NetworkManager control.
 
 ####################
 * also see
@@ -601,6 +627,8 @@ http://www.coyotepoint.com/files/downloads/StaticRoutes.pdf
 * [Network Address Translation (NAT) Tutorial](http://www.karlrupp.net/en/computer/nat_tutorial)
 
 # Firewall
+* [The Linux Firewall](http://code.tutsplus.com/tutorials/the-linux-firewall--net-31748)
+
 Linux comes with a host based [firewall][39] called [`netfilter`][36]
 (or sometimes called "iptables" after the tool used to manage netfilter).
 `netfilter` is the framework in the Linux kernel,
@@ -1364,7 +1392,7 @@ could be gathered for this cheat sheet.
 [59]:http://www.thegeekstuff.com/2012/02/dig-command-examples/
 [60]:https://manpages.debian.org/cgi-bin/man.cgi?sektion=1&query=nmcli&apropos=0&manpath=sid&locale=en
 [61]:http://linux.die.net/man/1/rfkill
-[62]:
+[62]:http://support.qacafe.com/knowledge-base/how-do-i-prevent-network-manager-from-controlling-an-interface/
 [63]:
 [64]:
 [65]:

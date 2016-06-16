@@ -2,6 +2,8 @@ Title: Testing: Code Block
 Slug: testing-code-block
 Status: hidden
 
+* Check out [Styling Code Blocks Using Pelican](http://kevinyap.ca/2013/12/styling-code-blocks-using-pelican/)
+
 ## The Back Story
 In Pelican, Markdown support is provided by the Python Markdown package (installed seperately).
 Markdown comes with some basic code block capabilities.
@@ -220,7 +222,7 @@ show you how to use [GitHug Gist][06] to add code listings to your blog.
 The example below is a code snippits from [here][07].
 
 <!-- -------- Start: Gist Code Snippit --------- -->
-<style="padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); font-size: 12px; line-height: 14px; width: 90%;">
+<style="padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(230, 230, 230); font-size: 12px; line-height: 14px; width: 90%;">
     <script src="https://gist.github.com/jeffskinnerbox/6663095.js"></script>
 </style>
 <!-- --------- End: Gist Code Snippit ---------- -->
@@ -229,7 +231,7 @@ The file content to create this is as follows:
 
 ```
 <!-- -------- Start: Gist Code Snippit --------- -->
-<style="padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); font-size: 12px; line-height: 14px; width: 90%;">
+<style="padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(230, 230, 230); font-size: 12px; line-height: 14px; width: 90%;">
     <script src="https://gist.github.com/jeffskinnerbox/6663095.js"></script>
 </style>
 <!-- --------- End: Gist Code Snippit ---------- -->

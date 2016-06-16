@@ -23,6 +23,9 @@ http://staging.thethingsnetwork.org/wiki/LoRaWAN/Overview
     * [LowPowerLab Hook Library](https://github.com/LowPowerLab/RFM69)
     * [Radiohead Library](http://www.airspayce.com/mikem/arduino/RadioHead/)
 
+# Seeed
+* [HC-12 Wireless Serial Port Communication Module](http://www.instructables.com/id/Long-Range-18km-Arduino-to-Arduino-Wireless-Commun/?ALLSTEPS)
+*
 # The Things Network
 ![img](http://thethingsnetwork.org/static/ttn/media/The%20Things%20Uitlijning.svg)
 * [The Things Network](http://thethingsnetwork.org/)

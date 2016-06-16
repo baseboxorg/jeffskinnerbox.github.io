@@ -8,6 +8,7 @@ Some simple weather station setups:
 * [Home environment monitor](https://www.hackster.io/breakpointer/home-environment-monitor-e1173e?ref=newsletter&utm_source=Hackster.io+newsletter&utm_campaign=ea4231d547-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-ea4231d547-140225889)
 * [ESP8266 weather station](http://dangerousprototypes.com/2015/11/30/esp8266-weather-station/)
 * [PiClock: an all in one clock, weather forecast and radar map](https://blog.adafruit.com/2015/06/12/piclock-an-all-in-one-clock-weather-forecast-and-radar-map-piday-raspberrypi-raspberry_pi/)
+* [Weather Station – DHT11, MQTT, Node-RED, Google Chart, Oh My!](http://www.internetoflego.com/weather-station-dht11-mqtt-node-red-google-chart-oh-my/)
 
 * [Weather Font](http://www.dafont.com/weather.font)
 

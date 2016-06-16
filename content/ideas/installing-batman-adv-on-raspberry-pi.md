@@ -3,8 +3,15 @@ Names for the wireless sensor network:
 * sennet - sensor network
 * wsn - wireless sensor network
 * sensorem - latin for sensor
-*
 
+From Stuart Gathman
+* ESSID: chantilly-mesh
+* Chan: 1
+* Mode: Ad-hoc
+* Protocol: BATMAN-ADV
+* Encryption: None
+
+* [CJDNS Adhoc node](http://www.instructables.com/id/CJDNS-Adhoc-Node/?ALLSTEPS)
 * [Creating a basic Batman-adv mesh](http://www.radiusdesk.com/technical_discussions/batman_basic)
 * [RADIUSDESK](http://www.radiusdesk.com/technical_discussions)
 * [sudo room - Mesh/BATMAN-adv](https://sudoroom.org/wiki/Mesh/BATMAN-adv)

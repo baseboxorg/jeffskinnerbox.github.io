@@ -1,5 +1,5 @@
 created: 20141102160206239
-modified: 20150920220430637
+modified: 20160602174211402
 title: GettingStarted
 type: text/vnd.tiddlywiki
 
@@ -9,6 +9,7 @@ Welcome to [[TiddlyWiki]], the non-linear personal web notebook, and my favorite
 
 * [[Quick Introduction to TiddlyWiki|GettingStartedIntro]]
 * [[Learn more about WikiText|GettingStartedWikiText]]
+* [[Installing This TiddlyWiki|GettingStartedInstallWiki]]
 * [[Setting Up TiddlyWiki|GettingStartedSettingUp]]
 * [[Text Formatting|GettingStartedTextFormatting]]
 * [[Special Formatting in WikiText|GettingStartedWikiTextFormatting]]

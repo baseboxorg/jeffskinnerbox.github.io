@@ -1,5 +1,5 @@
 created: 20140927211819463
-modified: 20160516144309791
+modified: 20160614013939292
 title: Electronics Purchasing Sites
 type: text/vnd.tiddlywiki
 
@@ -54,6 +54,7 @@ Supply sites for electronics and other products
 !Printed Circuit Board (PCB) / Electronics Design
 Your First Prototype:
 
+* [[T³: Etching your own circuit boards|https://www.sparkfun.com/news/2116?utm_source=SparkFun+Customer+Newsletter&utm_campaign=3fb592d61d-June_10thNewsletter&utm_medium=email&utm_term=0_fa5287abaf-3fb592d61d-7212537]]
 * [[Fabrication Specifications and Gerber Files (Part 1/3)|http://www.proto2prod.com/proto2prod/2015/3/18/your-first-prototype-fab-specs-and-gerber-files-13]]
 * [[Preparing Assembly Materials (Part 2/3)|http://www.proto2prod.com/proto2prod/2015/4/15/your-first-prototype-prepare-assembly-materials-23]]
 * [[Your First Prototype: Assembly Tips and Techniques (Part 3/3)|http://www.proto2prod.com/proto2prod/2015/6/15/your-first-prototype-assembly-tips-and-techniques?utm_source=p2pnewsletter&utm_medium=email&utm_campaign=Tips]]
@@ -63,6 +64,7 @@ Your First Prototype:
 * [[Building Home or Very Small Office Electronic Circuit Prototypes, Part 4|http://electronicdesign.com/blog/home-or-very-small-office-electronic-circuit-prototypes-part-4]]
 
 !!On The Web
+:* [[BasicPCB|http://www.basicpcb.com/Home.aspx]]
 :* [[Dirt Cheap Dirty Boards|http://dirtypcbs.com/about.php]]
 :* [[PCBWeb|http://www.pcbweb.com/]]
 :* [[CircuitMaker - free PCB design tool|http://circuitmaker.com/#why_circuitmaker]]
@@ -73,6 +75,7 @@ Your First Prototype:
 :* [[Atanua - Real Time Logic Simulator|http://sol.gfxile.net/atanua/]]
 :* [[OSH Park|https://oshpark.com/]]
 :* [[FabStream / SoloPCB|http://www.fabstream.com/solopcb-design-software.php]]
+:* [[OrderPCBs|https://www.orderpcbs.com/]]
 
 !3D Printing Services
 :* [[Shapeways|http://www.shapeways.com/]]

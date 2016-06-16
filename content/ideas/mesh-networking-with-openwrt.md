@@ -9,6 +9,9 @@ What a Mesh!
 * [OpenWRT: basic network configuration](http://superuser.com/questions/742084/openwrt-basic-network-configuration)
 * [Part 3 OpenWRT B.A.T.M.A.N. Mesh](https://www.youtube.com/watch?v=SB_MAqxVPTs&list=PLvgZ_9wT_LNdq7SdqJ6VSWspU3vlnEuV9)
 
+* [Gluon is a modular framework for creating OpenWrt-based firmwares for wireless mesh nodes](https://gluon.readthedocs.io/en/v2016.1.4)
+* [An Interface For The Headless Linux System](http://hackaday.com/2016/05/28/hackaday-prize-entry-a-hat-for-the-headless-linux-system/)
+
 Increasingly you hear the observation that the centralization of the Internet
 and the services built on it has given governments far too much control.
 There is a urgent call to decentralize the net at all levels, including the transport level.
@@ -21,6 +24,10 @@ You see wide variation in the maturity and features supported by the different p
 They also often have very different objects, such as,
 support for general purpose Internet access requiring low latency and significant bandwidth
 or special purpose like sensor networks where latency and bandwidth a lesser concern.
+
+# OSI Model
+Nice break down of the OSI model
+[![osi-model](https://s-media-cache-ak0.pinimg.com/736x/21/0c/f0/210cf024379729cbda41099e84dcb4d0.jpg "")](https://en.wikipedia.org/wiki/OSI_model)
 
 # Types of Networks
 https://wellness.wikispaces.com/Network+Architectures

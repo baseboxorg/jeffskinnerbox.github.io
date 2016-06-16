@@ -8,6 +8,7 @@
 * [Uber Home Automation w/ Arduino & Pi](http://www.instructables.com/id/Uber-Home-Automation-w-Arduino-Pi/?ALLSTEPS)
 
 # Alternatives ot openHAB
+* [Domoticz](http://domoticz.com/)
 * [5 open source home automation tools](https://opensource.com/life/16/3/5-open-source-home-automation-tools?sc_cid=70160000000q67uAAA)
 
 # OpenRemote
@@ -44,4 +45,5 @@
 * [OpenEnergyMonitor](http://openenergymonitor.org/emon/)
 * [How to root your WINK hub - Step by Step tutorial](http://arahuman.blogspot.de/2014/11/how-to-root-your-wink-hub-step-by-step.html)
 * [OpenEnergyMonitor](http://openenergymonitor.org/emon/)
+* [Home Monitoring with Raspberry Pi and Node.js](https://www.hackster.io/andreioros/home-monitoring-with-raspberry-pi-and-node-js-8ec795)
 

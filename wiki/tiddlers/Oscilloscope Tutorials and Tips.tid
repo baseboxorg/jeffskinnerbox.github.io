@@ -1,5 +1,5 @@
 created: 20141226143823014
-modified: 20160519003951411
+modified: 20160606161649916
 tags: [[Test Gear]]
 title: Oscilloscope Tutorials and Tips
 type: text/vnd.tiddlywiki
@@ -19,16 +19,19 @@ so its time to learn how to use it like a pro.
 * [[Adafruit Oscilloscope Tutorials|http://www.adafruit.com/blog/2011/12/16/analog-oscilloscope-tutorials/]]
 * [[XYZs of Oscilloscopes|http://ecee.colorado.edu/~mcclurel/txyzscopes.pdf]]
 * [[Probe Fundamentals|http://www.ece.vt.edu/cel/docs/Probe_Fundamentals_Tektronix.pdf]]
+* [[Oscilloscope Triggering: When is Normal not so Normal?|https://keysightoscilloscopeblog.com/2016/03/23/oscilloscope-normal-triggering/]]
 * [[Capturing Intermittent or Infrequent Events|https://keysightoscilloscopeblog.com/2016/05/18/capturing-infrequent-events-why-oscilloscope-update-rate-matters/]]
 * [[7 Tips for Better Oscilloscope Probe Selection and Usage|http://electronicdesign.com/test-measurement/7-tips-better-oscilloscope-probe-selection-and-usage]]
 * [[What is oscilloscope system bandwidth and how do I find the bandwidth of the scope + probe?|https://keysightoscilloscopeblog.com/2016/03/30/what-is-oscilloscope-system-bandwidth-and-how-do-i-find-it/]]
 * [[How to measure your oscilloscope (and probe)’s bandwidth yourself|https://keysightoscilloscopeblog.com/2016/05/04/how-to-measure-your-oscilloscope-and-probes-bandwidth/]]
+* [[How does oscilloscope signal integrity impact your measurements and analysis?|https://keysightoscilloscopeblog.com/2016/06/01/how-much-does-your-oscilloscope-impact-your-measurements-and-analysis/]]
 * [[Introduction to Oscilloscopes Lab Experiment|https://www.noisebridge.net/images/8/8d/Tektronix--IntroToOscilliscopesLab.pdf]]
 * [[Oscilloscope and Data Logger Application Notes|https://www.picotech.com/library/application-notes]]
 * [[Tektronix Oscilloscope Tutorial|http://www.tek.com/learning/oscilloscope-tutorial]]
 * [[From Digital to RF - Using a scope to easily debug in the time and frequency domains|http://www.rohde-schwarz-usa.com/Webinar-Digital-to-RF-Oscilloscope.html?mkt_tok=3RkMMJWWfF9wsRojsqXBZKXonjHpfsXx6u0pWbHr08Yy0EZ5VunJEUWy3YAAT9Q/cOedCQkZHblFnV8KTq2gSqgNrqIK]]
 * [[Tektronix Manuals and Documentation|http://www.tek.com/downloads]]
 ** [[Application Notes|http://www.afc-ingenieros.com/uploads/Afc/InfoTecn/Osciloscopios/pdf/]]
+** [[View Bench Skills: Oscilloscope Tutorials|http://e2e.ti.com/group/universityprogram/educators/m/teaching_repository/664656]]
 
 !!Videos
 * [[Rigol Oscilloscope Basics|https://www.youtube.com/playlist?list=PLwOVNTOStjiCTHXOoszZYqMcMRtXGIA8P]]

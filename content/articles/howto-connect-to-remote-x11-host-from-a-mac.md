@@ -1,7 +1,7 @@
 Title: HowTo: Connecting to Remote X11 Host from a Mac
 Date: 2016-01-29 19:55
 Category: Software
-Tags: How To, Mac, MacVim, XQuartz, X Window System
+Tags: How To, Mac, Vim, MacVim, XQuartz, X Window System
 Slug: howto-connecting-to-remote-x11-host-from-a-mac
 Author: Jeff Irland
 Image: how-to.jpg

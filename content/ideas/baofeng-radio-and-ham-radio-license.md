@@ -27,6 +27,7 @@ Some examples of this are:
 * [Baofeng UV-5R Series Programming](http://www.miklor.com/uv5r/)
 * [CHIRP](http://chirp.danplanet.com/projects/chirp/wiki/Home)
 * [Hacking the Baofeng UV5R](http://elazary.com/index.php?option=com_content&view=article&id=49%3Ahacking-the-baofeng-uv5r&catid=14%3Abaofeng-uv5r&Itemid=17&showall=1)
+* [Baofeng (or other radio) data TX/RX for Raspberry Pi](http://flows.nodered.org/flow/d802e43ab306b4b9f2ba)
 * []()
 
 Maybe I could even do some exploring of spectrum mysteries like

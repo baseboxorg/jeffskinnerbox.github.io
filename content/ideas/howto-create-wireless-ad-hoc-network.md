@@ -1,19 +1,9 @@
 
-* [CJDNS Adhoc node](http://www.instructables.com/id/CJDNS-Adhoc-Node/?ALLSTEPS)
-* [Setting up an ad-hoc wireless network between 2 Ubuntu machines](http://unixlab.blogspot.com/2010/01/setting-up-ad-hoc-wireless-network.htm)
-* [Creating wireless ad-hoc network in Linux](http://addisu.taddese.com/blog/creating-wireless-ad-hoc-network-in-linux/)
-* [Wireless Communication Between Raspberry Pi and Your Computer](https://spin.atomicobject.com/2013/04/22/raspberry-pi-wireless-communication/)
-* [How to Set a Wireless Ad-Hoc in Linux?](http://hxr99.blogspot.com/2011/10/how-to-set-wireless-ad-hoc-in-linux.html)
 * [Setting up an Ad-Hoc Network – And securing it using WPA](http://techblog.aasisvinayak.com/setting-up-an-ad-hoc-network-and-securing-it-using-wpa/)
 * [Creating an Ad-hoc Wireless Network](https://wiki.gumstix.com/index.php/Creating_an_Ad-hoc_Wireless_Network)
-* [Raspberry Pi Tutorial – Connect to WiFi or Create An Encrypted DHCP Enabled Ad-hoc Network as Fallback](http://lcdev.dk/2012/11/18/raspberry-pi-tutorial-connect-to-wifi-or-create-an-encrypted-dhcp-enabled-ad-hoc-network-as-fallback/)
-* [Internet Connection Sharing in Linux over Ad-hoc Wireless](http://jwalanta.blogspot.com/2010/02/internet-connection-sharing-ics-in.html)
-* [How to get a raspberry Pi to set up a wireless ad-hoc network, but only if it is not already connected](http://www.novitiate.co.uk/?p=183)
 * [Hostapd : The Linux Way to create Virtual Wifi Access Point](https://nims11.wordpress.com/2012/04/27/hostapd-the-linux-way-to-create-virtual-wifi-access-point/)
 * [Debian / Ubuntu Linux: Setup Wireless Access Point (WAP) with Hostapd](http://www.cyberciti.biz/faq/debian-ubuntu-linux-setting-wireless-access-point/)
-* [Limitations of Ad Hoc Mode Wireless Networking](http://compnetworking.about.com/od/wirelessfaqs/f/adhoclimitation.htm)
-* [Understanding Ad Hoc Mode](http://www.wi-fiplanet.com/tutorials/article.php/1451421/Understanding-Ad-Hoc-Mode.htm)
-* [The Dangers Of Ad-Hoc Wireless Networking](http://www.windowsecurity.com/whitepapers/Wireless_Security/Dangers-Ad-Hoc-Wireless-Networking.html)
+* [8 Linux Commands: To Find Out Wireless Network Speed, Signal Strength And Other Information](http://www.cyberciti.biz/tips/linux-find-out-wireless-network-speed-signal-strength.html)
 
 
 A [wireless ad-hoc network (WANET)][02],
@@ -31,7 +21,7 @@ It quick shows you what files need to be modified but with minimal explanation.
 
 * [Raspberry Pi Tutorial – Connect to WiFi or Create An Encrypted DHCP Enabled Ad-hoc Network as Fallback](http://lcdev.dk/2012/11/18/raspberry-pi-tutorial-connect-to-wifi-or-create-an-encrypted-dhcp-enabled-ad-hoc-network-as-fallback/)
 
-To get my Ad-Hoc WiFI network operation, I'm going to follow these basic steps:
+To get my Ad-Hoc WiFi network operation, I'm going to follow these basic steps:
 
 1. Getting Wireless Interface Name and Hardware Address
 1. Connect to WiFi
@@ -42,8 +32,12 @@ To get my Ad-Hoc WiFI network operation, I'm going to follow these basic steps:
 1. Reboot and Test
 
 [Check this out for more instructions - Chapter 5. Network setup](https://www.debian.org/doc/manuals/debian-reference/ch05.en.html#_the_loopback_network_interface)
+* [Limitations of Ad Hoc Mode Wireless Networking](http://compnetworking.about.com/od/wirelessfaqs/f/adhoclimitation.htm)
 
-# WiFi Interface Adapter Must Support A-Hoc Networking
+# Background
+bla bla bla
+
+## WiFi Interface Adapter Must Support A-Hoc Networking
 Keep in mind that [not all Raspberry Pi WiFi adapters will support ad-hoc mode][04].
 The WiFi adapters I'm using are the popular and inexpensive
 [Edimax EW-7811Un][06] and [OURLINK WU110EC][05].
@@ -62,11 +56,16 @@ sudo iwconfig wlan0 mode ad-hoc
 sudo iwconfig wlan0 | grep Mode
 ```
 
-# Turn-Off NetworkManager
-The default networking setup on Ubuntu, or sometimes Raspberry Pi,
+## Turn-Off NetworkManager, at Least for Your Interfaces
+The default networking setup on Ubuntu
+(and [maybe Raspberry Pi][49] or maybe [it must be installed][50]),
 assumes that you are using the machine as a desktop or a laptop.
 To aid in the user experiance, the [NetworkManager][14] software utility
 has been provided to some Linux distributions.
+NetworkManager is a service for Linux which manages various networking interfaces,
+including physical such as Ethernet and wireless,
+and virtual such as VPN and other tunnels.
+NetworkManager can be configured to control some or all of a system’s interfaces.
 NetworkManager attempts to keep an active network connection available at all times.
 Its aim is to simplify the use of computer networks on Linux-based
 and other Unix-like operating systems.
@@ -87,13 +86,32 @@ you need to stop the NetworkManager.
 To see if NetworkManager is being used,
 check with `sudo service network-manager status`.
 
+For maximum control, it may make sense to [disable NetworkManager][55]
+on some or all your interfaces.
 To stop NetworkManager, you can do one of these three things:
 
 1. Remove it: `sudo apt-get purge network-manager network-manager-gnome`
 1. Permanently Disable it: Edit `/etc/init/network-manager.conf` and add the line `manual` near the beginning of the file.
-1. Temporarily Disable it: Using [command-line tool for controlling NetworkManager][16], `nmcli off`.
+1. Temporarily Disable it: Using [command-line tool for controlling NetworkManager][16], `sudo stop network-manager`.
+1. Disable Network Manager for a Particular Network Interface: See the articles ["How to disable Network Manager on Linux"][55] and ["How do I prevent Network Manager from controlling an interface?"][51].
 
-# Networking Tools
+Within the Ubuntu and Debian distributions,
+one way to tell NetworkManager to stop controlling a particular interface
+is by telling NetworkManager to ignore ALL interfaces listed in the `/etc/network/interfaces` file.
+This is done by adding the following lines to the Network Manager configuration file:
+
+```
+[main]
+plugins=ifupdown
+
+[ifupdown]
+managed=false
+```
+
+Since this will only affect interfaces listed in the `/etc/network/interfaces` file,
+any interface not listed there will remain under NetworkManager control.
+
+## Networking Tools
 [`iw`][24] is the basic tool for WiFi network-related tasks,
 such as finding the WiFi device name, and scanning access points.
 [`wpa_supplicant`][13] is the wireless tool for connecting to a WPA/WPA2 network.
@@ -147,7 +165,7 @@ sudo dhclient wlan0
 ip addr show wlan0
 ```
 
-# WiFi Tools
+## WiFi Tools
 Managing your [WiFi via command line][39] can be done via an array of tools.
 [Wireless Tools for Linux and Linux Wireless Extension][03]
 are a collection of user-space utilities
@@ -184,6 +202,7 @@ so the older wireless tools above may still be required.
 # Methods for Establishing Wireless Ad-Hoc Network
 On boot up, Linux uses the `/etc/network/interfaces` file to determine how its to use
 the installed WiFi and Ethernet network interfaces.
+(assuming NetworkManager doesn't get in the way ... see above)
 Once Linux is up and running,
 you can use the `ifconfig` (or `ip`) and `iwconfig` commands to adjust
 what `/etc/network/interfaces` may have established.
@@ -299,6 +318,8 @@ sudo apt-get install wpagui
 [Setup wpa_gui and roaming on Debian](https://xrunhprof.wordpress.com/2009/09/19/setup-wpa_gui-and-roaming-on-debian/)
 
 # Step XXX: Ad-Hoc Mode Using Static IP Address and WEP Security
+* [Wireless Communication Between Raspberry Pi and Your Computer](https://spin.atomicobject.com/2013/04/22/raspberry-pi-wireless-communication/)
+*
 To setting up the Raspberry Pi in Ad-Hoc WiFi mode using WEP and a status IP address,
 you want to change the `/etc/network/interfaces` configuration file to:
 
@@ -396,7 +417,7 @@ To restart the network:
 sudo /etc/init.d/networking restart
 
 # this command may work if the 'restart' command fails
- sudo /etc/init.d/networking reload
+sudo /etc/init.d/networking reload
 ```
 
 To start the interface, you can use
@@ -417,6 +438,7 @@ The solution, if you experience this, is to use `sudo reboot`, or do it the hard
 
 # Step XXX: Install and Configure DHCP Server
 * [Creating an Ad-hoc Wireless Network](https://wiki.gumstix.com/index.php/Creating_an_Ad-hoc_Wireless_Network)
+* [Wireless Communication Between Raspberry Pi and Your Computer](https://spin.atomicobject.com/2013/04/22/raspberry-pi-wireless-communication/)
 * [Setting up ad-hoc in Debian with DHCP?](http://unix.stackexchange.com/questions/44851/setting-up-ad-hoc-in-debian-with-dhcp)
 * [Raspberry Pi Tutorial – Connect to WiFi or Create An Encrypted DHCP Enabled Ad-hoc Network as Fallback](http://lcdev.dk/2012/11/18/raspberry-pi-tutorial-connect-to-wifi-or-create-an-encrypted-dhcp-enabled-ad-hoc-network-as-fallback/)
 
@@ -564,18 +586,72 @@ $ sudo iwlist wlan0 scan | grep Frequency | sort | uniq -c | sort -n
 ```
 
 
-# Step XXX: XXX
+# Step XXX: Internet Connection Sharing on Gateway
+On you devie that will serve as your Intenet gateway,
+you can share the Internet over wireless,
+
+```bash
+sudo iptables -t nat -A POSTROUTING -o ppp0 -j MASQUERADE
+```
+
+where ppp0 is the connection you want to share (PPPoE connection in this case)
+
+You also need to enable IP forwarding:
+
+```bash
+sudo sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
+```
+
+Or, to enable permanently add the following line to `/etc/sysctl.conf`
+
+```bash
+net.ipv4.ip_forward=1
+```
+
+Some ISPs might limit the TTL so that you wont be able to share the internet. Fix:
+
+```bash
+sudo iptables -t mangle -A PREROUTING -j TTL --ttl-inc 1
+```
+
+# Step XXX: Using the Gateway's Intenet Connection
+Now to use the shared internet on another computer,
+set it to ad-hoc mode and assign IP address in the same subnet
+as described above and perform the following:
+
+Set the IP of computer sharing internet as gateway
+
+```bash
+sudo route add default gw 192.168.0.1
+```
+
+Set DNS server. We're using Google's DNS.
+
+```bash
+sudo sh -c "echo 'nameserver 8.8.8.8' >> /etc/resolv.conf"
+```
+
+You can also use IP and DNS Masquerading to ease the task.
+
+* [Internet Connection Sharing in Linux over Ad-hoc Wireless](http://jwalanta.blogspot.com/2010/02/internet-connection-sharing-ics-in.html)
+
 # Step XXX: Ad-Hoc Secured with WEP
 # Step XXX: Ad-Hoc Secured with WAP
 [Setting up an Ad-Hoc Network – And securing it using WPA](http://techblog.aasisvinayak.com/setting-up-an-ad-hoc-network-and-securing-it-using-wpa/)
 
 # Optional Boot Time Ad-Hoc Network
-What if you want to access your Raspberry Pi (RPi)
+To access a Raspberry Pi, you need a display and some type of keyboard input.
+This option would be very simple to use,
+but it would requires the extra cost and bother of the display and keyboard.
+I typically choose to login via SSH using another computer like a laptop via a WiFi access point.
+But what if you want to access your Raspberry Pi (RPi)
 but there is no access point it can associate with?
 In the past, what I have resorted to is a [console cable][31],
 which works nicely but requires access to GPIO pins and of course the properly designed cable.
 
-[WirelessAutoselect](https://wiki.ubuntu.com/WirawanPurwanto/WirelessAutoselect)
+* [WirelessAutoselect](https://wiki.ubuntu.com/WirawanPurwanto/WirelessAutoselect)
+* [Wireless Communication Between Raspberry Pi and Your Computer](https://spin.atomicobject.com/2013/04/22/raspberry-pi-wireless-communication/)
+* [How to get a Raspberry Pi to set up a wireless ad-hoc network, but only if it is not already connected](http://www.novitiate.co.uk/?p=183)
 
 
 The posting "[Raspberry Pi Tutorial – Connect to WiFi or Create An Encrypted DHCP Enabled Ad-hoc Network as Fallback][30]"
@@ -645,13 +721,13 @@ joint the chantilly library network - sudo iwconfig wlan0 essid ffxlib
 [46]:https://en.wikipedia.org/wiki/Wired_Equivalent_Privacy
 [47]:https://w1.fi/cgit/hostap/plain/wpa_supplicant/wpa_supplicant.conf
 [48]:http://jlcreations.com/raspberry-pi-wifi-multiple-networks/
-[49]:
-[50]:
-[51]:
+[49]:http://raspberrypi.stackexchange.com/questions/15209/using-network-manager-for-wireless-vpn-management
+[50]:http://dev.iachieved.it/iachievedit/exploring-networkmanager-d-bus-systemd-and-raspberry-pi/
+[51]:http://support.qacafe.com/knowledge-base/how-do-i-prevent-network-manager-from-controlling-an-interface/
 [52]:
 [53]:
 [54]:
-[55]:
+[55]:http://xmodulo.com/disable-network-manager-linux.html
 [56]:
 [57]:
 [58]:

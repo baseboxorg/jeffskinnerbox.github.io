@@ -1,4 +1,5 @@
 # Crystal Radio
+![lost-knowladge](http://i0.wp.com/cdn.makezine.com/uploads/2009/02/lk_banner2.jpg?resize=189%2C207)
 A crystal radio is basically a high Q resonator tied to an antenna and an envelope detector.
 These days the envelope detector is a point contact diode such as a 1N34 Germanium diode.
 
@@ -14,6 +15,7 @@ The primary receiver used on the Titanic’s Marconi station was basically a 3-s
 
 
 # History
+* [Crystal radio](https://en.m.wikipedia.org/wiki/Crystal_radio)
 * [Early Radio History](http://earlyradiohistory.us/index.html)
 * [Introduction to LC Oscillators circa 1974 US Air Force Training Film](https://www.youtube.com/watch?v=1uSBKUsKpYQ)
 
@@ -21,27 +23,34 @@ The primary receiver used on the Titanic’s Marconi station was basically a 3-s
 * [Build a 1929 Style TNT Transmitter](http://members.shaw.ca/ve7sl/tnt.html)
 * [Showcase: Homemade 1930s-Style AM Radio Transmitter](http://retrovoltage.com/2011/04/05/showcase-homemade-1930s-style-am-radio-transmitter/)
 * [The Complete Guide on How to Build a Crystal Radio—Plus How They Work](http://steampunk.wonderhowto.com/how-to/complete-guide-build-crystal-radio-plus-they-work-0141117/)
-* []()
-* []()
+* [Wireless electricity transmission circuit](http://www.instructables.com/id/Wireless-electricity-transmission-circuit/?ALLSTEPS)
+* [HG Wells Time Machine Crystal Radio](http://crystalradioclub.co.uk/groberts.htm)
+* [The Michigan Mighty-Mite Rides Again](http://hackaday.com/2016/01/29/the-michigan-mighty-mite-rides-again/)
 
 # Receiver
 * [Alfred P. Morgan: A Generation’s Radio Hacker](http://hackaday.com/2015/12/11/alfred-p-morgan-a-generations-radio-hacker/)
 * [Hacking When It Counts: The Great Depression](http://hackaday.com/2016/01/07/hacking-when-it-counts-the-great-depression/)
 * [Jim's Crystal Radio Page](http://www.hobbytech.com/crystalradio/crystalradio.htm)
 * [Crystal Radio Schematic Selector Page](http://makearadio.com/crystal/crystal-schematics.php)
+* [Crystal Radio: It’s a Match!](http://hackaday.com/2015/09/05/crystal-radio-its-a-match/)
 * [Two transistor superheterodyne shortwave receiver](http://hackaday.com/2015/03/08/simple-superheterodyne-sw-receiver-harks-back-almost-100-years/)
 * []()
 
 # Building Radios and Components from Sketch
-* [The Voice of the Crystal ](http://www.amazon.com/dp/0967190509/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=363R5Y466YLW&coliid=I12STRWY8ZX3RV)
+* [Lost Knowledge: Homemade electronic components](http://makezine.com/2009/04/14/lost-knowledge-homemade-electronic/)
+* [The Voice of the Crystal](http://www.amazon.com/dp/0967190509/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=363R5Y466YLW&coliid=I12STRWY8ZX3RV)
 * [Build a Universal Coil Winding Machine](http://www.amazon.com/Build-Universal-Coil-Winding-Machine/dp/187808710X/ref=pd_sim_14_4?ie=UTF8&dpID=41MuvM7FzXL&dpSrc=sims&preST=_AC_UL160_SR124%2C160_&refRID=09DR6PYCCF9HGTF78H2C)
 * [Fun With Tubes](http://www.funwithtubes.net/)
 * [Instruments of Amplification: Fun with Homemade Tubes, Transistors, and More](http://www.amazon.com/Instruments-Amplification-Homemade-Tubes-Transistors/dp/0967190517/ref=pd_sim_14_1?ie=UTF8&dpID=41pjdMXQsFL&dpSrc=sims&preST=_AC_UL160_SR103%2C160_&refRID=09DR6PYCCF9HGTF78H2C)
+* [Do you know Rufus Turner?](http://hackaday.com/2016/02/15/do-you-know-rufus-turner/)
 * [Crystadyne](http://www.a-reny.com/iexplorer/cristadyne.html)
 * [Hacking When it Counts: POW Canteen Radios](http://hackaday.com/2016/04/21/hacking-when-it-counts-pow-canteen-radios/#more-201155)
 * [Lint And Dog Hair Supercapacitor](http://hackaday.com/2016/04/30/lint-and-dog-hair-supercapacitor/)
 * [Home Brew Vacuum Tubes Are Easier Than You Think](http://hackaday.com/2016/05/04/home-brew-vacuum-tubes-are-easier-than-you-think/)
 * [Artisanal Vacuum Tubes: Hackaday Shows You How](http://hackaday.com/2014/11/21/artisanal-vacuum-tubes-hackaday-shows-you-how/)
+
+# Flame Components
+* [Flame Triodes Don’t Need Any Vacuum](http://hackaday.com/2016/05/26/flame-triodes-dont-need-any-vacuum/)
 
 # Other
 * [Alfred Powell Morgan's "The Boy Electrician"](https://books.google.com/books/about/The_Boy_Electrician.html?id=G09NAAAAYAAJ)
@@ -51,3 +60,5 @@ The primary receiver used on the Titanic’s Marconi station was basically a 3-s
 * [H. P. Friedrichs` "Instruments of Amplification: Fun with Homemade Tubes, Transistors, and More"](http://www.hpfriedrichs.com/mybooks/ioa/bks-ioa.htm)
 * [Homemade Lightbulb](http://www.instructables.com/id/Homemade-Lightbulb/?ALLSTEPS)
 * [Home Made Diodes From Copper Oxide](http://hackaday.com/2016/05/01/home-made-diodes-from-copper-oxide/)
+* [Reconstructing the Aether: Building the Hieronymus Machine](https://josephmax.wordpress.com/2010/04/28/hieronymus_machine_1/)
+* [The Transistor: a 1953 documentary, anticipating its coming impact on technology](https://www.youtube.com/watch?v=V9xUQWo4vN0)

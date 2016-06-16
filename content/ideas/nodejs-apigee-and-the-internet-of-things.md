@@ -1,3 +1,5 @@
+* [Learn Node.js via NodeSchool](http://nodeschool.io/)
+
 Node.js is good for apps where the server side is serving web services being called by many clients.
 Because it uses non blocking io,
 it can serve a lot more requests simultaneously on the same hardware
@@ -10,6 +12,7 @@ Mind you, it's not just Node.js,
 it's the whole stack that has to be able support high volume of web service requests. Node js is a piece of it.
 
 # Node.js
+* [Raspberry Pi + NodeJS](http://weworkweplay.com/play/raspberry-pi-nodejs/)
 * [Node.js Raspberry Pi and the Internet of Things](https://vimeo.com/110600770)
 * [Node.js + MongoDB = The Internet of Things (IoT)](http://ilikekillnerds.com/2014/08/node-js-mongodb-the-internet-of-things-iot/)
 * [JavaScript, Node.JS and IOT](http://oguzbastemur.blogspot.com/2015/04/javascript-nodejs-and-iot.html)
@@ -26,6 +29,9 @@ it's the whole stack that has to be able support high volume of web service requ
 * [Zetta](http://www.zettajs.org/)
 
 * [Raspberry pi, a Buzzer and Node.js – An IoT Doorbell](http://thejackalofjavascript.com/rpi-buzzer-node-iot-doorbell/)
+* [Home Monitoring with Raspberry Pi and Node.js](https://www.hackster.io/andreioros/home-monitoring-with-raspberry-pi-and-node-js-8ec795)
+* [Node.js Embedded Development on the Raspberry Pi](https://learn.adafruit.com/node-embedded-development/why-node-dot-js)
+* [Video: Node.JS Appliances on Embedded Linux Devices](https://www.youtube.com/watch?v=92Zh8b4W570)
 
 # Apigee
 * [Apigee-127: A Toolkit for Building Awesome APIs](http://apigee.com/about/blog/developer/apigee-127-toolkit-building-awesome-apis)
@@ -35,3 +41,8 @@ it's the whole stack that has to be able support high volume of web service requ
 # Apigee Zetta
 * [Building A Home Security Recipe With a Beagle Bone, the Cloud9 IDE and the Apigee Zetta API](http://thenewstack.io/building-a-home-security-recipe-with-a-beagle-bone-the-cloud9-ide-and-the-apigee-zetta-api/)
 * []()
+
+# Forever, PM2
+* [Deploying Node.js With Upstart and Monit](https://howtonode.org/deploying-node-upstart-monit)
+* [pm2 - Advanced, production process manager for Node.js]()
+* [forever - Node.js app with forever running as a service daemon](http://www.slidequest.com/q/70ang)

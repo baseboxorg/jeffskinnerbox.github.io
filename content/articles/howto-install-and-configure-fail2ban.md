@@ -103,7 +103,7 @@ but here are some sources to get you knowledgeable:
 * [iptables: Small manual and tutorial with some examples and tips](https://www.garron.me/en/linux/iptables-manual.html)
 * [IptablesHowTo](https://help.ubuntu.com/community/IptablesHowTo)
 
-Ubuntu has `iptables` but also comes with [`ufw`][45]
+Ubuntu has `iptables` but also comes with [`ufw`][22]
 and is considered the default firewall configuration tool for Ubuntu.
 There is also a graphical version [`gufw`][46] can be installed with `sudo apt-get install gufw`.
 Developed to ease `iptables` firewall configuration,
@@ -316,10 +316,24 @@ You could periodically run the following command to see what is getting pass you
 tailf /var/log/auth.log | grep 'sshd.*Failed'
 ```
 
+To see the impact your rules are having,
+you can run the following command to list the number of packets being blocked:
+
+```bash
+# list number of packets and bytes being dropped by iptable rules
+sudo iptables -L -n -v
+```
+
 In time, you may find some duplicate rules sneak into your `/etc/iptables/rules.v4` file.
-You find the duplicate rules via `sort /etc/iptables/rules.v4 | uniq --repeated`.
-This will list all rows in the file that appear more than once
-and then you can go in a delete them.
+You can find the duplicate rules via:
+
+```bash
+# list any rules that are duplicates
+sort /etc/iptables/rules.v4 | uniq --repeated
+```
+
+This will list all rows in the file that appear more than once.
+Knowing this, you can edit the file and delete the duplicate rules.
 
 You may also be interested in where all your attacks are coming from.
 That is, you want to find out where a given IP address is physically located on earth.
@@ -367,3 +381,4 @@ sort /etc/iptables/rules.v4 | uniq | grep DROP | awk '{ print $4 }' | sed 's/\/[
 [19]:https://geoiptool.com/
 [20]:http://linux.die.net/man/1/geoiplookup
 [21]:http://xmodulo.com/geographic-location-ip-address-command-line.html
+[22]:https://wiki.ubuntu.com/UncomplicatedFirewall

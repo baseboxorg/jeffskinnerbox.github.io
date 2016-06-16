@@ -1,5 +1,5 @@
 created: 20140920010455506
-modified: 20150208022513793
+modified: 20160606170708320
 tags: Pontifications
 title: IoT Elevator Speech
 type: text/vnd.tiddlywiki
@@ -37,3 +37,21 @@ There are many challenges, but one of the most elusive is how to put
 this newly released data and control to useful work to reach new goals.
 In our current world, this data and controls are not present,
 so we may need to discover new ways to run our lives or perform our work.
+
+-------
+The IoT refers to a network of physical devices,
+such as smartphones and home appliances,
+in which electronic sensors are embedded.
+Such sensors enable these objects to collect and exchange data
+and to be controlled remotely through the internet,
+thereby achieving direct integration of the physical world with
+computer-based systems and resulting in improved efficiency and greater convenience.
+
+So how exactly can the IOT change our daily lives?
+A US tech company recently launched a new door-answering system
+that operates through the IOT.
+It includes a camera and a communication device connected
+with the internet through WiFi.
+With this IoT device,
+the users can answer the door or receive mail,
+deliveries and parcels even when they are away from home.

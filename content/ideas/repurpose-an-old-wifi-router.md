@@ -18,6 +18,7 @@
 
 * [hackable Linksys WRT54G router in a new WRT1900AC model](http://linuxgizmos.com/linksys-creates-successor-to-wrt54g/)
 * [Raspberry Pi Auto-Hotspot](http://cymplecy.wordpress.com/2014/08/01/class-hotspot/)
+* [An Interface For The Headless Linux System](http://hackaday.com/2016/05/28/hackaday-prize-entry-a-hat-for-the-headless-linux-system/)
 
 ## Tor Network
 * [open network that helps you defend you form threatens to personal freedom and privacy](https://www.torproject.org/)

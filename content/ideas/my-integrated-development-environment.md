@@ -1,5 +1,6 @@
 What about [Sublime](https://www.sublimetext.com/) and [Atom](https://atom.io/)
 [A tmux Primer](https://danielmiessler.com/study/tmux/)
+[rxvt-unicode / urxvt](http://www.slant.co/topics/794/compare/~terminator_vs_rxvt-unicode_vs_gnome-terminal)
 
 An integrated development environment (IDE) is a programming environment
 that has been packaged as an application program,

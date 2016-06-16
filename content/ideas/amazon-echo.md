@@ -1,3 +1,8 @@
+# Streaming Music
+* [Pair Your Mobile Device with Echo](https://www.amazon.com/gp/help/customer/display.html?nodeId=201549660)
+* [Ways to Listen to Music & Media on Alexa](https://www.amazon.com/gp/help/customer/display.html?nodeId=201549700)
+* []()
+
 # Amazon Echo How To
 * [New Alexa Skills Kit Template: Step-by-Step Guide to Build a Fact Skill](https://developer.amazon.com/public/community/post/Tx3DVGG0K0TPUGQ/New-Alexa-Skills-Kit-Template-Step-by-Step-Guide-to-Build-a-Fact-Skill)
 * [New Alexa Skills Kit Template: Step-by-Step Guide to Build a How-To Skill](https://developer.amazon.com/public/community/post/TxKALMUNLHZPAP/New-Alexa-Skills-Kit-Template:-Step-by-Step-Guide-to-Build-a-How-To-Skill?mkt_tok=eyJpIjoiWWpGaE16YzFZVGMxTUdJMSIsInQiOiJJZHZJWUF2V2lcL2FUR2txU0d1NUo4dmd5akVKRjR2QVRMN2RWTGRTYllsb3d4WVltdENqY2ZGY2VKMW1KcjN2Y0FwMFI2Qld2RDJuYVdzak5tVzRvSE56UFhKQTRZRzZyOWpHQ0NzUFhTcGs9In0%3D)
@@ -5,6 +10,7 @@
 * [Understanding the Smart Home Skill API](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/overviews/understanding-the-smart-home-skill-api?mkt_tok=eyJpIjoiTmpKaE1UVmhPV00wTWpBMiIsInQiOiI4VEhrcHU4RGtERkl6VlBRaU85WXNodlhPTXZ4VzdRNGdjRWFkalZDNXljUmNOT0FPVktKYm5PaUpvc1pxOENUVW1WYzlqWGhpS3FaUUVTYTJOQlFpK3B0NThNK3lWZGF6UGRneTY1elVwcz0ifQ%3D%3D)
 * [Developing Alexa Skills Locally with Node.js (part 1 of 6)](https://developer.amazon.com/public/community/post/Tx3DV6ANE5HTG9H/Big-Nerd-Ranch-Series-Developing-Alexa-Skills-Locally-with-Node-js-Setting-Up-Yo)
 * [Using Alexa Skills Kit and AWS IoT to Voice Control Connected Devices](https://developer.amazon.com/public/community/post/Tx3828JHC7O9GZ9/Using-Alexa-Skills-Kit-and-AWS-IoT-to-Voice-Control-Connected-Devices?mkt_tok=eyJpIjoiWmpFNE9XVTBaRFpoWXpNNSIsInQiOiJNYUc3NHZDUm1cL08xUjhZSXdSMkU4WHptbXNPRzlQc1lCbVdORVBcL2M3dmllXC9LU1wvVml5Yk1QN21sait1ZkVDYm5NXC9wZVAwbjZ4RWwxVUM1ZVlJVnFXajc1cldnYm1hSXZtZzdZbU9UdnhFPSJ9)
+* [Using Amazon Echo (Alexa) as an Interface for the IoT](http://blog.buildinginternetofthings.com/2015/06/25/using-amazon-echo-alexa-as-an-interface-for-the-iot/)
 
 # Amazon Echo
 * [Ask Hackaday: Is Amazon Echo the Future of Home Automation?](http://hackaday.com/2015/04/14/ask-hackaday-is-amazon-echo-the-future-of-home-automation/)
@@ -12,6 +18,9 @@
 * [Amazon’s AI Escapes its Hardware Prison](http://hackaday.com/2015/08/04/amazons-ai-escapes-its-hardware-prison/)
 * [Amazon Echo: Automate tasks with a talking Raspberry Pi](http://liliputing.com/2015/07/amazon-echo-automate-tasks-with-a-talking-raspberry-pi.html)
 * [Voice Control RGB LED](https://www.hackster.io/pirumpi/voice-control-rgb-led-dd0ba5?utm_source=hackster&utm_medium=email&utm_campaign=new_projects)
+
+# Amazon Echo Tools
+* [Echosim.io – a new online community tool for developers that simulates the look and feel of an Amazon Echo](https://developer.amazon.com/public/community/post/Tx3BB1JHNS1TDTS/Introducing-Echosim-io-A-New-Online-Tool-Built-by-the-Community-for-the-Communit?mkt_tok=eyJpIjoiWmpobU1HSTVOMlkxTkdSaSIsInQiOiJWYXlMZk9SNVNYTitxQlQzaXE5VWVtalwvZ2FYMjVyODBNY2NtVXFuUjZHYXlXXC85R0dkRFFOUHlENEF2SEpnbUZ2XC80RkROU3JrRjZYd2srXC9uY1FOMDI3QldiN05OeStrTDNjS1hLYk1SRlk9In0%3D)
 
 # Amazon Alexa Voice Services
 * [Let Alexa Control Your Life; Guide to Voice-Enable Everything](http://hackaday.com/2015/12/26/let-alexa-control-your-life-guide-to-voice-enable-everything/)
@@ -27,7 +36,7 @@
 
 # Make You Own Amazon Alexa Device
 * [Amazon shows you how to make an Echo with Raspberry Pi](http://www.engadget.com/2016/03/25/amazon-shows-you-how-to-make-an-echo-with-raspberry-pi/)
-* []()
+* [Project: Raspberry Pi + Alexa Voice Service](https://github.com/amzn/alexa-avs-raspberry-pi)
 
 # Voice Controlled Workbench
 * [You Speak, Your Scope Obeys](http://hackaday.com/2016/03/29/you-speak-your-scope-obeys/)

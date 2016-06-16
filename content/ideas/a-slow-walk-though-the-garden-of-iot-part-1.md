@@ -355,6 +355,7 @@ It's interesting that Bug Labs positions Freeboard as an open source alternative
     * [Connect2.me](https://www.connect2.me/whatisc2m.aspx)
     * [Thingful][30]
 * Candidate IoT Protocols
+    * [Exploring the Protocols of IoT](https://www.sparkfun.com/news/1705)
     * [pubsubhubbub](http://readwrite.com/2009/09/28/real-time_web_protocol_pubsubhubbub_explained#awesm=~oDUkPl96eqUpe3)
     * [Message Queuing Telemetry Transport (MQTT)](http://mqtt.org/)
     * [Advanced Message Queuing Protocol (AMQP)]()

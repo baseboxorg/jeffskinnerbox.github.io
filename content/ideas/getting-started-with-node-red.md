@@ -1,7 +1,43 @@
+* [Learn Node.js via NodeSchool](http://nodeschool.io/)
+* [Version 0.13 released](http://nodered.org/blog/2016/01/18/version-0-13-released)
+
+* [Node-RED, wiring the Raspberry Pi to the IoT](http://www.networkworld.com/article/3075329/internet-of-things/node-red-wiring-the-raspberry-pi-to-the-iot.html)
+* [IOT made real – Using TI SensorTag data with Logentries and NodeRed](https://blog.logentries.com/2016/02/iot-made-real-using-ti-sensortag-data-with-logentries/)
+    * [Raspberry Pi, Logs and Iot – Sending Pi Log and Sensor Data to Logentries](https://dzone.com/articles/raspberry-pi-logs-and-iot-sending-pi-log-and-senso)
 * [Node Knockout 2013: Supercharge Your Node.js App With PubNub](https://www.pubnub.com/blog/2013-10-11-node-knockout-2013-supercharge-your-app-with-pubnub/)
 * [Connecting it All Together – PubNub and Node-RED](http://www.internetoflego.com/connecting-it-all-together-pubnub-and-node-red/)
 * [Setting up an IoT framework/dashboard with NodeRed, Mosca/Mosquitto and Freeboard.io dashboard](https://primalcortex.wordpress.com/2015/02/25/setting-up-an-iot-frameworkdashboard-with-nodered-moscamosquitto-and-freeboard-io-dashboard/)
+* [Node-Red Websockets Page : Scargill's Tech Blog](http://tech.scargill.net/a-node-red-websockets-web-page/)
+* [Node-Red Scheduler](http://tech.scargill.net/node-red-scheduler/)
+* [Pete Scargill's Node-Red Posts](http://tech.scargill.net/?s=node-red)
+* [Flow-based programming for the Internet of Things with Node-RED hosted on Microsoft Azure](http://embedded101.com/Blogs/PaoloPatierno/entryid/477/flow-based-programming-for-the-internet-of-things-with-node-red-hosted-on-microsoft-azure)
+* [Building IoT App with Node-Red](http://node-red-ws.mybluemix.net/presentation/index.html#slide-0)
+* [Making IFTTT (If This Then That) talk to Node-RED](https://harizanov.com/2015/03/making-ifttt-if-this-then-that-talk-to-node-red/)
+* [Baofeng (or other radio) data TX/RX for Raspberry Pi](http://flows.nodered.org/flow/d802e43ab306b4b9f2ba)
+* [Weather Station – DHT11, MQTT, Node-RED, Google Chart, Oh My!](http://www.internetoflego.com/weather-station-dht11-mqtt-node-red-google-chart-oh-my/)
 
+# Creating a Node
+* [Creating a node for Node-RED: The Philips Hue Node](http://blog.buildinginternetofthings.com/2013/11/09/creating-a-node-for-node-red-the-philips-hue-node/)
+* []()
+
+# API Support
+* [node-red/node-red-node-swagger](https://github.com/node-red/node-red-node-swagger)
+* [Build a REST API For Your IoT Data Using MongoDB, Node-RED, and Bluemix](http://ryanjbaxter.com/2014/07/21/build-a-rest-api-for-your-iot-data-using-mongodb-node-red-and-bluemix/)
+* []()
+* []()
+* []()
+
+# Node-Red Alternatives
+* [World’s first Raspberry Pi drag-and-drop IoT project builder Cayenne launches today](http://siliconangle.com/blog/2016/01/26/worlds-first-raspberry-pi-drag-and-drop-iot-project-builder-cayenne-launches-today/)
+* [Cayenne Makes IoT Easy, Really Easy](http://www.i-programmer.info/news/91-hardware/9725-cayenne-makes-iot-easy-really-easy.html)
+* [Easy IoT for Raspberry Pi](http://www.cayenne-mydevices.com/)
+
+# Display Boards
+* [node-red-contrib-freeboard](https://www.npmjs.com/package/node-red-contrib-freeboard)
+* []()
+* []()
+
+![node-red-pi](http://images.techhive.com/images/article/2016/05/raspberry-pi-2-node-red-100663608-primary.idge.png "When you want to connect an IoT device to anything, you should take a serious look at Node-RED, a free, open source visual process wiring system from IBM")
 [Node-RED][03] is a new [industry created open-source tool][02],
 created by the [IBM Emerging Technology team][01],
 that lets you build applications by simply wiring pieces together.
@@ -45,10 +81,16 @@ which appears to provide better introductory documentation.
 # Getting Started
 The content here is lift for these sources:
 
+* [Getting started with Node-RED](https://opensource.com/life/16/5/getting-started-node-red)
 * [The Node-RED Getting Started page](http://nodered.org/docs/getting-started/)
 * [Raspberry Pi Hosting Node-Red](https://learn.adafruit.com/raspberry-pi-hosting-node-red/what-is-node-red)
 * [Node-RED Wiki](https://github.com/node-red/node-red/wiki)
 * [Raspberry Pi 2 Node-Red setup](https://swabbster.wordpress.com/2015/04/16/raspberry-pi2-node-red-setup/)
+* [Raspberry Pi + NodeJS](http://weworkweplay.com/play/raspberry-pi-nodejs/)
+
+* [node-red/node-red-nodes · GitHub](https://github.com/node-red/node-red-nodes)
+* [node-red-m2x 0.1.1](http://flows.nodered.org/node/node-red-m2x)
+* [Node-RED M2X Node](https://github.com/attm2x/node-red-m2x)
 
 ## Installing Node-RED
 The easiest way to install Node-RED is to use node’s package manager, npm.

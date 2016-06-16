@@ -12,6 +12,7 @@
 * [AN OBSESSIVELY THOROUGH BATTERY (AND MORE) SHOWDOWN](http://hackaday.com/2014/09/05/an-obsessively-thorough-battery-and-more-showdown/)
 * [The Mystery of the Boiled Batteries](http://hackaday.com/2016/01/02/the-mystery-of-the-boiled-batteries/)
 * [The Best NiMh Charger?](http://hackaday.com/2015/07/09/the-best-nimh-charger/)
+* [Hackaday Dictionary: Lithium Ion Batteries](http://hackaday.com/2016/05/20/hackaday-dictionary-lithium-ion-batteries/)
 
 
 # UPS Solutions

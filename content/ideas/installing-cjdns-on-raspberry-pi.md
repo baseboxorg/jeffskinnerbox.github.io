@@ -1,3 +1,10 @@
+Cjdns gives each node a unique uncensored and authenticated IP6, and end to end crypto.
+IPFS does for the web what Cjdns does for the internet.  https://ipfs.io/
+
+IPFS is another essential building block for the neighborhood social app:
+a place to post publicly accessible objects (web pages, documents) that doesn't require a centralized server.
+
+
 * [CJDNS Adhoc node](http://www.instructables.com/id/CJDNS-Adhoc-Node/?ALLSTEPS)
 * [Hyperboria DNS solution](http://nxter.org/hyperboria-adopts-nxt-aliases-for-dns-solution/)
 * [CJDNS NAT Gateway](https://github.com/cjdelisle/cjdns/blob/master/doc/nat-gateway.md)
@@ -91,6 +98,38 @@ The general procedure for creating a mesh network with cjdns is:
 1. Install cjdns to create a node by following the [README file on Github][03].
 1. Make sure your node is configured correctly, which can be determined from the XXXXX Trouble Shooting guide.
 1. Locate your nearest Mesh Local, find a peer, and connect your node up with the network.
+
+# Purpose of cjdns
+* [Why](https://github.com/hyperboria/docs/blob/master/install/fedora.md)
+* http://208.113.152.107/meetings/2016/5/cjdns-ip6-mesh-vpn
+
+## cjdns as a VPN
+Configuring a point to point VPN connection is fairly straightforward,
+as is configuring a centralized VPN server and clients.
+However, when every node in the VPN network needs to talk securely with many other nodes,
+relaying every packet through the central server becomes a drag on performance,
+and a single point of failure.
+Mesh VPNs, like tinc and cjdns automatically create point to point connections
+based on a shared overall configuration. Each node only needs a connection to one or more peers (that can be reused) to get things started.
+Cjdns, however, goes much further than tinc.
+On a local LAN or mesh with broadcast, it is zero configuration.
+Peers are automatically discovered via the 0xFC00 layer 2 protocol.
+
+* [Simple Service Discovery Protocol (SSDP)](https://en.wikipedia.org/wiki/Simple_Service_Discovery_Protocol)
+* [Neighbor Discovery Protocol (NDP)](https://en.wikipedia.org/wiki/Neighbor_Discovery_Protocol)
+
+# As a Darknet
+In a widespread VPN, address assignment must be coordinated by a central authority.
+The internet also uses centralized IP assignment,
+which means a government can take away your IP at any time.
+Cjdns uses CryptoGraphic Addressing (CGA).
+Your IP6 is the SHA-512 of your public key truncated to 128 bits.
+Your IP is as safe as the private key pair which produced it,
+and cannot [insert standard cryptography disclaimer] be spoofed.
+Most mesh VPNs decrypt packets before routing to a new node.
+All cjdns packets are end to end encrypted - relay nodes are untrusted.
+There is no centralized routing.
+If a node is "blackholeing" packets for some reason - a sender simply doesn't route through that node anymore.
 
 # Step 1: Prepare the Raspberry Pi - DONE
 I have a post "XXX-howto-set-up-the-raspberry-pi-as-a-headless-device.md"
@@ -491,6 +530,8 @@ netstat -an | grep LISTEN
 netstat -an | grep 10848
 ```
 
+* [The Linux Firewall](http://code.tutsplus.com/tutorials/the-linux-firewall--net-31748)
+
 The firewall of Linux is in the hands of `iptables`
 (which works with the underlying `netfilter` system).
 Although incredibly powerful this makes using `iptables` complicated,
@@ -861,6 +902,13 @@ show you how to use `systemctl` to run cjdns at start-up.
 # Step X: Discoverability
 * [nodeinfo.json](https://github.com/hyperboria/docs/blob/master/cjdns/nodeinfo-json.md)
 * [Adding your public node's credentials](https://github.com/hyperboria/peers)
+
+You may install a network service that depends on cjdns,
+for instance you might install `thttpd` to serve up [`nodeinfo.json`](https://docs.meshwith.me/en/cjdns/nodeinfo.json.html).
+If `thttpd` is configured to listen only on your cjdns IP,
+then it will not start until cjdns is up and running.
+Add `After=cjdns-wait-online.service` to `thttpd.service` to hold off starting
+the service until cjdns has the tunnel up and ready.
 
 # Step X: Clone the SD Card
 * [Backup, Restore, Customize and Clone your Raspberry Pi SD Cards (tutorial)](http://sysmatt.blogspot.com/2014/08/backup-restore-customize-and-clone-your.html)

@@ -1,4 +1,5 @@
 
+* [Why airports are slow to install beacons](https://www.tnooz.com/article/airport-beacons/)
 * [Beacon tracking with Node.js and Raspberry Pi](https://medium.com/truth-labs/beacon-tracking-with-node-js-and-raspberry-pi-794afa880318#.ol4qucksj)
 * [Immersive Theatre via iBeacons with Dustin Freeman](http://hackaday.com/2015/12/18/immersive-theatre-via-ibeacons-with-dustin-freeman/)
 * [The Beacon Experiments: Low-Energy Bluetooth Devices in Action](http://blog.shinetech.com/2014/02/17/the-beacon-experiments-low-energy-bluetooth-devices-in-action/)

@@ -1,6 +1,10 @@
 
-* Something to emulate - [Daniel Miessler's Blog](https://danielmiessler.com/)
-* [Pelican Themes](http://pelicanthemes.com/)
+* Something to emulate
+    * [Daniel Miessler's Blog](https://danielmiessler.com/)
+    * [Pelican Themes](http://pelicanthemes.com/)
+    * [Migrating To Pelican](http://theoryandpractice.org/2014/03/Testing-Pelican-Migration/#.V0CU_nUrLMT)
+    * [Setting up Pelican for blogging](https://www.4thinker.com/blogging-on-commandline.html)
+    * [Pelican Themes](http://pelicanthemes.com/)
 
 Status: draft
 Title: Building My New Blog Using Jekyll...Scratch That...Pelican

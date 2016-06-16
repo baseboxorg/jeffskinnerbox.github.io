@@ -1,7 +1,7 @@
 Title: Setting up Git for Arduino and Raspberry Pi Development
 Date: 2012-09-28 00:01
 Category: Electronics
-Tags: Arduino, Raspberry Pi, Git, GitHub
+Tags: Arduino, Raspberry Pi, Git, GitHub, Cygwin
 Slug: setting-up-git-for-arduino-and-raspberry-pi development
 Author: Jeff Irland
 Image: github-logo.jpg

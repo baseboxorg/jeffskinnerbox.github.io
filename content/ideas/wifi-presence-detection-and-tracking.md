@@ -1,3 +1,5 @@
+* [Quickie WiFi Scanner](http://hackaday.com/2016/02/24/quickie-wifi-scanner/)
+* [WiFi Scanner -Know the WiFi Signal around you](http://www.seeedstudio.com/recipe/219-wifi-scanner-know-the-wifi-signal-around-you.html)
 * [An introduction to the Kismet packet sniffer](https://www.linux.com/news/introduction-kismet-packet-sniffer)
 * [Passive WiFi Tracking](http://edwardkeeble.com/2014/02/passive-wifi-tracking/)
 * [Passive wifi presence detection on Raspberry Pi](http://umm.io/blog/passive-wifi-tracking.html)
@@ -27,6 +29,9 @@ Monitor mode is a passive-only mode, no packets are transmitted. All incoming pa
 With some hardware, it is possible to have a network device in monitor mode while in one of the other modes. This is useful to observe the network whilst using it. However, not all hardware fully supports this. It may also be possible to transmit packets in monitor mode, which is known as packet injection (aka RadioTap).
 
 Unlike Promiscuous Mode, which is also used for packet sniffing, monitor mode allows packets to be captured without having to associate with an access point or ad hoc network first. Monitor mode only applies to wireless networks, while promiscuous mode can be used on both wired and wireless networks.
+
+# Kali
+[Wifi Autoscaning w/ Raspberry Pi and Kali Linux](http://cdf123x.blogspot.com/2013/04/wifi-autoscaning-w-raspberry-pi-and.html)
 
 # Kismet
 Kismet is an 802.11 wireless network detector, sniffer, and intrusion detection system.

@@ -131,7 +131,13 @@ outline in the next step.
 [Adafruit has good description on how to use a console cable][20].
 
 ### Step 3: Configure your WiFi
-Unplug your SD Card reader and plug it back in
+I have choosen to configure my WiFi router with WPA2 security because of superior security
+but even this can [compromised if your not careful][49]
+(a key [vulnerability lies in the implementation of WiFi Protected Setup (WPS)][50]
+- turn it off, better yet don't have it on your router).
+
+To configure your WiFi,
+unplug your SD Card reader and plug it back in
 and this will mount the Raspbian image on your Linux box.
 The `df -h` command will show you the device being used, the mount point, and memory used/available.
 
@@ -604,8 +610,6 @@ iface wlan0 inet manual
 iface default inet static
     address 192.168.100.50
     netmask 255.255.255.0
-    network 192.168.100.0
-    broadcast 192.168.100.255
     gateway 192.168.100.1
 ```
 
@@ -626,7 +630,7 @@ to help an administrator who knows what he or she is doing.
 <a href="http://www.fail2ban.org/wiki/index.php/Main_Page">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time." alt="fail2ban logo" src="{filename}/images/fail2ban-logo.png" width="75" height="75" /></a>
 Recently I examined my desktop computer's `sshd` log file `/var/log/auth.log`
-([log samples from sshd][42]) looking for failed login attempts
+([log samples from sshd][42]) looking for failed login attempts.
 I saw a list of well over 100 attempts, from mainly one IP (125.88.177.90 - Guangdong, China),
 trying to login via SSH as root or bin user.
 
@@ -680,7 +684,7 @@ The use of public/private key authentication mechanisms
 can provide the best protection overall.
 
 ### Step 15: Basic Security
-Beyond the basic security take in Step 14,
+Beyond the SSH login security take in Step 14,
 you should minimize your exposure to other network security attacks
 and following some of the tips outlined in the postings
 ["IoT Security: Tips to Protect your Device from Bad Hackers"][37]
@@ -835,3 +839,5 @@ This can cause mysterious problems (like WiFi adapter not working, just to name 
 [46]:http://jeffskinnerbox.me/posts/2015/Nov/28/two-factor-authentication-via-google-authenticator/
 [47]:http://jeffskinnerbox.me/posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/
 [48]:http://jeffskinnerbox.me/posts/2016/Apr/27/howto-install-and-configure-fail2ban/
+[49]:http://lifehacker.com/5873407/how-to-crack-a-wi-fi-networks-wpa-password-with-reaver
+[50]:https://www.us-cert.gov/ncas/alerts/TA12-006A

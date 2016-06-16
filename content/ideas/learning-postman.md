@@ -1,5 +1,13 @@
+* [Postman Docs](http://www.getpostman.com/docs/)
 * [REST / HTTP API Tools for Development and Testing](http://fcfeibel.com/blog/2013/05/07/rest-http-api-tools-for-development-and-testing/)
 * [httpie: A CLI http client that will make you smile](http://radek.io/2015/10/20/httpie/)
+* [Testing API with Postman](http://www.sm-cloud.com/testing-api-with-postman/)
+* [Enabling Chrome Developer Tools inside Postman](http://blog.getpostman.com/2014/01/27/enabling-chrome-developer-tools-inside-postman/)
+* [Using a Postman http client for efficient HTTP testing](http://agiliq.com/blog/2014/09/using-postman/)
+* [Making the perfect HTTP request using Postman Echo](http://blog.getpostman.com/2015/11/13/making-the-perfect-http-request-using-postman-echo/?utm_content=buffercf99f&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+* [Review: Postman Client Makes RESTful API Exploration a Breeze](http://www.programmableweb.com/news/review-postman-client-makes-restful-api-exploration-breeze/brief/2014/01/27)
+* [Meet Newman: a command line companion for Postman](http://blog.getpostman.com/2014/05/12/meet-newman-a-command-line-companion-for-postman/)
+* [How to write powerful automated API tests with Postman, Newman and Jenkins](http://blog.getpostman.com/2015/09/03/how-to-write-powerful-automated-api-tests-with-postman-newman-and-jenkins/)
 
 I have settled upone [Postman][01] (including other closely related Chrome tools)
 and the commandline utility [cURL][03] as my prefered tools for interacting with HTTP based APIs.
@@ -52,6 +60,7 @@ There are several tools to choose from, but I have invested my time & efforts in
 # OAuth 2.0
 * [Visualizing the OAuth 2.0 Client Flow](http://techblog.constantcontact.com/api/visualizing-the-oauth-2-0-client-flow/)
 * [Beer Locker: Building a RESTful API With Node - OAuth2 Server](http://scottksmith.com/blog/2014/07/02/beer-locker-building-a-restful-api-with-node-oauth2-server/)
+
 
 
 [01]:https://www.getpostman.com/docs/introduction
