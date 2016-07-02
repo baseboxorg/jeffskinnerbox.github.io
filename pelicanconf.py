@@ -39,7 +39,7 @@ HIDE_SITENAME = False
 SITENAME = u"Jeff's Skinner Box"
 
 # Include articles comment count on home page
-SUMMARY_COMMENT_COUNT = False
+SUMMARY_COMMENT_COUNT = True
 
 # Logo to appear before the site name
 HIDE_SITELOGO = True

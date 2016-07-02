@@ -666,6 +666,14 @@ effectively cuts out the attacks from the Internet.
 But of course, if your neighbors nerdy 13 year old wants to mess with your WiFi,
 you still could have some attacks.
 
+If your wondering how many times somebody has tried to log on,
+with or without SSH,the `last` command shows the number of successful attempts.
+The `lastb` command shows the number of unsuccessful attempts.
+
+**NOTE:** The `last` and `lastb` commands write to the
+`/var/log/wtmp` and `/var/log/btmp` files, respectively.
+If you ever see these files zeroed out, you might have a problem.
+
 So its just a matter of time before the attack is on another port, or user account, or network interface,
 therefore using [Fail2Ban][43] or something similar may be in order.
 `fail2ban` reads the `sshd` log entries (and other log files)

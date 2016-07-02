@@ -6,6 +6,8 @@ Slug: coaxial-cable-guide
 Author: Jeff Irland
 Summary: bla bla bla
 
+[UHF SO-239](https://www.amazon.com/Female-Chassis-Flange-Solder-Connector/dp/B007Q8JH4Y)
+
 Essentials of Connector Technology
 * [element14 Essentials: Connectors I](https://www.element14.com/community/docs/DOC-81482?CMP=EMC-NEWSLETTER-APR16-ESSENTIALS-CONNECTORS-1)
 * [Co-Exist With Your Coax: Choose The Right Connector For The Job](http://hackaday.com/2016/03/31/co-exist-with-your-coax-choose-the-right-connector-for-the-job/)
@@ -69,6 +71,8 @@ Some of the widely used connector types are:
 * []()
 * []()
 
+
+
 [01]:http://en.wikipedia.org/wiki/Waveguide_(electromagnetism)
 [02]:http://en.wikipedia.org/wiki/Coaxial_cable
 [03]:http://www.jonard.com/jonard-ecommerce/control/category/~category_id=WIRE_STRIPPERS
@@ -80,3 +84,12 @@ Some of the widely used connector types are:
 [09]:http://en.wikipedia.org/wiki/F_connector
 [10]:http://en.wikipedia.org/wiki/SMB_connector
 [11]:http://ecee.colorado.edu/~kuester/Coax/connchart.htm
+[12]:
+[13]:
+[14]:
+[15]:
+[16]:
+[17]:
+[18]:
+[19]:
+[20]:

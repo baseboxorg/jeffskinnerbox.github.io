@@ -16,6 +16,7 @@ Check out
 * [rf24boot v0.2 released!](http://ncrmnt.org/wp/2014/05/20/rf24boot-v0-2-released/#more-1792)
 * [Raspberry Pi helps with 2.4GHz home automation](http://hackaday.com/2013/05/30/raspberry-pi-helps-with-2-4ghz-home-automation/)
 * [Sniffing nRF24L01+ Traffic with Wireshark](http://hackaday.com/2014/08/05/sniffing-nrf24l01-traffic-with-wireshark/)
+* [Sniffing and decoding NRF24L01+ and Bluetooth LE packets for under $30](http://blog.cyberexplorer.me/2014/01/sniffing-and-decoding-nrf24l01-and.html)
 * [The Development Of A Lightweight Wireless Protocol](http://hackaday.com/2014/06/12/the-development-of-a-lightweight-wireless-protocol/)
 * [A wireless door monitor based on the BANO framework](http://www.embeddedrelated.com/showarticle/605.php)
 * [RFToy](http://rayshobby.net/rftoy/)
@@ -72,11 +73,11 @@ SETUP_RETR register (ARC and ARD fields, respectively) of the TX device.
 
 >>> **What is a Pipe?** The radio has 6 pipes, and each pipe is essentially
 just an address that you can receive data on (when in RX mode).
-This means that any nRF24L01+ can actually act as 6 different receivers at the same time! 
+This means that any nRF24L01+ can actually act as 6 different receivers at the same time!
 So what good is this?
 You could set up one pipe to be a data channel and another to be a control channel.
 You might also have a receiver that did several different functions,
-and would do the task that corresponds to the channel it received data on. 
+and would do the task that corresponds to the channel it received data on.
 
 >>>keep these things in mind.
 Pipes use the same RF channel (whatever the channel is set in the RF_CH register).
@@ -108,7 +109,7 @@ or the number of retries exceeds the number of allowed retries given in the SETU
 If the number of retries exceeds the number of allowed retries,
 this will show in the STATUS register bit MAX_RT and gives an interrupt.
 Whenever an acknowledgement is received by an nRF24L01 it will consider the last transmitted packet as delivered.
-It will then be cleared from the TX FIFO, and the TX_DS IRQ source will be set high. 
+It will then be cleared from the TX FIFO, and the TX_DS IRQ source will be set high.
 
 ## Documenation
 The nRF24l01+ transceiver is also simple to use, in part to its simple design philosophy,
@@ -167,7 +168,7 @@ The boards pin out is illustrated below:
 5. **SCK:** SPI Shift Clock, up to 10 MHz.  When you configure your SPI bus, SCK should stay low normally (rising edges are active), and the clock samples data in the middle of data bits.
 6. **MOSI:** Master-Out-Slave-In.  From both the microcontroller’s and the 24L01’s perspectives, the master is the microcontroller and the slave is the 24L01. This is because the 24L01 never sends data without first being requested by the microcontroller. Essentially, this pin is the side of the bus on which the master (the microcontroller) sends data to the slave (the 24L01). It is also connected to the MOSI pin on your microcontroller’s SPI interface.
 7. **MISO:** Master-In-Slave-Out.  This pin is like the MOSI pin, but backwards. This pin is the side of the bus on which the slave (the 24L01) sends data to the master (the microcontroller). As you can see, SPI is a full-duplex bus, meaning that you can send data in both ways at once, but on separate lines.
-8. **IRQ:** Optional Interrupt Request pin.  The interrupt pin is to signal your microcontroller that something interesting has happened. You can set interrupts for any combination of the following events: data received, data transmitted, and maximum number of transmit retries reached. If you’re not using interrupts, this pin isn’t required because you can poll the 24L01’s STATUS register over SPI to see if any interrupt has occurred, but it’s still faster (in general) to check the status of an IO pin than to send an SPI command and then wait for the response. NOTE: the IRQ pin is ACTIVE-LOW. It is normally high, but when an interrupt is asserted, the pin will go low. 
+8. **IRQ:** Optional Interrupt Request pin.  The interrupt pin is to signal your microcontroller that something interesting has happened. You can set interrupts for any combination of the following events: data received, data transmitted, and maximum number of transmit retries reached. If you’re not using interrupts, this pin isn’t required because you can poll the 24L01’s STATUS register over SPI to see if any interrupt has occurred, but it’s still faster (in general) to check the status of an IO pin than to send an SPI command and then wait for the response. NOTE: the IRQ pin is ACTIVE-LOW. It is normally high, but when an interrupt is asserted, the pin will go low.
 
 ## Bit and Byte Order
 The SPI needs to be configured to send the **Most Significant Bit First**. within a byte.

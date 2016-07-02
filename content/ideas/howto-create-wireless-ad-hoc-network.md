@@ -1,17 +1,9 @@
-
-* [Setting up an Ad-Hoc Network – And securing it using WPA](http://techblog.aasisvinayak.com/setting-up-an-ad-hoc-network-and-securing-it-using-wpa/)
-* [Creating an Ad-hoc Wireless Network](https://wiki.gumstix.com/index.php/Creating_an_Ad-hoc_Wireless_Network)
-* [Hostapd : The Linux Way to create Virtual Wifi Access Point](https://nims11.wordpress.com/2012/04/27/hostapd-the-linux-way-to-create-virtual-wifi-access-point/)
-* [Debian / Ubuntu Linux: Setup Wireless Access Point (WAP) with Hostapd](http://www.cyberciti.biz/faq/debian-ubuntu-linux-setting-wireless-access-point/)
-* [8 Linux Commands: To Find Out Wireless Network Speed, Signal Strength And Other Information](http://www.cyberciti.biz/tips/linux-find-out-wireless-network-speed-signal-strength.html)
-
-
+![ad-hoc](http://www.nnre.ru/kompyutery_i_internet/sobiraem_kompyuter_svoimi_rukami/i_184.png)
 A [wireless ad-hoc network (WANET)][02],
-also known as Independent Basic Service Set (IBSS),
 is a decentralized type of wireless network.
 The network is ad-hoc because it does not rely on a pre-existing infrastructure,
-such as routers in wired networks or [access points][01] in managed (infrastructure) wireless networks.
-Wireless stations communicate directly with one another on a peer-to-peer basis,
+such as a routers in wired networks or WiFi [access points][01] in managed (infrastructure) wireless networks.
+In a ad-hoc network, wireless stations communicate directly with one another on a peer-to-peer basis,
 without using an access point or any intermediate network router.
 
 The posting "[Creating an Ad-hoc network for your Raspberry Pi][15]"
@@ -19,11 +11,9 @@ does an excellent job of giving a simple explanation of
 what needs to be done to create an Ad-Hoc WiFi network.
 It quick shows you what files need to be modified but with minimal explanation.
 
-* [Raspberry Pi Tutorial – Connect to WiFi or Create An Encrypted DHCP Enabled Ad-hoc Network as Fallback](http://lcdev.dk/2012/11/18/raspberry-pi-tutorial-connect-to-wifi-or-create-an-encrypted-dhcp-enabled-ad-hoc-network-as-fallback/)
-
 To get my Ad-Hoc WiFi network operation, I'm going to follow these basic steps:
 
-1. Getting Wireless Interface Name and Hardware Address
+1. Getting the Wireless Interface Name and Hardware Address
 1. Connect to WiFi
 1. Install and Configure DHCP Server
 1. Update interfaces Config File
@@ -31,11 +21,54 @@ To get my Ad-Hoc WiFi network operation, I'm going to follow these basic steps:
 1. Prevent DHCP From Starting At Boot
 1. Reboot and Test
 
-[Check this out for more instructions - Chapter 5. Network setup](https://www.debian.org/doc/manuals/debian-reference/ch05.en.html#_the_loopback_network_interface)
-* [Limitations of Ad Hoc Mode Wireless Networking](http://compnetworking.about.com/od/wirelessfaqs/f/adhoclimitation.htm)
+I will provide description and tools to:
+
+* Configure the ad-hoc network using _static IP addressing_ -
+* Configure the ad-hoc network using _dynamic IP addressing_ - [Creating an Ad-hoc network for your Raspberry Pi](http://slicepi.com/creating-an-ad-hoc-network-for-your-raspberry-pi/)
+* Configure the ad-hoc network to use access point if available but use _ad-hoc as a fallback_ - [Raspberry Pi Tutorial – Connect to WiFi or Create An Encrypted DHCP Enabled Ad-hoc Network as Fallback](http://lcdev.dk/2012/11/18/raspberry-pi-tutorial-connect-to-wifi-or-create-an-encrypted-dhcp-enabled-ad-hoc-network-as-fallback/)
+    * [Running DHCP Server on Ad-hoc Network](https://wiki.gumstix.com/index.php/Creating_an_Ad-hoc_Wireless_Network)
+    * [Setting up an Ad-Hoc Network – And securing it using WPA](http://techblog.aasisvinayak.com/setting-up-an-ad-hoc-network-and-securing-it-using-wpa/)
+
+* [Check this out for more instructions - Chapter 5. Network setup](https://www.debian.org/doc/manuals/debian-reference/ch05.en.html#_the_loopback_network_interface)
 
 # Background
-bla bla bla
+A WiFi network device always operates in one
+(or for some special hardware, multiple modes as in [AP+STA][52] or [WDS with AP Mode][53]
+of the six modes that 802.11 wireless cards can operate in:
+
+1.  **Master / Access Point** - acting as an access point (AP)
+1.  **Managed / Station / STA / Access Point Client / Wireless Client / Client** - act as a client to an access point
+1.  **Ad-Hoc / Point-to-Point / Wireless Bridge** - directly connecting two or more computers without an access point
+1.  **Mesh / Point-to-Multipoint / Multi-point Bridge** - decentralized interconnection with other wireless access points
+1.  **Repeater / WDS** - wireless interconnection to other access points to form a single managed network
+1.  **Monitor** - passively read packets, no packets are transmitted
+
+You may hear about Infrastructure Mode.
+Strictly speaking, Infrastructure Mode is not a device mode but a concept.
+
+We are **_not_** interested in creating a wireless access point out of one device
+so the other devices can home on it.
+While [this could be done][57], and it may adress some use cases,
+it requires [special software (`hostapd`)][58],
+we are assuming a pure peer-to-peer arangement.
+
+We are specifically interested in ad-hoc mode.
+On wireless computer networks, ad-hoc mode is a method for
+wireless devices to directly communicate with each other.
+Operating in ad-hoc mode allows all wireless devices within range
+of each other to discover and communicate in peer-to-peer fashion without involving central access points.
+
+Ad-hoc mode, also referred to as peer-to-peer mode or an
+Independent Basic Service Set (IBSS),
+is used to create a wireless network
+without the need of having a Master Access Point in the network.
+Each station in an IBSS network is managing the network itself.
+Ad-Hoc is useful for connecting two or more computers to each other
+when no (useful) AP is around for this purpose.
+
+Ad-hoc mode is useful for establishing a network where wireless infrastructure
+does not exist or where other network services
+(such as Internet access, printer access, etc.) are not required.
 
 ## WiFi Interface Adapter Must Support A-Hoc Networking
 Keep in mind that [not all Raspberry Pi WiFi adapters will support ad-hoc mode][04].
@@ -55,6 +88,30 @@ sudo iwconfig wlan0 mode ad-hoc
 # check to see if interface is in ad-hoc mode
 sudo iwconfig wlan0 | grep Mode
 ```
+## Limitations of Ad Hoc Mode Wireless Networking
+[Ad-Hoc networks suffer from several key limitations][54] that require special consideration.
+
+* **Security** - WiFi devices in ad-hoc mode offer minimal security
+against unwanted incoming connections.
+For example, ad-hoc devices cannot disable SSID broadcast
+like infrastructure mode devices can.
+Attackers generally will have little difficulty connecting to your
+ad-hoc device if they get within signal range.
+* **Signal Strength Monitoring** - The normal operating system software indications
+seen when connected in infrastructure mode are unavailable in ad-hoc mode.
+Without the ability to monitor the strength of signals,
+maintaining a stable connection can be difficult,
+especially when the ad-hoc devices change their positions.
+* **Speed** - Ad-hoc mode ofen runs slower than infrastructure mode.
+Specifically, WiFi networking standards like 802.11g require only that ad-hoc mode
+communication supports 11 Mbps connection speeds.
+WiFi devices supporting 54 Mbps or higher in infrastructure mode will drop back
+to a maximum of 11 Mbps when changed to ad-hoc mode.
+
+The most concerning of these limitations is security
+but there are things that can be done.
+For one thing, you can [set up an ad-hoc network using WPA security][56].
+
 
 ## Turn-Off NetworkManager, at Least for Your Interfaces
 The default networking setup on Ubuntu
@@ -98,7 +155,8 @@ To stop NetworkManager, you can do one of these three things:
 Within the Ubuntu and Debian distributions,
 one way to tell NetworkManager to stop controlling a particular interface
 is by telling NetworkManager to ignore ALL interfaces listed in the `/etc/network/interfaces` file.
-This is done by adding the following lines to the Network Manager configuration file:
+This is done by adding the following lines to the Network Manager
+configuration file [`/etc/NetworkManager/NetworkManager.conf`][59]:
 
 ```
 [main]
@@ -110,8 +168,14 @@ managed=false
 
 Since this will only affect interfaces listed in the `/etc/network/interfaces` file,
 any interface not listed there will remain under NetworkManager control.
+This the simplest, and lest disruptive way to get NetworkManager out of you way
+but let it continue to run for other purposes.
 
-## Networking Tools
+## Wireless Networking Tools
+The Linux operating systems comes with various set of tools
+allowing you to manipulate the [Wireless Extensions][03] and monitor wireless networks.
+These tools can be used to find out network speed, bit rate, signal quality/strength, and much more.
+
 [`iw`][24] is the basic tool for WiFi network-related tasks,
 such as finding the WiFi device name, and scanning access points.
 [`wpa_supplicant`][13] is the wireless tool for connecting to a WPA/WPA2 network.
@@ -143,8 +207,19 @@ which you can see further explained/motivated [here][18].
 More needs to be filled in below.
 
 ```bash
+# find out your wireless card chipset information
+lspci
+lspci | grep -i wireless
+lspci | egrep -i --color 'wifi|wlan|wireless'
+
+# use the following command to get information about wireless card driver
+lspci -vv -s 0c:00.0
+
 # find out the wireless device name
 iw dev
+
+# check the current state of all your network-devices:
+ip link
 
 # check that the wireless device is up
 ip link show wlan0
@@ -155,6 +230,30 @@ sudo ip link set wlan0 up
 # check the connection status
 iw wlan0 link
 
+# report ESSID, NWID or AP/Cell Address of wireless network.
+iwgetid
+
+# list detailed wireless information from a wireless interface
+iwlist
+
+# get overall quality of the link
+iwconfig wlan0 | grep -i --color quality
+
+# find out received signal strength (RSSI – how strong the received signal is)
+iwconfig wlan0 | grep -i --color signal
+
+# See link quality continuously on screen
+watch -n 1 cat /proc/net/wireless
+
+# displays continuously updated information about signal levels,
+# as well as, wireless-specific and general network information
+wavemon
+
+# displays wireless events received through the RTNetlink socket.
+# each line displays the specific wireless event which describes
+# what has happened on the specified wireless interface
+iwevent
+
 # scan to find out what WiFi networks are detected
 sudo /sbin/iw wlan0 scan
 
@@ -163,6 +262,9 @@ sudo dhclient wlan0
 
 # use the ip command to verify the IP address assigned by DHCP. The IP address is 192.168.1.113 from below.
 ip addr show wlan0
+
+# check to see if NetworkManager is running
+service NetworkManager status
 ```
 
 ## WiFi Tools
@@ -724,13 +826,12 @@ joint the chantilly library network - sudo iwconfig wlan0 essid ffxlib
 [49]:http://raspberrypi.stackexchange.com/questions/15209/using-network-manager-for-wireless-vpn-management
 [50]:http://dev.iachieved.it/iachievedit/exploring-networkmanager-d-bus-systemd-and-raspberry-pi/
 [51]:http://support.qacafe.com/knowledge-base/how-do-i-prevent-network-manager-from-controlling-an-interface/
-[52]:
-[53]:
-[54]:
+[52]:http://www.hi-flying.com/products_detail_faqs/&productId=4b01f897-b100-4e11-a85b-9d15bedaf145.html
+[53]:http://www.dlink.com/uk/en/support/faq/access-points-and-range-extenders/what-do-the-modes-mean-on-my-ap]
+[54]:http://jairjp.com/JANUARY%202014/02%20HELEN.pdf
 [55]:http://xmodulo.com/disable-network-manager-linux.html
-[56]:
-[57]:
-[58]:
-[59]:
+[56]:http://techblog.aasisvinayak.com/setting-up-an-ad-hoc-network-and-securing-it-using-wpa/
+[57]:https://nims11.wordpress.com/2012/04/27/hostapd-the-linux-way-to-create-virtual-wifi-access-point/
+[58]:https://w1.fi/hostapd/
+[59]:http://linux.die.net/man/5/networkmanager.conf
 [60]:
-

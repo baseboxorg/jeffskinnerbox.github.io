@@ -1,5 +1,5 @@
 created: 20140919015727086
-modified: 20160319164832743
+modified: 20160623010358052
 tags: Projects
 title: RTL-SDR Software Defined Radio
 type: text/vnd.tiddlywiki
@@ -50,6 +50,10 @@ type: text/vnd.tiddlywiki
 *[[PRACTICAL ANTENNA DESIGN: 140-150 MHZ VHF TRANSCEIVERS|http://files.radioscanner.ru/files/download/file311/practical_antenna_design.pdf]]
 *[[White Paper: Discone Antenna Design|http://www.hipoint.ca/whitepapers/WhitePaper_DisconeAntenna.pdf]]
 *[[Notes on HF Discone Antennas|http://w4rnl.net46.net/download/discone.pdf]]
+
+!!Double Cross Antenna
+
+* [[Instructions for Building a Portable Double Cross Antenna: Great for NOAA/Meteor Weather Satellites|http://www.rtl-sdr.com/instructions-for-building-a-double-cross-antenna-great-for-noaameteor-weather-satellites/]]
 
 !!Household Utility Measurement
 

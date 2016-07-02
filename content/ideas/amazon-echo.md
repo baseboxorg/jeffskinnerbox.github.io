@@ -1,3 +1,54 @@
+# Amzon Echo "How To Do"
+## How to access the Amazon Echo from the Web
+Even though you need to do the original Echo setup from an iOS or Android app
+(mostly so it finds your WiFi network),
+you can also access many of the Echo's settings from the web.
+Point your browser to [echo.amazon.com](http://echo.amazon.com).
+
+## How to stop the Amazon Echo from listening for its wake word
+If you want the device to go completely radio silent and respond to absolutely nothing,
+even by accident, there's a mute button on the top of the can.
+Press it and a red ring will highlight and Alexa will stay mute until you press the button again.
+
+## How to control the Amazon Echo from a different Amazon account
+Let's say your music isn't in your Amazon account
+but your entire digitized CD collection is in my wife's account.
+So if we want to listen to her collection, or otherwise access her settings,
+we need to switch profiles.
+To find out what profile you're currently using, say "Alexa, which profile am I using".
+To switch profiles, say either "Alexa, switch profile"
+and it will move to the next profile or "Alexa,
+switch to David's profile" and it will switch to the profile you just named.
+
+## How to get the Amazon Echo to repeat an answer
+If you didn' hear the answer to your question quickly enough,
+Alexa is happy to repeat it.
+Simply say "Alexa, can you repeat that?" and it will.
+
+## How do I find new Alexa features
+Just ask, "Alexa, what new features do you have?"
+Whenever Amazon adds something new,
+they program an explanation into Alexa
+and she’ll give you all the details by just asking that question.
+
+## You can make the Amazon Echo read you a Kindle book
+you can ask Alexa to read Kindle books in your library. Alexa reads books purchased from the Kindle Store, borrowed from the Kindle Owners' Lending Library or Kindle Unlimited, or shared with you using Family Library.
+Just say Alexa, read "[Kindle book title]."
+
+## How to Connect Your Amazon Echo to IFTTT
+[How to Connect Your Amazon Echo to IFTTT](http://www.tomsguide.com/us/amazon-echo-ifttt-how-to,review-3366.html)
+
+## How to Pair Your Smartphone to Your Amazon Echo
+[How to Pair Your Smartphone to Your Amazon Echo](http://www.howtogeek.com/237233/how-to-pair-your-smartphone-to-your-amazon-echo/)
+
+## How to Create a Notification
+The classic example of a Notification is one that silently monitors your email address
+and alerts you when you have a new email.
+Unfortanately, Alexa doesn't support this but [Jasper does](http://jasperproject.github.io/documentation/api/notification/).
+
+
+--------------------------------------------------------------------------------
+
 # Streaming Music
 * [Pair Your Mobile Device with Echo](https://www.amazon.com/gp/help/customer/display.html?nodeId=201549660)
 * [Ways to Listen to Music & Media on Alexa](https://www.amazon.com/gp/help/customer/display.html?nodeId=201549700)
@@ -83,6 +134,7 @@ Here I'm going to exercise the AT&T Speech API outside of Jasper just to demonst
 With a little imagination, you should see how it can turn a Raspberry Pi into an
 interesting Internet-enabled speech application using this API.
 
+[Jasper Documentation](http://jasperproject.github.io/documentation/)
 
 
 [53]:http://jasperproject.github.io/

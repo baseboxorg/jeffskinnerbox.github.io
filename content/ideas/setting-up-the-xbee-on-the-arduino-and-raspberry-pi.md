@@ -1,11 +1,13 @@
 Title: Setting up the XBee on the Arduino and Raspberry Pi
 Date: 2100-01-01 00:00
 Category: Electronics
-Tags: XBee, Arduino, Raspberry Pi 
+Tags: XBee, Arduino, Raspberry Pi
 Slug: setting-up-the-xbee-on-the-arduino-and-baspberry-pi
 Author: Jeff Irland
 Image: DRAFT_stamp.png
 Summary: abla bla bla
+
+* [Sniffing and decoding NRF24L01+ and Bluetooth LE packets for under $30](http://blog.cyberexplorer.me/2014/01/sniffing-and-decoding-nrf24l01-and.html)
 
 ## Installing  xbee-arduino Tools for the Arduino
 Now lets install the tool set for the Arduino development, [xbee-arduino][01],
@@ -46,7 +48,7 @@ This program bla bla bla
 Using the python-xbee package installed earlier and the XBee radio reconfigured as a network coordinator, I'm ready to establish the coordinator node of my XBee network on the RPi.  I accomplish this via the following Python program:
 
 ``` python
-# TBD 
+# TBD
 ```
 
 This program bla bla bla

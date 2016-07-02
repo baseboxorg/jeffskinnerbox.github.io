@@ -176,6 +176,8 @@ Note: the Vim commands marked with (V) work in visual mode, when you've selected
 | N | Scan for next search match but opposite direction. |
 | /word | Search word from top to bottom |
 | ?word | Search word from bottom to top |
+|   *   | move the cursor to any word, press * to search forwards for that word |
+|   #   | move the cursor to any word, press # to search backward for that word |
 | /jo[ha]n | Search john or joan |
 | /\< the | Search the, theatre or then |
 | /the\> | Search the or breathe |

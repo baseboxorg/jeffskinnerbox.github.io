@@ -1,11 +1,6 @@
-Title: Making a Discone Antenna for RTL-SDR
-Date: 2100-01-01 00:00
-Category: Electronics
-Tags: Antenna, RTL-SDR
-Slug: making-a-discone-antenna-for-rtl-sdr
-Author: Jeff Irland
-Image: DRAFT_stamp.png
-Summary: bla bla bla
+
+* [Instructions for Building a Portable Double Cross Antenna: Great for NOAA/Meteor Weather Satellites](http://www.rtl-sdr.com/instructions-for-building-a-double-cross-antenna-great-for-noaameteor-weather-satellites/)
+
 
 Need a SMA Panel Jack connector
 
@@ -53,7 +48,7 @@ Above 300 GHz, the absorption of electromagnetic radiation by Earth's atmosphere
 
 ![em opacity](img/posts/jekyll-posts/atmospheric_electromagnetic_opacity.png, "Electromagnetic transmittance, or opacity, of the Earth's atmosphere")
 
-The Earth's atmosphere stops most types of electromagnetic radiation from space from reaching Earth's surface. This illustration shows how far into the atmosphere different parts of the EM spectrum can go before being absorbed. Only portions of radio and visible light reach the surface. 
+The Earth's atmosphere stops most types of electromagnetic radiation from space from reaching Earth's surface. This illustration shows how far into the atmosphere different parts of the EM spectrum can go before being absorbed. Only portions of radio and visible light reach the surface.
 
 ![em absorption](img/posts/jekyll-posts/em_absorption.jpg, "Electromagnetic absorption by the Earth's atmosphere")
 
@@ -147,7 +142,7 @@ The FCC's database can be found [here][56] and the NTIA's database is [here][55]
 ## Creation of Radio Waves
 While there are multiple source of [naturally occurring radio waves][49],
 conveniently, radio frequency waves are invariably created by changing an electrical current in a wire.
-This creates an [electromagnetic field][13] (also EMF or EM field) 
+This creates an [electromagnetic field][13] (also EMF or EM field)
 that varies in a defined fashion with the changing electrical current.
 The physics of electromagnetism require that parts of this varying field to propagate as a wave,
 which is called [electromagnetic radiation][15] (EM radiation or EMR),
@@ -157,7 +152,7 @@ An antenna can be any shape or size,
 and for a practical application can be a simple wire or a very sophisticated apparatus.
 
 The antenna (or aerial) is an electrical device which converts electric power
-into electromagnetic radiation (e.g. radio waves), and vice versa. 
+into electromagnetic radiation (e.g. radio waves), and vice versa.
 Antennas are usually used with a [radio transmitter][17] or [radio receiver][18],
 and when combined, the device is called a [transceiver][21].
 In transmission, a radio transmitter supplies an oscillating radio frequency electric current to the antenna's terminals, and the antenna radiates the energy from the current as electromagnetic waves (radio waves).
@@ -176,7 +171,7 @@ The EMF affects the behavior of charged objects in the vicinity of the field.
 The field can be viewed as the combination of an electric field and a magnetic field and cut across one another at right angles.
 The electric field the surrounds the charges,
 and the magnetic field is created by moving charges (currents).
-Though the fields exist around the charged object, they propagate away from the charged object perpendicular to the two fields. 
+Though the fields exist around the charged object, they propagate away from the charged object perpendicular to the two fields.
 At some point beyond the charged object, the fields detach themselves and propagate independently. In fact, they support and regenerate one another along the way.
 This “independent” wave is electromagnetic radiation, and when it frequency is less than 300GHz its called a radio wave.
 Radiation is energy (sometimes called [radiant energy][50]) that travels
@@ -206,7 +201,7 @@ makes them very popular among radio operators.
 However all of them have a limited bandwidth of 140-150 MHz.
 If one attempts to operate  these antennas
 outside these frequency limits with a wideband transceiver, the
-signal response becomes weaker as the operating frequency of the transceiver 
+signal response becomes weaker as the operating frequency of the transceiver
 is moved farther away from the optimal operational band of the antenna.
 At the same time the SWR in the transmission line increases and can reach an
 intolerable point which may cause damage to the transceiver.
@@ -229,7 +224,7 @@ the wave nature of the radio signal because multiple wave cycles will be present
 of the current caring wire, called a [transmission line][22].
 When not considered, the energy tends to radiate off the cable as radio waves, causing power losses.
 In radio engineering, a transmission line is a specialized cable or other structure
-designed to carry alternating current of radio frequency, that is, currents with a frequency high enough that their wave nature must be taken into account. 
+designed to carry alternating current of radio frequency, that is, currents with a frequency high enough that their wave nature must be taken into account.
 Transmission lines must be used when the frequency is high enough that the wavelength of the waves begins to approach the length of the cable used.
 
 ## Fundamental Antenna Parameters
@@ -301,7 +296,7 @@ Using this tool, I get the following results:
 
 ## Electromagntic Numerical Analysis
 We would like to solve [Maxwell's equations][28] for the discone antenna design to discover its radiation pattern, etc.
-Solving these equations as a [closed-form expression ][29] is hopeless except for the simplest types of antenna structures. 
+Solving these equations as a [closed-form expression ][29] is hopeless except for the simplest types of antenna structures.
 So we'll need to leverage [numerical methods][30] to perform the analysis of the discone antenna.
 An online search for suitable tools produces multiple possibilities.
 Because of its popularity and [respect amoung the Ham Radio community][33] and others,
@@ -325,7 +320,7 @@ and [The unofficial Numerical Electromagnetic Code (NEC) Archives][35].
 
 I'll be using Xnec2c since it is is a [GTK+][37] graphical interactive version of nec2c and well suited for my Linux system.
 It incorporates the nec2c core, which it uses for reading input files and calculating output data,
-but it produce an output in graphical format by default. 
+but it produce an output in graphical format by default.
 The latest version of Xnec2c appears to be 2.3 and can be obtained from [here][36]
 (Note: The Ubuntu / Debian packages appear to be version 1.4).
 This package also includes many example input files and you can get more at [Steve Conklin's GitHub site][38].
@@ -378,7 +373,7 @@ Connectors on Devices:
 
 Cabling Require:
 
-* Cable attached Discone - [50 Ohm RG-174 cable][61] attached to the antenna at xxx and terminated at the other end of the cable with a female [SubMiniature version A (SMA)][62] connector 
+* Cable attached Discone - [50 Ohm RG-174 cable][61] attached to the antenna at xxx and terminated at the other end of the cable with a female [SubMiniature version A (SMA)][62] connector
 * Cable from Discone-cable to SDR device - A long [50 Ohm RG-174 cable][61] with [SMA][62] male connector on one end and a female on the other end.  This cable is connected with a 6 inch coax cable assembly with a female to [MCX male][57].  The male MCX plugs into the SDR device.
 
 

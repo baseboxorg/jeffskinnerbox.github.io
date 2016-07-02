@@ -11,6 +11,7 @@ Summary: abla bla bla
 * [Sniffing the Internet of Things with Wireshark, Sensniff, and FreakLabs](http://freaklabs.org/index.php/tutorials/software/sniffing-the-internet-of-things-with-wireshark-sensniff-and-freaklabs.html)
 * [sensniff - Live Traffic Capture and Sniffer for IEEE 802.15.4 networks](https://github.com/g-oikonomou/sensniff)
 * [Sniffing nRF24L01+ Traffic with Wireshark](http://hackaday.com/2014/08/05/sniffing-nrf24l01-traffic-with-wireshark/)
+* [Sniffing and decoding NRF24L01+ and Bluetooth LE packets for under $30](http://blog.cyberexplorer.me/2014/01/sniffing-and-decoding-nrf24l01-and.html)
 * [tshark](http://www.linuxuser.co.uk/tutorials/monitor-network-traffic-tutorial)
 
 <a href="/img/posts/jekyll-posts/RPi-XBee-Sniffer.jpg"><img align="left" title="bus priate board" src="/img/posts/jekyll-posts/RPi-XBee-Sniffer.jpg" width="250px" height="187px" class="img-rounded floatLeft" /></a>

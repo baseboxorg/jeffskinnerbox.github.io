@@ -92,7 +92,41 @@ cyg-apt install screen          # terminal multiplexer
 cyg-apt install aspell-en ctags ncurses
 ```
 
-## Using Cygwin
+## Configuring Cygwin Envirnment
+* [How to Use Linux Commands in Windows with Cygwin](http://www.howtogeek.com/howto/41382/how-to-use-linux-commands-in-windows-with-cygwin/)
+* [How To Get SSH Command-Line Access to Windows 7 Using Cygwin](http://www.howtogeek.com/howto/41560/how-to-get-ssh-command-line-access-to-windows-7-using-cygwin/)
+
+## Installing My Tools
+I have my own versions of the resource files for `vim`, `bash`, `X`, etc.
+These too need to need to be installed to make me feel fully at home within Microsoft Windows.
+
+Within you home directory,
+you'll install the following
+
+```bash
+# install your Bash tools
+cd ~
+git clone https://github.com/jeffskinnerbox/.bash.git ~/.bash
+ln -s ~/.bash/bashrc ~/.bashrc
+ln -s ~/.bash/bash_login ~/.bash_login
+ln -s ~/.bash/bash_logout ~/.bash_logout
+ln -s ~/.bash/bash_profile ~/.bash_profile
+ln -s ~/.bash/dircolors.old ~/.dircolors
+
+# install you Vim tools
+  .
+  .
+  .
+cd ~
+git clone https://github.com/jeffskinnerbox/.vim.git ~/.vim
+ln -s ~/.vim/vimrc ~/.vimrc
+ln -s ~/.vim/gvimrc ~/.gvimrc
+  .
+  .
+  .
+```
+
+# Using Cygwin
 [Cygwin/X User's Guide][06]
 [Automatically starting a cygwin X Window Server](http://www.trueblade.com/knowledge/automatically-starting-a-cygwin-x-server)
 
@@ -132,6 +166,34 @@ Again, my objectives are to keep things simple and clean, so I will be using th
 [Step by step instructions to install NodeJS on Windows](http://boxysystems.com/index.php/step-by-step-instructions-to-install-nodejs-on-windows/)
 
 # Installing TiddlyWiki
+I find myself with a multitude of ancillary information
+and I need a place to adequately organize and store it.
+May of the topic are interrelated and should be searchable and cross-linked.
+What I need is a [microblog][22] or a [personal wiki][21].
+There seems to be many of them but I have found [TiddlyWiki][23]
+offering the most inviting solution.
+I particularly like the fact that you can use it with just a browser
+(must be at least somewhat [HTML5 complatable][24], like [Chrome][25]).
+All you need is a browser and you maintain the wiki via a locally stored HTML file.
+The file is loaded with [JavaScript][26] to support the editing of the wiki.
+TiddlyWiki's fundamental units of information is the "[tiddler][27]",
+which is to capture a small, self contain thought, idea, or concept.
+
+The really strong features for me are that
+TiddlyWiki is amazingly easy to use, portable across multiple operating systems,
+and highly configurable.
+What pushed me over the top are the facts that I could also use,
+via [TiddlyWiki Plugins][29],
+Markdown to format the content
+(althought TiddlyWiki supports it own Markdown-like formating language which is more powerful)
+and I can edit using Vim via CodeMirror.
+The post "[TiddlyWiki, an open source Evernote with VIM and Markdown][28]"
+gives a good, quick discussion on this topic.
+
+TiddlyWiki can deliver it's web pages via a server using [Node.js][30].
+This provides the interactivity I want, and I can password protect its editing.
+In addition, individual tiddlers are stored in separate files,
+instead of a single HTML file, so you can organise them as you wish across multiple wiki.
 
 # Installing Vim Under Windows
 While you can use `vim` within the Cygwin environment,
@@ -194,4 +256,15 @@ ln -s ~/.vim/vimrc ~/.vimrc
 [18]:
 [19]:
 [20]:
+[21]:http://en.wikipedia.org/wiki/Personal_wiki
+[22]:http://en.wikipedia.org/wiki/Microblogging
+[23]:http://tiddlywiki.com/
+[24]:http://html5test.com/
+[25]:https://www.google.com/intl/en/chrome/browser/#brand=CHMB&utm_campaign=en&utm_source=en-ha-na-us-sk&utm_medium=ha
+[26]:http://www.w3schools.com/js/
+[27]:http://tiddlywiki.com/#Tiddlers
+[28]:http://blog.htmlfusion.com/tiddlywiki-evernote-with-vim-and-markdown/
+[29]:http://tiddlywiki.com/#Plugins
+[30]:http://nodejs.org/
+
 

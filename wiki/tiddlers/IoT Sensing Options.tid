@@ -1,5 +1,5 @@
 created: 20140927200307351
-modified: 20150613154221008
+modified: 20160623011051549
 title: IoT Sensing Options
 type: text/vnd.tiddlywiki
 
@@ -20,5 +20,6 @@ type: text/vnd.tiddlywiki
 * ''Proximity'' - Proximity sensing is used in applications that either measure the distance of a target object or simply detect its presence.
 * ''Temperature'' - Temperature sensing is the measure of thermal energy as calibrated to a variety of scales, such as Kelvin, Celsius, and Fahrenheit. Temperature sensing is crucial for system protection, calibration, and process controls in an endless list of applications.
 
-*[[TI Sensing Products|http://www.ti.com/lsds/ti/analog/sensors/overview.page]]
-*[[10 Sensors of Galaxy S5: Heart Rate, Finger Scanner and morer|http://global.samsungtomorrow.com/?p=36031#sthash.p0z3zpKB.dpuf]]
+* [[TI Sensing Products|http://www.ti.com/lsds/ti/analog/sensors/overview.page]]
+* [[Digi-Key Sensors, Transducers Products|http://www.digikey.com/en/resources/sensors/index?WT.v_sub=6678193&WT.mc_id=em_NPA1606B.US.Send&WT.z_email=7360_NPA1606BI0US_adlearnmore&mkt_tok=eyJpIjoiTnprMk9EVXpZVGhpTXprNCIsInQiOiJhUkFLUHN4QzJoTFZLNFduc0NTVVZtOUVITEVxd2dkbTlSekN1QkdPZjZwTkNpamg3dGhtSERzRW5sbHE5WnRRd0JpbHpQNUNQV3N2VFczbzdpRFdTTlBBdkJaVmI2NzJHN0g2UmV6U3h6WT0ifQ==]]
+* [[10 Sensors of Galaxy S5: Heart Rate, Finger Scanner and morer|http://global.samsungtomorrow.com/?p=36031#sthash.p0z3zpKB.dpuf]]
