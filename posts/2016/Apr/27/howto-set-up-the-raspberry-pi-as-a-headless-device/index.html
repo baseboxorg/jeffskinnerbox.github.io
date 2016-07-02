@@ -93,7 +93,17 @@ Jeff's Skinner Box&nbsp;            </a>
 
 &nbsp;&nbsp;&nbsp;
 <i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/how-to/">How To</a>
+        &nbsp;
     <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/raspberry-pi/">Raspberry Pi</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/wifi/">WiFi</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/linux/">Linux</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/public-key-authentication/">Public Key Authentication</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/security/">Security</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
@@ -213,7 +223,12 @@ outline in the next step.
 <a href="https://learn.adafruit.com/adafruits-raspberry-pi-lesson-5-using-a-console-cable/overview">Adafruit has good description on how to use a console cable</a>.</p>
 </blockquote>
 <h3>Step 3: Configure your WiFi</h3>
-<p>Unplug your SD Card reader and plug it back in
+<p>I have choosen to configure my WiFi router with WPA2 security because of superior security
+but even this can <a href="http://lifehacker.com/5873407/how-to-crack-a-wi-fi-networks-wpa-password-with-reaver">compromised if your not careful</a>
+(a key <a href="https://www.us-cert.gov/ncas/alerts/TA12-006A">vulnerability lies in the implementation of WiFi Protected Setup (WPS)</a>
+- turn it off, better yet don't have it on your router).</p>
+<p>To configure your WiFi,
+unplug your SD Card reader and plug it back in
 and this will mount the Raspbian image on your Linux box.
 The <code>df -h</code> command will show you the device being used, the mount point, and memory used/available.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>$ df -h
@@ -362,7 +377,7 @@ The multiple things can be configured within this configuration tool.
 We need to change the following:</p>
 <ul>
 <li><strong>Expand Filesystem</strong> - select this</li>
-<li><strong>Boot Options</strong> - select this and choose "B1 Console"</li>
+<li><strong>Boot Options</strong> - select this and choose "B2 Console" - You will <strong>not</strong> need a password to get console access. <em>Somewhat of a security risk but nice to have if you need to recover from major problem.</em></li>
 <li><strong>Advanced Options</strong> - select this and choose "A2 Hostname", enable "A4 SSH", enable "A5 Device Tree", enable "A6 SPI", enable "A7 IC2", enable "A8 Serial"</li>
 </ul>
 <p>Finally, select <code>&lt;Finish&gt;</code> and reboot so that the configuration changes are all applied.</p>
@@ -377,6 +392,9 @@ This will patch the Linux operating system and all its GPL applications</p>
 sudo apt-get update
 sudo apt-get dist-upgrade
 sudo apt-get upgrade
+
+<span style="color: #0099FF; font-style: italic"># clean up any packages nolonger needed</span>
+sudo apt-get autoremove
 
 <span style="color: #0099FF; font-style: italic"># if packages were installed, reboot</span>
 sudo reboot
@@ -444,7 +462,10 @@ this may require a <a href="https://github.com/Hexxeh/rpi-update">slightly diffe
 it could use some beefing up for most uses.
 For example, while the distribution is likely to already have some Python packages installed,
 execute the following to make sure you have all that is needed</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># first install Python packages</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># package management tools</span>
+sudo apt-get install software-properties-common
+
+<span style="color: #0099FF; font-style: italic"># first install Python packages</span>
 sudo apt-get install python python-dev libjpeg-dev libfreetype6-dev python-setuptools python-pip
 sudo pip install virtualenv virtualenvwrapper
 
@@ -458,15 +479,17 @@ sudo pip install RPi.GPIO pySerial nose cmd2
 
 <p>Install X Window utilities, development tools, and other applications</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># some X Window utilities</span>
-sudo apt-get install x11-apps x11-xserver-utils xterm
+sudo apt-get install x11-apps x11-xserver-utils xterm wmctrl
 
 <span style="color: #0099FF; font-style: italic"># development tools</span>
 sudo apt-get install markdown git vim vim-gtk microcom screen
 sudo apt-get install nodejs-legacy npm build-essential i2c-tools python-smbus
 sudo npm install -g jshint
 
-<span style="color: #0099FF; font-style: italic"># AWS IoT Device SDK to connect hardware device to AWS IoT</span>
-sudo npm install aws-iot-device-sdk
+<span style="color: #0099FF; font-style: italic"># LinSSID displays the information available from iwlist tool in graphical format</span>
+sudo add-apt-repository ppa:wseverin/ppa
+sudo apt-get update
+sudo apt-get install linssid
 
 <span style="color: #0099FF; font-style: italic"># so you can discover hosts via Multicast Domain Name System (mDNS)</span>
 sudo apt-get install avahi-daemon
@@ -532,12 +555,13 @@ ln -s ~/.vim/vimrc ~/.vimrc
 <span style="color: #0099FF; font-style: italic"># install tools for bash shell</span>
 <span style="color: #336666">cd</span> ~
 git clone https://github.com/jeffskinnerbox/.bash.git
+rm .bashrc .bash_logout
 ln -s ~/.bash/bashrc ~/.bashrc
 ln -s ~/.bash/bash_login ~/.bash_login
 ln -s ~/.bash/bash_logout ~/.bash_logout
 ln -s ~/.bash/bash_profile ~/.bash_profile
 ln -s ~/.bash/dircolors.old ~/.dircolors
-sudo cp virtualenvwrapper.sh virtualenvwrapper_lazy.sh /usr/local/bin
+sudo cp ~/.bash/virtualenvwrapper.sh ~/.bash/virtualenvwrapper_lazy.sh /usr/local/bin
 
 <span style="color: #0099FF; font-style: italic"># install X configuration files</span>
 <span style="color: #336666">cd</span> ~
@@ -550,7 +574,7 @@ ln -s ~/.X/xsessionrc ~/.xsessionrc
 
 <h3>Step 9: Password-less Login via SSH Keys</h3>
 <p><a href="http://www.openssh.com/">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="http://jeffskinnerbox.me/images/openssh-logo.png" width="97" height="95" />
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="http://jeffskinnerbox.me/images/openssh-logo.png" width="92" height="90" />
 </a>
 Public key authentication is an alternative means of
 identifying yourself to a login server, instead of typing a password.
@@ -592,7 +616,7 @@ You can see this via the command <code>ps -aux | grep X</code>.
 You need to reboot the RPi and then you will no long have X Window running.</p>
 <h3>Step 11: Running X Window Clients When You Want It</h3>
 <p><a href="http://www.xquartz.org/index.html">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" title="The XQuartz project is an open-source effort to develop a version of the X.Org X Window System that runs on OS X." alt="XQuartz Logo" src="http://jeffskinnerbox.me/images/xquartz-logo.jpg" width="90" height="90" />
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="The XQuartz project is an open-source effort to develop a version of the X.Org X Window System that runs on OS X." alt="XQuartz Logo" src="http://jeffskinnerbox.me/images/xquartz-logo.jpg" width="70" height="70" />
 </a>
 Despite the fact that you boot without X Windows starting,
 you can run <a href="http://www.tldp.org/HOWTO/XWindow-Overview-HOWTO/arch-overview.html">X Window clients</a> on the Raspberry Pi
@@ -647,8 +671,6 @@ iface wlan0 inet manual
 iface default inet static
     address 192.168.100.50
     netmask 255.255.255.0
-    network 192.168.100.0
-    broadcast 192.168.100.255
     gateway 192.168.100.1
 </pre></div>
 
@@ -668,7 +690,7 @@ to help an administrator who knows what he or she is doing.</p>
 <p><a href="http://www.fail2ban.org/wiki/index.php/Main_Page">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time." alt="fail2ban logo" src="http://jeffskinnerbox.me/images/fail2ban-logo.png" width="75" height="75" /></a>
 Recently I examined my desktop computer's <code>sshd</code> log file <code>/var/log/auth.log</code>
-(<a href="http://ossec-docs.readthedocs.org/en/latest/log_samples/auth/sshd.html">log samples from sshd</a>) looking for failed login attempts
+(<a href="http://ossec-docs.readthedocs.org/en/latest/log_samples/auth/sshd.html">log samples from sshd</a>) looking for failed login attempts.
 I saw a list of well over 100 attempts, from mainly one IP (125.88.177.90 - Guangdong, China),
 trying to login via SSH as root or bin user.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># attacks on just port 22</span>
@@ -699,6 +721,12 @@ This works if you have no plans to <code>ssh</code> into your device from the In
 effectively cuts out the attacks from the Internet.
 But of course, if your neighbors nerdy 13 year old wants to mess with your WiFi,
 you still could have some attacks.</p>
+<p>If your wondering how many times somebody has tried to log on,
+with or without SSH,the <code>last</code> command shows the number of successful attempts.
+The <code>lastb</code> command shows the number of unsuccessful attempts.</p>
+<p><strong>NOTE:</strong> The <code>last</code> and <code>lastb</code> commands write to the
+<code>/var/log/wtmp</code> and <code>/var/log/btmp</code> files, respectively.
+If you ever see these files zeroed out, you might have a problem.</p>
 <p>So its just a matter of time before the attack is on another port, or user account, or network interface,
 therefore using <a href="http://www.fail2ban.org/wiki/index.php/Main_Page">Fail2Ban</a> or something similar may be in order.
 <code>fail2ban</code> reads the <code>sshd</code> log entries (and other log files)
@@ -715,7 +743,7 @@ The use of public/private key authentication mechanisms
 (see <a href="http://jeffskinnerbox.me/posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/">"HowTo: Configure SSH Public Key Authentication"</a>)
 can provide the best protection overall.</p>
 <h3>Step 15: Basic Security</h3>
-<p>Beyond the basic security take in Step 14,
+<p>Beyond the SSH login security take in Step 14,
 you should minimize your exposure to other network security attacks
 and following some of the tips outlined in the postings
 <a href="https://www.hackster.io/charifmahmoudi/iot-security-tips-to-protect-your-device-from-bad-hackers-768093?utm_source=Hackster.io+newsletter&amp;utm_campaign=3e0b3a91f6-2015_4_17_Top_projects4_16_2015&amp;utm_medium=email&amp;utm_term=0_6ff81e3e5b-3e0b3a91f6-140225889">"IoT Security: Tips to Protect your Device from Bad Hackers"</a>
@@ -749,10 +777,15 @@ For how to make use of the watchdog and additional information, check out these 
 <p>There are a few reasons you might want to duplicate (clone/copy)
 your Raspberry Pi’s SD Card.
 One reason is to create a backup.
-An even better reason maybe is that you spent untold hours installing and configuring
+Another reason maybe is that you spent untold hours installing and configuring
 software on your Raspberry Pi,
 and you want to set up a second Raspberry Pi,
 but didn’t want to spend the time to duplicate the previous efforts.</p>
+<blockquote>
+<p><strong>Caution:</strong> If the two device have different firmware, you could have problems.
+Firmware is stored within the hardware and not transferable via the SD Card.
+Make sure all your devices are at the same firmware level or you could have unpredictable results.</p>
+</blockquote>
 <p>To clone your SD Card:</p>
 <ol>
 <li>Remove the original SD Card from Raspberry Pi and insert it into a card reader on your computer.</li>
@@ -786,9 +819,9 @@ sudo umount /dev/sde1
 
 
 <p>You should now be able to insert the cloned SD Card into a brand new Raspberry Pi and boot it up,
-without any problems.
-But obviously, there are some things you may want to change on a cloned Raspberry Pi.
-For example, you should change the cloned Raspberry Pi’s host name,
+but you will likely run into some problems.
+There are some things you want to change on the cloned Raspberry Pi SC Card.
+For one thing, you should change the cloned Raspberry Pi’s host name
 so it doesn’t conflict with the original Raspberry Pi on the network.
 This is easily done:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># modify the host name</span>
@@ -796,7 +829,19 @@ sudo vi /etc/hostname
 
 <span style="color: #0099FF; font-style: italic"># restart the advertised host name</span>
 sudo /etc/init.d/hostname.sh start
-</pre></div><script type= "text/javascript">
+</pre></div>
+
+
+<p>Another thing concerns the password-less login via SSH keys your might have established.
+The credentials on the cloned SC Card will not allow you to login
+and if you set <code>PasswordAuthentication</code> to "no" with the <code>/etc/ssh/sshd_config</code> file,
+then you can't use SSH to login via a password either.
+(see <a href="http://jeffskinnerbox.me/posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/">"HowTo: Configure SSH Public Key Authentication"</a>).
+You'll need to set this to "yes".</p>
+<p>You may also find that firmware could be an issue.
+Your cloned software may not be compatible with the firmware on the hardware
+(firmware is stored within the hardware and not transferable via the SD Card).
+This can cause mysterious problems (like WiFi adapter not working, just to name one).</p><script type= "text/javascript">
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
         var mathjaxscript = document.createElement('script');
         mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';

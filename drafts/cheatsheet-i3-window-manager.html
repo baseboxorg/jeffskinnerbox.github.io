@@ -99,16 +99,33 @@ Jeff's Skinner Box&nbsp;            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p><a href="https://i3wm.org/">
+                <p>excellent source of ideas - https://wiki.archlinux.org/index.php/i3#Save_and_restore_the_window_layout</p>
+<p>As well as configuring i3, you can also get extra software to help you. I3pystatus (https://github.com/enkore/i3pystatus) is a replacement for the status bar that’s extensible in Python. There’s also QuickSwitch (https://github.com/proxypoke/quickswitch-for-i3) which is a utility to help you find and control windows in i3.</p>
+<p><a href="https://i3wm.org/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="i3 is a tiling window manager designed for X11  and runs on all version of Linux. It supports tiling, stacking, and tabbing layouts, which it handles dynamically. Configuration is achieved via plain text file and extending i3 is possible using its Unix domain socket and JSON based IPC interface from many programming languages." alt="i3-logo" src="http://jeffskinnerbox.me/images/i3_window_manager_logo.png" width="100" height="100" />
 </a>
- The <a href="http://i3wm.org/">i3 tiling window manager</a> is a nice modern tiling window manager
- that is open source and very well documented.
- It supports tiling, stacking, tabs, virtual desktops, and multiple monitors.
- You can do almost everything from the keyboard, or mix up keyboard and mouse.
- i3 is highly configruable and not dogmatic about tiling geometry and lets you have it your way.</p>
-<p>## Installing i3
-Install i3, then log out,
+For quite some time I had started feeling all the panels,
+the system menus, the starters, the status applets, desktop background,
+drag-drop functionality, border decoration and animations
+which Desktop environments provide to be useless.
+These functionalities consumed a lot of resources, slowing down my system,
+and take up screen space.
+I could do away with all this functionality.
+I just needed a <a href="http://xwinman.org/intro.php">Window Manager</a> without all the <a href="http://askubuntu.com/questions/18078/what-is-the-difference-between-a-desktop-environment-and-a-window-manager">Window Desktop</a> crap.</p>
+<p>A <a href="http://adereth.github.io/blog/2013/10/02/why-you-should-try-a-tiling-window-manager/">Tiling Window Manager</a> can increase your efficiency by providing a lot of keyboard shortcuts.
+They make you less dependent on mouse.
+It is hard to get used to at first but you get used to it eventually.
+They are heavily customizable.
+To start with, you can provide your own keyboard shortcuts
+but essentially you can make your own environment.</p>
+<p>There are many tiling window managers available out there but I chose i3.
+The <a href="http://i3wm.org/">i3 tiling window manager</a> is a nice modern tiling window manager
+that is open source and very well documented.
+It supports tiling, stacking, tabs, virtual desktops, and multiple monitors.
+You can do almost everything from the keyboard, or mix up keyboard and mouse.
+i3 is highly configruable and not dogmatic about tiling geometry and lets you have it your way.</p>
+<h2>Installing i3</h2>
+<p>Install i3, then log out,
 and you log back in change your window manger as i3 from your display manager screen.
 Here is what you should install:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>sudo apt-get install i3 i3lock xautolock i3status feh wmctrl x11-utils
@@ -123,6 +140,9 @@ Then choose your mod (modifier) key, either the <code>Win</code>
 If you choose the <code>Alt</code> keep in mind that you could conflict
 with a lot of application keybindings and commands, so choose <code>Win</code> is a good option.
 On a Chromebook, there is no <code>Win</code> key, so you best bet is the <code>Alt</code>.</p>
+<h2>Where is i3 Executed?</h2>
+<p>Check out man startx - http://superuser.com/questions/659692/execute-script-after-the-window-manager-loads
+https://wiki.ubuntu.com/CustomXSession</p>
 <h2>Installing i3 Extentions</h2>
 <p>When i3 is installed,
 the background image is whatever has been set for your X11 root window.
@@ -138,13 +158,13 @@ by adding line like this anywhere in the file:</p>
 <li><code>--no-startup-id</code> disables the startup notification so you don't have an hourglass in your way for 60 seconds.</li>
 <li><code>--bg-scale</code> makes your image fill the screen, and does not preserve the aspect ratio.</li>
 </ul>
-<h2>Tools to Help Discover Key Names</h2>
+<h2>Tools to Help Discover Key Names and Window Properties</h2>
 <p>Keynames are not always consistent on keyboards,
-so you can find the correct keynames with the <code>xev</code> command
+so you can find the correct keynames with the <a href="https://www.x.org/releases/current/doc/man/man1/xev.1.xhtml"><code>xev</code></a> command
 (contained in the <code>x11-utils</code> package).
 Run <code>xev</code> with no options, and then press keys to see their names and keycodes.
-Here is an example when pushing and relasing the "q" key:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>jeff@desktop: ~ $ xev
+Here is an example when pushing and releasing the "q" key:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>$ xev
   .
   .
   .
@@ -163,6 +183,107 @@ KeyRelease event, serial 32, synthetic NO, window 0x1000001,
   .
   .
   .
+</pre></div>
+
+
+<p>The <a href="https://www.x.org/archive/X11R6.7.0/doc/xprop.1.html"><code>xprop</code></a> utility is for displaying window and font properties in an X server.
+Information is displayed once a window or
+font is selected using the command line arguments
+or possibly in the case of a window by clicking on the desired
+window.
+A list of properties is then given, possibly with formatting information.
+Here is an example when I selected a <code>gnome-terminal</code> window:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>$ xprop
+_NET_WM_DESKTOP(CARDINAL) = 0
+WM_STATE(WM_STATE):
+        window state: Normal
+        icon window: 0x0
+WM_HINTS(WM_HINTS):
+        Client accepts input or input focus: True
+        Initial state is Normal State.
+        bitmap id # to use for icon: 0x1a03a6c
+        bitmap id # of mask for icon: 0x1a03a72
+        window id # of group leader: 0x1a00001
+XdndAware(ATOM) = BITMAP
+_NET_WM_OPAQUE_REGION(CARDINAL) = 0, 0, 860, 570
+_NET_WM_ICON(CARDINAL) =    Icon (48 x 48):
+
+
+
+
+
+
+
+      ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+     ░                                            ░
+     ░                                            ░
+     ░                                            ░
+     ░   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ░
+     ░   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ░
+     ░   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ░
+     ░   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓   ░
+     ░   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓   ░
+     ░   ▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓   ░
+     ░   ▒▒▒▒░   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓   ░
+     ░   ▒▒▒▒░    ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▓   ░
+     ░   ▒▒▒▒▒▒    ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▒▓   ░
+     ░   ▒▒▒▒▒▒▒░   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▒▓   ░
+     ░   ▒▒▒▒▒▒▒▒    ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▒▓   ░
+     ░   ▒▒▒▒▒▒▒    ░▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▒▓   ░
+     ░   ▒▒▒▒▒▒    ▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▓   ░
+     ░   ▓▒▒▒░    ▒▓▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ░
+     ░   ▓▒▒▒░  ░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ░
+     ░   ▓▒▓▓▓▒░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ░
+     ░   ▓▓▓▓▓▓▓▓▓▓▓▓▓        ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ░
+     ░   ▓▓▓▓▓▓▓▓▓▓▓▓▓        ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ░
+     ▒   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ▒
+     ▒ ░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ ▒
+     ▒ ░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ ▒
+     ▒ ░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ ▒
+     ▒ ░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ ▒
+     ▒ ░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ ▒
+     ▒ ░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ ▒
+     ▒ ░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ ▒
+     ▒ ░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ ▒
+     ▒ ░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ ▒
+     ▒ ░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ ▒
+     ▒░░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░▒
+     ▒░░                                        ░░▒
+     ▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒
+     ▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒
+      ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+
+
+
+
+
+WM_WINDOW_ROLE(STRING) = &quot;gnome-terminal-window-24691-208556179-1465440612&quot;
+_NET_WM_WINDOW_TYPE(ATOM) = _NET_WM_WINDOW_TYPE_NORMAL
+_NET_WM_SYNC_REQUEST_COUNTER(CARDINAL) = 27277930, 27277931
+_NET_WM_USER_TIME(CARDINAL) = 221627122
+_NET_WM_USER_TIME_WINDOW(WINDOW): window id # 0x1a03a69
+WM_CLIENT_LEADER(WINDOW): window id # 0x1a00001
+_NET_WM_PID(CARDINAL) = 24691
+WM_LOCALE_NAME(STRING) = &quot;en_US.UTF-8&quot;
+WM_CLIENT_MACHINE(STRING) = &quot;desktop&quot;
+WM_NORMAL_HINTS(WM_SIZE_HINTS):
+        program specified minimum size: 34 by 35
+        program specified resize increment: 8 by 17
+        program specified base size: 2 by 2
+        window gravity: NorthWest
+WM_PROTOCOLS(ATOM): protocols  WM_DELETE_WINDOW, WM_TAKE_FOCUS, _NET_WM_PING, _NET_WM_SYNC_REQUEST
+WM_CLASS(STRING) = &quot;gnome-terminal&quot;, &quot;Gnome-terminal&quot;
+WM_ICON_NAME(STRING) = &quot;jeff@desktop - /home/jeff&quot;
+_NET_WM_ICON_NAME(UTF8_STRING) = &quot;jeff@desktop - /home/jeff&quot;
+WM_NAME(STRING) = &quot;jeff@desktop - /home/jeff&quot;
+_NET_WM_NAME(UTF8_STRING) = &quot;jeff@desktop - /home/jeff&quot;
+</pre></div>
+
+
+<p>Only a small amount if this information is relavent.
+To print just what is needed,
+use this script (applied to the example above):</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>$ xprop | grep -E <span style="color: #CC3300">&quot;WM_CLASS|WM_WINDOW_ROLE&quot;</span>
 </pre></div>
 
 
@@ -185,7 +306,7 @@ i3-msg <span style="color: #336666">exit</span>
 </pre></div>
 
 
-<h2>Customizing i3status Bar</h2>
+<h2>Customizing i3 Status Bar</h2>
 <p>i3’s default status bar, encode in the file <code>/etc/i3status.conf</code>,
 is displayed by a tool called <a href="http://i3wm.org/i3status/manpage.html">i3status</a>.
 Your customized status bar is located in <code>~/.i3status.conf</code>.</p>
@@ -251,7 +372,85 @@ and run any extra commands as determined by $HOSTNAME:</p>
 <p>http://i3wm.org/docs/layout-saving.html
 http://www.slackword.net/?p=733</p>
 <p>On a Chromebook
-For a proper Delete key, usei <code>bindsym $mod+BackSpace exec xdotool key Delete</code> in your i3 config</p>
+For a proper Delete key, use <code>bindsym $mod+BackSpace exec xdotool key Delete</code> in your i3 config file</p>
+<h2>Using Layout</h2>
+<p>The layout feature is surprisingly challenging to use.
+I3's concept of placeholder window which "swallows" apps means
+that if you want many times the same app like lxterminal or urxvt for a single workspace,
+then you have to differentiate them using --name something when you exec them in .i3/config.</p>
+<p>Layout saving/restoring allows you to load a JSON layout file
+so that you can have a base layout to start working with after powering on your computer.
+Dynamic use-cases also come to mind:
+if you frequently (but not always!)
+need a grid layout of terminals with ping/traceroute commands to diagnose network issues,
+you can easily automate opening these windows in just the right layout.</p>
+<h2>Pango Markup</h2>
+<p>https://developer.gnome.org/pygtk/stable/pango-markup-language.html</p>
+<p>Pango is the core text/font layout engine library used in GNOME applications.
+It has extensive support for the different writing systems used throughout the world.</p>
+<h2>Updates to Display Manager and Environment Variables</h2>
+<ul>
+<li>http://jeffskinnerbox.me/posts/2014/Dec/19/repurposing-a-vintage-laptop-to-create-a-x-terminal/</li>
+<li><a href="http://askubuntu.com/questions/150487/what-happens-under-the-covers-to-log-me-in-and-start-up-unity-or-another-graphic?r">What happens under the covers to log me in and start up Unity or another Graphical User Interface?</a></li>
+<li>https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html</li>
+<li>https://specifications.freedesktop.org/desktop-entry-spec/latest/ar01s05.html</li>
+<li>best - https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#exec-variables</li>
+</ul>
+<p><a href="http://unix.stackexchange.com/questions/20370/is-there-a-simple-linux-command-that-will-tell-me-what-my-display-manager-is">There is no simple linux command that will tell me what your Display manager is</a>,
+but Ubuntu does store it in the file <code>/etc/X11/default-display-manager</code>.
+In my case, its the cross-desktop display manager <a href="https://wiki.ubuntu.com/LightDM">LightDM</a> (<code>/usr/sbin/lightdm</code>).
+It is here that i3 is initiated.</p>
+<p>I need to modify things so that the Display Manager fires up i3 such that its logging messages.
+I have found very little <a href="https://www.maketecheasier.com/customize-the-gdm-sessions-list/">documentation on customizing the Display Manager</a>.</p>
+<p>Modify the <code>/usr/share/xsessions/i3.desktop</code> file
+so when the i3 Window Manager is fired up, it perfroms logging.</p>
+<p><strong>Encoding</strong> line is referring to the character encoding used in the file, and can safely be left at UTF-8 for nearly all purposes.
+<strong>Name</strong> is what will be displayed on GDM’s Sessions list, followed by a brief description in the <strong>Comment</strong> line.
+<strong>Exec</strong> specify the command to run when the menu item is clicked. It will accept command line arguments as well or can also be set to a custom script.
+<strong>Icon</strong> is used to specify the icon for an application, but it is not mandatory for the launchers in the session list.</p>
+<p>Convert <code>Exec=i3</code> to <code>Exec=i3 &gt; ~/.i3/i3-message.log 2&gt;&amp;1</code>.</p>
+<p>Since .desktop files have uses beyond just GDM, they include a Type field to specify what the file represents. It can be left at Application for these purposes.</p>
+<h2>Debuging i3 Release Version</h2>
+<ul>
+<li>http://i3wm.org/docs/debugging-release-version.html</li>
+<li>http://manpages.ubuntu.com/manpages/trusty/man1/i3.1.html</li>
+<li><a href="https://faq.i3wm.org/question/18/how-do-xsession-xinitrc-and-i3config-play-together.1.html">How do xsession, xinitrc and .i3/config play together?</a></li>
+</ul>
+<p>i3 logs useful warning and error messages to stdout.
+<code>i3-nagbar</code> will pop up when your get a sever error
+and give you an option to place information in a terminal window.
+This is clumsy, so to have a specific place where these message can be logged,
+you should redirect stdout and stderr where ever you start i3 (~/.xsession).</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># i3 message logging</span>
+<span style="color: #336666">exec</span> /usr/bin/i3 &gt; ~/.i3/i3log-<span style="color: #006699; font-weight: bold">$(</span>date +<span style="color: #CC3300">&#39;%F-%k-%M-%S&#39;</span><span style="color: #006699; font-weight: bold">)</span> 2&gt;&amp;1
+
+<span style="color: #0099FF; font-style: italic"># enable verbose output and all levels of debug output</span>
+<span style="color: #336666">exec</span> /usr/bin/i3 -V -d all &gt; ~/.i3/i3log-<span style="color: #006699; font-weight: bold">$(</span>date +<span style="color: #CC3300">&#39;%F-%k-%M-%S&#39;</span><span style="color: #006699; font-weight: bold">)</span> 2&gt;&amp;1
+</pre></div>
+
+
+<h2>Use of .Desktop</h2>
+<ul>
+<li>https://linuxcritic.wordpress.com/2010/04/07/anatomy-of-a-desktop-file/</li>
+<li>http://build.i3wm.org/docs/i3-dmenu-desktop.html</li>
+</ul>
+<h2>Corky</h2>
+<p>See your ~.X/xscreenrc file for how your got Corky to work properly
+add this</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #006699; font-weight: bold">if</span> <span style="color: #555555">[</span> <span style="color: #CC3300">&quot;</span><span style="color: #006699; font-weight: bold">$(</span>wmctrl -m | grep Name | awk <span style="color: #CC3300">&#39;{ print $2 }&#39;</span><span style="color: #006699; font-weight: bold">)</span><span style="color: #CC3300">&quot;</span> <span style="color: #555555">==</span> <span style="color: #CC3300">&quot;i3&quot;</span> <span style="color: #555555">]</span>; <span style="color: #006699; font-weight: bold">then</span>   <span style="color: #0099FF; font-style: italic"># check for type of window manager</span>
+    cp <span style="color: #003333">$HOME</span>/.conky/src/ubuntu-i3-conkyrc <span style="color: #003333">$HOME</span>/.conky/conkyrc
+</pre></div>
+
+
+<h2>Displaying Keyboard Layout</h2>
+<p>http://docs.slackware.com/howtos:window_managers:keyboard_layout_in_i3</p>
+<h1>Chromebook Key Bindings</h1>
+<p><a href="http://people.oregonstate.edu/~thomasky/?q=node/31">i3 window manager on a chromebook</a>
+Consider this:</p>
+<ul>
+<li>To switch from chroot to ChromeOS: Ctrl-Alt-Shift-Forward</li>
+<li>To switch from ChromeOS back to chroot: Ctrl-Alt-Forward then Ctrl-Alt-Refresh</li>
+</ul>
 <h2>Cheatsheets</h2>
 <p>http://i3wm.org/docs/refcard.pdf
 http://www.cheatography.com/davechild/cheat-sheets/i3-window-manager/</p>

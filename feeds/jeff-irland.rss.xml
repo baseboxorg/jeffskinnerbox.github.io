@@ -86,7 +86,7 @@ but here are some sources to get you knowledgeable:&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://www.garron.me/en/linux/iptables-manual.html"&gt;iptables: Small manual and tutorial with some examples and tips&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://help.ubuntu.com/community/IptablesHowTo"&gt;IptablesHowTo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Ubuntu has &lt;code&gt;iptables&lt;/code&gt; but also comes with [&lt;code&gt;ufw&lt;/code&gt;][45]
+&lt;p&gt;Ubuntu has &lt;code&gt;iptables&lt;/code&gt; but also comes with &lt;a href="https://wiki.ubuntu.com/UncomplicatedFirewall"&gt;&lt;code&gt;ufw&lt;/code&gt;&lt;/a&gt;
 and is considered the default firewall configuration tool for Ubuntu.
 There is also a graphical version [&lt;code&gt;gufw&lt;/code&gt;][46] can be installed with &lt;code&gt;sudo apt-get install gufw&lt;/code&gt;.
 Developed to ease &lt;code&gt;iptables&lt;/code&gt; firewall configuration,
@@ -286,6 +286,33 @@ tailf /var/log/auth.log | grep &lt;span style="color: #CC3300"&gt;&amp;#39;sshd.
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;To see the impact your rules are having,
+you can run the following command to list the number of packets being blocked:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# list number of packets and bytes being dropped by iptable rules&lt;/span&gt;
+sudo iptables -L -n -v
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In time, you may find some duplicate rules sneak into your &lt;code&gt;/etc/iptables/rules.v4&lt;/code&gt; file.
+You can find the duplicate rules via:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# list any rules that are duplicates&lt;/span&gt;
+sort /etc/iptables/rules.v4 | uniq --repeated
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will list all rows in the file that appear more than once.
+Knowing this, you can edit the file and delete the duplicate rules.&lt;/p&gt;
+&lt;p&gt;You may also be interested in where all your attacks are coming from.
+That is, you want to find out where a given IP address is physically located on earth.
+Sites like &lt;a href="https://geoiptool.com/"&gt;Geo IP Tool&lt;/a&gt; give you a web site to lookup this information.
+There are also command line tools that can be used, like &lt;a href="http://linux.die.net/man/1/geoiplookup"&gt;&lt;code&gt;geoiplookup&lt;/code&gt;&lt;/a&gt;
+and via &lt;code&gt;curl ipinfo.io/&amp;lt;ip-address&amp;gt;&lt;/code&gt; (both documented &lt;a href="http://xmodulo.com/geographic-location-ip-address-command-line.html"&gt;here&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Below is a script that creates a simple report from your rules file.&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# geo-locations of blocked ip addresses in json format&lt;/span&gt;
+sort /etc/iptables/rules.v4 | uniq | grep DROP | awk &lt;span style="color: #CC3300"&gt;&amp;#39;{ print $4 }&amp;#39;&lt;/span&gt; | sed &lt;span style="color: #CC3300"&gt;&amp;#39;s/\/[0-9]*//&amp;#39;&lt;/span&gt; | &lt;span style="color: #006699; font-weight: bold"&gt;while&lt;/span&gt; &lt;span style="color: #336666"&gt;read&lt;/span&gt; line; &lt;span style="color: #006699; font-weight: bold"&gt;do&lt;/span&gt; curl ipinfo.io/&lt;span style="color: #003333"&gt;$line&lt;/span&gt; 2&amp;gt;/dev/null ; &lt;span style="color: #006699; font-weight: bold"&gt;done&lt;/span&gt; | jq -c &lt;span style="color: #CC3300"&gt;&amp;#39;{ city: .city , region: .region , country: .country , ip: .ip }&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h1&gt;Sources&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://iot-projects.com/index.php?id=make-your-raspberry-pi-more-secure"&gt;Install and configure fail2ban&lt;/a&gt;&lt;/li&gt;
@@ -326,7 +353,7 @@ tailf /var/log/auth.log | grep &lt;span style="color: #CC3300"&gt;&amp;#39;sshd.
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Wed, 27 Apr 2016 21:27:00 -0400</pubDate><guid isPermaLink="false">tag:jeffskinnerbox.me,2016-04-27:posts/2016/Apr/27/howto-install-and-configure-fail2ban/</guid><category>Fail2Ban</category><category>Security</category></item><item><title>HowTo: Configure SSH Public Key Authentication</title><link>http://jeffskinnerbox.me/posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/</link><description>&lt;p&gt;&lt;a href="http://www.openssh.com/"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Wed, 27 Apr 2016 21:27:00 -0400</pubDate><guid isPermaLink="false">tag:jeffskinnerbox.me,2016-04-27:posts/2016/Apr/27/howto-install-and-configure-fail2ban/</guid><category>How To</category><category>Fail2Ban</category><category>Security</category></item><item><title>HowTo: Configure SSH Public Key Authentication</title><link>http://jeffskinnerbox.me/posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/</link><description>&lt;p&gt;&lt;a href="http://www.openssh.com/"&gt;
     &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="http://jeffskinnerbox.me/images/openssh-logo.png" width="194" height="191" /&gt;
 &lt;/a&gt;
 Using &lt;a href="http://docstore.mik.ua/orelly/networking_2ndEd/ssh/index.htm"&gt;Secure Shell (SSH)&lt;/a&gt; with
@@ -444,7 +471,7 @@ and configuring an authentication agent so that you won't have to
 re-enter your passphrase every time you use your keys.
 On Ubuntu, you'll need to enter only once after you have logged in.
 You'll be prompted with a screen like this:&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://help.ubuntu.com/community/SSH/OpenSSH/Keys"&gt;&lt;img alt="passphrase-screen" src="{filename}/image/private-key-passphrase.png" title="An SSH key passphrase is a secondary form of security that gives you a little time when your keys are stolen. If your RSA key has a strong passphrase, it might take your attacker a few hours to guess by brute force. That extra time should be enough to log in to any computers you have an account on, delete your old key from the .ssh/authorized_keys file, and add a new key." /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://help.ubuntu.com/community/SSH/OpenSSH/Keys"&gt;&lt;img alt="passphrase-screen" src="http://jeffskinnerbox.me/images/private-key-passphrase.png" title="An SSH key passphrase is a secondary form of security that gives you a little time when your keys are stolen. If your RSA key has a strong passphrase, it might take your attacker a few hours to guess by brute force. That extra time should be enough to log in to any computers you have an account on, delete your old key from the .ssh/authorized_keys file, and add a new key." /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;Step 3B: Changing Your Passphrase&lt;/h3&gt;
 &lt;p&gt;Sooner or later you'll want to change the passphrase on your private key.
 You can change the passphrase for an existing private keys without regenerating the key pair.
@@ -656,7 +683,7 @@ Here are some good references:&lt;/p&gt;
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Wed, 27 Apr 2016 21:24:00 -0400</pubDate><guid isPermaLink="false">tag:jeffskinnerbox.me,2016-04-27:posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/</guid><category>Public Key Authentication</category><category>Security</category></item><item><title>HowTo: Set-Up the Raspberry Pi as a Headless Device</title><link>http://jeffskinnerbox.me/posts/2016/Apr/27/howto-set-up-the-raspberry-pi-as-a-headless-device/</link><description>&lt;p&gt;&lt;a href="http://www.raspberrypi-spy.co.uk/2015/11/raspberry-pi-family-photo-by-raspi-tv/"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Wed, 27 Apr 2016 21:24:00 -0400</pubDate><guid isPermaLink="false">tag:jeffskinnerbox.me,2016-04-27:posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/</guid><category>How To</category><category>Public Key Authentication</category><category>Security</category></item><item><title>HowTo: Set-Up the Raspberry Pi as a Headless Device</title><link>http://jeffskinnerbox.me/posts/2016/Apr/27/howto-set-up-the-raspberry-pi-as-a-headless-device/</link><description>&lt;p&gt;&lt;a href="http://www.raspberrypi-spy.co.uk/2015/11/raspberry-pi-family-photo-by-raspi-tv/"&gt;
     &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="The Raspberry Pi is a series of credit card–sized single-board computers developed in England, United Kingdom by the Raspberry Pi Foundation with the intent to promote the teaching of basic computer science in schools and developing countries." alt="rpi family" src="http://jeffskinnerbox.me/images/raspberry-pi-family.jpg" width="175" height="117" /&gt;
 &lt;/a&gt;
 I have set up all my Raspberry Pi's as &lt;a href="http://internetofthingsagenda.techtarget.com/definition/headless-system"&gt;headless devices&lt;/a&gt;.
@@ -772,7 +799,12 @@ outline in the next step.
 &lt;a href="https://learn.adafruit.com/adafruits-raspberry-pi-lesson-5-using-a-console-cable/overview"&gt;Adafruit has good description on how to use a console cable&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3&gt;Step 3: Configure your WiFi&lt;/h3&gt;
-&lt;p&gt;Unplug your SD Card reader and plug it back in
+&lt;p&gt;I have choosen to configure my WiFi router with WPA2 security because of superior security
+but even this can &lt;a href="http://lifehacker.com/5873407/how-to-crack-a-wi-fi-networks-wpa-password-with-reaver"&gt;compromised if your not careful&lt;/a&gt;
+(a key &lt;a href="https://www.us-cert.gov/ncas/alerts/TA12-006A"&gt;vulnerability lies in the implementation of WiFi Protected Setup (WPS)&lt;/a&gt;
+- turn it off, better yet don't have it on your router).&lt;/p&gt;
+&lt;p&gt;To configure your WiFi,
+unplug your SD Card reader and plug it back in
 and this will mount the Raspbian image on your Linux box.
 The &lt;code&gt;df -h&lt;/code&gt; command will show you the device being used, the mount point, and memory used/available.&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;$ df -h
@@ -921,7 +953,7 @@ The multiple things can be configured within this configuration tool.
 We need to change the following:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Expand Filesystem&lt;/strong&gt; - select this&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Boot Options&lt;/strong&gt; - select this and choose "B1 Console"&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Boot Options&lt;/strong&gt; - select this and choose "B2 Console" - You will &lt;strong&gt;not&lt;/strong&gt; need a password to get console access. &lt;em&gt;Somewhat of a security risk but nice to have if you need to recover from major problem.&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Advanced Options&lt;/strong&gt; - select this and choose "A2 Hostname", enable "A4 SSH", enable "A5 Device Tree", enable "A6 SPI", enable "A7 IC2", enable "A8 Serial"&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Finally, select &lt;code&gt;&amp;lt;Finish&amp;gt;&lt;/code&gt; and reboot so that the configuration changes are all applied.&lt;/p&gt;
@@ -936,6 +968,9 @@ This will patch the Linux operating system and all its GPL applications&lt;/p&gt
 sudo apt-get update
 sudo apt-get dist-upgrade
 sudo apt-get upgrade
+
+&lt;span style="color: #0099FF; font-style: italic"&gt;# clean up any packages nolonger needed&lt;/span&gt;
+sudo apt-get autoremove
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# if packages were installed, reboot&lt;/span&gt;
 sudo reboot
@@ -1003,7 +1038,10 @@ this may require a &lt;a href="https://github.com/Hexxeh/rpi-update"&gt;slightly
 it could use some beefing up for most uses.
 For example, while the distribution is likely to already have some Python packages installed,
 execute the following to make sure you have all that is needed&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# first install Python packages&lt;/span&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# package management tools&lt;/span&gt;
+sudo apt-get install software-properties-common
+
+&lt;span style="color: #0099FF; font-style: italic"&gt;# first install Python packages&lt;/span&gt;
 sudo apt-get install python python-dev libjpeg-dev libfreetype6-dev python-setuptools python-pip
 sudo pip install virtualenv virtualenvwrapper
 
@@ -1017,15 +1055,17 @@ sudo pip install RPi.GPIO pySerial nose cmd2
 
 &lt;p&gt;Install X Window utilities, development tools, and other applications&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# some X Window utilities&lt;/span&gt;
-sudo apt-get install x11-apps x11-xserver-utils xterm
+sudo apt-get install x11-apps x11-xserver-utils xterm wmctrl
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# development tools&lt;/span&gt;
 sudo apt-get install markdown git vim vim-gtk microcom screen
 sudo apt-get install nodejs-legacy npm build-essential i2c-tools python-smbus
 sudo npm install -g jshint
 
-&lt;span style="color: #0099FF; font-style: italic"&gt;# AWS IoT Device SDK to connect hardware device to AWS IoT&lt;/span&gt;
-sudo npm install aws-iot-device-sdk
+&lt;span style="color: #0099FF; font-style: italic"&gt;# LinSSID displays the information available from iwlist tool in graphical format&lt;/span&gt;
+sudo add-apt-repository ppa:wseverin/ppa
+sudo apt-get update
+sudo apt-get install linssid
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# so you can discover hosts via Multicast Domain Name System (mDNS)&lt;/span&gt;
 sudo apt-get install avahi-daemon
@@ -1091,12 +1131,13 @@ ln -s ~/.vim/vimrc ~/.vimrc
 &lt;span style="color: #0099FF; font-style: italic"&gt;# install tools for bash shell&lt;/span&gt;
 &lt;span style="color: #336666"&gt;cd&lt;/span&gt; ~
 git clone https://github.com/jeffskinnerbox/.bash.git
+rm .bashrc .bash_logout
 ln -s ~/.bash/bashrc ~/.bashrc
 ln -s ~/.bash/bash_login ~/.bash_login
 ln -s ~/.bash/bash_logout ~/.bash_logout
 ln -s ~/.bash/bash_profile ~/.bash_profile
 ln -s ~/.bash/dircolors.old ~/.dircolors
-sudo cp virtualenvwrapper.sh virtualenvwrapper_lazy.sh /usr/local/bin
+sudo cp ~/.bash/virtualenvwrapper.sh ~/.bash/virtualenvwrapper_lazy.sh /usr/local/bin
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# install X configuration files&lt;/span&gt;
 &lt;span style="color: #336666"&gt;cd&lt;/span&gt; ~
@@ -1109,7 +1150,7 @@ ln -s ~/.X/xsessionrc ~/.xsessionrc
 
 &lt;h3&gt;Step 9: Password-less Login via SSH Keys&lt;/h3&gt;
 &lt;p&gt;&lt;a href="http://www.openssh.com/"&gt;
-    &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="http://jeffskinnerbox.me/images/openssh-logo.png" width="97" height="95" /&gt;
+    &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="http://jeffskinnerbox.me/images/openssh-logo.png" width="92" height="90" /&gt;
 &lt;/a&gt;
 Public key authentication is an alternative means of
 identifying yourself to a login server, instead of typing a password.
@@ -1151,7 +1192,7 @@ You can see this via the command &lt;code&gt;ps -aux | grep X&lt;/code&gt;.
 You need to reboot the RPi and then you will no long have X Window running.&lt;/p&gt;
 &lt;h3&gt;Step 11: Running X Window Clients When You Want It&lt;/h3&gt;
 &lt;p&gt;&lt;a href="http://www.xquartz.org/index.html"&gt;
-    &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="The XQuartz project is an open-source effort to develop a version of the X.Org X Window System that runs on OS X." alt="XQuartz Logo" src="http://jeffskinnerbox.me/images/xquartz-logo.jpg" width="90" height="90" /&gt;
+    &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="The XQuartz project is an open-source effort to develop a version of the X.Org X Window System that runs on OS X." alt="XQuartz Logo" src="http://jeffskinnerbox.me/images/xquartz-logo.jpg" width="70" height="70" /&gt;
 &lt;/a&gt;
 Despite the fact that you boot without X Windows starting,
 you can run &lt;a href="http://www.tldp.org/HOWTO/XWindow-Overview-HOWTO/arch-overview.html"&gt;X Window clients&lt;/a&gt; on the Raspberry Pi
@@ -1206,8 +1247,6 @@ iface wlan0 inet manual
 iface default inet static
     address 192.168.100.50
     netmask 255.255.255.0
-    network 192.168.100.0
-    broadcast 192.168.100.255
     gateway 192.168.100.1
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1227,7 +1266,7 @@ to help an administrator who knows what he or she is doing.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.fail2ban.org/wiki/index.php/Main_Page"&gt;
     &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time." alt="fail2ban logo" src="http://jeffskinnerbox.me/images/fail2ban-logo.png" width="75" height="75" /&gt;&lt;/a&gt;
 Recently I examined my desktop computer's &lt;code&gt;sshd&lt;/code&gt; log file &lt;code&gt;/var/log/auth.log&lt;/code&gt;
-(&lt;a href="http://ossec-docs.readthedocs.org/en/latest/log_samples/auth/sshd.html"&gt;log samples from sshd&lt;/a&gt;) looking for failed login attempts
+(&lt;a href="http://ossec-docs.readthedocs.org/en/latest/log_samples/auth/sshd.html"&gt;log samples from sshd&lt;/a&gt;) looking for failed login attempts.
 I saw a list of well over 100 attempts, from mainly one IP (125.88.177.90 - Guangdong, China),
 trying to login via SSH as root or bin user.&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# attacks on just port 22&lt;/span&gt;
@@ -1258,6 +1297,12 @@ This works if you have no plans to &lt;code&gt;ssh&lt;/code&gt; into your device
 effectively cuts out the attacks from the Internet.
 But of course, if your neighbors nerdy 13 year old wants to mess with your WiFi,
 you still could have some attacks.&lt;/p&gt;
+&lt;p&gt;If your wondering how many times somebody has tried to log on,
+with or without SSH,the &lt;code&gt;last&lt;/code&gt; command shows the number of successful attempts.
+The &lt;code&gt;lastb&lt;/code&gt; command shows the number of unsuccessful attempts.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; The &lt;code&gt;last&lt;/code&gt; and &lt;code&gt;lastb&lt;/code&gt; commands write to the
+&lt;code&gt;/var/log/wtmp&lt;/code&gt; and &lt;code&gt;/var/log/btmp&lt;/code&gt; files, respectively.
+If you ever see these files zeroed out, you might have a problem.&lt;/p&gt;
 &lt;p&gt;So its just a matter of time before the attack is on another port, or user account, or network interface,
 therefore using &lt;a href="http://www.fail2ban.org/wiki/index.php/Main_Page"&gt;Fail2Ban&lt;/a&gt; or something similar may be in order.
 &lt;code&gt;fail2ban&lt;/code&gt; reads the &lt;code&gt;sshd&lt;/code&gt; log entries (and other log files)
@@ -1274,7 +1319,7 @@ The use of public/private key authentication mechanisms
 (see &lt;a href="http://jeffskinnerbox.me/posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/"&gt;"HowTo: Configure SSH Public Key Authentication"&lt;/a&gt;)
 can provide the best protection overall.&lt;/p&gt;
 &lt;h3&gt;Step 15: Basic Security&lt;/h3&gt;
-&lt;p&gt;Beyond the basic security take in Step 14,
+&lt;p&gt;Beyond the SSH login security take in Step 14,
 you should minimize your exposure to other network security attacks
 and following some of the tips outlined in the postings
 &lt;a href="https://www.hackster.io/charifmahmoudi/iot-security-tips-to-protect-your-device-from-bad-hackers-768093?utm_source=Hackster.io+newsletter&amp;amp;utm_campaign=3e0b3a91f6-2015_4_17_Top_projects4_16_2015&amp;amp;utm_medium=email&amp;amp;utm_term=0_6ff81e3e5b-3e0b3a91f6-140225889"&gt;"IoT Security: Tips to Protect your Device from Bad Hackers"&lt;/a&gt;
@@ -1308,10 +1353,15 @@ For how to make use of the watchdog and additional information, check out these 
 &lt;p&gt;There are a few reasons you might want to duplicate (clone/copy)
 your Raspberry Pi’s SD Card.
 One reason is to create a backup.
-An even better reason maybe is that you spent untold hours installing and configuring
+Another reason maybe is that you spent untold hours installing and configuring
 software on your Raspberry Pi,
 and you want to set up a second Raspberry Pi,
 but didn’t want to spend the time to duplicate the previous efforts.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Caution:&lt;/strong&gt; If the two device have different firmware, you could have problems.
+Firmware is stored within the hardware and not transferable via the SD Card.
+Make sure all your devices are at the same firmware level or you could have unpredictable results.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;To clone your SD Card:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Remove the original SD Card from Raspberry Pi and insert it into a card reader on your computer.&lt;/li&gt;
@@ -1345,9 +1395,9 @@ sudo umount /dev/sde1
 
 
 &lt;p&gt;You should now be able to insert the cloned SD Card into a brand new Raspberry Pi and boot it up,
-without any problems.
-But obviously, there are some things you may want to change on a cloned Raspberry Pi.
-For example, you should change the cloned Raspberry Pi’s host name,
+but you will likely run into some problems.
+There are some things you want to change on the cloned Raspberry Pi SC Card.
+For one thing, you should change the cloned Raspberry Pi’s host name
 so it doesn’t conflict with the original Raspberry Pi on the network.
 This is easily done:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# modify the host name&lt;/span&gt;
@@ -1355,7 +1405,19 @@ sudo vi /etc/hostname
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# restart the advertised host name&lt;/span&gt;
 sudo /etc/init.d/hostname.sh start
-&lt;/pre&gt;&lt;/div&gt;&lt;script type= "text/javascript"&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Another thing concerns the password-less login via SSH keys your might have established.
+The credentials on the cloned SC Card will not allow you to login
+and if you set &lt;code&gt;PasswordAuthentication&lt;/code&gt; to "no" with the &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt; file,
+then you can't use SSH to login via a password either.
+(see &lt;a href="http://jeffskinnerbox.me/posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/"&gt;"HowTo: Configure SSH Public Key Authentication"&lt;/a&gt;).
+You'll need to set this to "yes".&lt;/p&gt;
+&lt;p&gt;You may also find that firmware could be an issue.
+Your cloned software may not be compatible with the firmware on the hardware
+(firmware is stored within the hardware and not transferable via the SD Card).
+This can cause mysterious problems (like WiFi adapter not working, just to name one).&lt;/p&gt;&lt;script type= "text/javascript"&gt;
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
         var mathjaxscript = document.createElement('script');
         mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -1385,7 +1447,7 @@ sudo /etc/init.d/hostname.sh start
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Wed, 27 Apr 2016 21:23:00 -0400</pubDate><guid isPermaLink="false">tag:jeffskinnerbox.me,2016-04-27:posts/2016/Apr/27/howto-set-up-the-raspberry-pi-as-a-headless-device/</guid><category>Raspberry Pi</category></item><item><title>My Exploration of Hard Cider Brewing</title><link>http://jeffskinnerbox.me/posts/2016/Apr/13/my-exploration-of-hard-cider-brewing/</link><description>&lt;p&gt;&lt;a href="http://www.hardciderproject.com/"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Wed, 27 Apr 2016 21:23:00 -0400</pubDate><guid isPermaLink="false">tag:jeffskinnerbox.me,2016-04-27:posts/2016/Apr/27/howto-set-up-the-raspberry-pi-as-a-headless-device/</guid><category>How To</category><category>Raspberry Pi</category><category>WiFi</category><category>Linux</category><category>Public Key Authentication</category><category>Security</category></item><item><title>My Exploration of Hard Cider Brewing</title><link>http://jeffskinnerbox.me/posts/2016/Apr/13/my-exploration-of-hard-cider-brewing/</link><description>&lt;p&gt;&lt;a href="http://www.hardciderproject.com/"&gt;
     &lt;img class="img-rounded" style="image-orientation: 90deg; margin: 0px 8px; float: left" title="My one gallon fermenter and airlock brewing my very first batch of hard cider." alt="hard cider" src="http://jeffskinnerbox.me/images/hard-cider-fermenter.jpg" width=20% height=20% /&gt;
 &lt;/a&gt;
 Hard apple cider is the kindest of the do-it-yourself homemade alcoholic beverages.
@@ -1662,7 +1724,7 @@ The latest version of Apple OS X no longer ships with X11.app, i.e. XQuartz serv
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Fri, 29 Jan 2016 19:55:00 -0500</pubDate><guid isPermaLink="false">tag:jeffskinnerbox.me,2016-01-29:posts/2016/Jan/29/howto-connecting-to-remote-x11-host-from-a-mac/</guid><category>How To</category><category>Mac</category><category>MacVim</category><category>XQuartz</category><category>X Window System</category></item><item><title>Two-Factor Authentication via Google Authenticator</title><link>http://jeffskinnerbox.me/posts/2015/Nov/28/two-factor-authentication-via-google-authenticator/</link><description>&lt;h1&gt;Two-Factor Authentication&lt;/h1&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Fri, 29 Jan 2016 19:55:00 -0500</pubDate><guid isPermaLink="false">tag:jeffskinnerbox.me,2016-01-29:posts/2016/Jan/29/howto-connecting-to-remote-x11-host-from-a-mac/</guid><category>How To</category><category>Mac</category><category>Vim</category><category>MacVim</category><category>XQuartz</category><category>X Window System</category></item><item><title>Two-Factor Authentication via Google Authenticator</title><link>http://jeffskinnerbox.me/posts/2015/Nov/28/two-factor-authentication-via-google-authenticator/</link><description>&lt;h1&gt;Two-Factor Authentication&lt;/h1&gt;
 &lt;p&gt;&lt;div style="float: left"&gt;
     &lt;a href="http://security.stackexchange.com/questions/41939/two-step-vs-two-factor-authentication-is-there-a-difference"&gt;
         &lt;img class="img-rounded" style="margin: 0px 8px; width: 247px; height: 111px" title="Strictly speaking, Google Authenticator is a Two STEP Authentication methodology. Never the less, it is close too it.  This implementation pragmatically require the phone, the 2nd factor." alt="2FA-Picture" src="http://jeffskinnerbox.me/images/two-factor-authentication.png" /&gt;
@@ -3769,7 +3831,7 @@ shutdown -rF now
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Mon, 31 Mar 2014 21:23:00 -0400</pubDate><guid isPermaLink="false">tag:jeffskinnerbox.me,2014-03-31:posts/2014/Mar/31/howto-linux-maintenance-and-filesystem-hygiene/</guid><category>How To</category><category>Linux</category><category>Raspberry Pi</category><category>Filesystem</category></item><item><title>Network Backups via Rsync and Rsnapshot</title><link>http://jeffskinnerbox.me/posts/2014/Feb/08/network-backups-via-rsync-and-rsnapshot/</link><description>&lt;h2&gt;Rsync and Rsnapshot&lt;/h2&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Mon, 31 Mar 2014 21:23:00 -0400</pubDate><guid isPermaLink="false">tag:jeffskinnerbox.me,2014-03-31:posts/2014/Mar/31/howto-linux-maintenance-and-filesystem-hygiene/</guid><category>How To</category><category>Linux</category><category>Raspberry Pi</category><category>Filesystem</category><category>Hygiene</category></item><item><title>Network Backups via Rsync and Rsnapshot</title><link>http://jeffskinnerbox.me/posts/2014/Feb/08/network-backups-via-rsync-and-rsnapshot/</link><description>&lt;h2&gt;Rsync and Rsnapshot&lt;/h2&gt;
 &lt;p&gt;&lt;a href="http://thewirecutter.com/reviews/the-best-external-desktop-hard-drive/"&gt;
 &lt;img class="img-rounded floatLeft" style="margin: 0px 8px; float: left" title="Seagate Backup Plus" alt="{{ site.author.name }}" src="/images/seagate-backup-plus-4-tb.jpg" width="30%" height="30%" /&gt;&lt;/a&gt;
 I got a 4 Terabyte &lt;a href="http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/"&gt;Seagate Backup Plus&lt;/a&gt; hard drive as a Christmas present and
@@ -4728,7 +4790,7 @@ Crontab ( &lt;strong&gt;cron&lt;/strong&gt; &lt;strong&gt;tab&lt;/strong&gt;le )
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Sat, 08 Feb 2014 00:01:00 -0500</pubDate><guid isPermaLink="false">tag:jeffskinnerbox.me,2014-02-08:posts/2014/Feb/08/network-backups-via-rsync-and-rsnapshot/</guid><category>Linux</category><category>Rsync</category><category>Rsnapshot</category></item><item><title>Having Fun with Wine, VirtualBox, and TurboTax</title><link>http://jeffskinnerbox.me/posts/2014/Jan/15/having-fun-with-wine-virtualbox-and-turbotax/</link><description>&lt;p&gt;Sometime ago, I committed myself to Linux and &lt;a href="http://www.winehq.org/"&gt;Wine&lt;/a&gt;,
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Sat, 08 Feb 2014 00:01:00 -0500</pubDate><guid isPermaLink="false">tag:jeffskinnerbox.me,2014-02-08:posts/2014/Feb/08/network-backups-via-rsync-and-rsnapshot/</guid><category>Linux</category><category>Rsync</category><category>Rsnapshot</category><category>Backup</category><category>Cygwin</category></item><item><title>Having Fun with Wine, VirtualBox, and TurboTax</title><link>http://jeffskinnerbox.me/posts/2014/Jan/15/having-fun-with-wine-virtualbox-and-turbotax/</link><description>&lt;p&gt;Sometime ago, I committed myself to Linux and &lt;a href="http://www.winehq.org/"&gt;Wine&lt;/a&gt;,
 with the promise that I would sincerely abandon Microsoft Windows by
 not &lt;a href="http://en.wikipedia.org/wiki/Multi-booting"&gt;dual booting&lt;/a&gt; my system nor installing any &lt;a href="http://en.wikipedia.org/wiki/Virtualization"&gt;virtualization&lt;/a&gt; software.
 Well, it is now tax-time and the Federial goverment wants their "fair share" of my income.
@@ -6606,6 +6668,7 @@ ATFR            &lt;span style="color: #0099FF; font-style: italic"&gt;# (XBee c
 &lt;p&gt;The Python program on the RPi is also very simple, except for one point.  Linux I/O reads will &lt;a href="http://www.linux-mag.com/id/308/"&gt;block &lt;/a&gt;if there are no characters to read.  You must "turn-off" blocking.  The program is called &lt;code&gt;XBeeModem.py&lt;/code&gt; and is listed blow:&lt;/p&gt;
 &lt;p&gt;&lt;script src="https://gist.github.com/jeffskinnerbox/6663336.js"&gt;&lt;/script&gt;&lt;/p&gt;
 
+&lt;p&gt;The above script imports &lt;code&gt;pretty.py&lt;/code&gt; which you can find here - &lt;a href="https://gist.github.com/jeffskinnerbox/6663095"&gt;&lt;code&gt;https://gist.github.com/jeffskinnerbox/6663095&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;Closing&lt;/h2&gt;
 
 &lt;p&gt;It doesn't get much simpler than this. With a little work, you might make something useful out of this technique but its very limited in the types of problems that it could handle. Never the less, it was a good diversion for me to clear my mind. Now back to the XBee's core capabilites, the 802.15.4 protocol, and the other minutia!&lt;/p&gt;&lt;script type= "text/javascript"&gt;
@@ -6650,7 +6713,7 @@ Along with the XBee radios, I purchased adapter boards designed to make it easie
 &lt;p&gt;&lt;center&gt;
 &lt;a href="http://jeffskinnerbox.files.wordpress.com/2012/10/xbee-pinout.jpg"&gt;
     &lt;img class="size-full wp-image-418" title="Xbee Pin Out" alt="XBee Pinout" src="/images/xbee-pinout.jpg" width="545" height="333" /&gt;
-&lt;/a&gt; 
+&lt;/a&gt;
 &lt;/center&gt;
 &lt;ol&gt;
 &lt;ol&gt;
@@ -6668,7 +6731,7 @@ Along with the XBee radios, I purchased adapter boards designed to make it easie
 &lt;/ol&gt;
 &lt;a href="http://www.ladyada.net/make/xbee/configure.html"&gt;
     &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="Xbee Adaptor connected with USB FTDI TTL-232 Cable" alt="XBee Adaptor" src="/images/xbee_ftdi_powered.jpg" width="20%" height="10%" /&gt;
-&lt;/a&gt; 
+&lt;/a&gt;
 The DTR, RTS, RST and RX pins (going &lt;em&gt;into&lt;/em&gt; the XBee) pass through a level converter chip that brings the levels to 3.3V. Adafruit claims you can use pretty much anywhere between 2.7 to 5.5V data to communicate with the XBee. The breakout pins on the bottom of the board are not level shifted and you should try to keep data going directly into the XBee pin under 3.3V&lt;/p&gt;
 &lt;h2&gt;XBee Initial Configuration and Testing&lt;/h2&gt;
 
@@ -7865,7 +7928,7 @@ Much of what is provided here was lifted from the following sources:
     &lt;li&gt;&lt;a href="http://unicorn.mcmaster.ca/teaching/cygwin/cygwin-x-user_guide.pdf"&gt;Cygwin/X User’s Guide&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="https://secweb.cs.odu.edu/~zeil/cs252/website/Lectures/xwinlaunch/page/xwinlaunch.html"&gt;The X Window System&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/ul&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Thu, 04 Oct 2012 00:01:00 -0400</pubDate><guid isPermaLink="false">tag:jeffskinnerbox.me,2012-10-04:posts/2012/Oct/04/establishing-an-x-window-system-environment-for-my-pc-and-raspberry-pi/</guid><category>Raspberry Pi</category><category>Linux</category><category>X Window System</category><category>Window Manager</category></item><item><title>Setting up Git for Arduino and Raspberry Pi Development</title><link>http://jeffskinnerbox.me/posts/2012/Sep/28/setting-up-git-for-arduino-and-raspberry-pi%20development/</link><description>&lt;p&gt;For my future projects, I plan to do a combination of Arduino and RPi development.  The development of the Arduino code will be on my MS Windows PC and the RPi solution will be developed naively within the RPi Linux environment   Given this distributed environment (and my ability to bungle things), I can foresee  potential problems maintain good source code control.  To deal with this, the combination of &lt;a href="http://git-scm.com/"&gt;git&lt;/a&gt; and &lt;a href="https://github.com/"&gt;gethub&lt;/a&gt; seems the right way to proceed .... after all it has worked for the distributed &lt;a href="http://git-scm.com/book/en/Getting-Started-A-Short-History-of-Git"&gt;Linux development community&lt;/a&gt;.
+&lt;/ul&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Thu, 04 Oct 2012 00:01:00 -0400</pubDate><guid isPermaLink="false">tag:jeffskinnerbox.me,2012-10-04:posts/2012/Oct/04/establishing-an-x-window-system-environment-for-my-pc-and-raspberry-pi/</guid><category>Raspberry Pi</category><category>Linux</category><category>X Window System</category><category>Window Manager</category><category>Cygwin</category></item><item><title>Setting up Git for Arduino and Raspberry Pi Development</title><link>http://jeffskinnerbox.me/posts/2012/Sep/28/setting-up-git-for-arduino-and-raspberry-pi%20development/</link><description>&lt;p&gt;For my future projects, I plan to do a combination of Arduino and RPi development.  The development of the Arduino code will be on my MS Windows PC and the RPi solution will be developed naively within the RPi Linux environment   Given this distributed environment (and my ability to bungle things), I can foresee  potential problems maintain good source code control.  To deal with this, the combination of &lt;a href="http://git-scm.com/"&gt;git&lt;/a&gt; and &lt;a href="https://github.com/"&gt;gethub&lt;/a&gt; seems the right way to proceed .... after all it has worked for the distributed &lt;a href="http://git-scm.com/book/en/Getting-Started-A-Short-History-of-Git"&gt;Linux development community&lt;/a&gt;.
 &lt;h2&gt;Git on MS Windows&lt;/h2&gt;
 The first thing I did was to set up git within my MS Windows PC.  Given that &lt;a href="http://jeffskinnerbox.wordpress.com/2012/09/09/raspberry-pi-has-arrived/"&gt;I installed Cygwin&lt;/a&gt; when setting up the RPi, that is where I returned to install git.  Therefore, I plan to use git within the Cygwin environment on my PC and not within MS Windows per say.  &lt;a href="http://git-scm.com/downloads"&gt;This could be done&lt;/a&gt;, but my approach allows me to learn git commands once since, Cygwin is a Linux-like environment, everything should look and operate the same.&lt;/p&gt;
 &lt;p&gt;To accomplish this I follow the instructions outline in &lt;a href="http://www.celinio.net/techblog/?p=818"&gt;Installing Git on Cygwin&lt;/a&gt;.  These instructions are very straight forward.  The challenge was in initializing git for my first project, at least it was a challenge for me since git is new tool for me and Cygwin didn't always cooperate.  I had to address this the old fashion way .... read the documentation and trouble logs (vs. doing a web search for someones web post with instructions).  All the important secrets of git can be found widely dispersed and buried deep withing these web sites: &lt;a href="http://git-scm.com/documentation"&gt;Git Documentation&lt;/a&gt; and &lt;a href="http://gitref.org/index.html"&gt;Git Reference&lt;/a&gt;.  Source information from trouble logs will be listed below.&lt;/p&gt;
@@ -7938,7 +8001,7 @@ Admittedly, getting git setup under MS Windows / Cygwin isn't a walk in the park
 &lt;p&gt;Git under the Raspberry Pi's Linux installs flawlessly, as you would expect, given git origins.  First you  install git via &lt;code&gt;sudo apt-get install git&lt;/code&gt;.  Then, just as was done above, do the initialization of the git environment, configure some parameters,  add the files, setup the github, clone, and push.&lt;/p&gt;
 &lt;p&gt;In my case, I setup a separate  a github repository called &lt;code&gt;&lt;a href="https://github.com/jeffskinnerbox/RPI-Configuration-Files"&gt;RPI-Configuration-Files&lt;/a&gt;&lt;/code&gt; to store my RPi configuration files.  I could have used the same repository as was setup for the PC environment but that didn't make sense for my present needs.
 &lt;h2&gt;Conclusion&lt;/h2&gt;
-So that's it!  Its a long post for what is really a simple to use tool, but setting it up the first time could be a challenge.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Fri, 28 Sep 2012 00:01:00 -0400</pubDate><guid isPermaLink="false">tag:jeffskinnerbox.me,2012-09-28:posts/2012/Sep/28/setting-up-git-for-arduino-and-raspberry-pi development/</guid><category>Arduino</category><category>Raspberry Pi</category><category>Git</category><category>GitHub</category></item><item><title>Installing Packages into the Raspberry Pi's Linux</title><link>http://jeffskinnerbox.me/posts/2012/Sep/25/installing-packages-into-the-raspberry-pis-linux/</link><description>&lt;p&gt;Once I got the &lt;a href="http://www.raspberrypi.org/"&gt;RPi&lt;/a&gt; up and running &lt;a href="http://jeffskinnerbox.wordpress.com/2012/09/09/raspberry-pi-has-arrived/"&gt;headless&lt;/a&gt; on my local network, its time to build the software foundation that I'll need to make it an effective development environment.  These are the packages that I loaded to get myself up and running.
+So that's it!  Its a long post for what is really a simple to use tool, but setting it up the first time could be a challenge.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Fri, 28 Sep 2012 00:01:00 -0400</pubDate><guid isPermaLink="false">tag:jeffskinnerbox.me,2012-09-28:posts/2012/Sep/28/setting-up-git-for-arduino-and-raspberry-pi development/</guid><category>Arduino</category><category>Raspberry Pi</category><category>Git</category><category>GitHub</category><category>Cygwin</category></item><item><title>Installing Packages into the Raspberry Pi's Linux</title><link>http://jeffskinnerbox.me/posts/2012/Sep/25/installing-packages-into-the-raspberry-pis-linux/</link><description>&lt;p&gt;Once I got the &lt;a href="http://www.raspberrypi.org/"&gt;RPi&lt;/a&gt; up and running &lt;a href="http://jeffskinnerbox.wordpress.com/2012/09/09/raspberry-pi-has-arrived/"&gt;headless&lt;/a&gt; on my local network, its time to build the software foundation that I'll need to make it an effective development environment.  These are the packages that I loaded to get myself up and running.
 &lt;h2&gt;Do Your House Cleaning First&lt;/h2&gt;
 I'm loading software via the Linux &lt;a href="http://en.wikipedia.org/wiki/Advanced_Packaging_Tool"&gt;&lt;code&gt;apt-get&lt;/code&gt;&lt;/a&gt; utility and you need to make sure its database is up to date. First thing to do is to update apt-get's local database with server's pkglist's files.  Then checks for outdated packages in the system and automatically upgrades them.  Execute the following commands:&lt;/p&gt;
 &lt;p style="padding-left:30px;"&gt;&lt;code&gt;sudo apt-get update

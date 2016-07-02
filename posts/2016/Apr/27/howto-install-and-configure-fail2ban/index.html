@@ -93,6 +93,8 @@ Jeff's Skinner Box&nbsp;            </a>
 
 &nbsp;&nbsp;&nbsp;
 <i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/how-to/">How To</a>
+        &nbsp;
     <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/fail2ban/">Fail2Ban</a>
         &nbsp;
     <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/security/">Security</a>
@@ -186,7 +188,7 @@ but here are some sources to get you knowledgeable:</p>
 <li><a href="https://www.garron.me/en/linux/iptables-manual.html">iptables: Small manual and tutorial with some examples and tips</a></li>
 <li><a href="https://help.ubuntu.com/community/IptablesHowTo">IptablesHowTo</a></li>
 </ul>
-<p>Ubuntu has <code>iptables</code> but also comes with [<code>ufw</code>][45]
+<p>Ubuntu has <code>iptables</code> but also comes with <a href="https://wiki.ubuntu.com/UncomplicatedFirewall"><code>ufw</code></a>
 and is considered the default firewall configuration tool for Ubuntu.
 There is also a graphical version [<code>gufw</code>][46] can be installed with <code>sudo apt-get install gufw</code>.
 Developed to ease <code>iptables</code> firewall configuration,
@@ -383,6 +385,33 @@ You could periodically run the following command to see what is getting pass you
 "<code>DROP</code>" rules in the <code>INPUT</code> chain.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># attacks on any port</span>
 tailf /var/log/auth.log | grep <span style="color: #CC3300">&#39;sshd.*Failed&#39;</span>
+</pre></div>
+
+
+<p>To see the impact your rules are having,
+you can run the following command to list the number of packets being blocked:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># list number of packets and bytes being dropped by iptable rules</span>
+sudo iptables -L -n -v
+</pre></div>
+
+
+<p>In time, you may find some duplicate rules sneak into your <code>/etc/iptables/rules.v4</code> file.
+You can find the duplicate rules via:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># list any rules that are duplicates</span>
+sort /etc/iptables/rules.v4 | uniq --repeated
+</pre></div>
+
+
+<p>This will list all rows in the file that appear more than once.
+Knowing this, you can edit the file and delete the duplicate rules.</p>
+<p>You may also be interested in where all your attacks are coming from.
+That is, you want to find out where a given IP address is physically located on earth.
+Sites like <a href="https://geoiptool.com/">Geo IP Tool</a> give you a web site to lookup this information.
+There are also command line tools that can be used, like <a href="http://linux.die.net/man/1/geoiplookup"><code>geoiplookup</code></a>
+and via <code>curl ipinfo.io/&lt;ip-address&gt;</code> (both documented <a href="http://xmodulo.com/geographic-location-ip-address-command-line.html">here</a>).</p>
+<p>Below is a script that creates a simple report from your rules file.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># geo-locations of blocked ip addresses in json format</span>
+sort /etc/iptables/rules.v4 | uniq | grep DROP | awk <span style="color: #CC3300">&#39;{ print $4 }&#39;</span> | sed <span style="color: #CC3300">&#39;s/\/[0-9]*//&#39;</span> | <span style="color: #006699; font-weight: bold">while</span> <span style="color: #336666">read</span> line; <span style="color: #006699; font-weight: bold">do</span> curl ipinfo.io/<span style="color: #003333">$line</span> 2&gt;/dev/null ; <span style="color: #006699; font-weight: bold">done</span> | jq -c <span style="color: #CC3300">&#39;{ city: .city , region: .region , country: .country , ip: .ip }&#39;</span>
 </pre></div>
 
 

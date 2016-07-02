@@ -115,7 +115,7 @@ My fix is in <code>content/extra/custom.css</code> and is listed blow:</p>
 
 <span style="color: #0099FF; font-style: italic">/* This will provide some visual improvements to Markdown&#39;s formating of tables */</span>
 <span style="color: #330099; font-weight: bold">table</span><span style="color: #555555">,</span> <span style="color: #330099; font-weight: bold">th</span><span style="color: #555555">,</span> <span style="color: #330099; font-weight: bold">td</span> {
-    <span style="color: #336666">margin-left</span><span style="color: #555555">:</span> <span style="color: #336666">auto</span>; 
+    <span style="color: #336666">margin-left</span><span style="color: #555555">:</span> <span style="color: #336666">auto</span>;
     <span style="color: #336666">margin-right</span><span style="color: #555555">:</span> <span style="color: #336666">auto</span>;
     <span style="color: #336666">border</span><span style="color: #555555">:</span> <span style="color: #FF6600">1px</span> <span style="color: #336666">solid</span> <span style="color: #336666">black</span>;
 }
@@ -215,7 +215,56 @@ You combine this, with the <code>custom.css</code> discussed above, and this</p>
 </tr>
 </tbody>
 </table>
-<p>Test of inline MathJax: $\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}}$</p><script type= "text/javascript">
+<p>Test of inline MathJax: $\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}}$</p>
+<h2>Tables With Images</h2>
+<p>Yes, you can do images within the tables!
+So with this code:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>| Default Justified | Left Justified | Right Justified | Centered Justified |
+| ----------------- |:-------------- | ---------------:|:------------------:|
+| row 1, col 1 | row 1, col 2     | row 1, col 3 | _this should be italics_   |
+| [![Pelican Logo](/images/logos/thumbnail/pelican_logo.png)](http://blog.getpelican.com/) | **this should be bold** | row 2, col 3 | row 2, col 4     |
+| [![IPython Logo](/images/logos/thumbnail/ipython_notebook_logo.png)](http://ipython.org/notebook.html) | [![Gist Logo](/images/logos/thumbnail/gist_logo.jpg)](https://github.com/signup/free?return_to=gist) | [![Disqus Logo](/images/logos/thumbnail/disqus_logo.png)](http://disqus.com/) | [![Atom Logo](/images/logos/thumbnail/atom_logo.png)](http://atomenabled.org/) |
+| `this should be code` | row 4, col 2     | ![BATMAN-Adv]({filename}/images/batman-adv-logo.png &quot;BATMAN-Adv Mesh Network Software&quot;) | row 4, col 4     |
+</pre></div>
+
+
+<p>you get the following:</p>
+<table>
+<thead>
+<tr>
+<th>Default Justified</th>
+<th align="left">Left Justified</th>
+<th align="right">Right Justified</th>
+<th align="center">Centered Justified</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row 1, col 1</td>
+<td align="left">row 1, col 2</td>
+<td align="right">row 1, col 3</td>
+<td align="center"><em>this should be italics</em></td>
+</tr>
+<tr>
+<td><a href="http://blog.getpelican.com/"><img alt="Pelican Logo" src="/images/logos/thumbnail/pelican_logo.png" /></a></td>
+<td align="left"><strong>this should be bold</strong></td>
+<td align="right">row 2, col 3</td>
+<td align="center">row 2, col 4</td>
+</tr>
+<tr>
+<td><a href="http://ipython.org/notebook.html"><img alt="IPython Logo" src="/images/logos/thumbnail/ipython_notebook_logo.png" /></a></td>
+<td align="left"><a href="https://github.com/signup/free?return_to=gist"><img alt="Gist Logo" src="/images/logos/thumbnail/gist_logo.jpg" /></a></td>
+<td align="right"><a href="http://disqus.com/"><img alt="Disqus Logo" src="/images/logos/thumbnail/disqus_logo.png" /></a></td>
+<td align="center"><a href="http://atomenabled.org/"><img alt="Atom Logo" src="/images/logos/thumbnail/atom_logo.png" /></a></td>
+</tr>
+<tr>
+<td><code>this should be code</code></td>
+<td align="left">row 4, col 2</td>
+<td align="right"><img alt="BATMAN-Adv" src="{filename}/images/batman-adv-logo.png" title="BATMAN-Adv Mesh Network Software" /></td>
+<td align="center">row 4, col 4</td>
+</tr>
+</tbody>
+</table><script type= "text/javascript">
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
         var mathjaxscript = document.createElement('script');
         mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';

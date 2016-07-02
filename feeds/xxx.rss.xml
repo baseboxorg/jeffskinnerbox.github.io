@@ -571,6 +571,14 @@ but none organized the way I want.&lt;/p&gt;
 &lt;td align="left"&gt;Search word from bottom to top&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td align="center"&gt;*&lt;/td&gt;
+&lt;td align="left"&gt;move the cursor to any word, press * to search forwards for that word&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;#&lt;/td&gt;
+&lt;td align="left"&gt;move the cursor to any word, press # to search backward for that word&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td align="center"&gt;/jo[ha]n&lt;/td&gt;
 &lt;td align="left"&gt;Search john or joan&lt;/td&gt;
 &lt;/tr&gt;
@@ -1212,6 +1220,7 @@ I can replicate this Vim environment across the multiple systems I'm presently 
 &lt;p&gt;These links should be explored to see what additional information
 could be gathered for this cheat sheet.&lt;/p&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href="https://danielmiessler.com/study/vim/"&gt;A vim Tutorial and Primer&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.terminally-incoherent.com/blog/reference/vim-cheat-sheet/"&gt;Another Vim Cheat Sheet&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.terminally-incoherent.com/blog/2008/10/27/vim-cheatsheet/"&gt;Vim Cheatsheet&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://jon.oxer.com.au/cheatsheet/vim"&gt;Jonathan Oxer's Cheat Sheets&lt;/a&gt;&lt;/li&gt;
