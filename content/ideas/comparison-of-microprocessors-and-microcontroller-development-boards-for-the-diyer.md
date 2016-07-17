@@ -1,7 +1,10 @@
+
+* [70+ Raspberry Pi alternatives in one convenient list](http://liliputing.com/2016/06/70-raspberry-pi-alternatives-one-convenient-list.html)
+
 Title: Comparison of Microprocessors and Microcontroller Development Boards for the DIY'er
 Date: 2100-01-01 00:00
-Category: 
-Tags: 
+Category:
+Tags:
 Slug: comparison-of-microprocessors-and-microcontroller-development-boards-for-the-diyer
 Author: Jeff Irland
 Summary: bla bla bla
@@ -32,9 +35,9 @@ Also, microcontroller is a processor that has its program and data memory built 
 These chips are intended for small embedded control applications,
 so leaving the pins for I/O and not requiring a external memory bus.
 
-The distinction between a SoC or "single chip solution" 
+The distinction between a SoC or "single chip solution"
 and a microcontoller may be a bit fuzzy.
-In essence, a SoC is a single chip that does everything that used to take up multiple chips. 
+In essence, a SoC is a single chip that does everything that used to take up multiple chips.
 The SoC in a cell phone might have a 32-bit ARM processor running Android
 and any apps that the user has installed.
 In addition it would have a GPU, the wireless transceiver and modem,
@@ -44,7 +47,7 @@ As a result, there could be multiple microcontrollers in a SoC.
 
 ## AVR / Atmel
 The [AVR][01] is a [modified Harvard architecture][05] 8-bit RISC single chip microcontroller
-which was developed by Atmel in 1996. 
+which was developed by Atmel in 1996.
 The megaAVR chips became extremely popular after they were designed into the
 8-bit Arduino platform in 2005.
 
@@ -104,7 +107,7 @@ MIPS (originally an acronym for Microprocessor without Interlocked Pipeline Stag
 is a reduced instruction set computer (RISC) instruction set (ISA)
 developed by MIPS Technologies.
 
-* [WRTnode](http://wrtnode.com/) - 
+* [WRTnode](http://wrtnode.com/) -
 The MT7620 router-on-a-chip includes an 802.11n MAC and baseband,
 a 2.4 GHz radio,
 a 580 MHz [MIPS][37] CPU ([MIPS 24KEc][38]),

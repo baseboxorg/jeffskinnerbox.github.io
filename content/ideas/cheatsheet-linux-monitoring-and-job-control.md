@@ -202,8 +202,8 @@ Most are rather obscure, but a few should be committed to memory:
 Job control is nothing but the ability to stop/suspend the execution of processes
 (command) and continue/resume their execution as per your requirements.
 
-`[nohup][]`
-`[disown][]`
+[`nohup`][]
+[`disown`][]
 
 What if you forget to use [`nohup`][01],
 or if you didn't expect to be leaving the computer but get called away?

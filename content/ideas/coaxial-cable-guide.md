@@ -63,6 +63,25 @@ Some of the widely used connector types are:
 * [PL259][08] - Also goes by UHF connector, or Amphenol coaxial connector, it is a threaded RF connector design, from an era when UHF referred to frequencies over 30 MHz. The UHF connector is the most common connector in amateur radio applications up to 150 MHz.
 * [F-Type][09] - The F connector is a coaxial RF connector commonly used for "over the air" terrestrial television, cable television, satellite television, and cable modems. It is usually connected to RG-6/U coax cable or with RG-59/U cable.
 
+## Why 50 and 75 Ohms
+There is a prevalence of 50 ohm coax.
+Sure, you sometimes see 75 ohm coax, but overwhelmingly, RF circuits work at 50 ohms.
+Apparently in the 1930s,
+radio transmitters were pushing towards higher power levels.
+You generally think that thicker wires have less loss.
+For coax cable carrying RF though, it’s a bit more complicated.
+The impedance is a function of the dielectric material,
+the diameter of the center conductor,
+and RF signals exhibit the skin effect (they don’t travel in the center of the conductor)
+
+When you put all this together,
+you learn that the loss of the cable is minimized at 77 ohms for a cable with air dielectric.
+Of course, that’s not 50 ohms but closer to the 75 ohms used to carry weak antenna signals in TV systems.
+According to [Microwaves 101][12], choice of 50 ohms is a compromise between power handling capability
+and signal loss per unit length, for air dielectric.
+For cheaper commercial cables, such as those that bring CATV to your home,
+an impedance 75 ohms probably was a compromise between low loss and cable flexibility.
+
 ## Sources
 * [Coaxial Cable FAQs](http://www.cableorganizer.com/articles/coaxial-cable-faqs.html)
 * [Coaxial Cable Solutions Guide](http://www.digikey.com/Web%20Export/Supplier%20Content/GenCable_42/PDF/GenCable_CoaxialCable.pdf?redirected=1)
@@ -84,7 +103,7 @@ Some of the widely used connector types are:
 [09]:http://en.wikipedia.org/wiki/F_connector
 [10]:http://en.wikipedia.org/wiki/SMB_connector
 [11]:http://ecee.colorado.edu/~kuester/Coax/connchart.htm
-[12]:
+[12]:http://www.microwaves101.com/encyclopedias/why-fifty-ohms
 [13]:
 [14]:
 [15]:

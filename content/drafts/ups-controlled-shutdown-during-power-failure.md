@@ -1,11 +1,22 @@
-<a href="https://www.apc.com/products/resource/include/techspec_index.cfm?base_sku=BN1080G&tab=documentation">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" title="APC Back-UPS 1080 Provides Battery Backup & Surge Protector for Electronics and Computers (Front Image)" alt="WABAC Pic" src="/images/APC_Back-UPS_NS_1080_front.jpg" />
+Status: draft
+Title: UPS Controlled Shutdown During Power Failure
+Date: 2100-01-01 00:00
+Category: Software, Hardware
+Tags: UPS
+Slug: ups-controlled-shutdown-during-power-failure
+Author: Jeff Irland
+Image: APC-UPS.jpg
+Summary: I purchased a uninterruptible power supply, to smooth out the power dips that are far too frequent in my home. This article show you how to integrate it with Linux so in the event of a total power failure, your Linux system can monitor the UPS status and perform a graceful shutdown if the UPS power runs low.
+
+<a href="http://www.apcmedia.com/salestools/JGNY-8XT6LC/JGNY-8XT6LC_R1_EN.pdf?sdirect=true">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="APC Back-UPS 1080 Provides Battery Backup & Surge Protector for Electronics and Computers (Front Image)" alt="WABAC Pic" src="/images/APC_Back-UPS_NS_1080_front.jpg" width="156" height="250" />
 </a>
-<a href="https://www.apc.com/products/resource/include/techspec_index.cfm?base_sku=BN1080G&tab=documentation">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" title="APC Back-UPS 1080 Provides Battery Backup & Surge Protector for Electronics and Computers (Back Image)" alt="WABAC Pic" src="/images/APC_Back-UPS_NS_1080_back.jpg" />
+<a href="http://www.apcmedia.com/salestools/JGNY-8XT6LC/JGNY-8XT6LC_R1_EN.pdf?sdirect=true">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="APC Back-UPS 1080 Provides Battery Backup & Surge Protector for Electronics and Computers (Back Image)" alt="WABAC Pic" src="/images/APC_Back-UPS_NS_1080_back.jpg" width="119" height="250" />
 </a>
-I purchased a [APC Back-UPS NS 1080][05] to smooth out the power dips that
-are far too frequent in my home.
+I purchased a [uninterruptible power supply][04],
+specifically the [APC Back-UPS NS 1080][05],
+to smooth out the power dips that are far too frequent in my home.
 This product comes with the [PowerChute][06] software to provide safe system shutdown
 in the event of an extended power outage.
 Unfortunately, this software isn't supported on Linux,
@@ -27,9 +38,10 @@ If the utility power is restored before one of the these shutdown conditions is 
 
 # Installation
 For my UPS,
-the  `apcupsd` daemon will be communnicating with the UPS via a USB connection.
+the  `apcupsd` daemon will be communicating with the UPS via a USB connection.
 To make sure that your USB subsystem can see the UPS,
-just do this from a shell prompt (output included):
+plug in the UPS and connect the USB cable to your computer
+and then just do this from a shell prompt (output included):
 
 ```bash
 # the lsusb command can show you the hubs connected to your system
@@ -39,6 +51,9 @@ Bus 003 Device 005: ID 051d:0002 American Power Conversion Uninterruptible Power
 ```
 
 ## Device File Name for the UPS
+**Don't Do This!!**
+Read the last paragraph in this section first.
+
 Under Linux, each and every hardware device, including USB ports,
 are treated as a file and call a [device file][07].
 A device file allows a user to access hardware devices,
@@ -75,7 +90,8 @@ udevadm info -a -n /dev/bus/usb/003/005 | grep ATTRS{serial}
 
 Armed with this information and following guidance from [this post][09],
 I could have update the [UDEV rules][08].
-But **Don't Do This**, since I believe it will cause problems with `apcupsd`.
+But **Don't Do This**, since from my experimenting,
+I believe it will cause problems with `apcupsd`.
 It appears that the daemon is designed to deal with all this.
 
 ## Installing and Configuring the UPS Daemon
@@ -127,6 +143,9 @@ To start/stop the `apcupsd` daemon manually, just execute this command:
 # start the apcupsd daemon
 sudo /etc/init.d/apcupsd start
 
+# to check if the demon is in fact running
+ps aux | grep --invert-match grep | grep apcupsd
+
 # stop the apcupsd daemon
 sudo /etc/init.d/apcupsd stop
 ```
@@ -142,6 +161,7 @@ See the output below:
 ```bash
 # UPS status check
 $ apcaccess status
+
 APC      : 001,036,0901
 DATE     : 2015-02-07 10:59:40 -0500
 HOSTNAME : desktop
@@ -183,41 +203,26 @@ END APC  : 2015-02-07 10:59:43 -0500
 
 This shows that the UPS daemon is configured to do the following thing:
 
-MBATTCHG : 5 Percent
-:   If the battery charge percentage (BCHARGE) drops below this value,
-    apcupsd will shutdown your system. Value is set in the configuration file (BATTERYLEVEL).
-MINTIMEL : 3 Minutes
-:   apcupsd will shutdown your system if the remaining runtime equals or is below this point.
-    Value is set in the configuration file (MINUTES).
-MAXTIME  : 0 Seconds
-:   apcupsd will shutdown your system if the time on batteries exceeds this value.
-    A value of zero disables the feature. Value is set in the configuration file (TIMEOUT).
+| Parameter | Value | Description |
+|:----------------- |:--------------:|:--------------- |
+| MBATTCHG | 5% | If the battery charge percentage (BCHARGE) drops below this value, apcupsd will shutdown your system. Value is set in the configuration file (BATTERYLEVEL). |
+| MINTIMEL | 3 Min | apcupsd will shutdown your system if the remaining runtime equals or is below this point.  Value is set in the configuration file (MINUTES). |
+| MAXTIME  | 0 Sec | apcupsd will shutdown your system if the time on batteries exceeds this value.  A value of zero disables the feature. Value is set in the configuration file (TIMEOUT). |
 
 These parameters say something about how the UPS is perfroming
 (see [apcupsd Status Logging][13] section in the apcupsd User Manual):
 
-STARTTIME: 2015-02-07 10:59:39 -0500
-:   The time/date that `apcupsd` was started.
-STATUS   : ONLINE
-:   The current status of the UPS (ONLINE, ONBATT, etc.)
-LINEV    : 121.0 Volts
-:   The current line voltage as returned by the UPS.
-LOADPCT  :  20.0 Percent Load Capacity
-:   The percentage of load capacity as estimated by the UPS.
-BCHARGE  : 100.0 Percent
-:   The percentage charge on the batteries.
-TIMELEFT :  36.1 Minutes
-:   The remaining runtime left on batteries as estimated by the UPS.
-LOTRANS  : 088.0 Volts
-:   The line voltage below which the UPS will switch to batteries.
-HITRANS  : 142.0 Volts
-:   The line voltage above which the UPS will switch to batteries.
-SELFTEST : NO
-:   The results of the last self test, and may have the following values:
-    * OK - self test indicates good battery
-    * BT - self test failed due to insufficient battery capacity
-    * NG - self test failed due to overload
-    * NO - No results (i.e. no self test performed in the last 5 minutes)
+| Parameter | Value | Description |
+|:----------------- |:--------------:|:--------------- |
+| STARTTIME | time stamp | The time/date that `apcupsd` was started (ex. 2015-02-07 10:59:39 -0500). |
+| STATUS   | ONLINE | The current status of the UPS (ONLINE, ONBATT, etc.) |
+| LINEV    | 121.0 V | The current line voltage as returned by the UPS. |
+| LOADPCT  |  20.0% | The percentage of load capacity as estimated by the UPS. |
+| BCHARGE  | 100.0% | The percentage charge on the batteries. |
+| TIMELEFT |  36.1 | The remaining runtime left, in minutes on batteries as estimated by the UPS. |
+| LOTRANS  | 088.0 V | The line voltage below which the UPS will switch to batteries. |
+| HITRANS  | 142.0 V | The line voltage above which the UPS will switch to batteries. |
+| SELFTEST | NO | The results of the last self test, and may have the following values: OK - self test indicates good battery, BT - self test failed due to insufficient battery capacity, NG - self test failed due to overload, NO - No results (i.e. no self test performed in the last 5 minutes) |
 
 # Notification and Events
 When a major event is generated within `apcupsd`,
@@ -228,28 +233,57 @@ The major function of the `apccontrol` script is to perform a shutdown of the sy
 Another major task for this script is to notify you by email
 when certain events such as powerfail occur.
 
-Since `apccontrol` is a script,
+Since `/etc/apcupsd/apccontrol` is a script,
 you can customize it to your own needs using any text editor.
 In addition, another feature is that you can write your own scripts
 that will be automatically called by `apccontrol` before any of its own code is executed.
 For more details, see the [apcupsd User Manual][12].
 
-My `apccontrol` script looks like this
-(**WARNING -** The `apccontrol` script will be overwritten every time you update
-your `apcupsd`, when doing `make install`):
+By default, the `/etc/apcupsd/apccontrol` script uses [`wall`][16]
+to notify online uses of UPS related events.
+I wanted modify the script to use [`sendmail`][17]
+but many public mail servers appear to block the
+Simple Mail Transfer Protocol (SMTP) coming from unknow sources.
+See below for my systems mail log, `/var/log/mail.log`:
 
 ```bash
+# test message for send mail
+$ echo "Subject: sendmail test" | /usr/sbin/sendmail jeff.irland@verizon.net
+
+# now check the log to see what happend to this message
+$ tail /var/log/mail.log
+.
+.
+.
+Jul 16 14:21:05 desktop postfix/pickup[6588]: 723364012A: uid=1000 from=<jeff>
+Jul 16 14:21:05 desktop postfix/cleanup[8835]: 723364012A: message-id=<20160716182105.723364012A@desktop.fios-router.home>
+Jul 16 14:21:05 desktop postfix/qmgr[2208]: 723364012A: from=<jeff@jeff.irland@gmail.com>, size=307, nrcpt=1 (queue active)
+Jul 16 14:21:05 desktop postfix/smtp[8810]: 723364012A: to=<jeff.irland@verizon.net>, relay=relay.verizon.net[206.46.232.11]:25, delay=0.1, delays=0.01/0/0.09/0, dsn=4.0.0, status=deferred (host relay.verizon.net[206.46.232.11] refused to talk to me: 571 Email from 71.171.94.138 is currently blocked by Verizon Online's anti-spam system. The email sender or Email Service Provider may visit http://www.verizon.net/whitelist and request removal of the block. 160716)
 ```
 
-I have modified the `apccontrol` script to use the push notification utility `apprase`,
+As the last line says,
+the Verizon mail service is blocking my `sendmail` message via its anti-spam system.
+
+Instead, I choose to take another approach.
+I have modified the `apccontrol` script to not only use `wall` but also
+[my personal push notification utility `apprise`][18],
 which leverages the [Pushover][14] service.
-The `apprase` script is the following:
+(**WARNING -** The `/etc/apcupsd/apccontrol` script will be overwritten every time you update
+your `apcupsd`, when doing `make install`):
+
+The modifications to the `/etc/apcupsd/apccontrol` script
+required me to replace the scripts `WALL` environment variable as shown below:
 
 ```bash
+# repleae this line
+WALL=wall
+
+# with this
+WALL="eval tee /tmp/apccontrol.file | wall ; /home/jeff/bin/apprise -t \"UPS Event Notification\" -m \"\$(cat /tmp/apccontrol.file)\""
 ```
 
 # UPS Test Program
-`apctest` is a program that runs low-level tests to check the operation of the UPS,
+[`apctest`][15] is a program that runs low-level tests to check the operation of the UPS,
 checks that your `apcupsd` configuration is correctly setup,
 and assures you can establish communication with the UPS.
 
@@ -264,7 +298,54 @@ configuration file have been set appropriately;
 and **shutdown `apcupsd`** via `sudo /etc/init.d/apcupsd stop` if it is running.
 You cannot run both `apcupsd` and `apctest` at the same time.
 
-[apctest - apcupsd test program](http://linux.die.net/man/8/apctest)
+You must run `apctest` as root:
+
+```bash
+# stop the apcupsd daemon
+sudo /etc/init.d/apcupsd stop
+
+# start the test
+$ sudo apctest
+
+
+2016-07-16 16:34:56 apctest 3.14.12 (29 March 2014) debian
+Checking configuration ...
+sharenet.type = Network & ShareUPS Disabled
+cable.type = USB Cable
+mode.type = USB UPS Driver
+Setting up the port ...
+Doing prep_device() ...
+
+You are using a USB cable type, so I'm entering USB test mode
+Hello, this is the apcupsd Cable Test program.
+This part of apctest is for testing USB UPSes.
+
+Getting UPS capabilities...SUCCESS
+
+Please select the function you want to perform.
+
+1)  Test kill UPS power
+2)  Perform self-test
+3)  Read last self-test result
+4)  View/Change battery date
+5)  View manufacturing date
+6)  View/Change alarm behavior
+7)  View/Change sensitivity
+8)  View/Change low transfer voltage
+9)  View/Change high transfer voltage
+10) Perform battery calibration
+11) Test alarm
+12) View/Change self-test interval
+ Q) Quit
+
+Select function number:
+.
+.
+.
+
+# start the apcupsd daemon
+sudo /etc/init.d/apcupsd start
+```
 
 # Sources
 For more information and details, check out the following:
@@ -273,8 +354,8 @@ For more information and details, check out the following:
 * [apcupsd User Manual](http://www.apcupsd.com/manual/manual.html)
 * [Linux: Configure and Control APC SmartUPS During a Power Failure](http://www.cyberciti.biz/faq/debian-ubuntu-centos-rhel-install-apcups/)
 * [Configuring Linux Ubuntu 10.04 LTS for APC UPS Network Shutdown](http://www.cloudportal.org/2012/03/07/installing-apc-ups-powerchute-network-shutdown-3-0-0-on-ubuntu-10-04-lts/)
-* [apcupsd.conf is the configuration file for the apcupsd program](http://linux.die.net/man/5/apcupsd.conf)
-[apcupsd - a daemon for controlling most APC UPS](http://linux.die.net/man/8/apcupsd)
+* [apcupsd - a daemon for controlling most APC UPS](http://linux.die.net/man/8/apcupsd)
+* [apcupsd.conf - the configuration file for the apcupsd program](http://linux.die.net/man/5/apcupsd.conf)
 
 
 
@@ -292,7 +373,7 @@ For more information and details, check out the following:
 [12]:http://www.apcupsd.com/manual/manual.html#apcupsd-notification-and-events
 [13]:http://www.apcupsd.com/manual/manual.html#apcupsd-status-logging
 [14]:https://pushover.net/
-[15]:
-[16]:
-[17]:
-[18]:
+[15]:http://linux.die.net/man/8/apctest
+[16]:http://linux.die.net/man/1/wall
+[17]:http://www.computerhope.com/unix/usendmai.htm
+[18]:https://gist.github.com/jeffskinnerbox/13cd61e4d99feb0dcbca

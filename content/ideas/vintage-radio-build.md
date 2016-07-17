@@ -1,3 +1,34 @@
+# Early Radio Types
+https://en.wikipedia.org/wiki/History_of_radio
+
+## Crystal Radio
+The first radio receivers were crystal sets,
+and became available in the 1920's with the opening of
+Marconi's first broadcast station in Chelmsford.
+
+http://www2.eng.cam.ac.uk/~dmh/ptialcd/trf/trf.htm
+
+## Tuned Radio Frequency Receiver
+The tuned radio frequency receiver (or TRF receiver)
+was patented in 1916 by Ernst Alexanderson and popular in the 1920s.
+Early examples could be tedious to operate because when tuning in a station
+each stage had to be individually adjusted to the station's frequency,
+but later models had ganged tuning,
+the tuning mechanisms of all stages being linked together,
+and operated by just one control knob.
+By the mid 1930s, it was replaced by the superheterodyne receiver.
+
+https://en.wikipedia.org/wiki/Tuned_radio_frequency_receiver
+
+## Superheterodyne Receiver
+The superheterodyne receiver (often shortened to superhet)
+uses frequency mixing to convert a received signal to a fixed intermediate frequency (IF)
+which can be more conveniently processed than the original carrier frequency.
+It was invented Edwin Armstrong in 1918.
+Virtually all modern radio receivers use the superheterodyne principle.
+
+https://en.wikipedia.org/wiki/Superheterodyne_receiver
+
 # Crystal Radio
 ![lost-knowladge](http://i0.wp.com/cdn.makezine.com/uploads/2009/02/lk_banner2.jpg?resize=189%2C207)
 A crystal radio is basically a high Q resonator tied to an antenna and an envelope detector.
@@ -34,6 +65,7 @@ The primary receiver used on the Titanic’s Marconi station was basically a 3-s
 * [Crystal Radio Schematic Selector Page](http://makearadio.com/crystal/crystal-schematics.php)
 * [Crystal Radio: It’s a Match!](http://hackaday.com/2015/09/05/crystal-radio-its-a-match/)
 * [Two transistor superheterodyne shortwave receiver](http://hackaday.com/2015/03/08/simple-superheterodyne-sw-receiver-harks-back-almost-100-years/)
+* [Simple Superheterodyne SW Receiver Harks Back Almost 100 years](http://hackaday.com/2015/03/08/simple-superheterodyne-sw-receiver-harks-back-almost-100-years/)
 * []()
 
 # Building Radios and Components from Sketch
@@ -45,9 +77,14 @@ The primary receiver used on the Titanic’s Marconi station was basically a 3-s
 * [Do you know Rufus Turner?](http://hackaday.com/2016/02/15/do-you-know-rufus-turner/)
 * [Crystadyne](http://www.a-reny.com/iexplorer/cristadyne.html)
 * [Hacking When it Counts: POW Canteen Radios](http://hackaday.com/2016/04/21/hacking-when-it-counts-pow-canteen-radios/#more-201155)
-* [Lint And Dog Hair Supercapacitor](http://hackaday.com/2016/04/30/lint-and-dog-hair-supercapacitor/)
 * [Home Brew Vacuum Tubes Are Easier Than You Think](http://hackaday.com/2016/05/04/home-brew-vacuum-tubes-are-easier-than-you-think/)
 * [Artisanal Vacuum Tubes: Hackaday Shows You How](http://hackaday.com/2014/11/21/artisanal-vacuum-tubes-hackaday-shows-you-how/)
+## Capacitors
+* [Lint And Dog Hair Supercapacitor](http://hackaday.com/2016/04/30/lint-and-dog-hair-supercapacitor/)
+* [Capacitors Made Easy the Hackaday Way](https://hackaday.com/2016/06/21/capacitors-made-easy-the-hackaday-way/)
+* [They’re JUST Capacitors](http://phy.supplyframe.com/2016/04/17/james-lewis-kemet-theyre-just-capacitors/)
+* [A 'Multi-Turn' Homemade Variable Tuning Capacitor...](http://earthground.8m.com/tuning%20capacitor.htm)
+* [History of the Capacitor – The Pioneering Years](http://hackaday.com/2016/07/12/history-of-the-capacitor-the-pioneering-years/)
 
 # Flame Components
 * [Flame Triodes Don’t Need Any Vacuum](http://hackaday.com/2016/05/26/flame-triodes-dont-need-any-vacuum/)
@@ -59,6 +96,7 @@ The primary receiver used on the Titanic’s Marconi station was basically a 3-s
 * [H. P. Friedrichs` "The Voice of the Crystal"](http://www.hpfriedrichs.com/mybooks/votc/bks-votc.htm)
 * [H. P. Friedrichs` "Instruments of Amplification: Fun with Homemade Tubes, Transistors, and More"](http://www.hpfriedrichs.com/mybooks/ioa/bks-ioa.htm)
 * [Homemade Lightbulb](http://www.instructables.com/id/Homemade-Lightbulb/?ALLSTEPS)
+* [The Champagne of Light Bulbs](http://hackaday.com/2016/07/07/the-champagne-of-light-bulbs/)
 * [Home Made Diodes From Copper Oxide](http://hackaday.com/2016/05/01/home-made-diodes-from-copper-oxide/)
 * [Reconstructing the Aether: Building the Hieronymus Machine](https://josephmax.wordpress.com/2010/04/28/hieronymus_machine_1/)
 * [The Transistor: a 1953 documentary, anticipating its coming impact on technology](https://www.youtube.com/watch?v=V9xUQWo4vN0)

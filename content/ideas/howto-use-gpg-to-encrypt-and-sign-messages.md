@@ -88,6 +88,8 @@ To begin using GPG to encrypt your communications,
 you need to create your public/private key pair.
 You can do this by issuing the following command: `gpg --gen-key`
 
+* [Entropy](https://en.wikipedia.org/wiki/Entropy_(computing))
+
 ```bash
  $ gpg --gen-key
 gpg (GnuPG) 1.4.16; Copyright (C) 2013 Free Software Foundation, Inc.

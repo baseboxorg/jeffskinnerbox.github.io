@@ -1,16 +1,25 @@
-![WRTnode](http://photos-h.ak.instagram.com/hphotos-ak-xap1/10802493_381146012045023_126183938_n.jpg =100x100 "In early November 2014, I got from Seeed Studio the WRTNode. WRTnode is based on WiFi WiFi Access Point System on a Chip, is an open source development board hardware using the Mediatek MT7620n chip.")
+* [WRTnode Wiki](http://linksprite.com/wiki/index.php5?title=WRTnode)
+* [WRTnode Wiki](http://wiki.wrtnode.com/index.php?title=Main_Page)
+* [WRTnode Wiki](http://wiki.wrtnode.cc/index.php?title=%E9%A6%96%E9%A1%B5/en)
 
-In early November 2014, I got from [Seeed Studio][21] the [WRTNode][22].
+* [Mount an external USB media as root fs on OpenWRT](http://www.rooot.net/en/geek-stuff/openwrt/36-mount-external-usb-root-partition-openwrt.html)
+* [OpenWrt as a wifi client](http://www.rooot.net/en/geek-stuff/openwrt/8-openwrt-wifi-client.html)
+* [My complete OpenWrt Setup Guide](http://www.jauu.net/2015/03/03/complete-openwrt-guide/)
+
+
+![WRTnode](http://photos-h.ak.instagram.com/hphotos-ak-xap1/10802493_381146012045023_126183938_n.jpg =100x100 "In early November 2014, I got from Seeed Studio the WRTnode. WRTnode is based on WiFi WiFi Access Point System on a Chip, is an open source development board hardware using the Mediatek MT7620n chip.")
+In early November 2014, I got from [Seeed Studio][21] the [WRTnode][22].
 WRTnode is based on WiFi Access Point System on a Chip (SoC),
 is an open source development board hardware using the [Mediatek][23] [MT7620n chip][24].
-The MT7620 router-on-a-chip includes an 802.11n MAC and baseband, a 2.4 GHz radio,
+The MT7620 router-on-a-chip includes an 802.11n MAC and baseband, a 2.4 GHz WiFi radio,
 a 580 MHz [MIPS][37] CPU ([MIPS 24KEc][38]),
 a 5-port 10/100 switch and two
 [Reduced Gigabit Media Independent Interface (RGMII)][25].
-The MT7620 includes everything needed to build an AP router from a single chip.
+The WRTnode comes pre-installed with [OpenWrt][40] on the MT7620
+and contains everything needed to build an access point router from a single chip.
 
-The WRTnode oprates at 300Mbps, WiFi antenna integrated into the PCB board,
-has pins preconfigured for some of the LED indicators
+The WRTnode operates at 300Mbps, WiFi antenna integrated into the PCB board,
+has pins pre-configured for some of the LED indicators
 you would see on a conventional routers,
 four-port Ethernet hub, WAN port, some general-purpose GPIO, and serial console input.
 In total, there 78 pins GPIO, and from the picture below (take from the [WRTnode Wiki][04]),
@@ -18,24 +27,42 @@ we can see the pinout each and every one of them.
 
 ![WRTnode Pin Out](/images/WRTnode_pin_out_v0.2.png =570x374 "Pin out for WRTnode board")(http://wiki.wrtnode.com/images/0/0b/Saving3.png)
 
-> **Note:** In this diagram, WRTNode is photographed by the side of the welds,
-so when making connections, we must reverse the pinout.
+> **Note:** In this diagram, WRTnode is photographed showing the side where the pins arre soldered,
+so when making connections, you must reverse the pinout.
 
-###########
-VoCore is an open hardware runs OpenWrt. It has WIFI, USB, UART, 20+ GPIOs but size is only one square inch.
+WRTnode isn't the only tiny and inexpensive Linux solution out there.
+Just to name a few:
 
-* [VOCore Tutorial Gets You Started with Tiny Router](http://hackaday.com/2015/11/15/vocore-tutorial-gets-you-started-with-tiny-router/)
+* [VoCore][07] is an open hardware running OpenWrt.
+It has WiFi, USB, UART, 20+ GPIOs but size is only one square inch.
+* The [Onion Omega][44] is an ultra small OpenWrt, WiFi development board designed specifically for wireless IoT applications.
+* [Linino][64] is based on OpenWrt and is a software framework and operating system
+able to integrate _microcontroller_ features inside the _microprocessor_ environment.
+You can simply write your application using Node.js, Python, Bash, etc.,
+on linux side using LininoOS to control completely the board and all the devices attached.
+* My favorate is a hackable product, the [GL-AR150-ext smart router][45].
+It has good [documentation][46] and even a [blog][47] for the hacker community.
 
-* [Onion Omega](https://onion.io/omega)
+# Components that Make Up WRTnode
+WRTnode is a high performance CPU, low power consuming, cheap,
+and small development board that can run OpenWRT, and  therefore,
+also easy to port open source software of Linux.
 
-* [GL-AR150-ext smart router with External Antenna, 150Mbps OpenWrt Pre-installed](http://www.amazon.com/GL-AR150-ext-External-Antenna-150Mbps-Pre-installed/dp/B015CYI8DY/ref=sr_1_2?ie=UTF8&qid=1454383159&sr=8-2&keywords=GL-AR150)
-    * [GL-AR150 Documentation](http://www.gl-inet.com/docs/smartrouter/)
-    * [GL-AR150 Blog](http://www.gl-inet.com/blog/)
-###########
+## WRTnode Hardware
+![wrtnode](http://www.cnx-software.com/wp-content/uploads/2014/09/WRTnode_large.jpg)
+With a built-in [Mediatek MT7620n][75] chip,
+WRTnode is an open source development board hardware based on WiFi AP System on a Chip (SOC).
+WRTnode is mini, cheap and has pretty low power consumption
+and reasonable capability of computing, and capable of high speed of WiFi network exchange.
+WRTnode claims its aim is to be a high speed and digital version of "Arduino".
+Since it could connect and interact with USB devices like camera and sound card,
+you can collect images and voice at the same time and stream out multimedia in real time.
+After a layer of A/D converter, it could directly interact with all kinds of sensors and motors.
 
-# Components that Make Up WRTNode
+For more on the WRTnode hardware, check out [this wiki][74].
+
 ## OpenWrt
-OpenWrt is a desendent of the firmware used for the classic [Linksys WRT54G][39] router.
+[OpenWrt][40] is a descendant of the firmware used for the classic [Linksys WRT54G][39] router.
 In fact, this classic Linksys series of routers lead to [DD-WRT][41], [OpenWrt][40], [Tomato][42],
 and countless other open-source firmwares.
 Read "[The Open Source WRT54G Story][43]" if you want more of a history lesson.
@@ -59,14 +86,87 @@ and translates them into data processing instructions the CPU
 * [util-linux][13] - standard package of the Linux operating system
 * [uClibc][14] - small C standard library intended for Linux kernel-based operating systems
 * [BusyBox][16] - software that provides several stripped-down Unix tools in a single executable file
+* [Wireless Utilities][68] - utilities for WiFi spcific to the WRTnode implementation of OpenWrt
 
 OpenWrt provides a fully writable filesystem with package management,
 allowing you to [customize the device][17] through the use of packages to suit any application.
 Also OpenWrt supports a framework to build an application without having to
 build a complete firmware around it and is fully customizable.
 
-## BusyBox
-[BusyBox][11] is a tool loaded into the OpenWrt envirnment.
+Another component, but not considered part of OpenWrt, is the [bootloader][48].
+The Bootloader is a piece of software that is executed every time the hardware device is powered up.
+It is executable machine code, and quite heavily device-specific.
+Its main task is to initialize all the low-level hardware details.
+The bootloader is commonly on flash storage.
+
+Unlike other router softwatre like DD-WRT,
+OpenWrt is completely command line based.
+The standard OpenWrt distribution package doesn't include a GUI,
+but you can install one called the OpenWrt Configuration Interface, [LuCI][65].
+
+OpenWRT also supports quite a number of hardware platfroms for routers.
+You can check whether your particular model is supported
+by reviewing the [OpenWrt's hardware table][66].
+OpenWRT also supports many security features that you might find useful,
+including a firewall based on ipchains, WiFi Protected Access (WPA) encryption,
+Remote Authentication Dial-In User Service (RADIUS) authentication,
+Dropbear Secure Shell (SSH) server, OpenVPN, amonug others.
+
+### Linux Kernel
+There are so many Linux distributions out in the wild,
+but there is only one de facto thing that they have in common:
+the [Linux kernel][57].
+[So what is a kernel][59]?
+It’s the kernel that does the grunt work of the operating system.
+The kernel’s job is to talk to the hardware and software,
+and to manage the system’s resources as best as possible.
+It talks to the hardware, via the drivers,
+when applications submit there request to the kernel.
+The kernel make sure that there is enough memory available for an application to run,
+as well as to place an application in the right location in memory
+The kernel coordinate these and many other things.
+This kernel circus act is [illustrated here][58]
+and the Linux kernel [anatomy here][60].
+
+With just a kernel, it’s nearly impossible to do anything with the operating system.
+You also need some additional applications/utilities to be bundled with it.
+These utilities use the kernel's [system calls][62] to perform useful task,
+and a [shell][63] for user interaction.
+These additional application  include util-linux, uClibc, and BusyBox discussed below.
+
+### util-linux
+util-linux is a standard package of the Linux operating system.
+The [util-linux code repository][55] is used by all variants of Linux.
+This package contains a number of important utilities,
+most of which are oriented towards maintenance of your Linux system.
+Some of the more important utilities included in this package allow
+you to partition your hard disk, view kernel messages, and create new filesystems.
+These utilities are not the every day utilities like vim, grep, cat, etc.
+(see Busybox for these)
+but instead are operating system utilities.
+See [this page][56] for a listing of the utilities within util-linux.
+
+util-linux doesn't contain everything you need for
+administering your Linux.
+For example, utilities to manage the WiFi on the WRTnode will not be within util-linux.
+
+### uClibc
+[uClibc][51] is a small C standard library intended for Linux kernel-based
+operating systems for embedded systems and mobile devices.
+uClibc is to provide as much functionality as possible in a small amount of space.
+uClibc is much smaller than [glibc (GNU C Library)][61]
+which is normally used with Linux distributions.
+uClibc is specifically focused on embedded Linux and
+features can be enabled or disabled according to space requirements.
+
+If you choose to compile programs with uClibc,
+you'll to have your own uClibc toolchain. A toolchain consists of
+[GNU binutils][52], the [gcc compiler][53], and uClibc,
+all built to produce binaries for your target system linked with uClibc.
+You can build your own native uClibc toolchain using the [uClibc buildroot system][54].
+
+### BusyBox
+[BusyBox][11] is a tool loaded into the OpenWrt environment.
 BusyBox combines tiny versions of many common UNIX utilities into a single small executable.
 It provides minimalist replacements for most of the utilities you usually find
 in GNU fileutils, shellutils, includes [`vi`][12], etc.
@@ -82,49 +182,71 @@ To create a working system, just add some device nodes in `/dev`,
 a few configuration files in `/etc`, and a Linux kernel.
 
 For a listing of Busybox's utilities, check out the [Busybox Manual Page][28].
-[BusyBox is a multi-call binary][12]
-(i.e. a single binary acts like a large number of utilities).
+[BusyBox is a multi-call binary][12], that is,
+a single binary acts like a large number of utilities.
 BusyBox has built-in utility programs (called applets)
 can share code for many common operations.
+So it has the following syntax:
 
 ```bush
 busybox <applet> [arguments...]  # or
 
 <applet> [arguments...]          # if symlinked
+
+Where the applets would include ls, awk, sed, wc, ....
+and many other of your favorate Linux commands
 ```
 
-## Bootloader
-The WRTNode incldues a customized [uboot][29] which is a popular [bootloader][30] that
+### WiFi Utilities
+Like in standard Linux, WiFi support, wireless in general,
+is fragmented.
+Wireless devices have an API different from that of Ethernet devices
+because the specifications of IEEE 802.11 covers the whole communications process.
+The available of some tools depend entirely on your drivers writen for the hardware.
+[Tools available through OpenWrt][71], and therfore, support most hardware platforms,
+including WRTnode, are:
+
+* `iwconfig` - is the configuration utility for the now obsolete [Wireless-Extensions (WEXT) API][69],
+which is scheduled for removal.
+* `iw` - is the configuration utility replacing `iwconfig` supporting the [nl80211 API][70].
+* `iwinfo` - is a frontend to the custom library, which assembles information from various places.
+* `hostapd` - this package contains a full featured IEEE 802.1x/WPA/EAP/RADIUS Authenticator.
+* `wpa-cli` -  this is a WPA Supplicant command line interface
+
+Beyond what utilities OpenWrt povides for WiFi,
+WRTnode comes with some [custom utilities][68] (`aps`/`setwifi`/`ia`/`vw`/`nr`/`wifi`)
+for the up-link part of the router inside of WRTnode.
+
+* `aps` - is a WRTnode customized command which scans the WiFi SSIDs available.
+* `vw` - is used to make changes to `/etc/config/wireless` where WiFi configuration information is stored, using the file editor `vi`.
+* `nr` - is a WRTnode customized command which will reset the network side.  After 5 seconds it is possible to connect again to WRTnode's SSID.
+* `ia` - is the WRTnode equivalent to `ifconfig`, the Linux network interface configuration, control, and query tool.
+* `wifi` -  is a WRTnode customized command which will reset the network side. After 10 seconds it is possible to connect again to WRTnode's SSID.
+* `setwifi` - is used to connect to an access point when give its SSID and password
+
+[OpenWrt also support many WiFi modes][72] such as AP, Monitor, Ad-Hoc, [802.11s][73], and more.
+
+### Bootloader
+The WRTnode incldues a customized [uboot][29] which is a popular [bootloader][30] that
 supports multiple architectures (ARM, MIPS, AVR32, Nios, Microblaze, 68K and x86)
 and filesystems (FAT32, ext2, ext3, ext4 and Cramfs).
 
-## WiFi Configuration Utilities
-WRTnode comes with some custom utilitiies (aps/vw/nr/ia) for `aplci`,
-the up-link part of the router inside of WRTnode.
-
-* `aps` is a WRTnode customized command which scans the WiFi SSIDs available.
-* `vw` is used to make changes to `/etc/config/wireless` where WiFi configuration information is stored, using the file editor `vi`.
-* `nr` is a WRTnode customized command which will reset the network side.  After 5 seconds it is possible to connect again to WRTnode's SSID.
-* `ia` is the WRTnode equvilent to `ifconfig`, the Linux network interface configuration, control, and query tool.
-
-# LininoIO
-Linino is a Linux distribution, based on OpenWrt.
-The boards supported by Linino distribution are available on the webside http://www.linino.org.
-The binary of Linino distribution are available on http://download.linino.org
-
-LininoIO is a software framework able to integrate microcontroller
-features inside the microprocessor environment. You can simply write your application using Node.js, Python, Bash, etc., on linux side using LininoOS to control completely the board and all the devices attacched.
-
-http://www.linino.org/
-https://linino2013.wordpress.com/about/
+Strictly speaking, a bootloader is not required to boot Linux.
+The use of one (or several) bootloaders in a row to chainload (or [bootstrap][49])
+a Kernel is not a categorical necessity,
+but it is a preferred method to start an operating system.
+The main advantage for OpenWrt is,
+that the existence of a bootloader offers users and developers
+additional possibilities to [debrick][50] a device.
 
 # Getting Connected with WRTnode
+Read the [OpenWrt New Comer's Guide][67]
 
 ## Getting Connected with WRTnode Via WiFi
 The easiest way to get connected with WRTnode/OpenWrt on Ubuntu is via
 the [network menu in the menu bar][08].
 We know from the [WRTnode documentation][04]
-that the SSID being broadcasted by the WRTNode is "WRTnodeXXXX",
+that the SSID being broadcasted by the WRTnode is "WRTnodeXXXX",
 where the XXX is the last 4 digits of the OpenWrt's MAC address.
 In my case its "WRTnode9976".
 The [WRTnode documentation][04] also says that the default WiFi password is "12345678".
@@ -134,9 +256,9 @@ It appears that the DHCP server via the Ethernet and via the WRTnode were
 not playing well together.
 Even with Ethernet turned off, in time,
 my connection to the WRTnode would slow down and then freeze.
-My guess is that Ubuntu has some WiFi management daemons runing
+My guess is that Ubuntu has some WiFi management daemons running
 that is getting in the way.
-If I had a seperate laptop or other WiFi enabled computer,
+If I had a separate laptop or other WiFi enabled computer,
 I could have been successful.
 
 ## Getting Connected with WRTnode Via Serial Console
@@ -146,10 +268,10 @@ and thus access via a terminal.
 This can be very useful, allowing you to access WRTnode as root,
 without entering the password.
 I will make this console connection using an [Adafruit FTDI Friend][32]
-(make sure to midify the jumper setting on the back for 3.3V logic and 3.3V VCC).
+(make sure to modify the jumper setting on the back for 3.3V logic and 3.3V VCC).
 This will allow me to connect my Linux box to the WRTnode via a USB port and a terminal emulator.
 
-### Make the USD Device Persistent
+### Make the USB Device Persistent
 The first thing I want to do is make this USB device have a [persistent device name][36].
 If this isn't done, the Linux kernel will automatically assign it a device name
 and you need to dance around to find the device.
@@ -230,7 +352,7 @@ OpenWrt also supports a web user interface, called [LuCI][18],
 accessible via a browser via URL `192.168.8.1`.
 You'll login as root using the password created for the establishment of `ssh`.
 
-# WRTNode Commands and Helpful Tools
+# WRTnode Commands and Helpful Tools
 These commands are part of Busybox or OpenWrt,
 and can be very useful:
 
@@ -245,14 +367,14 @@ and can be very useful:
 ![openwrt help command](/images/openwrt-help-command.jpg "BusyBox commands support on OpenWrt")
 
 A symbolically linked command is the `ls` command.
-Using this, you can explort the file system to see some of the contents of OpenWrt.
+Using this, you can exploit the file system to see some of the contents of OpenWrt.
 
 ![openwrt bin dir](/images/openwrt-file-system.jpg "Some of OpenWrt's filesystem")
 
 check out http://wiki.openwrt.org/doc/howto/snippets
 
 ## Scanning for Other Access Points
-`aps` is a WRTnode customized command which scans the WiFi SSIDs available.
+`aps` is a WRTnode customized command which scans for the WiFi SSIDs available.
 Scan for Access Points that WRTnode's can reach.
 
 ```bash
@@ -289,7 +411,7 @@ need to do this.
 Change the settings of `aplci` on WRTnode.
 `aplci` is the up-link part of the router inside of WRTnode.
 To see how things a initially configured,
-run the `ia` command, WRTnode equvilent to `ifconfig`:
+run the `ia` command, WRTnode equivalent to `ifconfig`:
 
 ```bash
 root@OpenWrt:~# ia
@@ -334,7 +456,7 @@ config wifi-iface
         option ssid 'WRTnode9976'
 ```
 
-...Use hightlight to ilustrate what values need to be changed...
+...Use hightlight to illustrate what values need to be changed...
 
 ```
 config wifi-device 'ra0'
@@ -369,7 +491,7 @@ root@OpenWrt:~# nr
 ```
 
 Now verify if WRTnode got an IP from from your home WiFi Access point
-by using the `ia` command, WRTnode equvilent to `ifconfig`:
+by using the `ia` command, WRTnode equivalent to `ifconfig`:
 
 ```bash
 root@OpenWrt:~# ia
@@ -391,9 +513,9 @@ So now the WRTnode board is connected to the Internet through our home router.
 You can connect to the Internet start configure our WRTnode board.
 
 ## Helpful Tools
-As I begain to play with the WRTNode, I ran into several problems,
+As I begain to play with the WRTnode, I ran into several problems,
 most of my own making.
-To monitor what is going on with the WRTNode, I found the following tools useful
+To monitor what is going on with the WRTnode, I found the following tools useful
 
 * Tools for Monitoring WiFi
     * [`wavemon`][02] is a ncurses-based monitoring application for wireless network devices.
@@ -458,7 +580,7 @@ The arp command displays a table of translated hardware addresses in the cache.
 ####################
 
 
-# WRTNode
+# WRTnode
 * [WRTnode](http://wrtnode.com/w/)
 * [wrthelp – a demo app for the WRTnode](http://blog.thestateofme.com/2014/09/21/wrthelp/)
 * [Getting Started with WRTnode OpenWrt Development Board](http://www.cnx-software.com/2014/09/18/wrtnode-quick-start-guide/)
@@ -502,7 +624,7 @@ Next will be Ubiquiti equipment with others supported as development resources p
 [04]:http://wiki.wrtnode.com/index.php?title=Starting
 [05]:http://linux.about.com/library/cmd/blcmdl8_iwevent.htm
 [06]:http://www.linuxjournal.com/article/8498
-[07]:
+[07]:http://hackaday.com/2015/11/15/vocore-tutorial-gets-you-started-with-tiny-router/
 [08]:https://help.ubuntu.com/14.04/ubuntu-help/net-wireless-connect.html
 [09]:http://www.cyberciti.biz/hardware/linux-install-nicstat-command-to-print-network-statistics-for-nics/
 [10]:http://www.binarytides.com/linux-netstat-command-examples/
@@ -539,10 +661,40 @@ Next will be Ubiquiti equipment with others supported as development resources p
 [41]:http://www.dd-wrt.com/site/index
 [42]:http://www.polarcloud.com/tomato
 [43]:http://www.wi-fiplanet.com/tutorials/article.php/3562391
-[44]:
-[45]:
-[46]:
-[47]:
-[48]:
-[48]:
-[50]:
+[44]:https://onion.io/omega
+[45]:http://www.amazon.com/GL-AR150-ext-External-Antenna-150Mbps-Pre-installed/dp/B015CYI8DY/ref=sr_1_2?ie=UTF8&qid=1454383159&sr=8-2&keywords=GL-AR150
+[46]:http://www.gl-inet.com/docs/wiki/#!index.md
+[47]:http://www.gl-inet.com/blog/
+[48]:https://en.wikipedia.org/wiki/Booting#BOOT-LOADER
+[49]:https://en.wikipedia.org/wiki/Bootstrapping#Computing
+[50]:https://wiki.openwrt.org/doc/howto/generic.debrick
+[51]:https://www.uclibc.org/
+[52]:https://sourceware.org/binutils/
+[53]:https://gcc.gnu.org/
+[54]:https://buildroot.org/
+[55]:https://git.kernel.org/cgit/utils/util-linux/util-linux.git/
+[56]:http://www.linuxfromscratch.org/lfs/view/development/chapter06/util-linux.html
+[57]:https://kernel.org/
+[58]:http://www.makelinux.net/kernel_map/
+[59]:http://www.howtogeek.com/howto/31632/what-is-the-linux-kernel-and-what-does-it-do/
+[60]:http://www.ibm.com/developerworks/library/l-linux-kernel/
+[61]:https://en.wikipedia.org/wiki/GNU_C_Library
+[62]:https://en.wikipedia.org/wiki/System_call
+[63]:https://en.wikipedia.org/wiki/Shell_(computing)
+[64]:http://www.linino.org
+[65]:https://wiki.openwrt.org/doc/howto/luci.essentials
+[66]:https://wiki.openwrt.org/toh/views/toh_extended_all
+[67]:https://wiki.openwrt.org/doc/playground/newcomer
+[68]:http://wiki.wrtnode.cc/index.php?title=%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E6%97%A0%E7%BA%BF%E8%BF%9E%E4%B8%8A%E4%BA%92%E8%81%94%E7%BD%91/en
+[69]:http://linuxwireless.org/en/developers/Documentation/Wireless-Extensions/
+[70]:http://linuxwireless.org/en/developers/Documentation/nl80211/
+[71]:https://wiki.openwrt.org/doc/howto/wireless.utilities
+[72]:https://wiki.openwrt.org/doc/techref/wireless.modes
+[73]:https://wiki.openwrt.org/doc/howto/mesh.80211s
+[74]:http://wiki.wrtnode.com/index.php?title=Main_Page
+[75]:https://www.anz.ru/files/mediatek/MT7620_Datasheet.pdf
+[76]:
+[77]:
+[78]:
+[79]:
+[80]:

@@ -14,7 +14,10 @@
 * [Building IoT App with Node-Red](http://node-red-ws.mybluemix.net/presentation/index.html#slide-0)
 * [Making IFTTT (If This Then That) talk to Node-RED](https://harizanov.com/2015/03/making-ifttt-if-this-then-that-talk-to-node-red/)
 * [Baofeng (or other radio) data TX/RX for Raspberry Pi](http://flows.nodered.org/flow/d802e43ab306b4b9f2ba)
+
 * [Weather Station – DHT11, MQTT, Node-RED, Google Chart, Oh My!](http://www.internetoflego.com/weather-station-dht11-mqtt-node-red-google-chart-oh-my/)
+* [Minimal MQTT: Power and Privacy](http://hackaday.com/2016/06/02/minimal-mqtt-power-and-privacy/)
+* [Minimal MQTT: Control and Clients](http://hackaday.com/2016/05/27/minimal-mqtt-control-and-clients/)
 
 # Creating a Node
 * [Creating a node for Node-RED: The Philips Hue Node](http://blog.buildinginternetofthings.com/2013/11/09/creating-a-node-for-node-red-the-philips-hue-node/)
@@ -393,4 +396,4 @@ and frankly, doesn't appear to have much support behind it.
 [37]:
 [38]:
 [39]:
-[39]:
+[40]:

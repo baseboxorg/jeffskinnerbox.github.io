@@ -404,7 +404,13 @@ and for the uninitiated, you'll be completely lost on what to do
 to create a window or navigate.
 Check out my [cheatsheet][] to find you way out of the darkness.
 
-## Step 9: Make a Backup
+## Step 9: Final Touches and Make a Backup
+Change the name of the Linux system to something memerable:
+
+```bash
+# change the computers name
+sudo hostname chrbook
+```
 
 ## Step N: Push Backup to Google Drive
 

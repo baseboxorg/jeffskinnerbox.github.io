@@ -52,7 +52,9 @@ Given Hyperboria's usage focus is on freedom of access and free speech,
 So Hyperboria is a decentralized alternative network (see this [video][40])
 to the Internet (aka [clearnet][12])
 with privacy, security, and scalability as the main features.
-Networks like Hyperboria are called a [darknet][10] as the are an overlay network
+Networks like Hyperboria are called a [darknet][10]
+([not to be confused with the dark web][43])
+as the are an overlay network
 that can only be accessed with specific authorization.
 Its like being your own ISP,
 independent of the existing infrastructure by joining a local meshnet
@@ -978,7 +980,7 @@ the service until cjdns has the tunnel up and ready.
 [40]:https://www.youtube.com/watch?v=OnKMkX0qS3Y
 [41]:https://github.com/hyperboria/docs/blob/master/tips-and-tricks.md
 [42]:http://jshint.com/install/
-[43]:
+[43]:http://www.economist.com/news/international/21702176-drug-trade-moving-street-online-cryptomarkets-forced-compete?utm_source=pocket&utm_medium=email&utm_campaign=pockethits
 [44]:
 [45]:
 [46]:

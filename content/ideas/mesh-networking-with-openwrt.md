@@ -142,6 +142,7 @@ Freenet
 
 Darknet
 :   An anonymizing overlay network, usually running over the internet. Examples: Tor, i2p, freenet.
+([not to be confused with the dark web][43])
 
 Deep Web
 :   This is web content that is locked behind pay-walled websites,
@@ -405,3 +406,4 @@ is a loop-avoiding distance-vector routing protocol for IPv6 and IPv4 with fast 
 [18]:
 [19]:
 [20]:
+[43]:http://www.economist.com/news/international/21702176-drug-trade-moving-street-online-cryptomarkets-forced-compete?utm_source=pocket&utm_medium=email&utm_campaign=pockethits

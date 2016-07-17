@@ -8,7 +8,22 @@ Author: Jeff Irland
 Image: cheat-sheet.jpg
 Summary: The i3 tiling window manager is a nice modern tiling window manager that works unders GNU/Linux/BSD operating systems. It supports tiling, stacking, tabs, virtual desktops, and multiple monitors. You can do almost everything from the keyboard, or mix up keyboard and mouse.  It's well documented and real simple to modify and tinker with. With extremely easy to remember keybindings, using i3 is extremely enjoyable, even without the need for a mouse.
 
-excellent source of ideas - https://wiki.archlinux.org/index.php/i3#Save_and_restore_the_window_layout
+* [~/.i3/config](https://linuxious.com/files/i3/)
+* [Hands on with the i3 Window Manager: Installing, configuring and using](http://www.zdnet.com/article/hands-on-with-the-i3-window-manager-installing-configuring-and-using/)
+* [i3 is awesome](http://jirichara.com/i3-is-awesome)
+* excellent source of ideas - https://wiki.archlinux.org/index.php/i3#Save_and_restore_the_window_layout
+* [Configuring i3 for my setup](http://blog.tunnelshade.in/2014/05/making-i3-beautiful.html)
+* [Empty workspace in I3 WM](http://sainathadapa.github.io/blog/i3-empty-workspace-workaround/)
+* [i3 tips ‘n’ tricks](https://extendedreality.wordpress.com/2014/11/20/i3-tips-n-tricks/)
+* [Gnome 3 to i3](http://www.ninjaducks.in/hacking/gnome-3-to-i-3/)
+
+* [i3 window manager extensions](http://www.getreu.net/public/downloads/i3-extensions.html)
+* [quickswitch for i3](https://github.com/proxypoke/quickswitch-for-i3)
+* [Improved i3 Workspace Switcher](https://travisf.net/i3-wk-switcher)
+* [i3-finder](https://www.npmjs.com/package/i3-finder)
+
+* [i3-nagbar - displays an error bar on top of your screen](http://build.i3wm.org/docs/i3-nagbar.html)
+* [i3 logging and LXDM](http://b.wardje.eu/2012/06/i3-logging-and-lxdm.html)
 
 As well as configuring i3, you can also get extra software to help you. I3pystatus (https://github.com/enkore/i3pystatus) is a replacement for the status bar that’s extensible in Python. There’s also QuickSwitch (https://github.com/proxypoke/quickswitch-for-i3) which is a utility to help you find and control windows in i3.
 

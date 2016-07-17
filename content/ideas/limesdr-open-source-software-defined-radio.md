@@ -1,3 +1,4 @@
+* [quicky intro to sdr](http://hackaday.com/2016/05/30/hackaday-dictionary-software-defined-radio-sdr/)
 * [Sodera - Your Introduction into SDR](http://sodera.de/)
 * LimeSDR and its toolchain have already been used to create a Wireless Multi-tool for IoT, [Part 1](http://www.rs-online.com/designspark/electronics/eng/blog/an-intel-powered-wireless-multi-tool-for-the-iot-part-1), [Part 2](http://www.rs-online.com/designspark/electronics/eng/blog/an-intel-powered-wireless-multi-tool-for-the-iot-part-2), [source code](https://github.com/DesignSparkrs/sdr-ble-demo/)
 
@@ -188,7 +189,30 @@ as well as a fully-functional graphical topology designer.
 making it easier for Windows users to design and develop for SDR hardware.
 
 http://www.joshknows.com/projects
+http://www.pothosware.com/
+[Pothos features summary page](https://github.com/pothosware/pothos/wiki/Features)
 
+## LuaRadio
+GNURadio is a gigantic suite of software,
+and it’s a lot harder to code up in Python than it is to use the GUI.
+The LuaRadio project trys to deal with these shortcomings  bykeeping things easy to code
+and keeping the codebase small and tidy.
+
+http://luaradio.io/docs/reference-manual.html
+http://luaradio.io/examples/rtlsdr-wbfm-mono.html
+http://luaradio.io/docs/embedding-luaradio.html
+http://luaradio.io/docs/comparison-gnuradio.html
+
+# Digital Signal Processing
+* [three-part tutorial on using Octave](http://hackaday.com/2016/06/30/tutorial-on-signal-processing-in-linux-with-octave/)
+* [ MATLAB under Linux](https://help.ubuntu.com/community/MATLAB)
+* Scilab, Freemat, Sage, and Spyder
+
+
+##############################
+[MyRiad RF has confirmation][29] that LimeSDR can be made to work together with an
+Ubuntu Virtualbox VM, on top of Windows 10, and via USB passthrough from the host computer.
+##############################
 
 
 
@@ -220,5 +244,15 @@ http://www.joshknows.com/projects
 [26]:http://www.ubuntu.com/internet-of-things
 [27]:http://hackerboards.com/lightweight-snappy-ubuntu-core-os-targets-iot/
 [28]:http://thenewstack.io/snappy-ubuntu-core-powering-microcontrollers-to-microservices/
-[29]:
+[29]:https://myriadrf.org/blog/limesdr-native-windows-via-ubuntu-vm/?utm_source=LimeSDR+supporters&utm_campaign=7c106bb9cf-Project_Update_Lime_Beta_7_7_2016&utm_medium=email&utm_term=0_1e5a81cd57-7c106bb9cf-112302893
 [30]:
+[31]:
+[32]:
+[33]:
+[34]:
+[35]:
+[36]:
+[37]:
+[38]:
+[39]:
+[40]:

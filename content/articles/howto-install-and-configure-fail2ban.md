@@ -250,7 +250,8 @@ if you subject to frequent attacks.
 ### Step 4: Save Firewall Rules
 The firewall rules created so far will not survive a reboot of your system.
 To overcome this,
-you need to use the `iptables-save` or `iptables-persistent` commands.
+you need to use the `iptables-save` or `iptables-persistent` commands,
+or `netfilter-persistent` for Ubuntu 16.04.
 
 ```bash
 # make backup of current itables rules
@@ -261,7 +262,7 @@ sudo iptables-save > $HOME/tmp/backup_rules.v4
 
 # make the currently active rules persistent over reboots
 # (ie load them into /etc/iptables/rules.v4)
-sudo /etc/init.d/iptables-persistent save
+sudo netfilter-persistent save
 ```
 
 My saved firewall rules look like this:
