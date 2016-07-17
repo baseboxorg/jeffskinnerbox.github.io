@@ -1,6 +1,5 @@
-Status: draft
 Title: UPS Controlled Shutdown During Power Failure
-Date: 2100-01-01 00:00
+Date: 2016-07-17 18:46
 Category: Software, Hardware
 Tags: UPS
 Slug: ups-controlled-shutdown-during-power-failure
@@ -40,8 +39,8 @@ If the utility power is restored before one of the these shutdown conditions is 
 For my UPS,
 the  `apcupsd` daemon will be communicating with the UPS via a USB connection.
 To make sure that your USB subsystem can see the UPS,
-plug in the UPS and connect the USB cable to your computer
-and then just do this from a shell prompt (output included):
+plug in the UPS and connect the USB cable to your computer.
+Then just run `lsusb` from a shell prompt (see below, output included):
 
 ```bash
 # the lsusb command can show you the hubs connected to your system
@@ -51,16 +50,13 @@ Bus 003 Device 005: ID 051d:0002 American Power Conversion Uninterruptible Power
 ```
 
 ## Device File Name for the UPS
-**Don't Do This!!**
-Read the last paragraph in this section first.
-
 Under Linux, each and every hardware device, including USB ports,
 are treated as a file and call a [device file][07].
 A device file allows a user to access hardware devices,
 but shields the users from the technical details about the hardware.
 A conventional serial port will typically have a device file such as
 `/dev/ttyS0`, `/dev/ttyS1`, etc. but a USB serial ports can appear as
-`/dev/ttyUSB0`, `/dev/ttyUSB1`, etc. or even appear in `/dev/usb`.
+`/dev/ttyUSB0`, `/dev/ttyUSB1`, etc. or even appear in `/dev/usb` as in my Ubuntu Linux system.
 
 When your device is plugged in, Linux assigns the device file name
 as it sees fit and isn’t always predicable ([it doesn’t have to be this way][08]).
@@ -230,7 +226,7 @@ control is passed to the script `/etc/apcupsd/apccontrol`.
 The event name, and a number of other important parameters are passed to the script.
 The major function of the `apccontrol` script is to perform a shutdown of the system
 (as well as the killpower operation).
-Another major task for this script is to notify you by email
+Another major task for this script is to notify you (via [`wall`][16] by default)
 when certain events such as powerfail occur.
 
 Since `/etc/apcupsd/apccontrol` is a script,
