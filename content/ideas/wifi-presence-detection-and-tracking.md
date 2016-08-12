@@ -1,4 +1,5 @@
 * [Quickie WiFi Scanner](http://hackaday.com/2016/02/24/quickie-wifi-scanner/)
+* [Opportunistically track and transmit the location of a ESP8266](https://github.com/dancudds/esp8266locationtracker)
 * [WiFi Scanner -Know the WiFi Signal around you](http://www.seeedstudio.com/recipe/219-wifi-scanner-know-the-wifi-signal-around-you.html)
 * [An introduction to the Kismet packet sniffer](https://www.linux.com/news/introduction-kismet-packet-sniffer)
 * [Passive WiFi Tracking](http://edwardkeeble.com/2014/02/passive-wifi-tracking/)

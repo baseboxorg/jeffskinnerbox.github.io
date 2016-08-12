@@ -17,6 +17,8 @@ Some simple weather station setups:
 * [cli-weather](https://www.npmjs.com/package/cli-weather)
 * [node-red-node-weather-underground](https://www.npmjs.com/package/node-red-node-weather-underground)
 
+* [Build a Wireless “Tipping Bucket” Rain Gauge, Part 1—Assembling the Bucket](http://www.allaboutcircuits.com/projects/build-a-wireless-tipping-bucket-rain-gauge-part-1assembling-the-base/)
+
 Gulp - http://gulpjs.com/
 Mocha - http://mochajs.org/
 Chai - http://chaijs.com/

@@ -1,6 +1,9 @@
-What about [Sublime](https://www.sublimetext.com/) and [Atom](https://atom.io/)
-[A tmux Primer](https://danielmiessler.com/study/tmux/)
-[rxvt-unicode / urxvt](http://www.slant.co/topics/794/compare/~terminator_vs_rxvt-unicode_vs_gnome-terminal)
+What about [Sublime](https://www.sublimetext.com/) and [Atom](https://atom.io/) or
+
+* [A tmux Primer](https://danielmiessler.com/study/tmux/)
+* [rxvt-unicode / urxvt](http://www.slant.co/topics/794/compare/~terminator_vs_rxvt-unicode_vs_gnome-terminal)
+* [e3](http://manpages.ubuntu.com/manpages/xenial/man1/e3.1.html)
+* [Editor Wars](http://hackaday.com/2016/07/26/editor-wars/) and the topcic even has a [Wikipedia page](https://en.wikipedia.org/wiki/Editor_war#)
 
 An integrated development environment (IDE) is a programming environment
 that has been packaged as an application program,
@@ -9,6 +12,7 @@ and a graphical user interface (GUI) builder.
 
 * [vim][14] highly customizable editor.
 * [Terminator][01]
+
 is a terminal emulator released under General Public License
 and is available for GNU/Linux Platform.
 The application program lets you use multiple splits and resized terminals,

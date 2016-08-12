@@ -1,5 +1,5 @@
 created: 20141226143823014
-modified: 20160606161649916
+modified: 20160731222237713
 tags: [[Test Gear]]
 title: Oscilloscope Tutorials and Tips
 type: text/vnd.tiddlywiki
@@ -14,11 +14,13 @@ so its time to learn how to use it like a pro.
 * [[Videos: Basics and Tutorials on Scopes|https://www.youtube.com/playlist?list=PL746BF38BC2E068E0&app=desktop]]
 * [[Oscilloscope Tutorial|https://www.valuetronics.com/Manuals/Oscilloscope_Tutorial.pdf]]
 * [[NJARC Oscilloscope School (aka "Scopes for Dopes")|http://www.njarc.org/scopes4dopes/]]
+* [[How to use an oscilloscope. Plus, seeing signals in antique radios|https://www.youtube.com/watch?v=niBGkqlh2XY]]
 
 !!Primers & Tutorials
 * [[Adafruit Oscilloscope Tutorials|http://www.adafruit.com/blog/2011/12/16/analog-oscilloscope-tutorials/]]
 * [[XYZs of Oscilloscopes|http://ecee.colorado.edu/~mcclurel/txyzscopes.pdf]]
 * [[Probe Fundamentals|http://www.ece.vt.edu/cel/docs/Probe_Fundamentals_Tektronix.pdf]]
+* [[Understanding Oscilloscope Trigger System Basics & Why You Should Care|https://keysightoscilloscopeblog.com/2016/07/27/understanding-oscilloscope-trigger-system/]]
 * [[Oscilloscope Triggering: When is Normal not so Normal?|https://keysightoscilloscopeblog.com/2016/03/23/oscilloscope-normal-triggering/]]
 * [[Capturing Intermittent or Infrequent Events|https://keysightoscilloscopeblog.com/2016/05/18/capturing-infrequent-events-why-oscilloscope-update-rate-matters/]]
 * [[7 Tips for Better Oscilloscope Probe Selection and Usage|http://electronicdesign.com/test-measurement/7-tips-better-oscilloscope-probe-selection-and-usage]]

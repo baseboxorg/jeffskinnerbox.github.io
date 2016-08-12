@@ -1,12 +1,14 @@
+
 * [Learn Node.js via NodeSchool](http://nodeschool.io/)
 * [Version 0.13 released](http://nodered.org/blog/2016/01/18/version-0-13-released)
+* [Introduction to the MQTT Protocol on NodeMCU](http://www.allaboutcircuits.com/projects/introduction-to-the-mqtt-protocol-on-nodemcu/)
+* [Minimal MQTT: Networked Nodes](http://hackaday.com/2016/05/17/minimal-mqtt-networked-nodes/)
 
 * [Node-RED, wiring the Raspberry Pi to the IoT](http://www.networkworld.com/article/3075329/internet-of-things/node-red-wiring-the-raspberry-pi-to-the-iot.html)
 * [IOT made real – Using TI SensorTag data with Logentries and NodeRed](https://blog.logentries.com/2016/02/iot-made-real-using-ti-sensortag-data-with-logentries/)
     * [Raspberry Pi, Logs and Iot – Sending Pi Log and Sensor Data to Logentries](https://dzone.com/articles/raspberry-pi-logs-and-iot-sending-pi-log-and-senso)
 * [Node Knockout 2013: Supercharge Your Node.js App With PubNub](https://www.pubnub.com/blog/2013-10-11-node-knockout-2013-supercharge-your-app-with-pubnub/)
 * [Connecting it All Together – PubNub and Node-RED](http://www.internetoflego.com/connecting-it-all-together-pubnub-and-node-red/)
-* [Setting up an IoT framework/dashboard with NodeRed, Mosca/Mosquitto and Freeboard.io dashboard](https://primalcortex.wordpress.com/2015/02/25/setting-up-an-iot-frameworkdashboard-with-nodered-moscamosquitto-and-freeboard-io-dashboard/)
 * [Node-Red Websockets Page : Scargill's Tech Blog](http://tech.scargill.net/a-node-red-websockets-web-page/)
 * [Node-Red Scheduler](http://tech.scargill.net/node-red-scheduler/)
 * [Pete Scargill's Node-Red Posts](http://tech.scargill.net/?s=node-red)
@@ -16,8 +18,21 @@
 * [Baofeng (or other radio) data TX/RX for Raspberry Pi](http://flows.nodered.org/flow/d802e43ab306b4b9f2ba)
 
 * [Weather Station – DHT11, MQTT, Node-RED, Google Chart, Oh My!](http://www.internetoflego.com/weather-station-dht11-mqtt-node-red-google-chart-oh-my/)
+
+# ESP8266
+* [MQTT Tutorial for Raspberry Pi, Arduino, and ESP8266: Send MQTT messages between 3 different platforms](https://www.baldengineer.com/mqtt-tutorial.html)
+* [MQTT client library for ESP8266](https://github.com/tuanpmt/esp_mqtt)
+* [Temp sensor connected to ESP8266 and upload data using MQTT](https://www.hackster.io/mtashiro/temp-sensor-connected-to-esp8266-and-upload-data-using-mqtt-5e05c9?utm_source=Hackster.io+newsletter&utm_campaign=20569a30e7-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-20569a30e7-140225889)
+* [ESP8266 AND IOT: STREAMING SERIAL ACCELEROMETER DATA VIA MQTT](http://tinker.yeoman.com.au/2015/03/29/esp8266-and-iot-streaming-serial-accelerometer-data-via-mqtt/)
+
+# MQTT
+* [Running Mosquitto (MQTT broker) on Raspberry Pi](http://www.seeed.cc/project_detail.html?id=1754&utm_source=comedm17&utm_medium=mailchimp&utm_campaign=Molly0804)
+* [Setting up an IoT framework/dashboard with NodeRed, Mosca/Mosquitto and Freeboard.io dashboard](https://primalcortex.wordpress.com/2015/02/25/setting-up-an-iot-frameworkdashboard-with-nodered-moscamosquitto-and-freeboard-io-dashboard/)
+* [Installing Mosquitto on a Raspberry Pi](http://jpmens.net/2013/09/01/installing-mosquitto-on-a-raspberry-pi/)
+* [Tutorial: IOT / Installing and Testing Mosquitto MQTT on the Raspberry Pi](http://www.switchdoc.com/2016/02/tutorial-installing-and-testing-mosquitto-mqtt-on-raspberry-pi/)
 * [Minimal MQTT: Power and Privacy](http://hackaday.com/2016/06/02/minimal-mqtt-power-and-privacy/)
 * [Minimal MQTT: Control and Clients](http://hackaday.com/2016/05/27/minimal-mqtt-control-and-clients/)
+* []()
 
 # Creating a Node
 * [Creating a node for Node-RED: The Philips Hue Node](http://blog.buildinginternetofthings.com/2013/11/09/creating-a-node-for-node-red-the-philips-hue-node/)

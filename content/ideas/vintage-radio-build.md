@@ -85,6 +85,7 @@ The primary receiver used on the Titanic’s Marconi station was basically a 3-s
 * [They’re JUST Capacitors](http://phy.supplyframe.com/2016/04/17/james-lewis-kemet-theyre-just-capacitors/)
 * [A 'Multi-Turn' Homemade Variable Tuning Capacitor...](http://earthground.8m.com/tuning%20capacitor.htm)
 * [History of the Capacitor – The Pioneering Years](http://hackaday.com/2016/07/12/history-of-the-capacitor-the-pioneering-years/)
+* [History Of The Capacitor – The Modern Era](http://hackaday.com/2016/07/26/history-of-the-capacitor-the-modern-era/)
 
 # Flame Components
 * [Flame Triodes Don’t Need Any Vacuum](http://hackaday.com/2016/05/26/flame-triodes-dont-need-any-vacuum/)

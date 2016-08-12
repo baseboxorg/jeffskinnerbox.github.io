@@ -18,6 +18,9 @@
 * [Raspberry Pi Cluster](http://likemagicappears.com/projects/raspberry-pi-cluster/)
 * [Designing a High Performance Parallel Personal Cluster](http://hackaday.com/2016/05/09/designing-a-high-performance-parallel-personal-cluster/)
 
+## Using Raspberry Pi Zero for Hadoop Cluster
+* Raspberry Pi Zero Cluster "Supercomputer" [Part 1](https://youtu.be/HsIFWk_QHoc) and [Part 2](https://youtu.be/ddrTDCdlYDE)
+
 ## Spark
 * [Spark Or Hadoop : Which Is The Best Big Data Framework?](https://www.linkedin.com/pulse/spark-hadoop-which-best-big-data-framework-chaaranpall-lambba?trk=eml-b2_content_ecosystem_digest-recommended_articles-103-null&midToken=AQFNblHgIt9-6A&fromEmail=fromEmail&ut=0pSjPikaB8JD81)
 

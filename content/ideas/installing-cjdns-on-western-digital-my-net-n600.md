@@ -113,7 +113,7 @@ _feed-method feed-name feed-source_.
 You must put the CJDNS feed in this file and this could be done via the editor `vim`,
 or via LuCI, use the path `System > Software > Configuration`.
 
-The [quick mesh project][42] website and its [development site][41] instructs you
+The [quick mesh project (qMp)][42] website and its [development site][41] instructs you
 to place the following line in `/etc/opkg.conf`:
 
 ```

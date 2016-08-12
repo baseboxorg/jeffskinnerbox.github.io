@@ -17,9 +17,20 @@ An alternative to Pushover is [Instapush](https://instapush.im/).
 Read more: http://www.programmableweb.com/api/keylemon#ixzz37atW6GGC
 Follow us: @ProgrammableWeb on Twitter | ProgrammableWeb on Facebook
 
+
 # AWS IoT
+* [Amazon Web Services](https://aws.amazon.com/)
 * [AWS IoT](http://aws.amazon.com/iot/)
+* [AWS IoT – Cloud Services for Connected Devices](https://aws.amazon.com/blogs/aws/aws-iot-cloud-services-for-connected-devices/?sc_campaign=launch&sc_category=iot&sc_channel=SM&sc_content=reInvent&sc_detail=std&sc_medium=aws&sc_publisher=tw_go&adbsc=social_launches_20151008_53682996&adbid=652168897924235264&adbpl=tw&adbpr=571241517)
+* [AWS Lambda](https://aws.amazon.com/lambda/)
 * [Smart Environmental Monitoring](https://www.hackster.io/alapisco/smart-environmental-monitoring-2552bb?utm_source=hackster&utm_medium=email&utm_campaign=new_projects)
+* [Amazon Simple Notification Service (SNS)](https://www.hackster.io/taifur/aws-emergency-notifier-a83e81?utm_source=hackster&utm_medium=email&utm_campaign=new_projects)
+* [Network Monitoring with AWS IoT](https://www.hackster.io/phantom-formula-e97912/network-monitoring-with-aws-iot-b8b57c?utm_source=hackster&utm_medium=email&utm_campaign=new_projects)
+* [Build a connected maraca with AWS and Intel Edison](https://www.hackster.io/jinman/build-a-connected-maraca-with-aws-and-intel-edison-a4010e?ref=platform&ref_id=4851_trending___&offset=8)
+
+# AWS IoT Button
+* [AWS IoT Button](https://aws.amazon.com/iot/button/)
+* [Getting Started with AWS IoT](http://docs.aws.amazon.com/iot/latest/developerguide/iot-gs.html)
 
 # Waylay.io
 * Waylay - http://www.waylay.io/
@@ -325,6 +336,14 @@ It's interesting that Bug Labs positions Freeboard as an open source alternative
 
 # OpenSensors.io
 [OpenSensors.io](https://www.opensensors.io/)
+
+# CloudMQTT
+CloudMQTT - https://www.cloudmqtt.com/
+On AWS -
+
+# MongoDB
+mLab (formally MongoDB) - https://mlab.com/
+On AWS - https://mlab.com/aws/
 
 # IFTTT
 [IFTTT](https://ifttt.com/)

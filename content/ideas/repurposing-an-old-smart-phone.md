@@ -1,6 +1,13 @@
 
 [Hack your Android phone (or Tablet)](http://www.instructables.com/id/Hack-your-Android-phone/?ALLSTEPS)
 
+# turning into terminal or monitor
+* [Turn your Android device into a Linux desktop PC - without rooting](https://www.androidpit.com/turn-your-android-device-into-a-linux-pc-without-rooting)
+* [Tablet Second Monitor](http://www.instructables.com/id/Tablet-Second-Monitor/?ALLSTEPS)
+* [How to use an Android tablet as a Raspberry Pi console terminal and internet router](http://elinux.org/How_to_use_an_Android_tablet_as_a_Raspberry_Pi_console_terminal_and_internet_router)
+* [Use an Android Device as Screen and Input for Raspberry Pi](http://www.linux-magazine.com/Online/Blogs/Productivity-Sauce/Use-an-Android-Device-as-Screen-and-Input-for-Raspberry-Pi)
+* [Using an Android Tablet as a Raspberry Pi Monitor](http://rwhitmire.com/2014/03/25/android-tablet-raspberry-pi.html)
+
 I recently purchased a new cell phone leaving me with a Samsung Galaxy S Captivate
 ([SAMSUNG-SGH-I897][16], [Android version 2.2 / Froyo / API level 8][15]) with no purpose in life.
 I did a quick search of the web to get some ideas on how to re-purpose this smart phone

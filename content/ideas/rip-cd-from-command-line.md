@@ -4,6 +4,7 @@
 * [Getting Started with Google Play Music on Ubuntu](http://www.omgubuntu.co.uk/2011/11/getting-started-with-google-music-on-ubuntu)
 * [Control Your Android from a Browser with AirDroid](http://www.howtogeek.com/105813/control-your-android-from-a-browser-with-airdroid/)
 * [SideSync](http://www.samsung.com/us/sidesync/)
+* [Convert your CD to mp3 with Sound Juicer](http://www.rooot.net/en/geek-stuff/linux/26-cd-to-mp3-sound-juicer.html)
 
 # Google Play Music Manager
 Google Play Music
@@ -224,6 +225,8 @@ ID3 tags are traditionally put at the end of compressed streamed audio files to 
 
 http://www.linuxquestions.org/questions/linux-general-1/how-to-do-a-freedb-query-220956/
 http://gadgetweb.de/linux/cd-ripping-with-lame-cdda2wav-and-cddb-data.html
+
+
 
 [01]:https://www.youtube.com/playlist?list=PL2BE016DE79CAF1EC&app=desktop
 [02]:https://www.xiph.org/paranoia/

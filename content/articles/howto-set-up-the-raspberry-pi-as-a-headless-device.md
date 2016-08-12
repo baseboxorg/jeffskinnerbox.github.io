@@ -104,7 +104,7 @@ where we need to write the Raspbian image to the SD Card
 cd /home/jeff/Downloads
 
 # unmount the sd card reader
-sudo umount /dev/sdj
+sudo umount /dev/sdj1
 
 # write the image to the sd card reader
 sudo dd bs=4M if=2016-02-09-raspbian-jessie.img of=/dev/sdj
@@ -300,6 +300,9 @@ We need to change the following:
 Finally, select `<Finish>` and reboot so that the configuration changes are all applied.
 
 ```bash
+# set the time zone for your device
+sudo timedatectl set-timezone America/New_York
+
 sudo reboot
 ```
 
@@ -367,6 +370,7 @@ periodically you can update the firmware via the commands below:
 
 ```bash
 # periodically you can update the firmware via the command
+sudo apt-get install rpi-update
 
 # check for and install any required Raspberry Pi firmware upgrades
 sudo BRANCH=next rpi-update
@@ -405,6 +409,9 @@ Install X Window utilities, development tools, and other applications
 # some X Window utilities
 sudo apt-get install x11-apps x11-xserver-utils xterm wmctrl
 
+# tools for viewing and minipulating image & video files
+sudo apt-get install imagemagick feh mplayer2
+
 # development tools
 sudo apt-get install markdown git vim vim-gtk microcom screen
 sudo apt-get install nodejs-legacy npm build-essential i2c-tools python-smbus
@@ -419,7 +426,7 @@ sudo apt-get install linssid
 sudo apt-get install avahi-daemon
 
 # basic networking / firewall tools
-sudo apt-get install tcpdump wavemon nicstat nmap ufw
+sudo apt-get install dnsutils tcpdump wavemon nicstat nmap ufw
 
 # other handy tools
 sudo apt-get install sendmail gnome-terminal
@@ -488,6 +495,7 @@ ln -s ~/.bash/bash_logout ~/.bash_logout
 ln -s ~/.bash/bash_profile ~/.bash_profile
 ln -s ~/.bash/dircolors.old ~/.dircolors
 sudo cp ~/.bash/virtualenvwrapper.sh ~/.bash/virtualenvwrapper_lazy.sh /usr/local/bin
+sudo pip install virtualenvwrapper
 
 # install X configuration files
 cd ~
@@ -612,6 +620,36 @@ iface default inet static
     netmask 255.255.255.0
     gateway 192.168.100.1
 ```
+
+Good documentation for the network interface file is hard to find.
+You can find online many examples, but What what is missing is an explanation of the syntax,
+an explanation of the meaning of the commands and which order the commands require.
+[What exists is far too complex for the type need][51],
+and the Ubuntu file `/usr/share/doc/ifupdown/examples/network-interfaces` is just examples,
+but the [manual page][52] is about right in its detail.
+Here is a brief summary for your typical needs:
+
+* Layer 2 Options
+    * `auto` Start the interface(s) at boot.
+    * `allow-hotplug` start the interface when a "hotplug" event is detected.  This is the same situations as auto but the difference is that it will wait for an event like "being detected by udev hotplug api" or "cable linked".
+* Layer 3 Options
+    * `inet static` Defines a static IP address.
+    * `inet manual` Does not define an IP address for an interface. Generally used by interfaces that are bridge or aggregation members, or have a VLAN device configured on them.
+    * `inet dhcp` Acquire IP address through DHCP protocol.
+    * `inet6 static` Defines a static IPv6 address.
+* Interface Stanza Options
+    * `address` IP address for a static IP configured interface
+    * `netmask` netmask
+    * `gateway` The default gateway of a server. Be careful to use only one of this guy.
+    * `vlan-raw-device` On a VLAN interface, defines its "father".
+    * `bridge_ports` On a bridge interface, define its members.
+    * `down` Use the following command to down the interface instead of ifdown.
+    * `post-down` Actions taken right after the interface is down.
+    * `pre-up` Actions before the interface is up.
+    * `up` Use the following command to up the interface instead of ifup.
+    * `dns-nameservers` IP addresses of nameservers. Requires the `resolvconf` package. It’s a way to concentrate all the information in `/etc/network/interfaces` instead of using `/etc/resolv.conf` for DNS-related configurations. Do not edit the `resolv.conf` configuration file manually as it will be dynamically changed by programs in the system.
+    * `wpa-ssid` Wireless: Set a wireless WPA SSID.
+    * `wpa-psk` Wireless: Set a hexadecimal encoded PSK for your SSID.
 
 ### Step 13: Configure Firewall
 I recommend using [`ufw` (Uncomplicated FireWall)][34] to restrict access to the Raspberry Pi.
@@ -849,3 +887,5 @@ This can cause mysterious problems (like WiFi adapter not working, just to name 
 [48]:http://jeffskinnerbox.me/posts/2016/Apr/27/howto-install-and-configure-fail2ban/
 [49]:http://lifehacker.com/5873407/how-to-crack-a-wi-fi-networks-wpa-password-with-reaver
 [50]:https://www.us-cert.gov/ncas/alerts/TA12-006A
+[51]:https://www.debian.org/doc/manuals/debian-reference/ch05.en.html#_the_network_interface_name
+[52]:http://manpages.ubuntu.com/manpages/precise/man5/interfaces.5.html

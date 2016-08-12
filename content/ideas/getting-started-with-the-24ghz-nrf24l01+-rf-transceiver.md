@@ -9,6 +9,7 @@ Image: DRAFT_stamp.png
 Summary: bla bla bla
 
 Check out
+* [RadioHead Packet Radio library for embedded microprocessors](http://www.airspayce.com/mikem/arduino/RadioHead/index.html)
 * [nRFIoT - Easy IoT Sensors](https://hackaday.io/project/2009-nrfiot-easy-iot-sensors)
 * [MySensors](http://www.mysensors.org/)
 * [Mosquitto](http://mosquitto.org/).

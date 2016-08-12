@@ -1,5 +1,5 @@
 created: 20141125030141346
-modified: 20160623012114859
+modified: 20160731231204397
 title: Retro Technology
 type: text/vnd.tiddlywiki
 
@@ -107,10 +107,16 @@ It was on [[HP's version|http://www.hpmuseum.org/]]
 of this [[first Desktop Computer|http://hackaday.com/2015/12/08/retrotechtacular-a-desktop-computer-from-1965/]] that sparked my interest in software coding.
 Programming it was only slightly better than working in assembly language.
 
+You would thing that the [[Fax Machine|http://hackaday.com/2016/02/17/faxing-in-1843/]]
+couldn't pre-date the telephone, but it appears it does.
 [[Fax|https://en.wikipedia.org/wiki/Fax]],
-or it original version [[radio facsimile|http://hackaday.com/2015/12/22/retrotechtacular-electronic-publishing-in-the-1930s/]],
+or it mondern original version [[radio facsimile|http://hackaday.com/2015/12/22/retrotechtacular-electronic-publishing-in-the-1930s/]],
 was introduced in the 1940s.
-Fax provided an pre-computer age of transmission of scanned printed material (both text and images).
+Fax provided a pre-computer age of transmission of scanned printed material (both text and images).
+This was following by the
+[[Xerox 914 copier|http://hackaday.com/2016/07/20/retrotechtacular-birds-and-the-bees-document-style/]]
+and the [[answering machine|https://www.youtube.com/watch?v=xROXat5cBDc]]
+in the late 1950s.
 
 The Internet has made the accessing of mathematical, physical and chemical data easy.
 Back in the day, as in my college years,
@@ -138,9 +144,6 @@ In 1956 that the first transatlantic telephone system,
 [[Transatlantic Telephone Cable System 1 (TAT-1)|http://hackaday.com/2016/03/18/what-lies-beneath-the-first-transatlantic-communications-cables/]],
 is an example of a transmission line.
 
-You would thing that the [[Fax Machine|http://hackaday.com/2016/02/17/faxing-in-1843/]]
-couldn't pre-date the telephone, but it appears it does.
-
 When I start my career at Bell Lab's in the 1970s,
 I spent many an hour in and around the Computing Center.
 Check out these training videos:
@@ -154,3 +157,12 @@ that uses digital electronics and computerized control to interconnect telephone
 It replaced the need for telephone operators but the public
 had to be trained in its use and operation via
 [[films like this|https://www.youtube.com/watch?v=EvvvLzw1XsQ]].
+
+As a space age kid, it is hard for me to accept
+that the [[Apollo Guidance Computer (AGC)|http://hackaday.com/2015/02/03/reproducing-a-dsky/]]
+is now retro technology, but it is.
+AGC was a digital computer produced for the Apollo program that was
+installed on board each Apollo Command Module (CM) and Lunar Module (LM).
+Luckly, [[Hackaday has done multiple articles|http://hackaday.com/tag/apollo/]]
+on the Apollo space program hardware and
+[[software|http://hackaday.com/2016/07/14/riding-shotgun-in-the-apollo-12-lunar-lander/]].

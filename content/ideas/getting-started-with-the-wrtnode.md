@@ -61,6 +61,9 @@ After a layer of A/D converter, it could directly interact with all kinds of sen
 
 For more on the WRTnode hardware, check out [this wiki][74].
 
+################################################################################
+Replace this with a referance to getting-started-with-openwrt.md
+
 ## OpenWrt
 [OpenWrt][40] is a descendant of the firmware used for the classic [Linksys WRT54G][39] router.
 In fact, this classic Linksys series of routers lead to [DD-WRT][41], [OpenWrt][40], [Tomato][42],
@@ -238,6 +241,8 @@ but it is a preferred method to start an operating system.
 The main advantage for OpenWrt is,
 that the existence of a bootloader offers users and developers
 additional possibilities to [debrick][50] a device.
+
+################################################################################
 
 # Getting Connected with WRTnode
 Read the [OpenWrt New Comer's Guide][67]
@@ -661,7 +666,7 @@ Next will be Ubiquiti equipment with others supported as development resources p
 [41]:http://www.dd-wrt.com/site/index
 [42]:http://www.polarcloud.com/tomato
 [43]:http://www.wi-fiplanet.com/tutorials/article.php/3562391
-[44]:https://onion.io/omega
+[44]:https://onion.io
 [45]:http://www.amazon.com/GL-AR150-ext-External-Antenna-150Mbps-Pre-installed/dp/B015CYI8DY/ref=sr_1_2?ie=UTF8&qid=1454383159&sr=8-2&keywords=GL-AR150
 [46]:http://www.gl-inet.com/docs/wiki/#!index.md
 [47]:http://www.gl-inet.com/blog/

@@ -13,6 +13,7 @@ http://staging.thethingsnetwork.org/wiki/LoRaWAN/Overview
 
 # Adiafruit Products
 * [Adafruit RFM69HCW and RFM9X LoRa Packet Radio Breakouts](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts/overview)
+* [RFM9X Test](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts/rfm9x-test)
 * [RFM69 to MQTT Gateway on the Super-Cheap](http://hackaday.com/2015/11/14/rfm69-to-mqtt-gateway-on-the-super-cheap/)
 * [Introduction to the RFM69HW Transceiver](http://www.allaboutcircuits.com/projects/introduction-to-the-rfm69hw-transceiver/)
 * [Adafruit Feather](https://www.adafruit.com/feather)
@@ -25,7 +26,10 @@ http://staging.thethingsnetwork.org/wiki/LoRaWAN/Overview
 
 # Seeed
 * [HC-12 Wireless Serial Port Communication Module](http://www.instructables.com/id/Long-Range-18km-Arduino-to-Arduino-Wireless-Commun/?ALLSTEPS)
-*
+
+# Link Labs
+* [LoRaWAN Gateway](http://www.instructables.com/id/LoRaWAN-Gateway/)
+
 # The Things Network
 ![img](http://thethingsnetwork.org/static/ttn/media/The%20Things%20Uitlijning.svg)
 * [The Things Network](http://thethingsnetwork.org/)
@@ -37,6 +41,11 @@ http://staging.thethingsnetwork.org/wiki/LoRaWAN/Overview
 * [KappaIO - Open Source ZigBee Gateway Framework](https://kappa.io/)
     * [Quick Start Guide](https://kappa.io/quickstart)
     * [CC2531 USB Evaluation Module Kit](http://www.ti.com/tool/cc2531emk)
+
+# RadioHead
+* [SparkFun RadioHead Arduino Library](https://github.com/sparkfun/SparkFun_RadioHead_Arduino_Library)
+* [RadioHead Packet Radio library for embedded microprocessors](http://www.airspayce.com/mikem/arduino/RadioHead/index.html)
+
 
 ########################################
 

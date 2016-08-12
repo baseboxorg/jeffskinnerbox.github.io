@@ -7,9 +7,12 @@ In a ad-hoc network, wireless stations communicate directly with one another on 
 without using an access point or any intermediate network router.
 
 The posting "[Creating an Ad-hoc network for your Raspberry Pi][15]"
-does an excellent job of giving a simple explanation of
-what needs to be done to create an Ad-Hoc WiFi network.
+does an excellent job of giving you the basic steps
+needed to create an Ad-Hoc WiFi network.
 It quick shows you what files need to be modified but with minimal explanation.
+I hope to do a better job here,
+avoid some pit fails,
+and make it easily repeatable via some scripts.
 
 To get my Ad-Hoc WiFi network operation, I'm going to follow these basic steps:
 
@@ -21,7 +24,7 @@ To get my Ad-Hoc WiFi network operation, I'm going to follow these basic steps:
 1. Prevent DHCP From Starting At Boot
 1. Reboot and Test
 
-I will provide description and tools to:
+I will provide description, instructions, and tools to:
 
 * Configure the ad-hoc network using _static IP addressing_ -
 * Configure the ad-hoc network using _dynamic IP addressing_ - [Creating an Ad-hoc network for your Raspberry Pi](http://slicepi.com/creating-an-ad-hoc-network-for-your-raspberry-pi/)
@@ -43,14 +46,14 @@ of the six modes that 802.11 wireless cards can operate in:
 1.  **Repeater / WDS** - wireless interconnection to other access points to form a single managed network
 1.  **Monitor** - passively read packets, no packets are transmitted
 
-You may hear about Infrastructure Mode.
+You may also hear about Infrastructure Mode.
 Strictly speaking, Infrastructure Mode is not a device mode but a concept.
 
 We are **_not_** interested in creating a wireless access point out of one device
 so the other devices can home on it.
 While [this could be done][57], and it may adress some use cases,
 it requires [special software (`hostapd`)][58],
-we are assuming a pure peer-to-peer arangement.
+we are establishing a pure peer-to-peer arangement.
 
 We are specifically interested in ad-hoc mode.
 On wireless computer networks, ad-hoc mode is a method for
@@ -95,7 +98,7 @@ sudo iwconfig wlan0 | grep Mode
 against unwanted incoming connections.
 For example, ad-hoc devices cannot disable SSID broadcast
 like infrastructure mode devices can.
-Attackers generally will have little difficulty connecting to your
+Attackers generally will have little difficulty finding your
 ad-hoc device if they get within signal range.
 * **Signal Strength Monitoring** - The normal operating system software indications
 seen when connected in infrastructure mode are unavailable in ad-hoc mode.
@@ -112,8 +115,7 @@ The most concerning of these limitations is security
 but there are things that can be done.
 For one thing, you can [set up an ad-hoc network using WPA security][56].
 
-
-## Turn-Off NetworkManager, at Least for Your Interfaces
+## NetworkManager
 The default networking setup on Ubuntu
 (and [maybe Raspberry Pi][49] or maybe [it must be installed][50]),
 assumes that you are using the machine as a desktop or a laptop.
@@ -145,36 +147,12 @@ check with `sudo service network-manager status`.
 
 For maximum control, it may make sense to [disable NetworkManager][55]
 on some or all your interfaces.
-To stop NetworkManager, you can do one of these three things:
-
-1. Remove it: `sudo apt-get purge network-manager network-manager-gnome`
-1. Permanently Disable it: Edit `/etc/init/network-manager.conf` and add the line `manual` near the beginning of the file.
-1. Temporarily Disable it: Using [command-line tool for controlling NetworkManager][16], `sudo stop network-manager`.
-1. Disable Network Manager for a Particular Network Interface: See the articles ["How to disable Network Manager on Linux"][55] and ["How do I prevent Network Manager from controlling an interface?"][51].
-
-Within the Ubuntu and Debian distributions,
-one way to tell NetworkManager to stop controlling a particular interface
-is by telling NetworkManager to ignore ALL interfaces listed in the `/etc/network/interfaces` file.
-This is done by adding the following lines to the Network Manager
-configuration file [`/etc/NetworkManager/NetworkManager.conf`][59]:
-
-```
-[main]
-plugins=ifupdown
-
-[ifupdown]
-managed=false
-```
-
-Since this will only affect interfaces listed in the `/etc/network/interfaces` file,
-any interface not listed there will remain under NetworkManager control.
-This the simplest, and lest disruptive way to get NetworkManager out of you way
-but let it continue to run for other purposes.
 
 ## Wireless Networking Tools
 The Linux operating systems comes with various set of tools
 allowing you to manipulate the [Wireless Extensions][03] and monitor wireless networks.
-These tools can be used to find out network speed, bit rate, signal quality/strength, and much more.
+These tools can be used to find out network speed, bit rate,
+signal quality/strength, and much more.
 
 [`iw`][24] is the basic tool for WiFi network-related tasks,
 such as finding the WiFi device name, and scanning access points.
@@ -301,7 +279,7 @@ so the older wireless tools above may still be required.
 
 * [`iw`][24] - show / manipulate wireless devices and their configuration (supports WEP)
 
-# Methods for Establishing Wireless Ad-Hoc Network
+# Establishing Wireless Ad-Hoc Network
 On boot up, Linux uses the `/etc/network/interfaces` file to determine how its to use
 the installed WiFi and Ethernet network interfaces.
 (assuming NetworkManager doesn't get in the way ... see above)
@@ -319,6 +297,35 @@ bla bla bla
 * [Connect to WiFi network from command line in Linux](http://www.blackmoreops.com/2014/09/18/connect-to-wifi-network-from-command-line-in-linux/)
 * [How do I connect to a WPA wifi network using the command line?](http://askubuntu.com/questions/138472/how-do-i-connect-to-a-wpa-wifi-network-using-the-command-line)
 * [How to connect to a WPA/WPA2 WiFi network using Linux command line](http://linuxcommando.blogspot.com/2013/10/how-to-connect-to-wpawpa2-wifi-network.html)
+
+# Step XXX: Turn-Off NetworkManager
+For maximum control, it may make sense to [disable NetworkManager][55]
+on some or all your interfaces.
+To stop NetworkManager, you can do one of these three things:
+
+1. Remove it: `sudo apt-get purge network-manager network-manager-gnome`
+1. Permanently Disable it: Edit `/etc/init/network-manager.conf` and add the line `manual` near the beginning of the file.
+1. Temporarily Disable it: Using [command-line tool for controlling NetworkManager][16], `sudo service network-manager stop`.
+1. Disable Network Manager for a Particular Network Interface: See the articles ["How to disable Network Manager on Linux"][55] and ["How do I prevent Network Manager from controlling an interface?"][51].
+
+Within the Debian distributions (e.g. Ubuntu and Raspbian),
+one way to tell NetworkManager to stop controlling a particular interface
+is by telling NetworkManager to ignore ALL interfaces listed in the `/etc/network/interfaces` file.
+This is done by adding the following lines to the Network Manager
+configuration file [`/etc/NetworkManager/NetworkManager.conf`][59]:
+
+```
+[main]
+plugins=ifupdown
+
+[ifupdown]
+managed=false
+```
+
+Since this will only affect interfaces listed in the `/etc/network/interfaces` file,
+any interface not listed there will remain under NetworkManager control.
+This the simplest, and lest disruptive way to get NetworkManager out of you way
+but let it continue to run for other purposes.
 
 # Step XXX: Typical Network Interface and Security Setup
 This is where you configure how your system is connected to the network.
@@ -835,3 +842,13 @@ joint the chantilly library network - sudo iwconfig wlan0 essid ffxlib
 [58]:https://w1.fi/hostapd/
 [59]:http://linux.die.net/man/5/networkmanager.conf
 [60]:
+[61]:
+[62]:
+[63]:
+[64]:
+[65]:
+[66]:
+[67]:
+[68]:
+[69]:
+[70]:

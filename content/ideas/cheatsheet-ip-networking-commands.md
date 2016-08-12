@@ -107,7 +107,7 @@ any interface not listed there will remain under NetworkManager control.
     network scheduler to show and manipulate network traffic control settings
     * [`ifrename`][13] allows to rename wireless network interfaces based on various
     static criteria to assign a consistent name to each interface.
-    * [`arp`][20] (address resolution protocol) is used to translate protocol addresses to
+    * [`arp`][20] (address resolution protocol) is used to translate Internet protocol addresses to
     hardware interface addresses.
     The `arp` command is deprecated and you can replace `arp -na` by `ip neigh`.
     * [`route`][27] command is used to show/manipulate the IP routing table.
@@ -144,6 +144,7 @@ any interface not listed there will remain under NetworkManager control.
     It displays information and statistics about all your network card such as packets,
     kilobytes per second, average packet sizes and more.
     **Example Usage:** `nicstat -i wlan0 1`
+    * nethogs & iftop - http://www.tecmint.com/nethogs-monitor-per-process-network-bandwidth-usage-in-real-time/
 * Tools for Monitoring / Scanning WiFi
     * [`wavemon`][07] is a ncurses-based monitoring application for wireless network devices.
     It displays continuously updated information about signal levels, as well as,
@@ -536,6 +537,43 @@ To check to see what services are running on a box
 ```bash
 # list what services are running
 sudo nmap -sV 192.168.1.1
+```
+
+# nslookup
+* [10 Linux nslookup Command Examples for DNS Lookup](http://www.thegeekstuff.com/2012/07/nslookup-examples/)
+* [nslookup command examples to check DNS Records](http://www.2daygeek.com/nslookup-command-examples-to-check-dns-records/#)
+
+`nslookup` followed by the domain name will display the “A Record” (IP Address) of the domain:
+
+```bash
+# DNS host name lookup
+$ nslookup redhat.com
+Server:		192.168.1.1
+Address:	192.168.1.1#53
+
+Non-authoritative answer:
+Name:	redhat.com
+Address: 209.132.183.105
+```
+
+In the above output, server refers to the IP address of the DNS server.
+Then the below section provides the “A Record” (IP Address) of the domain “redhat.com”.
+
+You may also noticed the keyword “Non-authoritative answer” in the above output.
+Any answer that originates from the DNS Server which has the complete
+zone file information available for the domain is said to be authoritative answer.
+In many cases, DNS servers will not have the complete zone file information available for a given domain. Instead, it maintains a cache file which has the results of all queries performed in the past for which it has gotten authoritative response. When a DNS query is given, it searches the cache file, and return the information available as “Non-Authoritative Answer”.
+
+You can also do the reverse DNS look-up by providing the IP Address as argument to `nslookup`:
+
+```bash
+# reverse DNS lookup
+$ nslookup desktop
+Server:		192.168.1.1
+Address:	192.168.1.1#53
+
+Name:	desktop.fios-router.home
+Address: 192.168.1.13
 ```
 
 # Routing

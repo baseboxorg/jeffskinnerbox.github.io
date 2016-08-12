@@ -10,6 +10,8 @@
 * [Docker on Raspberry Pi](https://stefanscherer.github.io/docker-on-raspberry-pi/)
 * [Run docker on raspberry pi and openwrt](https://zhihuicao.wordpress.com/2015/10/17/run-docker-on-raspberry-pi-and-openwrt/)
 * [Using Docker to run Node.js on a Raspberry Pi](https://opensource.com/life/15/9/experimenting-docker-raspberry-pi)
+* [Swarm Mode on a Raspberry Pi Cluster](https://blog.docker.com/2016/07/swarm-mode-on-a-raspberry-pi-cluster/)
+* [Docker 1.12 RC on the Raspberry Pi: Download Link](https://dzone.com/articles/docker-112-rc-on-the-raspberry-pi-download-link)
 
 # Docker ToolBox
 * [Docker ToolBox](https://www.docker.com/products/docker-toolbox)

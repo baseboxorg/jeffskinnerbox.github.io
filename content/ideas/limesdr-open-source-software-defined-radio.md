@@ -7,10 +7,10 @@ Ever since I become aware of [RTL-SDR][20] and how it could be used to create
 a very cheap [software defined radio (SDR)][21]
 by uses a [TV tuner dongle based on the RTL2832U chipset][22],
 I have been hooked on diving deeper into SDR.
-The use of the TV dongle and the RTL-SDR software is very much a hack,
+The use of the TV dongle and the RTL-SDR software is very much a hack with very limited functionality,
 and can't come close to the abilities of professional grade SDR.
 I have been watching the product development in this SDR space,
-many are expensive or have technical limitations.
+many are expensive, or have technical limitations, or [just plain hard to do][30].
 This has been changing (e.g. [HackRF][23]) but I still didn't feel I was getting
 enough for the money.
 
@@ -245,7 +245,7 @@ Ubuntu Virtualbox VM, on top of Windows 10, and via USB passthrough from the hos
 [27]:http://hackerboards.com/lightweight-snappy-ubuntu-core-os-targets-iot/
 [28]:http://thenewstack.io/snappy-ubuntu-core-powering-microcontrollers-to-microservices/
 [29]:https://myriadrf.org/blog/limesdr-native-windows-via-ubuntu-vm/?utm_source=LimeSDR+supporters&utm_campaign=7c106bb9cf-Project_Update_Lime_Beta_7_7_2016&utm_medium=email&utm_term=0_1e5a81cd57-7c106bb9cf-112302893
-[30]:
+[30]:http://electronics.kitchen/misc/freesrp/
 [31]:
 [32]:
 [33]:
