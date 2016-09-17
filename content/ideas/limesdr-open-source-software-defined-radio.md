@@ -177,6 +177,49 @@ an IoT gateway for smart-home products, a cellular base station,
 a streaming media server, even radio astronomy.
 Developers will be able to share and distribute their own creations as well.
 
+To learn more about Snappy Ubuntu purpose, structure, installation, and usage,
+I wrote an article about installing
+Snappy Ubuntu on a Raspberry Pi 3.
+**To be writen using**
+###################################################
+Ubuntu Core is specifically designed for IoT devices running Linux,
+with a low hardware requirements,
+and a new package manager called snappy.
+Snappy replaces `apt-get` for this version of Ubuntu, which provides simpler,
+faster, and more reliable updates, stronger security, and allows roll-backs in case something goes wrong.
+Easy firmware updates are something missing in most connected device,
+which means they are more vulnerable to potential hackers,
+but with snappy security updates should be able to make it regularly,
+so that if something like heartbleed occurs again, you know your router,
+home automation gateway, connected washing machine, or robot will be soon patched automatically.
+
+Let’s go through the hardware requirements first:
+
+* Processor – 600 MHz processor (ARMv7 or greater, or x86)
+* System Memory – 128 MB RAM or greater (The system itself uses 40 MB RAM)
+* Storage – 4GB flash / storage for factory reset and system rollback
+
+So the hardware requirements are not quite as low as something as OpenWRT,
+but still lower than what you’d expect from Ubuntu,
+so you could use an old laptop or PC as a development platform.
+
+* starting at https://developer.ubuntu.com/en/snappy/
+* [Snappy Ubuntu Core – An Entirely New Ubuntu Operating System For Clouds And Devices](https://www.unixmen.com/snappy-ubuntu-core-an-entirely-new-ubuntu-operating-system-for-clouds-and-devices/)
+* [Getting Started With Snappy Ubuntu Core](https://www.unixmen.com/getting-started-with-snappy-ubuntu-core/)
+* [Snapcraft is a build and packaging tool which helps you package your software as a snap](https://developer.ubuntu.com/en/snappy/build-apps/)
+* [snapcraft.io](http://snapcraft.io/)
+* [Ubuntu Snappy – What You Need to Know](https://www.maketecheasier.com/ubuntu-snappy-what-you-need-to-know/)
+* [Docker on Snappy Ubuntu Core on a Raspberry Pi 2](https://darrenjw2.wordpress.com/2015/08/28/docker-on-snappy-ubuntu-core-on-a-raspberry-pi-2/)
+* [Running Ubuntu Snappy inside Docker](http://andrea.corbellini.name/2015/03/25/running-ubuntu-snappy-inside-docker/)
+
+* [The New Minimalist Operating Systems](https://blog.docker.com/2015/02/the-new-minimalist-operating-systems/)
+* [Docker: A Comparison of Minimalistic Operating Systems](https://www.inovex.de/blog/docker-a-comparison-of-minimalistic-operating-systems/)
+* [Prime Time: Docker, Juju, and Snappy Ubuntu Core](https://insights.ubuntu.com/2015/07/20/prime-time-docker-juju-and-snappy-ubuntu-core/)
+###################################################
+
+
+
+
 ## GNURadio
 
 ## Pothos
@@ -195,7 +238,7 @@ http://www.pothosware.com/
 ## LuaRadio
 GNURadio is a gigantic suite of software,
 and it’s a lot harder to code up in Python than it is to use the GUI.
-The LuaRadio project trys to deal with these shortcomings  bykeeping things easy to code
+The LuaRadio project trys to deal with these shortcomings bykeeping things easy to code
 and keeping the codebase small and tidy.
 
 http://luaradio.io/docs/reference-manual.html

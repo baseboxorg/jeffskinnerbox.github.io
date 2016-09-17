@@ -7,7 +7,7 @@ Author: xxx
 Image: cheat-sheet.jpg
 Summary: I'm creating a Vi/Vim cheat sheet that is workable for me.  I know that there hundreds vi/vim cheat sheets online, but none organized the way I want. This posting assures that I have what I need close at hand.
 
-Vi was one of the first text editors I learned (and still my favorite)
+[`vi`][03] was the 2nd text editors I learned ([`ed`][02] was my first)
 but I still need need a cheat sheet to help me with a command from time to time.
 I know that there hundreds vi/vim cheat sheets online,
 but none organized the way I want.
@@ -351,8 +351,10 @@ Also, using GitHub to [store my vi resource file][01],
 I can replicate this Vim environment across the multiple systems I'm presently use.
 
 ## Sources
-These are the sources for the commands documented above in the tables.
+These are the sources for the commands documented above in the tables,
+and generally good sources to learn Vi/Vim.
 
+* [Editor Wars: The Revenge of Vim](http://hackaday.com/2016/08/08/editor-wars-the-revenge-of-vim/)
 * [100 Vim commands every programmer should know](http://www.catswhocode.com/blog/100-vim-commands-every-programmer-should-know)
 * [How to Use Vim's Spellchecker](http://tips.webdesign10.com/vim/how-use-vims-spellchecker)
 * [Vim 101: A Gentle Introduction to Macros](http://usevim.com/2012/08/10/macros/)
@@ -389,3 +391,5 @@ could be gathered for this cheat sheet.
 
 
 [01]:https://github.com/jeffskinnerbox/dotvim
+[02]:https://en.wikipedia.org/wiki/Ed_(text_editor)
+[03]:https://en.wikipedia.org/wiki/Vi

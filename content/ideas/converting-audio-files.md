@@ -13,6 +13,9 @@ Summary: bla bla bla
 * [Audio Sensor Development Part 2: EDA, PCB, SPL, PSRR](http://www.macetech.com/blog/node/139)
 * [Audio Sensor Development Part 3: Theory Meets Reality](http://www.macetech.com/blog/node/140)
 
+* [ Audacity - basic audio recording](http://www.audacityteam.org/)
+* [Ardour - Record, Edit, and Mix on Linux](https://ardour.org/)
+
 ## Music and Sound Waves
  * [Art Ludwig's Sound Page](http://www.silcom.com/~aludwig/)
  * [The Kraakdoos — Musical Abuser of an Ancient OpAmp](http://hackaday.com/2015/09/03/the-kraakdoos-musical-abuser-of-an-ancient-opamp/)

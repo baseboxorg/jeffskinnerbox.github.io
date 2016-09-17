@@ -294,7 +294,7 @@ The multiple things can be configured within this configuration tool.
 We need to change the following:
 
 * **Expand Filesystem** - select this
-* **Boot Options** - select this and choose "B2 Console" - You will **not** need a password to get console access. _Somewhat of a security risk but nice to have if you need to recover from major problem._
+* **Boot Options** - select this and choose "B1 Console" - You will need a password to get console access. Gives you greater security and allow console cables to work via [`screen`][53] and [`microcom`][54].
 * **Advanced Options** - select this and choose "A2 Hostname", enable "A4 SSH", enable "A5 Device Tree", enable "A6 SPI", enable "A7 IC2", enable "A8 Serial"
 
 Finally, select `<Finish>` and reboot so that the configuration changes are all applied.
@@ -426,7 +426,7 @@ sudo apt-get install linssid
 sudo apt-get install avahi-daemon
 
 # basic networking / firewall tools
-sudo apt-get install dnsutils tcpdump wavemon nicstat nmap ufw
+sudo apt-get install dnsutils tcpdump wavemon nicstat nmap ufw rfkill
 
 # other handy tools
 sudo apt-get install sendmail gnome-terminal
@@ -484,6 +484,8 @@ time to install my personal tools on the device.
 cd ~
 git clone https://github.com/jeffskinnerbox/.vim.git
 ln -s ~/.vim/vimrc ~/.vimrc
+mkdir ~/.vim/backup
+mkdir ~/.vim/tmp
 
 # install tools for bash shell
 cd ~
@@ -889,3 +891,5 @@ This can cause mysterious problems (like WiFi adapter not working, just to name 
 [50]:https://www.us-cert.gov/ncas/alerts/TA12-006A
 [51]:https://www.debian.org/doc/manuals/debian-reference/ch05.en.html#_the_network_interface_name
 [52]:http://manpages.ubuntu.com/manpages/precise/man5/interfaces.5.html
+[53]:http://www.computerhope.com/unix/screen.htm
+[54]:http://manpages.ubuntu.com/manpages/xenial/man1/microcom.1.html

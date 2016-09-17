@@ -93,10 +93,12 @@ Unfortanately, Alexa doesn't support this but [Jasper does](http://jasperproject
 * [You Speak, Your Scope Obeys](http://hackaday.com/2016/03/29/you-speak-your-scope-obeys/)
 
 # Role-Your-Own Echo
+* [Voice COntrol on Your Pi](https://www.raspberrypi.org/magpi-issues/MagPi49.pdf)
 * [Voice Command with No Echo](http://hackaday.com/2015/08/30/voice-command-with-no-echo/)
 * [Speech Recognition with Arduino and BitVoicer Server](https://www.hackster.io/msb4180/speech-recognition-with-arduino-and-bitvoicer-server-460477?ref=newsletter&utm_source=Hackster.io+newsletter&utm_campaign=251e92bd71-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-251e92bd71-140225889)
 * [myva-Home (Voice controlled home automation)](https://www.hackster.io/smerkousdavid/myva-home-voice-controlled-home-automation-f4cfe3?utm_source=Hackster.io+newsletter&utm_campaign=73ff92e8f5-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-73ff92e8f5-140225889)
 * [Build a Raspberry Pi-Powered DIY Amazon Echo](http://lifehacker.com/build-a-raspberry-pi-powered-diy-amazon-echo-1762678229)
+* [Raspi Alexa Skills - Rest API](https://www.hackster.io/steckdev/raspi-alexa-skills-rest-api-071868?utm_source=hackster&utm_medium=email&utm_campaign=new_projects)
 
 # Mycroft
 * [Awesome Stuff: A Voice-Operated Household Assistant](https://www.techdirt.com/blog/innovation/articles/20150829/07551832101/awesome-stuff-voice-operated-household-assistant.shtml)

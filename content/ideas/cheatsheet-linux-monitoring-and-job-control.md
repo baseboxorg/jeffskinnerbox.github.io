@@ -71,7 +71,7 @@ http://www.informit.com/articles/article.aspx?p=397655&seqNum=6
 `setsid` is useful when you want to start a new session, because you have started to be connected to a new terminal -- such as when starting a shell inside a terminal emulator -- or you want a daemon (which you don't want to be associated with a controlling terminal).
 
 # Nohup vs. Screen vs. Setid
-One thing must be clarified, using screen and nohup, you can return and check the output of the running commands, with screen because you can attach a screen session, and with nohup, because you can check the output file.
+One thing must be clarified, using [screen][06] and nohup, you can return and check the output of the running commands, with screen because you can attach a screen session, and with nohup, because you can check the output file.
 
 Using setsid that is not possible, so only use it, when the output is not important for you.
 setsid creates a new session id for the command you run using it, so it does not deppend on your shell session, therefore if that shell session is closed the other command will stay running.
@@ -173,13 +173,14 @@ Most are rather obscure, but a few should be committed to memory:
 * [Speaking UNIX: Stayin' alive with Screen](http://www.ibm.com/developerworks/aix/library/au-gnu_screen/)
 * [screen Quick Reference Sheet](http://aperiodic.net/screen/quick_reference)
 * [screen Setup and Use](http://aperiodic.net/screen/)
+* [Screen User's Manual](https://www.gnu.org/software/screen/manual/html_node/index.html)
 * [Linux and Unix screen command](http://www.computerhope.com/unix/screen.htm)
 * [How To Use Linux Screen](https://www.rackaid.com/blog/linux-screen-tutorial-and-how-to/)
 * [10 Screen Command Examples to Manage Linux Terminals](http://www.tecmint.com/screen-command-examples-to-manage-linux-terminals/)
 * [How do I kill all screens?](http://unix.stackexchange.com/questions/94527/how-do-i-kill-all-screens)
 * [kill a screen (but not all screens)](http://serverfault.com/questions/96406/kill-a-screen-but-not-all-screens)
 * [Move a running process to a new screen shell](http://monkeypatch.me/blog/move-a-running-process-to-a-new-screen-shell.html)
-* []()
+* [Using GNU Screen to Manage Persistent Terminal Sessions](https://www.linode.com/docs/networking/ssh/using-gnu-screen-to-manage-persistent-terminal-sessions)
 
 
 * [How can I close a terminal without killing the command running in it?](http://unix.stackexchange.com/questions/4004/how-can-i-close-a-terminal-without-killing-the-command-running-in-it)
@@ -190,6 +191,26 @@ Most are rather obscure, but a few should be committed to memory:
 * [10 Linux/Unix Bash and KSH Shell Job Control Examples](http://www.cyberciti.biz/howto/unix-linux-job-control-command-examples-for-bash-ksh-shell/)
 * []()
 
+Screen command provides different window types.
+The first parameter to the screen command defines which type of window is created.
+If a `tty` name (e.g. `/dev/ttyS0`) is specified as the first parameter to the screen command,
+then the window is directly connected to this device.
+An optional parameter is allowed consisting of a comma separated list of flags in the notation as follows:
+
+
+`screen /dev/ttySX baud_rate,cs8|cs7,ixon|-ixon,ixoff|-ixoff,istrip|-istrip`
+
+Where,
+
+* **`/dev/ttySX`**: Linux serial port (e.g., /dev/ttyS0 [COM1] )
+* **`baud_rate`**: Usually 300, 1200, 9600 or 19200. This affects transmission as well as receive speed
+* **`cs8`** or **`cs7`**: Specify the transmission of eight (or seven) bits per byte
+* **`ixon`** or **`-ixon`**: Enables (or disables) software flow-control (CTRL-S/CTRL-Q) for sending data
+* **`ixoff`** or **`-ixoff`**: Enables (or disables) software flow-control for receiving data
+* **`istrip`** or **`-istrip`**: Clear (or keep) the eight bit in each received byte
+
+Port Status: `CTRL+A` then `i`
+[How do I Use Multiple Screens on One Terminal over ssh session?](http://www.cyberciti.biz/tips/linux-screen-command-howto.html)
 
 # Nohup and Disown
 * [Detaching a process from terminal - exec(), system(), setsid() and nohup](http://mihids.blogspot.com/2015/02/detaching-process-from-terminal-exec.html)
@@ -224,7 +245,7 @@ and you can use ps or top to verify that the job is actually still running.
 [03]:https://www.gnu.org/software/bash/manual/bash.pdf
 [04]:http://www.bolthole.com/solaris/ksh.html
 [05]:http://www.freeos.com/guides/lsst/ch01sec07.html
-[06]:
+[06]:http://www.computerhope.com/unix/screen.htm
 [07]:
 [08]:
 [09]:

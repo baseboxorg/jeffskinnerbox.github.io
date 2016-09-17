@@ -1,5 +1,5 @@
 created: 20140919014920863
-modified: 20160430011529922
+modified: 20160814145004202
 tags: Projects
 title: Sound Synthesizer
 type: text/vnd.tiddlywiki
@@ -12,6 +12,7 @@ type: text/vnd.tiddlywiki
 * [[Overtone|https://overtone.github.io/]]
 * [[Synth Secrets Exposed!|http://hackaday.com/2015/11/08/synth-secrets-exposed/]]
 * [[How to produce electronic music with the Raspberry Pi|https://opensource.com/life/16/3/make-music-raspberry-pi-milkytracker]]
+* [[DIY Synth Series Part 1 — The Exponential VCO|http://www.allaboutcircuits.com/projects/diy-synth-series-vco/]]
 
 [[Freesound|http://www.freesound.org/]]
 aims to create a huge collaborative database of audio snippets, samples, recordings, bleeps, ... released under Creative Commons licenses that allow their reuse.

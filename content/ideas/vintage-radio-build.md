@@ -49,6 +49,8 @@ The primary receiver used on the Titanic’s Marconi station was basically a 3-s
 * [Crystal radio](https://en.m.wikipedia.org/wiki/Crystal_radio)
 * [Early Radio History](http://earlyradiohistory.us/index.html)
 * [Introduction to LC Oscillators circa 1974 US Air Force Training Film](https://www.youtube.com/watch?v=1uSBKUsKpYQ)
+* [Arc Radio Transmitter](http://www.mrc.uidaho.edu/~atkinson/ECE591/Fall2014/Presentations/Callaway.pdf)
+* [Before Valve Amplification - Wireless Communication of an Early Era](http://www.qsl.net/vk5br/Before_Valve_Amp.pdf)
 
 # Transmitter
 * [Build a 1929 Style TNT Transmitter](http://members.shaw.ca/ve7sl/tnt.html)
@@ -57,6 +59,7 @@ The primary receiver used on the Titanic’s Marconi station was basically a 3-s
 * [Wireless electricity transmission circuit](http://www.instructables.com/id/Wireless-electricity-transmission-circuit/?ALLSTEPS)
 * [HG Wells Time Machine Crystal Radio](http://crystalradioclub.co.uk/groberts.htm)
 * [The Michigan Mighty-Mite Rides Again](http://hackaday.com/2016/01/29/the-michigan-mighty-mite-rides-again/)
+* [Negative Resistance Oscillator](http://www.sparkbangbuzz.com/index.html)
 
 # Receiver
 * [Alfred P. Morgan: A Generation’s Radio Hacker](http://hackaday.com/2015/12/11/alfred-p-morgan-a-generations-radio-hacker/)
@@ -79,16 +82,28 @@ The primary receiver used on the Titanic’s Marconi station was basically a 3-s
 * [Hacking When it Counts: POW Canteen Radios](http://hackaday.com/2016/04/21/hacking-when-it-counts-pow-canteen-radios/#more-201155)
 * [Home Brew Vacuum Tubes Are Easier Than You Think](http://hackaday.com/2016/05/04/home-brew-vacuum-tubes-are-easier-than-you-think/)
 * [Artisanal Vacuum Tubes: Hackaday Shows You How](http://hackaday.com/2014/11/21/artisanal-vacuum-tubes-hackaday-shows-you-how/)
+* [Homemade Vacuum Tube Triode](http://www.sparkbangbuzz.com/els/hm-triode-el.htm)
+
 ## Capacitors
 * [Lint And Dog Hair Supercapacitor](http://hackaday.com/2016/04/30/lint-and-dog-hair-supercapacitor/)
 * [Capacitors Made Easy the Hackaday Way](https://hackaday.com/2016/06/21/capacitors-made-easy-the-hackaday-way/)
 * [They’re JUST Capacitors](http://phy.supplyframe.com/2016/04/17/james-lewis-kemet-theyre-just-capacitors/)
 * [A 'Multi-Turn' Homemade Variable Tuning Capacitor...](http://earthground.8m.com/tuning%20capacitor.htm)
+* [Make Your Own Simple VHF Tuning Capacitor](http://hackaday.com/2016/09/02/make-your-own-simple-vhf-tuning-capacitor/)
 * [History of the Capacitor – The Pioneering Years](http://hackaday.com/2016/07/12/history-of-the-capacitor-the-pioneering-years/)
 * [History Of The Capacitor – The Modern Era](http://hackaday.com/2016/07/26/history-of-the-capacitor-the-modern-era/)
+* [Homemade Wide Range Variable Electrolytic Capacitor](http://www.sparkbangbuzz.com/els/varelec-el.htm)
+
+## Diode
+* [History Of The Diode](http://hackaday.com/2016/08/15/history-of-the-diode/)
+* [Homemade Zinc Oxide Rectifier Diode](http://sparkbangbuzz.com/zinc-oxide-diode/zinc-oxide-diode.htm)
 
 # Flame Components
 * [Flame Triodes Don’t Need Any Vacuum](http://hackaday.com/2016/05/26/flame-triodes-dont-need-any-vacuum/)
+* [Flame Triode With Gain](http://www.sparkbangbuzz.com/flame-amp/flameamp.htm)
+
+# Resistors
+* [What is There to Know About Resistors?](http://hackaday.com/2016/09/06/what-is-there-to-know-about-resistors/)
 
 # Other
 * [Alfred Powell Morgan's "The Boy Electrician"](https://books.google.com/books/about/The_Boy_Electrician.html?id=G09NAAAAYAAJ)
@@ -101,3 +116,4 @@ The primary receiver used on the Titanic’s Marconi station was basically a 3-s
 * [Home Made Diodes From Copper Oxide](http://hackaday.com/2016/05/01/home-made-diodes-from-copper-oxide/)
 * [Reconstructing the Aether: Building the Hieronymus Machine](https://josephmax.wordpress.com/2010/04/28/hieronymus_machine_1/)
 * [The Transistor: a 1953 documentary, anticipating its coming impact on technology](https://www.youtube.com/watch?v=V9xUQWo4vN0)
+* [Spark, Bang, Buzz](http://www.sparkbangbuzz.com/index.html)

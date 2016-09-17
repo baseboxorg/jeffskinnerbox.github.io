@@ -96,6 +96,37 @@ which appears to provide better introductory documentation.
 # Node.js
 [Why The Hell Would I Use Node.js? A Case-by-Case Tutorial](http://www.toptal.com/nodejs/why-the-hell-would-i-use-node-js)
 
+# MQTT
+The original vision of the world of IoT was that all devices were addressable on the internet.
+In practice, implementer’s found that it was simply impractical in many situations
+to have devices talking to each other directly by initiating peer-to-peer communication.
+Without a server or service, generally known as a broker, every client would need to
+handle a number of common but often complex problems.
+
+This is where Message Queue Telemetry Transport (MQTT) steps in.
+It is a very lightweight messaging protocol which meets the needs of most IoT related communications.
+The protocol is mature, with the first use over a decade ago.
+In 2014, MQTT received ratification by OASIS (an open standards consortium).
+Just like in HTTP, the protocol of the world wide web,
+a number of methods are defined: connect, disconnect, subscribe, unsubscribe and publish.
+
+Messages and subscriptions in MQTT are based on "topics".
+Topics can be viewed as a close relation to the URL we see in the location bar in our browsers.
+In the same way it is best practice for the structure of URLs to convey meaning
+about the resource retrieved; topics should also attempt to follow a similar pattern.
+
+An example topic name which illustrates a topic structure: `/world/customer1/sensor1/temperature`
+Notice that the the topic gradually becomes more specific with a `/`
+used to delimit each logical component.
+
+One key difference between HTTP and MQTT is whilst publishing is an absolute topic
+(as shown above), subscriptions can use wildcards.
+Two types of wildcards are supported.
+The `#` which matches any topic tree and the `+` which matches only one level of the topic.
+Wildcards allows subscribers,
+subject to a sufficient topic structure,
+to subscribe to many devices with just one request.
+
 # Getting Started
 The content here is lift for these sources:
 

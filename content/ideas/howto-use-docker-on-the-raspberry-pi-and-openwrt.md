@@ -1,8 +1,11 @@
 
+* [A brief introduction to Linux containers and image signing](https://opensource.com/bus/16/8/introduction-linux-containers-and-image-signing?sc_cid=70160000000lcGQAAY)
 * [Manage your Linux containers like Google](https://opensource.com/business/16/7/manage-containers?sc_cid=70160000000lcG1AAI)
 * [Docker OpenWRT Image](https://wiki.openwrt.org/doc/howto/docker_openwrt_image)
 * [Building OpenWRT With Docker](https://noah.meyerhans.us/blog/2015/03/19/building-openwrt-with-docker/)
 
+* [How to Use Docker to Cross Compile for Raspberry Pi (and More)](http://hackaday.com/2016/09/01/how-to-use-docker-to-cross-compile-for-raspberry-pi-and-more/)
+* [Docker 1.12.1 Released; Brings Huge Improvements for Raspberry Pi Installs](http://www.internetnews.com/blog/skerner/docker-1.12.1-released-bring-huge-improvements-for-raspberry-pi-installs.html)
 * [Using Docker on the Raspberry Pi](http://www.instructables.com/id/Using-Docker-on-the-Raspberry-Pi/?ALLSTEPS)
 * [Experimenting with Docker on a Raspberry Pi](https://opensource.com/life/15/9/experimenting-docker-raspberry-pi)
 * [Docker On A Raspberry Pi](http://blog.xebia.com/docker-on-a-raspberry-pi/)
@@ -12,6 +15,11 @@
 * [Using Docker to run Node.js on a Raspberry Pi](https://opensource.com/life/15/9/experimenting-docker-raspberry-pi)
 * [Swarm Mode on a Raspberry Pi Cluster](https://blog.docker.com/2016/07/swarm-mode-on-a-raspberry-pi-cluster/)
 * [Docker 1.12 RC on the Raspberry Pi: Download Link](https://dzone.com/articles/docker-112-rc-on-the-raspberry-pi-download-link)
+* [Craft Kubernetes Workshop](https://github.com/kelseyhightower/craft-kubernetes-workshop)
+* [runC: The little container engine that could](https://opensource.com/life/16/8/runc-little-container-engine-could?sc_cid=CAMPAIGN_CODE)
+* [Stabilizing the world of hot and fast containers](https://opensource.com/business/16/8/inside-look-future-linux-containers?sc_cid=70160000000lcGaAAI)
+* Videos
+    * [Docker in 5 minutes](https://www.youtube.com/watch?v=Av2Umb6nELU)
 
 # Docker ToolBox
 * [Docker ToolBox](https://www.docker.com/products/docker-toolbox)
@@ -19,6 +27,7 @@
 
 # HypriotOS
 * [Getting started with Docker on your Raspberry Pi · Docker Pirates ARMed with explosive stuff](http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/)
+* [Releasing HypriotOS 1.0.0 "Blackbeard"](http://blog.hypriot.com/post/releasing-HypriotOS-1-0/)
 * [Run Docker on a Raspberry Pi 3 with onboard WiFi](http://blog.hypriot.com/post/run-docker-rpi3-with-wifi/)
 * [Get your all-in-one Docker playground now: HypriotOS reloaded!](http://blog.hypriot.com/post/get-your-all-in-one-docker-playground-now-hypriotos-reloaded/)
 * [Introducing Hypriot Cluster Lab: Docker clustering as easy as it gets](http://blog.hypriot.com/post/introducing-hypriot-cluster-lab-docker-clustering-as-easy-as-it-gets/)

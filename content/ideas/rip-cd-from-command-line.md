@@ -178,6 +178,15 @@ and you can find a short tutorials at
 Faac (m4a), audio lossless (als), Musepack (mpc), Wavpack (wv) and/or
 Wave (wav) audio files from an audio CD.
 With [`ffmpeg`][16] formats like Apple lossless audio (m4a) and other formats can be produced.
+
+The `ripti`script walks you through the ripping process,
+and will even grab information about the CD from CDDB or MusicBrainz
+(two online repositories of music metadata).
+If ripit can't find the CD's metadata online,
+it lets you enter that information yourself.
+You can also tell ripit which tracks on a CD that you want,
+rather than ripping all of the songs on the disc.
+
 `ripit` is a front-end written in perl, for these programs:
 
 * `cdparanoia`, `dagrab` etc. for ripping the audio CD tracks
@@ -204,7 +213,7 @@ produce a set of mp3/ogg/flac/m4a/mpc/wv/... files without any user-intervention
 * *Optional:* adds a coverart and album gain to the tags (provided a picture and if the format supports picture tags).
 * *Optional:* detection of Various Artists style and tagging according the level of detection.
 
-### My Scriipt for Ripping CDs
+### My Script for Ripping CDs
 ```bash
 ```
 

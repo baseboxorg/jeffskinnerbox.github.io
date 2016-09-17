@@ -103,7 +103,7 @@ The great advantage of connecting this way is that
 you do not need keyboard, mouse, or display attached to the RPi to log into it.
 It can even supply the power for your RPi.
 The RPi uses its built-in serial port to allow devices to connect to its console,
-via a terminal emulater like `screen`,
+via a terminal emulater like [`screen`][66],
 and issue commands just as if you were logged in.
 The posting "[How to Run Raspberry Pi with No Monitor or Network][39]"
 can give you additional information.
@@ -124,6 +124,25 @@ The location of these GPIO pins on the Raspberry Pi (all types) is illustrated i
 | TXD → RPi Pin 10 | RX - green        |
 
 **NOTE:** Only connect to VCC / Pin 02 if you are **not** supply power via the USB.
+
+The console cable is a USB serial device,
+and I have give it a [usb persistent name][64] of `ccable33v`.
+(For the Adafruit console cable,
+I added the following UDEV rule to a file in the `/etc/udev/rules.d.` directory:
+`SUBSYSTEM=="tty", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", SYMLINK+="ccable33v"`.)
+With this, I can log into my RPi Zero device with:
+
+```bash
+# login to raspberry pi console
+sudo screen /dev/ccable33v 115200,cs8
+
+# NOTE: press CTRL + A then k. To logout and kill all screen session
+```
+
+**NOTE:** If this doesn't work, make sure you have the serial console correctly configured.
+During the Raspberry Pi configuration using `sudo raspi-config`, select "Boot Options" and choose "B1 Console".
+You will need a password to get console access,
+which gives you greater security, and allow console cables to work via [`screen`][66].
 
 # Raspberry Pi Zero Set Up
 The objective here is to get the RPi Zero up and running without the need for any
@@ -350,6 +369,8 @@ but that did not help.
 [Some say][19] that [NetworkManager][21] could be getting in the way,
 and it may make sense to [disable NetworkManager][22]
 on some or all your interfaces.
+You can check to see if NetworkManager is running
+via the command `service NetworkManager status`.
 My experimentation has shown me that removing NetworkManager could cause other problems.
 I (and many others) have had problems with NetworkManager before,
 so I suspect its the root of my troubles.
@@ -450,7 +471,8 @@ by modifying network address information in Internet Protocol (IP) datagram pack
 This is called [Network Address Translation (NAT)][29].
 More specifically, we need to use a form of NAT called [IP Masquerading][30]
 which allows internally connected computers to communicate to the Internet
-without communicating directly to a LAN's router.
+without communicating directly to a LAN's router
+([this paper][67] gives a good explanation).
 In essence, we are asking the host to act like a router,
 that is transfer IP packets from one network to another, and generally,
 computers refuse to act like routers.
@@ -488,6 +510,8 @@ usb0      Link encap:Ethernet  HWaddr 4e:31:3a:db:3d:a8
           RX bytes:31085 (30.3 KiB)  TX bytes:37989 (37.0 KiB)
 ~~~~
 
+The next step is to get access to the Internet.
+This is done by [IP Masquerading, a form of Network Address Translation (NAT)][63].
 To let the RPi Zero get the access to the Internet via its Linux host,
 _login into the host_ and do the following
 (_assumes_ that the host is connected to the LAN via the `eth0` network interface):
@@ -497,12 +521,14 @@ _login into the host_ and do the following
 echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward > /dev/null
 
 # or you could do the following
-sysctl -w net.ipv4.ip_forward=1
+sudo sysctl -w net.ipv4.ip_forward=1
 
 # tell iptables to forward the packets from interface usb0 to LAN / Internet on interface eth0
 sudo iptables -A FORWARD -j ACCEPT
 sudo iptables -A POSTROUTING -t nat -j MASQUERADE -s 10.0.1.0/25
 ```
+
+**IS THIS - The wrong way to masquerade - see this** - http://www.billauer.co.il/ipmasq-html.html
 
 At this point, your route table should look something like this on the host:
 
@@ -628,19 +654,19 @@ To restore iptables rule that you may have saved
 sudo iptables-restore < $HOME/tmp/backup_rules.v4
 ```
 
-## Step X: Configuring the Raspberry Pi Zero - DONE
+## Step 4: Configuring the Raspberry Pi Zero - DONE
 With the above steps complete, you can follow the article
 ["HowTo: Set-Up the Raspberry Pi as a Headless Device"][03] to complete the install.
 Specifically, make sure to do at least the foollowing:
 
-* Step 5: Configure the Raspberry Pi - DONE
-* Step 6: OS Updates - DONE
-* Step 7: Updating Firmware for Raspberry Pi - DONE
-* Step 8: Package Installs - DONE
-* Step 8A: Load Personal Tools (Optional) - DONE
-* Step 10: Boot Without Starting X Window - DONE
+* Step 5: Configure the Raspberry Pi
+* Step 6: OS Updates
+* Step 7: Updating Firmware for Raspberry Pi
+* Step 8: Package Installs
+* Step 8A: Load Personal Tools (Optional)
+* Step 10: Boot Without Starting X Window
 
-## Step X: Adding WiFi to the Zero
+## Step 5: Adding WiFi to the Zero - DONE
 If you determined to have WiFi for your RPi Zero, it can be done.
 You could [try using an ESP8266][42].
 But the ESP8266 is a WiFi (aka wireless Ethernet) to serial device
@@ -699,13 +725,14 @@ In fact, if you did this on the SD Card earlier in Step 1,
 you could skip the USB Gadget stuff all together ...
 but then you wouldn't have learned about all of the RPi Zero's USB Gadgetry!
 
-## Step X: Adding a Camera
+## Step 6: Adding a Camera - DONE
 [camera!](http://raspi.tv/wp-content/uploads/2016/05/PiZero1.3_700.jpg)
 [camera!](http://cdn.slashgear.com/wp-content/uploads/2016/05/2016-05-15-16.32.19-800x420.jpg)
 [Raspberry Pi Zero version 1.3][06] has a camera connector,
 and I'll be installing the version 2.1 camera
 (previous version was v1.3 5MP and 1080p).
-This [camera is 8 Megapixel, 1080p, and Better in Low Light][45] than the previous camera.
+This [camera is 8 Megapixel, 1080p, and Better in Low Light][45]
+and in general a [better camera][57].
 The Zero’s camera cable connector is a little smaller than the ones used on the other Raspberry Pi.
 
 This [Second Generation Raspberry Pi Camera Module][46] has the following specs:
@@ -724,7 +751,7 @@ sudo raspi-config
 ```
 
 Then navigate to “camera” and select “enable”.
-Select “Finish” and reboot. - DONE
+Select “Finish” and reboot.
 
 The installation of the camera cable must be done carefully and
 its proper installation is illustrated in this picture:
@@ -734,29 +761,139 @@ its proper installation is illustrated in this picture:
 You can find [detail documentation on camera usage online][52].
 A summary for [taking still pictures][54] and [taking videos][53] is given below.
 
-* https://www.raspberrypi.org/blog/camera-board-available-for-sale/
-* see tutorial at end of Raspberry Pi Camera Board (5MP, 1080p, v1.3) - https://www.modmypi.com/raspberry-pi/camera/raspberry-pi-camera-board-5mp-1080p-v1.3
+To take a picture with the camera, do the following:
 
+```bash
+# take picture and store in image.jpg
+raspistill -o image.jpg --width 1024 --height 768
 
-###########################################
-* [How to build projects using the Raspberry Pi camera](https://opensource.com/life/15/6/raspberry-pi-camera-projects?sc_cid=70160000000lcFmAAI)
-* [GET STARTED WITH THE NEW PI CAMERA](https://www.raspberrypi.org/magpi/get-started-pi-camera/)
-* [MagPi Cmaera Issue](https://www.raspberrypi.org/magpi-issues/MagPi45.pdf)
-* [NoIR V2 - Video Streaming Baby Monitor](https://www.element14.com/community/community/raspberry-pi/raspberrypi_projects/blog/2016/04/25/noir-v2-video-streaming-baby-monitor)
-* [[Mimobot v2.1](https://translate.google.com/translate?hl=en&sl=cs&tl=en&u=http://www.stiborovi.cz/mimobot-v2-1/&sandbox=1)
+# display picture for viewing
+display image.jpg
+```
 
-* [Video and Camera Processing](http://jeffskinnerbox-wiki.herokuapp.com/#Video%20and%20Camera%20Processing)
-* [Hands-on with the New Raspberry Pi camera module](http://www.zdnet.com/article/hands-on-with-the-new-raspberry-pi-camera-module/)
-* [Spy on Garden Critters with Raspberry Pi-Powered Night Vision](http://makezine.com/2016/05/26/spy-on-garden-critters-with-raspberry-pi-powered-night-vision/)
-* [Raspberry Pi Time Lapse In Four Dead Easy Steps](https://pimylifeup.com/raspberry-pi-time-lapse/)
-* [Raspberry Pi Wearable Time Lapse Camera](https://learn.adafruit.com/raspberry-pi-wearable-time-lapse-camera/using-it?view=all)
-* [Raspberry Pi Face Recognition Treasure Box](https://learn.adafruit.com/raspberry-pi-face-recognition-treasure-box/software?view=all)
-* [Cloud Cam: Internet-Connected Security Camera](https://learn.adafruit.com/cloud-cam-connected-raspberry-pi-security-camera/dropbox-sync?view=all)
-###########################################
+The picture named `image.jpg` will be stored in your Raspberry Pi's `/home/pi` directory.
 
-http://www.pcmag.com/article2/0,2817,2412174,00.asp
+[`picamera`][55] is a Python interface to the Raspberry Pi camera module for
+Python 2.7 or Python 3.2 and can be installed with
+`sudo apt-get install python-picamera python3-picamera`.
+You can find the [`picamera` source code here][56].
+Example of `picamera` in use is given below:
 
-## Step X: Zero UPS Power Supply (Optional)
+```python
+#!/usr/bin/env python3
+
+# documentation: http://picamera.readthedocs.io/en/release-1.12
+
+# include Python libraries
+from time import sleep
+from picamera import PiCamera
+
+# setup of camera attributes
+camera = PiCamera()
+camera.resolution = (1024, 768)
+
+# camera warm-up time
+sleep(2)
+
+# horizontal and vertical flip if your camera is positioned upside-down
+camera.hflip = True
+camera.vflip = True
+
+camera.sharpness = 0
+camera.contrast = 0
+camera.brightness = 50
+camera.saturation = 0
+camera.ISO = 0
+camera.video_stabilization = False
+camera.exposure_compensation = 0
+camera.exposure_mode = 'auto'
+camera.meter_mode = 'average'
+camera.awb_mode = 'auto'
+camera.image_effect = 'none'
+camera.color_effects = None
+camera.rotation = 0
+camera.crop = (0.0, 0.0, 1.0, 1.0)
+
+# capture image
+camera.capture('/home/pi/image.jpg')
+
+# picture has been taken
+print('camera picture taken')
+```
+
+You can also capture video with the camera.
+To capture a 5 seconds of video in h264 format:
+
+```bash
+# capture video in file video.h264
+raspivid -o video.h264 --width 1024 --height 768 --codec H264
+
+# play the video
+mplayer video.h264
+```
+
+And with `picamera`, you can also do video:
+
+```python
+#!/usr/bin/env python3
+
+# Documentation: http://picamera.readthedocs.io/en/release-1.12
+
+# include python libraries
+from time import sleep
+from picamera import PiCamera
+
+# setup of camera attributes
+camera = PiCamera()
+camera.resolution = (1024, 768)
+
+# camera warm-up time
+sleep(2)
+
+# horizontal and vertical flip if your camera is positioned upside-down
+camera.hflip = True
+camera.vflip = True
+
+camera.sharpness = 0
+camera.contrast = 0
+camera.brightness = 50
+camera.saturation = 0
+camera.ISO = 0
+camera.video_stabilization = False
+camera.exposure_compensation = 0
+camera.exposure_mode = 'auto'
+camera.meter_mode = 'average'
+camera.awb_mode = 'auto'
+camera.image_effect = 'none'
+camera.color_effects = None
+camera.rotation = 0
+camera.crop = (0.0, 0.0, 1.0, 1.0)
+
+# capture video
+camera.start_recording('/home/pi/video.h264')
+sleep(3)
+camera.stop_recording()
+
+# picture has been taken
+print('camera video taken')
+```
+
+You could do something more sophisticated like [time lapse photography][65],
+or even stream video to a web browser via the Python package [`pistreming`][58]
+or with [`OpenCV`][59], or via [`motion`][60].
+
+## Step 7: Zero UPS Power Supply (Optional)
+The size and power consumption of the Raspberry Pi Zero makes it posible to create wearable
+solutions like body camera's and small stealty applications.
+You can consider replacing the micro USB wall charger, and start powering with batteries.
+A [Lithium Ion Polymer Battery][61] and a coresponding Adafruit [PowerBoost 1000C Charger][62]
+can be an effective solution.
+It has built-in load-sharing battery charger circuit.
+So it will automatically switch over to the USB power when available,
+instead of continuously charging/draining the battery,
+making it a Uninterruptable Power Supply (UPS).
+
+##########################################
 * [LiFePO4 battery / UPS / power manager for Raspberry Pi #piday #raspberrypi @Raspberry_Pi](https://blog.adafruit.com/2016/04/01/lifepo4-battery-ups-power-manager-for-raspberry-pi-piday-raspberrypi-raspberry_pi/)
 * [https://www.modmypi.com/blog/running-a-raspberry-pi-zero-from-an-aa-battery-pack](https://www.modmypi.com/blog/running-a-raspberry-pi-zero-from-an-aa-battery-pack)
 * Adafruit Solution - [USB LiIon/LiPoly charger](https://www.adafruit.com/products/259) and [Lithium Ion Polymer Battery - 3.7v 1200mAh](https://www.adafruit.com/products/258)
@@ -766,10 +903,37 @@ http://www.pcmag.com/article2/0,2817,2412174,00.asp
 * [UPS PIco - Uninterruptible Power Supply with Peripherals and I2C control Interface](http://www.rpiblog.com/2015/01/ups-pico-uninterruptible-power-supply.html)
 * [Ultimate Battery Backup Mod](http://hackaday.com/2016/03/05/ultimate-battery-backup-mod/)
 * [Battery Backup For The Raspberry Pi](http://hackaday.com/2016/03/17/battery-backup-for-the-raspberry-pi/)
-
 * [USB Li-Ion/LiPoly Charger](https://www.amazon.com/USB-Li-Ion-LiPoly-Charger-v1-2/dp/B00E4WLX1K/ref=sr_1_1?ie=UTF8&qid=1470794238&sr=8-1&keywords=USB+LiIon%2FLiPoly+charger)
+##########################################
 
-## Step X: Adding USB Ports (Optional)
+## Step 8: Power Saving by Disabling WiFi Dongle
+My WiFi dongle runs very hot and I wnat to turn it off to save power.
+RPi 3 WiFi auto shuts off
+
+Some systems (particulary laptops) have a hardware button (or switch) to turn off wireless card,
+however, the card can also be blocked by kernel.
+This can be handled by `rfkill`.
+Use `rfkill list` to show the current status:
+
+If the card is hard-blocked, you must use the hardware button (switch) to unblock it.
+If the card is not hard-blocked but soft-blocked, use the following command:
+`rfkill unblock wifi`.
+
+* [rfkill](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Power_Management_Guide/RFKill.html)
+* [Power Savings on IEEE-802.11](https://wireless.wiki.kernel.org/en/developers/documentation/ieee80211/power-savings)
+* [Power Saving Tips for Raspberry Pi](https://babaawesam.com/2014/01/24/power-saving-tips-for-raspberry-pi/)
+* [Raspberry Pi Zero - Power Consumption Comparison](http://www.jeffgeerling.com/blogs/jeff-geerling/raspberry-pi-zero-power)
+* [Raspberry Pi Zero - Conserve power and reduce draw to 80mA](http://www.jeffgeerling.com/blogs/jeff-geerling/raspberry-pi-zero-conserve-energy)
+* [Power Consumption](http://www.pidramble.com/wiki/benchmarks/power-consumption)
+* [Wifi adapter shuts off](http://raspberrypi.stackexchange.com/questions/8748/wifi-adapter-shuts-off)
+* [How to disable Wi-Fi Dongle sleep mode](http://raspberrypi.stackexchange.com/questions/34794/how-to-disable-wi-fi-dongle-sleep-mode)
+* [Disable WiFi (wlan0) on Pi 3](http://raspberrypi.stackexchange.com/questions/43720/disable-wifi-wlan0-on-pi-3)
+* [Preventing Raspberry Pi WiFi from going into Sleep Mode](http://electronut.in/preventing-raspberry-pi-wifi-from-going-into-sleep-mode/)
+* [Disable Edimax Wifi Dongle's LED](http://baddotrobot.com/blog/2016/01/06/disable-led-for-edimax/)
+* [Stopping your wireless from turning off on your Raspberry PI](http://tosbourn.com/stop-wireless-turning-off-raspberry-pi/)
+* [How can I prevent iwconfig power management from being turned on?](http://askubuntu.com/questions/85214/how-can-i-prevent-iwconfig-power-management-from-being-turned-on)
+
+## Step 9: Adding USB Ports (Optional)
 The RPi Zero is limited to a single USB port.
 If you need to attach more devices, you'll need to add a USB hub
 or you can also [attach additional USB ports to the RPi Zero][25]
@@ -843,8 +1007,19 @@ I found the following source most helpful:
 [52]:https://www.modmypi.com/download/raspicamdocs.odt
 [53]:http://www.modmypi.com/blog/raspberry-pi-camera-board-raspivid-command-list
 [54]:http://www.modmypi.com/blog/raspberry-pi-camera-board-raspistill-command-list
-[55]:
-[57]:
-[58]:
-[59]:
-[60]:
+[55]:http://picamera.readthedocs.io/en/release-1.12/
+[56]:https://github.com/waveform80/picamera
+[57]:https://www.raspberrypi.org/magpi-issues/MagPi45.pdf
+[58]:https://github.com/waveform80/pistreaming
+[59]:http://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/
+[60]:https://www.linux.com/learn/how-operate-linux-spycams-motion
+[61]:https://learn.adafruit.com/li-ion-and-lipoly-batteries
+[62]:https://www.adafruit.com/products/2465
+[63]:http://www.oreilly.com/openbook/linag2/book/ch11.html
+[64]:http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/
+[65]:http://www.mikestreety.co.uk/blog/raspberry-pi-timelapse
+[66]:http://www.computerhope.com/unix/screen.htm
+[67]:http://bglug.ca/articles/nat_and_ip_masquerade.pdf
+[68]:
+[69]:
+[70]:

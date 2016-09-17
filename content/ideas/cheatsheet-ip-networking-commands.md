@@ -124,6 +124,7 @@ any interface not listed there will remain under NetworkManager control.
     * [`iwpriv`][34] is the companion tool to `iwconfig`. `iwpriv` deals with
     parameters and setting specific to each driver (as opposed to `iwconfig`
     which deals with generic ones).
+    * [`iwgetid`][63] - reports ESSID, NWID or AP/Cell Address of wireless networks
     * [`iwlist`][12] allow to initiate scanning and list frequencies, bit-rates, encryption keys, etc.
     **Example Usage:** `iwlist wlan0 scan`
     * [`wpa_supplicant`][03]
@@ -577,7 +578,7 @@ Address: 192.168.1.13
 ```
 
 # Routing
-_Routing_ is a means of sending an IP packet from one point to another.
+_Routing_ is a [means of sending an IP packet from one point to another][64].
 In computer networking, a _router_ is a device responsible for forwarding network traffic.
 On Linux and UNIX systems,
 information on how packets are to be forwarded is stored in a
@@ -1431,8 +1432,8 @@ could be gathered for this cheat sheet.
 [60]:https://manpages.debian.org/cgi-bin/man.cgi?sektion=1&query=nmcli&apropos=0&manpath=sid&locale=en
 [61]:http://linux.die.net/man/1/rfkill
 [62]:http://support.qacafe.com/knowledge-base/how-do-i-prevent-network-manager-from-controlling-an-interface/
-[63]:
-[64]:
+[63]:http://linux.die.net/man/8/iwgetid
+[64]:https://opensource.com/business/16/8/introduction-linux-network-routing
 [65]:
 [66]:
 [67]:

@@ -1,6 +1,12 @@
 Cjdns gives each node a unique uncensored and authenticated IP6, and end to end crypto.
 IPFS does for the web what Cjdns does for the internet.  https://ipfs.io/
 
+[I2P](https://geti2p.net/en/) is an anonymous overlay network - a network within a network.
+It is intended to protect communication from dragnet surveillance and monitoring by third parties such as ISPs.
+I2PBerry allows Raspberry Pi users to surf the I2P anonymously -
+https://www.element14.com/community/community/raspberry-pi/blog/2014/07/22/i2pberry-allows-raspberry-pi-users-to-surf-the-i2p-anonymously
+
+
 IPFS is another essential building block for the neighborhood social app:
 a place to post publicly accessible objects (web pages, documents) that doesn't require a centralized server.
 

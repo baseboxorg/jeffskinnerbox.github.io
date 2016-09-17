@@ -81,7 +81,6 @@ you can install some additional useful utilities using `apt-cyg`:
 ```bash
 cyg-apt install git             # version control system
 cyg-apt install openssh         # SSH
-cyg-apt install screen          # Terminal multiplexer
 cyg-apt install xorg-server     # X Windows server
 cyg-apt install xinit xlaunch   # X Windows launchers
 cyg-apt install diffutils       # diff

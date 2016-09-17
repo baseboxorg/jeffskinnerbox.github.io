@@ -1,3 +1,7 @@
+
+* [TV GOING THE DISTANCE: PROPAGATION](http://hackaday.com/2015/11/18/tv-going-the-distance-propagation/)
+
+
 I have already bought the
 [Baofeng UV-5R+ 136-174 400-480 MHz FM Transceiver][05]
 in the hopes of hacking for something useful ($35 .... why not),

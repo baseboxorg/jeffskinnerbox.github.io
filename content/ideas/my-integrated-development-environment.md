@@ -5,6 +5,10 @@ What about [Sublime](https://www.sublimetext.com/) and [Atom](https://atom.io/) 
 * [e3](http://manpages.ubuntu.com/manpages/xenial/man1/e3.1.html)
 * [Editor Wars](http://hackaday.com/2016/07/26/editor-wars/) and the topcic even has a [Wikipedia page](https://en.wikipedia.org/wiki/Editor_war#)
 
+What about Byobu?
+Byobu is a GPLv3 open source text-based window manager and terminal multiplexer. It was originally designed to provide elegant enhancements to the otherwise functional, plain, practical GNU Screen, for the Ubuntu server distribution. Byobu now includes an enhanced profiles, convenient keybindings, configuration utilities, and toggle-able system status notifications for both the GNU Screen window manager and the more modern Tmux terminal multiplexer, and works on most Linux, BSD, and Mac distributions.
+http://byobu.co/
+
 An integrated development environment (IDE) is a programming environment
 that has been packaged as an application program,
 typically consisting of a code editor, a compiler, a debugger,
@@ -32,7 +36,8 @@ These sites may  help in learning tmux:
     * [A tmux Crash Course][13]
     * [Beginner’s Guide to Tmux: Recommended Configuration, Plugins and Navigation Demo][15]
     * TMUX – The Terminal Multiplexer, [Part 1][18] amd [Part 2][19]
-* [Screen][04] is a full-screen window manager that multiplexes a physical terminal
+* [Screen][04] is a full-screen window manager, with a [rich command set][21],
+* that multiplexes a physical terminal
 between several processes, typically interactive shells.
 Each virtual terminal provides the functions of the DEC VT100 terminal and, in addition,
 several control functions from the ANSI X3.64 (ISO 6429) and ISO 2022 standards
@@ -72,7 +77,7 @@ of iTerm2 window splits.
 [18]:http://blog.hawkhost.com/2010/06/28/tmux-the-terminal-multiplexer/
 [19]:http://blog.hawkhost.com/2010/07/02/tmux-%E2%80%93-the-terminal-multiplexer-part-2/
 [20]:http://blog.al4.co.nz/2011/05/getting-the-most-out-of-terminator/
-[21]:
+[21]:http://www.computerhope.com/unix/screen.htm
 [22]:
 [23]:
 [24]:

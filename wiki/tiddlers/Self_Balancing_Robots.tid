@@ -1,5 +1,5 @@
 created: 20140919013836507
-modified: 20160614012509155
+modified: 20160916005531760
 tags: Projects
 title: Self Balancing Robots
 type: text/vnd.tiddlywiki
@@ -14,6 +14,7 @@ type: text/vnd.tiddlywiki
 * [[Balance Wheel|http://hackaday.io/project/4267-balance-wheel]]
 * [[Flying with Proportional – Integral – Derivative Control|http://hackaday.com/2016/05/18/flying-with-proportional-integral-derivative-control/]]
 * [[Unlock the Phase Locked Loop|http://hackaday.com/2016/03/23/unlock-the-phase-locked-loop/]]
+* Desktop Inverted Pendulum [[Part 1|http://build-its-inprogress.blogspot.lu/2016/08/desktop-inverted-pendulum-part-1.html]] and [[Part 2|http://build-its-inprogress.blogspot.lu/2016/08/desktop-inverted-pendulum-part-2-control.html]]
 
 !!Embedded Proportional Integral Derivative (PID) Temperature Controller
 * [[Part 1: The Circuit|http://www.allaboutcircuits.com/projects/embedded-pid-temperature-control-part-1-the-circuit/]],

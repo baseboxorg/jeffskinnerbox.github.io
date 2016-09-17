@@ -113,12 +113,12 @@ Checkout the example given here for ideas (e.g. MONITOR_PORT = /dev/cu.usb*): ht
 * [Advanced Arduino Hacking](http://pragprog.com/magazines/2011-04/advanced-arduino-hacking)
 
 Others
-[Arduino Makefile](http://ed.am/dev/make/arduino-mk)
-[Advanced Arduino – Including Multiple Libraries In Your Project](http://provideyourown.com/2011/advanced-arduino-including-multiple-libraries/)
+* [Arduino Makefile](http://ed.am/dev/make/arduino-mk)
+* [Advanced Arduino – Including Multiple Libraries In Your Project](http://provideyourown.com/2011/advanced-arduino-including-multiple-libraries/)
 
 Files
-http://bisqwit.iki.fi/jutut/kuvat/programming_examples/epromread/Arduino.mk
-http://www.ualberta.ca/~jhoover/web_docs/resources/arduino-ua/mkfiles/Arduino.mk
+* http://bisqwit.iki.fi/jutut/kuvat/programming_examples/epromread/Arduino.mk
+* http://www.ualberta.ca/~jhoover/web_docs/resources/arduino-ua/mkfiles/Arduino.mk
 
 
 ### Serial Port Monitoring
@@ -130,11 +130,11 @@ The post [Arduino and Linux TTY][04] provides a series of solutions.
 Assuming the Arduino's USB is plugged into `/dev/ACM0` and the port speed is set to `57600`,
 `cu -l /dev/ttyACM0 -s 57600` will get you simple connect.
 Entering `~.` will terminate the connection.
-For more commands, consult the [cu manual page][07].
+For more commands, consult the [`cu` manual page][07].
 
 sudo chgrp dialout /usr/bin/cu
 
-You can use `screen` to provide a more interactive serial monitor session with an Arduino.
+You can use [`screen`][08] to provide a more interactive serial monitor session with an Arduino.
 
 ```
 stty -F /dev/ttyACM0 cs8 57600 ignbrk -brkint -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts
@@ -172,5 +172,6 @@ https://github.com/sudar/vim-arduino-syntax
 [05]:http://www.rackaid.com/resources/linux-screen-tutorial-and-how-to/
 [06]:http://www.gnu.org/software/screen/manual/screen.html#Overview
 [07]:http://linux.die.net/man/1/cu
-[]:
-[]:
+[08]:http://www.computerhope.com/unix/screen.htm
+[09]:
+[10]:

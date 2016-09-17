@@ -10,6 +10,7 @@ Some simple weather station setups:
 * [PiClock: an all in one clock, weather forecast and radar map](https://blog.adafruit.com/2015/06/12/piclock-an-all-in-one-clock-weather-forecast-and-radar-map-piday-raspberrypi-raspberry_pi/)
 * [Weather Station – DHT11, MQTT, Node-RED, Google Chart, Oh My!](http://www.internetoflego.com/weather-station-dht11-mqtt-node-red-google-chart-oh-my/)
 * [11 Best Weather Stations ](http://www.instructables.com/id/11-Best-Weather-Stations/)
+* [A lightweight, self contained, solar-powered weather station for the Raspberry Pi](https://github.com/masneyb/weather-station)
 
 * [Weather Font](http://www.dafont.com/weather.font)
 

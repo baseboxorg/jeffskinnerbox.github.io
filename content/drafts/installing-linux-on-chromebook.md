@@ -1,3 +1,10 @@
+
+* [Now you can unlock Chrome OS with a PIN code](https://www.engadget.com/2016/08/19/unlock-chrome-os-with-pin/)
+* [Unlock your Chromebook with your Android phone](https://support.google.com/chromebook/answer/6070209?hl=en-GB)
+* [Android apps are now available on these Chromebooks](http://www.techradar.com/news/mobile-computing/laptops/android-apps-are-now-available-on-these-chromebooks-1323567)
+* [How To Run Android Apps on Your Chromebook](http://fieldguide.gizmodo.com/how-to-run-android-apps-on-your-chromebook-1786505928)
+
+
 Status: draft
 Title: Installing Linux on Chromebook
 Date: 2100-01-01 00:00

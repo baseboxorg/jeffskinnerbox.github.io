@@ -1,5 +1,5 @@
 created: 20141125030141346
-modified: 20160731231204397
+modified: 20160910022319103
 title: Retro Technology
 type: text/vnd.tiddlywiki
 
@@ -15,8 +15,13 @@ AT&T produced the video "[[Seeing the Digital Future|https://www.youtube.com/wat
 brags about things like the Data-Phone which could transmit
 at up to a bit-rate of 110 bits per second.
 
-[[Mechanical Computer|https://www.youtube.com/watch?v=s1i-dnAH9Y4]]
-- Mathematical computation via mechanical form is discussed for fire control computer aboard Navy Ships.
+[[Mechanical computation|https://www.youtube.com/watch?v=s1i-dnAH9Y4]] for weapons fire control computer aboard Navy Ships is a thing of the past.
+These mechanical mavels, such as the
+[[Differential Analyzers|http://www.meccano.us/differential_analyzers/index.html]]
+can even solve differential equations.
+While such machanical devices can easily be replaced
+numberical analysis perfromed on a digital computer,
+[[some people still like to build them|http://hackaday.com/2016/08/08/differential-analyzer-cranks-out-math-like-a-champ-at-vcf-2016/]].
 
 [[Popular Electronics Magazine|http://www.americanradiohistory.com/Popular-Electronics-Guide.htm]]
 - Popular Electronics was created in 1954 by Ziff-Davis Publishing for an audience of  electronics hobbyists and experimenters.
@@ -86,6 +91,9 @@ Some believe Westinghouse built the
 [[first electric computer|http://gothamist.com/2015/10/15/grand_central_computer_video.php#photo-1]]
 in 1913 and installed it in the sub-basement of
 Grand Central Terminal.
+As to a programmable electronic digital computer,
+similar todays computers, it is generally believe that
+[[Colossus|http://hackaday.com/2016/08/23/colossus-face-to-face-with-the-first-electronic-computer/#more-219341]] was the first.
 
 [[Slide Rules|http://hackaday.com/2015/11/05/slide-rules-were-the-original-personal-computers/#more-175364]]
 were among the first computing tools
@@ -117,6 +125,10 @@ This was following by the
 [[Xerox 914 copier|http://hackaday.com/2016/07/20/retrotechtacular-birds-and-the-bees-document-style/]]
 and the [[answering machine|https://www.youtube.com/watch?v=xROXat5cBDc]]
 in the late 1950s.
+
+Is the [[World Wide Web (WWW)|http://www.telegraph.co.uk/technology/2016/08/06/the-worlds-first-website-went-online-25-years-ago-today/?utm_source=pocket&utm_medium=email&utm_campaign=pockethits]]
+retrotechnology yet?
+I think not but its first browser, [[Mosaic|https://www.wired.com/2010/04/0422mosaic-web-browser/]] is.
 
 The Internet has made the accessing of mathematical, physical and chemical data easy.
 Back in the day, as in my college years,
@@ -166,3 +178,29 @@ installed on board each Apollo Command Module (CM) and Lunar Module (LM).
 Luckly, [[Hackaday has done multiple articles|http://hackaday.com/tag/apollo/]]
 on the Apollo space program hardware and
 [[software|http://hackaday.com/2016/07/14/riding-shotgun-in-the-apollo-12-lunar-lander/]].
+You can even find the [[AGC code on Github|http://qz.com/726338/the-code-that-took-america-to-the-moon-was-just-published-to-github-and-its-like-a-1960s-time-capsule/]].
+Despite the navigation technology, it still needed good old retro-technology,
+even for its day, to intialize the LM's AGC.
+Check out the LM's [[Alignment Optical Telescope|http://hackaday.com/2016/09/06/apollo-the-alignment-optical-telescope/#more-220722]].
+
+Do you remember when computer graphics meet
+[[ASCII characters on paper via a teletype terminal|http://hackaday.com/2016/06/28/retrotechtacular-ascii-art-in-the-19th-century/]]?
+Well you can still find it in Linux .... [[check out asciiview|http://manpages.ubuntu.com/manpages/precise/man1/aview.1.html]].
+
+[[VHF/UHF Analog TV|http://hackaday.com/2016/06/01/retrotechtacular-fog-over-portland/#more-206555]]
+with their mechanical turners can't be found anywhere today.
+There is simply no analog channels on the air any more,
+making [[TV snow|https://en.wikipedia.org/wiki/Noise_(video)]]
+a distant memory of the past,
+taking with it a [[visual reminder of the big bang|http://www.universetoday.com/25560/the-switch-to-digital-switches-off-big-bang-tv-signal/]].
+
+There was a time when you couldn't hook up anything to the
+telephone network without AT&T's OK
+- when the [[Bell System|http://www.corp.att.com/history/history3.html]] was considered a
+[[Natural Monopoly|http://www.watier.org/kathy/papers/Telephonenetwork.pdf]].
+[[Hush-A-Phone|https://en.wikipedia.org/wiki/Hush-A-Phone_Corp._v._United_States]] didn't want to challege AT&T's monopoly status
+but did want want to connect a simple physical device
+to the network.
+This was the first step in de-regulating the telecommunication business,
+to be followed by Tom Carter's challege to AT&T with the [[Carterfone|http://hackaday.com/2016/08/16/retrotechtacular-tom-carter-revolutionized-your-phone/]].
+These two events state the stage for the [[breakup of the Bell System|https://en.wikipedia.org/wiki/Breakup_of_the_Bell_System]]. 
