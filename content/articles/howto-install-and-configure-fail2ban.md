@@ -330,7 +330,7 @@ You can find the duplicate rules via:
 
 ```bash
 # list any rules that are duplicates
-sort /etc/iptables/rules.v4 | uniq --repeated
+sudo sort /etc/iptables/rules.v4 | uniq --repeated
 ```
 
 This will list all rows in the file that appear more than once.
