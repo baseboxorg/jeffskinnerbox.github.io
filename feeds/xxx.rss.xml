@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Jeff's Skinner Box</title><link>/</link><description></description><lastBuildDate>Sun, 21 Dec 2014 17:10:00 -0500</lastBuildDate><item><title>CheatSheet: Vim Commands</title><link>/posts/2014/Dec/21/cheatsheet-vim-commands/</link><description>&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Vi"&gt;&lt;code&gt;vi&lt;/code&gt;&lt;/a&gt; was the 2nd text editors I learned (&lt;a href="https://en.wikipedia.org/wiki/Ed_(text_editor)"&gt;&lt;code&gt;ed&lt;/code&gt;&lt;/a&gt; was my first)
+<rss version="2.0"><channel><title>Jeff's Skinner Box</title><link>http://jeffskinnerbox.me/</link><description></description><lastBuildDate>Sun, 21 Dec 2014 17:10:00 -0500</lastBuildDate><item><title>CheatSheet: Vim Commands</title><link>http://jeffskinnerbox.me/posts/2014/Dec/21/cheatsheet-vim-commands/</link><description>&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Vi"&gt;&lt;code&gt;vi&lt;/code&gt;&lt;/a&gt; was the 2nd text editors I learned (&lt;a href="https://en.wikipedia.org/wiki/Ed_(text_editor)"&gt;&lt;code&gt;ed&lt;/code&gt;&lt;/a&gt; was my first)
 but I still need need a cheat sheet to help me with a command from time to time.
 I know that there hundreds vi/vim cheat sheets online,
 but none organized the way I want.&lt;/p&gt;
@@ -1272,4 +1272,4 @@ could be gathered for this cheat sheet.&lt;/p&gt;
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">xxx</dc:creator><pubDate>Sun, 21 Dec 2014 17:10:00 -0500</pubDate><guid isPermaLink="false">tag:,2014-12-21:posts/2014/Dec/21/cheatsheet-vim-commands/</guid><category>Cheat Sheet</category><category>Vim</category></item></channel></rss>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">xxx</dc:creator><pubDate>Sun, 21 Dec 2014 17:10:00 -0500</pubDate><guid isPermaLink="false">tag:jeffskinnerbox.me,2014-12-21:posts/2014/Dec/21/cheatsheet-vim-commands/</guid><category>Cheat Sheet</category><category>Vim</category></item></channel></rss>
