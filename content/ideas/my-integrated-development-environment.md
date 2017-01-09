@@ -4,6 +4,7 @@ What about [Sublime](https://www.sublimetext.com/) and [Atom](https://atom.io/) 
 * [rxvt-unicode / urxvt](http://www.slant.co/topics/794/compare/~terminator_vs_rxvt-unicode_vs_gnome-terminal)
 * [e3](http://manpages.ubuntu.com/manpages/xenial/man1/e3.1.html)
 * [Editor Wars](http://hackaday.com/2016/07/26/editor-wars/) and the topcic even has a [Wikipedia page](https://en.wikipedia.org/wiki/Editor_war#)
+* [Top 7 open source terminal emulators](https://opensource.com/life/15/11/top-open-source-terminal-emulators?sc_cid=70160000001206EAAQ)
 
 What about Byobu?
 Byobu is a GPLv3 open source text-based window manager and terminal multiplexer. It was originally designed to provide elegant enhancements to the otherwise functional, plain, practical GNU Screen, for the Ubuntu server distribution. Byobu now includes an enhanced profiles, convenient keybindings, configuration utilities, and toggle-able system status notifications for both the GNU Screen window manager and the more modern Tmux terminal multiplexer, and works on most Linux, BSD, and Mac distributions.

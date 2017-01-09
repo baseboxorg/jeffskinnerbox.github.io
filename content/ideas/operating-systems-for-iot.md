@@ -2,9 +2,10 @@ There has been some recent announcements about operating systems specifically de
 Most notably
 
 * [9 Open Source Operating Systems for the Internet of Things](http://www.datamation.com/mobile-wireless/slideshows/9-open-source-operating-systems-for-the-internet-of-things.html)
+* [Open Source Operating Systems for IoT](https://www.linux.com/news/open-source-operating-systems-iot)
 
 * Google's Brillo - http://fortune.com/2015/05/28/google-brillo-weaved/
-* Ubuntu's RIOT - http://news.softpedia.com/news/Ubuntu-Snappy-Core-Brings-a-User-Friendly-UI-to-RIOT-the-Internet-of-Things-OS-483589.shtml
+* Ubuntu's RIOT - http://news.softpedia.com/news/ubuntu-snappy-core-brings-a-user-friendly-ui-to-riot-the-internet-of-things-os-483589.shtml
 * ARM's Mbed - http://www.cnet.com/news/internet-of-things-gets-a-hand-from-arm-operating-system/
 
 There are others that have been around long and

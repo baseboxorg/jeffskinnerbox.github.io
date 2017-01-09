@@ -155,6 +155,8 @@ Its aim is to simplify the use of computer networks on Linux-based
 and other Unix-like operating systems.
 NetworkManager has a command-line tool for controlling it, called [`nmcli`][16].
 
+See [nmcli](https://fedoraproject.org/wiki/Networking/CLI)
+
 The point of NetworkManager is to make networking configuration
 and setup as painless and automatic as possible for the novice user.
 If using DHCP, NetworkManager is intended to replace default routes,
@@ -617,7 +619,8 @@ Similarly, reloading can be triggered with the `wpa_cli reconfigure` command.
 
 
 
-
+[netconnectd](https://github.com/foosel/netconnectd)
+is a small daemon that ensures connectivity for single-PCB devices such as the Raspberry Pi where you don't always have the means to setup your network interfaces by hand.
 
 
 
@@ -972,7 +975,7 @@ The above command assumes that your private address space is 192.168.0.0/16 and 
 -j MASQUERADE -- traffic matching this rule is to "jump" (-j) to the MASQUERADE target to be manipulated as described above
 ############################
 
-You also need to enable [IP forwarding][67].
+You also need to enable [IP forwarding][76].
 IP forwarding should be enabled when you want the system to act as a router,
 that is transfer IP packets from one network to another.
 If forwarding is turned off,

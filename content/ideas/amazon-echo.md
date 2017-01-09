@@ -46,6 +46,9 @@ The classic example of a Notification is one that silently monitors your email a
 and alerts you when you have a new email.
 Unfortanately, Alexa doesn't support this but [Jasper does](http://jasperproject.github.io/documentation/api/notification/).
 
+## Amazon Echo Alexa and Node-RED
+* [Amazon Echo Alexa Skills Kit integration with Node-RED](https://nathan.chantrell.net/20160328/amazon-echo-alexa-skills-kit-integration-with-node-red/)
+* [Alexa Node Red and SSL](http://tech.scargill.net/alexa-node-red-and-ssl/)
 
 --------------------------------------------------------------------------------
 
@@ -83,7 +86,7 @@ Unfortanately, Alexa doesn't support this but [Jasper does](http://jasperproject
 
 # Amazon Alexa App Services
 * [Providing Home Cards for the Amazon Alexa App](https://developer.amazon.com/appsandservices/solutions/alexa/alexa-skills-kit/docs/providing-home-cards-for-the-amazon-alexa-app?mkt_tok=3RkMMJWWfF9wsRokvavJZKXonjHpfsX66e4vWKK2lMI%2F0ER3fOvrPUfGjI4FTcViI%2BSLDwEYGJlv6SgFSrfFMapt17gOUhk%3D#Creating%20a%20Home%20Card%20to%20Display%20Text%20and%20an%20Image)
-* []()
+* [Easy Alexa (or Echo) Control of your ESP8266 Huzzah](https://learn.adafruit.com/easy-alexa-or-echo-control-of-your-esp8266-huzzah)
 
 # Make You Own Amazon Alexa Device
 * [Amazon shows you how to make an Echo with Raspberry Pi](http://www.engadget.com/2016/03/25/amazon-shows-you-how-to-make-an-echo-with-raspberry-pi/)
@@ -137,6 +140,10 @@ With a little imagination, you should see how it can turn a Raspberry Pi into an
 interesting Internet-enabled speech application using this API.
 
 [Jasper Documentation](http://jasperproject.github.io/documentation/)
+
+
+[eSpeak](https://en.wikipedia.org/wiki/ESpeak) is a compact open source software speech synthesizer for Linux, Windows, and other platforms
+
 
 
 [53]:http://jasperproject.github.io/

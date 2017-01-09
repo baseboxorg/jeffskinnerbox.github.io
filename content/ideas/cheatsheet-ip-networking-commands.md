@@ -1,5 +1,10 @@
 * [What are useful command-line network monitors on Linux](http://xmodulo.com/useful-command-line-network-monitors-linux.html)
 * [8 Linux Commands: To Find Out Wireless Network Speed, Signal Strength And Other Information](http://www.cyberciti.biz/tips/linux-find-out-wireless-network-speed-signal-strength.html)
+* [useful CLI tools for Linux system admins](http://xmodulo.com/useful-cli-tools-linux-system-admins.html)
+* [20 Command Line Tools to Monitor Linux Performance](http://www.tecmint.com/command-line-tools-to-monitor-linux-performance/)
+* [80 Linux Monitoring Tools](https://blog.serverdensity.com/80-linux-monitoring-tools-know/)
+* [SysUsage: the sysstat and sar grapher](http://sysusage.darold.net/index.html)
+* [10 Useful Sar (Sysstat) Examples for UNIX / Linux Performance Monitoring](http://www.thegeekstuff.com/2011/03/sar-examples/?utm_source=feedburner)
 
 * [ip vs. ifconfig - WILT](http://www.innervoice.in/blogs/2015/11/27/ip-vs-ifconfig-wilt/)
 * [A Subnetting Primer](https://danielmiessler.com/study/subnetting/)
@@ -7,6 +12,11 @@
 * [An IPTABLES Primer](https://danielmiessler.com/study/iptables/)
 * [An NMAP Primer](https://danielmiessler.com/study/nmap/)
 * [20 Myths of WiFi Interferance](http://www.wifiadvies.be/20-myths-of-wi-fi-interference/)
+
+mitmproxy
+* [mitmproxy - Tools for Analysising and Inspecting HTTP Traffic](https://mitmproxy.org/)
+* [How To: Use mitmproxy to read and modify HTTPS traffic](https://blog.heckel.xyz/2013/07/01/how-to-use-mitmproxy-to-read-and-modify-https-traffic-of-your-phone/)
+* [Decrypt your HTTPS traffic with mitmproxy](http://www.darkcoding.net/software/decrypt-your-https-traffic-with-mitmproxy/)
 
 Most network configuration manuals still refer to `ifconfig` and `route`
 as the primary network configuration tools,
@@ -21,7 +31,7 @@ The iproute2 collection contains the following command-line utilities:
 `ip`, `ss`, `bridge`, `rtacct`, `rtmon`, `tc`, `ctstat`, `lnstat`,
 `nstat`, `routef`, `routel`, `rtstat`, and `arpd`.
 
-what about ethtool, netifd, nm-tool, nmcli, nm-online
+what about ethtool, netifd, nm-tool, nm-online, [nmcli](https://fedoraproject.org/wiki/Networking/CLI)
 
 * Why nm-tool is no longer available in Ubuntu 15.04? - http://askubuntu.com/questions/617067/why-nm-tool-is-no-longer-available-in-ubuntu-15-04
 * 9 Linux ethtool Examples to Manipulate Ethernet Card (NIC Card) - http://www.thegeekstuff.com/2010/10/ethtool-command/
@@ -110,6 +120,8 @@ any interface not listed there will remain under NetworkManager control.
     * [`arp`][20] (address resolution protocol) is used to translate Internet protocol addresses to
     hardware interface addresses.
     The `arp` command is deprecated and you can replace `arp -na` by `ip neigh`.
+    * [`arp-scan`][65] is a very fast ARP packet scanner that shows every active IPv4 device on your Subnet
+    ([Arp-scan User Guide][66])
     * [`route`][27] command is used to show/manipulate the IP routing table.
     It is primarily used to setup static routes to specific host or networks via an interface.
     * [`nslookup`][28] is a tool for querying the Domain Name System (DNS) to obtain domain name
@@ -282,6 +294,26 @@ This helps avoid confusion between names that are local Bonjour computer names
 
 # SSH - Remote Unix Work
 [Tips for remote Unix work: SSH, screen, and VNC](http://shebang.brandonmintern.com/tips-for-remote-unix-work-ssh-screen-and-vnc/)
+
+## The'Connection Refused' Message
+* [What causes the 'Connection Refused' message?](http://serverfault.com/questions/725262/what-causes-the-connection-refused-message)
+* [What can be the reasons of connection refused errors?](http://stackoverflow.com/questions/2333400/what-can-be-the-reasons-of-connection-refused-errors)
+
+While using `ssh` to login to a remote system,
+say it has IP address `192.168.8.173`,
+you may have had repeated problems with 'Connection Refused' message.
+There could be many reasons, but the most common are:
+
+1. The port is not open on the destination machine.
+1. The port is open on the destination machine, but its backlog of pending connections is full.
+1. A firewall between the client and server is blocking access (also check local firewalls).
+
+After checking for firewalls issues (via `ping 192.168.8.173`)
+and showing that the port is open,
+use telnet (`telnet -l root -r 192.168.8.173`)
+to connect to the ip/port to test connectivity.
+If this fails, this removes any potential issues from your `ssh` application.
+Then you can conclude that the port is not open on the destination machine.
 
 # Establishing a Connection
 You can use `iw` to connect to an AP directly if and only if the AP has:
@@ -661,6 +693,10 @@ default via 192.168.1.1 dev eth1  proto static
 
 ## Diagnosing Routing Problems
 http://www.coyotepoint.com/files/downloads/StaticRoutes.pdf
+
+## Using Traceroute and MTR to Diagnose Network Issues
+* [How To Use Traceroute and MTR to Diagnose Network Issues](https://www.digitalocean.com/community/tutorials/how-to-use-traceroute-and-mtr-to-diagnose-network-issues)
+* [Diagnosing Network Issues with MTR](https://www.linode.com/docs/networking/diagnostics/diagnosing-network-issues-with-mtr)
 
 # Network Address Translation (NAT)
 * [Network Address Translation (NAT) Tutorial](http://www.karlrupp.net/en/computer/nat_tutorial)
@@ -1434,8 +1470,8 @@ could be gathered for this cheat sheet.
 [62]:http://support.qacafe.com/knowledge-base/how-do-i-prevent-network-manager-from-controlling-an-interface/
 [63]:http://linux.die.net/man/8/iwgetid
 [64]:https://opensource.com/business/16/8/introduction-linux-network-routing
-[65]:
-[66]:
+[65]:https://www.blackmoreops.com/2015/12/31/use-arp-scan-to-find-hidden-devices-in-your-network/
+[66]:http://www.nta-monitor.com/wiki/index.php/Arp-scan_User_Guide
 [67]:
 [68]:
 [69]:

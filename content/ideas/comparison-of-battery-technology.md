@@ -1,5 +1,6 @@
 
 # Background
+* [A Quick History of the Battery](http://hackaday.com/2016/10/29/a-quick-history-of-the-battery/)
 * [Understanding Advanced Batteries and Energy Storage – Part I](http://investorintel.com/technology-metals-intel/understanding-advanced-batteries-energy-storage-part/)
 * [A Description of Maddening Battery Terminology](http://hackaday.com/2014/09/26/a-description-of-maddening-battery-terminology/)
 * [An Average Introduction To LiPo Batteries](http://www.averagemanvsraspberrypi.com/2016/06/lipo-batteries.html)
@@ -8,6 +9,8 @@
 * [Battery Basics – Choosing a Battery for Your Project](http://hackaday.com/2014/12/16/battery-basics-choosing-a-battery-for-your-project/)
 * [An Obsessively Thorough Battery (and more) Showdown](http://hackaday.com/2014/09/05/an-obsessively-thorough-battery-and-more-showdown/)
 
+* [Why Samsung’s Lithium Batteries Explode and How They Could Change Electronics](http://www.allaboutcircuits.com/news/why-samsungs-lithium-batteries-explode-and-how-they-could-change-electronic/?utm_source=All+About+Circuits+Members&utm_campaign=5a64219bdc-EMAIL_CAMPAIGN_2016_11_03&utm_medium=email&utm_term=0_2565529c4b-5a64219bdc-270523833/)
+* [Tour de Force Battery Hacking](http://hackaday.com/2016/09/03/tour-de-force-battery-hacking/)
 * [A Li-ion Battery Charging Guide](http://hackaday.com/2014/09/21/a-li-ion-battery-charging-guide/)
 * [Multi-Cell LiPo Charging](https://learn.adafruit.com/multi-cell-lipo-charging)
 * [Li-ion battery charging](http://www.instructables.com/id/Li-ion-battery-charging/?ALLSTEPS)

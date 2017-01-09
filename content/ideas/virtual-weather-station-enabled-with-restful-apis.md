@@ -1,5 +1,8 @@
 
 Some simple weather station setups:
+Nice Design
+* [ESP8266 WiFi Weather Station with Color TFT Display](https://learn.adafruit.com/wifi-weather-station-with-tft-display)
+
 * [Weather Station – DHT11, MQTT, Node-RED, Google Chart, Oh My!](http://www.internetoflego.com/weather-station-dht11-mqtt-node-red-google-chart-oh-my/)
 * [Hyper-local Weather Dashboard: Wunderground + Pi Sense HAT](https://github.com/InitialState/wunderground-sensehat/wiki)
 * [How to Monitor Room Temperature With a Raspberry Pi](https://www.jeremymorgan.com/tutorials/raspberry-pi/monitor-room-temperature-raspberry-pi/)
@@ -11,10 +14,12 @@ Some simple weather station setups:
 * [Weather Station – DHT11, MQTT, Node-RED, Google Chart, Oh My!](http://www.internetoflego.com/weather-station-dht11-mqtt-node-red-google-chart-oh-my/)
 * [11 Best Weather Stations ](http://www.instructables.com/id/11-Best-Weather-Stations/)
 * [A lightweight, self contained, solar-powered weather station for the Raspberry Pi](https://github.com/masneyb/weather-station)
+* [Solar-powered Weather Station Has the Complete Suite of Sensors](http://hackaday.com/2016/08/17/solar-powered-weather-station-has-the-complete-suite-of-sensors/)
 
 * [Weather Font](http://www.dafont.com/weather.font)
 
 * [OpenWeatherMap](http://openweathermap.org/)
+* [Dark Sky API](https://darksky.net/dev/)
 * [cli-weather](https://www.npmjs.com/package/cli-weather)
 * [node-red-node-weather-underground](https://www.npmjs.com/package/node-red-node-weather-underground)
 

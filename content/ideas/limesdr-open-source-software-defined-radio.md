@@ -1,6 +1,8 @@
 * [quicky intro to sdr](http://hackaday.com/2016/05/30/hackaday-dictionary-software-defined-radio-sdr/)
 * [Sodera - Your Introduction into SDR](http://sodera.de/)
 * LimeSDR and its toolchain have already been used to create a Wireless Multi-tool for IoT, [Part 1](http://www.rs-online.com/designspark/electronics/eng/blog/an-intel-powered-wireless-multi-tool-for-the-iot-part-1), [Part 2](http://www.rs-online.com/designspark/electronics/eng/blog/an-intel-powered-wireless-multi-tool-for-the-iot-part-2), [source code](https://github.com/DesignSparkrs/sdr-ble-demo/)
+* [Cyberspectrum SDR Meetup](https://kb.ettus.com/Cyberspectrum)
+* [Gqrx SDR](http://gqrx.dk/)
 
 ![limesdr](https://www.crowdsupply.com/img/31d2/limesdr-7_jpg_project-body.jpg)
 Ever since I become aware of [RTL-SDR][20] and how it could be used to create
@@ -59,6 +61,14 @@ and expensive proprietary devices.
 * **Status indicators:** programmable LEDs
 * **Operating System:** Snappy Ubuntu Core (Linux), running on USB-connected host system
 * **Dimensions:** 100 mm x 60 mm
+
+# Documentation
+* [LimeSDR-USB User Guide](http://wiki.myriadrf.org/LimeSDR-USB_User_Guide)
+* [LimeMicro:LMS7002M Datasheet](https://wiki.myriadrf.org/LimeMicro:LMS7002M_Datasheet)
+* [Altera's Cyclone IV FPGA](https://www.altera.com/products/fpga/cyclone-series/cyclone-iv/overview.html)
+* [Cyclone IV Device Handbook](https://www.altera.com/content/dam/altera-www/global/en_US/pdfs/literature/hb/cyclone-iv/cyclone4-handbook.pdf)
+* []()
+* []()
 
 # Who is Lime Microsystems
 [Lime Microsystems][03] is the creator of
@@ -158,6 +168,8 @@ so it can be supported by SoapySDR or GrOsmoSDR.
 This provides support for programming environments like
 the Pothos framework, GNU Radio, GQRX, and CubicSDR.
 
+https://github.com/pothosware/SoapySDR/wiki
+
 ## Snappy Ubuntu Core
 Lime Microsystems has partnered with [Canonical][25],
 so that the LimeSDR board can take advantage of [Snappy Ubuntu Core][26].
@@ -204,6 +216,7 @@ but still lower than what you’d expect from Ubuntu,
 so you could use an old laptop or PC as a development platform.
 
 * starting at https://developer.ubuntu.com/en/snappy/
+* [Ubuntu Core 16 Enables Snappy IoT](http://m.electronicdesign.com/dev-tools/ubuntu-core-16-enables-snappy-iot)
 * [Snappy Ubuntu Core – An Entirely New Ubuntu Operating System For Clouds And Devices](https://www.unixmen.com/snappy-ubuntu-core-an-entirely-new-ubuntu-operating-system-for-clouds-and-devices/)
 * [Getting Started With Snappy Ubuntu Core](https://www.unixmen.com/getting-started-with-snappy-ubuntu-core/)
 * [Snapcraft is a build and packaging tool which helps you package your software as a snap](https://developer.ubuntu.com/en/snappy/build-apps/)
@@ -221,6 +234,10 @@ so you could use an old laptop or PC as a development platform.
 
 
 ## GNURadio
+[GNURadio][31] is a gigantic suite of software,
+and it’s a lot harder to code up in Python than it is to use the GUI.
+The [LuaRadio project][32] trys to deal with these shortcomings bykeeping things easy to code
+and keeping the codebase small and tidy.
 
 ## Pothos
 [Pothos][11] is an [open source project][12] is a dataflow framework for
@@ -231,30 +248,52 @@ as well as a fully-functional graphical topology designer.
 [Pothos SDR][13] is a development environment for Windows,
 making it easier for Windows users to design and develop for SDR hardware.
 
-http://www.joshknows.com/projects
-http://www.pothosware.com/
-[Pothos features summary page](https://github.com/pothosware/pothos/wiki/Features)
+* http://www.joshknows.com/projects
+* http://www.pothosware.com/
+* [Pothos features summary page](https://github.com/pothosware/pothos/wiki/Features)
+* [Using the RTL-SDR in the Pothos Dataflow Processing Platform](http://www.rtl-sdr.com/using-rtl-sdr-pothos-dataflow-processing-platform/)
+* [Sniffing ANT-FS with an RTL-SDR and MMDS Downconverter in Pothos](http://www.rtl-sdr.com/sniffing-ant-fs-with-an-rtl-sdr-and-mmds-downconverter-in-pothos/)
 
 ## LuaRadio
-GNURadio is a gigantic suite of software,
-and it’s a lot harder to code up in Python than it is to use the GUI.
-The LuaRadio project trys to deal with these shortcomings bykeeping things easy to code
-and keeping the codebase small and tidy.
+* [LimeSDR LuaRadio support and Arch Linux package](https://myriadrf.org/blog/limesdr-luaradio-support-arch-linux-package/)
 
-http://luaradio.io/docs/reference-manual.html
-http://luaradio.io/examples/rtlsdr-wbfm-mono.html
-http://luaradio.io/docs/embedding-luaradio.html
-http://luaradio.io/docs/comparison-gnuradio.html
+* http://luaradio.io/docs/reference-manual.html
+* http://luaradio.io/examples/rtlsdr-wbfm-mono.html
+* http://luaradio.io/docs/embedding-luaradio.html
+* http://luaradio.io/docs/comparison-gnuradio.html
+
+# Snap packages for LimeSDR
+* [Snap packages for LimeSDR](https://www.crowdsupply.com/lime-micro/limesdr/updates/snap-packages)
+* [Ubuntu Core 16 gets smaller and snappier](http://hackerboards.com/ubuntu-core-16-gets-smaller-goes-all-snaps/)
+* [Appliance builder guide: webcam](https://developer.ubuntu.com/en/snappy/guides/appliance-builder-guide-webcam/)
+* [Ubuntu Snappy Core 16 Release Candidate 2 Out Now with Raspberry Pi 3 Fixes](http://news.softpedia.com/news/ubuntu-snappy-core-16-release-candidate-2-out-now-with-raspberry-pi-3-fixes-509736.shtml)
 
 # Digital Signal Processing
 * [three-part tutorial on using Octave](http://hackaday.com/2016/06/30/tutorial-on-signal-processing-in-linux-with-octave/)
 * [ MATLAB under Linux](https://help.ubuntu.com/community/MATLAB)
 * Scilab, Freemat, Sage, and Spyder
 
+# LimeSDR Projects
+* [GPS Fake-out with the LimeSDR](http://sdrgps.blogspot.co.uk/2016/12/gps-fake-out-with-limesdr.html)
+
 
 ##############################
 [MyRiad RF has confirmation][29] that LimeSDR can be made to work together with an
 Ubuntu Virtualbox VM, on top of Windows 10, and via USB passthrough from the host computer.
+##############################
+
+##############################
+Training
+
+* [A Visual Introduction to DSP for SDR](http://visual-dsp.switchb.org/) - time-frequency browser designed for scientific visualization of the spectral domain.
+##############################
+
+##############################
+Other Tools
+
+* [baudline](http://www.baudline.com/index.html)
+
+* [Amazon EC2 F1 Instances](https://aws.amazon.com/ec2/instance-types/f1/) are a compute instance with field programmable gate arrays (FPGAs) that you can program to create custom hardware accelerations for your application.
 ##############################
 
 
@@ -289,8 +328,8 @@ Ubuntu Virtualbox VM, on top of Windows 10, and via USB passthrough from the hos
 [28]:http://thenewstack.io/snappy-ubuntu-core-powering-microcontrollers-to-microservices/
 [29]:https://myriadrf.org/blog/limesdr-native-windows-via-ubuntu-vm/?utm_source=LimeSDR+supporters&utm_campaign=7c106bb9cf-Project_Update_Lime_Beta_7_7_2016&utm_medium=email&utm_term=0_1e5a81cd57-7c106bb9cf-112302893
 [30]:http://electronics.kitchen/misc/freesrp/
-[31]:
-[32]:
+[31]:http://gnuradio.org/
+[32]:http://luaradio.io/
 [33]:
 [34]:
 [35]:

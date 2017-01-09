@@ -1,12 +1,37 @@
-Title: Tuning the RTL-SDR for Optimal Use
-Date: 2100-01-01 00:00
-Category: xxx
-Tags: Electronics
-Slug: RTL-SDR, Software Defined Radio
-Author: Jeff Irland
-Image: DRAFT_stamp.png
-Summary: bla bla bla
+Check out [Listen to the Globe](http://hackaday.com/2017/01/02/listen-to-the-globe/)
 
+* [Using the RTL-SDR in the Pothos Dataflow Processing Platform](http://www.rtl-sdr.com/using-rtl-sdr-pothos-dataflow-processing-platform/)
+* [Sniffing ANT-FS with an RTL-SDR and MMDS Downconverter in Pothos](http://www.rtl-sdr.com/sniffing-ant-fs-with-an-rtl-sdr-and-mmds-downconverter-in-pothos/)
+
+# Selecting a RTL-SDR
+[RTL-SDR.COM][15] is an excelent souce for the latest intell on the RTL-SDR,
+and provides several guides aimed at helping you set-up your RTL-SDR.
+This includea a [Quick Start Guide][16], [RTL-SDR Buyers Guide][17],
+and a large set of [Tutorials][18].
+Anothe excellent source is [Radio for Everyone][19].
+
+* [RTL_SDR Blog V3 Dongles User Guide](http://www.rtl-sdr.com/rtl-sdr-blog-v-3-dongles-user-guide/)
+* [The Hobbyist's Guide to the RTL-SDR: Really Cheap Software Defined Radio](https://www.amazon.com/gp/product/B00KCDF1QI/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00KCDF1QI&linkCode=as2&tag=book0674-20&linkId=RSP53QLYXP4IS32X)
+* [RTL_SDR for Linux Quick Start Guide](http://www.rtl-sdr.com/a-good-quickstart-guide-for-rtl-sdr-linux-users/)
+* [Getting Started with RTL-SDR and SDR-Sharp](https://cdn-learn.adafruit.com/downloads/pdf/getting-started-with-rtl-sdr-and-sdr-sharp.pdf)
+
+# Installing GNU Radio
+
+# Lows Noise Amplifier (LNA)
+[Why use a Preamp?](http://www.radioforeveryone.com/p/why-use-preamp.html)
+* [LNA4All](http://lna4all.blogspot.com/)
+* [Review - LNA4ALL](http://www.radioforeveryone.com/p/summary-buy-one-works-as-advertised.html)
+* [Review: LNA4ALL Antenna Amplifier](http://www.radioforeveryone.com/2013/08/antenna-amplifier.html)
+* [INSMA 0.1-2000MHz RF Wideband Amplifier 30dB low-noise LNA Broadband Module Receiver](https://www.amazon.com/INSMA-0-1-2000MHz-Amplifier-low-noise-Broadband/dp/B01D5RRT0I/ref=sr_1_2?s=electronics&ie=UTF8&qid=1483585185&sr=1-2&keywords=lna)
+
+## Bias Tee
+Bias-T is nothing more than a simple diplexer.
+
+* [DIY Bias-T](http://lna4all.blogspot.com/2014/11/diy-bias-t.html)
+
+http://forums.solidsignal.com/showthread.php/167-Diplexer-Splitter-Combiner-What-are-these-things
+
+# Tuning the RTL-SDR for Optimal Use
 You'll find that the dongle is limited by the following:
 
 * frequency offset
@@ -21,6 +46,7 @@ Improving the Quality of the Antenna
 * [Broadband Discone Antenna][02]
 * [VE3SQB ANTENNA DESIGN PROGRAMS][03]
 * [D.I.Y. Discone for RTLSDR][04]
+* [Understanding Antenna Specifications and Operation](http://www.digikey.com/en/articles/techzone/2011/mar/understanding-antenna-specifications-and-operation)
 
 ## Determining Your Dongles Frequency Off-Set
 Once you start playing around with any of the RTL-SDR dongles and some of the Software Defined Radio (SDR) tools out there, you observer that the frequency settings/readings your using don't make sense.
@@ -86,6 +112,7 @@ Improving Your SDR Radio
 * [RTL-SDR Improvement Tips][14]
 
 
+
 [01]:http://www.antenna-theory.com/
 [02]:http://www.ramseyelectronics.com/downloads/manuals/DA25.pdf
 [03]:http://www.ve3sqb.com/
@@ -100,4 +127,10 @@ Improving Your SDR Radio
 [12]:http://hackaday.com/2012/07/08/adding-more-frequencies-to-you-software-defined-radio/
 [13]:http://hackaday.com/2012/05/14/improving-a-software-defined-radio-with-a-few-bits-of-wire/
 [14]:http://www.ab9il.net/software-defined-radio/rtl2832-sdr.html
+[15]:http://www.rtl-sdr.com/
+[16]:http://www.rtl-sdr.com/rtl-sdr-quick-start-guide/
+[17]:http://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/
+[18]:http://www.rtl-sdr.com/category/tutorial/
+[19]:http://www.radioforeveryone.com/p/reducing-electrical-noise.html
+[20]:
 

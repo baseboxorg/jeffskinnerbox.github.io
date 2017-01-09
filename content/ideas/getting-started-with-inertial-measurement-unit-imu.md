@@ -1,4 +1,5 @@
 
+
 * [series of tutorials](https://www.intorobotics.com/accelerometer-gyroscope-and-imu-sensors-tutorials/)
 * [Open source IMU and AHRS algorithms](http://x-io.co.uk/open-source-imu-and-ahrs-algorithms/)
 * [attitude and heading reference system (AHRS)](https://en.wikipedia.org/wiki/Attitude_and_heading_reference_system)
@@ -7,6 +8,8 @@
 * [ARDUINO MPU 6050 – BEST IMU SENSOR TUTORIAL](http://diyhacking.com/arduino-mpu-6050-imu-sensor-tutorial/)
 * [IMU Data Fusing: Complementary, Kalman, and Mahony Filter](http://www.olliw.eu/2013/imu-data-fusing/)
 * [Tutorial: Building an AHRS/Head-tracker using the "9DOF Razor IMU" or the "9DOF Sensor Stick" by SparkFun](http://www.electronicaembajadores.com/datos/manuales/ss/ssac/ssacim1.pdf)
+* [Stable Orientation – Digital IMU 6DOF + Arduino](http://bildr.org/2012/03/stable-orientation-digital-imu-6dof-arduino/)
+* [FreeIMU: an Open Hardware Framework for Orientation and Motion Sensing](http://www.varesano.net/projects/hardware/FreeIMU)
 * [The Design and Implementation of a Robust AHRS for Integration into a Quadrotor Platform](http://www.botched.co.uk/wp-content/uploads/2013/10/The-Design-and-Implementation-of-a-Robust-AHRS-for-Implementation-on-a-Quadrotor.pdf)
 * [Adafruit 10-DOF IMU Breakout](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-10-dof-imu-breakout-lsm303-l3gd20-bmp180.pdf)
 * [A Guide To using IMU (Accelerometer and Gyroscope Devices) in Embedded Applications](http://www.starlino.com/imu_guide.html)
@@ -20,24 +23,41 @@
 * [Stable Orientation – Digital IMU 6DOF + Arduino](http://bildr.org/2012/03/stable-orientation-digital-imu-6dof-arduino/)
 * [FreeIMU: an Open Hardware Framework for Orientation and Motion Sensing](http://www.varesano.net/projects/hardware/FreeIMU)
 
-* [How MEMS Accelerometer Gyroscope Magnetometer Work](https://www.youtube.com/watch?v=eqZgxR6eRjo)
 
 Example Code
 * [SparkFun](https://www.sparkfun.com/products/11028)
 
-Sensor Fusion
-* [How Sensor Fusion Works](http://www.allaboutcircuits.com/technical-articles/how-sensor-fusion-works/)
-* [Affordable 9 DoF Sensor Fusion](https://github.com/kriswiner/MPU-6050/wiki/Affordable-9-DoF-Sensor-Fusion)
-* [Using the MPU-6050](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=7&cad=rja&uact=8&ved=0ahUKEwjrwsOT2d_OAhUJL8AKHf6BAV8QFghIMAY&url=http%3A%2F%2Fwww.cs.unca.edu%2F~bruce%2FFall13%2F360%2FIMU_Wk8.pptx&usg=AFQjCNFtEwtGzTZE2aWzhBIfPi6YkmmY2w&sig2=O2jChpi6xXoKH9KYnM2xLg&bvm=bv.131286987,d.dmo)
-* [A practical approach to Kalman filter and how to implement it](http://blog.tkjelectronics.dk/2012/09/a-practical-approach-to-kalman-filter-and-how-to-implement-it/)
+# Simultaneous Localization and Mapping (SLAM)
+In robotic mapping, simultaneous localization and mapping (SLAM)
+is the computational problem of constructing or updating a map of an unknown environment
+while simultaneously keeping track of an agent's location within it.
+While this initially appears to be a chicken-and-egg problem,
+there are several algorithms known for solving it, at least approximately,
+in tractable time for certain environments.
+Popular approximate solution methods include the particle filter and extended Kalman filter.
+
+* [Cartographer is a system that provides real-time simultaneous localization and mapping (SLAM) in 2D and 3D across multiple platforms and sensor configurations.](https://opensource.googleblog.com/2016/10/introducing-cartographer.html)
 
 
-[10-dof-imu!](http://www.alliedelec.com/images/products/Small/70460797.jpg)
-A Inertial Measurement Unit (IMU) is a single unit in the electronics module
+
+[imu!](http://www.zess.uni-siegen.de/cms/upload/navigroup/Fig_5.jpg)
+Comparison of five Inertial Measurement Unit (IMU)
+
+* [SparkFun 9DoF Razor IMU M0 - SAMD21 + MPU-9250, $49.95](https://www.sparkfun.com/products/14001) - You have this
+* [Adafruit 10-DOF IMU Breakout - L3GD20H + LSM303 + BMP180, $29.95](https://www.adafruit.com/product/1604) - You have this
+* [Adafruit Triple-axis Accelerometer + Magnetometer (Compass) Board - LSM303, $14.95](https://www.adafruit.com/products/1120) - You have this
+* [Adafruit Triple-axis Magnetometer (Compass) Board - HMC5883L, $9.95](https://www.adafruit.com/products/1746) - You **DO NOT** have this
+* [SparkFun Triple Axis Accelerometer - LIS3DH, $4.95](https://www.sparkfun.com/products/13963) - You **DO NOT** have this
+
+
+# What Is an Inertial Measurement Unit?
+A IMU is a single unit in the electronics module
 which collects angular velocity and linear acceleration data which is sent to the main processor.
 The IMU housing actually contains multiple separate sensors.
+An IMU is a key component of navigational equipment used in airplanes, spacecraft, and water-borne vehicles, and also important for virtual reality  equipment and robotics.
 
-Degrees of Freedom (DOF) refers to the movement of a rigid body inside space.
+When specifying a IMU, you'll see the term Degrees of Freedom (DOF)
+which refers to the movement of a rigid body inside space.
 It is the different basic ways in which an object can move or be oriented in space.
 How many DOF you have is dependent on the application
 (e.g. some movements could be constrained by the application,
@@ -45,17 +65,52 @@ like a radio control car which can only move on a surface where an airplane can 
 Here we will be looking at 10 DOF in total,
 and these can be divide them into 4 different types: translation, rotation, orientation, and elevation:
 
-* **Translation Movement** -  A body is free to translate in 3 degrees of freedom: forward/back, up/down, left/right.
-* **Rotation Movement** - A body can also rotate with 3 degrees of freedom: pitch, yaw, and roll.
-* **Orientation** - A body has 3 degrees of freedom to describe the direction it points relative to the earth
-* **Elevation** - A body can move in 1 degree of freedom (up/down) relative to its position on the earth
+* **Translation Movement** -  A body is free to translate in 3 degrees of freedom: forward/back, up/down, left/right. This is generally masured using an accelerometer.
+* **Rotation Movement** - A body can also rotate with 3 degrees of freedom: pitch, yaw, and roll.  This is generally measured using a gyroscope.
+* **Orientation** - A body has 3 degrees of freedom to describe the direction it points relative to the earth.  This is generally measured using a gyroscope and magnetometer.
+* **Elevation** - A body can move in 1 degree of freedom (up/down) relative to its position on the earth.  This is gnerally measured using a combination of a accelerometer and barmeter.
 
-I'm using Adafruit's 10-DOF IMU (10 Degrees of Freedom, Inertial Measurement Unit).
-This board contains 3 seperate IMU chips, all rolled into to one printed circuit board:
+IMUs have been known to suffer is positional drift,
+whereby incremental errors in recording are carried over to the next set of measurements.
+This positional drift, or accumulated error,
+can lead to some inaccuracies in the reported location,
+particularly over longer periods of time.
+Additional components of navigation systems are designed to correct these incremental errors,
+including magnetic compasses, externally mounted velocity sensors, and GPS control.
 
-[LSM303DLHC][01] - a 3-axis accelerometer (up to +/-16g) and a 3-axis magnetometer (up to +/- 8.1 gauss) on a single chip
-[L3GD20][02] - a 3-axis gyroscope (up to +/-2000 dps)
-[BMP180][03] - A barometric pressure sensor (300..1100 hPa) that can be used to calculate altitude, with an additional on-board temperature sensors for calibration
+# Gyroscopes
+* [Gyroscopes](https://learn.sparkfun.com/tutorials/gyroscope)
+* [Accelerometer & Gyro Tutorial](http://www.instructables.com/id/Accelerometer-Gyro-Tutorial/)
+* [How MEMS Accelerometer Gyroscope Magnetometer Work](https://www.youtube.com/watch?v=eqZgxR6eRjo)
+
+# Accelerometer
+* [Accelerometer Basics](https://learn.sparkfun.com/tutorials/accelerometer-basics)
+* [Accelerometer & Gyro Tutorial](http://www.instructables.com/id/Accelerometer-Gyro-Tutorial/)
+
+# Magnetometer
+A digital compass, or magnetometer have 2 major downfalls.
+One, they can not be used around any magnet of any real strength.
+It will really throw off the reading or just report the direction of the magnet
+if it is strong or close enough
+(though in some applications, you could use that to your advantage).
+And second, without something called “[tilt compensation][10]”,
+the compass will only be accurate held at +/- a few degrees of level.
+Tilt compensated compasses require accelerometers, a microprocessor,
+and will be two to three times as expensive.
+
+Generally, the magnetometer's reading is used to measure change from a reference point
+and not an absolution measure of direction.
+The megnetometer points to [magnetic north][11], and not [true north][12]
+(The difference between them is called [magnetic declination][13]).
+
+# Adafruit
+[10-dof-imu!](http://www.alliedelec.com/images/products/Small/70460797.jpg)
+Adafruit's 10-DOF IMU (10 Degrees of Freedom, Inertial Measurement Unit).
+This board contains 3 separate IMU chips, all rolled into to one printed circuit board:
+
+* [LSM303DLHC][01] - 3-axis accelerometer (up to +/-16g) and a 3-axis magnetometer (up to +/- 8.1 gauss) on a single chip
+* [L3GD20][02] - 3-axis gyroscope (up to +/-2000 dps)
+* [BMP180][03] - barometric pressure sensor (300..1100 hPa) that can be used to calculate altitude, with an additional on-board temperature sensors for calibration
 
 Any one of these individual sensors could be suitable for some applications,
 but this unit with 10 DOF provides nearly all that you need.
@@ -65,17 +120,29 @@ In principle, with the GPS, you could eliminate the BMP180 and LSM303DLHC,
 but these sensors can give you greater precision, and therefore,
 still generally desirable to have for sensor fusion.
 
+Adafruit's 9-DOF
+
+Adifruit's 3-DOF
+* [HMC5883L][09] - 3-axis digital magnetometer designed for low-field magnetic sensing. The sensor has a full-scale range of ±8 Guass and a resolution of up to 5 milli-Gauss.
+
+# SparkFun
+[SAMD21][07] - Atmel’s SAMD21, is an Arduino-compatible, 32-bit ARM Cortex-M0+ microcontroller (used on the [SparkFun SAMD21 Mini Breakout][08])
+[MPU-9250][06] - 3-axis accelerometer (up to +/-16g), a 3-axis magnetometer (up to +/- 4.8 gauss), and a 3-axis gyroscope (up to +/-2000 dps) on a single chip
+[LIS3DH][14] - 3-axis accelerometer (up to +/-16g), free-fall detection, motion detection
+
+9DoF Razor IMU M0 Hookup Guide - https://learn.sparkfun.com/tutorials/9dof-razor-imu-m0-hookup-guide?_ga=1.26368125.1191625809.1473465375
+
 # Sensor Fusion
 When using the IMU to calculate angles,
-readings from both the gyro and accelerometer are needed, which are then combined.
+readings from both the gyroscopes and accelerometer are needed, which are then combined.
 This is because using either on their own will result in inaccurate readings.
 Here is why;
 
-* Gyros – A gyro measures the rate of rotation,
+* **Gyroscope** – A gyro measures the rate of rotation,
 which has to be tracked over time to calculate the current angle.
 This tracking causes the gyro to drift.
 However, gyros are good at measuring quick sharp movements.
-* Accelerometers – Accelerometers are used to sense both static (e.g. gravity)
+* **Accelerometers** – Accelerometers are used to sense both static (e.g. gravity)
 and dynamic (e.g. sudden starts/stops) acceleration.
 They don’t need to be tracked like a gyro and can measure the current angle at any given time.
 Accelerometers however are very noisy and are only useful for tracking angles over a long period of time.
@@ -86,6 +153,12 @@ such that the resulting information has less uncertainty than would be possible
 when these sources were used individually.
 
 * [Accelerometer & Gyro Tutorial](http://www.instructables.com/id/Accelerometer-Gyro-Tutorial/)
+
+* [How Sensor Fusion Works](http://www.allaboutcircuits.com/technical-articles/how-sensor-fusion-works/)
+* [Affordable 9 DoF Sensor Fusion](https://github.com/kriswiner/MPU-6050/wiki/Affordable-9-DoF-Sensor-Fusion)
+* [Using the MPU-6050](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=7&cad=rja&uact=8&ved=0ahUKEwjrwsOT2d_OAhUJL8AKHf6BAV8QFghIMAY&url=http%3A%2F%2Fwww.cs.unca.edu%2F~bruce%2FFall13%2F360%2FIMU_Wk8.pptx&usg=AFQjCNFtEwtGzTZE2aWzhBIfPi6YkmmY2w&sig2=O2jChpi6xXoKH9KYnM2xLg&bvm=bv.131286987,d.dmo)
+* [A practical approach to Kalman filter and how to implement it](http://blog.tkjelectronics.dk/2012/09/a-practical-approach-to-kalman-filter-and-how-to-implement-it/)
+
 
 # Connecting with the Board
 All of the sensors on the Adafruit 10DOF breakout board communicate via a two-pin I2C bus.
@@ -155,15 +228,15 @@ One option in that case is to use SPI instead of I2C.
 [03]:https://cdn-shop.adafruit.com/datasheets/BST-BMP180-DS000-09.pdf
 [04]:https://en.wikipedia.org/wiki/Data_fusion
 [05]:http://www.eeherald.com/section/design-guide/esmod11.html
-[06]:
-[07]:
-[08]:
-[09]:
-[10]:
-[11]:
-[12]:
-[13]:
-[14]:
+[06]:https://cdn.sparkfun.com/assets/learn_tutorials/5/5/0/MPU9250REV1.0.pdf
+[07]:https://cdn.sparkfun.com/datasheets/Dev/Arduino/Boards/Atmel-42181-SAM-D21_Datasheet.pdf
+[08]:https://www.sparkfun.com/products/13664?_ga=1.17842169.1794757627.1467916508
+[09]:https://cdn-shop.adafruit.com/datasheets/HMC5883L_3-Axis_Digital_Compass_IC.pdf
+[10]:https://cache.freescale.com/files/sensors/doc/app_note/AN4248.pdf
+[11]:https://en.wikipedia.org/wiki/North_Magnetic_Pole
+[12]:https://en.wikipedia.org/wiki/True_north
+[13]:https://en.wikipedia.org/wiki/Magnetic_declination
+[14]:https://cdn.sparkfun.com/assets/learn_tutorials/5/9/6/LIS3DH_Datasheet_DocID_17530rev1.pdf
 [15]:
 [16]:
 [17]:

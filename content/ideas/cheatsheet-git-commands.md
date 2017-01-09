@@ -95,10 +95,20 @@ The `--hard` option changes all the files in your working tree to match the file
 If you have any files that are _not_ tracked by Git,
 these files will not be affected.
 
+# Contribute to Someone's Repository
+See NOTE.md for ThingSpace Demo (tsdemo)
+
+* [How to Contribute to Someone's GitHub Repository](https://www.youtube.com/watch?v=yr6IzOGoMsQ)
+* [Contribute to someone's repository](http://kbroman.org/github_tutorial/pages/fork.html)
+* [The beginner's guide to contributing to a GitHub project](https://akrabat.com/the-beginners-guide-to-contributing-to-a-github-project/)
+* [Contributing to a GitHub repository](https://docs.mendix.com/howto50/contributing-to-a-github-repository)
+* [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
+
 ## Sources
 These are the sources for the commands documented above in the tables.
 
 * [git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf)
+* [The most useful git commands](https://orga.cat/posts/most-useful-git-commands)
 
 ## Requires More Research
 These links should be explored to see it additional information

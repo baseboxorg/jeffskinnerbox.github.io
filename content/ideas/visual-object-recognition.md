@@ -22,5 +22,8 @@
 [Raspberry PI 5MP Camera Board Module](http://www.amazon.com/Raspberry-5MP-Camera-Board-Module/dp/B00E1GGE40/ref=sr_1_1?ie=UTF8&qid=1444184065&sr=8-1&keywords=Raspi+Camera)
 [OpenCV and Pi Camera Board ](https://thinkrpi.wordpress.com/2013/05/22/opencv-and-camera-board-csi/)
 
+# Networked Birdhouse
+* [Networked Solar Birdhouses Deep in the Woods](http://hackaday.com/2016/05/20/making-solar-powered-networked-birdhouses-putting-them-in-the-middle-of-the-woods/)
+
 # Other
 * [IoT IP camera teardown and getting root password](http://jelmertiete.com/2016/03/14/IoT-IP-camera-teardown-and-getting-root-password/)

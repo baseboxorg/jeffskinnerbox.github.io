@@ -12,6 +12,19 @@ What a Mesh!
 * [Gluon is a modular framework for creating OpenWrt-based firmwares for wireless mesh nodes](https://gluon.readthedocs.io/en/v2016.1.4)
 * [An Interface For The Headless Linux System](http://hackaday.com/2016/05/28/hackaday-prize-entry-a-hat-for-the-headless-linux-system/)
 
+* [Installing mesh on OpenWrt - Mesh/OpenWRT](https://sudoroom.org/wiki/Mesh/OpenWRT)
+* [How to manually configure a PittMesh node: Ubiquiti Rocket](http://www.metamesh.org/how-to-configure-a-ubnt-router)
+* [Building a Wireless Mesh Network](http://www.shadowandy.net/2016/03/building-wireless-mesh-network.htm/3)
+* [Mesh Network Practical Guide](https://www.gitbook.com/book/suriyadeepan/mesh-guide/details)
+* [Batman on OpenWRT](https://wiki.reseaulibre.ca/guides/openwrt+batman/)
+
+* [Outernet](https://en.wikipedia.org/wiki/Outernet)
+    * [OUTERNET RADIO FOR THE INFORMATION AGE](https://outernet.is/)
+
+ESP8266 Mesh Networking
+* [ESP8266 Mesh User Guide](http://www.espressif.com/sites/default/files/30a-esp8266_mesh_user_guide_en.pdf)
+* [ESP-Mesh](https://espressif.com/en/products/software/esp-mesh/overview)
+
 Increasingly you hear the observation that the centralization of the Internet
 and the services built on it has given governments far too much control.
 There is a urgent call to decentralize the net at all levels, including the transport level.

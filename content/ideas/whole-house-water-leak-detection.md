@@ -1,4 +1,7 @@
 
+Water leak detection by measuring the flow of water in the house
+
+* [How to Measure Flow with Magnets - (Magnetic Flow Meters)](https://www.youtube.com/watch?v=TR0baWuB6v4&feature=youtu.be)
 * [FLUID Is A Smart Water Meter For Your Home][01]
 * [Remote Water Consumption Display][02]
 * [Measuring Water Consumption][03]

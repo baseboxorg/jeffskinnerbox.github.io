@@ -1,10 +1,3 @@
-
-* [Now you can unlock Chrome OS with a PIN code](https://www.engadget.com/2016/08/19/unlock-chrome-os-with-pin/)
-* [Unlock your Chromebook with your Android phone](https://support.google.com/chromebook/answer/6070209?hl=en-GB)
-* [Android apps are now available on these Chromebooks](http://www.techradar.com/news/mobile-computing/laptops/android-apps-are-now-available-on-these-chromebooks-1323567)
-* [How To Run Android Apps on Your Chromebook](http://fieldguide.gizmodo.com/how-to-run-android-apps-on-your-chromebook-1786505928)
-
-
 Status: draft
 Title: Installing Linux on Chromebook
 Date: 2100-01-01 00:00
@@ -14,6 +7,15 @@ Slug: installing-linux-on-chromebook
 Author: Jeff Irland
 Image: toshiba-chromebook-linux.jpg
 Summary: The price of the Chromebook makes it a very attractive, assuming you can get your favorite tools working on it.  Well, you can install Linux, along with all the tools Linux brings to your development needs. This post is a somewhat disjointed dump of things that I’ve done to create a comfortable working envirnment on a Chromebook.
+
+
+* [Now you can unlock Chrome OS with a PIN code](https://www.engadget.com/2016/08/19/unlock-chrome-os-with-pin/)
+* [Unlock your Chromebook with your Android phone](https://support.google.com/chromebook/answer/6070209?hl=en-GB)
+* [Android apps are now available on these Chromebooks](http://www.techradar.com/news/mobile-computing/laptops/android-apps-are-now-available-on-these-chromebooks-1323567)
+* [How To Run Android Apps on Your Chromebook](http://fieldguide.gizmodo.com/how-to-run-android-apps-on-your-chromebook-1786505928)
+* See the split screen, how do you do this - [Putting Linux on your Chromebook is easier than you think (and totally worth it!)](http://www.androidcentral.com/putting-linux-your-chromebook-easier-you-think)
+
+
 
 <a href="http://www.pcmag.com/article2/0,2817,2470486,00.asp">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="This Chromebook 2 is thin and light, which is pretty impressive, considering it has a 13.6-inch HD display. The plastic chassis measures just 0.76 by 12.76 by 8.4 inches (HWD) and weighs only 2.95 pounds." alt="chromebook picture" src="{filename}/images/toshiba-chromebook-linux.jpg" width="250" height="250" />
@@ -50,10 +52,16 @@ There are three main ways to install a traditional Linux environment on your dev
 
 * The traditional dual-boot environment using [ChrUbuntu][02].  So here you have two operating systems, but only one of them can be executing at any one time.
 * [Boot from USB][06] option will allow you to activate booting from USB devices. This is assentually the same as the first method but not booting from the hard drive.
-* Run Linux along side of Chrome OS in a chroot environment using [Crouton][03].  In this case, you have two operating systems concurrently operating.
+* Run Linux along side of Chrome OS in a [chroot][74] environment using [Crouton][03].  In this case, you have two operating systems concurrently operating.
 
 Crouton appears to be the best supported way of running another OS on top of Chrome OS.
-It’s quite impressive how easy it is to use and
+Crouton [chroot environment][75] to run both Chrome OS and Ubuntu at the same time.
+Chroot is an operation that changes the apparent root directory
+for the current running process and their children.
+A program that is run in such a modified environment cannot access files and commands
+outside that environmental directory tree.
+This modified environment is called a "[chroot jail][76]".
+Crouton is quite impressive how easy it is to use and
 comes with a [rich set of options][51].
 (By the way, there happens to be a way to merging ChromeOS and Android
 via [ARC Welder][54].)
@@ -556,6 +564,11 @@ I putting the following in my  `~/.bashrc` file:
 
 >NOTE: You do your edits of `~/.bashrc` from inside your crosh/shell, edit, not chroot.
 
+## Switching Between Crouton and ChromeOS
+You can switch between your Crouton session and ChromeOS by using four keys:
+`CTRL+ALT+SHIFT+→` (the left or right arrow key on the top row of your keyboard).
+Left or right arrow will toggle you between Crouton / ChromeOS session.
+
 ## Linux in a Chromium OS Window
 https://github.com/dnschneid/crouton/wiki/crouton-in-a-Chromium-OS-window-(xiwi)
 
@@ -573,6 +586,10 @@ You’ll do this by running the `ssh` command and then by typing every option on
 
 You could also just type in the whole line like `ssh jeff@desktop`
 to secure shell into the `desktop` system using the login `jeff`.
+
+While chromebook can support `ssh` natively, it is a bit limited.
+I have run had problem getting access to devices running OpenWrt,
+bu there are some [apps you can install that give more full features][73].
 
 #### Connectivity Command
 [CHROME OS – USING THE CROSH CONNECTIVITY COMMAND](https://failicide.wordpress.com/2015/02/19/chrome-os-using-the-crosh-connectivity-command/)
@@ -680,6 +697,16 @@ so replace `backupfile.tar.gz` with the name of the backup file you want to rest
 sudo sh ~/Downloads/crouton -f backupfile.tar.gz
 ```
 
+# Connecting Chromebook to Ethernet
+Wireless internet is great,
+but sometimes you might find yourself in a situation where only
+a physical Ethernet Internet connection will do.
+Most Chromebooks do not include an Ethernet LAN port,
+but you can easily add this functionality with a USB Ethernet adapter.
+Headed on over to Amazon to look for an adapter.
+I got the [Rankie SuperSpeed USB 3.0 to RJ45 Gigabit Ethernet Network Adapter - R1161][72].
+It works fine with my Chomebook's USB 3.0 port and it was just plug and play.
+
 # Chrome Apps to Install
 * Ultimate guide for Web Development on Chromebook — [Part 1: Crouton][55] and [Part 2: ChromeOS tricks and workflows][56]
 
@@ -778,11 +805,11 @@ But you can get make that vision start to happen today—with a new Google tool 
 [68]:https://en.wikipedia.org/wiki/Chrome_OS
 [69]:http://www.howtogeek.com/210817/how-to-enable-developer-mode-on-your-chromebook/
 [70]:http://x.org/wiki/
-[72]:
-[73]:
-[74]:
-[75]:
-[76]:
+[72]:https://www.amazon.com/Network-Adapter-Rankie-SuperSpeed-Ethernet/dp/B010SEARPU/ref=sr_1_3?ie=UTF8&qid=1476410333&sr=8-3&keywords=ethernet+adapter
+[73]:https://chrome.google.com/webstore/detail/secure-shell/pnhechapfaindjhompbnflcldabbghjo?utm_source=gmail
+[74]:https://en.wikipedia.org/wiki/Chroot
+[75]:https://help.ubuntu.com/community/BasicChroot
+[76]:http://unix.stackexchange.com/questions/105/chroot-jail-what-is-it-and-how-do-i-use-it
 [77]:
 [78]:
 [79]:

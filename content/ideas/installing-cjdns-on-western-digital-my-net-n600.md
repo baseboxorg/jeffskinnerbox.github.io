@@ -1,5 +1,9 @@
-*[My complete OpenWrt Setup Guide](http://www.jauu.net/2015/03/03/complete-openwrt-guide/)
+* [My complete OpenWrt Setup Guide](http://www.jauu.net/2015/03/03/complete-openwrt-guide/)
 * [CJDNS Adhoc node](http://www.instructables.com/id/CJDNS-Adhoc-Node/?ALLSTEPS)
+* CJDNS on OpenWRT - Philly Mesh
+    * [Part 1: Installing OpenWRT on the WD N600](http://mesh.philly2600.net/?p=105)
+    * [Part 2: Configuring Extroot for More Storage](http://mesh.philly2600.net/?p=128)
+    * [Part 3: Installing & Configuring CJDNS](http://mesh.philly2600.net/?p=137)
 
 ![Mesh Network](https://wellness.wikispaces.com/file/view/nwarch02.jpg/30138489/nwarch02.jpg =376x205 "MESH is a federated/distributed node structure in which any nodes can communicate with any other nodes.")(https://wellness.wikispaces.com/Network+Architectures)
 
@@ -20,83 +24,14 @@ You'll also find a collection of scripts, called [Meshbox][50],
 used to build and test the CJDNS routing protocol with OpenWrt.
 
 # What is OpenWrt
-OpenWrt is a desendent of the firmware used for the classic [Linksys WRT54G][71] router.
-In fact, this classic Linksys series of routers lead to [DD-WRT][73], [OpenWrt][72], [Tomato][74],
-and countless other open-source firmwares.
-Read "[The Open Source WRT54G Story][58]" if you want more of a history lesson.
-
-OpenWrt is described as a Linux distribution for embedded devices,
-and primarily used on embedded devices to route network traffic.
-Like other Linux distributions,
-it offers a built-in package manager that allows you to install packages from a software repository.
-It can be used for anything that an embedded Linux system can be used for,
-including functioning as an SSH server, VPN, or [traffic-shaping][68] router.
-
-Most people will be happy with their router’s default firmware,
-while many power users will want a drop-in replacement firmware like [DD-WRT][69].
-OpenWrt is more flexible – it’s basically an embedded Linux distribution that
-can be installed on various routers.
-
-The main components are:
-
-* [Linux kernel][65] - manages input/output requests from software,
-and translates them into data processing instructions the CPU
-* [util-linux][63] - standard package of the Linux operating system
-* [uClibc][64] - small C standard library intended for Linux kernel-based operating systems
-* [BusyBox][66] - software that provides several stripped-down Unix tools in a single executable file
-
-OpenWrt provides a fully writable filesystem with package management,
-allowing you to [customize the device][67] through the use of packages to suit any application.
-Also OpenWrt supports a framework to build an application without having to
-build a complete firmware around it and is fully customizable.
-
-## Linux Kernel
-The [Linux Kernel][34], or just kernel, is the lowest level of easily replaceable software
-that interfaces with the hardware in your computer.
-It is responsible for interfacing all of your applications that are running in
-“user mode” down to the physical hardware, and allowing processes, known as servers,
-to get information from each other using inter-process communication (IPC).
-
-## Util-Linux
-The [`util-linux`][38] package contains a large variety of essential,
-low-level system utilities that are necessary for a Linux system to function.
-Most of the utilities are oriented towards maintenance of your system.
-Some of the more important utilities included in this package allow you to partition your hard disk,
-view kernel messages, and create new filesystems.
-
-## uClibc
-[`uClibc`][32] (aka µClibc/pronounced yew-see-lib-see) is a C library for developing embedded Linux systems.
-It is much smaller than the GNU C Library, `glibc`,
-but nearly all applications supported by `glibc` also work perfectly with `uClibc`.
-Porting applications from glibc to `uClibc` typically involves just recompiling the source code.
-
-## BusyBox
-[BusyBox][61] is a tool loaded into the OpenWrt envirnment.
-BusyBox combines tiny versions of many common UNIX utilities into a single small executable.
-It provides minimalist replacements for most of the utilities you usually find
-in GNU fileutils, shellutils, includes [`vi`][62], etc.
-BusyBox is extremely configurable, allowing you to include only the components you need.
-The utilities in BusyBox generally have fewer options than their full-featured GNU cousins;
-however, the options that are included provide the expected functionality
-and behave very much like their GNU counterparts.
-
-BusyBox is extremely modular so you can easily include or exclude commands
-(or features) at compile time.
-This makes it easy to customize your embedded systems.
-To create a working system, just add some device nodes in `/dev`,
-a few configuration files in `/etc`, and a Linux kernel.
-
-For a listing of Busybox's utilities, check out the [Busybox Manual Page][70].
-[BusyBox is a multi-call binary][62]
-(i.e. a single binary acts like a large number of utilities).
-BusyBox has built-in utility programs (called applets)
-can share code for many common operations.
-
-```bush
-busybox <applet> [arguments...]  # or
-
-<applet> [arguments...]          # if symlinked
-```
+[OpenWrt][20] is a highly extensible Linux distribution for embedded devices (typically wireless routers).
+OpenWrt is built from the ground up to be a full-featured,
+easily modifiable via its package management operating system for your router.
+OpenWrt has an excellent reputation embedded solutions for
+performance, stability, extensibility, robustness,
+and well design embedded operating system where routing is an integral function.
+For further information about OpenWrt,
+check out getting-started-with-openwrt.md.
 
 ## OpenWrt Feeds - modify for CJDNS
 To integrate CJDNS with OpenWRT we could use [OpenWrt's feeds system][37].
@@ -158,6 +93,7 @@ and little more searching popped up specific recommendations:
 * [TP-Link TL-WDR3500][04] with 8MB Flash ROM and 128MB RAM ([OpenWrt says][12])
 * [TP-Link TL-WDR3600][06] with 8MB Flash ROM and 128MB RAM ([OpenWrt says][13])
 * [TP-Link TL-WDR4900][05] with 16MB Flash ROM and 128MB RAM ([OpenWrt says][14])
+* [GL.iNet AR-150][18] with 16MB Flash ROM and 64MB RAM ([OpenWrt says][09])
 
 I went with the [Western Digital My Net N600][26].
 The WD My Net N600 has the Qualcomm [Atheros architecture][11].
@@ -220,7 +156,6 @@ iface eth0 inet static
 ```
 
 Then restart your network interface with `sudo /etc/init.d/networking restart`.
-
 I didn't need to do all this, since my Linux box is running Ubuntu
 (which manages networking in mysterious, dynamic ways via the [NetworkManager][51] daemon).
 I just plugged my Linux box into the router.
@@ -328,6 +263,7 @@ With this all done, save the OpenWrt configuration via
 [Meshbox - cjdns on OpenWrt](https://github.com/SeattleMeshnet/meshbox)
 
 
+
 [01]:http://support.linksys.com/en-us/support/routers/WRT54G
 [02]:http://wiki.openwrt.org/toh/buyerguide
 [03]:http://rooftopbazaar.com/routerfirmware/
@@ -336,7 +272,7 @@ With this all done, save the OpenWrt configuration via
 [06]:http://blog.michael.kuron-germany.de/2013/04/tp-link-tl-wdr3600/comment-page-1/
 [07]:http://goughlui.com/2013/09/20/tp-link-tl-wr740n-cheapest-dd-wrtopenwrt-router-ever/
 [08]:http://www.pebra.net/blog/2014/02/07/installing-openwrt-on-wd-mynet-n600/
-[09]:
+[09]:https://wiki.openwrt.org/toh/gl-inet/gl-ar150
 [10]:http://whatismyipaddress.com/dhcp
 [11]:http://wiki.openwrt.org/toh/wd/n600
 [12]:http://wiki.openwrt.org/toh/tp-link/tl-wdr3500
@@ -345,9 +281,9 @@ With this all done, save the OpenWrt configuration via
 [15]:http://wiki.openwrt.org/
 [16]:http://en.wikipedia.org/wiki/OpenWrt
 [17]:http://www.smallnetbuilder.com/wireless/wireless-features/31794-inside-story-apple-airport-express-2012-and-wd-my-net-n900?start=1
-[18]:
+[18]:https://www.gl-inet.com/
 [19]:http://www.adafruit.com/product/954
-[20]:
+[20]:https://wiki.openwrt.org/about/start
 [21]:
 [22]:
 [23]:
@@ -359,13 +295,13 @@ With this all done, save the OpenWrt configuration via
 [29]:http://wiki.openwrt.org/doc/howto/secure.access
 [30]:http://wiki.openwrt.org/doc/howto/basic.config
 [31]:http://wiki.openwrt.org/doc/howto/wireless.overview
-[32]:https://uclibc.org/about.html
+[32]:
 [33]:http://wiki.openwrt.org/doc/howto/firstlogin
-[34]:http://www.makeuseof.com/tag/linux-kernel-explanation-laymans-terms/
+[34]:
 [35]:http://www.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man1/slogin.1?query=ssh&sec=1
 [36]:http://bmx6.net/projects/bmx6
 [37]:http://wiki.openwrt.org/doc/devel/feeds
-[38]:http://www.catonmat.net/blog/util-linux-cheat-sheet/
+[38]:
 [39]:http://wiki.openwrt.org/doc/techref/luci
 [40]:http://wiki.openwrt.org/doc/techref/opkg
 [41]:http://dev.qmp.cat/projects/qmp/wiki/Packages
@@ -385,22 +321,22 @@ With this all done, save the OpenWrt configuration via
 [55]:http://www.netwood.net/support/manuals/Linksys_WRT54G_v8.pdf
 [56]:https://en.wikipedia.org/wiki/Default_gateway
 [57]:https://en.wikipedia.org/wiki/Linux_console
-[58]:http://www.wi-fiplanet.com/tutorials/article.php/3562391
+[58]:
 [59]:
 [60]:
-[61]:http://www.busybox.net/
-[62]:http://en.wikibooks.org/wiki/Learning_the_vi_Editor/BusyBox_vi
-[63]:http://en.wikipedia.org/wiki/Util-linux
-[64]:http://en.wikipedia.org/wiki/UClibc
-[65]:http://en.wikipedia.org/wiki/Linux_kernel
-[66]:http://en.wikipedia.org/wiki/BusyBox
-[67]:http://www.makeuseof.com/tag/what-is-openwrt-and-why-should-i-use-it-for-my-router/
-[68]:http://en.wikipedia.org/wiki/Traffic_shaping
-[69]:http://en.wikipedia.org/wiki/DD-WRT
-[70]:http://linux.die.net/man/1/busybox
-[71]:http://en.wikipedia.org/wiki/Linksys_WRT54G_series
-[72]:https://openwrt.org/
-[73]:http://www.dd-wrt.com/site/index
-[74]:http://www.polarcloud.com/tomato
+[61]:
+[62]:
+[63]:
+[64]:
+[65]:
+[66]:
+[67]:
+[68]:
+[69]:
+[70]:
+[71]:
+[72]:
+[73]:
+[74]:
 [75]:
 

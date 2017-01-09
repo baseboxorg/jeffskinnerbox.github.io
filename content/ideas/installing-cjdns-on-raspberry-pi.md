@@ -10,7 +10,8 @@ https://www.element14.com/community/community/raspberry-pi/blog/2014/07/22/i2pbe
 IPFS is another essential building block for the neighborhood social app:
 a place to post publicly accessible objects (web pages, documents) that doesn't require a centralized server.
 
-
+* [Outernet](https://en.wikipedia.org/wiki/Outernet)
+    * [OUTERNET RADIO FOR THE INFORMATION AGE](https://outernet.is/)
 * [CJDNS Adhoc node](http://www.instructables.com/id/CJDNS-Adhoc-Node/?ALLSTEPS)
 * [Hyperboria DNS solution](http://nxter.org/hyperboria-adopts-nxt-aliases-for-dns-solution/)
 * [CJDNS NAT Gateway](https://github.com/cjdelisle/cjdns/blob/master/doc/nat-gateway.md)

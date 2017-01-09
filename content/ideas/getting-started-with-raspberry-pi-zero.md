@@ -35,7 +35,7 @@ The Pi Foundation recommends adding a blocking diode when powering a RPi through
 but there is a small catch.
 While the Raspberry Pi camera modules themselves will work just fine on the Pi Zero,
 the usual camera cable they come with will not.
-The Pi Zero’s camera cable connector is a little smaller than the ones on the full-grown Pi,
+The [Pi Zero’s camera cable connector][68] is a little smaller than the ones on the full-grown Pi,
 so it needs a special cable to interface the camera modules
 to the slightly smaller connector found on the Pi Zero.
 
@@ -73,26 +73,24 @@ The power cable does not pass any data,
 just plug the power micro USB cable into one of the ports.
 
 Using the Linux USB Gadget modules (list in the parentheses below),
-the RPi Zero can emulate a whole host of USB devices including
+the RPi Zero can emulate a whole host of USB devices including:
 
-* Serial (`g_serial`) – So can get a serial connection via Putty or Screen into the RPi Zero,
+* **Serial** (`g_serial`) – So can get a serial connection via Putty or Screen into the RPi Zero,
 similar to using the UART pins.
-* Ethernet (`g_ether`) – Make the RPi Zero appear as a USB Ethernet modem,
+* **Ethernet** (`g_ether`) – Make the RPi Zero appear as a USB Ethernet modem,
 and with the right configuration, you can then get full TCP/IP services.
-* Ethernet and Serial (`g_cdc`)
-* Mass storage and Serial (`g_acm_ms`) – You can get the RPi Zero to appear as a flash drive,
+* **Ethernet and Serial** (`g_cdc`) - _Not clear what this is._
+* **Mass storage and Serial** (`g_acm_ms`) – You can get the RPi Zero to appear as a flash drive,
 allowing you to copy files over and then process them.
-* MIDI (`g_midi`) – The RPi Zero could appear as a virtual MIDI instrument.
-* Audio (`g_audio`) – The RPi Zero could appear as a virtual headphone output or microphone input.
-* Keyboard/Mouse (`g_hid`) – The RPi Zero could appear as a virtual keyboard or mouse.
+* **MIDI** (`g_midi`) – The RPi Zero could appear as a virtual MIDI instrument.
+* **Audio** (`g_audio`) – The RPi Zero could appear as a virtual headphone output or microphone input.
+* **Keyboard/Mouse** (`g_hid`) – The RPi Zero could appear as a virtual keyboard or mouse.
 So when you plug the RPi Zero into a computer, it could start typing!
-* Multi (`g_multi`) - Allows you to configure 2 from Ethernet, Mass storage and Serial
-* Webcam (`g_webcam`) –
-* Printer (`g_printer`) –
-* Gadget tester (`g_zero`) –
-
-You can also combine a few of the above (up to 3 at a time) using the `g_multi` module,
-although Windows and Mac have difficulty handling it then.
+* **Webcam** (`g_webcam`) – Allows you to configure the device as if its a webcam
+* **Printer** (`g_printer`) – The Raspberry Pi Zero appears to be a printer
+* **Multi** (`g_multi`) - Allows you to combine up to 3 Gadget modules at a time
+(although Windows and Mac have difficulty handling it)
+* **Gadget Tester** (`g_zero`) – Used for testing purposes
 
 ## Console Access to RPi Zero
 [!sereial-cable](https://cdn-shop.adafruit.com/970x728/954-02.jpg)
@@ -163,11 +161,18 @@ This has been described in many place, including [my description (Steps 1 & 2)][
 Once you're done, plug the micro SD card into the Micro SD Card holder on the Zero.
 
 ## Step 1: Setting Up RPi Zero OTG - DONE
-On a RPi A, the next step would be to configure the WiFi on the SD Card so you can log in,
+On a non-Zero Raspberry Pi, like the RPi A,
+the next step would be to configure the WiFi on the SD Card so you can log in,
 or on the RPi B model, just plug in an Ethernet cable.
 Can't do ether of these with the RPi Zero since it has neither WiFi or Ethernet.
-In the RPi Zero case, we'll use the powers of the USB Gadget,
-but first the SD Card's `/boot` directory files need to be properly configure to enable USB Gadget mode.
+In the RPi Zero case, In Steps 1 to Step 3 show you how to use the powers of the USB Gadget.
+You could avoid the completity of this by using a WiFi dongle
+and a [Micro USB to USB OTG Adapter][69] or [Ultra Mini DM Micro USB 5pin OTG Adapter Connector][70].
+Place this on the RPi Zero USB and follow Steps
+["HowTo: Set-Up the Raspberry Pi as a Headless Device"][03].
+
+To enable the USB Gadget capability on the RPi Zero,
+first the SD Card's `/boot` directory files need to be properly configure to enable USB Gadget mode.
 The [video showing how to configure USB OTG][09] and the article
 "Raspberry Pi Zero – Programming over USB! - [Part 1][10] and [Part 2][11]"
 provides detail documentation.
@@ -366,6 +371,7 @@ So the Aiahi daemon is running and the daemon appears to be registering the USB 
 _but then shortly after it is withdrawn_.
 I tried restarting the service with `sudo service avahi-daemon restart`,
 but that did not help.
+
 [Some say][19] that [NetworkManager][21] could be getting in the way,
 and it may make sense to [disable NetworkManager][22]
 on some or all your interfaces.
@@ -657,14 +663,11 @@ sudo iptables-restore < $HOME/tmp/backup_rules.v4
 ## Step 4: Configuring the Raspberry Pi Zero - DONE
 With the above steps complete, you can follow the article
 ["HowTo: Set-Up the Raspberry Pi as a Headless Device"][03] to complete the install.
-Specifically, make sure to do at least the foollowing:
+Specifically, make sure to do at least the following:
 
 * Step 5: Configure the Raspberry Pi
 * Step 6: OS Updates
 * Step 7: Updating Firmware for Raspberry Pi
-* Step 8: Package Installs
-* Step 8A: Load Personal Tools (Optional)
-* Step 10: Boot Without Starting X Window
 
 ## Step 5: Adding WiFi to the Zero - DONE
 If you determined to have WiFi for your RPi Zero, it can be done.
@@ -683,8 +686,8 @@ and control a other wise simple/dumb microprocessor.
 
 The posting "[Add a Tiny Wi-Fi Board to a Raspberry Pi Zero][23]"
 shows how you can solder onto the RPi Zero board a WiFi USB dongle,
-effectivley bypassing the micro USB connector with a standard USB.
-It may be easier to just use a [Micro USB OTG Adapter][43] and a [WiFi USB Adapter][44].
+effectively bypassing the micro USB connector with a standard USB.
+It's much easier to just use a [Micro USB OTG Adapter][43] and a [WiFi USB Adapter][44].
 With this in place, you just need to provision the RPi Zero
 like any Raspberry Pi for WiFi connectivity.
 This can be done by following "Step 3: Configure your WiFi" within
@@ -693,7 +696,7 @@ This can be done by following "Step 3: Configure your WiFi" within
 I added the following to the  `/etc/network/interfaces` file:
 
 ```bash
-# establish connection to home wifi
+# establish connection to home wifi and other known networks
 auto wlan0
 allow-hotplug wlan0
 iface wlan0 inet dhcp
@@ -716,7 +719,7 @@ network={
 }
 ```
 
-Now reboot you RPi Zero, put in the micro USB OTB adapter along with the WiFi USP adapter,
+Now reboot you RPi Zero, put in the micro USB OTB adapter along with the WiFi USB adapter,
 and you should be able to login.
 But in this case, your using your home WiFi's LAN and its [DHCP][33] instead of
 provisioning another IP network using static addressing,
@@ -725,7 +728,131 @@ In fact, if you did this on the SD Card earlier in Step 1,
 you could skip the USB Gadget stuff all together ...
 but then you wouldn't have learned about all of the RPi Zero's USB Gadgetry!
 
-## Step 6: Adding a Camera - DONE
+## Step 6: Zero Battery Supply (Optional) - DONE
+The size and power consumption of the Raspberry Pi Zero makes it possible to create battery powered
+solutions like body camera and small stealthy spycam applications.
+You can replacing the micro USB wall charger, and start powering with batteries.
+A [Lithium Ion Polymer Battery][61] and a corresponding Adafruit [PowerBoost 1000C Charger][62]
+can be an effective solution.
+It has built-in load-sharing battery charger circuit.
+So it will automatically switch over to the USB power when available,
+instead of continuously charging/draining the battery,
+making it a Uninterruptible Power Supply (UPS).
+
+## Step 7A: Battery Power Monitoring (Optional) - DONE
+If you're running off of a battery, your going to want to know when its running dry,
+and gracefully shutdown the Raspberry Pi.
+How long your project will run on batteries can be estimated by knowing
+the capacity of your batteries and the amount of current consumed by your project.
+Battery capacity (in mAh) / Average current consumption (in mA) = Hours of expected runtime.
+
+In addition, to sense your batteries ability to continue to supply power,
+you need to monitor its output voltage.
+A fully charged Lipoly battery will give you 4.2V but stick around 3.7V for much of the battery life.
+It then slowly sink down to 3.2V or so before the protection circuitry on the battery cuts it off.
+By measuring the voltage you can quickly tell when you're heading to 3.2V
+and intervene to do your own graceful shutdown.
+
+A great way to measure voltage and current over time is by using the
+[INA219-based current sensor breakout][84].
+The INA219 can be attached directly in series with the power input of this project
+and queried over the INA219's I2C interface to read current consumption.
+Using the Raspberry Pi's ability I2C interface,
+you can record the current consumption and voltage level of your project over time.
+The following articles could be helpful:
+
+* [Adafruit INA219 Current Sensor Breakout](https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout)
+* [Battery Life & Current Consumption](https://learn.adafruit.com/low-power-wifi-datalogging/battery-life-and-current-consumption)
+
+## Step 7B: Battery Supply + Power Monitoring - DONE
+[!LiFePO4wered/Pi](https://cdn.hackaday.io/images/9332751457457361166.jpg)
+The [LiFePO4wered/Pi][85] (purchase on [Tindie][87])
+may be the best power solution for the Raspberry Pi Zero.
+It combines both the UPS and power monitoring functions into a single solution.
+It also has PCB touch button that gives you clean shutdown instead of just pulling power.
+A ultra-low power [MSP430G2231 microcontroller][86] monitors the battery
+and also connected to the Pi's I2C bus and monitors the Pi's running state.
+
+The dsigner provides a [open source software package to interact with the LiFePO4wered/Pi][88].
+It contains an application development library,
+a CLI interface to read/write device registers over the I2C bus,
+and a tiny daemon (`lifepo4wered-daemon`) that continually tracks the power state.
+The daemon can initiate a clean shutdown when the battery is empty
+or the user wants to turn the RPi off using the touch button.
+Touch button parameters, voltage thresholds,
+and an auto boot flag can be customized by the user and saved to flash.
+You can also set it up so the RPi will automatically boot whenever there is enough battery charge.
+There is also a wake up timer that can be set so the Pi can shut down,
+and automatically be started again after the wake timer expires.
+
+The LiFePO4wered/Pi works fine for the Raspberry Pi Zero and 1,
+but it could have difficulty maintaining a charge for a RPi 2 or 3 under load.
+The  latest version, the [LiFePO4wered/18650][89], can hand these heavy load conditions.
+You can even get a case with room for the RPi3 and the LiFePO4wered/Pi [on Tindie][90].
+**Note:** Adafruit has a similar solution to the LiFePO4wered/Pi
+doing a [hack of its PowerBoost 500 Charger][25].
+
+The LiFePO4wered/Pi requires software to be running on the Raspberry Pi to operate correctly.
+This software provides a daemon that automatically
+manages the power state and shutdown of the RPi,
+a library that allows integration of LiFePO4wered/Pi functionality in user programs,
+and a CLI (command line interface) program that allows the user to
+easily configure the LiFePO4wered/Pi or control it from shell scripts.
+Load the software RPi Zero via
+
+```bash
+# clone software package
+cd ~
+git clone https://github.com/xorbit/LiFePO4wered-Pi.git
+
+# build the software
+cd LiFePO4wered-Pi
+python build.py
+
+# install the software
+# this also performs enablement of I2C bus and GPIO UART
+sudo ./INSTALL.sh
+```
+
+At this time, the blinking LiFePO4wered/Pi PWR LED should now go on solid.
+If the PWR LED does not yet go on solid,
+it is likely that the I2C was not yet enabled before the installer was run,
+and a reboot is required.
+
+The only necessary user interaction is with the touch button,
+with feedback provided by the green PWR LED.
+The LiFePO4wered/Pi touch button can be used to turn the Raspberry Pi on and off.
+The touch button needs to be pressed and held to take effect.
+During this press-and-hold delay, the PWR LED glow will ramp up.
+During booting or shutdown,
+if the user touches the button during this time,
+the PWR LED will do a quick flashing sequence to
+indicate it cannot comply with the user request at that time.
+
+To make it convenient to interact with the LiFePO4wered/Pi,
+the software package installed on the RPi provides a command line tool.
+
+```bash
+# get help message
+lifepo4wered-cli
+
+# get the current battery voltage
+# returns the battery voltage in millivolts
+lifepo4wered-cli get vbat
+
+# get the supply voltage
+# returns the  raspberry pi supply battery voltage in millivolts
+lifepo4wered-cli get vout
+
+# to set the wake time to an hour
+# if you shut down the Raspberry Pi, it will wake up again in about 60 minutes
+lifepo4wered-cli set wake_time 60
+
+# Raspberry Pi to always run whenever there is power to do so
+lifepo4wered­cli set auto_boot 1
+```
+
+## Step 8: Adding a Camera - DONE
 [camera!](http://raspi.tv/wp-content/uploads/2016/05/PiZero1.3_700.jpg)
 [camera!](http://cdn.slashgear.com/wp-content/uploads/2016/05/2016-05-15-16.32.19-800x420.jpg)
 [Raspberry Pi Zero version 1.3][06] has a camera connector,
@@ -765,190 +892,418 @@ To take a picture with the camera, do the following:
 
 ```bash
 # take picture and store in image.jpg
-raspistill -o image.jpg --width 1024 --height 768
+raspistill -o ~/tmp/image.jpg --width 1024 --height 768
 
 # display picture for viewing
-display image.jpg
+display ~/tmp/image.jpg
 ```
 
-The picture named `image.jpg` will be stored in your Raspberry Pi's `/home/pi` directory.
-
-[`picamera`][55] is a Python interface to the Raspberry Pi camera module for
-Python 2.7 or Python 3.2 and can be installed with
-`sudo apt-get install python-picamera python3-picamera`.
-You can find the [`picamera` source code here][56].
-Example of `picamera` in use is given below:
-
-```python
-#!/usr/bin/env python3
-
-# documentation: http://picamera.readthedocs.io/en/release-1.12
-
-# include Python libraries
-from time import sleep
-from picamera import PiCamera
-
-# setup of camera attributes
-camera = PiCamera()
-camera.resolution = (1024, 768)
-
-# camera warm-up time
-sleep(2)
-
-# horizontal and vertical flip if your camera is positioned upside-down
-camera.hflip = True
-camera.vflip = True
-
-camera.sharpness = 0
-camera.contrast = 0
-camera.brightness = 50
-camera.saturation = 0
-camera.ISO = 0
-camera.video_stabilization = False
-camera.exposure_compensation = 0
-camera.exposure_mode = 'auto'
-camera.meter_mode = 'average'
-camera.awb_mode = 'auto'
-camera.image_effect = 'none'
-camera.color_effects = None
-camera.rotation = 0
-camera.crop = (0.0, 0.0, 1.0, 1.0)
-
-# capture image
-camera.capture('/home/pi/image.jpg')
-
-# picture has been taken
-print('camera picture taken')
-```
+The picture named `image.jpg` will be stored in your Raspberry Pi's `$HOME/tmp` directory.
 
 You can also capture video with the camera.
-To capture a 5 seconds of video in h264 format:
+To capture a 5 seconds of video in H.264 format:
 
 ```bash
 # capture video in file video.h264
-raspivid -o video.h264 --width 1024 --height 768 --codec H264
+raspivid -o ~/tmp/video.h264 --width 1024 --height 768 --codec H264
 
 # play the video
-mplayer video.h264
-```
-
-And with `picamera`, you can also do video:
-
-```python
-#!/usr/bin/env python3
-
-# Documentation: http://picamera.readthedocs.io/en/release-1.12
-
-# include python libraries
-from time import sleep
-from picamera import PiCamera
-
-# setup of camera attributes
-camera = PiCamera()
-camera.resolution = (1024, 768)
-
-# camera warm-up time
-sleep(2)
-
-# horizontal and vertical flip if your camera is positioned upside-down
-camera.hflip = True
-camera.vflip = True
-
-camera.sharpness = 0
-camera.contrast = 0
-camera.brightness = 50
-camera.saturation = 0
-camera.ISO = 0
-camera.video_stabilization = False
-camera.exposure_compensation = 0
-camera.exposure_mode = 'auto'
-camera.meter_mode = 'average'
-camera.awb_mode = 'auto'
-camera.image_effect = 'none'
-camera.color_effects = None
-camera.rotation = 0
-camera.crop = (0.0, 0.0, 1.0, 1.0)
-
-# capture video
-camera.start_recording('/home/pi/video.h264')
-sleep(3)
-camera.stop_recording()
-
-# picture has been taken
-print('camera video taken')
+mplayer ~/tmp/video.h264
 ```
 
 You could do something more sophisticated like [time lapse photography][65],
 or even stream video to a web browser via the Python package [`pistreming`][58]
 or with [`OpenCV`][59], or via [`motion`][60].
+[`picamera`][55] is a Python interface to the Raspberry Pi camera module for
+Python 2.7 or Python 3.2 and can be installed with
+`sudo apt-get install python-picamera python3-picamera`.
+You can find the [`picamera` source code here][56].
 
-## Step 7: Zero UPS Power Supply (Optional)
-The size and power consumption of the Raspberry Pi Zero makes it posible to create wearable
-solutions like body camera's and small stealty applications.
-You can consider replacing the micro USB wall charger, and start powering with batteries.
-A [Lithium Ion Polymer Battery][61] and a coresponding Adafruit [PowerBoost 1000C Charger][62]
-can be an effective solution.
-It has built-in load-sharing battery charger circuit.
-So it will automatically switch over to the USB power when available,
-instead of continuously charging/draining the battery,
-making it a Uninterruptable Power Supply (UPS).
+## Step X: Streaming Camera to Local Web Page - DONE
+The [introductory article about the camera module][99]
+in the Raspberry Pi blog shows a method to [stream video][104] from the Raspberry Pi to another computer.
+(See "How does video streaming work?", [Part 1][105], [Part 2][106], [Part 3][107].)
+This method essentially works as follows:
 
-##########################################
-* [LiFePO4 battery / UPS / power manager for Raspberry Pi #piday #raspberrypi @Raspberry_Pi](https://blog.adafruit.com/2016/04/01/lifepo4-battery-ups-power-manager-for-raspberry-pi-piday-raspberrypi-raspberry_pi/)
-* [https://www.modmypi.com/blog/running-a-raspberry-pi-zero-from-an-aa-battery-pack](https://www.modmypi.com/blog/running-a-raspberry-pi-zero-from-an-aa-battery-pack)
-* Adafruit Solution - [USB LiIon/LiPoly charger](https://www.adafruit.com/products/259) and [Lithium Ion Polymer Battery - 3.7v 1200mAh](https://www.adafruit.com/products/258)
-* [Raspberry Pi Zero power consumption](https://www.raspberrypi.org/forums/viewtopic.php?f=63&t=127210)
-* [USB 5V Voltage Booster Step Up Module](https://www.modmypi.com/electronics/power-and-batteries/usb-5v-voltage-booster-step-up-module)
-* [Emergency Power Based on Cordless Drill Batteries](http://hackaday.com/2015/01/31/emergency-power-based-on-cordless-drill-batteries/)
-* [UPS PIco - Uninterruptible Power Supply with Peripherals and I2C control Interface](http://www.rpiblog.com/2015/01/ups-pico-uninterruptible-power-supply.html)
-* [Ultimate Battery Backup Mod](http://hackaday.com/2016/03/05/ultimate-battery-backup-mod/)
-* [Battery Backup For The Raspberry Pi](http://hackaday.com/2016/03/17/battery-backup-for-the-raspberry-pi/)
-* [USB Li-Ion/LiPoly Charger](https://www.amazon.com/USB-Li-Ion-LiPoly-Charger-v1-2/dp/B00E4WLX1K/ref=sr_1_1?ie=UTF8&qid=1470794238&sr=8-1&keywords=USB+LiIon%2FLiPoly+charger)
-##########################################
+* On the Pi the `raspivid` utility is used to [encode H.264 video][100] from the camera
+* The video stream is piped to the [netcat (`nc`)][101] utility,
+which pushes it out to the network address where the video player is.
+* On the player computer `nc` receives the stream and pipes it into [`mplayer`][102] to play.
 
-## Step 8: Power Saving by Disabling WiFi Dongle
-My WiFi dongle runs very hot and I wnat to turn it off to save power.
-RPi 3 WiFi auto shuts off
+This is an efficient method of streaming video from the Pi to another computer,
+but it has a few problems for my us:
 
-Some systems (particulary laptops) have a hardware button (or switch) to turn off wireless card,
-however, the card can also be blocked by kernel.
-This can be handled by `rfkill`.
-Use `rfkill list` to show the current status:
+* The Raspberry Pi needs to know the address of the computer that is playing the video
+* The playing computer needs to have an advanced player that can play a raw H.264 video stream.
+* Since this system relies on a direct connection between the Pi and the player,
+it is impossible to have the player computer connect and/or disconnect from the stream,
+the connection needs to be on at all times.
+* What if you want to support two, three, or N concurrent players?
 
-If the card is hard-blocked, you must use the hardware button (switch) to unblock it.
-If the card is not hard-blocked but soft-blocked, use the following command:
-`rfkill unblock wifi`.
+An additional requirement for my streaming camera is that you can view it with ease.
+To me, this means that the video stream should be playable from a web browser.
+Having to run a custom player is a complication I don't want.
+There are a few modern streaming protocols for web browsers out there.
 
-* [rfkill](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Power_Management_Guide/RFKill.html)
-* [Power Savings on IEEE-802.11](https://wireless.wiki.kernel.org/en/developers/documentation/ieee80211/power-savings)
-* [Power Saving Tips for Raspberry Pi](https://babaawesam.com/2014/01/24/power-saving-tips-for-raspberry-pi/)
-* [Raspberry Pi Zero - Power Consumption Comparison](http://www.jeffgeerling.com/blogs/jeff-geerling/raspberry-pi-zero-power)
-* [Raspberry Pi Zero - Conserve power and reduce draw to 80mA](http://www.jeffgeerling.com/blogs/jeff-geerling/raspberry-pi-zero-conserve-energy)
-* [Power Consumption](http://www.pidramble.com/wiki/benchmarks/power-consumption)
-* [Wifi adapter shuts off](http://raspberrypi.stackexchange.com/questions/8748/wifi-adapter-shuts-off)
-* [How to disable Wi-Fi Dongle sleep mode](http://raspberrypi.stackexchange.com/questions/34794/how-to-disable-wi-fi-dongle-sleep-mode)
-* [Disable WiFi (wlan0) on Pi 3](http://raspberrypi.stackexchange.com/questions/43720/disable-wifi-wlan0-on-pi-3)
-* [Preventing Raspberry Pi WiFi from going into Sleep Mode](http://electronut.in/preventing-raspberry-pi-wifi-from-going-into-sleep-mode/)
-* [Disable Edimax Wifi Dongle's LED](http://baddotrobot.com/blog/2016/01/06/disable-led-for-edimax/)
-* [Stopping your wireless from turning off on your Raspberry PI](http://tosbourn.com/stop-wireless-turning-off-raspberry-pi/)
-* [How can I prevent iwconfig power management from being turned on?](http://askubuntu.com/questions/85214/how-can-i-prevent-iwconfig-power-management-from-being-turned-on)
+* HLS is Apple's choice, so it has great support on Apple devices but not much elsewhere.
+* Fragmented MP4 is supported by Adobe and Microsoft, but requires browser plugins
+* HTML5 video is also based on the MP4 format but supported only on HTML5 compatible browsers like Chrome and FoxFire.
 
-## Step 9: Adding USB Ports (Optional)
-The RPi Zero is limited to a single USB port.
-If you need to attach more devices, you'll need to add a USB hub
-or you can also [attach additional USB ports to the RPi Zero][25]
-by repurposing a small, cheap USB hub.
+For all the streaming protocols listed above,
+you'll need to a streaming server so the **live video** is prepared
+by segmenting it and packaging it for deliver.
+While there are several open source utilities that can do this for a static video stream,
+there are not that many that can do it on a live stream.
+[Choosing a video format for stream is a complicated topic][117].
 
-# Sources
-I referenced many sources directly in the body of this document,
-but to unlock the secrets of USB Gadgetry,
-I found the following source most helpful:
+Some IP webcams do this by delivering [Motion JPEG or MJPEG][98] images.
+MJPG just streams individual JPEG pictures, one after another.
+Most [modern browsers][103] (think HTML5) can play MJPEG streams natively.
+The down side of MJPEG streams is that they are not as efficient as [H.264][116],
+which greatly improves quality and reduces size
+by encoding only the differences from one frame to the next.
+I'm willing to put up with the inefficiency to get the flexibility of browser support.
 
-* [Getting started with Arietta G25](http://www.acmesystems.it/arietta_getting_started)
-* [Quick-Tip: Linux NAT in Four Steps using iptables](http://www.revsys.com/writings/quicktips/nat.html)
-* [Set up NAT with Linux and iptables](http://www.bctes.com/nat-linux-iptables.html)
-* [How to use USB device networking](https://developer.ridgerun.com/wiki/index.php/How_to_use_USB_device_networking)
-* [Turning your Raspberry PI Zero into a USB Gadget](https://learn.adafruit.com/turning-your-raspberry-pi-zero-into-a-usb-gadget/overview)
+This brings to what I choose to implement,
+[`mjpg-streamer`][96], a small open source MJPEG streaming server
+that has been ported to the Raspberry Pi.
+`mjpg-streamer` has a HTTP server streaming plugin,
+which starts a web server that that you can connect your browser to watch the video.
+This is all we need if the objective is to stream the viedo on you local LAN.
+If you want to watch the video from anywhere,
+you'll need to give your Raspberry Pi a static address
+and open a port and forward from your home router to the RPi,
+and expose the RPi the wild world of the Internet.
+I prefer not to do this, and how to work around this will be shown in a subsequent step.
+For now, we'll focus on how to get video streaming to a browser on your local LAN.
+
+### mjpg-streamer
+[!mjpg-streamer](https://www.hqt.ro/wp-content/uploads/mjpg-streamer-fi1.png)
+[`mjpg-streamer`][96] (its predecessor was `uvc_streamer`)
+is a command line tool to stream JPEG files over an IP-based network
+from a webcam to various types of viewers such as Chrome, Firefox, Cambozola, VLC, mplayer,
+and other software capable of receiving MJPG streams.
+It was originally written for embedded devices (e.g. OpenWrt) with very limited resources.
+MJPG-streamer maybe the simplest way to stream a webcam.
+
+The general consensus is that `mjpg-streamer` is faster and uses less CPU than most streamers,
+so this may be ideal for your remote control projects in which real-time video feed is crucial for navigation
+or light-weight hardware like the Raspberry Pi Zero.
+Some webcams will deliver [Motion JPEG or MJPEG][98] images.
+Mjpg-streamer is very efficient with these webcams,
+as it just reads the images and streams them to the web.
+
+The code block below will build a `mjpeg-streamer` from source
+with added support for the Raspberry Pi camera via the `input_raspicam` plugin.
+The build procedures and code are [on Github][96]
+along with [documentation for `input_rapicam`][97], the Raspberry Pi plugin.
+
+```bash
+# make sure required tools and libraries are loaded
+sudo apt-get install cmake libjpeg8-dev
+
+# download, build, and install mjpg-streamer
+cd ~/src
+git clone https://github.com/jacksonliam/mjpg-streamer.git
+cd mjpg-streamer/mjpg-streamer-experimental
+make
+sudo make install
+```
+
+With `mjpg-streamer` built for the Raspberry Pi,
+you can now execute it and view the live video within a browser
+(works great with Google Chrome and Firefox but not so much with Safari):
+
+```bash
+# change directories to where the plugins are located or provide path in environment
+LD_LIBRARY_PATH=/home/pi/src/mjpg-streamer/mjpg-streamer-experimental ; mjpg_streamer -i "input_raspicam.so -rot 90 -ex night -ifx none awb auto" -o "output_http.so -w www -p 8090"
+
+# streaming video in browser
+google-chrome http://127.0.0.1:8090/?action=stream
+```
+
+The meaning of the parameters used with the `input_raspicam` plugin can be found [here][97].
+
+By the way, `mjpg-streamer` can also be used on Ubuntu,
+just need to use another plugin.
+An example is given here:
+
+```bash
+# change directories to where the plugins are located or provide path in environment
+LD_LIBRARY_PATH=/home/jeff/src/mjpg-streamer/mjpg-streamer-experimental ; mjpg_streamer -i "input_uvc.so -f 15 -r 1280x720" -o "output_http.so -w www -p 8090"
+
+LD_LIBRARY_PATH=/home/jeff/src/mjpg-streamer/mjpg-streamer-experimental ; mjpg_streamer -i "input_uvc.so -q 85 -f 15 -r 1280x960" -o "output_http.so -w www -p 8090"
+
+# streaming video in browser
+google-chrome http://127.0.0.1:8090/?action=stream
+```
+
+## Step X: Potential Alternates for Streaming Camera - DONE
+I did a considerable amount of research to identify `mjepg-streamer` as my solution.
+It does appear to be the right choose, given all my constraint / requirements.
+On the other hand, changing anyone of my assumtions could make it a poor choose.
+Some of the alternatives that I investigate are documented here.
+
+### webrtc, janus, gstreamer
+[!webrtc](https://webrtc.org/assets/images/webrtc-logo-horiz-retro-750x140.png)
+[WebRTC][71] is an open source project that provides browsers and mobile applications
+with Real-Time Communications (RTC) capabilities
+for audio, video, and data in Web and native apps via simple APIs.
+The vision of WebRTC is a world where your phone, TV and computer
+could all communicate on a common platform where it is
+easy to add video chat and peer-to-peer data sharing to your web application.
+WebRTC is available now in Google Chrome, Opera, and Firefox.
+A good place to see how simple video can be is to open
+`[apprtc.appspot.com](https://apprtc.appspot.com/)`
+or see the [WebRTC samples][74]
+in Chrome, Opera or Firefox on a video enable computer.
+The [WebRTC project "Getting Started" page][72]
+and [Getting Started with WebRTC][73] are excellent places to start.
+
+[!janus](https://janus.conf.meetecho.com/janus-logo.png)
+WebRTC has been conceived as a peer-to-peer solution:
+that is, while signalling goes through a web server/application,
+the media flow is peer-to-peer.
+Nothing needed in the middle and only two participants.
+Even in a simple peer-to-peer scenario,
+one of the two involved parties (or maybe even both) doesn’t need to be a browser,
+and may very well be a non-browser application.
+So what if the application is "dumb" and doesn't know WebRTC?
+Such an application will required a WebRTC Gateway:
+one side talks WebRTC, while the other still WebRTC or something entirely different.
+(See the post "[What is a WebRTC Gateway anyway?][78]").
+A WebRTC Gateway is particularly useful for the many legacy infrastructures out there,
+that may benefit from a WebRTC-enabled kind of access.
+Also, the gateway could function to multicast, bridge, split, or otherwise process the streaming content
+to create experiences you could otherwise have via a peer-to-peer solution (e.g. conferencing).
+A popular a general purpose WebRTC gateway is [Janus][75].
+In principle, you could use it to stream video from a Raspberry Pi directly to any browser
+(doesn't have to be Google Chrome, Opera, or Firefox).
+More importantly, you could create a more powerful user experince.
+(See the presentation "[Janus: a general purpose WebRTC gateway][79]".)
+
+[!gstreamer](https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Gstreamer-logo.svg/530px-Gstreamer-logo.svg.png)
+[GStreamer][76] is a framework for creating streaming media applications.
+The GStreamer framework is designed to make it easy to write applications
+that handle audio or video or both.
+It isn't restricted to audio and video,
+and can process any kind of data flow.
+Its main advantages are that the pluggable components can be mixed and matched
+into arbitrary pipelines so that it's possible to write a
+full-fledged video or audio editing application.
+You can also use the pipelining capabilities of GStreamer
+to take the video output from a Raspberry Pi camera module
+and encode the video in H.264 format before passing it on to Janus.
+GStreamer is a pipeline-based multimedia framework that links together
+a wide variety of media processing systems to complete complex workflows.
+For instance, GStreamer can be used to build a system that reads files in one format,
+processes them, and exports them in another.
+The formats and processes can be changed in a plug and play fashion.
+(See this [diagram of the pipeline processing][77] for an example.)
+This processing can be done on the [shell command line][82] or via
+[Python bingdings][80] or [C bindings][81].
+The article "[Gstreamer basic real time streaming tutorial][83]"
+is a good introductory tutorial for GStreamer.
+
+```bash
+# streams desktop camera
+gst-launch-1.0 -v v4l2src device=/dev/video0 ! xvimagesink
+gst-launch-1.0 -v v4l2src ! xvimagesink
+gst-launch-1.0 v4l2src ! xvimagesink
+
+# view a video test pattern and screen with snow
+gst-launch-1.0 videotestsrc ! autovideosink
+
+# just screen with snow
+gst-launch-1.0 videotestsrc pattern=snow ! autovideosink
+```
+
+### ffmpeg
+[!ffmpeg](https://prupert.files.wordpress.com/2009/10/ffmpeg-logo.png)
+[FFmpeg][95] claims to play pretty much anything that humans and machines have created;
+supporting the most obscure ancient formats up to the cutting edge.
+FFmpeg is able to decode, encode, transcode, mux, demux, stream, filter and play most anything.
+Effectively, ffmpeg continuously streams a webcam's video to single `.jpg` file.
+This toolkit contains:
+
+* **[ffmpeg][94]** - is a command line tool for fast video and audio converter that can also grab from a live audio/video source.
+* **[ffserver][93]** - is a streaming server for both audio and video.
+* **[ffplay][92]** - is a command line simple and portable media player using the FFmpeg libraries and the SDL library.
+* **[ffprobe][91]** - is a command line tool to gathers information from multimedia streams and prints it in human- and machine-readable fashion.
+
+### motion
+[!motion](http://www.lavrsen.dk/foswiki/pub/Motion/WebPreferences/motion-trans.gif)
+[`motion`][109] is a program that monitors the video signal from one or more cameras
+and is able to detect if a significant part of the picture has changed.
+Or in other words, it can detect motion.
+Motion has many features can be a bit overwhelming
+but the articles "[How to Operate Linux Spycams With Motion][118]" and
+"[How to Set Up Motion Detection Webcam in Ubuntu][119]" will get you going.
+
+## Step X: Streaming Camera to the Internet - DONE
+So far, using the Raspberry Pi camera module,
+I have streamed video on my local network
+but I wish to do this across the Internet.
+Your Raspberry Pi will be transformed into a video surveillance camera
+that you can place anywhere you can get WiFi with Internet access
+and see the live streaming on a browser anywhere in the world.
+You can [make your `localhost` (aka `127.0.0.1`) accessible from anywhere in the world][111]
+via a [secure tunnel][112] service, or more specifically, [reverse proxy][115].
+This provides you a publicly accessible URL, that watch for calls on that URL,
+and then forwards those calls to your localhost server.
+You'll need to install some software
+from a fee for service provider like [`ngrok`][110] or build your own.
+Luckly, ngrok has a free option.
+So ngrok is a simple utility that will take my local web server extablished by mjpg-streamer
+(aka video streaming server) and makes it available on the web.
+
+Now sign up to the ngrok public servier at `https://dashboard.ngrok.com/user/signup`.
+download ngrok, follow the [get strated page][114],
+and check out the [ngrok documentation][113] for additional features.
+The installation of `ngrok` is outlined below:
+
+```bash
+# download ngrok from https://ngrok.com/download
+# no need for ngrok-server since you'll be using the public site
+unzip ~/Download/ngrok.zip
+sudo mv ~/Download/ngrok /usr/local/bin
+
+# print version number of ngrok
+ngrok version
+
+# go to https://dashboard.ngrok.com/get-started and get your authtoken
+ngrok authtoken dffjgyiorggkjt4435403_ggghhgl89B3k9ddlgiggg
+
+# create your first secure tunnel
+# open the web interface at http://localhost:4040 to inspect and replay requests
+ngrok http 80
+```
+
+Now fire up the camera and use `ngrok` to stream the camera's live video to a
+to the URL provided by `ngrok`:
+
+```bash
+# start streaming the video on the raspberry pi zero
+LD_LIBRARY_PATH=/home/pi/src/mjpg-streamer/mjpg-streamer-experimental ; mjpg_streamer -i "input_raspicam.so -rot 90 -ex night -ifx none awb auto" -o "output_http.so -w www -p 8090"
+
+# forward the video to the internet via ngrok
+ngrok http 8090
+
+# now using the url provide by ngrok, see the video in your broswer
+google-chrome http://be4fac06.ngrok.io/?action=stream
+```
+
+## Step X: Live Stream to YouTube
+* [Live Stream to YouTube With a Raspberry Pi](http://www.makeuseof.com/tag/live-stream-youtube-raspberry-pi/)
+* [Youtube: Introduction to live streaming](https://support.google.com/youtube/answer/2474026?hl=en)
+* [Raspberry Pi IP Camera YouTube Live Video Streaming Server](http://videos.cctvcamerapros.com/raspberry-pi/ip-camera-raspberry-pi-youtube-live-video-streaming-server.html)
+
+## Step X: Real Time Streaming Protocol (RTMP)
+* [Android Streaming Live Camera Video to Web Page](http://www.androidhive.info/2014/06/android-streaming-live-camera-video-to-web-page/)
+
+## Step X: Auto-Connect to Open WiFi Network - DONE
+[!open-wifi](http://true-random.com/homepage/projects/wifi/free_wifi.jpg)
+I would like this project to auto-connect to any open WiFi network automatically;
+Without knowing the SSID beforehand or involving any human intervention.
+
+To have the RPi Zero search and connect to ANY Open Wifi,
+modifiy the `/etc/network/interfaces`:
+
+```bash
+# Include files from /etc/network/interfaces.d:
+source-directory /etc/network/interfaces.d
+
+auto lo
+iface lo inet loopback
+
+iface eth0 inet manual
+
+# establish connection to home wifi and other known networks
+auto wlan0
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+```
+
+
+See the following `/etc/wpa_supplicant/wpa_supplicant.conf`
+to connect to any open / unsecured wifi in range:
+
+```bash
+# country code environment variable, required for RPi 3
+country=US
+
+# path to the ctrl_interface socket and the user group
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+
+# allow wpa_supplicant to overwrite configuration file whenever configuration is changed
+update_config=1
+
+# 1 = wpa_supplicant initiates scanning and AP selection ; 0 = driver takes care of scanning
+ap_scan=1
+
+# wifi network settings for home network
+network={
+    id_str="home"              # needs to match keyword you used in the interfaces file
+    psk="my-password"          # pre-shared key used in WPA-PSK mode ; 8 to 63 character ASCII passphrase
+    ssid="74LL5"               # SSID either as an ASCII string with double quotation or as hex string
+    mode=0                     # 0 = managed, 1 = ad-hoc, 2 = access point
+    scan_ssid=0                # = 1 scan for hidden SSID ; = 0 scans for visible SSID
+    proto=WPA RSN              # list of supported protocals; WPA = WPA ; RSN = WPA2 (also WPA2 is alias for RSN)
+    key_mgmt=WPA-PSK WPA-EAP   # list of authenticated key management protocols (WPA-PSK, WPA-EAP, ...)
+    pairwise=CCMP              # accepted pairwise (unicast) ciphers for WPA (CCMP, TKIP, ...)
+    auth_alg=OPEN              # authentication algorithms (OPEN, SHARED, LEAP, ...)
+    priority=5                 # priority of selecting this network (larger numbers are higher priority)
+}
+
+wifi network settings for jetpack
+network={
+    id_str="jetpack"           # needs to match keyword you used in the interfaces file
+    psk="my-password"          # pre-shared key used in WPA-PSK mode ; 8 to 63 character ASCII passphrase
+    ssid="Verizon-MiFi6620L-7EE6"      # SSID either as an ASCII string with double quotation or as hex string
+    mode=0                     # 0 = managed, 1 = ad-hoc, 2 = access point
+    scan_ssid=0                # = 1 scan for hidden SSID ; = 0 scans for visible SSID
+    proto=WPA RSN              # list of supported protocals; WPA = WPA ; RSN = WPA2 (also WPA2 is alias for RSN)
+    key_mgmt=WPA-PSK WPA-EAP   # list of authenticated key management protocols (WPA-PSK, WPA-EAP, ...)
+    pairwise=CCMP              # accepted pairwise (unicast) ciphers for WPA (CCMP, TKIP, ...)
+    auth_alg=OPEN              # authentication algorithms (OPEN, SHARED, LEAP, ...)
+    priority=3                 # priority of selecting this network (larger numbers are higher priority)
+}
+
+# connect to any open / unsecured wifi in range (must broadcast an SSID)
+network={
+    id_str="open_wifi"         # needs to match keyword you used in the interfaces file
+    ssid=""                    # SSID isn't important, any will do
+    mode=0                     # 0 = managed, 1 = ad-hoc, 2 = access point
+    key_mgmt=NONE              # network must be open with no security
+    priority=-999              # priority of selecting this network (small number means network of last resort)
+}
+```
+
+Now bring interface down/up and check status.
+Execute `sudo ifconfig wlan0 down && sudo ifconfig wlan0 up && sudo wpa_cli -i wlan0 status`
+and look for `wpa_state=COMPLETED`.
+
+## Shutdown Button
+The Raspberry Pi Zero features two pin holes,
+labeled RUN on the board along side the bank of GPIO pins.
+You cant shutdown your RPi from these pins but you can do a hard reset
+or start your RPi from them.
+All you need to do is attach a momentary push button switch to these pins,
+and pushing the button will hard reset your RPi or if you have already shut it down,
+you can turn it back on with just a press of the button.
+You can find documentation on the reset switch for the [RPi Zero][120] or
+any of the [Rev 2 RPis][121].
+
+* [Reboot or shut down your Raspberry Pi using an Amazon Dash Button](https://howchoo.com/g/ymy4nza0nzb/reboot-your-raspberry-pi-using-an-amazon-dash-button)
+* [SHUT IT DOWN (RASPBERRY PI THAT IS)](https://facelesstech.wordpress.com/2016/01/16/shut-it-down-raspberry-pi-that-is/)
+* [Adding a Shutdown Button to the Raspberry Pi B+](https://www.element14.com/community/docs/DOC-78055/l/adding-a-shutdown-button-to-the-raspberry-pi-b)
+* [Physical Shutdown Button For Raspberry Pi](http://www.myelectronicslab.com/tutorial/physical-shutdown-button-for-raspberry-pi/)
+* [Adding an On/Off switch to your Raspberry Pi](http://www.raspberry-pi-geek.com/Archive/2013/01/Adding-an-On-Off-switch-to-your-Raspberry-Pi)
+* [How To Add a Reset Switch To Your Raspberry Pi](http://www.makeuseof.com/tag/add-reset-switch-raspberry-pi/)
+* [Simple Raspberry Pi Shutdown Button](http://www.instructables.com/id/Simple-Raspberry-Pi-Shutdown-Button/?ALLSTEPS)
+* [HowTo: Raspberry Pi Raspbian Power on / off GPIO button](http://www.barryhubbard.com/raspberry-pi/howto-raspberry-pi-raspbian-power-on-off-gpio-button/)
+* [Raspberry Pi ON/OFF Power Controller](http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/on-off-power-controller)
 
 
 
@@ -977,7 +1332,7 @@ I found the following source most helpful:
 [22]:http://xmodulo.com/disable-network-manager-linux.html
 [23]:http://lifehacker.com/add-a-tiny-wi-fi-board-to-a-raspberry-pi-zero-1756656549
 [24]:http://pwiatrowski.com/technology/raspberry-pi-zero-esp8266-internet/
-[25]:http://frederickvandenbosch.be/?p=1343
+[25]:https://blog.adafruit.com/2015/12/18/how-to-run-a-pi-zero-and-other-pis-from-a-lipo-including-low-battery-raspberry_pi-piday-raspberypi/
 [26]:https://en.wikipedia.org/wiki/Google_Public_DNS
 [27]:https://en.wikipedia.org/wiki/Default_gateway
 [28]:http://compnetworking.about.com/od/dns_domainnamesystem/f/dns_servers.htm
@@ -1014,12 +1369,72 @@ I found the following source most helpful:
 [59]:http://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/
 [60]:https://www.linux.com/learn/how-operate-linux-spycams-motion
 [61]:https://learn.adafruit.com/li-ion-and-lipoly-batteries
-[62]:https://www.adafruit.com/products/2465
+[62]:https://www.adafruit.com/products/259
 [63]:http://www.oreilly.com/openbook/linag2/book/ch11.html
 [64]:http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/
 [65]:http://www.mikestreety.co.uk/blog/raspberry-pi-timelapse
 [66]:http://www.computerhope.com/unix/screen.htm
 [67]:http://bglug.ca/articles/nat_and_ip_masquerade.pdf
-[68]:
-[69]:
-[70]:
+[68]:https://www.adafruit.com/products/3157
+[69]:https://www.amazon.com/Micro-USB-OTG-Adapter-Cable/dp/B00D8YZ2SA
+[70]:https://www.amazon.com/gp/product/B015GZOHKW/ref=oh_aui_detailpage_o05_s01?ie=UTF8&psc=1
+[71]:https://webrtc.org/
+[72]:https://webrtc.org/start/
+[73]:https://www.html5rocks.com/en/tutorials/webrtc/basics/
+[74]:https://webrtc.github.io/samples/
+[75]:https://janus.conf.meetecho.com/docs/index.html
+[76]:https://gstreamer.freedesktop.org/
+[77]:http://developers-club.com/posts/236805/
+[78]:https://webrtchacks.com/webrtc-gw/
+[79]:https://archive.fosdem.org/2016/schedule/event/janus/attachments/slides/967/export/events/attachments/janus/slides/967/fosdem2016_janus_presentation.pdf
+[80]:http://www.jonobacon.org/2006/08/28/getting-started-with-gstreamer-with-python/
+[81]:https://arashafiei.files.wordpress.com/2012/12/gst-doc.pdf
+[82]:http://wiki.oz9aec.net/index.php/Gstreamer_cheat_sheet
+[83]:http://www.einarsundgren.se/gstreamer-basic-real-time-streaming-tutorial/
+[84]:https://www.adafruit.com/products/904
+[85]:http://lifepo4wered.com/files/LiFePO4wered-Pi-Product-Brief.pdf
+[86]:http://www.ti.com/product/msp430g2231?utm_source=GOOGLE&utm_medium=cpc&utm_term=msp430g2231&utm_campaign=MSP_MSP_US_P_E_MSP430&utm_content=c97b21ff-897a-4a49-ab05-768cbb131e72&gclid=Cj0KEQiAperBBRDfuMf72sr56fIBEiQAPFXszTBkL4s4n9_P97FxDOL0d8UuoD1Gcq1jyD1Jw38jNbIaAs8j8P8HAQ
+[87]:https://www.tindie.com/products/xorbit/lifepo4weredpi/
+[88]:https://github.com/xorbit/LiFePO4wered-Pi
+[89]:https://hackaday.io/project/18041-lifepo4wered18650
+[90]:https://www.tindie.com/products/mjrice/enclosure-for-raspberry-pi-3-and-lifepo4weredpi/
+[91]:https://ffmpeg.org/ffprobe.html
+[92]:https://ffmpeg.org/ffplay.html
+[93]:https://ffmpeg.org/ffserver.html
+[94]:https://ffmpeg.org/ffmpeg.html
+[95]:https://ffmpeg.org/documentation.html
+[96]:https://github.com/jacksonliam/mjpg-streamer
+[97]:https://github.com/foosel/OctoPrint/wiki/MJPG-Streamer-configuration
+[98]:https://en.wikipedia.org/wiki/Motion_JPEG
+[99]:https://www.raspberrypi.org/blog/camera-board-available-for-sale/
+[100]:http://www.h264info.com/h264.html
+[101]:https://linux.die.net/man/1/nc
+[102]:http://www.mplayerhq.hu/design7/info.html
+[103]:http://farukat.es/journal/2011/02/528-modern-browser
+[104]:https://www.jwplayer.com/blog/what-is-video-streaming/
+[105]:http://mingfeiy.com/progressive-download-video-streaming
+[106]:http://mingfeiy.com/traditional-streaming-video-streaming
+[107]:http://mingfeiy.com/adaptive-streaming-video-streaming
+[108]:
+[109]:http://www.lavrsen.dk/foswiki/bin/view/Motion/WebHome
+[110]:https://www.theodo.fr/blog/2016/06/expose-your-local-environment-to-the-world-with-ngrok/
+[111]:https://www.sitepoint.com/accessing-localhost-from-anywhere/
+[112]:https://en.wikipedia.org/wiki/Tunneling_protocol
+[113]:https://ngrok.com/docs/2
+[114]:https://dashboard.ngrok.com/get-started
+[115]:https://en.wikipedia.org/wiki/Reverse_proxy
+[116]:http://www.onlinevideo.net/2011/03/the-h-264-basics/
+[117]:http://www.onlinevideo.net/2011/09/what-video-formats-should-you-stream-heres-how-to-decide/
+[118]:https://www.linux.com/learn/how-operate-linux-spycams-motion
+[119]:https://www.maketecheasier.com/setup-motion-detection-webcam-ubuntu/
+[120]:http://www.mrhobbytronics.com/raspberry-pi-zero-reset-switch/
+[121]:http://iot-projects.com/index.php?id=raspberry-pi-shutdown-button
+[122]:
+[123]:
+[124]:
+[125]:
+[126]:
+[127]:
+[128]:
+[129]:
+[130]:

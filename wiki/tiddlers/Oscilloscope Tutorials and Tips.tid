@@ -1,5 +1,5 @@
 created: 20141226143823014
-modified: 20160731222237713
+modified: 20170103032933111
 tags: [[Test Gear]]
 title: Oscilloscope Tutorials and Tips
 type: text/vnd.tiddlywiki
@@ -15,6 +15,7 @@ so its time to learn how to use it like a pro.
 * [[Oscilloscope Tutorial|https://www.valuetronics.com/Manuals/Oscilloscope_Tutorial.pdf]]
 * [[NJARC Oscilloscope School (aka "Scopes for Dopes")|http://www.njarc.org/scopes4dopes/]]
 * [[How to use an oscilloscope. Plus, seeing signals in antique radios|https://www.youtube.com/watch?v=niBGkqlh2XY]]
+* [[How To Use An Oscilloscope|http://hackaday.com/2016/07/25/alan-wolkes-how-to-use-an-oscilloscope/]]
 
 !!Primers & Tutorials
 * [[Adafruit Oscilloscope Tutorials|http://www.adafruit.com/blog/2011/12/16/analog-oscilloscope-tutorials/]]
@@ -22,11 +23,14 @@ so its time to learn how to use it like a pro.
 * [[Probe Fundamentals|http://www.ece.vt.edu/cel/docs/Probe_Fundamentals_Tektronix.pdf]]
 * [[Understanding Oscilloscope Trigger System Basics & Why You Should Care|https://keysightoscilloscopeblog.com/2016/07/27/understanding-oscilloscope-trigger-system/]]
 * [[Oscilloscope Triggering: When is Normal not so Normal?|https://keysightoscilloscopeblog.com/2016/03/23/oscilloscope-normal-triggering/]]
+* [[Advanced Oscilloscope Triggering and Signal Isolation|https://keysightoscilloscopeblog.com/2016/09/28/advanced-oscilloscope-triggering-and-signal-isolation/]]
 * [[Capturing Intermittent or Infrequent Events|https://keysightoscilloscopeblog.com/2016/05/18/capturing-infrequent-events-why-oscilloscope-update-rate-matters/]]
 * [[7 Tips for Better Oscilloscope Probe Selection and Usage|http://electronicdesign.com/test-measurement/7-tips-better-oscilloscope-probe-selection-and-usage]]
 * [[What is oscilloscope system bandwidth and how do I find the bandwidth of the scope + probe?|https://keysightoscilloscopeblog.com/2016/03/30/what-is-oscilloscope-system-bandwidth-and-how-do-i-find-it/]]
 * [[How to measure your oscilloscope (and probe)’s bandwidth yourself|https://keysightoscilloscopeblog.com/2016/05/04/how-to-measure-your-oscilloscope-and-probes-bandwidth/]]
+* [[Basic Waveform Analysis with an Oscilloscope|http://www.allaboutcircuits.com/technical-articles/basic-waveform-analysis-with-an-oscilloscope/]]
 * [[How does oscilloscope signal integrity impact your measurements and analysis?|https://keysightoscilloscopeblog.com/2016/06/01/how-much-does-your-oscilloscope-impact-your-measurements-and-analysis/]]
+* [[Oscilloscope Vertical Confusion|https://www.youtube.com/watch?v=DMXiD3dKYJc&list=PLvOlSehNtuHsCTtj-T_vkpTTbBXW4sB51]]
 * [[Introduction to Oscilloscopes Lab Experiment|https://www.noisebridge.net/images/8/8d/Tektronix--IntroToOscilliscopesLab.pdf]]
 * [[Oscilloscope and Data Logger Application Notes|https://www.picotech.com/library/application-notes]]
 * [[Tektronix Oscilloscope Tutorial|http://www.tek.com/learning/oscilloscope-tutorial]]

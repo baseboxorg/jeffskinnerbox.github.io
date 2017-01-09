@@ -36,12 +36,30 @@ that takes care of all the WiFi, TCP/IP stack,
 and the overhead found in an 802.11 network.
 It’s addressable over SPI and UART,
 so you can simply connect any microcontroller to this module and start pushing data.
+A post by Richard Sloan declared that he and Ivan Grokhotkov had successfully
+hacked ESP8266 support into the Arduino IDE.
+Prior to Sloan and Grokhotkov’s software,
+users had already noted that it could be programmed using basic modem instructions known as AT-commands.
+Microcontrollers easily parse AT commands,
+but they are not fun for humans to work with.
+Developing an interface with more user-friendly programming language,
+such as the C/C++ familiar to Arduino sketch programmers, is what made the ESP8266 vastly more popular.
+The Espressif Systems ESP8266-01 lacks an FTDI chip,
+which typically allows a board to have an external communication port like USB,
+so you have to use a separate hardware interface such as the FTDI Friend to program it.
 
-There is a catch of course.
-All the initial documentation, what little existed, was in Chinese,
-but that has been rapidly changing.
-Documentation and tools are appearing that will help one get started with this device.
-Here is a reasonably robust list at the time of this posting:
+Thanks to these software improvements,
+it’s easier than ever for people to create projects with the ESP8266 at the center of their design.
+Small Arduino sketches run directly on the ESP8266
+and shuttle data between the input pins and the WiFi connection.
+Espressif Systems, the company that manufactures the ESP8266,
+has been so receptive to feedback about their product
+and is integrating much of the user community’s suggestions into the design.
+The ESP32 is now entering a beta phase,
+the new board is planned to have faster WiFi, onboard Bluetooth,
+and two processors to handle the WiFi and code execution separately.
+
+[ESP8266: This $5 Microcontroller with Wi-Fi is now Arduino-Compatible](http://makezine.com/2015/04/01/esp8266-5-microcontroller-wi-fi-now-arduino-compatible/)
 
 # Different Types of ESP8266 PCB
 * [ESP8266 modules hardware guide – gotta catch ’em all!](http://l0l.org.uk/2014/12/esp8266-modules-hardware-guide-gotta-catch-em-all/)
@@ -271,6 +289,7 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
     * [ESP8266 Web Server Tutorial](http://randomnerdtutorials.com/esp8266-web-server/)
 
 * Projects Making Use of the ESP8266
+    * [Easy Alexa (or Echo) Control of your ESP8266 Huzzah](https://learn.adafruit.com/easy-alexa-or-echo-control-of-your-esp8266-huzzah)
     * [ESP8266 weather station](http://dangerousprototypes.com/2015/11/30/esp8266-weather-station/)
     * [WiFi / Internet Controlled Relays using ESP8266 - Quick, 30 minutes IoT project](http://www.instructables.com/id/WiFi-Internet-Controlled-Relays-using-ESP8266-Quic/)
     * [ESP8266 IFTTT Easy Button](https://www.hackster.io/noelportugal/esp8266-ifttt-easy-button)
@@ -328,6 +347,7 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
 * [The Pain of Connecting to WPA Wi-Fi on the Linux Command Line](http://www.sevenforge.com/2009/07/28/connecting-to-wpa-wifi-on-the-command-line/)
 * [NetworkConfigurationCommandLine/Automatic](https://help.ubuntu.com/community/NetworkConfigurationCommandLine/Automatic)
 * [Wired Networking For The ESP8266](http://hackaday.com/2016/07/01/wired-networking-for-the-esp8266/)
+* [Overhauling The ESP8266’s Flash Memory Handling](http://hackaday.com/2016/09/09/overhauling-the-esp8266s-flash-memory-handling/)
 
 ## Next Generation / Next Version
 * [Tiny $7 IoT module packs WiFi, BLE, and sensors, runs FreeRTOS](http://hackerboards.com/tiny-7-iot-module-packs-wifi-ble-and-sensors-runs-freertos/)
@@ -337,6 +357,7 @@ It has a 6-pin socket at the end with 5V power and ground, as well as RX, TX, RT
 * [The ESP32 Beta Units Arrive](http://hackaday.com/2015/12/23/the-esp32-beta-units-arrive/)
 * [Investigating the ESP8266–Serial Killing](http://scargill.wordpress.com/2014/09/27/investigating-the-esp8266-serial-killing/)
 * [Espressif Releases ESP8266-Killer!](http://hackaday.com/2016/06/21/espressif-releases-esp8266-killer/)
+* [ESP32 Hands-On: Awesome Promise](http://hackaday.com/2016/09/15/esp32-hands-on-awesome-promise/)
 
 
 

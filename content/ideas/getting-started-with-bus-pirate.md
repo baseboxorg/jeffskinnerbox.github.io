@@ -24,6 +24,10 @@ This posting documents my initial run at the Bus Pirate.
 My initial efforts where to run the self-testing, update the firmware, and study the documentation.
 Doesn't sound like much but this little board is packed with functionality.
 
+# Understanding UART and I2C
+* [Introduction to the I2C Bus](https://www.youtube.com/watch?v=oRTq8HI4UGs&feature=youtu.be)
+* [How to Communicate with UART](https://www.youtube.com/watch?v=e8uEKWpVf10&feature=youtu.be)
+
 ## Bus Pirate Self-Test
 To use Bus Pirate, you'll need to connect with it via a terminal emulator.
 Linux has a simple terminal called [microcom][03] that can do the trick.

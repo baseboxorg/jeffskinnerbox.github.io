@@ -1,5 +1,5 @@
 created: 20140919012758694
-modified: 20160810183720573
+modified: 20170101162438359
 tags: Projects
 title: Open Source Robotics Platforms
 type: text/vnd.tiddlywiki
@@ -23,6 +23,7 @@ Real Time Operating System / Event-Driven Programming
 
 * [[Quantum Leaps QP (C++ state machine framework)|http://www.state-machine.com]]
 * [[FreeRTOS|http://www.freertos.org/]]
+* [[Johnny Five|http://johnny-five.io/]]
 
 Robot Simulators
 

@@ -1,4 +1,3 @@
-# vim: syntax=markdown
 
 # Linux System Monitoring
 * [4 open source tools for Linux system monitoring](https://opensource.com/life/16/2/open-source-tools-system-monitoring?sc_cid=70160000000lcFhAAI)
@@ -170,6 +169,138 @@ Most are rather obscure, but a few should be committed to memory:
 * [daemonizing bashhttp://blog.n01se.net/blog-n01se-net-p-145.html)
 
 # Screen
+![vt-100](https://en.wikipedia.org/wiki/VT100#/media/File:DEC_VT100_terminal.jpg)
+Most of the time on remote Linux system,
+you login over `ssh` and start to work,
+if you need to run two or three task at a time, you login over `ssh` two or three times.
+However, with [`screen`][06] windows manager utility you can run multiple terminals
+([terminal multiplexing][07])
+at the same time from single login over `ssh` session.
+This allows you to run several instances of programs out of one terminal window.
+It can also maintain a persistent session, even when you aren’t connected,
+so if you set it up on a server, you can connect, start a process, disconnect,
+and return to it at a later date.
+Each virtual terminal provides the functions of a classic, but de facto standard, [DEC VT100 terminal][11]
+([and a bit more functionality][10]).
+On Ubuntu, can install `screen` via `sudo apt-get install screen`.
+
+```bash
+# start screen session and call that session ses_name
+screen -S ses_name
+
+# start screen session while running a command
+screen emacs prog.c
+
+# list screen sessions that are active
+screen -ls
+screen -list
+
+# does not start screen, but detaches the elsewhere running screen session
+screen -d
+
+# reattach to a detached screen session
+screen -r
+
+# reattach to a detached screen session number 123
+screen -r 123
+
+# reattach a session and if necessary detach it first
+screen -d -r
+
+# attach a session on two separate computers or terminal windows
+screen -x
+```
+
+You can kill a detached session which is not responding
+within the `screen` session by doing the following:
+
+1. Type `screen -list` to identify the detached screen session.
+1. Get attached to the detached `screen` session (e.g. `screen -r 20751.name`).
+1. Once connected to the session press `Ctrl-a` then type `:quit`.
+
+Screen command provides different window types.
+The first parameter to the screen command defines which type of window is created.
+If a `tty` name (e.g. `/dev/ttyS0`) is specified as the first parameter to the screen command,
+then the window is directly connected to this device.
+An optional parameter is allowed consisting of a comma separated list of flags in the notation as follows:
+
+`screen [ -options ] [ cmd [ args ] ]`
+
+`screen -r [[pid.]tty[.host]]`
+
+`screen /dev/ttySX baud_rate,cs8|cs7,ixon|-ixon,ixoff|-ixoff,istrip|-istrip`
+
+`sudo screen /dev/ccable33v 115200,cs8`
+
+Where,
+
+* **`/dev/ttySX`**: Linux serial port (e.g., `/dev/ttyS0 [COM1]`)
+* **`baud_rate`**: Usually 300, 1200, 9600, 19200, or 115200. This affects transmission as well as receive speed
+* **`cs8`** or **`cs7`**: Specify the transmission of eight (or seven) bits per byte
+* **`ixon`** or **`-ixon`**: Enables (or disables) software flow-control (CTRL-S/CTRL-Q) for sending data
+* **`ixoff`** or **`-ixoff`**: Enables (or disables) software flow-control for receiving data
+* **`istrip`** or **`-istrip`**: Clear (or keep) the eight bit in each received byte
+
+To see your port status, use the command `CTRL-a` `i`
+
+Common `screen` commands
+(to learn more, check out "[How To Use Linux Screen][08]",
+"[How to Install and Use Screen on an Ubuntu Cloud Server][09]",
+and "[Linux and Unix screen command][10]"):
+
+| Screen Command  |     Task     |
+|:---------------:|:-------------|
+|          | **Getting In** |
+| screen -S <name> | start a new screen session with session name <name> |
+| screen -x | attached to a running session |
+| screen -r <name> | attached to a running session with name <name> |
+| screen -list | list running sessions/screens |
+|          | **Getting Out** |
+| Ctrl-a d | detach from window |
+| Ctrl-a D D | detach and logout (quick exit) |
+|          | **Screen Status** |
+| Ctrl-a ? | Display help screen i.e. display a list of commands |
+| Ctrl-a v | Print version information about screen |
+| Ctrl-a i | List port status |
+|          | **Window Management** |
+| Ctrl-a c | Create new window and the old window is still active |
+| Ctrl-a n | switches you to the next window in list|
+| Ctrl-a p | switches you to the previous window in list|
+| Ctrl-a Ctrl-a | Toggle / switch between the current and previous window |
+| C-a "    | list of windows (allows you to select a window to change to) |
+| Ctrl-a 0-9 | Go to a window numbered 0 9, use Ctrl-a w to see number |
+| Ctrl-a :fit | Fit screen size to new terminal size. You can also hit Ctrl-a F for the the same task |
+| Ctrl-a :remove | Remove / delete region. You can also hit Ctrl-a X for the same tasks |
+| Ctrl-a tab | Move to next region |
+| Ctrl-a :resize | Resize region |
+|          | **Screen Splitting** |
+| Ctrl-a S | Split terminal horizontally into regions and press Ctrl-a c to create new window there |
+| Ctrl-a V | Split terminal vertically into regions and press Ctrl-a c to create new window there |
+| Ctrl-a tab | junp to next display region |
+| Ctrl-a X | remove current region |
+| Ctrl-a Q | remove all regions but the current one |
+|          | **Window Monitoring** |
+| Ctrl-a M | Toggles monitoring of the current window |
+| Ctrl-a _ | Start/stop monitoring the current window for inactivity |
+|          | **Window Termination** |
+| Ctrl-a k | Kill the current window / session |
+| Ctrl-a D (Shift-d) | Power detach and logout |
+| Ctrl-a d | Detach but keep shell window open |
+| Ctrl-a Ctrl-\ | Quit screen and kill all of your windows |
+|          | **Misc** |
+| Ctrl-a m | monitor window for activity |
+| Ctrl-a _ | monitor window for silence |
+| Ctrl-a H | enable logging in the screen session |
+| Ctrl-a : | enter screen command, such as quit |
+
+## The .screenrc File
+When `screen` is invoked, it executes initialization commands from the files
+`/etc/screenrc` and `$HOME/.screenrc`.
+These are the "programmer's defaults" that can be overridden by the
+environment variable `$SYSSCREENRC`
+(this override feature may be disabled at compile-time).
+
+* [Screen notes](http://www.noah.org/wiki/Screen_notes)
 * [Speaking UNIX: Stayin' alive with Screen](http://www.ibm.com/developerworks/aix/library/au-gnu_screen/)
 * [screen Quick Reference Sheet](http://aperiodic.net/screen/quick_reference)
 * [screen Setup and Use](http://aperiodic.net/screen/)
@@ -183,6 +314,7 @@ Most are rather obscure, but a few should be committed to memory:
 * [Using GNU Screen to Manage Persistent Terminal Sessions](https://www.linode.com/docs/networking/ssh/using-gnu-screen-to-manage-persistent-terminal-sessions)
 
 
+[How do I Use Multiple Screens on One Terminal over ssh session?](http://www.cyberciti.biz/tips/linux-screen-command-howto.html)
 * [How can I close a terminal without killing the command running in it?](http://unix.stackexchange.com/questions/4004/how-can-i-close-a-terminal-without-killing-the-command-running-in-it)
 * [Difference between nohup, disown and &](http://unix.stackexchange.com/questions/3886/difference-between-nohup-disown-and)
 * [Disown a Running Shell Process and Reattach It to a New Screen](https://www.shell-tips.com/2014/09/09/disown-a-running-shell-process-and-reattach-it-to-a-new-screen/)
@@ -191,26 +323,36 @@ Most are rather obscure, but a few should be committed to memory:
 * [10 Linux/Unix Bash and KSH Shell Job Control Examples](http://www.cyberciti.biz/howto/unix-linux-job-control-command-examples-for-bash-ksh-shell/)
 * []()
 
-Screen command provides different window types.
-The first parameter to the screen command defines which type of window is created.
-If a `tty` name (e.g. `/dev/ttyS0`) is specified as the first parameter to the screen command,
-then the window is directly connected to this device.
-An optional parameter is allowed consisting of a comma separated list of flags in the notation as follows:
+* [GNU screen screenrc tweaks - windows and titles](http://scottn.us/2011/02/gnu-screen-screenrc-tweaks-windows-and-titles/)
+* [Understanding GNU Screen’s hardstatus strings](http://www.kilobitspersecond.com/2014/02/10/understanding-gnu-screens-hardstatus-strings/)
+* [ Post your .screenrc with screenshots!](https://bbs.archlinux.org/viewtopic.php?id=55618)
+* [A killer GNU Screen Config](https://gist.github.com/joaopizani/2718397)
+* [A nice default screenrc](https://gist.github.com/ChrisWills/1337178)
+* [Another Example of .screenrc](http://ftp.twaren.net/local-distfiles/pigfoot/gentoo-portage/app-misc/screen/files/screenrc)
+* []()
 
+# Tmux
+Like `screen`, `tmux` is a terminal multiplexer.
+While technically screen and tmux serve the same purpose,
+their functionality and quality differ.
+Development of screen started in 1987  resulting in a solid and proven piece of software.
+On the other hand, the codebase isn’t clean nor easy to understand, and as a result,
+development mostly has stopped and focus is on fixing critical bugs.
+Tmux, on the other hand, started in 2007 and has learned from screen’s mistakes,
+picking up existing and field-tested features, and is actively being developed.
 
-`screen /dev/ttySX baud_rate,cs8|cs7,ixon|-ixon,ixoff|-ixoff,istrip|-istrip`
+* [tmux is sweet as heck](https://eev.ee/blog/2012/03/21/tmux-is-sweet-as-heck/)
+* [A Quick and Easy Guide to tmux](http://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/)
+* [Making tmux Pretty and Usable - A Guide to Customizing your tmux.conf](http://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/)
+* [Why You Should Try tmux Instead of screen](http://cinchrb.org/posts/2010/10/tmux-vs-screen/)
+* [.tmux.conf](https://www.rafaelhart.com/dotfiles/tmux-conf/)
+* [How to make tmux count windows starting from 1 instead of 0?](http://unix.stackexchange.com/questions/35924/how-to-make-tmux-count-windows-starting-from-1-instead-of-0)
+* [/howto/tmux](http://transitiontech.ca/howto/tmux)
+* [The Tao of tmux](http://tmuxp.readthedocs.io/en/latest/about_tmux.html)
 
-Where,
-
-* **`/dev/ttySX`**: Linux serial port (e.g., /dev/ttyS0 [COM1] )
-* **`baud_rate`**: Usually 300, 1200, 9600 or 19200. This affects transmission as well as receive speed
-* **`cs8`** or **`cs7`**: Specify the transmission of eight (or seven) bits per byte
-* **`ixon`** or **`-ixon`**: Enables (or disables) software flow-control (CTRL-S/CTRL-Q) for sending data
-* **`ixoff`** or **`-ixoff`**: Enables (or disables) software flow-control for receiving data
-* **`istrip`** or **`-istrip`**: Clear (or keep) the eight bit in each received byte
-
-Port Status: `CTRL+A` then `i`
-[How do I Use Multiple Screens on One Terminal over ssh session?](http://www.cyberciti.biz/tips/linux-screen-command-howto.html)
+* [A tmux cheat sheet](http://alvinalexander.com/linux-unix/tmux-cheat-sheet-commands-pdf)
+* [tmux & screen cheat-sheet](http://www.dayid.org/comp/tm.html)
+* [Learn X in Y minutes](https://learnxinyminutes.com/docs/tmux/)
 
 # Nohup and Disown
 * [Detaching a process from terminal - exec(), system(), setsid() and nohup](http://mihids.blogspot.com/2015/02/detaching-process-from-terminal-exec.html)
@@ -246,7 +388,27 @@ and you can use ps or top to verify that the job is actually still running.
 [04]:http://www.bolthole.com/solaris/ksh.html
 [05]:http://www.freeos.com/guides/lsst/ch01sec07.html
 [06]:http://www.computerhope.com/unix/screen.htm
-[07]:
-[08]:
-[09]:
-[10]:
+[07]:https://en.wikipedia.org/wiki/Terminal_multiplexer
+[08]:https://www.rackaid.com/blog/linux-screen-tutorial-and-how-to/
+[09]:https://www.digitalocean.com/community/tutorials/how-to-install-and-use-screen-on-an-ubuntu-cloud-server
+[10]:http://www.computerhope.com/unix/screen.htm
+[11]:https://en.wikipedia.org/wiki/VT100
+[12]:
+[13]:
+[14]:
+[15]:
+[16]:
+[17]:
+[18]:
+[19]:
+[20]:
+[21]:
+[22]:
+[23]:
+[24]:
+[25]:
+[26]:
+[27]:
+[28]:
+[29]:
+[30]:

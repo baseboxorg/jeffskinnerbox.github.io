@@ -6,6 +6,9 @@ Its compatible with Arduino software & libraries and has
 free software development tools including Teensy Loader application
 (works with Mac OS X, Linux & Windows).
 
+* [Teensy 3.5](https://www.sparkfun.com/products/14055?utm_campaign=September+15%2C+2016&utm_source=hs_email&utm_medium=email&utm_content=35839602&_hsenc=p2ANqtz-_u6ZjfDLKRGNuGXIM27xBEjiiruIq3OthnasBlr6PeUld5krSOu7tNKhFFek4XVSRWauD1rvX2vXL29tLTjelNMOj0rg&_hsmi=35839568)
+* [Teensy 3.6](https://www.sparkfun.com/products/14057?utm_campaign=September+15%2C+2016&utm_source=hs_email&utm_medium=email&utm_content=35839602&_hsenc=p2ANqtz--YLeNo8yN27XQdXKoYvoc5GLCvJFvVW_Uqy5vjQKlFNHwp5_ETiq7y3BJmyU914Fxa_Jh7cRHpwq__Gw0l-Ci0QGsEjA&_hsmi=35839568)
+
 ## ARM Cortex-M4
 The ARM Cortex-M is a group of [32-bit RISC ARM][03] processor cores licensed by [ARM Holdings][02].
 The cores are intended for microcontroller use, and consist of
@@ -38,6 +41,10 @@ the analog-only pins (A10-A14), AREF, Program and Reset are 3.3V only.
 https://learn.adafruit.com/micropython-basics-how-to-load-micropython-on-a-board/overview
 
 # Loading FreeRTOS Firware
+* [FreeRTOS on Teensy 3.1](http://rishifranklin.blogspot.com/2014/03/freertos-on-teensy-31.html)
+* [FreeRTOS](mavweb.mnsu.edu/hen/lec/FreeRTOS-TaskManagement_p1.pptx)
+* [Running the RTOS on a ARM Cortex-M Core](http://www.freertos.org/RTOS-Cortex-M3-M4.html)
+* [Using FreeRTOS multi-tasking in Arduino](https://www.hackster.io/feilipu/using-freertos-multi-tasking-in-arduino-ebc3cc)
 
 
 

@@ -49,6 +49,7 @@
 * [World’s first Raspberry Pi drag-and-drop IoT project builder Cayenne launches today](http://siliconangle.com/blog/2016/01/26/worlds-first-raspberry-pi-drag-and-drop-iot-project-builder-cayenne-launches-today/)
 * [Cayenne Makes IoT Easy, Really Easy](http://www.i-programmer.info/news/91-hardware/9725-cayenne-makes-iot-easy-really-easy.html)
 * [Easy IoT for Raspberry Pi](http://www.cayenne-mydevices.com/)
+* [Node-RED on WRTnode](http://blog.thestateofme.com/2014/12/03/node-red-on-wrtnode/)
 
 # Display Boards
 * [node-red-contrib-freeboard](https://www.npmjs.com/package/node-red-contrib-freeboard)
@@ -239,6 +240,11 @@ Some good nodes to add are:
 sudo npm install -g node-red-node-ping          # Pings a machine and returns the trip time in mS.  Returns boolean false if no response received within 5 seconds, or if the host is unresolveable.
 sudo npm install -g node-red-node-mongodb
 ```
+
+## Editing Nodes
+copy a node - ctrl-c
+paste a node - ctrl-v
+delete a node - delete or backspace
 
 ## Importing Flows
 You can imported flows straight into the editor by pasting the JSON

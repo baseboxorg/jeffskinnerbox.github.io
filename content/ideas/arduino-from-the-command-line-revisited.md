@@ -8,9 +8,68 @@ Image: DRAFT_stamp.png
 Summary: bla bla bla
 
 Check this out
+
 * [Arduino IDE Now Supports Building Software In The Command Line](http://www.lifehacker.com.au/2015/11/arduino-ide-now-supports-building-software-in-the-command-line/)
 * [Arduino Development; There’s a Makefile for That](http://hackaday.com/2015/10/01/arduino-development-theres-a-makefile-for-that/)
 * [Embed with Elliot: Microcontroller Makefiles](http://hackaday.com/2016/03/15/embed-with-elliot-microcontroller-makefiles/)
+
+# Installing Arduino IDE
+[Arduino][11] is an open-source platform used for building electronics projects.
+Arduino consists of both a physical programmable circuit board (often referred to as a microcontroller)
+and a piece of software, or IDE (Integrated Development Environment) that runs on your computer,
+used to write and upload computer code to the physical board.
+There is [Linux build of the Arduino IDE][09],
+as well as [alternatives to the standard Arduino IDE][10].
+
+You could install tha Arduino IDE via the Ubuntu Software Center and search for Arduino.
+Alternatively, you can install via the command line by running the following:
+
+```bash
+# install arduino from software repositories
+sudo apt-get update && sudo apt-get install arduino arduino-core
+```
+
+The above installs a package from the Ubuntu software repositories,
+which likely to be an older Arduino IDE version.
+The newest version of the Arduino can be downloaded from the [Arduino download page][12].
+(**NOTE:** Using this method Arduino software won't automatically be updated,
+so you should check Arduino website every few months and download
+a new version if one is available.)
+
+```bash
+# download the software - arduino-nightly-linux64.tar.xz
+# from https://www.arduino.cc/en/Main/Software
+
+# uncompress the tarball
+cd ~/Downloads
+tar -xvf arduino-nightly-linux64.tar.xz
+
+# move the result folder to /opt directory for global use
+mv arduino-nightly arduino-Dec-16-2016
+sudo mv arduino-Dec-15-2016 ~/src
+
+# run the script to install both desktop shortcut and launcher icon
+cd /home/src/arduino-Dec-16-2016
+chmod +x install.sh
+./install.sh
+ln -s ~/src/arduino-Dec-16-2016/arduino ~/bin/arduino
+
+# brltty (braille device) which will conflict with the Arduino
+sudo apt-get remove brltty
+```
+
+When the Arduino Software IDE is properly installed you can execute
+the IDE via the command `arduino &>/dev/null &`.
+
+It might hapen that when you upload a sketch - after you have selected your board and serial port -, you get an error Error opening serial port ... If you get this error, you need to set serial port permission. See - https://www.arduino.cc/en/Guide/Linux
+
+Arduino Project Hub - https://create.arduino.cc/projecthub
+
+Arduino IDE Now Supports Building Software in the Command Line - http://lifehacker.com/arduino-ide-now-supports-building-software-in-the-comma-1740786363
+
+# Installing Arduino Command Line Tools
+**NOTE:** Below needs to be updated. See [Arduino Builder](https://github.com/arduino/arduino-builder).
+and [Arduino IDE Now Supports Building Software in the Command Line](http://lifehacker.com/arduino-ide-now-supports-building-software-in-the-comma-1740786363).
 
 For someone like myself, who is at home with Linux as my OS and Vim as my editor,
 using the Arduino IDE for Arduino coding is a step back into the stone age.
@@ -173,5 +232,15 @@ https://github.com/sudar/vim-arduino-syntax
 [06]:http://www.gnu.org/software/screen/manual/screen.html#Overview
 [07]:http://linux.die.net/man/1/cu
 [08]:http://www.computerhope.com/unix/screen.htm
-[09]:
-[10]:
+[09]:https://www.arduino.cc/en/Guide/Linux
+[10]:https://www.intorobotics.com/alternatives-standard-arduino-ide-one-choose/
+[11]:https://learn.sparkfun.com/tutorials/what-is-an-arduino
+[12]:https://www.arduino.cc/en/Main/Software
+[13]:
+[14]:
+[15]:
+[16]:
+[17]:
+[18]:
+[19]:
+[20]:

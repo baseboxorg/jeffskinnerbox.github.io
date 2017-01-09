@@ -1,5 +1,5 @@
 created: 20141125030141346
-modified: 20160910022319103
+modified: 20161111175927944
 title: Retro Technology
 type: text/vnd.tiddlywiki
 
@@ -173,7 +173,9 @@ had to be trained in its use and operation via
 As a space age kid, it is hard for me to accept
 that the [[Apollo Guidance Computer (AGC)|http://hackaday.com/2015/02/03/reproducing-a-dsky/]]
 is now retro technology, but it is.
-AGC was a digital computer produced for the Apollo program that was
+AGC was a digital computer,
+with [[rope memory|http://hackaday.com/2016/09/02/decoding-rediscovered-rope-memory-from-the-apollo-guidance-computer/]],
+produced for the Apollo program that was
 installed on board each Apollo Command Module (CM) and Lunar Module (LM).
 Luckly, [[Hackaday has done multiple articles|http://hackaday.com/tag/apollo/]]
 on the Apollo space program hardware and

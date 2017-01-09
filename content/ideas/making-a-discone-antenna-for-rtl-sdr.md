@@ -1,13 +1,15 @@
 
+* [Antenna Basics: Radiation Patterns, Permittivity, Directivity, and Gain](http://www.allaboutcircuits.com/technical-articles/antenna-basics-field-radiation-patterns-permittivity-directivity-gain/)
 * [Instructions for Building a Portable Double Cross Antenna: Great for NOAA/Meteor Weather Satellites](http://www.rtl-sdr.com/instructions-for-building-a-double-cross-antenna-great-for-noaameteor-weather-satellites/)
 
 
 Need a SMA Panel Jack connector
 
 * [Antenna Basics](http://www.rohde-schwarz-usa.com/rs/rohdeschwarz/images/8GE01_Antenna_Basics.pdf)
+* [Understanding Antenna Specifications and Operation](http://www.digikey.com/en/articles/techzone/2011/mar/understanding-antenna-specifications-and-operation)
 * [understanding antennas](http://www.antenna-theory.com/)
 * [The Electromagnetic Spectrum](http://cnx.org/content/m42444/latest/?collection=col11406/1.7)
-* [ antennavis - Antenna Visualization Toolkit](http://manpages.ubuntu.com/manpages/trusty/man1/antennavis.1.html)
+* [antennavis - Antenna Visualization Toolkit](http://manpages.ubuntu.com/manpages/trusty/man1/antennavis.1.html)
 * [Understanding and Using Antenna Radiation Patterns](http://www.astronwireless.com/topic-archives-antenna-radiation-patterns.asp)
 
 The white paper [Antenna Basics][63] instructs you in the functionality of antennas
@@ -375,6 +377,7 @@ Cabling Require:
 
 * Cable attached Discone - [50 Ohm RG-174 cable][61] attached to the antenna at xxx and terminated at the other end of the cable with a female [SubMiniature version A (SMA)][62] connector
 * Cable from Discone-cable to SDR device - A long [50 Ohm RG-174 cable][61] with [SMA][62] male connector on one end and a female on the other end.  This cable is connected with a 6 inch coax cable assembly with a female to [MCX male][57].  The male MCX plugs into the SDR device.
+
 
 
 [01]:http://en.wikipedia.org/wiki/Radio_frequency

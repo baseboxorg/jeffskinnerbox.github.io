@@ -2,13 +2,13 @@ Status: draft
 Title: Home Intercom System for the Minimalists
 Date: 2100-01-01 00:00
 Category: Electronics
-Tags: VoIP, SIP, Intercom 
+Tags: VoIP, SIP, Intercom
 Slug: home-intercom-system-for-the-minimalists
 Author: Jeff Irland
 Image: DRAFT_stamp.png
 Summary: bla bla bla
 
-Search on "android as intercom" and you'll get some good ideas. 
+Search on "android as intercom" and you'll get some good ideas.
 
 # SIP Solutions
 [TP-LINK TL-PA2010KIT AV200 Nano Powerline Adapter Starter Kit,](http://www.amazon.com/TP-LINK-TL-PA2010KIT-Powerline-Adapter-Starter/dp/B00AWRUIY4/ref=sr_1_1?ie=UTF8&qid=1401505516&sr=8-1&keywords=TL-PA2010KIT)
@@ -35,7 +35,15 @@ A [search of eBay for "VoIP Intercom"][ebay] gets you device that range from $15
 * [WebRTC is a free, open project that enables web browsers with Real-Time Communications (RTC)](http://www.webrtc.org/home)
 * [The True Meaning of the VoiceEnabled Web](http://res.sys-con.com/session/2207/Keith_McFarlane.pdf)
     * [WebRTC](http://en.wikipedia.org/wiki/WebRTC)
-    * [WebRTC](http://www.webrtc.org/)
+* [DIY Baby Monitor](https://antibore.wordpress.com/2016/11/10/diy-baby-monitor/)
+* [HackspaceHat part 1: WebRTC, Janus and Gstreamer](https://planb.nicecupoftea.org/2015/07/28/hackspacehat-part-1-webrtc-janus-and-gstreamer/)
+* [Building a Raspberry Pi 2 WebRTC camera](https://www.rs-online.com/designspark/building-a-raspberry-pi-2-webrtc-camera)
+
+# Google Voice
+* [About Google Voice](https://support.google.com/voice/answer/115061?hl=en&ref_topic=1707989)
+* [Obihai OBi200 VoIP Telephone Adapter with Google Voice & SIP](http://www.newegg.com/Product/Product.aspx?Item=N82E16833617008&utm_medium=Email&utm_source=IGNEFL112816&cm_mmc=EMC-IGNEFL112816-_-EMC-112816-Index-_-VoIP-_-33617008-S0K&ignorebbr=1)
+
+
 
 I got a simple problem begging for a simple solution.
 While in my basement workshop, even when I'm not blasting music ands running noisy power tools,
@@ -51,7 +59,7 @@ I have some broad design criteria:
 
 * the device needs to operate wirelessly (I don't like pulling wire)
 * it needs to be a table top device (don't want to fix it to a wall)
-* it must be inexpensive and simple to design (so re-purposing/hacking exiting devices is desirable)  
+* it must be inexpensive and simple to design (so re-purposing/hacking exiting devices is desirable)
 * the device should be small, simple to use, and do its one thing well (you push a button, speak into a microphone, and your voice is broadcast to all the other devices)
 * ideally battery power (so I can place it anywhere or even bring it with me)
 * ultimately, the intercom should VoIP connect with cell phone (doesn't everything) and support video (why not)
@@ -68,7 +76,7 @@ I sense that Home Intercom systems are a thing of the past
 but I have found some intercom-like products still being offered by
 [Linear][15], [Optex][16], [Airphone][17], [NuTone][19], [Digital Acoustics][22], [Legrand][20], and others.
 Most are packed with features that I don't need (and don't want to pay for)
-and often second as a music speaker stystem. 
+and often second as a music speaker stystem.
 And they don't come cheap at typical price of about $300 for a master console and a single remote.
 While some are wireless, IP networking isn't generally used,
 with the exception of large / expensive commercial security systems.
@@ -85,7 +93,7 @@ Arcturus does offer several [embedded VoIP boards and modules][30]
 but the all appear to be $150 or greate in small quanities.
 
 ## Alternatives
-Of course there are [wireless intercom systems][27] working within the [ISM bands][28]. 
+Of course there are [wireless intercom systems][27] working within the [ISM bands][28].
 So have kindof eliminated the posibility of just buying a VoIP based intercom,
 but what about alternative technologies like a cell phone or some type of radio.
 As I hinted earlier, a cell phone is a simple solution, if you have it on your person at all times.
@@ -165,7 +173,7 @@ Foreign eXchange Office (FXO)
     Since the FXO port is attached to a device, such as a fax or phone, the device is often called the ‘FXO device’.
 VoIP Gateway
 :   VoIP gateways register on a network as the service provider or as an external PBX system,
-    acting as a mediator for all incoming and outgoing data transfers. 
+    acting as a mediator for all incoming and outgoing data transfers.
 FXO Gateway
 :   To connect analog phone lines to an IP phone system you need an FXO gateway.
     This allows you to connect the FXS port to the FXO port of the gateway,
@@ -196,7 +204,7 @@ Multimedia Service Platform
 ### Protocals and Standards
 ENUM (E.164 Number to URI Mapping)
 :   ENUM is a protocol that provides a translation mechanism for E.164 telephone numbers into IP addressing schemes.
-    Via ENUM, you can dial a telephone number and reach a SIP, H.323 or any other Internet Telephony user. 
+    Via ENUM, you can dial a telephone number and reach a SIP, H.323 or any other Internet Telephony user.
     It is based on standards endorsed by IETF (Internet Engineering Task Force)
     and ITU (International Telecommunication Union).
 E.164

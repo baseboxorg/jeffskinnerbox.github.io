@@ -16,6 +16,10 @@ Summary: bla bla bla
 * [ Audacity - basic audio recording](http://www.audacityteam.org/)
 * [Ardour - Record, Edit, and Mix on Linux](https://ardour.org/)
 
+* [DeepSound overview](http://jpinsoft.net/DeepSound/)
+
+[GStreamer is a framework for creating streaming media applications](https://gstreamer.freedesktop.org/)
+
 ## Music and Sound Waves
  * [Art Ludwig's Sound Page](http://www.silcom.com/~aludwig/)
  * [The Kraakdoos — Musical Abuser of an Ancient OpAmp](http://hackaday.com/2015/09/03/the-kraakdoos-musical-abuser-of-an-ancient-opamp/)
@@ -171,6 +175,8 @@ Doesn't seem to work???
 * [Update music info with public database data](http://www.commandlinefu.com/commands/view/13626/update-music-info-with-public-database-data)
 * []()
 * []()
+
+[eSpeak](https://en.wikipedia.org/wiki/ESpeak) is a compact open source software speech synthesizer for Linux, Windows, and other platforms
 
 
 

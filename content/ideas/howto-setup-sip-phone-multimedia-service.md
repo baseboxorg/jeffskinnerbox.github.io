@@ -2,7 +2,7 @@ Status: draft
 Title: HOWTO: Setup SIP Phone/Multimedia Service
 Date: 2100-01-01 00:00
 Category: HowTo, Software
-Tags: VoIP, SIP, Multimedia 
+Tags: VoIP, SIP, Multimedia
 Slug: howto-setup-sip-phone-multimedia-service
 Author: Jeff Irland
 Image: how-too.jpg
@@ -15,6 +15,9 @@ Summary: bla bla bla
 * [The True Meaning of the VoiceEnabled Web](http://res.sys-con.com/session/2207/Keith_McFarlane.pdf)
     * [WebRTC](http://en.wikipedia.org/wiki/WebRTC)
     * [WebRTC](http://www.webrtc.org/)
+* [DIY Baby Monitor](https://antibore.wordpress.com/2016/11/10/diy-baby-monitor/)
+* [HackspaceHat part 1: WebRTC, Janus and Gstreamer](https://planb.nicecupoftea.org/2015/07/28/hackspacehat-part-1-webrtc-janus-and-gstreamer/)
+* [Building a Raspberry Pi 2 WebRTC camera](https://www.rs-online.com/designspark/building-a-raspberry-pi-2-webrtc-camera)
 
 The [Session Initiation Protocol (SIP)][01] is a signaling communications protocol,
 widely used for controlling multimedia communication sessions such as
@@ -47,7 +50,7 @@ I established multiple SIP accounts so that I could test conferancing.
 
 ## Installing SIP Client
 As an initial test, I'll install a SIP client on my Linux desktop and
-another client on 
+another client on
 #### Blink
 There are many [SIP clients][^A] that I could choose from.
 SIP2SIP recommends [Blink][05] for its client.
@@ -75,13 +78,13 @@ Scroll to the bottom of the file and enter the following information and then sa
 
 ```shell
 ## The SIP client Blink is not part of Ubuntu archives, but is offered by AG Projects
-deb http://ag-projects.com/ubuntu saucy main 
+deb http://ag-projects.com/ubuntu saucy main
 ```
 
 Install AG Projects software signing key:
 
 ```shell
-wget http://download.ag-projects.com/agp-debian-gpg.key 
+wget http://download.ag-projects.com/agp-debian-gpg.key
 sudo apt-key add agp-debian-gpg.key
 ```
 
@@ -108,7 +111,7 @@ avconv -f video4linux2 -r 25 -i /dev/video0 -f alsa -i plughw:U0x46d0x994,0 -ar 
 * **Install Linphone -** You can install the linphone software via `sudo apt-get install linphone`
 * **Standalone Linphone Test -**
 
-On the Raspberry Pi system `BlackRPi` 
+On the Raspberry Pi system `BlackRPi`
 
 * **Install Tools -** The `avconv` tool needs to be installed via `sudo apt-get install ffmpeg`. THe video play can be installed with `sudo apt-get install omxplayer`.
 * **Install Speaker -** Plug in a speak into the audio jack of the RPi.

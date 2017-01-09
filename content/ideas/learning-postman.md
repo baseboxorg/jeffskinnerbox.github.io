@@ -1,3 +1,5 @@
+* [What to Do When Chrome Drops Support for Your REST API Testing](https://dzone.com/articles/what-to-do-when-chrome-drops-support-for-your-rest)
+
 * [Postman Docs](http://www.getpostman.com/docs/)
 * [REST / HTTP API Tools for Development and Testing](http://fcfeibel.com/blog/2013/05/07/rest-http-api-tools-for-development-and-testing/)
 * [httpie: A CLI http client that will make you smile](http://radek.io/2015/10/20/httpie/)

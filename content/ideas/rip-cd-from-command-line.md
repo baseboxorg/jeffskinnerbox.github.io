@@ -5,6 +5,7 @@
 * [Control Your Android from a Browser with AirDroid](http://www.howtogeek.com/105813/control-your-android-from-a-browser-with-airdroid/)
 * [SideSync](http://www.samsung.com/us/sidesync/)
 * [Convert your CD to mp3 with Sound Juicer](http://www.rooot.net/en/geek-stuff/linux/26-cd-to-mp3-sound-juicer.html)
+* [3 command-line music players for Linux](https://opensource.com/life/16/8/3-command-line-music-players-linux?sc_cid=701600000011w0zAAA)
 
 # Google Play Music Manager
 Google Play Music

@@ -18,6 +18,11 @@ From Stuart Gathman
 * [Tips & Tricks](http://www.wifiadvies.be/uncategorized/open-mesh-technical-breakdown/)
 * [Raspberry Pi, Raspbian, Wireless and BATMAN-ADV for meshing](http://mindofdes.blogspot.co.uk/2013/02/raspberry-pi-raspbian-wireless-and.html)
 
+* [Installing mesh on OpenWrt - Mesh/OpenWRT](https://sudoroom.org/wiki/Mesh/OpenWRT)
+* [How to manually configure a PittMesh node: Ubiquiti Rocket](http://www.metamesh.org/how-to-configure-a-ubnt-router)
+* [Building a Wireless Mesh Network](http://www.shadowandy.net/2016/03/building-wireless-mesh-network.htm/3)
+* [Mesh Network Practical Guide](https://www.gitbook.com/book/suriyadeepan/mesh-guide/details)
+
 <a href="https://www.open-mesh.org/projects/open-mesh/wiki">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="B.A.T.M.A.N. (better approach to mobile ad-hoc networking) is a layer 2 routing protocol, implemented in the Linux kernel, for multi-hop ad-hoc mesh networks." alt="batman-adv-logo" src="{filename}/images/batman-adv-log.png" width="115" height="45" />
 </a>
