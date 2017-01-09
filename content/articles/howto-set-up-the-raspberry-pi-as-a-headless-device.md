@@ -122,16 +122,18 @@ sudo umount /dev/sdj
 ```
 
 Don’t remove SD card from the reader on your computer.
-We’re going to set up the WiFi interface.
+We’re going to set up the WiFi interface next.
 
 >**NOTE:** You could immediately put the SD Card in the RPi and boot it up,
-but you will have no WiFi access.
-You can get around this by using a console cable to make the file modification
+but you will have no WiFi access and you'll need to use the Ethernet interface,
+or if there is no Ethernet interface,
+you'll need to use a console cable to make the file modification
 outline in the next step.
-[Adafruit has good description on how to use a console cable][20].
+[Adafruit has good description on how to use a console cable][20]
+and the how to [enable the UART for the console][57].
 
 ### Step 3: Configure your WiFi
-I have choosen to configure my WiFi router with WPA2 security because of superior security
+I have chosen to configure my WiFi router with WPA2 security because of superior security
 but even this can [compromised if your not careful][49]
 (a key [vulnerability lies in the implementation of WiFi Protected Setup (WPS)][50]
 - turn it off, better yet don't have it on your router).
@@ -218,9 +220,30 @@ If you want to include other WiFi networks,
 just add another `network` structure to the file `etc/wpa_supplicant/wpa_supplicant.conf`.
 (See examples [here][18] and [here][19])
 
-### Step 4: First Time Boot of the Raspberry Pi
+### Step 4: Configure SSH
+[As of the November 2016 release][58], Raspbian has the SSH server disabled by default.
+You will have to enable it manually.
+This can done using `raspi-config` once you login via monitor/keyboard/mouse
+but I want to do this now.
+
+For Raspbian headless setup,
+SSH can be enabled by placing a file named "ssh", without any extension,
+onto the boot partition of the SD card.
+For my example here, this can be done via:
+
+```bash
+# place file on boot partition
+touch /media/jeff/boot/ssh
+```
+
+You'll notice that this file is remove once you boot up the Raspberry Pi.
+You need to use `raspi-config`, as shown in a later step of these instructions,
+to permanently activate SSH.
+
+### Step 5: First Time Boot of the Raspberry Pi
 Now unmount the SD Card, put the SD Card into the Raspberry Pi,
-plug a [WiFi dongle][14] into the Raspberry Pi, and power it up.
+plug a [WiFi dongle][14] into the Raspberry Pi
+(not need if its a Raspberry Pi 3), and power it up.
 After approximately a minute, the Raspberry Pi will have completely booted up.
 At this point your WiFi router should have automatically assigned an IP to the Raspberry Pi
 (assuming the router is running DHCP).
@@ -288,7 +311,7 @@ the session starts with the `raspi-config` screen
 (This behaviour is driven by the `raspi-config.sh` script in the `/etc/profile.d` directory).
 Under these conditions, you would be prompted for the next step automatically.
 
-### Step 5: Configure the Raspberry Pi
+### Step 6: Configure the Raspberry Pi
 You should now run the `sudo raspi-config` (see [raspi-config documentation][12])
 The multiple things can be configured within this configuration tool.
 We need to change the following:
@@ -306,7 +329,7 @@ sudo timedatectl set-timezone America/New_York
 sudo reboot
 ```
 
-### Step 6: OS Updates
+### Step 7: OS Updates
 Let's make sure you have all the most current Linux packages.
 This will patch the Linux operating system and all its GPL applications
 
@@ -316,7 +339,7 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 sudo apt-get upgrade
 
-# clean up any packages nolonger needed
+# clean up any packages no longer needed
 sudo apt-get autoremove
 
 # if packages were installed, reboot
@@ -324,8 +347,9 @@ sudo reboot
 ```
 
 After a successful upgrade and reboot,
-use `hostnamectl` and `vcgencmd` to see your current Raspbian version
-and firmware version using the method shown below:
+use `hostnamectl` and `vcgencmd` if you wish to see your current Raspbian version
+and firmware version.
+See how below:
 
 ```bash
 # check you current OS version
@@ -346,7 +370,7 @@ Copyright (c) 2012 Broadcom
 version b3dc56931507f355d503ea69397778643f7a3dc3 (clean) (release)
 ```
 
-### Step 7: Updating Firmware for Raspberry Pi
+### Step 8: Updating Firmware for Raspberry Pi
 In the case of the Raspberry Pi (RPi), you will want to also upgrade the firmware regularly.
 [Raspbian][07] is the standard Linux operating system distribution for the RPi,
 but it doesn't include firmware.
@@ -382,7 +406,7 @@ sudo reboot
 >**NOTE:** If your using the [Adafruit's Occidentalis distribution][08],
 this may require a [slightly different update tool][09]
 
-### Step 8: Package Installs
+### Step 9: Package Installs (Optional)
 While the Raspberry Pi comes with a fairly robust set of Linux packages,
 it could use some beefing up for most uses.
 For example, while the distribution is likely to already have some Python packages installed,
@@ -413,14 +437,10 @@ sudo apt-get install x11-apps x11-xserver-utils xterm wmctrl
 sudo apt-get install imagemagick feh mplayer2
 
 # development tools
-sudo apt-get install markdown git vim vim-gtk microcom screen
+sudo apt-get install markdown git vim vim-gtk libcanberra-gtk-module
+sudo apt-get install microcom screen
 sudo apt-get install nodejs-legacy npm build-essential i2c-tools python-smbus
 sudo npm install -g jshint
-
-# LinSSID displays the information available from iwlist tool in graphical format
-sudo add-apt-repository ppa:wseverin/ppa
-sudo apt-get update
-sudo apt-get install linssid
 
 # so you can discover hosts via Multicast Domain Name System (mDNS)
 sudo apt-get install avahi-daemon
@@ -429,7 +449,7 @@ sudo apt-get install avahi-daemon
 sudo apt-get install dnsutils tcpdump wavemon nicstat nmap ufw rfkill
 
 # other handy tools
-sudo apt-get install sendmail gnome-terminal
+sudo apt-get install sendmail gnome-terminal jq
 ```
 
 >**NOTE:** To avoid a [potential namespace collision][17] for the word "node",
@@ -475,7 +495,7 @@ goto the Chrome download website
 and get the `.deb` package from Google,
 and install it with `sudo dpkg -i ....`.
 
-### Step 8A: Load Personal Tools (Optional)
+### Step 10: Load Personal Tools (Optional)
 Now that all the Linux packages have been loaded,
 time to install my personal tools on the device.
 
@@ -507,21 +527,7 @@ ln -s ~/.X/Xresources ~/.Xresources
 ln -s ~/.X/xsessionrc ~/.xsessionrc
 ```
 
-### Step 9: Password-less Login via SSH Keys
-<a href="http://www.openssh.com/">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="{filename}/images/openssh-logo.png" width="92" height="90" />
-</a>
-Public key authentication is an alternative means of
-identifying yourself to a login server, instead of typing a password.
-It is more secure and more flexible, but more difficult to set up.
-This is particularly important if the computer is visible on the Internet.
-Also, public key authentication allows you to log into a machine
-without a user typing in a password.
-
-To setup password-less login via public key authentication,
-use the posting ["HowTo: Configure SSH Public Key Authentication"][47].
-
-### Step 10: Boot Without Starting X Window
+### Step 11: Boot Without Starting X Window (Optional)
 The Raspberry Pi's Jessie image is configured to automatically bring up the X Window
 graphics system and the supporting GUI (aka [X Window System Display Manager][28]).
 Generally, your not going to be using an RPi to support GUI's for users.
@@ -543,9 +549,7 @@ To no long use the GUI and boot into multi-user mode, use this command
 
 ```bash
 # set to multi-user mode
-$ sudo systemctl set-default multi-user.target
-Removed symlink /etc/systemd/system/default.target.
-Created symlink from /etc/systemd/system/default.target to /lib/systemd/system/multi-user.target.
+sudo systemctl set-default multi-user.target
 
 # query to find out if your in graphical or multi-user mode
 $ systemctl get-default
@@ -556,7 +560,7 @@ Note that at this point the X Server will still be running.
 You can see this via the command `ps -aux | grep X`.
 You need to reboot the RPi and then you will no long have X Window running.
 
-### Step 11: Running X Window Clients When You Want It
+### Step 12: Running X Window Clients When You Want It (Optional)
 <a href="http://www.xquartz.org/index.html">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="The XQuartz project is an open-source effort to develop a version of the X.Org X Window System that runs on OS X." alt="XQuartz Logo" src="{filename}/images/xquartz-logo.jpg" width="70" height="70" />
 </a>
@@ -572,12 +576,66 @@ of the machine from which your performing the `ssh -X`.
 The `xeyes` X Window client is running on the RPi
 using the display and XServer of our local machine.
 
-If your not using, `ssh` to connect with the Raspberry Pi,
+If your using `sudo` (say with `vim -g`), it gets a little trickier.
+You'll find that you get the message
+"sudo x11 connection rejected because of wrong authentication"
+and the session is in your current window, not in a new window as you want.
+The problem is that the X session for the superuser doesn't know what the cookie is.
+To fix this, after logging into the Pi execute the following ([source][55]:
+
+```bash
+# list the cookies for $DISPLAY
+xauth list $DISPLAY
+```
+
+This prints the cookie, something like this:
+`pi:10 mit-magic-cookie-1 4d22408aga55sad1ccd165723g77923ae`.
+
+Then login as the superuser `sudo su -` and set the cookie
+(If you get a message concerning `.Xauthority` does not exist
+ignore it since the command will create the file):
+
+```bash
+# add cookie to authorize display connection
+xauth add pi:10 mit-magic-cookie-1 4d22408aga55sad1ccd165723g77923ae
+```
+
+Maybe a better way around this is  when it comes to using `sudo` with `vi` or `vim`.
+Rather than opening `vim` as root,
+you can simply save as root by redirecting via `tee`.
+Here is vi/vim command line ([source][56]):
+
+```
+:w !sudo tee % > /dev/null
+```
+
+You could alias this in your `.vimrc` file with this:
+
+```
+" invoke root privilege when writing file
+command W w !sudo tee % > /dev/null
+```
+
+**NOTE:** If your not using, `ssh` to connect with the Raspberry Pi,
 but just using a terminal, say with [screen][29] using a [console cable][30],
 your not going to be able run X Window System applications.
 You **must** be connected via TCP/IP to the Raspberry Pi.
 
-### Step 12: Static IP Address
+### Step 13: Password-less Login via SSH Keys (Optional)
+<a href="http://www.openssh.com/">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="{filename}/images/openssh-logo.png" width="92" height="90" />
+</a>
+Public key authentication is an alternative means of
+identifying yourself to a login server, instead of typing a password.
+It is more secure and more flexible, but more difficult to set up.
+This is particularly important if the computer is visible on the Internet.
+Also, public key authentication allows you to log into a machine
+without a user typing in a password.
+
+To setup password-less login via public key authentication,
+use the posting ["HowTo: Configure SSH Public Key Authentication"][47].
+
+### Step 13: Static IP Address (Optional)
 Currently, your Raspberry Pi connects automatically to your WiFi network
 every time it is tuned on,
 but you may want to specify a static IP address to communicate with your RPi.
@@ -653,7 +711,7 @@ Here is a brief summary for your typical needs:
     * `wpa-ssid` Wireless: Set a wireless WPA SSID.
     * `wpa-psk` Wireless: Set a hexadecimal encoded PSK for your SSID.
 
-### Step 13: Configure Firewall
+### Step 14: Configure Firewall (Optional)
 I recommend using [`ufw` (Uncomplicated FireWall)][34] to restrict access to the Raspberry Pi.
 The Linux kernel provides a packet filtering system called [`netfilter`][35],
 and the traditional interface for manipulating `netfilter` are the [`iptables`][36] suite of commands.
@@ -666,7 +724,7 @@ easy to use interface for people unfamiliar with firewall concepts,
 while at the same time simplifies complicated `iptables` commands
 to help an administrator who knows what he or she is doing.
 
-### Step 14: Install Fail2Ban
+### Step 15: Install Fail2Ban (Optional)
 <a href="http://www.fail2ban.org/wiki/index.php/Main_Page">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time." alt="fail2ban logo" src="{filename}/images/fail2ban-logo.png" width="75" height="75" /></a>
 Recently I examined my desktop computer's `sshd` log file `/var/log/auth.log`
@@ -684,7 +742,7 @@ $ cat /var/log/auth.log | grep 'sshd.*Failed' | wc
   11066  182457 1229596
 ```
 
-I also noticed that the attacher is attempting to use multiple originating ports in an effort
+I also noticed that the attacker is attempting to use multiple originating ports in an effort
 to subvert delays required between multiple logins (see this [article][40]).
 I decided it was time to pay a little bit more attention to security!
 
@@ -731,14 +789,14 @@ The use of public/private key authentication mechanisms
 (see ["HowTo: Configure SSH Public Key Authentication"][47])
 can provide the best protection overall.
 
-### Step 15: Basic Security
-Beyond the SSH login security take in Step 14,
+### Step 16: Basic Security (Optional)
+Beyond the SSH login security take in Step 15,
 you should minimize your exposure to other network security attacks
 and following some of the tips outlined in the postings
 ["IoT Security: Tips to Protect your Device from Bad Hackers"][37]
 and ["Secure your Raspberry Pi"][38] is a good start.
 
-### Step 16: Install Watchdog
+### Step 17: Install Watchdog (Optional)
 <a href="http://dovgalecs.com/blog/keeping-your-raspberry-pi-alive-enabling-hardware-watchdog-under-arch-linux/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="A watchdog timer is a piece of hardware or software that can be used to automatically detect software anomalies and reset the processor if any occur. Generally speaking, a watchdog timer is based on a counter that counts down from some initial value to zero." alt="watchdog" src="{filename}/images/watchdog.jpg" width="115" height="110" />
 </a>
@@ -765,7 +823,7 @@ For how to make use of the watchdog and additional information, check out these 
 * [Linux Watchdog Daemon - Configuring](http://www.sat.dundee.ac.uk/psc/watchdog/watchdog-configure.html)
 * [The Linux Watchdog driver API](https://www.kernel.org/doc/Documentation/watchdog/watchdog-api.txt)
 
-### Step 17: Clone the SD Card
+### Step 18: Clone the SD Card (Optional)
 There are a few reasons you might want to duplicate (clone/copy)
 your Raspberry Pi’s SD Card.
 One reason is to create a backup.
@@ -893,3 +951,7 @@ This can cause mysterious problems (like WiFi adapter not working, just to name 
 [52]:http://manpages.ubuntu.com/manpages/precise/man5/interfaces.5.html
 [53]:http://www.computerhope.com/unix/screen.htm
 [54]:http://manpages.ubuntu.com/manpages/xenial/man1/microcom.1.html
+[55]:http://raspberrypi.stackexchange.com/questions/1719/x11-connection-rejected-because-of-wrong-authentication
+[56]:http://vim.wikia.com/wiki/Su-write
+[57]:https://cdn-learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf
+[58]:https://www.raspberrypi.org/documentation/remote-access/ssh/
