@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Jeff's Skinner Box</title><link>/</link><description></description><lastBuildDate>Sun, 21 Dec 2014 17:10:00 -0500</lastBuildDate><item><title>CheatSheet: Vim Commands</title><link>/posts/2014/Dec/21/cheatsheet-vim-commands/</link><description>&lt;p&gt;Vi was one of the first text editors I learned (and still my favorite)
+<rss version="2.0"><channel><title>Jeff's Skinner Box</title><link>/</link><description></description><lastBuildDate>Sun, 21 Dec 2014 17:10:00 -0500</lastBuildDate><item><title>CheatSheet: Vim Commands</title><link>/posts/2014/Dec/21/cheatsheet-vim-commands/</link><description>&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Vi"&gt;&lt;code&gt;vi&lt;/code&gt;&lt;/a&gt; was the 2nd text editors I learned (&lt;a href="https://en.wikipedia.org/wiki/Ed_(text_editor)"&gt;&lt;code&gt;ed&lt;/code&gt;&lt;/a&gt; was my first)
 but I still need need a cheat sheet to help me with a command from time to time.
 I know that there hundreds vi/vim cheat sheets online,
 but none organized the way I want.&lt;/p&gt;
@@ -1206,8 +1206,10 @@ I have setup Vim on my local machine to be an effective development environmentÂ
 Also, using GitHub to &lt;a href="https://github.com/jeffskinnerbox/dotvim"&gt;store my vi resource file&lt;/a&gt;,
 I can replicate this Vim environment across theÂ multiple systems I'm presently use.&lt;/p&gt;
 &lt;h2&gt;Sources&lt;/h2&gt;
-&lt;p&gt;These are the sources for the commands documented above in the tables.&lt;/p&gt;
+&lt;p&gt;These are the sources for the commands documented above in the tables,
+and generally good sources to learn Vi/Vim.&lt;/p&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href="http://hackaday.com/2016/08/08/editor-wars-the-revenge-of-vim/"&gt;Editor Wars: The Revenge of Vim&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.catswhocode.com/blog/100-vim-commands-every-programmer-should-know"&gt;100 Vim commands every programmer should know&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://tips.webdesign10.com/vim/how-use-vims-spellchecker"&gt;How to Use Vim's Spellchecker&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://usevim.com/2012/08/10/macros/"&gt;Vim 101: A Gentle Introduction to Macros&lt;/a&gt;&lt;/li&gt;

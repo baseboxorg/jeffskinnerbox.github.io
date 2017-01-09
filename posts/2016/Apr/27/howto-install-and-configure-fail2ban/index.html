@@ -395,7 +395,7 @@ sudo iptables -L -n -v
 <p>In time, you may find some duplicate rules sneak into your <code>/etc/iptables/rules.v4</code> file.
 You can find the duplicate rules via:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># list any rules that are duplicates</span>
-sort /etc/iptables/rules.v4 | uniq --repeated
+sudo sort /etc/iptables/rules.v4 | uniq --repeated
 </pre></div>
 
 

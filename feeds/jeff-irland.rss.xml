@@ -711,7 +711,7 @@ sudo iptables -L -n -v
 &lt;p&gt;In time, you may find some duplicate rules sneak into your &lt;code&gt;/etc/iptables/rules.v4&lt;/code&gt; file.
 You can find the duplicate rules via:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# list any rules that are duplicates&lt;/span&gt;
-sort /etc/iptables/rules.v4 | uniq --repeated
+sudo sort /etc/iptables/rules.v4 | uniq --repeated
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1186,7 +1186,7 @@ where we need to write the Raspbian image to the SD Card
 &lt;span style="color: #336666"&gt;cd&lt;/span&gt; /home/jeff/Downloads
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# unmount the sd card reader&lt;/span&gt;
-sudo umount /dev/sdj
+sudo umount /dev/sdj1
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# write the image to the sd card reader&lt;/span&gt;
 sudo dd &lt;span style="color: #003333"&gt;bs&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;4M &lt;span style="color: #006699; font-weight: bold"&gt;if&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;2016-02-09-raspbian-jessie.img &lt;span style="color: #003333"&gt;of&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;/dev/sdj
@@ -1368,11 +1368,14 @@ The multiple things can be configured within this configuration tool.
 We need to change the following:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Expand Filesystem&lt;/strong&gt; - select this&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Boot Options&lt;/strong&gt; - select this and choose "B2 Console" - You will &lt;strong&gt;not&lt;/strong&gt; need a password to get console access. &lt;em&gt;Somewhat of a security risk but nice to have if you need to recover from major problem.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Boot Options&lt;/strong&gt; - select this and choose "B1 Console" - You will need a password to get console access. Gives you greater security and allow console cables to work via &lt;a href="http://www.computerhope.com/unix/screen.htm"&gt;&lt;code&gt;screen&lt;/code&gt;&lt;/a&gt; and &lt;a href="http://manpages.ubuntu.com/manpages/xenial/man1/microcom.1.html"&gt;&lt;code&gt;microcom&lt;/code&gt;&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Advanced Options&lt;/strong&gt; - select this and choose "A2 Hostname", enable "A4 SSH", enable "A5 Device Tree", enable "A6 SPI", enable "A7 IC2", enable "A8 Serial"&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Finally, select &lt;code&gt;&amp;lt;Finish&amp;gt;&lt;/code&gt; and reboot so that the configuration changes are all applied.&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;sudo reboot
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# set the time zone for your device&lt;/span&gt;
+sudo timedatectl set-timezone America/New_York
+
+sudo reboot
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1435,6 +1438,7 @@ kernel and firmware may have changed from the earlier step.&lt;/p&gt;
 &lt;p&gt;Once these tools have been installed,
 periodically you can update the firmware via the commands below:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# periodically you can update the firmware via the command&lt;/span&gt;
+sudo apt-get install rpi-update
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# check for and install any required Raspberry Pi firmware upgrades&lt;/span&gt;
 sudo &lt;span style="color: #003333"&gt;BRANCH&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;next rpi-update
@@ -1448,7 +1452,7 @@ sudo reboot
 &lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; If your using the &lt;a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/overview"&gt;Adafruit's Occidentalis distribution&lt;/a&gt;,
 this may require a &lt;a href="https://github.com/Hexxeh/rpi-update"&gt;slightly different update tool&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3&gt;Step 8: Package Installs&lt;/h3&gt;
+&lt;h3&gt;Step 8: Package Installs (Optional)&lt;/h3&gt;
 &lt;p&gt;While the Raspberry Pi comes with a fairly robust set of Linux packages,
 it could use some beefing up for most uses.
 For example, while the distribution is likely to already have some Python packages installed,
@@ -1465,6 +1469,10 @@ sudo easy_install -U distribute
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# install the RPi GPIO and other packages via pip&lt;/span&gt;
 sudo pip install RPi.GPIO pySerial nose cmd2
+
+&lt;span style="color: #0099FF; font-style: italic"&gt;# utilities to read temperature/voltage/fan sensors (may not be supported)&lt;/span&gt;
+sudo apt-get install lm-sensors
+sudo sensors-detect       &lt;span style="color: #0099FF; font-style: italic"&gt;# answer yes to all questions&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1472,8 +1480,12 @@ sudo pip install RPi.GPIO pySerial nose cmd2
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# some X Window utilities&lt;/span&gt;
 sudo apt-get install x11-apps x11-xserver-utils xterm wmctrl
 
+&lt;span style="color: #0099FF; font-style: italic"&gt;# tools for viewing and minipulating image &amp;amp; video files&lt;/span&gt;
+sudo apt-get install imagemagick feh mplayer2
+
 &lt;span style="color: #0099FF; font-style: italic"&gt;# development tools&lt;/span&gt;
-sudo apt-get install markdown git vim vim-gtk microcom screen
+sudo apt-get install markdown git vim vim-gtk libcanberra-gtk-module
+sudo apt-get install microcom screen
 sudo apt-get install nodejs-legacy npm build-essential i2c-tools python-smbus
 sudo npm install -g jshint
 
@@ -1486,7 +1498,7 @@ sudo apt-get install linssid
 sudo apt-get install avahi-daemon
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# basic networking / firewall tools&lt;/span&gt;
-sudo apt-get install tcpdump wavemon nicstat nmap ufw
+sudo apt-get install dnsutils tcpdump wavemon nicstat nmap ufw rfkill
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# other handy tools&lt;/span&gt;
 sudo apt-get install sendmail gnome-terminal
@@ -1542,6 +1554,8 @@ time to install my personal tools on the device.&lt;/p&gt;
 &lt;span style="color: #336666"&gt;cd&lt;/span&gt; ~
 git clone https://github.com/jeffskinnerbox/.vim.git
 ln -s ~/.vim/vimrc ~/.vimrc
+mkdir ~/.vim/backup
+mkdir ~/.vim/tmp
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# install tools for bash shell&lt;/span&gt;
 &lt;span style="color: #336666"&gt;cd&lt;/span&gt; ~
@@ -1553,6 +1567,7 @@ ln -s ~/.bash/bash_logout ~/.bash_logout
 ln -s ~/.bash/bash_profile ~/.bash_profile
 ln -s ~/.bash/dircolors.old ~/.dircolors
 sudo cp ~/.bash/virtualenvwrapper.sh ~/.bash/virtualenvwrapper_lazy.sh /usr/local/bin
+sudo pip install virtualenvwrapper
 
 &lt;span style="color: #0099FF; font-style: italic"&gt;# install X configuration files&lt;/span&gt;
 &lt;span style="color: #336666"&gt;cd&lt;/span&gt; ~
@@ -1563,7 +1578,7 @@ ln -s ~/.X/xsessionrc ~/.xsessionrc
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h3&gt;Step 9: Password-less Login via SSH Keys&lt;/h3&gt;
+&lt;h3&gt;Step 9: Password-less Login via SSH Keys (Optional)&lt;/h3&gt;
 &lt;p&gt;&lt;a href="http://www.openssh.com/"&gt;
     &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="/images/openssh-logo.png" width="92" height="90" /&gt;
 &lt;/a&gt;
@@ -1575,7 +1590,7 @@ Also, public key authentication allows you to log into a machine
 without a user typing in a password.&lt;/p&gt;
 &lt;p&gt;To setup password-less login via public key authentication,
 use the posting &lt;a href="http://jeffskinnerbox.me/posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/"&gt;"HowTo: Configure SSH Public Key Authentication"&lt;/a&gt;.&lt;/p&gt;
-&lt;h3&gt;Step 10: Boot Without Starting X Window&lt;/h3&gt;
+&lt;h3&gt;Step 10: Boot Without Starting X Window (Optional)&lt;/h3&gt;
 &lt;p&gt;The Raspberry Pi's Jessie image is configured to automatically bring up the X Window
 graphics system and the supporting GUI (aka &lt;a href="https://en.wikipedia.org/wiki/X_display_manager_(program_type)"&gt;X Window System Display Manager&lt;/a&gt;).
 Generally, your not going to be using an RPi to support GUI's for users.
@@ -1605,7 +1620,7 @@ multi-user.target
 &lt;p&gt;Note that at this point the X Server will still be running.
 You can see this via the command &lt;code&gt;ps -aux | grep X&lt;/code&gt;.
 You need to reboot the RPi and then you will no long have X Window running.&lt;/p&gt;
-&lt;h3&gt;Step 11: Running X Window Clients When You Want It&lt;/h3&gt;
+&lt;h3&gt;Step 11: Running X Window Clients When You Want It (Optional)&lt;/h3&gt;
 &lt;p&gt;&lt;a href="http://www.xquartz.org/index.html"&gt;
     &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="The XQuartz project is an open-source effort to develop a version of the X.Org X Window System that runs on OS X." alt="XQuartz Logo" src="/images/xquartz-logo.jpg" width="70" height="70" /&gt;
 &lt;/a&gt;
@@ -1619,11 +1634,46 @@ A pair of eyes that track you mouse movement should appear in the display
 of the machine from which your performing the &lt;code&gt;ssh -X&lt;/code&gt;.
 The &lt;code&gt;xeyes&lt;/code&gt; X Window client is running on the RPi
 using the display and XServer of our local machine.&lt;/p&gt;
-&lt;p&gt;If your not using, &lt;code&gt;ssh&lt;/code&gt; to connect with the Raspberry Pi,
+&lt;p&gt;If your using &lt;code&gt;sudo&lt;/code&gt; (say with &lt;code&gt;vim -g&lt;/code&gt;), it gets a little trickier.
+You'll find that you get the message
+"sudo x11 connection rejected because of wrong authentication"
+and the session is in your current window, not in a new window as you want.
+The problem is that the X session for the superuser doesn't know what the cookie is.
+To fix this, after logging into the Pi execute the following (&lt;a href="http://raspberrypi.stackexchange.com/questions/1719/x11-connection-rejected-because-of-wrong-authentication"&gt;source&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# list the cookies for $DISPLAY&lt;/span&gt;
+xauth list &lt;span style="color: #003333"&gt;$DISPLAY&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This prints the cookie, something like this:
+&lt;code&gt;pi:10 mit-magic-cookie-1 4d22408aga55sad1ccd165723g77923ae&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Then login as the superuser &lt;code&gt;sudo su -&lt;/code&gt; and set the cookie
+(If you get a message concerning &lt;code&gt;.Xauthority&lt;/code&gt; does not exist
+ignore it since the command will create the file):&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# add cookie to authorize display connection&lt;/span&gt;
+xauth add pi:10 mit-magic-cookie-1 4d22408aga55sad1ccd165723g77923ae
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Maybe a better way around this is  when it comes to using &lt;code&gt;sudo&lt;/code&gt; with &lt;code&gt;vi&lt;/code&gt; or &lt;code&gt;vim&lt;/code&gt;.
+Rather than opening &lt;code&gt;vim&lt;/code&gt; as root,
+you can simply save as root by redirecting via &lt;code&gt;tee&lt;/code&gt;.
+Here is vi/vim command line (&lt;a href="http://vim.wikia.com/wiki/Su-write"&gt;source&lt;/a&gt;):&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;:w !sudo tee % &amp;gt; /dev/null
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You could alias this in your &lt;code&gt;.vimrc&lt;/code&gt; file with this:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span&gt;&lt;/span&gt;&amp;quot; invoke root privilege when writing file
+command W w !sudo tee % &amp;gt; /dev/null
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; If your not using, &lt;code&gt;ssh&lt;/code&gt; to connect with the Raspberry Pi,
 but just using a terminal, say with &lt;a href="http://aperiodic.net/screen/start"&gt;screen&lt;/a&gt; using a &lt;a href="https://learn.adafruit.com/adafruits-raspberry-pi-lesson-5-using-a-console-cable/overview"&gt;console cable&lt;/a&gt;,
 your not going to be able run X Window System applications.
 You &lt;strong&gt;must&lt;/strong&gt; be connected via TCP/IP to the Raspberry Pi.&lt;/p&gt;
-&lt;h3&gt;Step 12: Static IP Address&lt;/h3&gt;
+&lt;h3&gt;Step 12: Static IP Address (Optional)&lt;/h3&gt;
 &lt;p&gt;Currently, your Raspberry Pi connects automatically to your WiFi network
 every time it is tuned on,
 but you may want to specify a static IP address to communicate with your RPi.&lt;/p&gt;
@@ -1666,7 +1716,43 @@ iface default inet static
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h3&gt;Step 13: Configure Firewall&lt;/h3&gt;
+&lt;p&gt;Good documentation for the network interface file is hard to find.
+You can find online many examples, but What what is missing is an explanation of the syntax,
+an explanation of the meaning of the commands and which order the commands require.
+&lt;a href="https://www.debian.org/doc/manuals/debian-reference/ch05.en.html#_the_network_interface_name"&gt;What exists is far too complex for the type need&lt;/a&gt;,
+and the Ubuntu file &lt;code&gt;/usr/share/doc/ifupdown/examples/network-interfaces&lt;/code&gt; is just examples,
+but the &lt;a href="http://manpages.ubuntu.com/manpages/precise/man5/interfaces.5.html"&gt;manual page&lt;/a&gt; is about right in its detail.
+Here is a brief summary for your typical needs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Layer 2 Options&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;auto&lt;/code&gt; Start the interface(s) at boot.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;allow-hotplug&lt;/code&gt; start the interface when a "hotplug" event is detected.  This is the same situations as auto but the difference is that it will wait for an event like "being detected by udev hotplug api" or "cable linked".&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Layer 3 Options&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;inet static&lt;/code&gt; Defines a static IP address.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;inet manual&lt;/code&gt; Does not define an IP address for an interface. Generally used by interfaces that are bridge or aggregation members, or have a VLAN device configured on them.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;inet dhcp&lt;/code&gt; Acquire IP address through DHCP protocol.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;inet6 static&lt;/code&gt; Defines a static IPv6 address.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Interface Stanza Options&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;address&lt;/code&gt; IP address for a static IP configured interface&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;netmask&lt;/code&gt; netmask&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gateway&lt;/code&gt; The default gateway of a server. Be careful to use only one of this guy.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;vlan-raw-device&lt;/code&gt; On a VLAN interface, defines its "father".&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;bridge_ports&lt;/code&gt; On a bridge interface, define its members.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;down&lt;/code&gt; Use the following command to down the interface instead of ifdown.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;post-down&lt;/code&gt; Actions taken right after the interface is down.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pre-up&lt;/code&gt; Actions before the interface is up.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;up&lt;/code&gt; Use the following command to up the interface instead of ifup.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dns-nameservers&lt;/code&gt; IP addresses of nameservers. Requires the &lt;code&gt;resolvconf&lt;/code&gt; package. It’s a way to concentrate all the information in &lt;code&gt;/etc/network/interfaces&lt;/code&gt; instead of using &lt;code&gt;/etc/resolv.conf&lt;/code&gt; for DNS-related configurations. Do not edit the &lt;code&gt;resolv.conf&lt;/code&gt; configuration file manually as it will be dynamically changed by programs in the system.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wpa-ssid&lt;/code&gt; Wireless: Set a wireless WPA SSID.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wpa-psk&lt;/code&gt; Wireless: Set a hexadecimal encoded PSK for your SSID.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Step 13: Configure Firewall (Optional)&lt;/h3&gt;
 &lt;p&gt;I recommend using &lt;a href="https://wiki.ubuntu.com/UncomplicatedFirewall"&gt;&lt;code&gt;ufw&lt;/code&gt; (Uncomplicated FireWall)&lt;/a&gt; to restrict access to the Raspberry Pi.
 The Linux kernel provides a packet filtering system called &lt;a href="https://www.digitalocean.com/community/tutorials/a-deep-dive-into-iptables-and-netfilter-architecture"&gt;&lt;code&gt;netfilter&lt;/code&gt;&lt;/a&gt;,
 and the traditional interface for manipulating &lt;code&gt;netfilter&lt;/code&gt; are the &lt;a href="http://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/"&gt;&lt;code&gt;iptables&lt;/code&gt;&lt;/a&gt; suite of commands.
@@ -1677,7 +1763,7 @@ To make things easier, several frontends for &lt;code&gt;iptables&lt;/code&gt; h
 easy to use interface for people unfamiliar with firewall concepts,
 while at the same time simplifies complicated &lt;code&gt;iptables&lt;/code&gt; commands
 to help an administrator who knows what he or she is doing.&lt;/p&gt;
-&lt;h3&gt;Step 14: Install Fail2Ban&lt;/h3&gt;
+&lt;h3&gt;Step 14: Install Fail2Ban (Optional)&lt;/h3&gt;
 &lt;p&gt;&lt;a href="http://www.fail2ban.org/wiki/index.php/Main_Page"&gt;
     &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time." alt="fail2ban logo" src="/images/fail2ban-logo.png" width="75" height="75" /&gt;&lt;/a&gt;
 Recently I examined my desktop computer's &lt;code&gt;sshd&lt;/code&gt; log file &lt;code&gt;/var/log/auth.log&lt;/code&gt;
@@ -1733,13 +1819,13 @@ While Fail2Ban does provide additional protection, the use of two factor authent
 The use of public/private key authentication mechanisms
 (see &lt;a href="http://jeffskinnerbox.me/posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/"&gt;"HowTo: Configure SSH Public Key Authentication"&lt;/a&gt;)
 can provide the best protection overall.&lt;/p&gt;
-&lt;h3&gt;Step 15: Basic Security&lt;/h3&gt;
+&lt;h3&gt;Step 15: Basic Security (Optional)&lt;/h3&gt;
 &lt;p&gt;Beyond the SSH login security take in Step 14,
 you should minimize your exposure to other network security attacks
 and following some of the tips outlined in the postings
 &lt;a href="https://www.hackster.io/charifmahmoudi/iot-security-tips-to-protect-your-device-from-bad-hackers-768093?utm_source=Hackster.io+newsletter&amp;amp;utm_campaign=3e0b3a91f6-2015_4_17_Top_projects4_16_2015&amp;amp;utm_medium=email&amp;amp;utm_term=0_6ff81e3e5b-3e0b3a91f6-140225889"&gt;"IoT Security: Tips to Protect your Device from Bad Hackers"&lt;/a&gt;
 and &lt;a href="http://jjjjango.blogspot.com/2015/01/secure-your-raspberry-pi.html"&gt;"Secure your Raspberry Pi"&lt;/a&gt; is a good start.&lt;/p&gt;
-&lt;h3&gt;Step 16: Install Watchdog&lt;/h3&gt;
+&lt;h3&gt;Step 16: Install Watchdog (Optional)&lt;/h3&gt;
 &lt;p&gt;&lt;a href="http://dovgalecs.com/blog/keeping-your-raspberry-pi-alive-enabling-hardware-watchdog-under-arch-linux/"&gt;
     &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="A watchdog timer is a piece of hardware or software that can be used to automatically detect software anomalies and reset the processor if any occur. Generally speaking, a watchdog timer is based on a counter that counts down from some initial value to zero." alt="watchdog" src="/images/watchdog.jpg" width="115" height="110" /&gt;
 &lt;/a&gt;
@@ -1764,7 +1850,7 @@ For how to make use of the watchdog and additional information, check out these 
 &lt;li&gt;&lt;a href="http://www.sat.dundee.ac.uk/psc/watchdog/watchdog-configure.html"&gt;Linux Watchdog Daemon - Configuring&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.kernel.org/doc/Documentation/watchdog/watchdog-api.txt"&gt;The Linux Watchdog driver API&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Step 17: Clone the SD Card&lt;/h3&gt;
+&lt;h3&gt;Step 17: Clone the SD Card (Optional)&lt;/h3&gt;
 &lt;p&gt;There are a few reasons you might want to duplicate (clone/copy)
 your Raspberry Pi’s SD Card.
 One reason is to create a backup.

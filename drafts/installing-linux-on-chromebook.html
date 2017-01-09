@@ -99,7 +99,14 @@ Jeff's Skinner Box&nbsp;            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p><a href="http://www.pcmag.com/article2/0,2817,2470486,00.asp">
+                <ul>
+<li><a href="https://www.engadget.com/2016/08/19/unlock-chrome-os-with-pin/">Now you can unlock Chrome OS with a PIN code</a></li>
+<li><a href="https://support.google.com/chromebook/answer/6070209?hl=en-GB">Unlock your Chromebook with your Android phone</a></li>
+<li><a href="http://www.techradar.com/news/mobile-computing/laptops/android-apps-are-now-available-on-these-chromebooks-1323567">Android apps are now available on these Chromebooks</a></li>
+<li><a href="http://fieldguide.gizmodo.com/how-to-run-android-apps-on-your-chromebook-1786505928">How To Run Android Apps on Your Chromebook</a></li>
+<li>See the split screen, how do you do this - <a href="http://www.androidcentral.com/putting-linux-your-chromebook-easier-you-think">Putting Linux on your Chromebook is easier than you think (and totally worth it!)</a></li>
+</ul>
+<p><a href="http://www.pcmag.com/article2/0,2817,2470486,00.asp">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="This Chromebook 2 is thin and light, which is pretty impressive, considering it has a 13.6-inch HD display. The plastic chassis measures just 0.76 by 12.76 by 8.4 inches (HWD) and weighs only 2.95 pounds." alt="chromebook picture" src="../images/toshiba-chromebook-linux.jpg" width="250" height="250" />
 </a>
 I wanted to get a Linux laptop for some lightweight development
@@ -132,10 +139,16 @@ There are three main ways to install a traditional Linux environment on your dev
 <ul>
 <li>The traditional dual-boot environment using <a href="http://chromeos-cr48.blogspot.mx/">ChrUbuntu</a>.  So here you have two operating systems, but only one of them can be executing at any one time.</li>
 <li><a href="http://www.pcworld.com/article/2873561/google-just-made-it-easier-to-run-linux-on-your-chromebook.html">Boot from USB</a> option will allow you to activate booting from USB devices. This is assentually the same as the first method but not booting from the hard drive.</li>
-<li>Run Linux along side of Chrome OS in a chroot environment using <a href="https://github.com/dnschneid/crouton">Crouton</a>.  In this case, you have two operating systems concurrently operating.</li>
+<li>Run Linux along side of Chrome OS in a <a href="https://en.wikipedia.org/wiki/Chroot">chroot</a> environment using <a href="https://github.com/dnschneid/crouton">Crouton</a>.  In this case, you have two operating systems concurrently operating.</li>
 </ul>
 <p>Crouton appears to be the best supported way of running another OS on top of Chrome OS.
-It’s quite impressive how easy it is to use and
+Crouton <a href="https://help.ubuntu.com/community/BasicChroot">chroot environment</a> to run both Chrome OS and Ubuntu at the same time.
+Chroot is an operation that changes the apparent root directory
+for the current running process and their children.
+A program that is run in such a modified environment cannot access files and commands
+outside that environmental directory tree.
+This modified environment is called a "<a href="http://unix.stackexchange.com/questions/105/chroot-jail-what-is-it-and-how-do-i-use-it">chroot jail</a>".
+Crouton is quite impressive how easy it is to use and
 comes with a <a href="http://tomwwolf.com/chromebook-14-compedium/chromebook-crouton-cookbook/">rich set of options</a>.
 (By the way, there happens to be a way to merging ChromeOS and Android
 via <a href="https://chrome.google.com/webstore/detail/arc-welder/emfinbmielocnlhgmfkkmkngdoccbadn">ARC Welder</a>.)</p>
@@ -588,6 +601,10 @@ I putting the following in my  <code>~/.bashrc</code> file:</p>
 <blockquote>
 <p>NOTE: You do your edits of <code>~/.bashrc</code> from inside your crosh/shell, edit, not chroot.</p>
 </blockquote>
+<h2>Switching Between Crouton and ChromeOS</h2>
+<p>You can switch between your Crouton session and ChromeOS by using four keys:
+<code>CTRL+ALT+SHIFT+→</code> (the left or right arrow key on the top row of your keyboard).
+Left or right arrow will toggle you between Crouton / ChromeOS session.</p>
 <h2>Linux in a Chromium OS Window</h2>
 <p>https://github.com/dnschneid/crouton/wiki/crouton-in-a-Chromium-OS-window-(xiwi)</p>
 <h2>Markdown</h2>
@@ -601,6 +618,9 @@ You’ll do this by running the <code>ssh</code> command and then by typing ever
 <p><img alt="crosh ssh" src="http://cdn3.howtogeek.com/wp-content/uploads/2014/11/img_546b9898a9e3f.png" /></p>
 <p>You could also just type in the whole line like <code>ssh jeff@desktop</code>
 to secure shell into the <code>desktop</code> system using the login <code>jeff</code>.</p>
+<p>While chromebook can support <code>ssh</code> natively, it is a bit limited.
+I have run had problem getting access to devices running OpenWrt,
+bu there are some <a href="https://chrome.google.com/webstore/detail/secure-shell/pnhechapfaindjhompbnflcldabbghjo?utm_source=gmail">apps you can install that give more full features</a>.</p>
 <h4>Connectivity Command</h4>
 <p><a href="https://failicide.wordpress.com/2015/02/19/chrome-os-using-the-crosh-connectivity-command/">CHROME OS – USING THE CROSH CONNECTIVITY COMMAND</a></p>
 <h3>Linux</h3>
@@ -693,6 +713,15 @@ sudo sh ~/Downloads/crouton -f backupfile.tar.gz
 </pre></div>
 
 
+<h1>Connecting Chromebook to Ethernet</h1>
+<p>Wireless internet is great,
+but sometimes you might find yourself in a situation where only
+a physical Ethernet Internet connection will do.
+Most Chromebooks do not include an Ethernet LAN port,
+but you can easily add this functionality with a USB Ethernet adapter.
+Headed on over to Amazon to look for an adapter.
+I got the <a href="https://www.amazon.com/Network-Adapter-Rankie-SuperSpeed-Ethernet/dp/B010SEARPU/ref=sr_1_3?ie=UTF8&amp;qid=1476410333&amp;sr=8-3&amp;keywords=ethernet+adapter">Rankie SuperSpeed USB 3.0 to RJ45 Gigabit Ethernet Network Adapter - R1161</a>.
+It works fine with my Chomebook's USB 3.0 port and it was just plug and play.</p>
 <h1>Chrome Apps to Install</h1>
 <ul>
 <li>
