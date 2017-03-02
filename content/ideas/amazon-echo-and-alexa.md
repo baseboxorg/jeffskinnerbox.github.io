@@ -1,3 +1,11 @@
+
+* [The Ultimate Guide To Mastering Amazon Echo](http://blog.anythings.co/ultimate-guide-amazon-echo-alexa/)
+* [Alexa Skills Kit Tutorial: The Guide To Build Your Alexa Skill](http://blog.anythings.co/alexa-skills-kit-tutorial/)
+* [Get Your Music Into Amazon Music So Alexa Can Play It](http://lovemyecho.com/2015/07/03/getting-your-music-into-amazon-music-library-so-echo-can-play-it/)
+* [step-by-step walkthrough to help you build a hands-free Alexa Voice Service (AVS)](https://github.com/alexa/alexa-avs-sample-app)
+
+
+
 # Amzon Echo "How To Do"
 ## How to access the Amazon Echo from the Web
 Even though you need to do the original Echo setup from an iOS or Android app
@@ -52,10 +60,12 @@ Unfortanately, Alexa doesn't support this but [Jasper does](http://jasperproject
 
 --------------------------------------------------------------------------------
 
+# Quick Start
+* [Alexa, What’s for Lunch?](https://iot-for-all.com/alexa-whats-for-lunch-fb02062e54b9#.srij2ojnh)
+
 # Streaming Music
 * [Pair Your Mobile Device with Echo](https://www.amazon.com/gp/help/customer/display.html?nodeId=201549660)
 * [Ways to Listen to Music & Media on Alexa](https://www.amazon.com/gp/help/customer/display.html?nodeId=201549700)
-* []()
 
 # Amazon Echo How To
 * [New Alexa Skills Kit Template: Step-by-Step Guide to Build a Fact Skill](https://developer.amazon.com/public/community/post/Tx3DVGG0K0TPUGQ/New-Alexa-Skills-Kit-Template-Step-by-Step-Guide-to-Build-a-Fact-Skill)
@@ -71,6 +81,7 @@ Unfortanately, Alexa doesn't support this but [Jasper does](http://jasperproject
 * [Control Nest Devices with Amazon Echo](http://hackaday.com/2015/07/25/control-nest-devices-with-amazon-echo/)
 * [Amazon’s AI Escapes its Hardware Prison](http://hackaday.com/2015/08/04/amazons-ai-escapes-its-hardware-prison/)
 * [Amazon Echo: Automate tasks with a talking Raspberry Pi](http://liliputing.com/2015/07/amazon-echo-automate-tasks-with-a-talking-raspberry-pi.html)
+* [Putting Alexa on a Raspberry Pi](http://www.networkworld.com/article/3138984/hardware/putting-alexa-on-a-raspberry-pi.html)
 * [Voice Control RGB LED](https://www.hackster.io/pirumpi/voice-control-rgb-led-dd0ba5?utm_source=hackster&utm_medium=email&utm_campaign=new_projects)
 
 # Amazon Echo Tools
@@ -79,7 +90,7 @@ Unfortanately, Alexa doesn't support this but [Jasper does](http://jasperproject
 # Amazon Alexa Voice Services
 * [Let Alexa Control Your Life; Guide to Voice-Enable Everything](http://hackaday.com/2015/12/26/let-alexa-control-your-life-guide-to-voice-enable-everything/)
 * [Alexa Skills Kit (ASK)](https://developer.amazon.com/public)
-*[Alexa Voice Service (AVS)](https://developer.amazon.com/public/solutions/alexa/alexa-voice-service)
+* [Alexa Voice Service (AVS)](https://developer.amazon.com/public/solutions/alexa/alexa-voice-service)
 * [Alexa Lambda Linux (ALL) Reference Design](https://github.com/goruck/all)
 * [New Alexa Skills Kit Template: Build a Trivia Skill in under an Hour](https://developer.amazon.com/public/community/post/TxDJWS16KUPVKO/New-Alexa-Skills-Kit-Template-Build-a-Trivia-Skill-in-under-an-Hour?mkt_tok=3RkMMJWWfF9wsRokvqjLZKXonjHpfsX66e4vWKK2lMI%2F0ER3fOvrPUfGjI4CSsNnI%2BSLDwEYGJlv6SgFSrfFMapt17gOUhk%3D)
 * [Introduction to Voice Design with Amazon's Alexa](https://www.udemy.com/amazonalexa/?mkt_tok=3RkMMJWWfF9wsRokvqjLZKXonjHpfsX66e4vWKK2lMI%2F0ER3fOvrPUfGjI4CSsNnI%2BSLDwEYGJlv6SgFSrfFMapt17gOUhk%3D)
@@ -102,11 +113,45 @@ Unfortanately, Alexa doesn't support this but [Jasper does](http://jasperproject
 * [myva-Home (Voice controlled home automation)](https://www.hackster.io/smerkousdavid/myva-home-voice-controlled-home-automation-f4cfe3?utm_source=Hackster.io+newsletter&utm_campaign=73ff92e8f5-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-73ff92e8f5-140225889)
 * [Build a Raspberry Pi-Powered DIY Amazon Echo](http://lifehacker.com/build-a-raspberry-pi-powered-diy-amazon-echo-1762678229)
 * [Raspi Alexa Skills - Rest API](https://www.hackster.io/steckdev/raspi-alexa-skills-rest-api-071868?utm_source=hackster&utm_medium=email&utm_campaign=new_projects)
+* [Turn Your Pringles Can into an Amazon Echo](http://blog.nextthing.co/turn-your-pringles-can-into-an-amazon-echo-with-c-h-i-p/)
 
 # Mycroft
 * [Awesome Stuff: A Voice-Operated Household Assistant](https://www.techdirt.com/blog/innovation/articles/20150829/07551832101/awesome-stuff-voice-operated-household-assistant.shtml)
 * [Mycroft: An Open Source Artificial Intelligence For Everyone](https://www.kickstarter.com/projects/aiforeveryone/mycroft-an-open-source-artificial-intelligence-for?ref=card)
 * [Mycroft: A.I. for everyone](https://mycroft.ai/)
+
+
+# Setting Up Your Echo or Echo Dot
+Amazon's ["Getting Started with Echo Dot"][01], ["Set Up Your Echo Dot"][02]
+["Reset Your Echo Dot"][03]
+webpages gives you all the details neede to setting up the Echo Dot.
+
+Since you maybe buying the Echo Dot to control some new devices,
+your going to make sure the devices are know by the Echo and
+they are grouped for collective control, if desired.
+The basic steps are:
+
+1. First, you must discovery any new devices
+(Select Main Menu > Smart Home > New Devices).
+1. Another key thing to do is to create a group within the Alexa phone app
+(Select Main Menu > Smart Home > Your Groups).
+In my case, all the bulbs in my Living Room where put in the group "Living Room".
+
+# Managing Alexa
+Your can manage your Alexa instance vi the [Alexa smart phone app][09],
+or you can use the equivlent [Amazon Alexa web site][10].
+
+# How to Add Skills to Alexa
+To add a Skill, start by tapping on the sidebar menu button in the
+top-left corner of the screen in the Alexa app
+(or the [Amazon Alexa web version][10])
+and follow the proceedure [here][11].
+After you enable the Skill,
+you also might be redirected to a new screen where you’ll need to sign into your account
+that’s associated with the Skill you installed.
+After you do this,
+you’ll get a message saying that the Skill has been successfully added and linked.
+From there, you can go back to the main screen of the Alexa app.
 
 # AT&T Speech API
 <a href="https://developer.att.com/">
@@ -145,6 +190,55 @@ interesting Internet-enabled speech application using this API.
 [eSpeak](https://en.wikipedia.org/wiki/ESpeak) is a compact open source software speech synthesizer for Linux, Windows, and other platforms
 
 
+# First Alexa Skill (Ask Google)
+# Doing Google Search via Alexa
+The two leading voice assistants are Amazon’s Alexa and [Google’s Voice Assistant][04].
+While Alexa is capable of doing more,
+Google’s voice assistant tends to respond to knowledge questions more accurately
+with the help of Google’s search engine.
+Thanks to an [open source project][05],
+it’s now possible to unofficially add Google’s voice assistant to Amazon Echo.
+Even comes with a detail [guide on how to install][06] this Alex skill.
+We'll start here with Alexa skill creation so we can first focus on the
+loading the skill, and leave for later the design of the skill.
+
+When you add “Ask Google” support to Alexa,
+you’re adding a voice interface that can read [Google’s knowledge graph][07] answers.
+While it’s a very powerful addition, it isn’t exactly the same as [Google’s "Ask Google" service][08].
+There is no pre-made Alexa Skill to enable, so you’re going to have to create your own.
+While that may sound difficult, the entire process is just a series of copy & paste values
+that you need to enter into various forms.
+
+
+* [Alexa Google search skill (Tutorial)](https://www.youtube.com/watch?v=PR-LVPMU7F4)
+* [alexa-google-search](https://github.com/tartanguru/alexa-google-search)
+* [How to add Google’s Voice Assistant to Alexa on the Amazon Echo and Fire TV](http://www.aftvnews.com/how-to-add-googles-voice-assistant-to-alexa-on-the-amazon-echo-and-fire-tv/)
+* [Install ‘Ask Google’ Alexa Skill](http://alexamods.com/guide-install-ask-google-alexa-skill/)
+* [How to Publish an Alexa Skill: from beginning to end](https://www.hackster.io/daquilnp/how-to-publish-an-alexa-skill-from-beginning-to-end-82167c?utm_source=hackster&utm_medium=email&utm_campaign=new_projects)
+
+
+
+
+[01]:https://www.amazon.com/gp/help/customer/display.html?ie=UTF8&nodeId=202011640
+[02]:https://www.amazon.com/gp/help/customer/display.html?nodeId=201994280
+[03]:https://www.amazon.com/gp/help/customer/display.html?nodeId=202080910
+[04]:https://assistant.google.com/
+[05]:https://github.com/tartanguru/alexa-google-search
+[06]:http://alexamods.com/guide-install-ask-google-alexa-skill/
+[07]:https://www.google.com/intl/es419/insidesearch/features/search/knowledge.html
+[08]:http://www.askgoogle.net/
+[09]:https://play.google.com/store/apps/details?id=com.amazon.dee.app&hl=en
+[10]:http://alexa.amazon.com
+[11]:https://www.howtogeek.com/256707/the-best-third-party-alexa-skills-on-the-amazon-echo/?tag=823814-20
+[12]:
+[13]:
+[14]:
+[15]:
+[16]:
+[17]:
+[18]:
+[19]:
+[20]:
 
 [53]:http://jasperproject.github.io/
 [54]:http://www.apple.com/ios/siri/

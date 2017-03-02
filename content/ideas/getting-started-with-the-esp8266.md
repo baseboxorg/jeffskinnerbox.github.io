@@ -1,6 +1,8 @@
 
 Read this first:
+* [NodeMcu](http://nodemcu.com/index_en.html)
 * [ESP8266 Node MCU Setup](http://www.averagemanvsraspberrypi.com/2015/11/esp8266-node-mcu-setup.html)
+* [ESP-LINK: Wifi-Serial Bridge w/REST&MQTT](https://github.com/jeelabs/esp-link)
 * [Review: HUZZAH is the ESP8266 WiFi Setup You Need](http://hackaday.com/2015/05/01/review-huzzah-is-the-esp8266-wifi-setup-you-need/)
 * [ESP8266 Adapter and Breakout Board Kit](http://store.hackaday.com/products/esp8266-adapter-and-breakout-board-kit-includes-esp8266-01)
 * [Update: ESP8266 Breadboard Adapter Board](http://lookmanowire.blogspot.com/2016/04/update-esp8266-breadboard-adapter-board.html)

@@ -1,6 +1,8 @@
 What about [Sublime](https://www.sublimetext.com/) and [Atom](https://atom.io/) or
 
 * [A tmux Primer](https://danielmiessler.com/study/tmux/)
+* [A quick introduction to tmux](https://opensource.com/article/17/2/quick-introduction-tmux?sc_cid=701600000012072AAA)
+* [A guide to Tmux that will increase your productivity](https://apiumtech.com/blog/tmux-cheat-sheet-tips-tricks/)
 * [rxvt-unicode / urxvt](http://www.slant.co/topics/794/compare/~terminator_vs_rxvt-unicode_vs_gnome-terminal)
 * [e3](http://manpages.ubuntu.com/manpages/xenial/man1/e3.1.html)
 * [Editor Wars](http://hackaday.com/2016/07/26/editor-wars/) and the topcic even has a [Wikipedia page](https://en.wikipedia.org/wiki/Editor_war#)

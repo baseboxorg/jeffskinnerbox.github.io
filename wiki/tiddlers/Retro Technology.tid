@@ -1,5 +1,5 @@
 created: 20141125030141346
-modified: 20161111175927944
+modified: 20170125202211229
 title: Retro Technology
 type: text/vnd.tiddlywiki
 
@@ -188,6 +188,11 @@ Check out the LM's [[Alignment Optical Telescope|http://hackaday.com/2016/09/06/
 Do you remember when computer graphics meet
 [[ASCII characters on paper via a teletype terminal|http://hackaday.com/2016/06/28/retrotechtacular-ascii-art-in-the-19th-century/]]?
 Well you can still find it in Linux .... [[check out asciiview|http://manpages.ubuntu.com/manpages/precise/man1/aview.1.html]].
+Also see [[jp2a|https://github.com/cslarsen/jp2a]],
+[[libcaca|http://caca.zoy.org/wiki/libcaca]],
+[[img2txt|https://github.com/hit9/img2txt]]
+and ther are
+[[others|http://melitamihaljevic.blogspot.com/2012/08/generating-ascii-art-linux-python.html]].
 
 [[VHF/UHF Analog TV|http://hackaday.com/2016/06/01/retrotechtacular-fog-over-portland/#more-206555]]
 with their mechanical turners can't be found anywhere today.

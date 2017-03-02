@@ -735,11 +735,15 @@ trying to login via SSH as root or bin user.
 ```bash
 # attacks on just port 22
 $ cat /var/log/auth.log | grep 'sshd.*Failed' | grep 'port 22' | wc
-    171    2814   18950
+    806   11825   81130
 
 # attacks on any port
 $ cat /var/log/auth.log | grep 'sshd.*Failed' | wc
-  11066  182457 1229596
+  57110  834856 5744670
+
+# failed login attempts
+$ sudo lastb | wc
+ 599078 5990758 43732586
 ```
 
 I also noticed that the attacker is attempting to use multiple originating ports in an effort

@@ -11,6 +11,12 @@
 * [Tracking of devices through passive listening of WiFi](http://developers-club.com/posts/252831/)
 * [Introduction to Wi-Fi (802.11 or WiFi)](http://ccm.net/contents/802-introduction-to-wi-fi-802-11-or-wifi)
 
+# Skyhook Precision Location
+Use Skyhook Precision Location on a Raspberry Pi device running Raspbian Linux.
+The device will continuously record its location, even when disconnected from the internet or not.
+
+* [Skyhook Wireless Developer Site](http://www.skyhookwireless.com/developers)
+
 # WiFi Modes
 A WiFi network device always operates in one (or for some special hardware,
 multiple modes as in AP+STA or WDS with AP Mode) of the six modes that 802.11 wireless cards can operate in:

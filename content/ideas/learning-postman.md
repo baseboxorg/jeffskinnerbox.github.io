@@ -60,6 +60,7 @@ There are several tools to choose from, but I have invested my time & efforts in
     and get insights for code optimization.
 
 # OAuth 2.0
+* [Using Postman Environment Variables & Auth Tokens](https://medium.com/@codebyjeff/using-postman-environment-variables-auth-tokens-ea9c4fe9d3d7#.ghq4nf8lp)
 * [Visualizing the OAuth 2.0 Client Flow](http://techblog.constantcontact.com/api/visualizing-the-oauth-2-0-client-flow/)
 * [Beer Locker: Building a RESTful API With Node - OAuth2 Server](http://scottksmith.com/blog/2014/07/02/beer-locker-building-a-restful-api-with-node-oauth2-server/)
 

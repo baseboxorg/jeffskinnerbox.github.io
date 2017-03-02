@@ -6,7 +6,10 @@ Slug: coaxial-cable-guide
 Author: Jeff Irland
 Summary: bla bla bla
 
-[UHF SO-239](https://www.amazon.com/Female-Chassis-Flange-Solder-Connector/dp/B007Q8JH4Y)
+* [UHF SO-239](https://www.amazon.com/Female-Chassis-Flange-Solder-Connector/dp/B007Q8JH4Y)
+* [RF Coax Cable Connectors](http://www.fmuser.net/content/?852.html)
+* [RF CONNECTORS, ATTENUATORS AND LOADS, TOGETHER WITH THEIR USES](http://www.harc.org.uk/?page=technical&sub=connectors)
+
 
 Essentials of Connector Technology
 * [element14 Essentials: Connectors I](https://www.element14.com/community/docs/DOC-81482?CMP=EMC-NEWSLETTER-APR16-ESSENTIALS-CONNECTORS-1)

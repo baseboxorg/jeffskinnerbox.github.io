@@ -13,6 +13,20 @@
 # WiFi Platfrom
 * [FIND is an internal positioning system](https://www.internalpositioning.com/)
 
+# Skyhook Precision Location
+Use Skyhook Precision Location on a Raspberry Pi device running Raspbian Linux.
+The device will continuously record its location, even when disconnected from the internet or not.
+
+* [Skyhook Wireless Developer Site](http://www.skyhookwireless.com/developers)
+
+# IndoorAtlas
+There are many different types of systems available on the market today
+including WiFi, Radio and Beacons.
+IndoorAtlas provides a unique cloud platform that runs a disruptive
+geomagnetic positioning in its core to accurately pinpoint a location inside a building.
+
+* [IndoorAtlas - Indoor positioning systems (IPS)](https://www.indooratlas.com/)
+
 # RFID Asset Tracking
 * [Your Own RFID Gateway Written in Node.js](http://www.spiria.com/en/blog/embedded-systems-and-m2m/your-own-rfid-gateway-written-nodejs)
 * [RFID-based Asset Tracking with Node.js and MongoDB](http://www.spiria.com/en/blog/embedded-systems-and-m2m/rfid-based-asset-tracking-nodejs-and-mongodb)

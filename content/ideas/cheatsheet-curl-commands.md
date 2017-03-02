@@ -106,6 +106,15 @@ And to use the URL name as the filename to store the result,
 use the command: `curl -O http://www.centos.org/index.html`
 and the output will be in the current directory, in file `index.html`.
 
+To not show the progress bar in the printout, use the `-sS` options.
+So using the above example again, you get no output (but you will see errors if they occur):
+
+    # suppress the progress output but otherwise output errors to STDERR
+    $ curl --fail --silent --show-error http://www.centos.org > $HOME/tmp/junk.html
+
+    # same effect
+    $ curl -sS http://www.centos.org > $HOME/tmp/junk.html
+
 ## Downloading Multiple Files
 We can download multiple files in a single shot by specifying the URLs on the command line.
 

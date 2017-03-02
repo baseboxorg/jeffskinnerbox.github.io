@@ -7,6 +7,7 @@
 
 # Object Recognition
 * [Google Cloud Platform Vision API](https://cloud.google.com/vision/docs/getting-started?utm_source=product-announcement&utm_medium=email&utm_campaign=2016-02-Vision-API&utm_content=NoFT)
+* [20+ Emotion Recognition APIs That Will Leave You Impressed, and Concerned](http://nordicapis.com/20-emotion-recognition-apis-that-will-leave-you-impressed-and-concerned/)
 
 # VMX
 [VMX Project: Computer Vision for Everyone](https://www.kickstarter.com/projects/visionai/vmx-project-computer-vision-for-everyone/posts/722323)

@@ -1,6 +1,7 @@
 Check out [Listen to the Globe](http://hackaday.com/2017/01/02/listen-to-the-globe/)
 
 * [Using the RTL-SDR in the Pothos Dataflow Processing Platform](http://www.rtl-sdr.com/using-rtl-sdr-pothos-dataflow-processing-platform/)
+* [csdr - build DSP processing chains by shell pipes](https://github.com/simonyiszk/csdr)
 * [Sniffing ANT-FS with an RTL-SDR and MMDS Downconverter in Pothos](http://www.rtl-sdr.com/sniffing-ant-fs-with-an-rtl-sdr-and-mmds-downconverter-in-pothos/)
 
 # Selecting a RTL-SDR

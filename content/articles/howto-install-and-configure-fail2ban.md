@@ -11,6 +11,8 @@ Summary: Fail2ban is an intrusion prevention software framework that protects co
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time." alt="fail2ban logo" src="{filename}/images/fail2ban-logo.png" width="100" height="100" /></a>
 Recently I examined my desktop computer's `sshd` log file `/var/log/auth.log`
 ([log samples from sshd][01]) looking for failed login attempts.
+(You could also use [`lastb`][23] which shows you the log file `/var/log/btmp`,
+containing all the bad login attempts)
 What I saw was a list of well over 100 attempts from a few IP addresses
 (125.88.177.90 - Guangdong, China,
 58.218.205.97 - Jiangsu region of China,
@@ -383,3 +385,4 @@ sort /etc/iptables/rules.v4 | uniq | grep DROP | awk '{ print $4 }' | sed 's/\/[
 [20]:http://linux.die.net/man/1/geoiplookup
 [21]:http://xmodulo.com/geographic-location-ip-address-command-line.html
 [22]:https://wiki.ubuntu.com/UncomplicatedFirewall
+[23]:http://www.computerhope.com/unix/last.htm

@@ -13,6 +13,8 @@
 * [The TTY demystified](http://www.linusakesson.net/programming/tty/)
 * [RPi Serial Connection](http://elinux.org/RPi_Serial_Connection)
 
+* [A brief history of USB, what it replaced, and what has failed to replace it](http://arstechnica.com/gadgets/2015/11/a-brief-history-of-usb-what-it-replaced-and-what-has-failed-to-replace-it-2/)
+
 HyperTerminal - HyperTerminal is the defacto terminal program for any Windows OS up to XP (you can find ports for other Windows versions).
 PuTTY
 Screen
@@ -42,6 +44,15 @@ This post shows in detailed steps how to open a serial connection to an embedded
 * [Back to Basics: The Universal Asynchronous Receiver/Transmitter (UART)](http://www.allaboutcircuits.com/technical-articles/back-to-basics-the-universal-asynchronous-receiver-transmitter-uart/?utm_source=All+About+Circuits+Members&utm_campaign=44def5ed41-EMAIL_CAMPAIGN_2016_12_28&utm_medium=email&utm_term=0_2565529c4b-44def5ed41-270523833/)
 * [Where does 9600 bps come from?](https://www.sparkfun.com/news/2231)
 * [UART Double Buffering Technique: Interrupt-Friendly](http://www.allaboutcircuits.com/technical-articles/uart-double-buffering-technique-interrupt-friendly/)
+* [UART Baud Rate: How Accurate Does It Need to Be?](https://www.allaboutcircuits.com/technical-articles/the-uart-baud-rate-clock-how-accurate-does-it-need-to-be/?utm_source=All+About+Circuits+Members&utm_campaign=e01676fafa-EMAIL_CAMPAIGN_2017_02_08&utm_medium=email&utm_term=0_2565529c4b-e01676fafa-270523833/)
+* [DISCOVERY: UARTS PART 1](http://embedded.fm/blog/2016/11/29/discovery-uarts-part-1)
+* [DISCOVERY: UARTS PART 2 - CONNECTIONS](http://embedded.fm/blog/2016/12/6/discovery-uarts-part-2-connections)
+* [DISCOVERY: UARTS PART 3 - THE FINAL STEP](http://embedded.fm/blog/2016/12/13/discovery-uarts-part-3-the-final-step)
+* [WHAT GOOD IS A UART? COMMAND CONSOLE!](http://embedded.fm/blog/2016/12/14/what-good-is-a-uart-command-console)
+* [DISCOVERY: UART INPUT](http://embedded.fm/blog/2017/1/19/discovery-uart-input)
+
+# SPI Bus
+* [SPI On Embedded Linux](http://hackaday.com/2017/02/19/spi-on-embedded-linux/)
 
 # I2C Bus
 * [Introduction to the I2C Bus](http://www.allaboutcircuits.com/technical-articles/introduction-to-the-i2c-bus/)

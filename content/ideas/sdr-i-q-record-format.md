@@ -7,7 +7,8 @@ Author: Jeff Irland
 Image: DRAFT_stamp.png
 Summary: abla bla bla
 
-[Accelerating Fourier transforms using the Raspberry Pi's GPU](http://www.raspberrypi.org/archives/5934)
+* [Accelerating Fourier transforms using the Raspberry Pi's GPU](http://www.raspberrypi.org/archives/5934)
+* [csdr - build DSP processing chains by shell pipes](https://github.com/simonyiszk/csdr)
 
 A signal is a varying physical quanity that conveys information about the behavior or attributes of some phenomenon.
 A [waveform][16] is the shape and form of a signal,

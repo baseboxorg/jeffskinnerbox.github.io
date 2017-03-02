@@ -104,6 +104,7 @@ can be used to forecast future probabilities with an acceptable level of reliabi
     * [Part One](https://medium.com/axiomzenteam/an-honest-guide-to-machine-learning-2f6d7a6df60e#.fkg18yn6n)
     * [Part Two - The Core of Machine Learning](https://medium.com/axiomzenteam/the-core-of-machine-learning-5319a57f2941#.2c5k99vaz)
     * [Part Three: Natural Language Processing](https://medium.com/axiomzenteam/honest-guide-to-machine-learning-part-three-54a1c71a9d64#.96np3m5k1)
+* [Tinker With a Neural Network in Your Browser](http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.56118&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
 * [Approaching (Almost) Any Machine Learning Problem](http://blog.kaggle.com/2016/07/21/approaching-almost-any-machine-learning-problem-abhishek-thakur/)
 * [Deep learning for complete beginners : Recognising handwritten digits by Cambridge Coding Academy](http://online.cambridgecoding.com/notebooks/cca_admin/deep-learning-for-complete-beginners-recognising-handwritten-digits?utm_source=mybridge&utm_medium=email&utm_campaign=read_more)
 * [Deep Learning in a Nutshell: Core Concepts](https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-core-concepts/)
@@ -150,6 +151,10 @@ can be used to forecast future probabilities with an acceptable level of reliabi
 * [TensorFlow - Getting Started](https://www.tensorflow.org/versions/r0.10/get_started/index.html)
 * [Magenta](https://magenta.tensorflow.org/welcome-to-magenta)
 * [Keras: Deep Learning library for Theano and TensorFlow](https://keras.io/)
+* [Traffic Sign Recognition with TensorFlow](https://medium.com/@waleedka/traffic-sign-recognition-with-tensorflow-629dffc391a6#.42p43a7dh)
+* [Intro to Machine Learning using Tensorflow – Part 1](https://blog.openshift.com/intro-machine-learning-using-tensorflow-part-1/?sc_cid=70160000001206iAAA)
+* [TensorFlow on the Edge, Part 1 of 5](https://dzone.com/articles/tensorflow-on-the-edge)
+* []()
 
 
 Simple Reinforcement Learning with Tensorflow

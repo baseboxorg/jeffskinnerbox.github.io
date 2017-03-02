@@ -84,6 +84,7 @@ The primary receiver used on the Titanic’s Marconi station was basically a 3-s
 * [Home Brew Vacuum Tubes Are Easier Than You Think](http://hackaday.com/2016/05/04/home-brew-vacuum-tubes-are-easier-than-you-think/)
 * [Artisanal Vacuum Tubes: Hackaday Shows You How](http://hackaday.com/2014/11/21/artisanal-vacuum-tubes-hackaday-shows-you-how/)
 * [Homemade Vacuum Tube Triode](http://www.sparkbangbuzz.com/els/hm-triode-el.htm)
+* [fabricating semiconductors at home](http://hackaday.com/2017/02/25/the-fab-lab-next-door-diy-semiconductors/)
 
 ## Capacitors
 * [Lint And Dog Hair Supercapacitor](http://hackaday.com/2016/04/30/lint-and-dog-hair-supercapacitor/)

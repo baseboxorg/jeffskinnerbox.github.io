@@ -1,20 +1,7 @@
 
-* [Learn Node.js via NodeSchool](http://nodeschool.io/)
-* [Version 0.13 released](http://nodered.org/blog/2016/01/18/version-0-13-released)
 * [Introduction to the MQTT Protocol on NodeMCU](http://www.allaboutcircuits.com/projects/introduction-to-the-mqtt-protocol-on-nodemcu/)
 * [Minimal MQTT: Networked Nodes](http://hackaday.com/2016/05/17/minimal-mqtt-networked-nodes/)
 
-* [Node-RED, wiring the Raspberry Pi to the IoT](http://www.networkworld.com/article/3075329/internet-of-things/node-red-wiring-the-raspberry-pi-to-the-iot.html)
-* [IOT made real – Using TI SensorTag data with Logentries and NodeRed](https://blog.logentries.com/2016/02/iot-made-real-using-ti-sensortag-data-with-logentries/)
-    * [Raspberry Pi, Logs and Iot – Sending Pi Log and Sensor Data to Logentries](https://dzone.com/articles/raspberry-pi-logs-and-iot-sending-pi-log-and-senso)
-* [Node Knockout 2013: Supercharge Your Node.js App With PubNub](https://www.pubnub.com/blog/2013-10-11-node-knockout-2013-supercharge-your-app-with-pubnub/)
-* [Connecting it All Together – PubNub and Node-RED](http://www.internetoflego.com/connecting-it-all-together-pubnub-and-node-red/)
-* [Node-Red Websockets Page : Scargill's Tech Blog](http://tech.scargill.net/a-node-red-websockets-web-page/)
-* [Node-Red Scheduler](http://tech.scargill.net/node-red-scheduler/)
-* [Pete Scargill's Node-Red Posts](http://tech.scargill.net/?s=node-red)
-* [Flow-based programming for the Internet of Things with Node-RED hosted on Microsoft Azure](http://embedded101.com/Blogs/PaoloPatierno/entryid/477/flow-based-programming-for-the-internet-of-things-with-node-red-hosted-on-microsoft-azure)
-* [Building IoT App with Node-Red](http://node-red-ws.mybluemix.net/presentation/index.html#slide-0)
-* [Making IFTTT (If This Then That) talk to Node-RED](https://harizanov.com/2015/03/making-ifttt-if-this-then-that-talk-to-node-red/)
 * [Baofeng (or other radio) data TX/RX for Raspberry Pi](http://flows.nodered.org/flow/d802e43ab306b4b9f2ba)
 
 * [Weather Station – DHT11, MQTT, Node-RED, Google Chart, Oh My!](http://www.internetoflego.com/weather-station-dht11-mqtt-node-red-google-chart-oh-my/)
@@ -33,69 +20,6 @@
 * [Minimal MQTT: Power and Privacy](http://hackaday.com/2016/06/02/minimal-mqtt-power-and-privacy/)
 * [Minimal MQTT: Control and Clients](http://hackaday.com/2016/05/27/minimal-mqtt-control-and-clients/)
 * []()
-
-# Creating a Node
-* [Creating a node for Node-RED: The Philips Hue Node](http://blog.buildinginternetofthings.com/2013/11/09/creating-a-node-for-node-red-the-philips-hue-node/)
-* []()
-
-# API Support
-* [node-red/node-red-node-swagger](https://github.com/node-red/node-red-node-swagger)
-* [Build a REST API For Your IoT Data Using MongoDB, Node-RED, and Bluemix](http://ryanjbaxter.com/2014/07/21/build-a-rest-api-for-your-iot-data-using-mongodb-node-red-and-bluemix/)
-* []()
-* []()
-* []()
-
-# Node-Red Alternatives
-* [World’s first Raspberry Pi drag-and-drop IoT project builder Cayenne launches today](http://siliconangle.com/blog/2016/01/26/worlds-first-raspberry-pi-drag-and-drop-iot-project-builder-cayenne-launches-today/)
-* [Cayenne Makes IoT Easy, Really Easy](http://www.i-programmer.info/news/91-hardware/9725-cayenne-makes-iot-easy-really-easy.html)
-* [Easy IoT for Raspberry Pi](http://www.cayenne-mydevices.com/)
-* [Node-RED on WRTnode](http://blog.thestateofme.com/2014/12/03/node-red-on-wrtnode/)
-
-# Display Boards
-* [node-red-contrib-freeboard](https://www.npmjs.com/package/node-red-contrib-freeboard)
-* []()
-* []()
-
-![node-red-pi](http://images.techhive.com/images/article/2016/05/raspberry-pi-2-node-red-100663608-primary.idge.png "When you want to connect an IoT device to anything, you should take a serious look at Node-RED, a free, open source visual process wiring system from IBM")
-[Node-RED][03] is a new [industry created open-source tool][02],
-created by the [IBM Emerging Technology team][01],
-that lets you build applications by simply wiring pieces together.
-These pieces can be hardware devices, web APIs, or online services.
-
-Node-RED is about making sense out of the Internet of Things.
-It’s about understanding how devices relate to each other and how they interact.
-Node-RED is built on top of Node.js
-and takes advantage of the huge node module ecosystem
-to provide a tool that is capable of integrating many different systems.
-Its lightweight nature makes it ideal to run at the edge of the network,
-such as on the Raspberry Pi, and other hack-friendly platforms.
-
-With Node-RED, the processing of messages is visualised
-as a graphical flow between “nodes” representing input,
-output or processing by Node-RED.
-A message is generated at an input node and is passed to any node that node’s out is connected to.
-Built on top of the Node.js platform,
-it is able to also handle connections to databases such as MongoDB,
-protocols such as TCP, UDP, HTTP and WebSockets
-and services like IRC or Twitter and has nodes that represent input or output to all of them.
-It also has nodes which allow you to change values in a message,
-process a messages with JavaScript, fill out a template, delay a message being passed on,
-select a path for a message to take, map numeric ranges or even do sentiment analysis on text.
-There’s also some handy file storage nodes and, to aid debugging,
-a message injector node and a debug output node.
-
-Node-RED frees up development time,
-eliminating the need to do repetitive programming tasks
-and instead enabling you to focus the high level problem.
-
-There is also a hosted Node-RED called [FRED][18].
-Doesn't appear to do anything other than remove the burden of manging you own
-Node.js and Node-RED environment.
-It does have a [Node-RED Programming Guide][17]
-which appears to provide better introductory documentation.
-
-# Node.js
-[Why The Hell Would I Use Node.js? A Case-by-Case Tutorial](http://www.toptal.com/nodejs/why-the-hell-would-i-use-node-js)
 
 # MQTT
 The original vision of the world of IoT was that all devices were addressable on the internet.
@@ -128,144 +52,6 @@ Wildcards allows subscribers,
 subject to a sufficient topic structure,
 to subscribe to many devices with just one request.
 
-# Getting Started
-The content here is lift for these sources:
-
-* [Getting started with Node-RED](https://opensource.com/life/16/5/getting-started-node-red)
-* [The Node-RED Getting Started page](http://nodered.org/docs/getting-started/)
-* [Raspberry Pi Hosting Node-Red](https://learn.adafruit.com/raspberry-pi-hosting-node-red/what-is-node-red)
-* [Node-RED Wiki](https://github.com/node-red/node-red/wiki)
-* [Raspberry Pi 2 Node-Red setup](https://swabbster.wordpress.com/2015/04/16/raspberry-pi2-node-red-setup/)
-* [Raspberry Pi + NodeJS](http://weworkweplay.com/play/raspberry-pi-nodejs/)
-
-* [node-red/node-red-nodes · GitHub](https://github.com/node-red/node-red-nodes)
-* [node-red-m2x 0.1.1](http://flows.nodered.org/node/node-red-m2x)
-* [Node-RED M2X Node](https://github.com/attm2x/node-red-m2x)
-
-## Installing Node-RED
-The easiest way to install Node-RED is to use node’s package manager, npm.
-Installing it as a global module adds the command node-red to your system path:
-
-```bash
-sudo apt-get update
-sudo apt-get install nodejs npm
-sudo npm install -g --unsafe-perm node-red
-```
-
-See [Node-RED Upgrade Documentation][04] for the purpose of the `--unsafe-perm` parameter.
-
-You'll also need to manually create a symlink `/usr/bin/node`.
-
-```bash
-sudo ln -s /usr/bin/nodejs /usr/bin/node
-```
-
->>WHY THE SYMLINK: There is a naming conflict with the node package (Amateur Packet Radio Node Program),
-and the nodejs binary has been renamed from node to nodejs.
-You'll need to symlink /usr/bin/node to /usr/bin/nodejs or you could uninstall
-the Amateur Packet Radio Node Program to avoid that conflict.
-
-To get the latest upgrade you can use
-`sudo npm update -g --unsafe-perm node-red`,
-but it is best to re-install Node-RED as follows:
-
-```bash
-sudo npm cache clean
-sudo npm install -g --unsafe-perm node-red
-```
-
-To get the bleeding edge Node-RED code from GitHub,
-Check out [Node-RED's Install documentation][06].
-
-For installing on Raspberry Pi.
-Check out [Node-RED's documentation][07] and [Adafruit's Tutorial][08].
-
-# Running Node-RED
-Check out [Node-RED Getting Started page][04] for full instructions on getting started.
-Basic steps once its install is the following:
-
-1. `node-red`
-1. Open `http://localhost:1880` in a browser
-
-Where Node-RED command line is:
-
-```
-Usage: node-red [-v] [-?] [--settings settings.js] [--userDir DIR] [flows.json]
-
-Options:
-  -s, --settings FILE  use specified settings file
-  -u, --userDir  DIR   use specified user directory
-  -v                   enable verbose output
-  -?, --help           show usage
-```
-
-By default, Node-RED stores your data in the directory `$HOME/.node-red`.
-To override what directory to use, the `--userDir` command-line option can be used.
-
-If you find it necessary to pass arguments to the underlying node.js process,
-see the [Node-RED Running documentation][09].
-
-## Adding Nodes
-Node-RED comes with a core set of useful nodes,
-but there are a growing number of additional nodes available for installing.
-You can search for available nodes in the [Node-RED library][10] or on the [npm repository][11].
-Some of the nodes also have dependencies on external libraries
-and without these being installed will not function correctly.
-
-To install an npm-packaged node,
-you can either install it locally within your user data directory
-(by default, `$HOME/.node-red`):
-
-```bash
-cd $HOME/.node-red
-npm install <npm-package-name>
-```
-
-or globally alongside Node-RED:
-
-```bash
-sudo npm install -g <npm-package-name>
-```
-
-It is also possible to install nodes by copying their `.js` and `.html` files
-into a nodes directory within your user data directory.
-If these nodes have any npm dependencies,
-they must be also be installed within the user data directory.
-
-In all cases, you will need to restart Node-RED for it to pick-up the new nodes.
-
-Some good nodes to add are:
-
-```bash
-sudo npm install -g node-red-node-ping          # Pings a machine and returns the trip time in mS.  Returns boolean false if no response received within 5 seconds, or if the host is unresolveable.
-sudo npm install -g node-red-node-mongodb
-```
-
-## Editing Nodes
-copy a node - ctrl-c
-paste a node - ctrl-v
-delete a node - delete or backspace
-
-## Importing Flows
-You can imported flows straight into the editor by pasting the JSON
-representing the flow into the Import dialog
-(`Ctrl-i` or via the dropdown menu within Node-RED).
-
-## Exporting Flows
-Use `Ctrl-a` to select all the flows on the tab and `Ctrl-e`  to popup the flow.
-From there, you can do copy the flow to your clipboard.
-
-# Example
-[OwnTracks is a phone app][12] allows you to keep track of your own location via your cell phones GPS.
-You can do such things as build your private location diary or share it with others.
-[OwnTrack's documentation][13] says that its open-source and uses MQTT to publish its information.
-
-To test things out, I first attempted tp use [hosted mode][15] and
-signed up to [OwnTracks public MQTT Broker][14].
-I couldn't get this configured and it showed no interest in the OwnTracks user community,
-so I turned to [AWS's CloudMQTT][19] to establish a private MQTT broker.
-From a security stand point, it couild be best to create
-your own private MQTT broker and [OwnTracks shows you how][16].
 
 There are several MQTT brokers available,
 such as the popular [Mosquitto MQTT Broker][24]
@@ -409,24 +195,12 @@ and frankly, doesn't appear to have much support behind it.
 
 
 
-[01]:https://www-304.ibm.com/connections/blogs/et/entry/node-red?lang=en_us
-[02]:https://developer.ibm.com/open/node-red/
-[03]:http://nodered.org/
-[04]:http://nodered.org/docs/getting-started/upgrading.html
-[05]:http://nodered.org/docs/getting-started/
-[06]:http://nodered.org/docs/getting-started/installation.html
-[07]:http://nodered.org/docs/hardware/raspberrypi.html#starting-node-red
-[08]:https://learn.adafruit.com/raspberry-pi-hosting-node-red?view=all#what-is-node-red
-[09]:http://nodered.org/docs/getting-started/running.html
-[10]:http://flows.nodered.org/
-[11]:https://www.npmjs.com/browse/keyword/node-red
 [12]:https://play.google.com/store/apps/details?id=org.owntracks.android
 [13]:http://owntracks.org/booklet/
 [14]:https://hosted.owntracks.org
 [15]:http://owntracks.org/booklet/features/hosted/
 [16]:http://owntracks.org/booklet/guide/broker/
-[17]:http://noderedguide.com/
-[18]:https://fred.sensetecnic.com/
+
 [19]:https://www.cloudmqtt.com/
 [20]:https://community.owntracks.org/topic/23/node-red
 [21]:http://www.mosca.io/

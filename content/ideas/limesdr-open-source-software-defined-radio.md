@@ -1,8 +1,11 @@
 * [quicky intro to sdr](http://hackaday.com/2016/05/30/hackaday-dictionary-software-defined-radio-sdr/)
+* [Open source SDR board teams up with Snappy Ubuntu](http://linuxgizmos.com/open-source-sdr-sbc-runs-snappy-ubuntu-on-cyclone-v/)
 * [Sodera - Your Introduction into SDR](http://sodera.de/)
 * LimeSDR and its toolchain have already been used to create a Wireless Multi-tool for IoT, [Part 1](http://www.rs-online.com/designspark/electronics/eng/blog/an-intel-powered-wireless-multi-tool-for-the-iot-part-1), [Part 2](http://www.rs-online.com/designspark/electronics/eng/blog/an-intel-powered-wireless-multi-tool-for-the-iot-part-2), [source code](https://github.com/DesignSparkrs/sdr-ble-demo/)
 * [Cyberspectrum SDR Meetup](https://kb.ettus.com/Cyberspectrum)
 * [Gqrx SDR](http://gqrx.dk/)
+* [csdr - build DSP processing chains by shell pipes](https://github.com/simonyiszk/csdr)
+* [Optimising Performance on HF](https://www.crowdsupply.com/lime-micro/limesdr/updates/optimising-performance-on-hf?utm_source=LimeSDR+supporters&utm_campaign=6181a14370-Update_LimeSDR_optimising_HF_2017_02_14&utm_medium=email&utm_term=0_1e5a81cd57-6181a14370-112302893)
 
 ![limesdr](https://www.crowdsupply.com/img/31d2/limesdr-7_jpg_project-body.jpg)
 Ever since I become aware of [RTL-SDR][20] and how it could be used to create

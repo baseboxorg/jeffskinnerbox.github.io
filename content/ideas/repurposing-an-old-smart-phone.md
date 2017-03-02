@@ -1,5 +1,6 @@
 
-[Hack your Android phone (or Tablet)](http://www.instructables.com/id/Hack-your-Android-phone/?ALLSTEPS)
+* [Hack your Android phone (or Tablet)](http://www.instructables.com/id/Hack-your-Android-phone/?ALLSTEPS)
+* [20+ Emotion Recognition APIs That Will Leave You Impressed, and Concerned](http://nordicapis.com/20-emotion-recognition-apis-that-will-leave-you-impressed-and-concerned/)
 
 # turning into terminal or monitor
 * [Turn your Android device into a Linux desktop PC - without rooting](https://www.androidpit.com/turn-your-android-device-into-a-linux-pc-without-rooting)

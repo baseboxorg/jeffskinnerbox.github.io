@@ -195,8 +195,13 @@ any interface not listed there will remain under NetworkManager control.
     across network connections, using TCP or UDP protocol.
     It is designed to be a reliable "back-end" tool that can
     be used directly or easily driven by other programs and scripts.
+    * [`ncat`][23] is a feature-packed networking utility which reads and writes
+    * [`socat`][67] is as the cat command which transfers data between two locations rather
+    than from a file to standard output.  You can grab data from a network socket, named pipe,
+    or even setup a general virtual network interface as one end point.
+    * [`wscat`][68] allows you to connect directly to a websocket server
+    and receive/send data in a terminal like environment.
     * [`blucat`](http://blucat.sourceforge.net/blucat/) is netcat for Bluetooth
-    * [`ncat][23] is a feature-packed networking utility which reads and writes
     data across networks from the command line.
     Ncat was written a much-improved reimplementation of `netcat`. `ncat` will work with IPv4,
     IPv6, and has many potential uses.
@@ -529,6 +534,12 @@ Address                  HWtype  HWaddress           Flags Mask            Iface
 192.168.1.4              ether   a0:99:9b:19:8c:ff   C                     eth0
 192.168.1.154            ether   74:75:48:dc:6e:b3   C                     eth0
 192.168.1.1              ether   48:5d:36:2e:ee:06   C                     wlan0
+```
+
+```bash
+# ping scan the network to assure host becomes visiable and the search for the MAC address
+$ nmap -sP 192.168.1.255/24 > /dev/null ; arp -na | grep "at 00:17:88"
+? (192.168.1.34) at 00:17:88:4a:15:15 [ether] on eth0
 ```
 
 If you cannot find your device,
@@ -1403,6 +1414,10 @@ could be gathered for this cheat sheet.
 # Arbitrary Network Packets
 * [HOWTO: Crafting arbitrary network packets with socat](http://discourse.criticalengineering.org/t/howto-crafting-arbitrary-network-packets-with-socat/51/last)
 * [socat: Linux / UNIX TCP Port Forwarder](http://www.cyberciti.biz/faq/linux-unix-tcp-port-forwarding/)
+* [socat: The General Bidirectional Pipe Handler](https://www.linux.com/news/socat-general-bidirectional-pipe-handler)
+* [Some useful socat commands](http://technostuff.blogspot.com/2008/10/some-useful-socat-commands.html)
+* [Socat, Another Network Swiss Army Knife](https://blog.rootshell.be/2010/10/31/socat-another-network-swiss-army-knife/)
+* [Hands-on learning about network protocols using socat](http://www.volkerschatz.com/net/socatproc.html)
 
 
 
@@ -1472,7 +1487,7 @@ could be gathered for this cheat sheet.
 [64]:https://opensource.com/business/16/8/introduction-linux-network-routing
 [65]:https://www.blackmoreops.com/2015/12/31/use-arp-scan-to-find-hidden-devices-in-your-network/
 [66]:http://www.nta-monitor.com/wiki/index.php/Arp-scan_User_Guide
-[67]:
-[68]:
+[67]:http://www.kitploit.com/2015/02/socat-multipurpose-relay-socket-cat.html
+[68]:https://blog.grandcentrix.net/a-command-line-websocket-client/
 [69]:
 [70]:

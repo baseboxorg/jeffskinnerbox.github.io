@@ -21,7 +21,7 @@ Check out
 * [The Development Of A Lightweight Wireless Protocol](http://hackaday.com/2014/06/12/the-development-of-a-lightweight-wireless-protocol/)
 * [A wireless door monitor based on the BANO framework](http://www.embeddedrelated.com/showarticle/605.php)
 * [RFToy](http://rayshobby.net/rftoy/)
-* []()
+* [BLE advertising beacons using an nRF24L01+ module ](http://hackaday.com/2016/06/21/hackaday-prize-entry-ble-beacon-library/)
 * []()
 
 ![nRF24L01+](/img/posts/jekyll-posts/nRF24L01P+.jpg)
