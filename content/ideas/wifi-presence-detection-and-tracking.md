@@ -11,6 +11,17 @@
 * [Tracking of devices through passive listening of WiFi](http://developers-club.com/posts/252831/)
 * [Introduction to Wi-Fi (802.11 or WiFi)](http://ccm.net/contents/802-introduction-to-wi-fi-802-11-or-wifi)
 
+
+# Telemetry over Opportunistic WiFi Links
+* [How DNS Tunneling Works](http://inside-out.xyz/technology/how-dns-tunneling-works.html)
+* [DNS Tunneling: Getting The Data Out Over Other Peoples’ WiFi](http://hackaday.com/2016/08/07/getting-the-data-out-over-other-peoples-wifi/)
+* [TOWL - Telemetry over Opportunistic WiFi Links](http://www.phreakmonkey.com/2016/08/towl-telemetry-over-opportunistic-wifi.html)
+* [Nameserver Transfer Protocol (NSTX)](http://thomer.com/howtos/nstx.html)
+* [iodine](http://code.kryo.se/iodine/)
+* [dnscat2 – DNS Tunnel Tool](http://www.darknet.org.uk/2016/01/dnscat2-dns-tunnel-tool/)
+* [Tunneling Data and Commands Over DNS to Bypass Firewalls](https://zeltser.com/c2-dns-tunneling/)
+* [PowerShell DNS Command & Control with dnscat2-powershell](http://www.blackhillsinfosec.com/?p=5578)
+
 # Skyhook Precision Location
 Use Skyhook Precision Location on a Raspberry Pi device running Raspbian Linux.
 The device will continuously record its location, even when disconnected from the internet or not.

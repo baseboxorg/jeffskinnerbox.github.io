@@ -3,6 +3,7 @@
 * [Alexa Skills Kit Tutorial: The Guide To Build Your Alexa Skill](http://blog.anythings.co/alexa-skills-kit-tutorial/)
 * [Get Your Music Into Amazon Music So Alexa Can Play It](http://lovemyecho.com/2015/07/03/getting-your-music-into-amazon-music-library-so-echo-can-play-it/)
 * [step-by-step walkthrough to help you build a hands-free Alexa Voice Service (AVS)](https://github.com/alexa/alexa-avs-sample-app)
+* [Alexa, Are You Recording Me?](https://www.linkedin.com/pulse/alexa-you-recording-me-brian-horton-ceo-cissp)
 
 
 
@@ -62,6 +63,7 @@ Unfortanately, Alexa doesn't support this but [Jasper does](http://jasperproject
 
 # Quick Start
 * [Alexa, What’s for Lunch?](https://iot-for-all.com/alexa-whats-for-lunch-fb02062e54b9#.srij2ojnh)
+* [Getting Started with the Alexa Voice Service](https://developer.amazon.com/public/solutions/alexa/alexa-voice-service/getting-started-with-the-alexa-voice-service)
 
 # Streaming Music
 * [Pair Your Mobile Device with Echo](https://www.amazon.com/gp/help/customer/display.html?nodeId=201549660)
@@ -120,6 +122,9 @@ Unfortanately, Alexa doesn't support this but [Jasper does](http://jasperproject
 * [Mycroft: An Open Source Artificial Intelligence For Everyone](https://www.kickstarter.com/projects/aiforeveryone/mycroft-an-open-source-artificial-intelligence-for?ref=card)
 * [Mycroft: A.I. for everyone](https://mycroft.ai/)
 
+# ESP8266
+* [Easy Alexa (or Echo) Control of your ESP8266 Huzzah](https://learn.adafruit.com/easy-alexa-or-echo-control-of-your-esp8266-huzzah)
+* [Alexa, Make My ESP8266 Do Something](http://hackaday.com/2016/11/23/alexa-make-my-esp8266-do-something/)
 
 # Setting Up Your Echo or Echo Dot
 Amazon's ["Getting Started with Echo Dot"][01], ["Set Up Your Echo Dot"][02]
@@ -189,6 +194,10 @@ interesting Internet-enabled speech application using this API.
 
 [eSpeak](https://en.wikipedia.org/wiki/ESpeak) is a compact open source software speech synthesizer for Linux, Windows, and other platforms
 
+# Implementing Alexa Skills
+To implement a Home Skill there are several parts that need to created.
+see the text here - https://www.hardill.me.uk/wordpress/2016/11/05/alexa-home-skill-for-node-red/
+
 
 # First Alexa Skill (Ask Google)
 # Doing Google Search via Alexa
@@ -215,6 +224,12 @@ that you need to enter into various forms.
 * [How to add Google’s Voice Assistant to Alexa on the Amazon Echo and Fire TV](http://www.aftvnews.com/how-to-add-googles-voice-assistant-to-alexa-on-the-amazon-echo-and-fire-tv/)
 * [Install ‘Ask Google’ Alexa Skill](http://alexamods.com/guide-install-ask-google-alexa-skill/)
 * [How to Publish an Alexa Skill: from beginning to end](https://www.hackster.io/daquilnp/how-to-publish-an-alexa-skill-from-beginning-to-end-82167c?utm_source=hackster&utm_medium=email&utm_campaign=new_projects)
+
+# Node-RED and Amazon Echo
+This node allows you to hook up Node-RED to react to your Amazon Echo.
+
+* [ALEXA HOME SKILL FOR NODE-RED](https://www.hardill.me.uk/wordpress/2016/11/05/alexa-home-skill-for-node-red/)
+* [node-red-contrib-alexa-home-skill]()
 
 
 

@@ -28,6 +28,7 @@
 * [Battery Backup For The Raspberry Pi](http://hackaday.com/2016/03/17/battery-backup-for-the-raspberry-pi/)
 
 ## DC/DC Boost Converter
+* [A PRIMER ON BUCK (AND BOOST) CONVERTERS](http://hackaday.com/2015/01/24/a-primer-on-buck-and-boost-converters/)
 * https://www.adafruit.com/products/1903
 * https://www.adafruit.com/products/2030
 

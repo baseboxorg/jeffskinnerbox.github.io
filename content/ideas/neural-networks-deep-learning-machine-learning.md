@@ -1,5 +1,6 @@
 # Definitions
 http://searchbusinessanalytics.techtarget.com/definition/deep-learning
+
 ## Artificial Intelligence
 * **Artificial Intelligence (AI)** is the simulation of human intelligence processes by machines,
 especially computer systems.
@@ -43,6 +44,7 @@ can be used to forecast future probabilities with an acceptable level of reliabi
 # Deep Learning
 * [Dive Deep Into Deep Learning](https://dzone.com/articles/dive-deep-into-deep-learning-using-h2o?edition=248483&utm_source=DailyDigest&utm_medium=email&utm_campaign=dd2016-12-03)
 * [Deep Learning Cheat Sheet](https://hackernoon.com/deep-learning-cheat-sheet-25421411e460#.nrskk2iyy)
+* [Deep Learning in your browser](http://cs.stanford.edu/people/karpathy/convnetjs/)
 
 # Machine Learning
 [Ten Myths About Machine Learning](https://medium.com/@pedromdd/ten-myths-about-machine-learning-d888b48334a3#.cd074sawz)
@@ -82,6 +84,9 @@ can be used to forecast future probabilities with an acceptable level of reliabi
 * [The Neural Network Zoo](http://www.asimovinstitute.org/neural-network-zoo/?utm_source=mybridge&utm_medium=email&utm_campaign=read_more)
 * [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 * [Foundations for Machine Learning and Data Science for Developers](https://drive.google.com/file/d/0BzipSlf0e7yCMzc0QlVuLXE2d1k/view?usp=sharing)
+* [6 areas of AI and machine learning to watch closely](https://medium.com/@NathanBenaich/6-areas-of-artificial-intelligence-to-watch-closely-673d590aa8aa#.pojmsvk8l)
+* [DeepMind’s PathNet: A Modular Deep Learning Architecture for AGI](https://medium.com/intuitionmachine/pathnet-a-modular-deep-learning-architecture-for-agi-5302fcf53273#.v3t0suymk)
+* [Deep Learning is Non-Equilibrium Information Dynamics](https://medium.com/intuitionmachine/deep-learning-is-non-equilibrium-information-dynamics-b00baa16b135#.glraw0bp9)
 
 # Artistic Use of Deep Learning
 * [This is What Happens When Deep Learning Neural Networks Hallucinate](http://thenewstack.io/deep-learning-neural-networks-google-deep-dream/)
@@ -154,7 +159,7 @@ can be used to forecast future probabilities with an acceptable level of reliabi
 * [Traffic Sign Recognition with TensorFlow](https://medium.com/@waleedka/traffic-sign-recognition-with-tensorflow-629dffc391a6#.42p43a7dh)
 * [Intro to Machine Learning using Tensorflow – Part 1](https://blog.openshift.com/intro-machine-learning-using-tensorflow-part-1/?sc_cid=70160000001206iAAA)
 * [TensorFlow on the Edge, Part 1 of 5](https://dzone.com/articles/tensorflow-on-the-edge)
-* []()
+* [3 cool machine learning projects using TensorFlow and the Raspberry Pi](https://opensource.com/article/17/2/machine-learning-projects-tensorflow-raspberry-pi)
 
 
 Simple Reinforcement Learning with Tensorflow

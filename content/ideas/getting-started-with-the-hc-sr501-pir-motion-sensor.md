@@ -46,6 +46,10 @@ http://www.instructables.com/id/PIR-Motion-Sensor-Tutorial/
 https://www.mysensors.org/build/motion
 http://blog.roman-mueller.ch/index.php/2013/01/26/hc-sr501-passive-infrared-sensor-with-arduino/
 
+* [ESP8266_PIRv2 - ESP8266 Huzzah Deep Sleep Mode PIR Motion Alarm using IFTTT](https://github.com/rgrokett/ESP8266_PIRv2)
+* [Passive infrared (PIR) sensor tutorial](https://hackaday.com/2009/08/21/passive-infrared-pir-sensor-tutorial/)
+
+
 
 
 [01]:http://www.datasheet-pdf.download/hc-sr501-pir-motion-sensor/

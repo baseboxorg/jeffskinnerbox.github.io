@@ -2,6 +2,7 @@
 Some simple weather station setups:
 Nice Design
 * [ESP8266 WiFi Weather Station with Color TFT Display](https://learn.adafruit.com/wifi-weather-station-with-tft-display)
+* [IoT Made Simple: Home Weather Station With NodeMCU and OLED](https://www.hackster.io/mjrobot/iot-made-simple-home-weather-station-with-nodemcu-and-oled-27d3a9?utm_source=Hackster.io+newsletter&utm_campaign=4b02ca6d33-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-4b02ca6d33-140225889&mc_cid=4b02ca6d33&mc_eid=9036129d51)
 
 * [Weather Station – DHT11, MQTT, Node-RED, Google Chart, Oh My!](http://www.internetoflego.com/weather-station-dht11-mqtt-node-red-google-chart-oh-my/)
 * [Hyper-local Weather Dashboard: Wunderground + Pi Sense HAT](https://github.com/InitialState/wunderground-sensehat/wiki)

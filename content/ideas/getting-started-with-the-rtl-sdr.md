@@ -3,6 +3,7 @@ Check out [Listen to the Globe](http://hackaday.com/2017/01/02/listen-to-the-glo
 * [Using the RTL-SDR in the Pothos Dataflow Processing Platform](http://www.rtl-sdr.com/using-rtl-sdr-pothos-dataflow-processing-platform/)
 * [csdr - build DSP processing chains by shell pipes](https://github.com/simonyiszk/csdr)
 * [Sniffing ANT-FS with an RTL-SDR and MMDS Downconverter in Pothos](http://www.rtl-sdr.com/sniffing-ant-fs-with-an-rtl-sdr-and-mmds-downconverter-in-pothos/)
+* [SDR (Software Defined Radio)](http://osmocom.org/projects/sdr/wiki/rtl-sdr)
 
 # Selecting a RTL-SDR
 [RTL-SDR.COM][15] is an excelent souce for the latest intell on the RTL-SDR,
@@ -11,10 +12,17 @@ This includea a [Quick Start Guide][16], [RTL-SDR Buyers Guide][17],
 and a large set of [Tutorials][18].
 Anothe excellent source is [Radio for Everyone][19].
 
+* [An Introductory Project for Software Defined Radio](https://www.allaboutcircuits.com/projects/an-introductory-project-for-software-defined-radio/?utm_source=All+About+Circuits+Members&utm_campaign=e01676fafa-EMAIL_CAMPAIGN_2017_02_08&utm_medium=email&utm_term=0_2565529c4b-e01676fafa-270523833/)
+* [Buy RTL-SDR Dongles](http://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/)
+* [Getting Started with RTL-SDR and SDR-Sharp](https://cdn-learn.adafruit.com/downloads/pdf/getting-started-with-rtl-sdr-and-sdr-sharp.pdf)
+* [RTLSDR4Everyone: The best RTL-SDR setup for $60](http://www.rtl-sdr.com/rtlsdr4everyone-the-best-rtl-sdr-set-up-for-60/)
 * [RTL_SDR Blog V3 Dongles User Guide](http://www.rtl-sdr.com/rtl-sdr-blog-v-3-dongles-user-guide/)
 * [The Hobbyist's Guide to the RTL-SDR: Really Cheap Software Defined Radio](https://www.amazon.com/gp/product/B00KCDF1QI/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00KCDF1QI&linkCode=as2&tag=book0674-20&linkId=RSP53QLYXP4IS32X)
 * [RTL_SDR for Linux Quick Start Guide](http://www.rtl-sdr.com/a-good-quickstart-guide-for-rtl-sdr-linux-users/)
-* [Getting Started with RTL-SDR and SDR-Sharp](https://cdn-learn.adafruit.com/downloads/pdf/getting-started-with-rtl-sdr-and-sdr-sharp.pdf)
+
+# Setup
+* [New Linux RTL-SDR Driver with Fully Exposed Controls](http://www.rtl-sdr.com/new-linux-rtl-sdr-driver-with-fully-exposed-controls/)
+* [Raspberry Pi SDR](http://hackaday.com/2017/01/27/raspberry-pi-sdr/)
 
 # Installing GNU Radio
 
@@ -29,6 +37,7 @@ Anothe excellent source is [Radio for Everyone][19].
 Bias-T is nothing more than a simple diplexer.
 
 * [DIY Bias-T](http://lna4all.blogspot.com/2014/11/diy-bias-t.html)
+* [RTL-SDR Bias Tee Hack](http://www.rtl-sdr.com/rtl-sdr-bias-tee-hack/)
 
 http://forums.solidsignal.com/showthread.php/167-Diplexer-Splitter-Combiner-What-are-these-things
 
@@ -77,7 +86,6 @@ make
 ```
 
 I did the commands below because "make install" failed
-
 ``` bash
 cd src
 /usr/bin/install -c kal '/home/jeff/bin'
@@ -111,6 +119,18 @@ Improving Your SDR Radio
 * [Adding more frequencies to your software defined radio][12]
 * [Improving a software defined radio with a few bits of wire][13]
 * [RTL-SDR Improvement Tips][14]
+
+# RTL-SDR Based Tools
+* [RFTap: A Bridge Between GNURadio and Wireshark](http://www.rtl-sdr.com/rftap-a-bridge-between-gnuradio-and-wireshark/)
+* [SDRDue: New Software for Passive Radar with Two Coherent RTL-SDR Dongles](http://www.rtl-sdr.com/sdrdue-new-software-for-passive-radar-with-two-coherent-rtl-sdr-dongles/)
+* [SDR Spectrum Grabber](http://hackaday.com/2016/11/18/cache-shortwave-signals-for-later-with-this-sdr-spectrum-grabber/)
+* [Reverse Engineering Signals with the Universal Radio Hacker Software](http://www.rtl-sdr.com/reverse-engineering-signals-universal-radio-hacker-software/)
+
+# Projects
+* [Using MATLAB and SDR to Reverse Engineer 433MHz Messages](http://hackaday.com/2015/02/16/using-matlab-and-sdr-to-reverse-engineer-433mhz-messages/)
+* [Building A LoRa PHY With SDR](http://hackaday.com/2016/11/18/building-a-lora-phy-with-sdr/)
+* [WSPR reception setup using RTL-SDR dongle V3](https://docs.google.com/document/d/10_xEGW_tdC7LhA-5_UE7ZmgMfPv4ySvz6DQrv02X4ek/mobilebasic)
+* [RTL-SDR Tutorial: GPS Decoding and Plotting](http://www.rtl-sdr.com/rtl-sdr-tutorial-gps-decoding-plotting/)
 
 
 

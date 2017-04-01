@@ -1,3 +1,5 @@
+* [10 tips for DIY IoT home automation](https://opensource.com/life/16/9/iot-home-automation-projects?sc_cid=701600000012AJUAA2)
+
 # openHAB
 * [openHAB](http://www.openhab.org/index.html)
 * [$20 Wireless Arduino Home Automation w/ OpenHAB](http://hackaday.io/project/1720-20-wireless-arduino-home-automation-w-openhab)
@@ -7,9 +9,10 @@
 * [OpenHAB App](https://play.google.com/store/apps/details?id=org.openhab.habdroid&hl=en)
 * [Uber Home Automation w/ Arduino & Pi](http://www.instructables.com/id/Uber-Home-Automation-w-Arduino-Pi/?ALLSTEPS)
 
-# Alternatives ot openHAB
+# Alternatives to openHAB
+* [5 open source home automation tools](https://opensource.com/life/16/3/5-open-source-home-automation-tools)
+* [Home Assistant](https://home-assistant.io/)
 * [Domoticz](http://domoticz.com/)
-* [5 open source home automation tools](https://opensource.com/life/16/3/5-open-source-home-automation-tools?sc_cid=70160000000q67uAAA)
 
 # OpenRemote
 * [OpenRemote](http://www.openremote.org/display/HOME/OpenRemote)

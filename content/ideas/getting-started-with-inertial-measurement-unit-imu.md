@@ -48,6 +48,7 @@ Comparison of five Inertial Measurement Unit (IMU)
 * [Adafruit Triple-axis Accelerometer + Magnetometer (Compass) Board - LSM303, $14.95](https://www.adafruit.com/products/1120) - You have this
 * [Adafruit Triple-axis Magnetometer (Compass) Board - HMC5883L, $9.95](https://www.adafruit.com/products/1746) - You **DO NOT** have this
 * [SparkFun Triple Axis Accelerometer - LIS3DH, $4.95](https://www.sparkfun.com/products/13963) - You **DO NOT** have this
+* [Learn how to use the LIS3DH accelerometer with CircuitPython!](https://learn.adafruit.com/circuitpython-hardware-lis3dh-accelerometer)
 
 
 # What Is an Inertial Measurement Unit?
@@ -124,6 +125,9 @@ Adafruit's 9-DOF
 
 Adifruit's 3-DOF
 * [HMC5883L][09] - 3-axis digital magnetometer designed for low-field magnetic sensing. The sensor has a full-scale range of ±8 Guass and a resolution of up to 5 milli-Gauss.
+
+What about [Adafruit 9-DOF Absolute Orientation IMU Fusion Breakout - BNO055](https://www.adafruit.com/product/2472)
+[Capturing IMU Data with a BNO055 Absolute Orientation Sensor](https://www.allaboutcircuits.com/projects/bosch-absolute-orientation-sensor-bno055/?utm_source=All+About+Circuits+Members&utm_campaign=498644bd29-EMAIL_CAMPAIGN_2017_03_23&utm_medium=email&utm_term=0_2565529c4b-498644bd29-270523833/)
 
 # SparkFun
 [SAMD21][07] - Atmel’s SAMD21, is an Arduino-compatible, 32-bit ARM Cortex-M0+ microcontroller (used on the [SparkFun SAMD21 Mini Breakout][08])

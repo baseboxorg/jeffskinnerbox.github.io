@@ -27,6 +27,7 @@ I bought it because its programmability and others have successfully hacked it
 Some examples of this are:
 
 * [Take it Apart - Baofeng UV-5R+ 136-174 400-480 MHz FM Transceiver](https://www.takeitapart.com/guide/9)
+* [Teardown Tuesday: Baofeng Amateur Radio Transceiver](https://www.allaboutcircuits.com/news/teardown-tuesday-baofeng-amateur-radio-transceiver/?utm_source=All+About+Circuits+Members&utm_campaign=3488ffa7b4-EMAIL_CAMPAIGN_2017_03_09&utm_medium=email&utm_term=0_2565529c4b-3488ffa7b4-270523833/)
 * [Baofeng (or other radio) data TX/RX for Raspberry Pi](http://flows.nodered.org/flow/d802e43ab306b4b9f2ba)
 * [Baofeng UV-5R Series Programming](http://www.miklor.com/uv5r/)
 * [CHIRP](http://chirp.danplanet.com/projects/chirp/wiki/Home)

@@ -6,6 +6,7 @@
 * [Will BLE be the death of traditional RTLS? - the follow up](https://www.linkedin.com/pulse/ble-death-traditional-rtls-follow-up-mark-brown?trk=eml-b2_content_ecosystem_digest-network_publishes-49-null&midToken=AQFNblHgIt9-6A&fromEmail=fromEmail&ut=2dOzXtHst4JD81)
 * [BLE advertising beacons using an nRF24L01+ module ](http://hackaday.com/2016/06/21/hackaday-prize-entry-ble-beacon-library/)
 * [Bluetooth Devices Can Now Be Controlled From The Web Through Node.js](https://arc.applause.com/2016/02/12/bluetooth-gateway-navible-node-js/)
+* [Introducing the Adafruit Bluefruit LE Friend](https://learn.adafruit.com/introducing-adafruit-ble-bluetooth-low-energy-friend)
 
 # Bluetooth Standards
 Bluetooth is one of the mainstays of the gadget world,
@@ -149,6 +150,7 @@ but [no specific timeline for specfications to be delivered][37].
 
 # Apple iBeacon
 * [linux-ibeacon - Python script that creates an Apple iBeacon®-compatible Bluetooth LE beacon using a computer running Linux and a Bluetooth LE adapter](https://github.com/dburr/linux-ibeacon/)
+* [iBeacon vs Eddystone – which is the better one for your business?](https://www.whatech.com/mobile-apps/blog/271289-ibeacon-vs-eddystone-which-is-the-better-one-for-your-business)
 
 # Google Eddystone
 Eddystone is an open beacon format from Google.
@@ -166,12 +168,23 @@ You can build simple interactions between [nearby][10] devices and people:
 * Nearby Connections enables your app to easily discover other devices on a local network, connect, and exchange messages in real-time. Use Nearby Connections to create multiplayer and multi-screen experiences.
 * Nearby Notifications is a new feature allowing developers to tie an app or website to a BLE beacon and create contextual notifications, even with no app installed.
 
+Eddystone has the advantage of transmitting rich and strong data to your devices.
+While iBeacon uses only one packet of identification,
+Eddystone uses three different kinds – UID, URL and TIM.
+
+* UID -
+* URL - With this Eddystone URL, you can reach out to the Google Chrome
+and Google Now users through the Physical Web functionality.
+* TLM - With Eddystone TLM, you can get data on your Beacon, its battery level, packets sent, etc.
+
 * [Chrome for Android Gets Support for Google's Eddystone Beacon Platform](http://gadgets.ndtv.com/apps/news/chrome-for-android-gets-support-for-googles-eddystone-beacon-platform-801234)
 * [Google’s ‘open’ eddystone vs apple’s ibeacon – which one works better for you](https://www.whatech.com/development/press-release/254801-google-s-open-eddystone-vs-apple-s-ibeacon-which-one-works-better-for-you)
 
 # UriBeacon
 UriBeacon (pronounced YUR-ee-BEE-kun) is evolving to become part of the
 [Eddystone open beacon format](https://github.com/google/eddystone)!
+
+* [DIY Google's "Physical Web" UriBeacons with the Bluefruit LE Friend](https://learn.adafruit.com/google-physical-web-uribeacon-with-the-bluefruit-le-friend/getting-started)
 
 # Physical Web Beacons
 [!physical-web-logo](http://bkon.com/wp-content/uploads/2015/12/Physical-Web-Logo-Large-122915.png)

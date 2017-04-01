@@ -8,6 +8,7 @@
 http://restcookbook.com/
 
 
+
 ## Webhook
 [!webhook_logo]:http://blog.formstack.com/wp-content/uploads/2010/08/webhooks_logo-150x150.png
 A webhook is a method of augmenting or altering the behavior of a web page,
@@ -26,6 +27,13 @@ let the reader enter information.
 * [25 Emerging Free Web Scripts to Watch](http://www.hotscripts.com/blog/emerging-scripts/)
 * [Server-less Stripe push notifications with webscript.io](http://coovtech.com/posts/push-with-web-script/)
 * [Webscripts are short scripts, written in Lua, that run on our servers. They can respond to HTTP requests or run as cron jobs.](https://www.webscript.io/)
+
+## Chunked HTTP
+* [Chunked HTTP transfer encoding](http://martin.swende.se/blog/HTTPChunked.html)
+* http://tpierrain.blogspot.com/2013/09/some-web-mechanical-sympathy-lets.html
+* https://sharovatov.wordpress.com/2009/11/05/http-persistent-connections-pipelining-and-chunked-encoding/
+* https://gist.github.com/CMCDragonkai/6bfade6431e9ffb7fe88
+
 
 ## WebSocket
 [!websocket_logo]:http://www.appelsiini.net/demo/websocket/img/HTML5_Connectivity_512.png

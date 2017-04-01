@@ -1,6 +1,7 @@
 
 # Linux System Monitoring
 * [4 open source tools for Linux system monitoring](https://opensource.com/life/16/2/open-source-tools-system-monitoring?sc_cid=70160000000lcFhAAI)
+* [How To Monitor Your Ubuntu 16.04 System with Sysdig](https://www.digitalocean.com/community/tutorials/how-to-monitor-your-ubuntu-16-04-system-with-sysdig)
 
 Linux is a multitasking operating systems, that is,
 a system that can run multiple commands (process) during the same period of time.
@@ -44,7 +45,8 @@ Daemon
     waiting to be activated by the occurrence of a specific event or condition.
 
 # Sessions and Process Groups
-http://www.informit.com/articles/article.aspx?p=397655&seqNum=6
+* [Linux-Fu: Keeping Things Running](http://hackaday.com/2017/03/10/linux-fu-keeping-things-running/#more-246002)
+* [The Process Model of Linux Application Development](http://www.informit.com/articles/article.aspx?p=397655&seqNum=6)
 
 # Job Control Commands
 * [Job Control Commands](http://tldp.org/LDP/abs/html/x9644.html)
@@ -241,6 +243,16 @@ Where,
 * **`ixoff`** or **`-ixoff`**: Enables (or disables) software flow-control for receiving data
 * **`istrip`** or **`-istrip`**: Clear (or keep) the eight bit in each received byte
 
+Some examples:
+
+```bash
+# connect to device /dev/ttyS0 with 19200 baud rate and 8 bits per bite
+screen /dev/ttyS0 19200,cs8
+
+# connect to /dev/bus/usb/003/009 with 9600 baud rate, flow control off
+screen /dev/bus/usb/003/009 9600,-ixon
+```
+
 To see your port status, use the command `CTRL-a` `i`
 
 Common `screen` commands
@@ -292,6 +304,28 @@ and "[Linux and Unix screen command][10]"):
 | Ctrl-a _ | monitor window for silence |
 | Ctrl-a H | enable logging in the screen session |
 | Ctrl-a : | enter screen command, such as quit |
+
+To see the serial port status and information type ctrl-a i.
+
+To close the screen session after you finished, press Ctrl-a k.
+To kill all screen session press Ctrl-a \.
+
+To kill a detached screen session, do the following:
+
+```bash
+# list the running screen processes
+$ screen -list
+There is a screen on:
+	14877.pts-18.desktop	(03/17/2017 11:09:20 PM)	(Detached)
+1 Socket in /var/run/screen/S-jeff.
+
+# kill the screen process
+$ screen -S 14877.pts-18.desktop -p 0 -X quit
+
+# list the running screen processes
+$ screen -list
+No Sockets found in /var/run/screen/S-jeff.
+```
 
 ## The .screenrc File
 When `screen` is invoked, it executes initialization commands from the files

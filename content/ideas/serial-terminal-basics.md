@@ -3,6 +3,7 @@
 * [Remote Serial Console HOWTO](http://tldp.org/HOWTO/Remote-Serial-Console-HOWTO/)
 * [5 Linux / Unix Commands For Connecting To The Serial Console](http://www.cyberciti.biz/hardware/5-linux-unix-commands-for-connecting-to-the-serial-console/)
 * [Open a RS232 Serial Terminal Connection](https://pixhawk.ethz.ch/tutorials/serial_terminal)
+* [RS-232 vs. TTL Serial Communication](https://www.sparkfun.com/tutorials/215?_ga=1.132009867.562203984.1457131060)
 * [Serially, Are You Syncing or Asyncing?](http://hackaday.com/2016/06/28/serially-are-you-syncing-or-asyncing/)
 * [What Could Go Wrong: Asynchronous Serial Edition](http://hackaday.com/2016/06/22/what-could-go-wrong-asynchronous-serial-edition/)
 
@@ -86,9 +87,134 @@ which can also be the keyboard and monitor that are attached to the system.
 
 http://www.tldp.org/HOWTO/Remote-Serial-Console-HOWTO/intro-what.html
 
-# Why Use a Serial Console?
+## Why Use a Serial Console?
+The advantages of a serial USB cable are that you won’t need extra keyboards,
+mouse or external displays attached.
+You don’t even need an extra power supply.
+
 http://www.tldp.org/HOWTO/Remote-Serial-Console-HOWTO/intro-why.html
 [Setting up a serial console](https://www.howtoforge.com/setting_up_a_serial_console)
+
+## Console Access to Raspberry Pi
+[!sereial-cable](https://cdn-shop.adafruit.com/970x728/954-02.jpg)
+A [USB to TTL serial cable][65] (aka console cable)
+can be used to connect to [system console][66] on the Raspberry Pi A.
+(Make sure to use a cable having 3.3V logic levels. Not all cables are 3.3V!)
+The great advantage of connecting this way is that
+you don't need to utilize the WiFi you attempting to configure and
+you do not need keyboard, mouse, or display attached to the RPi to log into it.
+It can even supply the power for your RPi.
+The RPi uses its built-in serial port to allow devices to connect to its console,
+via a terminal emulater like [`screen`][71] or [`microcom`][72],
+and issue commands just as if you were logged in.
+The posting "[How to Run Raspberry Pi with No Monitor or Network][69]"
+can give you additional information.
+
+Connect the console cable to the RPi pins in the table below.
+The location of these GPIO pins on the Raspberry Pi (all types) is illustrated in the picture below
+(see [Raspberry Pi A+, B+, Zero, Pi 2 GPIO Pinout][67] and
+[Raspberry Pi 3 Model B GPIO 40 Pin Block Pinout][68] for additional detail):
+
+[pin-out!](http://workshop.raspberrypiaustralia.com/assets/console-cable-connections.jpg)
+[pin-out!](https://www.element14.com/community/servlet/JiveServlet/previewBody/80667-102-1-338789/GPIO.png)
+
+|   Raspberry Pi   |   Serial Cable    |
+|:----------------:|:-----------------:|
+| VCC → RPi Pin 02 | DC Power 5V - red |
+| GND → RPi Pin 06 | Ground - black    |
+| RXD → RPi Pin 08 | TX - white        |
+| TXD → RPi Pin 10 | RX - green        |
+
+**NOTE:** Only connect to VCC / Pin 02 if you are **not** supply power via USB.
+
+If your terminal emulator is running in Linux (such as [`screen`][71]),
+you will need to know the device name assigned by Linux to your console cable.
+It could be the following:
+
+* Typically its USB Serial Port Adapter device name: `/dev/ttyUSB0`, `/dev/ttyUSB1`, and so on.
+* Built-in (standard) serial device name: the Linux standard is `/dev/ttyS0`, `/dev/ttyS1`, and so on
+* Some types of USB serial adapter may appear as `/dev/ttyACM0` ...
+
+The console cable I use is a USB serial device,
+so I could use something like `/dev/ttyUSB0`,
+but I have give it a [usb persistent name][70] of `ccable33v`.
+For the Adafruit console cable,
+I added the following UDEV rule to a file in the `/etc/udev/rules.d.` directory:
+`SUBSYSTEM=="tty", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", SYMLINK+="ccable33v"`.
+See "[Howto: persistent device names on Raspberry Pi][75]" for more information.
+
+With the console cable and proper terminal emulator parameters:
+
+* **Speed (baud rate):** 115200
+* **Bits:** 8
+* **Parity:** None
+* **Stop Bits:** 1
+* **Flow Control:** None
+
+You can always access the device it if you use `sudo screen ...`.
+To avoid `sudo` root access,
+you will need to be a member of the `dialout` group to access this device via `screen`
+(for later releases the required group is `tty`).
+You can check which is needed with:
+
+```bash
+# find out the group name for the device
+$ ls -l /dev/ttyUSB0
+crw-rw---- 1 root dialout 188, 0 Mar 19 17:41 /dev/ttyUSB0
+```
+
+Within the "`crw-rw----T 1 root dialout ...`",
+`c` means character device,
+and root can 'read,write' and the group `dialout` can 'read,write' to the device
+and everyone else cannot access it.
+To find out if you, the current user, is in the group dialout, use the command:
+
+To find out if you, the current user,
+is in the group `dialout` and place yourself in the groud, use the `groups` and `usermod` commands:
+
+```bash
+# find out if your in the dialout group
+$ groups jeff
+jeff : jeff adm cdrom sudo dip plugdev lpadmin sambashare vboxusers
+
+# put yourself into the dialout group
+sudo usermod -a -G dialout jeff
+```
+
+You can now log into a Raspberry Pi via a console cable with:
+
+```bash
+# login to raspberry pi console
+screen /dev/ccable33v 115200,cs8
+
+# NOTE: press CTRL+A then k. To logout and kill all screen session
+```
+
+To kill the session your are within,
+press Ctrl+A then type ":quit".
+
+To kill a session that you have left:
+
+```bash
+# list the screens attached or detached
+$ screen -list
+There is a screen on:
+        11505.pts-1.desktop     (03/24/2017 11:16:24 PM)        (Attached)
+1 Socket in /var/run/screen/S-jeff.
+
+# kill the desired screen session
+$ screen -X -S 11505.pts-1.desktop quit
+```
+
+**NOTE:** If any of this doesn't work, make sure you have the serial console correctly configured.
+During the intial Raspberry Pi configuration using `sudo raspi-config`,
+make sure to select "Boot Options" and choose "B1 Console".
+You will need a password to get console access,
+which gives you greater security, and allow console cables to work via
+[`screen`][71] or [`microcom`][72].
+Consult the websites [RPi Serial Connection][73] and
+[How to connect Raspberry pi to Ubuntu via USB Cable][74]
+for additional insights.
 
 # Types of Serial Port
 serial port lines (CTS, RTS, DTR, DSR, RI, CD)
@@ -108,4 +234,16 @@ serial port lines (CTS, RTS, DTR, DSR, RI, CD)
 [08]:
 [09]:
 [10]:
+
+[65]:https://www.adafruit.com/products/954
+[66]:https://en.wikipedia.org/wiki/System_console
+[67]:https://www.element14.com/community/docs/DOC-80667/l/raspberry-pi-a-b-zero-pi-2-gpio-pinout
+[68]:https://www.element14.com/community/docs/DOC-73950/l/raspberry-pi-3-model-b-gpio-40-pin-block-pinout
+[69]:http://raspi.tv/2012/how-to-run-raspberry-pi-with-no-monitor-or-network
+[70]:http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/
+[71]:http://www.computerhope.com/unix/screen.htm
+[72]:http://manpages.ubuntu.com/manpages/xenial/man1/microcom.1.html
+[73]:http://elinux.org/RPi_Serial_Connection
+[74]:https://www.anintegratedworld.com/how-to-connect-raspberry-pi-to-ubuntu-via-usb-cable/
+[75]:http://rolfblijleven.blogspot.nl/2015/02/howto-persistent-device-names-on.html
 

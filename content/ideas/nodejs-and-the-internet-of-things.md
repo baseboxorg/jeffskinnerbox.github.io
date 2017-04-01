@@ -285,6 +285,9 @@ npm install uglify-js
 npm list --depth=0
 ```
 
+* [npm Orgs](https://www.npmjs.com/docs/orgs/?utm_campaign=2017-03-22%20free%20Orgs&utm_medium=email&utm_source=Eloqua)
+* [create a free Org](https://www.npmjs.com/features)
+
 ## Managing Package Dependencies
 The best way to manage locally installed npm packages
 and there dependencies on each otehr is to create a [`package.json` file][16].
@@ -564,6 +567,8 @@ The content here is lift for these sources:
 * [node-red/node-red-nodes · GitHub](https://github.com/node-red/node-red-nodes)
 * [node-red-m2x 0.1.1](http://flows.nodered.org/node/node-red-m2x)
 * [Node-RED M2X Node](https://github.com/attm2x/node-red-m2x)
+* [Node-RED, wiring the Raspberry Pi to the IoT](http://www.networkworld.com/article/3075329/internet-of-things/node-red-wiring-the-raspberry-pi-to-the-iot.html)
+* []()
 
 ## Installing Node-RED
 The easiest way to install Node-RED is to use node’s package manager, npm.

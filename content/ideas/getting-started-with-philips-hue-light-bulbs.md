@@ -1,4 +1,6 @@
 
+* [CREATE CHEAP PHILIPS HUE COMPATIBLE DEVICES](http://hackaday.com/2017/03/01/create-cheap-philips-hue-compatible-devices/)
+
 [!philips-hum-logo](http://www.usa.lighting.philips.com/b-dam/b2b-li/en_AA/support/tools/Philips%20Hue.png)
 I purchased a [Philips Hue White Starter Kit][01] to begin my entry into controlling my homes lighting.
 This kit comes with two [A19 LED light bulbs][02]

@@ -1589,6 +1589,9 @@ Motion has many features can be a bit overwhelming
 but the articles "[How to Operate Linux Spycams With Motion][118]" and
 "[How to Set Up Motion Detection Webcam in Ubuntu][119]" will get you going.
 
+* [TURN THAT PI ZERO INTO A STREAMING CAMERA, STEP-BY-STEP](https://hackaday.com/tag/wi-fi-camera/)
+* [Raspberry Pi Security System Part 1: The camera](https://hackmypi.com/PiCamPart1.php)
+
 ### Camera Human Recognition
 * [Building a Motion Activated Security Camera with the Raspberry Pi Zero](http://hackaday.com/2017/02/06/motion-detecting-camera-recognizes-humans-using-the-cloud/)
 * [Smarten up your Pi Zero Web Camera with Image Analysis and Amazon Web Services (Part 1)](https://utbrudd.bouvet.no/2017/01/10/smarten-up-your-pi-zero-web-camera-with-image-analysis-and-amazon-web-services-part-1/)
