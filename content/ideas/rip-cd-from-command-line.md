@@ -23,7 +23,7 @@ You can upload up to 50,000 songs and listen on your mobile device, computer, or
 
 I have a habit of buying the [Compact Disc (CD)][06] albums of the music I love,
 ripping the CDs to my digital music library,
-(i.e. on my desktop PC which is synched with or accessable by my Squeezebox, iPod, Smartphone, etc.)
+(i.e. on my desktop PC which is synched with or accessible by my Squeezebox, iPod, Smartphone, etc.)
 and then storing the CD away for safe keeping.
 I foresee the day when these little plastic disks may not be sold
 since all music will be distributed via the cloud.
@@ -51,7 +51,7 @@ is the most widely used encode scheme in use, but it is not open source,
 technically you need to provide a royalty fee to use the format.
 [`lame`][13] is a program which can be used to create MP3 file.)
 
-But first, lets install all the tools you'll need and discribed below:
+But first, lets install all the tools you'll need and described below:
 
 ```bash
 sudo apt-get install cdparanoia sox cd-discid abcde ripit
@@ -207,11 +207,11 @@ produce a set of mp3/ogg/flac/m4a/mpc/wv/... files without any user-intervention
 * *Optional:* prepares and sends a CDDB submission
 * *Optional:* saves the CDDB file
 * *Optional:* creates a toc, cue or inf files to burn a CD in DAO with text
-* *Optional:* anaylze the wavs for gaps and splits them into chunks
-* *Optional:* merges wavs for gapless encoding
+* *Optional:* analyze the ways for gaps and splits them into chunks
+* *Optional:* merges ways for gapless encoding
 * *Optional:* creates a md5sum for each type of sound files
-* *Optional:* normalizes the wavs before encoding.
-* *Optional:* adds a coverart and album gain to the tags (provided a picture and if the format supports picture tags).
+* *Optional:* normalizes the ways before encoding.
+* *Optional:* adds a cover-art and album gain to the tags (provided a picture and if the format supports picture tags).
 * *Optional:* detection of Various Artists style and tagging according the level of detection.
 
 ### My Script for Ripping CDs
@@ -223,7 +223,7 @@ produce a set of mp3/ogg/flac/m4a/mpc/wv/... files without any user-intervention
 ID3 tags are traditionally put at the end of compressed streamed audio files to denote information about the audio contents.
 
 [`id3v2`][] is an ID3 v2 tag editor.
-ID3 tags are traditionally put at the end of compressed streamed audio files to denote information about the audio contents. Using this command line software you can add/modifiy/delete id3v2 tags and optionally convert id3v1 tags to id3v2.
+ID3 tags are traditionally put at the end of compressed streamed audio files to denote information about the audio contents. Using this command line software you can add/modify/delete id3v2 tags and optionally convert id3v1 tags to id3v2.
 
 ## Sources
 * [HOWTO: Convert music CDs to MP3 using the Command Line](http://ubuntuforums.org/showthread.php?t=535950)

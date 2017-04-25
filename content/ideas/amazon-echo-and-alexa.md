@@ -5,6 +5,11 @@
 * [step-by-step walkthrough to help you build a hands-free Alexa Voice Service (AVS)](https://github.com/alexa/alexa-avs-sample-app)
 * [Alexa, Are You Recording Me?](https://www.linkedin.com/pulse/alexa-you-recording-me-brian-horton-ceo-cissp)
 
+* [How to Make Scavenger Hunts More Fun with Artificial Intelligence](https://medium.freecodecamp.com/how-to-make-scavenger-hunts-more-fun-with-artificial-intelligence-74a184f3db33)
+    * [Amazon Polly - Turn text into lifelike speech using deep learning](https://aws.amazon.com/polly/)
+    * [Amazon Rekognitions - Deep learning-based image recognition Search, verify, and organize millions of images](https://aws.amazon.com/rekognition/)
+    * [Delegate Dialog Directive Sample Project](https://github.com/alexa/alexa-cookbook/tree/master/handling-responses/dialog-directive-delegate)
+
 
 
 # Amzon Echo "How To Do"
@@ -88,6 +93,7 @@ Unfortanately, Alexa doesn't support this but [Jasper does](http://jasperproject
 
 # Amazon Echo Tools
 * [Echosim.io – a new online community tool for developers that simulates the look and feel of an Amazon Echo](https://developer.amazon.com/public/community/post/Tx3BB1JHNS1TDTS/Introducing-Echosim-io-A-New-Online-Tool-Built-by-the-Community-for-the-Communit?mkt_tok=eyJpIjoiWmpobU1HSTVOMlkxTkdSaSIsInQiOiJWYXlMZk9SNVNYTitxQlQzaXE5VWVtalwvZ2FYMjVyODBNY2NtVXFuUjZHYXlXXC85R0dkRFFOUHlENEF2SEpnbUZ2XC80RkROU3JrRjZYd2srXC9uY1FOMDI3QldiN05OeStrTDNjS1hLYk1SRlk9In0%3D)
+* [Look Under the Hood with Echosim’s New Developer Console](https://developer.amazon.com/blogs/alexa/post/02a31ed6-2c5e-4eab-ad5c-d969f91c7499/look-under-the-hood-with-echosim-s-new-developer-console?utm_source=Hackster.io+newsletter&utm_campaign=f2166f6fa8-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-f2166f6fa8-140225889&mc_cid=f2166f6fa8&mc_eid=9036129d51)
 
 # Amazon Alexa Voice Services
 * [Let Alexa Control Your Life; Guide to Voice-Enable Everything](http://hackaday.com/2015/12/26/let-alexa-control-your-life-guide-to-voice-enable-everything/)
@@ -157,6 +163,8 @@ that’s associated with the Skill you installed.
 After you do this,
 you’ll get a message saying that the Skill has been successfully added and linked.
 From there, you can go back to the main screen of the Alexa app.
+
+* [Announcing New Alexa Skill Builder (Beta), a Tool for Creating Skills](https://developer.amazon.com/blogs/alexa/post/02d828b6-3144-46ea-9b4c-5ed2cbfadb9c/announcing-new-alexa-skill-builder-beta-a-tool-for-creating-skills?mkt_tok=eyJpIjoiTVdKa1pHTmxaREV4TjJabCIsInQiOiJYVlwvZjc1cGR1N1hiMXVaQUg1Vjd2WGdLYWdWeVluM3dNZTdoMUU2elpXVGFNOXFnWWFvV2swenN4VXc5OUFsNXZZTjh5ZG02RUxQRlRlaW9sUFZEM2lqMXM3KzlORTlwWkdCVFJDY1d0MmcydllZbExqaEFINXQ1TmQ2ZE1YQVkifQ%3D%3D)
 
 # AT&T Speech API
 <a href="https://developer.att.com/">

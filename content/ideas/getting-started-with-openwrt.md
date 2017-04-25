@@ -26,7 +26,7 @@ and for that reason it has greatly extended functionality.
 
 So why should you use OpenWrt?
 
-1. Customisation and full control
+1. Customization and full control
 1. Linux and Package Management
 1. Mainly GPL – but other free licenses also included
 1. Huge Feature set (over 3400+ packages and growing)

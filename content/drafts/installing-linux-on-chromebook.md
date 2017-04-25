@@ -9,11 +9,19 @@ Image: toshiba-chromebook-linux.jpg
 Summary: The price of the Chromebook makes it a very attractive, assuming you can get your favorite tools working on it.  Well, you can install Linux, along with all the tools Linux brings to your development needs. This post is a somewhat disjointed dump of things that I’ve done to create a comfortable working envirnment on a Chromebook.
 
 
+* [How to prevent a Chromebook from running out of memory](http://www.techrepublic.com/article/how-to-prevent-a-chromebook-from-running-out-of-memory/)
 * [Now you can unlock Chrome OS with a PIN code](https://www.engadget.com/2016/08/19/unlock-chrome-os-with-pin/)
 * [Unlock your Chromebook with your Android phone](https://support.google.com/chromebook/answer/6070209?hl=en-GB)
 * [Android apps are now available on these Chromebooks](http://www.techradar.com/news/mobile-computing/laptops/android-apps-are-now-available-on-these-chromebooks-1323567)
 * [How To Run Android Apps on Your Chromebook](http://fieldguide.gizmodo.com/how-to-run-android-apps-on-your-chromebook-1786505928)
 * See the split screen, how do you do this - [Putting Linux on your Chromebook is easier than you think (and totally worth it!)](http://www.androidcentral.com/putting-linux-your-chromebook-easier-you-think)
+
+# Alternatives to Crouton
+* [5 Lightweight Linux distros for your Chromebook](http://www.fascinatingcaptain.com/reviews/5-lightweight-linux-distros-for-your-chromebook/)
+* [Running Linux on your Chromebook with GalliumOS](https://opensource.com/article/17/4/linux-chromebook-gallium-os?sc_cid=701600000012BzcAAE)
+* [GalliumOS](https://galliumos.org/)
+* [GalliumOS: The Ideal Linux Distribution for Chromebook Hardware](https://www.linux.com/LEARN/GALLIUMOS-IDEAL-LINUX-DISTRIBUTION-CHROMEBOOK-HARDWARE)
+* [Transform a Toshiba Chromebook CB35 into a Linux Development Environment with GalliumOS](https://nickjanetakis.com/blog/transform-a-toshiba-chromebook-cb35-into-a-linux-development-environment-with-galliumos)
 
 
 
@@ -152,6 +160,7 @@ You'll find many of them documented in these articles:
 * [10+ Commands Included In Chrome OS’s Hidden Crosh Shell](http://www.howtogeek.com/170648/10-commands-included-in-chrome-oss-hidden-crosh-shell/)
 * [Customize Chromebook Chrosh Shell Environment](https://gist.github.com/aaronhalford/a009bc73498407ae80e2)
 * [10 Commands In Chrome’s Crosh Shell](http://efytimes.com/e1/fullnews.asp?edid=124113)
+* [27 Handy Chrome OS Commands to Run in Crosh](https://beebom.com/chrome-os-commands-run-crosh/)
 
 Crosh even supports full-blown `bash` shell with ssh-agent and Vim.
 To get Vim working, do the following:

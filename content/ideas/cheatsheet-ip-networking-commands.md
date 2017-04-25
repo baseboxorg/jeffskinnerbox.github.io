@@ -32,6 +32,7 @@ The iproute2 collection contains the following command-line utilities:
 `nstat`, `routef`, `routel`, `rtstat`, and `arpd`.
 
 what about ethtool, netifd, nm-tool, nm-online, [nmcli](https://fedoraproject.org/wiki/Networking/CLI)
+* [Connect to a wireless network using command line nmcli](https://nullr0ute.com/2016/09/connect-to-a-wireless-network-using-command-line-nmcli/)
 
 * Why nm-tool is no longer available in Ubuntu 15.04? - http://askubuntu.com/questions/617067/why-nm-tool-is-no-longer-available-in-ubuntu-15-04
 * 9 Linux ethtool Examples to Manipulate Ethernet Card (NIC Card) - http://www.thegeekstuff.com/2010/10/ethtool-command/

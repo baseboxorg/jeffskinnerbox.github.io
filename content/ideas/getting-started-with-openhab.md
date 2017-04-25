@@ -2,6 +2,7 @@
 
 # openHAB
 * [openHAB](http://www.openhab.org/index.html)
+* [openHAB 2 has arrived](https://jaxenter.com/openhab-2-arrived-131328.html)
 * [$20 Wireless Arduino Home Automation w/ OpenHAB](http://hackaday.io/project/1720-20-wireless-arduino-home-automation-w-openhab)
 * [Installing openHAB Home Automation on Raspberry Pi](https://dzone.com/articles/installing-openhab-home-automation-on-raspberry-pi)
 * [OpenHAB on Raspberry Pi](http://www.instructables.com/id/OpenHAB-on-Raspberry-Pi/?ALLSTEPS)
@@ -12,6 +13,7 @@
 # Alternatives to openHAB
 * [5 open source home automation tools](https://opensource.com/life/16/3/5-open-source-home-automation-tools)
 * [Home Assistant](https://home-assistant.io/)
+    * [works with Framework for Internal Navigation and Discovery (FIND)](https://github.com/schollz/find)
 * [Domoticz](http://domoticz.com/)
 
 # OpenRemote

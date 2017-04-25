@@ -1,6 +1,7 @@
 * [Quickie WiFi Scanner](http://hackaday.com/2016/02/24/quickie-wifi-scanner/)
 * [Opportunistically track and transmit the location of a ESP8266](https://github.com/dancudds/esp8266locationtracker)
 * [WiFi Scanner -Know the WiFi Signal around you](http://www.seeedstudio.com/recipe/219-wifi-scanner-know-the-wifi-signal-around-you.html)
+* [Scan your WiFi and get access point information and signal quality](https://github.com/kootenpv/access_points)
 * [An introduction to the Kismet packet sniffer](https://www.linux.com/news/introduction-kismet-packet-sniffer)
 * [Passive WiFi Tracking](http://edwardkeeble.com/2014/02/passive-wifi-tracking/)
 * [Passive wifi presence detection on Raspberry Pi](http://umm.io/blog/passive-wifi-tracking.html)
@@ -9,8 +10,25 @@
 * [Using Raspberry Pi Access Point to Track Devices](https://www.yetanotherblog.com/2014/03/25/using-raspberry-pi-access-point-to-track-devices/)
 * [Tracking Devices via Raspberry Pi (Part Two)](https://www.yetanotherblog.com/2014/03/25/tracking-devices-via-raspberry-pi-part-two/)
 * [Tracking of devices through passive listening of WiFi](http://developers-club.com/posts/252831/)
+* [access_points](https://github.com/kootenpv/access_points)
+* [WiFinder](https://github.com/mpescimoro/wi-finder)
+* [whereami](https://github.com/kootenpv/whereami)
 * [Introduction to Wi-Fi (802.11 or WiFi)](http://ccm.net/contents/802-introduction-to-wi-fi-802-11-or-wifi)
+* [Connect to a wireless network using command line nmcli](https://nullr0ute.com/2016/09/connect-to-a-wireless-network-using-command-line-nmcli/)
+* [Unwired Lab Location API](https://unwiredlabs.com/)
 
+* multiple object tracker projects on github
+    * https://github.com/search?q=topic%3Agps-tracker&type=Repositories
+    * https://github.com/search?q=topic%3Awifi-fingerprints&type=Repositories
+    * https://github.com/search?q=topic%3Alocation-services&type=Repositories
+
+* [Geocoding](https://unwiredlabs.com/docs/#geocoding) is the process of converting addresses (like a street address) into geographic coordinates (like latitude and longitude)
+* [Reverse geocoding](https://unwiredlabs.com/docs/#reverse-geocoding) is the process of converting geographic coordinates into a human-readable address.
+
+# Domain Name Server (DNS)
+* [Introduction to the Domain Name System (DNS)](https://opensource.com/article/17/4/introduction-domain-name-system-dns)
+* [Build your own DNS name server on Linux](https://opensource.com/article/17/4/build-your-own-name-server)
+* [dnsd: DNS encoder, decoder, and server](https://github.com/ansuz/modern-dnsd)
 
 # Telemetry over Opportunistic WiFi Links
 * [How DNS Tunneling Works](http://inside-out.xyz/technology/how-dns-tunneling-works.html)
@@ -28,6 +46,13 @@ The device will continuously record its location, even when disconnected from th
 
 * [Skyhook Wireless Developer Site](http://www.skyhookwireless.com/developers)
 
+# Framework for Internal Navigation and Discovery (FIND)
+* [Framework for Internal Navigation and Discovery (FIND)](https://www.internalpositioning.com/)
+* [FIND FAQ](https://www.internalpositioning.com/faq/)
+* [Offical version writen in Go - FIND GitHub](https://github.com/schollz/find)
+* [Python version - FIND GitHub](https://github.com/kootenpv/find)
+* [find-lf - extension of FIND, the Framework for Internal Navigation and Discovery](https://github.com/schollz/find-lf)
+
 # WiFi Modes
 A WiFi network device always operates in one (or for some special hardware,
 multiple modes as in AP+STA or WDS with AP Mode) of the six modes that 802.11 wireless cards can operate in:
@@ -40,6 +65,9 @@ multiple modes as in AP+STA or WDS with AP Mode) of the six modes that 802.11 wi
 1. Monitor - passively read packets, no packets are transmitted
 
 Strictly speaking, Infrastructure Mode is not a device mode but a concept.
+
+# WiFi Scanning
+https://security.stackexchange.com/questions/152007/why-do-wifi-devices-broadcast
 
 # Monitor Mode
 Monitor mode is a passive-only mode, no packets are transmitted. All incoming packets are handed over to the host computer completely unfiltered. This mode is useful to see what's going on on the network.

@@ -99,7 +99,21 @@ check out my posts xxx and xxx.
 
 ###############################
 
-Hyperboria Documentation - https://docs.meshwith.me/
+* [Hyperboria Documentation](https://docs.meshwith.me/)
+* [Hyperboria Peers API  - An API for finding nearby peers for the Hyperboria network](https://peers.fc00.io/)
+
+###############################
+
+Scuttlebot is an open source peer-to-peer log store used as a database,
+identity provider, and messaging system. It features global replication,
+file-syncronization, and end-to-end encryption.
+
+* [Scuttlebot](http://scuttlebot.io/)
+* [Secure Scuttlebutt Consortium](https://github.com/ssbc)
+* [How to get invited to Secure Scuttlebot](http://evbogue.com/invitesforssb/)
+* [/howto/ssb/scuttlebot](https://transitiontech.ca/howto/ssb/scuttlebot)
+* [Introduction to Using Scuttlebot](https://ssbc.github.io/docs/scuttlebot/tutorial.html)
+* [ssb handbook](https://github.com/ssbc/ssb-handbook)
 
 ###############################
 

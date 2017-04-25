@@ -20,6 +20,7 @@ Can this clock be hacked so you can control its preciseion time source? - La Cro
 * [RANDOM.ORG - True Random Number Service](https://www.random.org/)
 * [Pseudo-random number generation algorithms](http://mathoverflow.net/questions/29494/pseudo-random-number-generation-algorithms)
 * [Is there a pseudo-random number generator simple enough to do in your head?](http://stackoverflow.com/questions/3919597/is-there-a-pseudo-random-number-generator-simple-enough-to-do-in-your-head)
+* [Generate random data for your applications with Elizabeth](https://opensource.com/article/17/2/elizabeth-python-library?sc_cid=701600000012072AAA)
 
 
 

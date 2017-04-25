@@ -12,3 +12,4 @@ when these cells are electrically or neurologically activated.
 * [Saving Lives with Open-Source Electrocardiography](http://hackaday.com/2016/04/29/saving-lives-with-open-source-electrocardiography/)
 * [MyoWare Muscle Sensor](https://www.sparkfun.com/products/13723?utm_source=SparkFun+Customer+Newsletter&utm_campaign=fe9009a4ae-May_27thNewsletter&utm_medium=email&utm_term=0_fa5287abaf-fe9009a4ae-7212537)
 * [All About Biosignals](http://hackaday.com/2016/08/23/all-about-biosignals/)
+* [Easy-Peasy Heart Monitor](http://hackaday.com/2017/04/02/easy-peasy-heart-monitor/)

@@ -4,6 +4,7 @@
 * [Understanding Advanced Batteries and Energy Storage – Part I](http://investorintel.com/technology-metals-intel/understanding-advanced-batteries-energy-storage-part/)
 * [A Description of Maddening Battery Terminology](http://hackaday.com/2014/09/26/a-description-of-maddening-battery-terminology/)
 * [An Average Introduction To LiPo Batteries](http://www.averagemanvsraspberrypi.com/2016/06/lipo-batteries.html)
+* [Lithium-Ion Shipping and Travel Regulations: What You Need to Know](https://www.allaboutcircuits.com/news/lithium-ion-shipping-and-travel-regulations-what-you-need-to-know/?utm_source=All+About+Circuits+Members&utm_campaign=2e59b3d647-EMAIL_CAMPAIGN_2017_04_06&utm_medium=email&utm_term=0_2565529c4b-2e59b3d647-270523833/)
 
 # Choosing Battery Technology
 * [Battery Basics – Choosing a Battery for Your Project](http://hackaday.com/2014/12/16/battery-basics-choosing-a-battery-for-your-project/)

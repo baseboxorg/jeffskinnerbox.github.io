@@ -14,18 +14,61 @@
 * [The TTY demystified](http://www.linusakesson.net/programming/tty/)
 * [RPi Serial Connection](http://elinux.org/RPi_Serial_Connection)
 
-* [A brief history of USB, what it replaced, and what has failed to replace it](http://arstechnica.com/gadgets/2015/11/a-brief-history-of-usb-what-it-replaced-and-what-has-failed-to-replace-it-2/)
+* [Using UART on Raspberry Pi](https://electrosome.com/uart-raspberry-pi-python/)
+* [Raspberry Pi and the Serial Port](http://www.hobbytronics.co.uk/raspberry-pi-serial-port)
+
+* [Adafruit FT232H Breakout - General Purpose USB to GPIO+SPI+I2C](https://www.adafruit.com/products/2264)
+
 
 HyperTerminal - HyperTerminal is the defacto terminal program for any Windows OS up to XP (you can find ports for other Windows versions).
 PuTTY
 Screen
 microcom
 
+# Minicom
 Minicom is a terminal program, intended for use with a modem, that
 works well as an intermediary to any remote system connect through a
 serial port.
 One big advantage of minicom is that it allows one to easily capture
 text into a file.
+
+```bash
+# install serial port terminal minicom
+sudo apt-get install minicom
+```
+
+You might want to find out the name of your serial port,
+
+```bash
+# list all the port that are used to connected to outside terminals
+dmesg | grep tty
+```
+
+Once minicom is installed it will not be setup to talk properly to a board through the UART port.
+To change the configuration, open up a terminal window and run
+
+```bash
+# `-s` parm runs minicom in setup mode
+`sudo minicom -s`
+```
+
+After executing this command, follow these steps:
+
+1. Press A and change the serial device to the one you say in the previous step “For example: /dev/tty0”
+1. Press F to change the flow control to “No”
+1. Finally and most importantly, Press E to change your baud rate to “9600”
+
+Now Press Esc to go back to main menu,
+and then save your configuration as default or you could save with a name.
+For example cisco, now every time you would like to use the same configuration just type sudo minicom cisco.
+
+You will see the minicom configuration utility ... http://processors.wiki.ti.com/index.php/Setting_up_Minicom_in_Ubuntu
+
+* [Using Minicom the serial terminal emulator](https://www.acmesystems.it/minicom)
+* http://lachlanmiskin.com/blog/2012/08/03/using-minicom-to-interface-with-serial-devices-on-linux/
+* [Minicom User Guide](http://www.shop.ngxtechnologies.com/download/jtag/minicom_User_Guide.pdf)
+* []()
+* [Minicom-tutorial](http://derrekito.github.io/Minicom-tutorial/)
 
 [Null modem](https://en.wikipedia.org/wiki/Null_modem)
 
@@ -51,17 +94,38 @@ This post shows in detailed steps how to open a serial connection to an embedded
 * [DISCOVERY: UARTS PART 3 - THE FINAL STEP](http://embedded.fm/blog/2016/12/13/discovery-uarts-part-3-the-final-step)
 * [WHAT GOOD IS A UART? COMMAND CONSOLE!](http://embedded.fm/blog/2016/12/14/what-good-is-a-uart-command-console)
 * [DISCOVERY: UART INPUT](http://embedded.fm/blog/2017/1/19/discovery-uart-input)
+* [How to Communicate with UART](https://www.youtube.com/watch?v=e8uEKWpVf10&feature=youtu.be)
+* [Using the UART](http://www.raspberry-projects.com/pi/programming-in-c/uart-serial-port/using-the-uart)
 
 # SPI Bus
 * [SPI On Embedded Linux](http://hackaday.com/2017/02/19/spi-on-embedded-linux/)
+* [What Could Go Wrong: SPI](http://hackaday.com/2016/07/01/what-could-go-wrong-spi/)
 
 # I2C Bus
 * [Introduction to the I2C Bus](http://www.allaboutcircuits.com/technical-articles/introduction-to-the-i2c-bus/)
+* [An Introduction to Differential I²C](http://hackaday.com/2017/03/31/an-introduction-to-differential-i%C2%B2c/)
+* [Introduction to the I2C Bus](https://www.youtube.com/watch?v=oRTq8HI4UGs&feature=youtu.be)
+* [What Could Go Wrong? I2C Edition](http://hackaday.com/2016/07/19/what-could-go-wrong-i2c-edition/)
+* [Taking the Leap Off Board: An Introduction to I2C Over Long Wires](http://hackaday.com/2017/02/08/taking-the-leap-off-board-an-introduction-to-i2c-over-long-wires/)
+* [Bus Pirate Commandeers I2C](http://hackaday.com/2017/02/07/bus-pirate-commandeers-i2c/)
 
 # Serial Port
 
 # What is the Tx and Rx?
 TX and RX are abbreviations for Transmit and Receive, respectively. Note that these metrics are referenced to the server being monitored; Transmit FROM this server, and Receive TO this server.
+
+# Modems
+The term "AT Commands" come from Hayes modem control commands that were used by the Hayes smart modems.
+The Hayes commands started with AT (abreviation of the word "attention")
+to gain the attention from the MODEM.
+The dial up and wireless MODEMs (devices that involve machine to machine communication)
+need AT commands to interact with a computer.
+These include the Hayes command set as a subset,
+along with other extended AT commands.
+
+* [All You Wanted To Know About AT And GSM AT Commands](http://electronicsforu.com/resources/cool-stuff-misc/wanted-know-gsm-commands)
+* [Serial Programming/Modems and AT Commands](https://en.wikibooks.org/wiki/Serial_Programming/Modems_and_AT_Commands)
+* [A brief history of USB, what it replaced, and what has failed to replace it](http://arstechnica.com/gadgets/2015/11/a-brief-history-of-usb-what-it-replaced-and-what-has-failed-to-replace-it-2/)
 
 # Terminal
 Back when computers where big, bulky, and took up entire rooms,
@@ -70,7 +134,8 @@ But there was also another device first used by the computer operator,
 but later by end users, used for entering and retrieving data, known as a [terminal][01].
 These terminals came in many form factors, but generally consisted of a keyboard and a screen.
 The earliest terminals were pure electromechanical devices,
-[teletypewriters (TeleTYpewriter, TTY)][03] (more generically know as a [teleprinter][02]),
+[teletypewriters (TeleTYpewriter, TTY)][03]
+(more generically know as a [teleprinter][02]),
 with no electronic logic and no CRT display tube,
 just keyboard and paper printer.
 

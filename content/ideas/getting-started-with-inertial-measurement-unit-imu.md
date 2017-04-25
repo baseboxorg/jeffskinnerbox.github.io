@@ -129,6 +129,8 @@ Adifruit's 3-DOF
 What about [Adafruit 9-DOF Absolute Orientation IMU Fusion Breakout - BNO055](https://www.adafruit.com/product/2472)
 [Capturing IMU Data with a BNO055 Absolute Orientation Sensor](https://www.allaboutcircuits.com/projects/bosch-absolute-orientation-sensor-bno055/?utm_source=All+About+Circuits+Members&utm_campaign=498644bd29-EMAIL_CAMPAIGN_2017_03_23&utm_medium=email&utm_term=0_2565529c4b-498644bd29-270523833/)
 
+* [Capturing IMU Data with a BNO055 Absolute Orientation Sensor](https://www.allaboutcircuits.com/projects/bosch-absolute-orientation-sensor-bno055/?utm_source=All+About+Circuits+Members&utm_campaign=28cc815bc0-EMAIL_CAMPAIGN_2017_03_29&utm_medium=email&utm_term=0_2565529c4b-28cc815bc0-270523833/)
+
 # SparkFun
 [SAMD21][07] - Atmel’s SAMD21, is an Arduino-compatible, 32-bit ARM Cortex-M0+ microcontroller (used on the [SparkFun SAMD21 Mini Breakout][08])
 [MPU-9250][06] - 3-axis accelerometer (up to +/-16g), a 3-axis magnetometer (up to +/- 4.8 gauss), and a 3-axis gyroscope (up to +/-2000 dps) on a single chip

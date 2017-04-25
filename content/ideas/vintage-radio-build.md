@@ -60,6 +60,7 @@ The primary receiver used on the Titanic’s Marconi station was basically a 3-s
 * [Wireless electricity transmission circuit](http://www.instructables.com/id/Wireless-electricity-transmission-circuit/?ALLSTEPS)
 * [HG Wells Time Machine Crystal Radio](http://crystalradioclub.co.uk/groberts.htm)
 * [The Michigan Mighty-Mite Rides Again](http://hackaday.com/2016/01/29/the-michigan-mighty-mite-rides-again/)
+* [Michigan Mighty Mite](http://www.sm7ucz.se/MMM/MMM.htm)
 * [Negative Resistance Oscillator](http://www.sparkbangbuzz.com/index.html)
 
 # Receiver

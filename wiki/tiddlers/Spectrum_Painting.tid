@@ -1,5 +1,5 @@
 created: 20150924011736686
-modified: 20150924013901527
+modified: 20170423162716059
 tags: Projects
 title: Spectrum Painting
 type: text/vnd.tiddlywiki
@@ -13,3 +13,6 @@ and [[bladeRF|http://hackaday.com/2013/02/02/bladerf-your-next-software-defined-
 have software
 that enables you to directly load up
 and play out a file over the radio interface.
+
+* [[High Quality Spectrum Painting|https://gist.github.com/drmpeg/31a9a7dd6918856aeb60]]
+* [[An OFDM Spectrum Painter for GNU Radio|https://github.com/drmpeg/gr-paint]]

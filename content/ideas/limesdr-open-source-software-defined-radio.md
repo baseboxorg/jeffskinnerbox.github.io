@@ -70,8 +70,6 @@ and expensive proprietary devices.
 * [LimeMicro:LMS7002M Datasheet](https://wiki.myriadrf.org/LimeMicro:LMS7002M_Datasheet)
 * [Altera's Cyclone IV FPGA](https://www.altera.com/products/fpga/cyclone-series/cyclone-iv/overview.html)
 * [Cyclone IV Device Handbook](https://www.altera.com/content/dam/altera-www/global/en_US/pdfs/literature/hb/cyclone-iv/cyclone4-handbook.pdf)
-* []()
-* []()
 
 # Who is Lime Microsystems
 [Lime Microsystems][03] is the creator of
@@ -147,6 +145,18 @@ The MyriadRF websit states,
 "Myriad RF is a family of open source hardware and software projects for wireless communications, and a community that is working to make wireless innovation accessible to as many people as possible."
 
 * [Lime Suite](https://myriadrf.org/projects/lime-suite/)
+
+# LimeNet
+[LimeNET][33] is the follow-up to the LimeSDR crowd campaign.
+This new device is intended for use primarily as a mobile and IoT base station.
+LimeNET base stations desires to transform the way telco networks run,
+shifting the emphasis and value away from proprietary hardware to
+open hardware with app stores on top.
+
+The LimeNET platforms use Lime's LMS7002M field programmable RF transceiver
+to provide continuous coverage between 100 kHz and 3.8 GHz, with a 120 MHz RF bandwidth.
+The transceiver contains two transmit and two receive chains to enable 2×2 MIMO.
+The platforms also run an Intel i7-7500U dual-core CPU running at 2.7/3.5 GHz.
 
 # LimeSDR Application Ecosystem
 Appears [Josh Blum][14] (a major [contributor to several SDR tools][17])
@@ -333,7 +343,7 @@ Other Tools
 [30]:http://electronics.kitchen/misc/freesrp/
 [31]:http://gnuradio.org/
 [32]:http://luaradio.io/
-[33]:
+[33]:http://www.limenet.net
 [34]:
 [35]:
 [36]:

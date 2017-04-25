@@ -9,9 +9,17 @@
 * [WiFi Location Services](http://hackaday.com/2015/09/22/hackaday-prize-best-product-wifi-location-services/)
 * [decaWave DWM1000 - track an object to within 10cm indoors](http://hackaday.com/2015/06/17/new-part-day-indoor-location-systems/)
 * [Find The Source: WiFi Triangulation](http://hackaday.com/2016/05/29/find-the-source-wifi-trangulation/)
+* [Tracking of devices through passive listening of WiFi](http://developers-club.com/posts/252831/)
+* [access_points](https://github.com/kootenpv/access_points)
+* [WiFinder](https://github.com/mpescimoro/wi-finder)
+* [whereami](https://github.com/kootenpv/whereami)
 
-# WiFi Platfrom
-* [FIND is an internal positioning system](https://www.internalpositioning.com/)
+# Framework for Internal Navigation and Discovery (FIND)
+* [Framework for Internal Navigation and Discovery (FIND)](https://www.internalpositioning.com/)
+* [FIND FAQ](https://www.internalpositioning.com/faq/)
+* [Offical version writen in Go - FIND GitHub](https://github.com/schollz/find)
+* [Python version - FIND GitHub](https://github.com/kootenpv/find)
+* [find-lf - extension of FIND, the Framework for Internal Navigation and Discovery](https://github.com/schollz/find-lf)
 
 # Skyhook Precision Location
 Use Skyhook Precision Location on a Raspberry Pi device running Raspbian Linux.

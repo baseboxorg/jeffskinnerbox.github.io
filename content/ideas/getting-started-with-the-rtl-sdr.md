@@ -4,6 +4,7 @@ Check out [Listen to the Globe](http://hackaday.com/2017/01/02/listen-to-the-glo
 * [csdr - build DSP processing chains by shell pipes](https://github.com/simonyiszk/csdr)
 * [Sniffing ANT-FS with an RTL-SDR and MMDS Downconverter in Pothos](http://www.rtl-sdr.com/sniffing-ant-fs-with-an-rtl-sdr-and-mmds-downconverter-in-pothos/)
 * [SDR (Software Defined Radio)](http://osmocom.org/projects/sdr/wiki/rtl-sdr)
+* [Cloud-SDR](http://www.cloud-sdr.com/what-is-cloud-sdr/)
 
 # Selecting a RTL-SDR
 [RTL-SDR.COM][15] is an excelent souce for the latest intell on the RTL-SDR,

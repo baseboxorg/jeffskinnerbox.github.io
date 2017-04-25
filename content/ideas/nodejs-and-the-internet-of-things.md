@@ -548,6 +548,11 @@ Node.js and Node-RED environment.
 It does have a [Node-RED Programming Guide][17]
 which appears to provide better introductory documentation.
 
+* A alternative and more advance version of Node-RED is [Losant](https://www.losant.com/)
+    * [Experiences](https://docs.losant.com/experiences/overview/?utm_campaign=Product&utm_source=hs_email&utm_medium=email&utm_content=50052321&_hsenc=p2ANqtz-80QcBmxusbektmnHKsNgLI4RAXHJoPXYCNRM8VAedCQjKGl0LVvtP9uWclacSn_YgywbQt8SSQwLD5JoWASdtGeBsUxw&_hsmi=50052321)
+    * [Experience Walkthrough](https://docs.losant.com/experiences/walkthrough/overview/?utm_campaign=Product&utm_source=hs_email&utm_medium=email&utm_content=50052321&_hsenc=p2ANqtz-_UoVdpSnVhoxg2dP5cg82t6qP8yybXpNA_4FUvUxvQUkbyYJzHaKTdaoK6gnjWh1tmPEKtl8VLHnDEGyoeYORUCahXxg&_hsmi=50052321)
+    * [Losant Kiln](https://www.losant.com/iot-platform/kiln-iot-custom-experiences?utm_campaign=Product&utm_source=hs_email&utm_medium=email&utm_content=50052321&_hsenc=p2ANqtz-9LuoqLUYcJeBCf1T042YD08HhOR9I9ZSIiv0nIks63g6UrH8gI2wgG6pb2ex_5PAACi_IZUjk58Njckyn6uGQxnMFsYA&_hsmi=50052321) can be used to deliver custom IoT experiences to your users
+
 ###############################
 doing HTTP requests
 * [Running OpenWhisk Actions From Node-RED](http://ryanjbaxter.com/cloud/bluemix/2016/03/24/running-whisk-actions-from-node-red.html)

@@ -27,6 +27,11 @@ Doesn't sound like much but this little board is packed with functionality.
 # Understanding UART and I2C
 * [Introduction to the I2C Bus](https://www.youtube.com/watch?v=oRTq8HI4UGs&feature=youtu.be)
 * [How to Communicate with UART](https://www.youtube.com/watch?v=e8uEKWpVf10&feature=youtu.be)
+* [Introduction to the I2C Bus](http://www.allaboutcircuits.com/technical-articles/introduction-to-the-i2c-bus/)
+* [An Introduction to Differential I²C](http://hackaday.com/2017/03/31/an-introduction-to-differential-i%C2%B2c/)
+* [What Could Go Wrong? I2C Edition](http://hackaday.com/2016/07/19/what-could-go-wrong-i2c-edition/)
+* [Taking the Leap Off Board: An Introduction to I2C Over Long Wires](http://hackaday.com/2017/02/08/taking-the-leap-off-board-an-introduction-to-i2c-over-long-wires/)
+* [Bus Pirate Commandeers I2C](http://hackaday.com/2017/02/07/bus-pirate-commandeers-i2c/)
 
 ## Bus Pirate Self-Test
 To use Bus Pirate, you'll need to connect with it via a terminal emulator.
@@ -191,6 +196,8 @@ This is not [all of the documentation][21], but the parts that will help get you
 
 It should be no surprise that to really understand (and maybe some day master) the Bus Pirate,
 you'll need to work with the Bus Pirate and an attached device while reading the documentation.
+
+
 
 [01]:http://www.seeedstudio.com/depot/bus-pirate-v3-assembled-p-609.html?cPath=61_68
 [02]:http://dangerousprototypes.com/docs/Bus_Pirate

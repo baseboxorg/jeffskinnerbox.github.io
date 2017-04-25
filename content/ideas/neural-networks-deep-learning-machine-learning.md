@@ -45,6 +45,7 @@ can be used to forecast future probabilities with an acceptable level of reliabi
 * [Dive Deep Into Deep Learning](https://dzone.com/articles/dive-deep-into-deep-learning-using-h2o?edition=248483&utm_source=DailyDigest&utm_medium=email&utm_campaign=dd2016-12-03)
 * [Deep Learning Cheat Sheet](https://hackernoon.com/deep-learning-cheat-sheet-25421411e460#.nrskk2iyy)
 * [Deep Learning in your browser](http://cs.stanford.edu/people/karpathy/convnetjs/)
+* [The Deep Learning Roadmap](https://medium.com/intuitionmachine/the-deep-learning-roadmap-f0b4cac7009a)
 
 # Machine Learning
 [Ten Myths About Machine Learning](https://medium.com/@pedromdd/ten-myths-about-machine-learning-d888b48334a3#.cd074sawz)
@@ -116,6 +117,10 @@ can be used to forecast future probabilities with an acceptable level of reliabi
 * [The 10 Algorithms Machine Learning Engineers Need to Know](https://gab41.lab41.org/the-10-algorithms-machine-learning-engineers-need-to-know-f4bb63f5b2fa#.vysrf2spb)
 * [Layman’s Intro to #AI and Neural Networks](https://medium.com/autonomous-agents/laymans-intro-to-ai-and-neural-networks-ce074457d85a#.3sqbby7mm)
 * [Learning How To Code Neural Networks](https://medium.com/learning-new-stuff/how-to-learn-neural-networks-758b78f2736e#.ph84a6it2)
+* Let’s code a Neural Network from scratch -
+[Part 1](https://medium.com/typeme/lets-code-a-neural-network-from-scratch-part-1-24f0a30d7d62),
+[Part 2](https://medium.com/typeme/lets-code-a-neural-network-from-scratch-part-2-87e209661638),
+[Part 3](https://medium.com/typeme/lets-code-a-neural-network-from-scratch-part-3-87e23adbe4b6)
 * [Backpropagation — How Neural Networks Learn Complex Behaviors](https://medium.com/autonomous-agents/backpropagation-how-neural-networks-learn-complex-behaviors-9572ac161670#.52ag48jjp)
 * [Yes you should understand backprop](https://medium.com/@karpathy/yes-you-should-understand-backprop-e2f06eab496b#.bl4c8r6lk)
 * [A Visual Introduction to Machine Learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
@@ -137,12 +142,12 @@ can be used to forecast future probabilities with an acceptable level of reliabi
 * Up to Speed on Deep Learning
     * [June Update](https://medium.com/the-mission/up-to-speed-on-deep-learning-june-update-bb0f17ccaf0b#.e0wr5tqwh)
     * [July Update, Part 2](https://medium.com/the-mission/up-to-speed-on-deep-learning-july-update-part-2-baacc835d8ab#.yw03l0iax)
+* [Tensorflow demystified](https://chatbotslife.com/tensorflow-demystified-80987184faf7)
 * TensorFlow in a Nutshell
     * [GitHub](https://github.com/c0cky/TensorFlow-in-a-Nutshell)
     * [Part One: Basics](https://medium.com/@camrongodbout/tensorflow-in-a-nutshell-part-one-basics-3f4403709c9d#.66dlxsbvd)
     * [Part Two: Hybrid Learning](https://medium.com/@camrongodbout/tensorflow-in-a-nutshell-part-two-hybrid-learning-98c121d35392#.v1hlrqrcl)
     * [Part Three: All the Models](https://www.linkedin.com/pulse/tensorflow-nutshell-part-three-all-models-camron-godbout)
-* []()
 * [TensorFlow Playground](http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.34995&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
 * [TensorFLow for Poets](https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/index.html?index=../../index#0)
 * [Tensorflow: How to freeze a model and serve it with a python API](https://blog.metaflow.fr/tensorflow-how-to-freeze-a-model-and-serve-it-with-a-python-api-d4f3596b3adc#.69lj4b5ko)
@@ -153,6 +158,7 @@ can be used to forecast future probabilities with an acceptable level of reliabi
 * [Recurrent Neural Networks in Tensorflow I](http://r2rt.com/recurrent-neural-networks-in-tensorflow-i.html)
 * [Recurrent Neural Networks in Tensorflow II](http://r2rt.com/recurrent-neural-networks-in-tensorflow-ii.html)
 * [Image Completion with Deep Learning in TensorFlow](http://bamos.github.io/2016/08/09/deep-completion/?utm_source=mybridge&utm_medium=email&utm_campaign=read_more)
+* [Introduction To TensorFlow](http://hackaday.com/2017/04/11/introduction-to-tensorflow/)
 * [TensorFlow - Getting Started](https://www.tensorflow.org/versions/r0.10/get_started/index.html)
 * [Magenta](https://magenta.tensorflow.org/welcome-to-magenta)
 * [Keras: Deep Learning library for Theano and TensorFlow](https://keras.io/)
@@ -160,6 +166,7 @@ can be used to forecast future probabilities with an acceptable level of reliabi
 * [Intro to Machine Learning using Tensorflow – Part 1](https://blog.openshift.com/intro-machine-learning-using-tensorflow-part-1/?sc_cid=70160000001206iAAA)
 * [TensorFlow on the Edge, Part 1 of 5](https://dzone.com/articles/tensorflow-on-the-edge)
 * [3 cool machine learning projects using TensorFlow and the Raspberry Pi](https://opensource.com/article/17/2/machine-learning-projects-tensorflow-raspberry-pi)
+* [TensorBoard](http://hackaday.com/2017/03/24/ten-minute-tensorflow-speech-recognition/)
 
 
 Simple Reinforcement Learning with Tensorflow
@@ -177,7 +184,10 @@ Understanding Convolutional Neural Networks
 * [A Beginner's Guide To Understanding Convolutional Neural Networks Part 1](https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/)
 * [A Beginner's Guide To Understanding Convolutional Neural Networks Part 2](https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks-Part-2/)
 * [The 9 Deep Learning Papers You Need To Know About (Understanding CNNs Part 3)](https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html?ref=mybridge.co?utm_source=mybridge&utm_medium=email&utm_campaign=read_more&_branch_match_id=243603234170444476)
-* [Rohan & Lenny #2: Convolutional Neural Networks](https://ayearofai.com/rohan-lenny-2-convolutional-neural-networks-5f4cd480a60b#.9fa692g0c)
+* [A Year of Artificial Intelligence](https://ayearofai.com/)
+    * [#0: 2016 is the year I venture into Artificial Intelligence](https://ayearofai.com/0-2016-is-the-year-i-venture-into-artificial-intelligence-d702d65eb919)
+    * [Rohan & Lenny #2: Convolutional Neural Networks](https://ayearofai.com/rohan-lenny-2-convolutional-neural-networks-5f4cd480a60b#.9fa692g0c)
+    * [Rohan & Lenny #3: Recurrent Neural Networks & LSTMs](https://ayearofai.com/rohan-lenny-3-recurrent-neural-networks-10300100899b)
 
 
 * [Selection of resources to learn Artificial Intelligence / Machine Learning / Statistical Inference / Deep Learning / Reinforcement Learning](https://medium.com/artists-and-machine-intelligence/selection-of-resources-to-learn-artificial-intelligence-machine-learning-statistical-inference-23bc56ba655#.m0homsb1h)

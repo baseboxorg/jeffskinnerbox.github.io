@@ -12,6 +12,8 @@
 * [node-dash-button](https://github.com/hortinstein/node-dash-button)
 * [An Amazon Dash-Like Button For The ESP8266](http://hackaday.com/2015/05/13/an-amazon-dash-like-button-for-the-esp8266/)
 * [Make Your Mailman Nervous With a Wifi Enabled Mailbox](http://hackaday.com/2016/04/05/make-your-mailman-nervous-with-a-wifi-enabled-mailbox/)
+* [26 Amazon Dash Button Hacks You Probably Didn't Know About](http://www.dashbuttondudes.com/blog/2015/12/11/26-amazon-dash-button-hacks)
+* [Custom Amazon Dash Ordering Button](https://github.com/gpwclark/dash-hack)
 
 # Open Source Alternatives
 * [Better Alternatives ](https://news.ycombinator.com/item?id=11689655)

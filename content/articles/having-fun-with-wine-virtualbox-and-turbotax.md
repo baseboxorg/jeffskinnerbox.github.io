@@ -94,12 +94,12 @@ Downloaded the Oracle public key for the software:
 wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
 ```
 
-Now install VirtualBox version 4.3:
+Now install VirtualBox:
 
 ```bash
 # install VirtualBox
 sudo apt-get update
-sudo apt-get install dkms virtualbox-4.3
+sudo apt-get install virtualbox vde2 virtualbox-guest-additions-iso virtualbox-ext-pack
 ```
 
 ### Configuring VirtualBox and Installing Windows 8.1

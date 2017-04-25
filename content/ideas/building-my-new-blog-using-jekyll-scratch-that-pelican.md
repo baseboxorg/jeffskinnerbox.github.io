@@ -212,7 +212,7 @@ On top of this Pelican Theme, is layered [Bootstrap 3][28],
 a front-end framework for developing [responsive web sites][34].
 Bootstrap is a popular web framework, and as a result of its growing popularity,
 it has created uniformity between many websites.
-[Bootswatch][35] was created to somewhat combate this trend,
+[Bootswatch][35] was created to somewhat combat this trend,
 enable developers, still using Bootstrap to try on a new look,
 without investing much time or energy.
 I used the Bootswatch Bootstrap theme called [flatly][53]

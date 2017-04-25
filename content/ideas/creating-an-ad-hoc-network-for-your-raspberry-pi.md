@@ -155,7 +155,8 @@ Its aim is to simplify the use of computer networks on Linux-based
 and other Unix-like operating systems.
 NetworkManager has a command-line tool for controlling it, called [`nmcli`][16].
 
-See [nmcli](https://fedoraproject.org/wiki/Networking/CLI)
+* See [nmcli](https://fedoraproject.org/wiki/Networking/CLI)
+* [Connect to a wireless network using command line nmcli](https://nullr0ute.com/2016/09/connect-to-a-wireless-network-using-command-line-nmcli/)
 
 The point of NetworkManager is to make networking configuration
 and setup as painless and automatic as possible for the novice user.

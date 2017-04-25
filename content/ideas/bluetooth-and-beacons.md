@@ -153,7 +153,19 @@ but [no specific timeline for specfications to be delivered][37].
 * [iBeacon vs Eddystone – which is the better one for your business?](https://www.whatech.com/mobile-apps/blog/271289-ibeacon-vs-eddystone-which-is-the-better-one-for-your-business)
 
 # Google Eddystone
-Eddystone is an open beacon format from Google.
+Eddystone is an open-source library built by Google as part of their
+Physical Web project for developers to leverage beacons in ways that
+make experiences more meaningful and substantial than a one-off application use.
+In contrast to Apple’s closed and proprietary iBeacon protocol,
+which transmits IDs to users that must be consumed by specially-built mobile apps,
+the Eddystone beacon protocol emits a URL that developers can
+configure in a beacon either manually or by using a backend service.
+Eddystone expands beacon functionality with links,
+rather than with app notifications (although it also supports app notifications),
+and since the URLs it emits are consumable by the Chrome browser already installed on many devices,
+especially Android phones,
+the protocol is not dependent on a one-off mobile app download to drive the experience.
+
 This firmware application is fully configurable via [Eddystone Configuration GATT Service][07].
 There are several ways to configure the Eddystone beacon.
 For example:
@@ -191,9 +203,14 @@ UriBeacon (pronounced YUR-ee-BEE-kun) is evolving to become part of the
 [Google has launched][06] the concept of the [Physical Web][04] in [Chrome][04],
 on [Andriod phones][05],
 and in their latest version of [Chrome for iOS][03]
-The [Physical Web][01] offers a universal way to interact with any smart device
-– a vending machine, a poster, a menu, a parking meter, a retail display
-– without first having to download an app, where everything is just a tap away.
+The [Physical Web][01] offers a universal way to interact with any smart device,
+a vending machine, a poster, a menu, a parking meter, a retail display
+without first having to download an app, where everything is just a tap away.
+For example, a user would approach a beacon installed in a museum,
+and if the visitor’s mobile device is Physical-Web-enabled—if the service has been enabled
+in the phone’s Chrome browser—a notification will appear in the phone’s notification tray
+with a URL on which to click to learn more about the location.
+
 The Physical Web is not shipping yet nor is it an official Google product.
 This is an early-stage experimental project we're developing out in the open as we do all things related to the web.
 
@@ -206,11 +223,18 @@ Eddystone, iBeacon and Bluetooth certified
 * [The Physical Web](https://google.github.io/physical-web/)
 
 # Web Bluetooth
-Web Bluetooth is a developing JavaScript API to allow websites to communicate with Bluetooth devices.
+Web Bluetooth or [Web Bluetooth API][38]
+is a developing JavaScript API to allow websites to communicate with Bluetooth devices.
 Sites ask the browser to show a list of nearby Bluetooth devices matching certain criteria,
 and the user either picks which to grant access to or cancels the dialog.
 This group is developing a [specification for Bluetooth APIs][13] to allow websites
 to communicate with devices in a secure and privacy-preserving way.
+
+This new and experimental API, newly introduced into Chrome browsers,
+pushes boundaries of beacon capabilities even further.
+It allows a web page to interact directly with a Bluetooth device.
+Pairing beacons with a beautiful website lets users experience the world around them as never before,
+bridging the web, mobile and physical realms together via these low-energy Bluetooth-powered devices.
 
 [The Web Bluetooth Security Model][14]
 [Some believe Web Bluetooth represents a security risk][15].
@@ -310,7 +334,7 @@ designed for the Raspberry Pi Zero (other RPi boards with 40-pin header will als
 [35]:https://techcrunch.com/2014/11/20/seed-lab-creates-a-seamless-connection-between-you-and-your-kettle/
 [36]:http://www.ledsmagazine.com/articles/print/volume-13/issue-3/features/smart-lighting/bluetooth-mesh-what-s-that-noise-about.html
 [37]:http://rethinkresearch.biz/articles/bluetooth-5-0-debut-imminent-mesh-still-just-round-corner/
-[38]:
+[38]:https://github.com/WebBluetoothCG/web-bluetooth
 [39]:
 [40]:
 [41]:
