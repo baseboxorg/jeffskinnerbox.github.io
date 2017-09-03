@@ -12,6 +12,7 @@ If you're looking for something that can do some more serious processing,
 check out the RPi 2 or RPi 3.
 
 # Raspberry Pi Zero Tour
+![rpi-zero-all-types](http://zdnet1.cbsistatic.com/hub/i/r/2017/05/07/b510bd4a-f8bd-4b80-8c94-9e0f8c331665/resize/770xauto/567ce41124a0f0c49315dd7013074fc1/imgp3772.jpg)
 ![rpi-zero](http://livedoor.blogimg.jp/victory7com/imgs/1/2/1237de17.jpg)
 [Adafruit][05] gives a nice [tour of the RPi Zero][04].
 
@@ -864,6 +865,8 @@ you can turn it back on with just a press of the button.
 You can find documentation on the reset switch for the [RPi Zero][120] or
 any of the [Rev 2 RPis][121].
 
+* [Making Your Own RPi Power Button](https://dzone.com/articles/making-your-own-rpi-power-button?edition=306281&utm_source=Zone%20Newsletter&utm_medium=email&utm_campaign=iot%202017-07-18)
+* [ADD A SAFE OFF-SWITCH TO POWER DOWN YOUR RASPBERRY PI](https://www.raspberrypi.org/magpi-issues/MagPi57.pdf)
 * [Reboot or shut down your Raspberry Pi using an Amazon Dash Button](https://howchoo.com/g/ymy4nza0nzb/reboot-your-raspberry-pi-using-an-amazon-dash-button)
 * [SHUT IT DOWN (RASPBERRY PI THAT IS)](https://facelesstech.wordpress.com/2016/01/16/shut-it-down-raspberry-pi-that-is/)
 * [Adding a Shutdown Button to the Raspberry Pi B+](https://www.element14.com/community/docs/DOC-78055/l/adding-a-shutdown-button-to-the-raspberry-pi-b)

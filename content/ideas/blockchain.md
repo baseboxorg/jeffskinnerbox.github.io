@@ -31,3 +31,9 @@ and introduces a new way of reaching consensus in a decentralized peer-to-peer s
 VZ Working With them.
 
 * [Guardtime](https://guardtime.com/)
+
+# Blockchain Implementations
+https://enterprisersproject.com/article/2017/6/blockchain-3-big-implications-your-company?sc_cid=70160000000gz6FAAQ
+## Cryptocurrency Transactions
+## Transactions Between Organizations
+## Workflow Within Organizations

@@ -1,3 +1,7 @@
+
+* []()
+* [A Brief History of Random Numbers](https://medium.freecodecamp.com/a-brief-history-of-random-numbers-9498737f5b6c)
+
 # Hacking Analog CLock
 Can this clock be hacked so you can control its preciseion time source? - La Crosse Technology WT-3102B - https://www.amazon.com/dp/B00077AA4W/ref=psdc_3734871_t1_B0001PG238
 
@@ -11,9 +15,10 @@ Can this clock be hacked so you can control its preciseion time source? - La Cro
 [Radio Station WWVB](https://www.nist.gov/pml/time-and-frequency-division/radio-stations/wwvb)
 [μWWVB: A Tiny WWVB Station](http://www.anishathalye.com/2016/12/26/micro-wwvb/)
 
-# Numbers Station
+# Number Stations
 * [History of numbers stations](http://hackaday.com/2015/10/29/secret-radio-stations-by-the-numbers/)
 * [Run Your Own Numbers Station](http://hackaday.com/2016/12/31/run-your-own-numbers-station/)
+* [Number Twitters](http://hackaday.com/2017/05/09/number-twitters/)
 
 # Random-Number Generation
 * [Random Number Generation](https://www.mi.fu-berlin.de/inf/groups/ag-tech/teaching/2012_SS/L_19540_Modeling_and_Performance_Analysis_with_Simulation/06.pdf)

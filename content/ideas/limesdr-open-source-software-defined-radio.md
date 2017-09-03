@@ -6,6 +6,7 @@
 * [Gqrx SDR](http://gqrx.dk/)
 * [csdr - build DSP processing chains by shell pipes](https://github.com/simonyiszk/csdr)
 * [Optimising Performance on HF](https://www.crowdsupply.com/lime-micro/limesdr/updates/optimising-performance-on-hf?utm_source=LimeSDR+supporters&utm_campaign=6181a14370-Update_LimeSDR_optimising_HF_2017_02_14&utm_medium=email&utm_term=0_1e5a81cd57-6181a14370-112302893)
+* [4G (LTE) Home Repeater With LimeSDR](http://www.instructables.com/id/4G-LTE-Home-Repeater-With-LimeSDR/)
 
 ![limesdr](https://www.crowdsupply.com/img/31d2/limesdr-7_jpg_project-body.jpg)
 Ever since I become aware of [RTL-SDR][20] and how it could be used to create
@@ -164,7 +165,13 @@ played a [major role][15] in the [LimeSuite software][16],
 making sure that LimeSDR is well supported by SDR software tools/platfroms,
 and to provide some example demonstrations.
 
-https://myriadrf.org/blog/limesdr-application-ecosystem/
+* https://myriadrf.org/blog/limesdr-application-ecosystem/
+
+Ubuntu App Stores - https://www.crowdsupply.com/lime-micro/limesdr/updates/ubuntu-app-store-progress?utm_source=LimeSDR+supporters&utm_campaign=cc95a5e8d2-EMAIL_CAMPAIGN_2017_05_16&utm_medium=email&utm_term=0_1e5a81cd57-cc95a5e8d2-112302893
+In order to make it possible to browse and search the available apps without having to first configure an app-enabled system, two websites have been set up:
+
+* https://limenet.limemicro.com/
+* https://limesdr.limemicro.com/
 
 ## LMS Suite Software
 The board’s host driver architecture, meanwhile, supports both the SoapySDR and UHD APIs. The firmware supports advanced features liked timed TX bursts and RX sample timestamps, “as required for use with GSM and other time-sensitive protocols,” says the project. The LimeSDR’s host driver is built on a “Lime Suite” low level library that handles programming and calibration of the LMS7002M FPRF transceiver, among other gnarly internal communications.

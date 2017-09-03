@@ -1,0 +1,25 @@
+# Ultrasonic
+* [Ultrasonic Distance Sensors Arduino Tutorial and Comparison for HC-SR04, HY-SRF05, US-015](https://www.youtube.com/watch?v=aLkkAsrSibo)
+
+# PIR
+* [How PIR modules work and using them to control LED strings.](https://www.youtube.com/watch?v=evZM2_RTvTU)
+* [PIR Sensors: Test and comparison of HC-SR501 and HC-SR505. Is the bigger better?](https://www.youtube.com/watch?v=0zgY5x9Zq3M)
+
+# Time of Flight Distance Sensor
+* [VL6180X ToF sensor](https://www.adafruit.com/product/3316)
+* [VL53L0X ToF sensor](https://www.adafruit.com/product/3317)
+
+# Walking Speed
+* [Measuring Walking Speed Wirelessly](http://hackaday.com/2017/05/10/measuring-walking-speed-wirelessly/)
+
+# Radar Sensors
+* [Radar Sensors / Switches: Comparison and Tests](https://www.youtube.com/watch?v=9WiJJgIi3W0)
+* [HW-MS03 - 2.4GHz To 5.8GHz Radar Sensor Microwave Radar Module Small Size](https://www.banggood.com/HW-MS03-2_4GHz-To-5_8GHz-Radar-Sensor-Microwave-Radar-Module-Small-Size-p-1123550.html?p=E307071053245201501N)
+* [RCWL-0516 - microwave radar sensor module Human body induction switch module Intelligent sensor](https://www.aliexpress.com/item/RCWL-0516-microwave-radar-sensor-module-Human-body-induction-switch-module-Intelligent-sensor/32704946341.html)
+* [WB3-12 - LED Microwave Radar Sensor 3-12W 7m Microwave Radar Sensoring Switch Special for Light Bulb Ceiling Lamp](https://www.aliexpress.com/item/LED-Microwave-Radar-Sensor-3-12W-Microwave-Sensoring-Switch-Special-for-Spherical-Lamp/32602421530.html)
+* [XYC-WB-D1 - LED Microwave Sensor DC Microwave Radar Sensing Module 4-8M Home Control Body Motion Detector Light Switch](https://www.aliexpress.com/item/Microwave-Radar-Sensor-4-8M-180-LED-Lamp-Smart-Switch-Steady-Home-Control/32668622766.html)
+* [HFS-DC06 - DC 5V 5.8G 5.8GHz Microwave Radar Sensor Switch Module ISM Waveband Sensing 12m HFS-DC06 No Interference](https://www.aliexpress.com/item/5-8GHz-Microwave-Radar-Sensor-Module-ISM-Waveband-DC-5V-39-22-11mm-Installation-Height-2/32735312800.html)
+* [SK-600 - AC 220V-240V 5.8GHz Microwave Radar Sensor Body Motion HF Detector Light Switch](https://www.banggood.com/SK-600-AC-220V-240V-5_8GHz-Microwave-Radar-Sensor-Body-Motion-HF-Detector-Light-Switch-p-1023364.html)
+
+# Sensor Array / Synthetic Sensor
+* [Sense All the Things with a Synthetic Sensor](http://hackaday.com/2017/05/19/sense-all-the-things-with-a-synthetic-sensor/)

@@ -5,6 +5,7 @@
 * [80 Linux Monitoring Tools](https://blog.serverdensity.com/80-linux-monitoring-tools-know/)
 * [SysUsage: the sysstat and sar grapher](http://sysusage.darold.net/index.html)
 * [10 Useful Sar (Sysstat) Examples for UNIX / Linux Performance Monitoring](http://www.thegeekstuff.com/2011/03/sar-examples/?utm_source=feedburner)
+* [14 Essential Network Troubleshooting Tools](http://www.networkcomputing.com/networking/14-essential-network-troubleshooting-tools/2076793987?elq_mid=79108&elq_cid=23179140&_mc=NL_NWC_EDT_NWC_converations_20170629&cid=NL_NWC_EDT_NWC_converations_20170629&elqTrackId=5ba0eb78902d462aa8af7b9d7c51a917&elq=bf8932920f374dcc8bb6f5e8d4ab187f&elqaid=79108&elqat=1&elqCampaignId=27125)
 
 * [ip vs. ifconfig - WILT](http://www.innervoice.in/blogs/2015/11/27/ip-vs-ifconfig-wilt/)
 * [A Subnetting Primer](https://danielmiessler.com/study/subnetting/)
@@ -12,11 +13,17 @@
 * [An IPTABLES Primer](https://danielmiessler.com/study/iptables/)
 * [An NMAP Primer](https://danielmiessler.com/study/nmap/)
 * [20 Myths of WiFi Interferance](http://www.wifiadvies.be/20-myths-of-wi-fi-interference/)
+* [Simple WebSocket Client](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en)
 
 mitmproxy
 * [mitmproxy - Tools for Analysising and Inspecting HTTP Traffic](https://mitmproxy.org/)
 * [How To: Use mitmproxy to read and modify HTTPS traffic](https://blog.heckel.xyz/2013/07/01/how-to-use-mitmproxy-to-read-and-modify-https-traffic-of-your-phone/)
 * [Decrypt your HTTPS traffic with mitmproxy](http://www.darkcoding.net/software/decrypt-your-https-traffic-with-mitmproxy/)
+
+# Computer Networking
+TCP/IP has become the global protocol for computer networking.
+
+* [OSI: The Internet That Wasn’t](http://spectrum.ieee.org/computing/networks/osi-the-internet-that-wasnt)
 
 Most network configuration manuals still refer to `ifconfig` and `route`
 as the primary network configuration tools,
@@ -38,6 +45,9 @@ what about ethtool, netifd, nm-tool, nm-online, [nmcli](https://fedoraproject.or
 * 9 Linux ethtool Examples to Manipulate Ethernet Card (NIC Card) - http://www.thegeekstuff.com/2010/10/ethtool-command/
 * Fun with ethtool - http://www.linuxjournal.com/content/fun-ethtool
 *  Stop using telnet to test network connectivity - http://scotte.github.io/2015/03/stop-using-telnet/
+
+# How to Configure Networking in Linux
+* [How to configure networking in Linux](https://opensource.com/life/16/6/how-configure-networking-linux?sc_cid=701600000011yI7AAI)
 
 # NetworkManager
 NetworkManager is a service for Linux which manages various networking interfaces,
@@ -211,7 +221,35 @@ any interface not listed there will remain under NetworkManager control.
     and a und line ser interface to the protocol.
     **Example Usage:** `telnet 192.168.8.1`
 
-####################
+################################################################################
+fprobe, nfcapd, and nfdump
+fprobe is a tools that listens to an interface, collects network traffic data, and creates NetFlow records while nfdump reads and displays the NetFlow files stored by the nfcapd NetFlow capture daemon. Engineers can run nfcapd on the same machine as fprobe or on a different computer and use it to collects flows from multiple sources and put into directories. Nfdump can be used to create top N lists such as conversations and protocols.
+
+Cacti
+With Cacti, networking pros can graph SNMP values over time. It's handy for utilization, UPS statistics, and work with most any SNMP-managed device. Devices can be added and monitored over long periods of time, and can track not only interface utilization, but availability and response time.
+
+SmokePing
+The open source SmokePing tool measures network latency, packet loss, and long-term changes in latency. The software sends multiple ping packets, usually 20, to the target host, then charts out the response times for each of the ping relies. The distribution gives you an idea of variations in response times.
+
+OpenNMS
+OpenNMS is a free and open source platform for network device and service availability monitoring. Features include outage notifications, availability reports, and scalability. OpenNMS is available in two platforms, Meridian and Horizon; Meridian is designed more for enterprises who want stability while Horizon is designed for monitoring new technologies such as Docker.
+
+AirCrack-ng
+This is a WiFi network security assessment tool that's handy for discovering nearby networks and clients. Network pros can use AirCrack-ng for packet capture and export the data to test files for additional processing by third-party tools.
+
+arpspoof
+This technique is commonly used for hacking, but network pros can use it to setup a quick man-in-the-middle packet capture for auditing purposes. It eliminates the need for a span or tap. Installing dsniff, a collection of network auditing and pen testing tools, will enable arpspoof and dnsspoof.
+
+Snort
+Snort is a well-known open source intrusion-detection and prevention system that uses a ruleset to analyze traffic, creates alerts, and stores problematic packets. Rules can be customized based on a company's specific needs. Snort was created by Martin Roesch, who founded Sourcefire, which sold a commercial version of the software. Cisco bought Sourcefire in 2013 and supports the open source Snort alongside a commercial version.
+
+curl
+This tool is used in command lines or scripts to transfer data, usually to and from a server. In networking, it can be used to measure website response time.
+
+Elasticsearch, Logstash, and Kibana (ELK)
+The open source ELK stack enables data collection and search. Logstash collects data such as syslog and local log files, and formats and writes the data to Elasticsearch. Kibana provides an interface to visualize the stored data and creates dashboards.
+################################################################################
+################################################################################
 [Howto Check Wireless link quality in Ubuntu Linux](http://www.ubuntugeek.com/howto-check-wireless-link-quality-in-ubuntu-linux.html)
 [A tcpdump Tutorial and Primer](https://danielmiessler.com/study/tcpdump/)
 http://www.cyberciti.biz/networking/nmap-command-examples-tutorials/
@@ -246,7 +284,7 @@ WiFi Configuration Via Command Line
 * [Wireless network configuration](https://wiki.archlinux.org/index.php/Wireless_network_configuration)
 * [How to Find The Best Wi-Fi Channel For Your Router on Any Operating System](http://www.howtogeek.com/197268/how-to-find-the-best-wi-fi-channel-for-your-router-on-any-operating-system/)
 
-####################
+################################################################################
 
 # MAC Address and OUI Lookup
 * [OUI (MAC address) lookup script](http://www.backtrack-linux.org/forums/showthread.php?t=29819)
@@ -254,18 +292,18 @@ WiFi Configuration Via Command Line
 * [Change mac address with macchanger Linux command](http://linuxconfig.org/change-mac-address-with-macchanger-linux-command)
 * [Wireshark · OUI Lookup Tool](https://www.wireshark.org/tools/oui-lookup.html)
 
-####################
+################################################################################
 
-####################
+################################################################################
 Subnet and IP Calculator
 IP Subnet Calculator for IPv4/v6
 http://www.gestioip.net/cgi-bin/subnet_calculator.cgi
 http://www.subnetonline.com/pages/subnet-calculators/ipv6-subnet-calculator.php
 http://www.tunnelsup.com/subnet-calculator
 http://www.ipv6calculator.net/
-####################
+################################################################################
 
-####################
+################################################################################
 
 Multicast Domain Name System (mDNS)
 (http://www.multicastdns.org/) is one of the features of Bonjour, included in Mac OS X 10.2 or later,
@@ -295,7 +333,7 @@ all Bonjour host names end with the extension ".local."
 This helps avoid confusion between names that are local Bonjour computer names
 ("mycomputer.local") and globally unique DNS names ("www.apple.com").
 
-####################
+################################################################################
 
 
 # SSH - Remote Unix Work
@@ -584,6 +622,12 @@ To check to see what services are running on a box
 sudo nmap -sV 192.168.1.1
 ```
 
+# netcat
+Hacking with Netcat
+[Part 1: The Basics](http://www.hackingtutorials.org/networking/hacking-with-netcat-part-1-the-basics/)
+[Part 2: Bind and Reverse shells](http://www.hackingtutorials.org/networking/hacking-netcat-part-2-bind-reverse-shells/)
+[Part 3: Advanced Netcat techniques](http://www.hackingtutorials.org/networking/hacking-with-netcat-part-3-advanced-techniques/)
+
 # nslookup
 * [10 Linux nslookup Command Examples for DNS Lookup](http://www.thegeekstuff.com/2012/07/nslookup-examples/)
 * [nslookup command examples to check DNS Records](http://www.2daygeek.com/nslookup-command-examples-to-check-dns-records/#)
@@ -663,6 +707,7 @@ Network interface specs
 
 For further information and education, see
 
+* [An introduction to Linux network routing](https://opensource.com/business/16/8/introduction-linux-network-routing?sc_cid=701600000011yI7AAI)
 * [Introduction to Linux IP Routing Fundamentals (Part 1)](http://www.thegeekstuff.com/2012/04/ip-routing-intro/)
 
 ## Display the Routing Table
@@ -1492,3 +1537,13 @@ could be gathered for this cheat sheet.
 [68]:https://blog.grandcentrix.net/a-command-line-websocket-client/
 [69]:
 [70]:
+[71]:
+[72]:
+[73]:
+[74]:
+[75]:
+[76]:
+[77]:
+[78]:
+[79]:
+[80]:

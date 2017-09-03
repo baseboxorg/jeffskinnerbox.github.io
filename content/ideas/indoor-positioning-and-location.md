@@ -13,6 +13,8 @@
 * [access_points](https://github.com/kootenpv/access_points)
 * [WiFinder](https://github.com/mpescimoro/wi-finder)
 * [whereami](https://github.com/kootenpv/whereami)
+* [Public Wi-Fi database. Geo-Location API. Public API of position by Wi-Fi (MAC, BSSID)](https://www.mylnikov.org/archives/1170)
+* [Estimote Indoor Location](https://itunes.apple.com/us/app/estimote-indoor-location/id963704810?mt=8&ign-mpt=uo%3D4)
 
 # Framework for Internal Navigation and Discovery (FIND)
 * [Framework for Internal Navigation and Discovery (FIND)](https://www.internalpositioning.com/)
@@ -35,11 +37,31 @@ geomagnetic positioning in its core to accurately pinpoint a location inside a b
 
 * [IndoorAtlas - Indoor positioning systems (IPS)](https://www.indooratlas.com/)
 
+# SubPos
+The SubPos WiFi Positoning Standard is a dataless positioning system
+that doesn't require expensive licencing, specialised hardware, laborious area profiling
+or reliance on data connectivity
+(a connection to a location database or cellphone coverage is not required).
+Its compatible with existing WiFi access points and receivers.
+It works independently of, or alongside GPS/WiFi Positioning Systems (WPS)/Indoor Positioning Systems (IPS)
+as an additional positioning data source by exploiting hardware commonly available.
+All a user wishing to determine their location underground/indoors will require is a WiFi enabled device.
+
+* https://www.subpos.org/?q=details
+* https://github.com/subpos
+* https://www.youtube.com/watch?v=m3yo97_1XFI
+* [Beacon-Stuffing: Wi-Fi Without Associations](https://www.microsoft.com/en-us/research/publication/beacon-stuffing-wi-fi-without-associations/)
+* [The Location-based WiFi Services system: A Complete Open Source Solution for Wi-Fi Beacon Stuffing Based Location-based Services](https://github.com/lows/lows)
+
+# Proximi.io
+[proximi.io Proximity Platfrom](https://proximi.io/)
+Get access to all of your favourite positioning technologies through a single API: IndoorAtlas, iBeacon, Eddystone beacons, WiFi, GPS and cellular positioning. Use just one – or all of them in combination for positioning and geofencing. All technologies function with the same geofencing logic both indoors and ooutdoors.  Proximi.io is truly technology-agnostic, and committed to supporting all of the major positioning technologies. In other words, you’ll be safe with us – no matter what technologies you want to use today or tomorrow.
+
 # RFID Asset Tracking
 * [Your Own RFID Gateway Written in Node.js](http://www.spiria.com/en/blog/embedded-systems-and-m2m/your-own-rfid-gateway-written-nodejs)
 * [RFID-based Asset Tracking with Node.js and MongoDB](http://www.spiria.com/en/blog/embedded-systems-and-m2m/rfid-based-asset-tracking-nodejs-and-mongodb)
 
-# "Positioning via TV Signals"
+# Positioning via TV Signals
 
 # Global Positioning System (GPS)
 * [Hackaday Dictionary: The Global Positioning System (GPS)](http://hackaday.com/2015/11/12/hackaday-dictionary-the-global-positioning-system-gps/)
@@ -53,4 +75,10 @@ geomagnetic positioning in its core to accurately pinpoint a location inside a b
 * [GeoMeetup - WiFiSLAM - Modern Innovations in Indoor Positioning (Joseph Huang)](https://www.youtube.com/watch?v=OGdvjvla1Tc)
 * [WiFiSLAM](https://angel.co/wifislam)
 * [Apple Acquires Indoor Location Company WifiSLAM](http://blogs.wsj.com/digits/2013/03/23/apple-acquires-indoor-location-company-wifislam/)
-* []()
+
+# Future Standards
+* [Wi-Fi Location Promises Precision](https://www.networkcomputing.com/wireless-infrastructure/wi-fi-location-promises-precision/161511044?_mc=NL_NWC_EDT_NWC_converations_20170228&cid=NL_NWC_EDT_NWC_converations_20170228&elqTrackId=0399ee69f7f8445994d04edf3aca163c&elq=a62a6a0594ae43c08183d4430c188267&elqaid=76994&elqat=1&elqCampaignId=25693)
+
+# Other
+* [a monostatic active sonar using a piezo element and microphone](http://hackaday.com/2015/01/26/sonar-built-from-piezo-and-microphone/)
+* [Combination of Phone Sensors and Neural Networks Could Allow Hackers to Steal PINs](https://www.allaboutcircuits.com/news/how-phone-sensors-and-neural-networks-team-up-to-help-hackers-steal-pins/?utm_source=All+About+Circuits+Members&utm_campaign=4c598b9402-EMAIL_CAMPAIGN_2017_05_10&utm_medium=email&utm_term=0_2565529c4b-4c598b9402-270523833/)

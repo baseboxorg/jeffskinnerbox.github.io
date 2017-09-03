@@ -45,6 +45,8 @@ but you can't be that sure about hackers.
 
 ## Pushover
 An alternative to Pushover is [Instapush](https://instapush.im/).
+[20 Free and Secure Alternatives to the Parse Push Service](https://dzone.com/articles/20-free-amp-secure-alternatives-to-the-parse-push?edition=252682&utm_source=DailyDigest&utm_medium=email&utm_campaign=dd2016-12-11)
+
 <a href="https://pushover.net/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Pushover Logo" alt="Pushover Logo" src="/images/pushover-logo.png" width="75" height="75" />
 </a>
@@ -122,6 +124,19 @@ See these slides - https://docs.google.com/presentation/d/1KqevSqe6ygWVj4U-wlarK
         <img class="img-rounded" style="margin: 0px 8px; width: 247px; height: 111px" title="If your app will run on devices that do not have access to a system browser, or devices with limited input capabilities (for example, if your app will run on game consoles, video cameras, or printers), then this is the flow to be used." alt="Device-Picture" src="https://developers.google.com/accounts/images/deviceflow.png" />
     </a>
 </div>
+
+# Introduction to OAuth 2.0
+OAuth stands for Open Authorization.
+It’s a free and open protocol, that allows users to share their private resources
+with a third party while keeping their own credentials secret.
+OAuth does this by granting the requesting (client) applications a token,
+once access is approved by the user.
+Each token grants limited access to a specific resource for a specific period.
+
+OAuth2 supports “delegated authentication”, that is,
+it grants access to another person or application to perform actions on your behalf.
+
+* [OAuth 2.0 Beginner's Guide](https://dzone.com/articles/oauth-20-beginners-guide?edition=298102&utm_source=weekly%20digest&utm_medium=email&utm_campaign=wd%202017-05-17)
 
 # Gmail API Quickstart
 To create an application that makes requests to the Gmail API,

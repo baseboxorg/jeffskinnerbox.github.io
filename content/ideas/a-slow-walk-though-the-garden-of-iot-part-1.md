@@ -9,6 +9,7 @@ Image: internet-of-things.png
 Summary: bla bla bla
 
 An alternative to Pushover is [Instapush](https://instapush.im/).
+[20 Free and Secure Alternatives to the Parse Push Service](https://dzone.com/articles/20-free-amp-secure-alternatives-to-the-parse-push?edition=252682&utm_source=DailyDigest&utm_medium=email&utm_campaign=dd2016-12-11)
 
 [A REST API FOR ARDUINO AND THE CC3000 WIFI CHIP](http://blog.arduino.cc/2014/06/05/a-rest-api-for-arduino-and-cc3000/?utm_content=bufferc97c1&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 

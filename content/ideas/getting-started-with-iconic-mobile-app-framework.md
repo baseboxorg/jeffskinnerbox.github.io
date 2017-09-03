@@ -8,7 +8,6 @@
 * [Icon's Blog: Tutorials](http://blog.ionic.io/tag/tutorials/)
 
 
-
 [!ionic-logo](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Ionic_Logo.svg/2000px-Ionic_Logo.svg.png)
 [Ionic][01] is open source framework used for developing mobile applications.
 It provides tools and services for building mobile UI with [native app][02] look and feel.
@@ -53,6 +52,13 @@ Ionic has established itself as leader in the hybrid mobile apps development spa
 Ionic team keeps the framework updated by adapting to the latest trends,
 and its ecosystem has grown so huge that you can easily find tons of development
 resources from this open source community.
+
+# Meteor
+Meteor is a great backend solution for Angular and Ionic apps.
+
+* [Ionic and Meteor: Two great things that go great together](http://blog.ionic.io/ionic-and-meteor/)
+* [Meteor, Ionic and Cordova basic tutorial](https://www.codetutorial.io/meteor-ionic-and-cordova-basic-tutorial/)
+
 
 # Ionic Development Tools
 * [Ionic View](https://play.google.com/store/apps/details?id=com.ionic.viewapp) allows you to quickly and easily load, view and test the apps you build with Ionic Framework on a device.

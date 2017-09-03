@@ -9,6 +9,7 @@ Image: toshiba-chromebook-linux.jpg
 Summary: The price of the Chromebook makes it a very attractive, assuming you can get your favorite tools working on it.  Well, you can install Linux, along with all the tools Linux brings to your development needs. This post is a somewhat disjointed dump of things that I’ve done to create a comfortable working envirnment on a Chromebook.
 
 
+* [How to install Linux on a Chromebook (and why you should)](https://arstechnica.com/gadgets/2017/06/how-to-install-linux-on-a-chromebook/)
 * [How to prevent a Chromebook from running out of memory](http://www.techrepublic.com/article/how-to-prevent-a-chromebook-from-running-out-of-memory/)
 * [Now you can unlock Chrome OS with a PIN code](https://www.engadget.com/2016/08/19/unlock-chrome-os-with-pin/)
 * [Unlock your Chromebook with your Android phone](https://support.google.com/chromebook/answer/6070209?hl=en-GB)

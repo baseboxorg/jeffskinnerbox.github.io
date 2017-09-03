@@ -13,8 +13,23 @@
 # Alternatives to openHAB
 * [5 open source home automation tools](https://opensource.com/life/16/3/5-open-source-home-automation-tools)
 * [Home Assistant](https://home-assistant.io/)
+    * [Creating an IoT Server with Home Assistant and MQTT](https://www.hackster.io/Richa1/creating-an-iot-server-with-home-assistant-and-mqtt-3d874d?ref=similar&ref_id=45410&offset=5)
     * [works with Framework for Internal Navigation and Discovery (FIND)](https://github.com/schollz/find)
+    * [AWS IoT Environment for Home Assistant](https://www.hackster.io/mitchese/aws-iot-environment-for-home-assistant-899a1b)
 * [Domoticz](http://domoticz.com/)
+
+# Conversational User Experience Platform
+* [api.ai](https://api.ai/)
+* [How to Build Your Own AI Assistant Using Api.ai](https://www.sitepoint.com/how-to-build-your-own-ai-assistant-using-api-ai/)
+* [Natural Language API for mobile apps, IoT, devices, etc. - api.ai](https://github.com/api-ai)
+* [wit.ai](https://wit.ai/)
+* [Melissa - A lovely virtual assistant for OS X, Windows and Linux systems](https://github.com/melissa-ai)
+* [J.A.R.V.I.S. : A Virtual Home Assistant](https://www.hackster.io/blitzkrieg/j-a-r-v-i-s-a-virtual-home-assistant-d61255?utm_source=Hackster.io+newsletter&utm_campaign=e60e593e75-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-e60e593e75-140225889&mc_cid=e60e593e75&mc_eid=9036129d51)
+* [Telegram Bot Platform](https://telegram.org/blog/bot-revolution)
+* [Using a Telegram Bot and a Demo Board to experiment with home automation](https://www.open-electronics.org/using-a-telegram-bot-and-a-demo-board-to-experiment-with-home-automation/)
+* [How to make a responsive telegram bot](http://www.sohamkamani.com/blog/2016/09/21/making-a-telegram-bot/)
+* [Home Automation: Playing With IoT, Temperature Sensors, Fans, and Telegram Bots](https://dzone.com/articles/home-automation-playing-with-iot-temperature-senso)
+* [Telebot - The easy way to write Telegram bots in Node.js](https://github.com/kosmodrey/telebot)
 
 # OpenRemote
 * [OpenRemote](http://www.openremote.org/display/HOME/OpenRemote)

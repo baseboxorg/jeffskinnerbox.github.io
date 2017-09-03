@@ -43,6 +43,7 @@ Popular approximate solution methods include the particle filter and extended Ka
 [imu!](http://www.zess.uni-siegen.de/cms/upload/navigroup/Fig_5.jpg)
 Comparison of five Inertial Measurement Unit (IMU)
 
+* [Comparing Gyroscope Datasheets - How to read and compare values between gyroscopes](https://learn.adafruit.com/comparing-gyroscope-datasheets)
 * [SparkFun 9DoF Razor IMU M0 - SAMD21 + MPU-9250, $49.95](https://www.sparkfun.com/products/14001) - You have this
 * [Adafruit 10-DOF IMU Breakout - L3GD20H + LSM303 + BMP180, $29.95](https://www.adafruit.com/product/1604) - You have this
 * [Adafruit Triple-axis Accelerometer + Magnetometer (Compass) Board - LSM303, $14.95](https://www.adafruit.com/products/1120) - You have this

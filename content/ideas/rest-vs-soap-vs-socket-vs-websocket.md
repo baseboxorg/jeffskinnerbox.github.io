@@ -41,6 +41,7 @@ let the reader enter information.
 * Moving Data over the Web: AJAX vs. WebSockets vs. Webhooks - https://blog.safe.com/2014/08/websockets-ajax-webhooks-comparison/
 * What Are WebSockets? - https://www.pubnub.com/blog/2013-09-11-what-are-websockets/
 * Comparisons between WebHooks, WebSockets, and server-sent events - https://www.safaribooksonline.com/library/view/restful-java-patterns/9781783287963/ch06s05.html
+* [Simple WebSocket Client](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en)
 
 ## Rest-API
 [!rest_api_logo]:http://static1.squarespace.com/static/5269a9bce4b07233cf8781fe/544eb6abe4b053b088f7237a/55770f60e4b09224e9c7619a/1433866080885/rest-api.png

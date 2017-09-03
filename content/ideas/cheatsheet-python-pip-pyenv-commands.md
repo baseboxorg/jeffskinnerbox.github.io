@@ -234,10 +234,8 @@ Let’s choose which directory we would like to put our Python programming envir
 create the virtual environment,
 
 ```bash
-# create and enter your working directory
+# enter your working directory
 cd ~/tmp
-mkdir test_env
-cd test_env
 
 # create your virtual environment called my_env
 pyvenv my_env
@@ -258,8 +256,11 @@ which you can do by typing the following command that calls the activate script:
 
 ```bash
 # activate your virtual environment
-source my_env/bin/activate
+source ~/tmp/my_env/bin/activate
 ```
+
+To leave the environment,
+simply type the command `deactivate` and you will return to your original directory.
 
 Your Linux terminal prompt will now be prefixed with the name of your environment,
 in this case it is called `my_env`.
@@ -290,9 +291,6 @@ Python 3.5.2
 
 # check the python version outside inside the virtual environment
 ```
-
-To leave the environment,
-simply type the command `deactivate` and you will return to your original directory.
 
 
 

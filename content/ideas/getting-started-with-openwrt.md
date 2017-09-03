@@ -390,6 +390,7 @@ working with [UART & serial][84], [using uboot][83], etc.
 Additional information can be found within the [GL.iNet Blog][90],
 which covers topics like [building OpenWRT firmware][80],
 [Uboot Web UI][81], [flashing firmware to the GL-AR150][82].
+You can even see a teardown of the device [here][79].
 
 ## Flashing Firmware
 When talking about "flashing OpenWrt" or "burning" onto a router,
@@ -989,7 +990,7 @@ opkg install screen tcpdump
 [76]:https://wiki.openwrt.org/doc/howto/http.uhttpd
 [77]:http://www.jauu.net/2015/03/03/complete-openwrt-guide/
 [78]:http://ruxmon.com/assets/Uploads/OpenWRT-RuxMon-Brisbane.pdf
-[79]:
+[79]:https://www.allaboutcircuits.com/news/teardown-tuesday-mini-network-router/?utm_source=All+About+Circuits+Members&utm_campaign=2577753527-EMAIL_CAMPAIGN_2017_06_01&utm_medium=email&utm_term=0_2565529c4b-2577753527-270523833/
 [80]:http://www.gl-inet.com/build-your-openwrt-firmware-in-30-minutes/
 [81]:http://www.gl-inet.com/how-to-enter-the-uboot-web-ui/
 [82]:http://www.gl-inet.com/flash-your-own-firmware-to-the-router/

@@ -7,6 +7,8 @@ Should you **delete** entry in TiddleWiki, "Self Balancing Robots" when you publ
 * [How to Build a Self-Balancing Autonomous Arduino Bot](http://makezine.com/projects/arduroller-self-balancing-robot/)
 * [VeriBot](https://madebyfrutos.wordpress.com/2013/05/02/vertibot/)
 * [Make a Self-balancing Robot with Arduino UNO](http://www.instructables.com/id/Make-a-Self-balancing-Robot-with-Arduino-UNO/)
+* [Build your own Arduino balancing robot](https://blog.arduino.cc/2017/05/25/build-your-own-arduino-balancing-robot/)
+* [Building a Self-Balancing Robot Made Easy](http://hackaday.com/2017/06/03/building-a-self-balancing-robot-made-easy/)
 
 # Balancing Wheel
 * [Balance Wheel](http://hackaday.io/project/4267-balance-wheel)
@@ -25,6 +27,7 @@ Should you **delete** entry in TiddleWiki, "Self Balancing Robots" when you publ
 * [Flying with Proportional – Integral – Derivative Control](http://hackaday.com/2016/05/18/flying-with-proportional-integral-derivative-control/)
 * [An Introduction to Control Systems: Designing a PID Controller Using MATLAB’s SISO Tool](http://www.allaboutcircuits.com/technical-articles/an-introduction-to-control-systems-designing-a-pid-controller-using-matlabs/)
 * [Unlock the Phase Locked Loop](http://hackaday.com/2016/03/23/unlock-the-phase-locked-loop/)
+
 * Embedded Proportional Integral Derivative (PID) Temperature Controller
     * [Part 1: The Circuit](http://www.allaboutcircuits.com/projects/embedded-pid-temperature-control-part-1-the-circuit/)
     * [Part 2: Board-Level Integration](http://www.allaboutcircuits.com/projects/embedded-pid-temperature-control-part-2-board-level-integration/)
@@ -32,16 +35,23 @@ Should you **delete** entry in TiddleWiki, "Self Balancing Robots" when you publ
     * [Part 4: The Scilab GUI](http://www.allaboutcircuits.com/projects/embedded-pid-temperature-control-part-4-the-scilab-gui/)
     * [Part 5: Adjusting Gains](http://www.allaboutcircuits.com/projects/embedded-pid-temperature-control-part-5-adjusting-gains/)
     * [Part 6: Ziegler–Nichols Tuning](http://www.allaboutcircuits.com/projects/embedded-pid-temperature-control-part-6-zieglernichols-tuning/)
+
 * [Closed Loop Control, Remote Sensors and Remote UX on RPi3](https://www.hackster.io/windows-iot/closed-loop-control-remote-sensors-and-remote-ux-on-rpi3-ef3ed0?utm_source=Hackster.io+newsletter&utm_campaign=63517b436a-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-63517b436a-140225889&mc_cid=63517b436a&mc_eid=9036129d51)
+* [How do self driving cars drive? Part 1: Lane keeping assist](https://medium.com/@edersantana/how-do-self-driving-cars-drive-part-1-lane-keeping-assist-581f6ff50349)
 
 # IMU
 * [Stable Orientation – Digital IMU 6DOF + Arduino](http://bildr.org/2012/03/stable-orientation-digital-imu-6dof-arduino/)
 * [FreeIMU: an Open Hardware Framework for Orientation and Motion Sensing](http://www.varesano.net/projects/hardware/FreeIMU)
 
 # Some of the Basics
-* [Control a DC Motor with an Arduino](http://www.allaboutcircuits.com/projects/control-a-motor-with-an-arduino/)
-* [Introduction to AC Motors](http://www.allaboutcircuits.com/textbook/alternating-current/chpt-13/introduction-ac-motors/)
+* [Hackaday Dictionary: Servo Motors](https://hackaday.com/2016/03/24/hackaday-dictionary-servo-motors/)
+* [The Little Things I Didn’t Know About Small DC Motors](http://hackaday.com/2016/10/17/the-little-things-i-didnt-know-about-small-dc-motors/)
 * [All About Stepper Motors](https://learn.adafruit.com/all-about-stepper-motors)
+* [Balancing Robot Needs Innovative Controller and Motor](http://hackaday.com/2017/05/18/balancing-robot-needs-innovative-controller-and-motor/)
+* [Driving a brushless DC motors slooooooowly](http://hackaday.com/2015/04/20/driving-a-brushless-dc-motor-sloooooooowly/)
+
+# And Now For Something Different
+* [Funky Looking Motor is Powered by Static Electricity](http://hackaday.com/2014/08/09/funky-looking-motor-is-powered-by-static-electricity/)
 
 # Teensy 3.2 (72 MHz Cortex-M4)
 

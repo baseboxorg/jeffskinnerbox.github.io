@@ -1,4 +1,4 @@
-Overall, you can be pretty underwhelmed by the implementations for the Internet of Things.
+Overall, you can be pretty underwhelmed by some of the implementations for the Internet of Things.
 Most of the ways in which devices are being connected to the Internet are not very interesting,
 if not just a bad idea.
 Even while underwhelmed by IoT,
@@ -20,19 +20,22 @@ and communicate with their assigned app or dashboard.
 But such devices would be so much more useful if they also exchanged information on their own
 or at least facilitated that exchange under your direction.
 
-I think [Brian Mulloy of Apigee][33] said it best:
+Let me paraphrase [Brian Mulloy of Apigee][33], who I think said it best:
 
->...I can fire up my iPhone app and see if my tires have enough air in them.
-Thats not the IoT.
-It’s when I can turn up at the garage and my car can talk to the air pressure actuator
-and automatically tell it how much my tires need to be pumped up, that’s the IoT.
+>Let's say I have smart car tires that can communicate their identity, temperature, pressure status, etc.
+I could fire up my iPhone app and see if my tires have enough air in them,
+but that's not IoT.
+IoT is when I can arrive a my local gas station and my car can talk to the air pressure actuator.
+The actuator then tells me which of my tires need to be pumped up and
+sets the air pressure to the proper value given the current tire pressure and tempature.
+That is what the Internet of Things is all about.
 
 One of the difficulties facing IoT solution developers with this broad IoT vision is that
 connected devices can each speak with an app or with an end user,
 but the infrastructure isn’t there to enable the objects to speak directly to each other
 or some arbitrary enterprise system.
 There is no way for one connected device to know of another
-and easily share a permission in the same way that an end user might enable OAuth
+and easily share a permission in the same way that an end user might enable [OAuth 2.0][38]
 so that her Instagram photos are posted on Facebook.
 
 If you have a Pebble Watch, Google Glass, and a smartphone,
@@ -786,7 +789,7 @@ From there, you can do copy the flow to your clipboard.
 [35]:http://apieconomist.com/blog/darrel-miller-hypermedia-apis
 [36]:https://lx-group.com.au/zetta-an-api-first-internet-of-things-platform/
 [37]:http://browser.zettajs.io/
-[38]:
+[38]:https://oauth.net/2/
 [39]:
 [40]:
 

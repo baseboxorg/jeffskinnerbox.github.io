@@ -38,15 +38,37 @@ This iconic lamp is still a staple at places like [Ikea][03] and [Staples][04].
 
 #### Tracking Objects
 * [Project Sentry Gun](http://psg.rudolphlabs.com/)
+* [Robot Car Follows Wherever You Go](http://hackaday.com/2017/07/20/robot-car-follows-wherever-you-go/)
 
 #### Distance Sensor
 * [best distance sensor for robots](http://www.teraranger.com/products/teraranger-one/)
+* [RPLIDAR A1M8 - 360 Degree Laser Scanner Development Kit](https://www.dfrobot.com/product-1125.html)
+* [Make Your Own LIDAR Sensor](https://dzone.com/articles/make-your-own-lidar-sensor)
+    * https://www.adafruit.com/product/3316
+    * https://www.adafruit.com/product/3317
+* [Steering Self Driving Car without LIDAR](https://medium.com/towards-data-science/steering-self-driving-car-without-lidar-a6b0a4d2e2f1)
+
+#### Self Driving Car
+* [Self-Driving RC Cars with TensorFlow; Raspberry Pi or MacBook Onboard](http://hackaday.com/2017/06/06/self-driving-rc-cars-with-tensorflow-raspberry-pi-or-macbook-onboard/#more-260888)
+* [Donkey Car](http://www.donkeycar.com/)
+* [Comma.ai Releases a Dataset](https://medium.com/self-driving-cars/comma-ai-releases-a-dataset-10ede8bec74b)
+
+#### TurtleBot
+* [Ubuntu-driven TurtleBot gets a major rev with a Pi or Joule in the driver’s seat](http://linuxgizmos.com/ubuntu-driven-turtlebot-gets-a-major-rev-with-a-pi-or-joule-in-the-drivers-seat/)
+* [Open Source TurtleBot 3 Robot Kit Runs Ubuntu and ROS on Raspberry Pi](https://www.linux.com/news/event/open-source-summit-na/2017/6/open-source-turtlebot-3-robot-kit-runs-ubuntu-and-ros-raspberry-pi)
+* [What is a TurtleBot?](http://www.turtlebot.com/)
+* [TurtleBot3 Official Wiki](http://turtlebot3.robotis.com/en/latest/)
 
 #### Other
 * [This Friendly Robot Could One Day Be Your Family’s Personal Assistant](http://www.wired.com/2014/07/jibo-family-robot/)
     * [Jimbo](http://www.myjibo.com/)
 * [uArm - Desktop Robotic Arm](https://www.sparkfun.com/products/13663?utm_source=SparkFun+Customer+Newsletter&utm_campaign=2ca58c52dd-July_17thNewsletter&utm_medium=email&utm_term=0_fa5287abaf-2ca58c52dd-7212537)
 * [Cardboard Robot Deathmatch](http://hackaday.com/2015/09/29/cardboard-robot-deathmatch/#more-171371)
+* [ZeroBot is as Simple as it Gets](http://hackaday.com/2017/05/31/zerobot-is-as-simple-as-it-gets/)
+* [Build and Drive This Adorable FPV Balance Bot](http://makezine.com/projects/self-balancing-eddie-robot/?utm_source=MakeNewsletter+20170110&utm_medium=email&utm_content=image&utm_campaign=newsletter)
+* [Multipurpose Robot For the Masses](http://hackaday.com/2016/06/08/multipurpose-robot-for-the-masses/)
+* [Project Intu](https://github.com/watson-intu)
+* [Ping Pong Ball Juggling Robot](http://www.robotshop.com/letsmakerobots/ping-pong-ball-juggling-robot)
 
 # Robot Tool Kits
 * [Johnny-Five](http://johnny-five.io/)
@@ -55,6 +77,7 @@ This iconic lamp is still a staple at places like [Ikea][03] and [Staples][04].
 * [Cylon.js is a JavaScript framework for robotics, physical computing, and the Internet of Things. It makes it incredibly easy to command robots and devices](https://cylonjs.com/)
 * [Getting started with open source robotics](https://opensource.com/life/16/4/open-source-robotics-projects?sc_cid=70160000000q67zAAA)
 * [Tickle](https://tickleapp.com/)
+* [C-BISCUIT: A Robotics Platform for the Hacker and Hobbyist](https://www.allaboutcircuits.com/projects/c-biscuit-monitor-your-robots-health/)
 
 # Self Balancing Robots
 * [PID Controllers Deep Dive - Nice Layman Description](http://hackaday.com/2014/07/07/droning-on-pid-controllers-and-bullet-connectors/)

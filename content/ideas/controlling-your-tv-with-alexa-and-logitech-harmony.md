@@ -1,3 +1,7 @@
+* [Use Your Alexa Device to Control Your Fire TV](https://www.amazon.com/gp/help/customer/display.html?nodeId=202174250&ref_=pe_2467810_248220700_RTH4_DevEng_NL67_SMP_topheader_link)
+
+
+
 So you want to do the "smart home" thing.
 Undoubtedly you could be accuesd of being lazy
 for not wanting to get off the couch and flip the light switch.

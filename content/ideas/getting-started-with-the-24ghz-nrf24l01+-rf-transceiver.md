@@ -22,7 +22,8 @@ Check out
 * [A wireless door monitor based on the BANO framework](http://www.embeddedrelated.com/showarticle/605.php)
 * [RFToy](http://rayshobby.net/rftoy/)
 * [BLE advertising beacons using an nRF24L01+ module ](http://hackaday.com/2016/06/21/hackaday-prize-entry-ble-beacon-library/)
-* []()
+* [Fixing your cheap nrf24l01+ pa/lna module](http://blog.blackoise.de/2016/02/fixing-your-cheap-nrf24l01-palna-module/#comment-7225)
+* [Building a LC-Filter for your nrf24l01+ pa/lna module](http://blog.blackoise.de/category/ugly-fix/)
 
 ![nRF24L01+](/img/posts/jekyll-posts/nRF24L01P+.jpg)
 [Nordic Semiconductor offers a family][01] of ultra low power 2.4 GHz ISM band wireless solution device.

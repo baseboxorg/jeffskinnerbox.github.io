@@ -1,3 +1,7 @@
+* [Tour of npm](http://tobyho.com/2012/02/09/tour-of-npm/)
+* [Node Package Manager - Commands](http://www.w3resource.com/slides/node-package-manager-commands-slides-presentation.php)
+* [What you can do with npx](https://www.youtube.com/watch?feature=youtu.be&v=55WaAoZV_tQ&app=desktop)
+
 [npm][01] is the package manager for [Node.js][04]
 (and javascripts, angular, io.js, nodebots, jquery, grunt, etc.).
 The npm command-line tool is bundled with node and io.js.
@@ -6,16 +10,19 @@ If you have either of those installed, then you already have npm too.
 [npm's documentation site][02] featuring large number of videos and tutorial.
 
 
-# Installing Node.js
+# Installing Node.js (node)
 Head to the [Node.js download page][12] and grab the version you need.
 For Linux, you can also install Node via the package manager,
 for example [installing on Node.js on Ubuntu 16.04][13].
+
 One option for the Linux install is to use [Node Version Manager, `nvm`][14],
 which give you on-demand access to the newest versions of Node.js,
 but will also allow you to target previous releases that your app may depend on.
 If you work with a lot of different Node.js utilities and projects,
 you know sometimes you need to switch to other versions of Node.js.
 That's where you can use `nvm` to download, install, and use different versions of Node.js.
+
+Follow this to install `nvm` and `node`:
 
 ```bash
 # install required packages
@@ -25,7 +32,7 @@ sudo apt-get install build-essential libssl-dev
 # install nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 
-# verify theat nvm is installed which should output 'nvm' if the installation was successful
+# verify theat nvm is installed which should output '.nvm' if the installation was successful
 # NOTE: 'which nvm' will not work, since nvm is a sourced shell function, not an executable binary
 command -v nvm
 nvm --version
@@ -33,9 +40,8 @@ nvm --version
 # to find out the versions of Node.js that are available for installation
 nvm ls-remote
 ```
-When you install Node.js using `nvm`,
-the executable is called `node`.
-You can see the version currently being used by the shell by typing `node -v`.
+When you install Node.js using `nvm`, the executable is called `node` just like normal.
+You can see the version currently being used by doing the typical `node -v`.
 
 ```bash
 # what version of node is currently being used
@@ -76,22 +82,38 @@ $ npm --version
 4.1.1
 ```
 
-## Node Packaged Modules
+## Node Packaged Manager (npm)
+Node comes with package manager, called `npm`,
+already installed so you should have a version of `npm`.
+However, `npm` gets updated more frequently than Node does,
+so you'll want to make sure it's the latest version.
+
+```bash
+# install the latest version of npm
+npm install npm@latest --global
+
+# what is the version of npm
+npm -v
+```
+
 `npm` can install packages in local or global locations.
-In local mode it installs the package in a node_modules folder in your parent working directory. This location is owned by the current user.
+In local mode it installs the package in a directory called `node_modules`
+in your parent working directory.
+This location is owned by the current user.
 
-Global packages are installed in `/usr/local/lib/node_modules/` or `/usr/lib/node_modules/`
-which is owned by root.
-This means you would have to use `sudo` to install packages globally,
-which could cause permission errors when resolving third-party dependencies,
-as well as being a security concern.
-`npm` will allow you to [change the location of global packages][15].
+When your using `nvm`,
+global packages are installed in `~/.nvm/versions/node/vX.X.X/lib/node_modules/`
+and is owned by currrent user.
+This means you do not have to use `sudo` to install packages globally.
+(`npm` will allow you to [change the location of global packages][15],
+but you shouldn't do this when using `nvm`.)
 
-To install and list node.js global packages:
+While using `nvm`, you can install and list node.js global packages
+using the same command you always used:
 
 ```bash
 # global install of node.js packages
-sudo npm install <package> --global
+npm install <package> --global
 
 # full list installed global packages (what comes with node.js and yoru installs)
 npm list --global
@@ -253,6 +275,19 @@ npm prune
 npm outdated
 ```
 
+# nmp Rebuild
+Some Node packages contain native code that's written in C++,
+which require compilation.
+If you ever need to recompile them,
+often the case when you upgrade to a new version of Node,
+you must do the following
+
+```bash
+npm rebuild
+```
+
+http://tobyho.com/2012/02/09/tour-of-npm/
+
 # Properties of package.json
 The `package.json` file provides you several useful things:
 
@@ -330,9 +365,13 @@ To validate your edits, you can use the [Package.json validator][08].
 [09]:
 [10]:
 [11]:
-[12]: https://nodejs.org/en/download/
+[12]:https://nodejs.org/en/download/
 [13]:https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04
 [14]:https://github.com/creationix/nvm
 [15]:https://www.sitepoint.com/beginners-guide-node-package-manager/
 [16]:https://docs.npmjs.com/getting-started/using-a-package.json
+[17]:
+[18]:
+[19]:
+[20]:
 

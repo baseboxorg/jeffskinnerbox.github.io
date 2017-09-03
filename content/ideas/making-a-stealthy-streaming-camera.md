@@ -1,4 +1,5 @@
 
+* [TTL Serial Camera](https://learn.adafruit.com/ttl-serial-camera)
 
 * [20+ Emotion Recognition APIs That Will Leave You Impressed, and Concerned](http://nordicapis.com/20-emotion-recognition-apis-that-will-leave-you-impressed-and-concerned/)
 * [Google's cloud video intelligence](https://cloud.google.com/video-intelligence/?utm_source=google&utm_medium=cpc&utm_campaign=2017-q1-cloud-na-gcp-video-api-freetrial-en&gclid=CjwKEAjwrMzHBRDW3saA88aT80MSJACbvo1TEO1lWtH2LXV1kwY_O535OHUV3jgefTfB1rvEnXXaQRoCKpbw_wcB)
@@ -8,6 +9,10 @@
 behaving, done, or made in a cautious and surreptitious manner, so as not to be seen or heard.
 
 
+
+# Using motion
+# Using OpenCV
+* [Accessing Camera using OpenCV](http://opencvlover.blogspot.com/2011/07/accesing-camera-using-opencv.html)
 
 # Adding a Camera to the Raspberry Pi Zero - DONE
 [camera!](http://raspi.tv/wp-content/uploads/2016/05/PiZero1.3_700.jpg)
@@ -60,7 +65,7 @@ To capture a 5 seconds of video in [H.264/MPEG-4 Advanced Video Coding (AVC)][10
 
 ```bash
 # capture video in file video.h264
-raspivid -o ~/tmp/video.h264 --width 1024 --height 768 --codec H264
+raspivid -o ~/tmp/video.h264 --timeout 5000 --width 1024 --height 768 --codec H264
 
 # play the video
 mplayer ~/tmp/video.h264
@@ -72,12 +77,62 @@ Other possibilities for your camera are things like [time lapse photography][65]
 Or can do something more sophisticated like stream video to a web browser
 via the Python package [`pistreaming`][58]
 or with [`OpenCV`][59], or via [`motion`][60].
-These implementations are limited since the video streamer and the web browser
+These implementations have there limitations since the video streamer and the web browser
 must be on the same network.
 In the subsequent sections,
 we will work around these and other limitations.
 
-## Key Differences Between Streamed and Static Video Media
+# Streaming Camera to Web Page - DONE
+The [introductory article about the camera module][99]
+in the Raspberry Pi blog shows a method to [stream video][104]
+from the Raspberry Pi to another computer.
+(See "How does video streaming work?", [Part 1][105], [Part 2][106], [Part 3][107].)
+This method essentially works as follows:
+
+* On the Pi the `raspivid` utility is used to [encode H.264 video][100] from the camera
+* The video stream is piped to the [netcat (`nc`)][101] utility,
+which pushes it out to the network address where the video player is.
+* On the player computer `nc` receives the stream and pipes it into [`mplayer`][102] to play.
+
+This is an efficient method of streaming video from the RPi to another computer,
+but it has a few problems for my use:
+
+* The Raspberry Pi needs to know the address of the computer that is playing the video
+* The playing computer needs to have an advanced player that can play a raw H.264 video stream.
+* Since this system relies on a direct connection between the Pi and the player,
+it is impossible to have the player computer connect and/or disconnect from the stream,
+the connection needs to be on at all times.
+* And what if you want to support two, three, or N concurrent players?
+This cannot be done with this method.
+
+An important requirement for my streaming camera needs are that you can view it with ease,
+viewed by multiple people concurrently, and done so from anywhere with no restriction from
+networks or firewalls.
+To me, this means that the video stream should be playable from a web browser.
+Having to run a specific player, aka video decoder, is a complication I don't want.
+So I want something that will work on any browser.
+To get past the restrictions a network or firewall could impose,
+I'll need to have [reverse proxy][115],
+effectively putting the video stream on a web server outside the Raspberry Pi's network.
+
+So this calls for a live video stream to an external web server.
+There are a few modern streaming protocols for web browsers out there
+but all the incompatible options is really annoying.
+[Choosing a video format for stream to a website is a complicated topic][117]:
+
+* [HTTP Live Streaming (HLS)][124] is Apple's choice.
+It isn’t supported natively by any desktop browser except for Safari.
+It is supported on mobile.
+This means you will need either a Silverlight or Flash player to play the stream on your desktop,
+which is great except Chrome no longer supports either of these things.
+* [MPEG-DASH][123] is better though there is no native support in the desktop browsers
+yet but there are JavaScript implementations of it that allow its use via MSE.
+* [Fragmented MP4][122] is supported by Adobe and Microsoft, but requires browser plugins
+* [HTML5 video][125] is the new standard way to embed a video in a web page.
+Before HTML5, a video could only be played in a browser with a plug-in (like flash),
+but supported only on HTML5 compatible browsers like Chrome and FoxFire.
+
+And there is a differences between streamed and static video media.
 The key consideration when streaming media to a browser
 is the fact that rather than playing a finite file,
 we are relaying a file that is being created on the fly,
@@ -92,60 +147,25 @@ Adaptive streaming works by detecting a user's bandwidth and CPU capacity in rea
 and adjusting the quality of a video stream accordingly.
 There a [multiple adaptive streaming formats][129] available.
 
-## Streaming Camera to Web Page - DONE
-The [introductory article about the camera module][99]
-in the Raspberry Pi blog shows a method to [stream video][104]
-from the Raspberry Pi to another computer.
-(See "How does video streaming work?", [Part 1][105], [Part 2][106], [Part 3][107].)
-This method essentially works as follows:
-
-* On the Pi the `raspivid` utility is used to [encode H.264 video][100] from the camera
-* The video stream is piped to the [netcat (`nc`)][101] utility,
-which pushes it out to the network address where the video player is.
-* On the player computer `nc` receives the stream and pipes it into [`mplayer`][102] to play.
-
-This is an efficient method of streaming video from the Pi to another computer,
-but it has a few problems for my use:
-
-* The Raspberry Pi needs to know the address of the computer that is playing the video
-* The playing computer needs to have an advanced player that can play a raw H.264 video stream.
-* Since this system relies on a direct connection between the Pi and the player,
-it is impossible to have the player computer connect and/or disconnect from the stream,
-the connection needs to be on at all times.
-* And what if you want to support two, three, or N concurrent players?
-This cannot be done with this method.
-
-An important requirement for my streaming camera needs are that you can view it with ease.
-To me, this means that the video stream should be playable from a web browser.
-Having to run a specific player, aka video decoder, is a complication I don't want.
-So I want something that will work on any browser.
-There are a few modern streaming protocols for web browsers out there
-but all the incompatible options is really annoying.
-[Choosing a video format for stream to a website is a complicated topic][117].
-
-* [HTTP Live Streaming (HLS)][124] is Apple's choice.
-It isn’t supported natively by any desktop browser except for Safari.
-It is supported on mobile.
-This means you will need either a Silverlight or Flash player to play the stream on your desktop,
-which is great except Chrome no longer supports either of these things.
-* [MPEG-DASH][123] is better though there is no native support in the desktop browsers
-yet but there are JavaScript implementations of it that allow its use via MSE.
-* [Fragmented MP4][122] is supported by Adobe and Microsoft, but requires browser plugins
-* [HTML5 video][125] is the new standard way to embed a video in a web page.
-Before HTML5, a video could only be played in a browser with a plug-in (like flash),
-but supported only on HTML5 compatible browsers like Chrome and FoxFire.
-
 So I want to live video stream broadcast (not just point-to-point)
-from my Raspberry Pi camera, to a webpage where a HTML5 compatible browser can play it
+from my Raspberry Pi camera, to a web server where **any HTML5 compatible browser** can play it
 (see this site to test your browser for HTML5 compatibility - http://html5test.com/).
+This has proven to be a taller order than I originally imagined.
 
-## HTML5 Video - DONE
+## Video File on HTML5 Browser - DONE
 In [modern browsers][131] (which loosely means a browser without workarounds
 and conforming to the latest Web/HTML standards, e.g. a HTML5 compliant browser),
 adding a video to your page is as easy as adding an image.
 No longer do you need to deal with special plug-ins or require crazy markup,
 you can do it with a single element.
+
 For example,
+obtain any `mp4` video file (like `All-is-Full-of-Love-by-Bjork.mp4`
+created via `youtube-dl https://vimeo.com/43444347`) and
+put the HTML code below in file called `html5-video-example-1.html`
+in the same same directory as the `mp4` file.
+Then fire up a browser pointing to the HTML file; something like
+`google-chrome html5-video-example-01.html`.
 
 ```html
 <!DOCTYPE html>
@@ -165,7 +185,7 @@ That's all you need to embed a simple video on a webpage
 and show the basic controls so that a user can play,
 pause, or otherwise control the video.
 Of course, this can get more elaborate.
-Check out  the posting "[HTML5 Video][132]" for examples
+Check out the posting "[HTML5 Video][132]" for examples
 containing subtitles, opening posters, etc. like this:
 
 ```html
@@ -193,7 +213,7 @@ containing subtitles, opening posters, etc. like this:
 </html>
 ```
 
-## Streaming Video Using Only the Raspberry Pi Zero - DONE
+## Streaming Video Using Raspberry Pi Zero - DONE
 Despite the ease in which video files can be displayed within a HTML5 browser,
 as shown in the previous section,
 streaming to HTML5 in 2017 is still annoyingly hard.
@@ -206,23 +226,83 @@ decode 720p Video at 30fps on an iPhone 5S, and works in any modern browser (Chr
 Dominic Szablewski, the creater of JSMpeg,
 explains [here][137] why he resorting to what appears to be a browser hack makes sense.
 
+The author of JSMpeg gives a [nice write up][01]
+(and more [here][133] and [here][134]) on why the Pi Camera sometimes
+has latency problems and how JSMpeg helps to resolve this by resorting to the
+primitive features of MJPEG1 video format and JavaScript capabilities found in all browsers.
+
 To top it off, Dominic provde an [implementation for the Raspberry Pi][138].
 Procedures for this are in the following section.
 
-### Step 1: Install ffmpeg - DONE
+### Step 0: Make Sure Camera is Working - DONE
+With all the moving parts on this approach,
+lets makes sure each component is working properly.
+The first  and most fundamental component to check is the camera.
+Lets see it the camera is working by using some of the Raspberry Pi's native camera tools:
+
+```bash
+# take picture and store in image.jpg
+raspistill -o ~/tmp/image.jpg --width 1024 --height 768
+
+# display picture for viewing
+display ~/tmp/image.jpg
+
+# capture 5 second video in file video.h264
+raspivid -o ~/tmp/video.h264 --timeout 5000 --width 1024 --height 768 --codec H264
+
+# play the video
+mplayer ~/tmp/video.h264
+```
+### Step 1: Streaming Using pistreaming - DONE
+First, lets try using a utility that the whole job for us.
+`pistreaming` performs low latency streaming of the Pi's camera module to any reasonably modern web browser.
+It make use of [JSMpeg][134], which is a Video Player written in JavaScript.
+Other dependencies are the Python ws4py library, my picamera library (specifically version 1.7 or above), and FFmpeg
+
+To begin, make sure you've got the dependent packages installed
+and then clone the [`pistreaming` repository][58]:
+
+```bash
+# install required packages
+sudo apt-get install libav-tools git python3-picamera python3-ws4py
+
+# clone this repository
+cd ~/src
+git clone https://github.com/waveform80/pistreaming.git
+
+# run the Python server script
+cd pistreaming
+python3 server.py
+```
+
+Now fire up your favorite web-browser and point it at the Raspberry Pi where your
+running `pistreaming` using port `8082` (e.g. for me `google-chrome http://spycam-01:8082/`).
+This configuration consumes about 85% of the CPU on the Raspberry Pi Zero.
+
+>**NOTE:** While all this was easy enough to install on the Raspberry Pi Zero,
+it initially showed a flickering image in the browser, never got an acceptable video.
+I thought that if I used with more power than the RPi Zero (cpu was running at nearly 90%)
+I could get better results.
+Then I had problems booting up the RPi with the WiFi dongle installed and I happened to swap
+out the WiFi dongle for a [Edimax EW-7811Un][02] (a dongle widely recommended for the RPi)
+and both the boot and flicker problems went away.
+I think the dongle was drawing two much power (WiFi dongle gets hot to the touch).
+
+
+### Step 2: Install ffmpeg - DONE
 [!ffmpeg](https://prupert.files.wordpress.com/2009/10/ffmpeg-logo.png)
 [FFmpeg][95] claims to play pretty much anything that humans and machines have created;
 supporting the most obscure ancient formats up to the cutting edge.
 FFmpeg is able to decode, encode, transcode, mux, demux, stream, filter and play most anything.
-Effectively, ffmpeg continuously streams a webcam's video to single `.jpg` file.
+Effectively, FFmpeg continuously streams a webcam's video to single `.jpg` file.
 This toolkit contains:
 
-* **[ffmpeg][94]** - is a command line tool for fast video and audio converter that can also grab from a live audio/video source.
-* **[ffserver][93]** - is a streaming server for both audio and video.
-* **[ffplay][92]** - is a command line simple and portable media player using the FFmpeg libraries and the SDL library.
-* **[ffprobe][91]** - is a command line tool to gathers information from multimedia streams and prints it in human- and machine-readable fashion.
+* `**[ffmpeg][94]**` - is a command line tool for fast video and audio converter that can also grab from a live audio/video source.
+* `**[ffserver][93]`** - is a streaming server for both audio and video.
+* `**[ffplay][92]**` - is a command line simple and portable media player using the FFmpeg libraries and the SDL library.
+* `**[ffprobe][91]**` - is a command line tool to gathers information from multimedia streams and prints it in human- and machine-readable fashion.
 
-Unfortanatelly, Debian Jessie and later [no longer include the ffmpeg package][140].
+Unfortunately, Debian Jessie and later [no longer include the ffmpeg package][140].
 To install it and make sure we have the latest and greatest ffmpeg,
 I choose to [install from source code][139].
 The procedure for this is below
@@ -250,7 +330,7 @@ sudo checkinstall
 sudo dpkg --install ffmpeg_*.deb
 ```
 
-### Step 2: Install node, npm, and Web Server - DONE
+### Step 3: Install node, npm, and Web Server - DONE
 You need to install Node.js and npm, if not done already.
 Node is used to stream the video, via a websocket, to a HTML5 browser.
 
@@ -332,36 +412,38 @@ $ npm --version
 4.1.1
 ```
 For this streaming video solution using JSMpeg,
-you'll also need to install http-server.
-This webserver will be use serve the static files
-(view-stream.html, jsmpeg.min.js)
-that we can view the video in our browser.
-If you wanted to, any other webserver would work as well (nginx, apache, etc.)
+you'll also need to install Node.js `http-server`.
+This web server will be use serve the static files
+(`view-stream.html`, `jsmpeg.min.js`)
+from which you can view the video in our browser.
+If you wanted to, any other web server would work as well (nginx, apache, etc.
+but `http-server` is very lightweight and simple to use.
 
 ```bash
 # install a node web server
 npm install -g http-server
 ```
 
-### Step 3: Install JSMpeg - DONE
+### Step 4: Install JSMpeg - DONE
+Install the JSMpeg GitHub repository on the Raspberry Pi:
 
 ```bash
 # clone the jsmpeg repository
 cd ~/src
 git clone https://github.com/phoboslab/jsmpeg.git
 
-# install node.js websocket library
+# install node.js websocket library needed by jsmpeg
 cd jsmpeg
 npm install ws
 ```
 
-### Step 4: Start the Websocket Relay - DONE
+### Step 5: Start the Websocket Relay - DONE
 We'll now start things up and send our Raspberry Pi video to a web browser.
 First, you must start the Websocket relay.
-To do this, you must provide a password and a port for the incomming HTTP video stream from the camera.
+To do this, you must provide a password and a port for the incoming HTTP video stream from the camera.
 You also provide a Websocket port that can connect to with a browser to see the video.
 
-Within a terminal window on the Raspberry Pi, start up the Websocke relay:
+Within **one terminal window** on the Raspberry Pi, start up the Websocket relay:
 
 ```bash
 # start the websocket relay
@@ -370,7 +452,7 @@ $ node websocket-relay.js password 8081 8082
 Listening for incomming MPEG-TS Stream on http://127.0.0.1:8081/<secret>
 Awaiting WebSocket connections on ws://127.0.0.1:8082/
 ```
-Within a second terminal window, start your `http-server`
+Within a **second terminal window**, start your `http-server`
 so we can serve the `view-stream.html` to a browser:
 
 ```bash
@@ -384,7 +466,7 @@ Available on:
 Hit CTRL-C to stop the server
 ```
 
-Now within a third terminal window,
+Now within a **third terminal window**,
 start `ffmpeg` to capture the Raspberry Pi video
 and send it to the Websocket relay.
 Provide the password and port from the above step in your destination URL:
@@ -397,29 +479,60 @@ sudo modprobe bcm2835-v4l2
 ffmpeg -f v4l2 -framerate 25 -video_size 640x480 -i /dev/video0 -f mpegts -codec:v mpeg1video -s 640x480 -b:v 1000k -bf 0 http://localhost:8081/password
 ```
 
-**NOTE:**
-You can avoid running the `modprobe` by
+> **NOTE:** You can avoid running the `modprobe` by
 putting `modprobe bcm2835-v4l2` in `/etc/rc.local` so it runs on every boot automatically.
 
-While all of this appear to sort-of work on the Raspberry Pi Zero,
-it never performed acceptably.
+### Step 6: View Video in Browser - DONE
+Now, from anywhere on the _same network as the Raspberry Pi_
+(so still not fulfilling all my requirements stated above),
+fire up a browser to view the streaming video:
+
+```bash
+# view the streaming video
+google-chrome http://spycam-01:8080/view-stream.html
+```
+
+Like the `pistreaming` utility, all of this appear to work on the Raspberry Pi Zero,
+but there was considerable latency, the camera frame rate was 20 FPS,
+and the CPU utilization was slightly above 90%.
 I suspect this was due to the fact that the camera streaming (`ffmpeg`),
 the WebSocket Relay (`websocket-relay.js`),
 and the web server to view the video (`http-server`)
 were all on the under powered Zero.
 
 ## Streaming Video But Distributing the Load - DONE
+My next task is to move some the work being done by the able, but weak Raspberry Pi Zero,
+to other more powerful processors.
+Ultimately, these other  processors will be entirely off the network where the RPi Zero resides.
 The `ffmpeg` process must run on the Raspberry Pi Zero,
+since it must talk to the camera device driver,
 but the other processes do not.
 
-On my Linux box, `desktop`, I placed both
-the WebSocket Relay (`websocket-relay.js`),
+### Step 1: Move WebSocket Relay and Web Server - DONE
+My plan is to us my beefer Linux box, `desktop`,
+and placed both the WebSocket Relay (`websocket-relay.js`),
 and the web server to view the video (`http-server`).
-I created a clone of JSMpeg in `~/src/zetta-demo/tools`
-and its IP address is `192.168.1.200`.
+
+I created a clone of JSMpeg on `desktop` in directory `~/src/zetta-demo/tools`.
+`desktop`'s IP address is `192.168.1.200`.
 
 ```bash
-# goto where  you keep the websocket relay
+# install node.js websocket library needed by jsmpeg
+cd ~/src/zetta-demo
+npm install ws
+
+# clone the jsmpeg repository
+cd ~/src/zetta-demo/tools
+git clone https://github.com/phoboslab/jsmpeg.git
+```
+
+### Step 2: Startup WebSocket Relay and Web Server - DONE
+Like we did in the earlier,
+we'll get the relay and server running so they can support FFmpeg running on the RPi Zero.
+On `desktop` and within **one terminal window**, do the following:
+
+```bash
+# goto where you keep the websocket relay
 cd ~/src/zetta-demo/tools/jspeg
 
 # start the websocket relay
@@ -428,7 +541,7 @@ Listening for incomming MPEG-TS Stream on http://127.0.0.1:8081/<secret>
 Awaiting WebSocket connections on ws://127.0.0.1:8082/
 ```
 
-Within another terminal window on my Linux box:
+Still on `desktop`, within a **second terminal window**:
 
 ```bash
 # goto where  you keep the websocket relay
@@ -444,58 +557,75 @@ Available on:
 Hit CTRL-C to stop the server
 ```
 
-Then on the Raspberry Pi Zero, I ran the following:
+Now on the Raspberry Pi Zero, within a **third terminal window**,
+I ran the following:
 
 ```bash
 # start ffmpeg to capture video and send it to the websocket relay
-ffmpeg -f v4l2 -framerate 25 -video_size 640x480 -i /dev/video0 -f mpegts -codec:v mpeg1video -s 640x480 -b:v 1000k -bf 0 http://192.168.1.200:8081/password
-
-# seems to work better on the rpi zero
-avconv -f rawvideo -framerate 25 -video_size 640x480 -i /dev/video0 -f mpegts -codec:v mpeg1video -s 640x480 -b:v 1000k -bf 0 http://192.168.1.200:8081/password
-
-ffmpeg -f video4linux2 -framerate 25 -video_size 640x480 -i /dev/video0 -f mpegts -codec:v mpeg1video -s 640x480 -b:v 1000k -bf 0 http://192.168.1.200:8081/password
-
-ffmpeg -f v4l2 -r 30 -video_size 640x480 -i /dev/video0 -f mpegts -codec:v mpeg1video -s 2592x1944 -b:v 1000k -bf 0 http://192.168.1.200:8081/password
-
-# show avalable formats
-ffmpeg -f v4l2 -formats all -i /dev/video0
-
-# to get a list of compatible modes run
-ffmpeg -f v4l2 -list_formats all -i /dev/video0
+ffmpeg -f v4l2 -framerate 25 -video_size 640x480 -i /dev/video0 -f mpegts -codec:v mpeg1video -s 640x480 -b:v 1000k -bf 0 http://desktop:8081/password
 ```
 
-And finally, run a HTML5 browser to see the video:
+### Step 3: View Video in Browser - DONE
+Now, from anywhere on the _same network as the Raspberry Pi_
+(**but in principle**, my requirements can be meet since `desktop`
+doesn't have to be on the same LAN as the Raspberry Pi Zero),
+fire up a browser to view the streaming video:
 
 ```bash
-# display the video with a browser (assumes http-sever is running in home directory)
-google-chrome http://192.168.1.200:8080/src/zetta-demo/tools/jsmpeg/view-stream.html
-
-# this will not works here
-google-chrome http://192.168.1.200:8080/?action=stream
+# view the streaming video
+google-chrome http://desktop:8080/view-stream.html
 ```
+
+So now I'm once again stream the camera to a local web page (aka on the same LAN),
+but the distributed archtectue allows for the web page to be anywhere.
+All of this appear to work well, but again,
+there was considerable latency, the camera frame rate was 20 FPS,
+and the CPU utilization was slightly above 85%.
+
+Given that FFmpeg is now deprecated and replaced by [`avconv`][03]
+(despite some beliving in [FFmpeg superiority][04]),
+I thought I would give it a try:
 
 ```bash
-# takes video from a file instead of a camera (frame rate  too fast)
-ffmpeg -i All-is-Full-of-Love-by-Bjork.mp4 -f mpegts -codec:v mpeg1video -s 640x480 -b:v 1000k -bf 0 http://192.168.1.200:8081/password
+# start avconv to capture video and send it to the websocket relay
+avconv -f rawvideo -framerate 25 -video_size 640x480 -i /dev/video0 -f mpegts -codec:v mpeg1video -s 640x480 -b:v 1000k -bf 0 http://desktop:8081/password
 
-# better frame rate but this is too choppy
-ffmpeg -re -i All-is-Full-of-Love-by-Bjork.mp4 -c copy -f mpegts -codec:v mpeg1video -s 640x480 -b:v 1000k -bf 0 http://192.168.1.200:8081/password
-
-# no re-encoding with this method - http://forum.videohelp.com/threads/377436-How-can-I-stream-h264-files-with-FFmpeg-over-rtmp-without-reencoding
-# much better, with sound, some static but could be my sound system
-ffmpeg -re -i All-is-Full-of-Love-by-Bjork.ts -codec copy -f mpegts -codec:v mpeg1video -s 640x480 -b:v 1000k -bf 0 http://192.168.1.200:8081/password
+# view the streaming video
+google-chrome http://desktop:8080/view-stream.html
 ```
+
+Using `avconv` was slightly more demanding of CPU on the Raspberry Pi Zero
+but the latency was noticeable better.
+
+### Step 4: Streaming from a File - DONE
+While the purpose of all this is to stream live video,
+as you can see here,
+you can easily do the same from a file.
+This also demonstrates that you can include not only the video but sound too.
+
+```bash
+# video form file, with sound, but some static for unkown reason
+ffmpeg -re -i All-is-Full-of-Love-by-Bjork.ts -codec copy -f mpegts -codec:v mpeg1video -s 640x480 -b:v 1000k -bf 0 http://desktop:8081/password
+
+# view the streaming video
+google-chrome http://desktop:8080/view-stream.html
+```
+
+####################################
 
 * [Stream a file with original playing rate](http://superuser.com/questions/508560/ffmpeg-stream-a-file-with-original-playing-rate)
 * [RTP streaming with ffmpeg](http://lucabe72.blogspot.com/2010/04/rtp-streaming-with-ffmpeg.html)
 * [How can I stream h264 files with FFmpeg over rtmp without reencoding?](http://forum.videohelp.com/threads/377436-How-can-I-stream-h264-files-with-FFmpeg-over-rtmp-without-reencoding)
 * [An ffmpeg and SDL Tutorial](http://dranger.com/ffmpeg/ffmpeg.html)
+* [A quick guide to using FFmpeg to convert media files](https://opensource.com/article/17/6/ffmpeg-convert-media-file-formats?sc_cid=70160000000gz65AAA)
 * [ffmpeg documentation](https://www.ffmpeg.org/documentation.html)
 
+####################################
 
 
-## Streaming Camera to a Local Web Page
+
 ## Streaming Camera to a Public Web Page
+* [Secure Simple Remote Access for Camera Viewing](https://www.hackster.io/beame-io/secure-simple-remote-access-for-camera-viewing-64832e?utm_source=Hackster.io+newsletter&utm_campaign=b3faba5059-EMAIL_CAMPAIGN_2017_05_03&utm_medium=email&utm_term=0_6ff81e3e5b-b3faba5059-140225889&mc_cid=b3faba5059&mc_eid=9036129d51)
 
 
 
@@ -530,14 +660,6 @@ For now, we'll focus on how to get video streaming to a browser on your local LA
 ### Stream Video from a Public Site via WebSocket
 http://www.earthcam.com/usa/newyork/timessquare/?cam=tsrobo1
 http://weheart.digital/build-simple-live-streaming-solution/
-
-### Video Streaming with JSMpeg
-This is low latency streaming of the Pi's camera module to any reasonably modern web browser.
-It make use of JSMpeg, which is a Video Player written in JavaScript.
-Other dependencies are the Python ws4py library, my picamera library (specifically version 1.7 or above), and FFmpeg
-
-https://github.com/waveform80/pistreaming
-https://github.com/phoboslab/jsmpeg
 
 ### mjpg-streamer
 [!mjpg-streamer](https://www.hqt.ro/wp-content/uploads/mjpg-streamer-fi1.png)
@@ -741,6 +863,7 @@ gst-launch-1.0 videotestsrc ! autovideosink
 gst-launch-1.0 videotestsrc pattern=snow ! autovideosink
 ```
 
+* Smooth playback of adaptive video streams on Raspberry Pi with gst-mmal - https://gstreamer.freedesktop.org/data/events/gstreamer-conference/2016/John%20Sadler%20-%20Smooth%20video%20on%20Raspberry%20Pi%20with%20gst-mmal%20(Lightning%20Talk).pdf
 
 ### motion
 [!motion](http://www.lavrsen.dk/foswiki/pub/Motion/WebPreferences/motion-trans.gif)
@@ -753,6 +876,8 @@ but the articles "[How to Operate Linux Spycams With Motion][118]" and
 
 * [TURN THAT PI ZERO INTO A STREAMING CAMERA, STEP-BY-STEP](https://hackaday.com/tag/wi-fi-camera/)
 * [Raspberry Pi Security System Part 1: The camera](https://hackmypi.com/PiCamPart1.php)
+* [motionEye is a web-based frontend for motion](https://github.com/ccrisan/motioneye)
+* [motionEyeOS](https://github.com/ccrisan/motioneyeos/wiki)
 
 ### Camera Human Recognition
 * [Building a Motion Activated Security Camera with the Raspberry Pi Zero](http://hackaday.com/2017/02/06/motion-detecting-camera-recognizes-humans-using-the-cloud/)
@@ -812,7 +937,7 @@ Note: Before using wifibroadcast you have to check if the regulatories of your c
 I would like this project to auto-connect to any open WiFi network automatically;
 Without knowing the SSID beforehand or involving any human intervention.
 
-To have the RPi Zero search and connect to ANY Open Wifi,
+To have the RPi Zero search and connect to ANY Open WiFi,
 modifiy the `/etc/network/interfaces`:
 
 ```bash
@@ -912,10 +1037,10 @@ and look for `wpa_state=COMPLETED`.
 
 
 
-[01]:
-[02]:
-[03]:
-[04]:
+[01]:https://github.com/waveform80/pistreaming#background
+[02]:https://www.amazon.com/gp/product/B003MTTJOY
+[03]:http://www.autodidacts.io/convert-media-files-like-a-geek-a-guide-to-video-transcoding-with-avconv-ffmpeg/
+[04]:https://github.com/rg3/youtube-dl/issues/8622
 [05]:
 [06]:https://www.raspberrypi.org/blog/zero-grows-camera-connector/
 

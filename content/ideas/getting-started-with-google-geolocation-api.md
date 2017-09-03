@@ -1,7 +1,18 @@
 
+* [How the NSA is tracking people right now](http://apps.washingtonpost.com/g/page/national/how-the-nsa-is-tracking-people-right-now/634/)
+* [NSA tracking cellphone locations worldwide, Snowden documents show](https://www.washingtonpost.com/world/national-security/nsa-tracking-cellphone-locations-worldwide-snowden-documents-show/2013/12/04/5492873a-5cf2-11e3-bc56-c6ca94801fac_story.html?utm_term=.d86bafc0ff8b)
+
 # Google's Map APIs
 * [The Google Maps Geolocation API](https://developers.google.com/maps/documentation/geolocation/intro)
 * [Client Libraries for Google Maps Web Services](https://developers.google.com/maps/web-services/client-library)
+
+# Google Indoor Maps
+With indoor Google Maps, visitors can spend less time searching for building directories and more time discovering new points of interest. Simply zoom in and out of a building and go floor to floor with indoor maps.
+
+* https://www.google.co.in/maps/about/partners/indoormaps/
+* Use indoor maps to view floor plans - https://support.google.com/maps/answer/2803784?hl=en&visit_id=1-636169070112701367-4240871743&rd=1
+* [MapsIndoors](https://www.mapspeople.com)
+* [Google Unveils The Cartographer, Its Indoor Mapping Backpack](https://techcrunch.com/2014/09/04/google-unveils-the-cartographer-its-indoor-mapping-backpack/)
 
 # Using the APIs
 * [Find your Wi-Fi device using the Google Geolocation API](https://www.hackster.io/middleca/find-your-wi-fi-device-using-the-google-geolocation-api-2bdd59)
@@ -33,5 +44,8 @@ The device will continuously record its location, even when disconnected from th
 curl ipinfo.io
 ```
 
-
+# Trilateration / Triangulartion
 * [Trilateration](https://en.wikipedia.org/wiki/Trilateration)
+* [How GPS works? Trilateration explained](https://www.youtube.com/watch?v=4O3ZVHVFhes)
+* [How GPS Really Works (technical)](https://www.youtube.com/watch?v=RBLJO6JQ1aI)
+* [The Geometry of Relativity and why your GPS works](https://www.youtube.com/watch?v=YnG2ee0WZt4)

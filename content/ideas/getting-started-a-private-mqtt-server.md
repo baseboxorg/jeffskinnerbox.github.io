@@ -1,10 +1,14 @@
 
 * [Introduction to the MQTT Protocol on NodeMCU](http://www.allaboutcircuits.com/projects/introduction-to-the-mqtt-protocol-on-nodemcu/)
+* [Publishing MQTT messages from a NodeMCU – Soil Moisture Sensor](http://iotalot.com/2016/05/08/publishing-mqtt-messages-from-a-nodemcu-soil-moisture-sensor/)
 * [Minimal MQTT: Networked Nodes](http://hackaday.com/2016/05/17/minimal-mqtt-networked-nodes/)
+* [mbedTLS SSL Certificate Verification With Mosquitto, lwIP, and MQTT](https://dzone.com/articles/mbedtls-ssl-certificate-verification-with-mosquitto-lwip-and-mqtt?edition=298027&utm_source=Spotlight&utm_medium=email&utm_campaign=iot%202017-05-09)
 
 * [Baofeng (or other radio) data TX/RX for Raspberry Pi](http://flows.nodered.org/flow/d802e43ab306b4b9f2ba)
 
 * [Weather Station – DHT11, MQTT, Node-RED, Google Chart, Oh My!](http://www.internetoflego.com/weather-station-dht11-mqtt-node-red-google-chart-oh-my/)
+
+* [How to Bridge Mosquitto MQTT Broker to AWS IoT](https://aws.amazon.com/blogs/iot/)
 
 # ESP8266
 * [MQTT Tutorial for Raspberry Pi, Arduino, and ESP8266: Send MQTT messages between 3 different platforms](https://www.baldengineer.com/mqtt-tutorial.html)
@@ -20,8 +24,23 @@
 * [Minimal MQTT: Power and Privacy](http://hackaday.com/2016/06/02/minimal-mqtt-power-and-privacy/)
 * [Minimal MQTT: Control and Clients](http://hackaday.com/2016/05/27/minimal-mqtt-control-and-clients/)
 * []()
+* [Creating an IoT Server with Home Assistant and MQTT](https://www.hackster.io/Richa1/creating-an-iot-server-with-home-assistant-and-mqtt-3d874d?ref=similar&ref_id=45410&offset=5)
+
+# wolfSSL
+The [wolfSSL](https://www.wolfssl.com/wolfSSL/Home.html)
+is an open source embedded SSL library (formerly CyaSSL) which is lightweight, portable, C-language-based SSL/TLS library targeted at IoT, embedded, and RTOS environments primarily because of its size, speed, and feature set. It works seamlessly in desktop, enterprise, and cloud environments as well. wolfSSL supports industry standards up to the current TLS 1.3 and DTLS 1.2, is up to 20 times smaller than OpenSSL, offers a simple API, an OpenSSL compatibility layer, OCSP and CRL support,
+
+* [lwIP - A Lightweight TCP/IP stack](https://savannah.nongnu.org/projects/lwip/)
+* [MQTT With lwIP and the NXP FRDM-K64F](https://dzone.com/articles/mqtt-with-lwip-and-the-nxp-frdm-k64f)
+* [mbedTLS SSL Certificate Verification With Mosquitto, lwIP, and MQTT](https://quantixcap.wordpress.com/2017/04/26/mbedtls-ssl-certificate-verification-with-mosquitto-lwip-and-mqtt/)
+* [Secure Communication With TLS and the Mosquitto Broker](https://dzone.com/articles/secure-communication-with-tls-and-the-mosquitto-broker)
+
+# openssl
+* [Secure Communication With TLS and the Mosquitto Broker](https://dzone.com/articles/secure-communication-with-tls-and-the-mosquitto-broker)
 
 # MQTT
+* [REST is for sleeping. MQTT is for Mobile](https://mobilebit.wordpress.com/2013/05/03/rest-is-for-sleeping-mqtt-is-for-mobile/)
+
 The original vision of the world of IoT was that all devices were addressable on the internet.
 In practice, implementer’s found that it was simply impractical in many situations
 to have devices talking to each other directly by initiating peer-to-peer communication.

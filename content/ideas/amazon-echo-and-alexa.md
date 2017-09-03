@@ -4,15 +4,27 @@
 * [Get Your Music Into Amazon Music So Alexa Can Play It](http://lovemyecho.com/2015/07/03/getting-your-music-into-amazon-music-library-so-echo-can-play-it/)
 * [step-by-step walkthrough to help you build a hands-free Alexa Voice Service (AVS)](https://github.com/alexa/alexa-avs-sample-app)
 * [Alexa, Are You Recording Me?](https://www.linkedin.com/pulse/alexa-you-recording-me-brian-horton-ceo-cissp)
+* [The complete list of Alexa commands so far](https://www.cnet.com/how-to/amazon-echo-the-complete-list-of-alexa-commands/)
 
 * [How to Make Scavenger Hunts More Fun with Artificial Intelligence](https://medium.freecodecamp.com/how-to-make-scavenger-hunts-more-fun-with-artificial-intelligence-74a184f3db33)
     * [Amazon Polly - Turn text into lifelike speech using deep learning](https://aws.amazon.com/polly/)
     * [Amazon Rekognitions - Deep learning-based image recognition Search, verify, and organize millions of images](https://aws.amazon.com/rekognition/)
     * [Delegate Dialog Directive Sample Project](https://github.com/alexa/alexa-cookbook/tree/master/handling-responses/dialog-directive-delegate)
 
+# Conversational User Experience Platform
+* [api.ai](https://api.ai/)
+* [How to Build Your Own AI Assistant Using Api.ai](https://www.sitepoint.com/how-to-build-your-own-ai-assistant-using-api-ai/)
+* [Natural Language API for mobile apps, IoT, devices, etc. - api.ai](https://github.com/api-ai)
+* [wit.ai](https://wit.ai/)
+* [Melissa - A lovely virtual assistant for OS X, Windows and Linux systems](https://github.com/melissa-ai)
+* [J.A.R.V.I.S. : A Virtual Home Assistant](https://www.hackster.io/blitzkrieg/j-a-r-v-i-s-a-virtual-home-assistant-d61255?utm_source=Hackster.io+newsletter&utm_campaign=e60e593e75-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-e60e593e75-140225889&mc_cid=e60e593e75&mc_eid=9036129d51)
+* [Telegram Bot Platform](https://telegram.org/blog/bot-revolution)
+* [ReSpeaker 2 Mics Pi HAT for Alexa Voice Service, Google Assistant](https://www.seeedstudio.com/ReSpeaker-2-Mics-Pi-HAT-p-2874.html?utm_source=mailchimp&utm_medium=edm&utm_campaign=new_0606)
 
 
-# Amzon Echo "How To Do"
+
+
+# Amazon Echo "How To Do"
 ## How to access the Amazon Echo from the Web
 Even though you need to do the original Echo setup from an iOS or Android app
 (mostly so it finds your WiFi network),
@@ -35,7 +47,7 @@ and it will move to the next profile or "Alexa,
 switch to David's profile" and it will switch to the profile you just named.
 
 ## How to get the Amazon Echo to repeat an answer
-If you didn' hear the answer to your question quickly enough,
+If you didn't hear the answer to your question quickly enough,
 Alexa is happy to repeat it.
 Simply say "Alexa, can you repeat that?" and it will.
 
@@ -58,7 +70,7 @@ Just say Alexa, read "[Kindle book title]."
 ## How to Create a Notification
 The classic example of a Notification is one that silently monitors your email address
 and alerts you when you have a new email.
-Unfortanately, Alexa doesn't support this but [Jasper does](http://jasperproject.github.io/documentation/api/notification/).
+Unfortunately, Alexa doesn't support this but [Jasper does](http://jasperproject.github.io/documentation/api/notification/).
 
 ## Amazon Echo Alexa and Node-RED
 * [Amazon Echo Alexa Skills Kit integration with Node-RED](https://nathan.chantrell.net/20160328/amazon-echo-alexa-skills-kit-integration-with-node-red/)
@@ -74,6 +86,9 @@ Unfortanately, Alexa doesn't support this but [Jasper does](http://jasperproject
 * [Pair Your Mobile Device with Echo](https://www.amazon.com/gp/help/customer/display.html?nodeId=201549660)
 * [Ways to Listen to Music & Media on Alexa](https://www.amazon.com/gp/help/customer/display.html?nodeId=201549700)
 
+# Alexa Calling & Messaging
+* [Alexa Calling & Messaging](https://www.amazon.com/b?node=16713667011&ref_=pe_1840220_242172510_MP_AUCC_MX_HV_Sub_Fri_echo_crm_06_16_comm)
+
 # Amazon Echo How To
 * [New Alexa Skills Kit Template: Step-by-Step Guide to Build a Fact Skill](https://developer.amazon.com/public/community/post/Tx3DVGG0K0TPUGQ/New-Alexa-Skills-Kit-Template-Step-by-Step-Guide-to-Build-a-Fact-Skill)
 * [New Alexa Skills Kit Template: Step-by-Step Guide to Build a How-To Skill](https://developer.amazon.com/public/community/post/TxKALMUNLHZPAP/New-Alexa-Skills-Kit-Template:-Step-by-Step-Guide-to-Build-a-How-To-Skill?mkt_tok=eyJpIjoiWWpGaE16YzFZVGMxTUdJMSIsInQiOiJJZHZJWUF2V2lcL2FUR2txU0d1NUo4dmd5akVKRjR2QVRMN2RWTGRTYllsb3d4WVltdENqY2ZGY2VKMW1KcjN2Y0FwMFI2Qld2RDJuYVdzak5tVzRvSE56UFhKQTRZRzZyOWpHQ0NzUFhTcGs9In0%3D)
@@ -83,12 +98,18 @@ Unfortanately, Alexa doesn't support this but [Jasper does](http://jasperproject
 * [Using Alexa Skills Kit and AWS IoT to Voice Control Connected Devices](https://developer.amazon.com/public/community/post/Tx3828JHC7O9GZ9/Using-Alexa-Skills-Kit-and-AWS-IoT-to-Voice-Control-Connected-Devices?mkt_tok=eyJpIjoiWmpFNE9XVTBaRFpoWXpNNSIsInQiOiJNYUc3NHZDUm1cL08xUjhZSXdSMkU4WHptbXNPRzlQc1lCbVdORVBcL2M3dmllXC9LU1wvVml5Yk1QN21sait1ZkVDYm5NXC9wZVAwbjZ4RWwxVUM1ZVlJVnFXajc1cldnYm1hSXZtZzdZbU9UdnhFPSJ9)
 * [Using Amazon Echo (Alexa) as an Interface for the IoT](http://blog.buildinginternetofthings.com/2015/06/25/using-amazon-echo-alexa-as-an-interface-for-the-iot/)
 
+# Video Skills
+* [Amazon Enables Video Providers to Control Content with the Video Skill API - a New Addition to the Alexa Skills Kit](https://developer.amazon.com/blogs/alexa/post/858c3303-eb07-4faf-a095-57436b4f8a13/amazon-enables-video-providers-to-control-content-with-the-video-skill-api-a-new-addition-to-the-alexa-skills-kit?mkt_tok=eyJpIjoiWW1FM1lXVmpOamRqWVRKayIsInQiOiI3bHdDa21hUEhcLzh0aGpRQkNTbG5nTk9PRFNCcWNQSVFiZEdnbm45ZlFyMTFQZG9mSnhJdHkwTkE2QXJNV3VRVzlPblBYXC8rUmxFMWVOWUhMVEw5djZKcDExXC9hQXJIa0RieEhDbVpvdTFLNGRTQit1dXFEcml0NXBTdDdqNmtxZyJ9)
+* [Introducing the Video Skill API](https://developer.amazon.com/alexa-skills-kit/video-content?mkt_tok=eyJpIjoiWW1FM1lXVmpOamRqWVRKayIsInQiOiI3bHdDa21hUEhcLzh0aGpRQkNTbG5nTk9PRFNCcWNQSVFiZEdnbm45ZlFyMTFQZG9mSnhJdHkwTkE2QXJNV3VRVzlPblBYXC8rUmxFMWVOWUhMVEw5djZKcDExXC9hQXJIa0RieEhDbVpvdTFLNGRTQit1dXFEcml0NXBTdDdqNmtxZyJ9)
+* [How to Control Your Content with the Video Skill API](https://developer.amazon.com/blogs/alexa/post/1314314b-9b98-4501-9032-f72c000a59b5/how-to-control-your-content-with-the-video-skill-api?mkt_tok=eyJpIjoiWW1FM1lXVmpOamRqWVRKayIsInQiOiI3bHdDa21hUEhcLzh0aGpRQkNTbG5nTk9PRFNCcWNQSVFiZEdnbm45ZlFyMTFQZG9mSnhJdHkwTkE2QXJNV3VRVzlPblBYXC8rUmxFMWVOWUhMVEw5djZKcDExXC9hQXJIa0RieEhDbVpvdTFLNGRTQit1dXFEcml0NXBTdDdqNmtxZyJ9)
+
 # Amazon Echo
 * [Ask Hackaday: Is Amazon Echo the Future of Home Automation?](http://hackaday.com/2015/04/14/ask-hackaday-is-amazon-echo-the-future-of-home-automation/)
 * [Control Nest Devices with Amazon Echo](http://hackaday.com/2015/07/25/control-nest-devices-with-amazon-echo/)
 * [Amazon’s AI Escapes its Hardware Prison](http://hackaday.com/2015/08/04/amazons-ai-escapes-its-hardware-prison/)
 * [Amazon Echo: Automate tasks with a talking Raspberry Pi](http://liliputing.com/2015/07/amazon-echo-automate-tasks-with-a-talking-raspberry-pi.html)
 * [Putting Alexa on a Raspberry Pi](http://www.networkworld.com/article/3138984/hardware/putting-alexa-on-a-raspberry-pi.html)
+* [How to Add Alexa to a Raspberry Pi](https://medium.com/iotforall/how-to-add-alexa-to-a-raspberry-pi-6cedfe15662e)
 * [Voice Control RGB LED](https://www.hackster.io/pirumpi/voice-control-rgb-led-dd0ba5?utm_source=hackster&utm_medium=email&utm_campaign=new_projects)
 
 # Amazon Echo Tools
@@ -106,10 +127,14 @@ Unfortanately, Alexa doesn't support this but [Jasper does](http://jasperproject
 # Amazon Alexa App Services
 * [Providing Home Cards for the Amazon Alexa App](https://developer.amazon.com/appsandservices/solutions/alexa/alexa-skills-kit/docs/providing-home-cards-for-the-amazon-alexa-app?mkt_tok=3RkMMJWWfF9wsRokvavJZKXonjHpfsX66e4vWKK2lMI%2F0ER3fOvrPUfGjI4FTcViI%2BSLDwEYGJlv6SgFSrfFMapt17gOUhk%3D#Creating%20a%20Home%20Card%20to%20Display%20Text%20and%20an%20Image)
 * [Easy Alexa (or Echo) Control of your ESP8266 Huzzah](https://learn.adafruit.com/easy-alexa-or-echo-control-of-your-esp8266-huzzah)
+* [Talking To A Lamp - Alexa Controlled ESP8266](http://hackaday.com/2017/07/22/talking-to-a-lamp/)
 
 # Make You Own Amazon Alexa Device
+* [Google AIY: Artificial Intelligence Yourself](http://hackaday.com/2017/05/04/google-aiy-artificial-intelligence-yourself/)
+* [How to Turn Your Raspberry Pi Into a Voice-Enabled Amazon Alexa Device](https://www.linux.com/news/event/open-source-summit-na/2017/3/add-skills-your-raspberry-pi-alexa)
 * [Amazon shows you how to make an Echo with Raspberry Pi](http://www.engadget.com/2016/03/25/amazon-shows-you-how-to-make-an-echo-with-raspberry-pi/)
 * [Project: Raspberry Pi + Alexa Voice Service](https://github.com/amzn/alexa-avs-raspberry-pi)
+* [Google AIY: Artificial Intelligence Yourself](http://hackaday.com/2017/05/04/google-aiy-artificial-intelligence-yourself/)
 
 # Voice Controlled Workbench
 * [You Speak, Your Scope Obeys](http://hackaday.com/2016/03/29/you-speak-your-scope-obeys/)
@@ -120,6 +145,8 @@ Unfortanately, Alexa doesn't support this but [Jasper does](http://jasperproject
 * [Speech Recognition with Arduino and BitVoicer Server](https://www.hackster.io/msb4180/speech-recognition-with-arduino-and-bitvoicer-server-460477?ref=newsletter&utm_source=Hackster.io+newsletter&utm_campaign=251e92bd71-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-251e92bd71-140225889)
 * [myva-Home (Voice controlled home automation)](https://www.hackster.io/smerkousdavid/myva-home-voice-controlled-home-automation-f4cfe3?utm_source=Hackster.io+newsletter&utm_campaign=73ff92e8f5-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-73ff92e8f5-140225889)
 * [Build a Raspberry Pi-Powered DIY Amazon Echo](http://lifehacker.com/build-a-raspberry-pi-powered-diy-amazon-echo-1762678229)
+* [Build Your Own Amazon Echo Using a RPI and ReSpeaker HAT](https://www.hackster.io/idreams/build-your-own-amazon-echo-using-a-rpi-and-respeaker-hat-7f44a0?utm_source=mailchimp&utm_medium=edm&utm_campaign=new_0704)
+    * [ReSpeaker 2-Mics Pi HAT](https://www.seeedstudio.com/ReSpeaker-2-Mics-Pi-HAT-p-2874.html)
 * [Raspi Alexa Skills - Rest API](https://www.hackster.io/steckdev/raspi-alexa-skills-rest-api-071868?utm_source=hackster&utm_medium=email&utm_campaign=new_projects)
 * [Turn Your Pringles Can into an Amazon Echo](http://blog.nextthing.co/turn-your-pringles-can-into-an-amazon-echo-with-c-h-i-p/)
 
@@ -150,13 +177,13 @@ In my case, all the bulbs in my Living Room where put in the group "Living Room"
 
 # Managing Alexa
 Your can manage your Alexa instance vi the [Alexa smart phone app][09],
-or you can use the equivlent [Amazon Alexa web site][10].
+or you can use the equivalent [Amazon Alexa web site][10].
 
 # How to Add Skills to Alexa
 To add a Skill, start by tapping on the sidebar menu button in the
 top-left corner of the screen in the Alexa app
 (or the [Amazon Alexa web version][10])
-and follow the proceedure [here][11].
+and follow the procedure [here][11].
 After you enable the Skill,
 you also might be redirected to a new screen where you’ll need to sign into your account
 that’s associated with the Skill you installed.
@@ -206,6 +233,8 @@ interesting Internet-enabled speech application using this API.
 To implement a Home Skill there are several parts that need to created.
 see the text here - https://www.hardill.me.uk/wordpress/2016/11/05/alexa-home-skill-for-node-red/
 
+This is a sample skill written in JavaScript that demonstrates how to use device ID and the API endpoint values to make a request to the Alexa Device Address API - https://github.com/alexa/skill-sample-node-device-address-api?mkt_tok=eyJpIjoiTjJabFltSmlaakF6WVRjeCIsInQiOiI4RjZvd3dka25pUU5PRXFnTFVTZ0FhdnNJeEJrWXY4RGdsR1Y5SEJFanFrMEtvZTk0K216UTEzZXJHMng2YlhDVHBDd3dwbmt2NG8ybE4rcE1VWEFEQ1ZQU3hVRUE0eTY5MjdWaWxIcGhPMG5cL0xoNWhPMEZKYXFaWGFBc1JrODMifQ==
+
 
 # First Alexa Skill (Ask Google)
 # Doing Google Search via Alexa
@@ -232,12 +261,55 @@ that you need to enter into various forms.
 * [How to add Google’s Voice Assistant to Alexa on the Amazon Echo and Fire TV](http://www.aftvnews.com/how-to-add-googles-voice-assistant-to-alexa-on-the-amazon-echo-and-fire-tv/)
 * [Install ‘Ask Google’ Alexa Skill](http://alexamods.com/guide-install-ask-google-alexa-skill/)
 * [How to Publish an Alexa Skill: from beginning to end](https://www.hackster.io/daquilnp/how-to-publish-an-alexa-skill-from-beginning-to-end-82167c?utm_source=hackster&utm_medium=email&utm_campaign=new_projects)
+* []()
 
 # Node-RED and Amazon Echo
 This node allows you to hook up Node-RED to react to your Amazon Echo.
 
 * [ALEXA HOME SKILL FOR NODE-RED](https://www.hardill.me.uk/wordpress/2016/11/05/alexa-home-skill-for-node-red/)
 * [node-red-contrib-alexa-home-skill]()
+
+# Google Home with Assistant
+![google-assistant-logo](https://upload.wikimedia.org/wikipedia/commons/5/5a/Google_Assistant_logo.png)
+[Google Home][12] enables users to speak voice commands to interact with [Google Assistant][13].
+Google Assistant is an intelligent personal assistant.
+Google Home is Google's response to Amazon's Echo,
+and the Google Assistant is its alternative to Amazon's Alexa.
+Google Assistant launched on Google Home and [Google Pixel smartphones][18]
+but not (as of this writing) offered on Andriod or other smartphones.
+[Google has confirmed it will begin rolling out an Assistant][19]
+the week of 26 February 2017 for Android 7.0 Nougat and 6.0 Marshmallow phones.
+[To check if your phone has Google Assistant][23], say "Ok Google", "Hey, Google",
+or press-and-hold the home button
+([but has some problems for Samsung users like myself][21]).
+
+Alexa's abilities, in large part, is based on the skills that you or someone else program into it,
+and if the skills are not present, your likely to get the "I don't understand the question" response.
+Google Assistant on the other hand has the Google search engine at its disposal,
+and therefore, you can ask Assistant almost anything,
+and it will understand your words in context and serve up relevant results in a conversational manner.
+Google Assistant also has it equivalent to Amazon's Alexa Skills, call [Conversation Actions][24].
+Which is better, Amazon Echo with Alexa vs. Google Home with Assistant,
+is a subject of much debate (see [here][14], [here][17], [here][25], [here][26], and [here][23]).
+
+One of the nicer things about Google Assistant
+is that it is [designed to be conversational][20].
+That is, you ask a question and then ask several follow-up questions,
+and Google Assistant will be able to keep track of the conversation, determine context,
+and audibly respond with the right information.
+You do need to preface each with the "OK Google" or "Hey, Google" wake-up.
+Like Echo Alexa (see [Alexa dialog history][16]),
+Google also allows you to peek at all the data Home sends back and forth
+(go to [`myactivity.google.com`][15]).
+
+With Google Assistant on you smartphone,
+find stuff while you're traveling,
+make phone calls or text messages or email,
+open phone apps, and [more][20].
+
+* [How to Build Your Own Google AIY without the Kit](http://hackaday.com/2017/05/30/diy-google-aiy/)
+* [Headless Voice Activated Google Assistant on Raspberry Pi](https://www.hackster.io/shiva-siddharth/headless-voice-activated-google-assistant-on-raspberry-pi-8343f7?utm_source=Hackster.io+newsletter&utm_campaign=01e267dfa3-EMAIL_CAMPAIGN_2017_05_03&utm_medium=email&utm_term=0_6ff81e3e5b-01e267dfa3-140225889&mc_cid=01e267dfa3&mc_eid=9036129d51)
+* [Sudo Google Assistant](http://hackaday.com/2017/05/16/sudo-google-assistant/)
 
 
 
@@ -253,15 +325,25 @@ This node allows you to hook up Node-RED to react to your Amazon Echo.
 [09]:https://play.google.com/store/apps/details?id=com.amazon.dee.app&hl=en
 [10]:http://alexa.amazon.com
 [11]:https://www.howtogeek.com/256707/the-best-third-party-alexa-skills-on-the-amazon-echo/?tag=823814-20
-[12]:
-[13]:
-[14]:
-[15]:
-[16]:
-[17]:
-[18]:
-[19]:
-[20]:
+[12]:https://madeby.google.com/home/
+[13]:https://assistant.google.com/
+[14]:http://www.pocket-lint.com/review/139617-google-home-review-a-better-voice-assistant-than-amazon-echo
+[15]:https://myactivity.google.com/myactivity
+[16]:https://www.amazon.com/gp/help/customer/display.html?nodeId=201602040
+[17]:https://www.cnet.com/news/google-home-vs-amazon-echo/
+[18]:http://www.pocket-lint.com/review/139038-google-pixel-review-android-at-its-best
+[19]:http://www.pocket-lint.com/news/140393-google-assistant-is-coming-to-a-nougat-or-marshmallow-handset-near-you
+[20]:http://www.pocket-lint.com/news/137722-what-is-google-assistant-how-does-it-work-and-which-devices-offer-it
+[21]:http://trendblog.net/okay-google-not-working-fix/
+[22]:https://www.cnet.com/how-to/amazon-echo-things-alexa-can-do-that-google-home-cant/
+[23]:https://assistant.google.com/platforms/phones/
+[24]:https://developers.google.com/actions/develop/conversation
+[25]:https://www.forbes.com/sites/jaymcgregor/2016/12/30/amazons-alexa-vs-google-assistant-24-questions-1-winner/#6e43541c2316
+[26]:http://1reddrop.com/2017/02/26/amazon-alexa-hits-10000-skills-why-better-google-assistant/
+[27]:
+[28]:
+[29]:
+[30]:
 
 [53]:http://jasperproject.github.io/
 [54]:http://www.apple.com/ios/siri/

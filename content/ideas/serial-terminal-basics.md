@@ -7,6 +7,7 @@
 * [Serially, Are You Syncing or Asyncing?](http://hackaday.com/2016/06/28/serially-are-you-syncing-or-asyncing/)
 * [What Could Go Wrong: Asynchronous Serial Edition](http://hackaday.com/2016/06/22/what-could-go-wrong-asynchronous-serial-edition/)
 
+* [Eternal Terminal](https://mistertea.github.io/EternalTCP/)
 * [terminal emulators](https://en.wikipedia.org/wiki/List_of_terminal_emulators)
 * [Computer terminal](https://en.wikipedia.org/wiki/Computer_terminal)
 * [Linux console](https://en.wikipedia.org/wiki/Linux_console)
@@ -24,6 +25,78 @@ HyperTerminal - HyperTerminal is the defacto terminal program for any Windows OS
 PuTTY
 Screen
 microcom
+
+# Types of Serial Port
+serial port lines (CTS, RTS, DTR, DSR, RI, CD)
+## RJ45
+## DB-9
+## RS-232
+
+# Serial Interface
+The whole purpose of a serial interface is to provide a
+single path for data transmission wirelessly or over a cable.
+Parallel buses are still used in some applications.
+But with high-speed data so common today,
+a serial interface is the only practical option for communications over any distance greater than several feet.
+
+Serial interfaces can be used to provide standardized logic levels from transmitters to receivers,
+define the transmission medium and connectors,
+and specify timing and data rates.
+The definition of logic levels, medium, and connectors is part of the
+physical layer (PHY) or layer 1 of the Open Systems Interconnection (OSI) networking model.
+Any additional functions such as data handling is part of the
+media access control (MAC) layer or layer 2 of the OSI model.
+
+Dozens of serial data interfaces are used today.
+Most have been developed for specific applications.
+A few have become universal, such as I2C, CAN, LIN, SPI, Flex, MOST, and I2S.
+Then there’s Ethernet and USB and other higher-speed serial interfaces like FireWire, HDMI, and Thunderbolt.
+
+# RS-232 and RS-485
+Two of the oldest serial interfaces are RS-232 and RS-485.
+These legacy interfaces aren’t obsolete or discontinued, though.
+Both are still alive and well in many applications.
+
+http://www.electronicdesign.com/what-s-difference-between/what-s-difference-between-rs-232-and-rs-485-serial-interfaces
+
+# Computer Terminal
+A computer terminal is an electronic or electromechanical hardware device that is used for entering data into, and displaying data from, a computer or a computing system.
+Early user terminals connected to computers were electromechanical teleprinters/teletypewriters (TeleTYpewriter, TTY), such as the Teletype Model 33 ASR, originally used for telegraphy or the Friden Flexowriter.
+
+* https://en.wikipedia.org/wiki/Computer_terminal
+
+# Computer Serial Port
+* http://www.labbookpages.co.uk/electronics/serialPort.html
+
+# Change Terminal Characteristics With stty
+The stty utility shall set or report on terminal I/O characteristics for the device.
+
+Whenever you enable a terminal,
+the system automatically sets the operating characteristics of the serial line to a set of default values.
+Sometimes these values do not match the values used by the terminal and,
+therefore, must be changed to allow communication between the system and the terminal.
+You can display the operating characteristics of a serial line with the `stty` (set tty) command.
+
+Typing `stty sane` at the shell prompt will fix a lot of oddities.
+For example, if you accidentally issue a bad command
+and all of a sudden nothing shows up on the screen
+or if you have general gibberish showing up on the screen,
+`stty sane` may return your terminal session to sanity.
+See - https://www.cyberciti.biz/tips/bash-fix-the-display.html
+
+* https://blog.nelhage.com/2009/12/a-brief-introduction-to-termios-termios3-and-stty/
+* http://pubs.opengroup.org/onlinepubs/007904975/utilities/stty.html
+* http://linux.101hacks.com/unix/stty/
+* http://www.commandlinefu.com/commands/using/stty
+* http://osr507doc.xinuos.com/en/HANDBOOK/serial_line_operation_changing.html
+
+# Screen
+How to check if I'm in screen session? - https://serverfault.com/questions/257975/how-to-check-if-im-in-screen-session
+
+The `screen` program does not (as far as we know) provide an option for local echo
+(to see what you are typing).
+Screen assumes that character echo will be supplied at the far end, not your local host.
+This can be a pain but `minicom` is an alternative that can provide local echo.
 
 # Minicom
 Minicom is a terminal program, intended for use with a modem, that
@@ -61,6 +134,16 @@ After executing this command, follow these steps:
 Now Press Esc to go back to main menu,
 and then save your configuration as default or you could save with a name.
 For example cisco, now every time you would like to use the same configuration just type sudo minicom cisco.
+
+## Local Echo
+>Local echo is a computer modem feature and terminal option that allows the modem to display keyboard commands and transmitted data on the screen as it is being entered into the computer or received by the modem.
+
+For some situations you will not hav local echo of characters you type in.
+To fix this, you can add it with `CTRL-A E` to turn on local echo
+and `CTRL-A A` to append a linefeed to CR terminated ASCII arriving at the serial port.
+
+* https://superuser.com/questions/752098/local-echo-using-screen-to-connect-to-a-serial-terminal
+
 
 You will see the minicom configuration utility ... http://processors.wiki.ti.com/index.php/Setting_up_Minicom_in_Ubuntu
 
@@ -255,6 +338,9 @@ screen /dev/ccable33v 115200,cs8
 # NOTE: press CTRL+A then k. To logout and kill all screen session
 ```
 
+To scroll up while using screen,
+type CTRL+A ESC and you can then use the arrow keys or mouse wheel to scroll up.
+
 To kill the session your are within,
 press Ctrl+A then type ":quit".
 
@@ -270,6 +356,7 @@ There is a screen on:
 # kill the desired screen session
 $ screen -X -S 11505.pts-1.desktop quit
 ```
+Type RETURN twice when you are ready to go back to interactive mode.
 
 **NOTE:** If any of this doesn't work, make sure you have the serial console correctly configured.
 During the intial Raspberry Pi configuration using `sudo raspi-config`,
@@ -281,11 +368,6 @@ Consult the websites [RPi Serial Connection][73] and
 [How to connect Raspberry pi to Ubuntu via USB Cable][74]
 for additional insights.
 
-# Types of Serial Port
-serial port lines (CTS, RTS, DTR, DSR, RI, CD)
-## RJ45
-## DB-9
-## RS-232
 
 
 

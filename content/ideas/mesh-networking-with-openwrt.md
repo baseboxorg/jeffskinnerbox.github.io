@@ -21,6 +21,12 @@ What a Mesh!
 * [Outernet](https://en.wikipedia.org/wiki/Outernet)
     * [OUTERNET RADIO FOR THE INFORMATION AGE](https://outernet.is/)
 
+PIC Mesh
+* [PIC Mesh](http://people.ece.cornell.edu/land/courses/ece4760/FinalProjects/f2016/bac239_aw528_rk534/bac239_aw528_rk534/bac239_aw528_rk534/index.html)
+
+Mesh Bee
+* [Mesh Bee](http://wiki.seeedstudio.com/wiki/Zig_Bee)
+
 ESP8266 Mesh Networking
 * [ESP8266 Mesh User Guide](http://www.espressif.com/sites/default/files/30a-esp8266_mesh_user_guide_en.pdf)
 * [ESP-Mesh](https://espressif.com/en/products/software/esp-mesh/overview)

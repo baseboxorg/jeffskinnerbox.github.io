@@ -16,6 +16,21 @@
 * [Convert keys between GnuPG, OpenSsh and OpenSSL](http://www.sysmic.org/dotclear/index.php?post/2010/03/24/Convert-keys-betweens-GnuPG%2C-OpenSsh-and-OpenSSL)
 * [How to encrypt files with GPG and OpenSSL on GNU / Linux](http://pc-freak.net/blog/how-to-encrypt-files-with-gpg-and-openssl-on-gnu-linux/)
 
+* [HTTPS server open certificate authority](https://letsencrypt.org/)
+
+* [NIST Report on Cryptographic Key Length and Cryptoperiod](https://www.keylength.com/)
+
+* [managing encryption keys with Cloud KMS](https://cloud.google.com/kms/docs/quickstart)
+
+
+
+Consider forking the following utility and making your own tools:
+
+* [File Encryptor/Decryptor](https://github.com/alkass/file-encryptor)
+* [Text Encryption/Decryption](http://fadialkass.blogspot.com/2013/09/text-encryptiondecryption.html)
+
+
+
 [Riseup][01], a provider of online communication tools for people working on social change,
 has some excellent, non-techie documentation on [online security][02] in general
 and [encryption tools][03] like gpg.

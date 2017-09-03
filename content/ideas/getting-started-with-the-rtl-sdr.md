@@ -42,6 +42,10 @@ Bias-T is nothing more than a simple diplexer.
 
 http://forums.solidsignal.com/showthread.php/167-Diplexer-Splitter-Combiner-What-are-these-things
 
+## Upconverter
+[Review of the SpyVerter Upconverter](http://www.rtl-sdr.com/review-of-the-spyverter-upconverter/)
+* [Ham It Up v1.3 - RF Upconverter For Software Defined Radio](http://www.nooelec.com/store/ham-it-up.html)
+
 # Tuning the RTL-SDR for Optimal Use
 You'll find that the dongle is limited by the following:
 
@@ -155,4 +159,14 @@ Improving Your SDR Radio
 [18]:http://www.rtl-sdr.com/category/tutorial/
 [19]:http://www.radioforeveryone.com/p/reducing-electrical-noise.html
 [20]:
+[21]:
+[22]:
+[23]:
+[24]:
+[25]:
+[26]:
+[27]:
+[28]:
+[29]:
+[30]:
 

@@ -824,7 +824,8 @@ but how the "wireless challenge" imposes an architectural pattern that must be m
 the IoT solution your attempting to create.
 
 
-##############################################################
+######################################################################################################################
+
 
 # White Paper
 An often unspoken aspect of the Internet of Things (IoT)
@@ -1424,6 +1425,139 @@ It could be a service offering via a portal or APIs.
 Analytics / data could be provided to enrich the offering
 (combine with geo-fencing, city traffic patterns, weather conditions, etc.)
 to focus on specific industry’s needs.
+
+
+######################################################################################################################
+
+# What is 3G?
+When 3G networks started rolling out,
+they replaced the 2G system, a network protocol that only allowed the most basic
+of what we would now call smartphone functionality.
+Most 2G networks handled phone calls, basic text messaging, and small amounts of data over a protocol called MMS.
+With the introduction of 3G connectivity, a number of larger data formats became much more accessible,
+including standard HTML pages, videos, and music.
+The speeds were still pretty slow, and mostly required pages
+and data specially formatted for these slower wireless connections.
+By 2G standards, the new protocol was speedy,
+but still didn’t come anywhere close to replacing a home broadband connection.
+
+# What is 4G?
+The International Telecommunications Union-Radio (ITU-R)
+is the United Nations official agency for all manner of information and communication technologies,
+which decided on the specifications for the 4G standard in March 2008.
+The ITU-R set standards for 4G connectivity
+requiring all services described as 4G to adhere to a set of speed and connection standards.
+For mobile use, including smartphones and tablets,
+connection speeds need to have a peak of at least 100 megabits per second,
+and for more stationary uses such as mobile hotspots, at least 1 gigabit per second.
+When these standards were announced,
+these speeds were unheard of in the practical world,
+because they were intended as a target for technology developers,
+a point in the future that marked a significant jump over the current technology.
+Over time, the systems that power these networks have caught up,
+not just in the sense that new broadcasting methods have found their way into products,
+but the previously-established 3G networks have been improved to the point that they can be classified as 4G.
+
+## What is LTE?
+[4G vs LTE: What's the difference?](http://www.techadvisor.co.uk/feature/mobile-phone/4g-vs-lte-whats-the-difference-3605656/)
+LTE stands for Long Term Evolution,
+and isn’t as much a technology as it is the path followed to achieve 4G speeds.
+As it stands, most of the time when your phone displays the “4G” symbol in the upper right corner,
+it doesn’t really mean it.
+When the ITU-R set the minimum speeds for 4G, they were a bit unreachable,
+despite the amount of money tech manufacturers put into achieving them.
+In response, the regulating body decided that LTE,
+the name given to the technology used in pursuit of those standards,
+could be labeled as 4G if it provided a substantial improvement over the 3G technology.
+
+Immediately networks began advertising their connections as 4G LTE,
+a marketing technique that allowed them to claim next-gen connectivity
+without having to reach the actual required number first.
+It’s not entirely trickery though, despite inconsistent speeds depending on location and network,
+the difference between 3G and 4G is immediately noticeable.
+
+So, LTE is a first-generation 4G technology that should theoretically reach speeds of around 100Mbit/s.
+As well as lacking in overall download speed,
+LTE also lacks uplink spectral efficiency and speed.
+Uplink spectral efficiency refers to the efficiency of the rate that data is uploaded
+and transmitted from your smartphone.
+That's where MIMO (Multiple Input Multiple Output) comes in.
+It's a practical technique for sending and receiving more than one data signal
+on the same channel at the same time by using more than one antenna.
+Also part of LTE-Advanced is carrier aggregation.
+It lets operators treat multiple radio channels in different
+or the same frequency bands as if they were one,
+producing quicker speeds and enabling users to be able to perform bandwidth hogging activities
+like streaming HD video much faster than ever before.
+
+With better carrier aggregation and MIMO,
+we can head towards a new standard: LTE Advanced.
+This is also known as LTE-A or 'true' 4G.
+
+## LTE UE Category & Class Definitions
+LTE utilises User Equipment (UE) categories
+or classes to define the performance specifications an enable base stations
+to be able to communicate effectively with them knowing their performance levels.
+Some like LTE Cat 3, LTE Cat 4 and LTE Cat 0 are widely quoted and used.
+Other like LTE Cat 7 and LTE Cat 8 are much newer.
+
+The LTE categories or UE classes are needed to ensure that the base station,
+can communicate correctly with the user equipment.
+By relaying the LTE UE category information to the base station,
+it is able to determine the performance of the UE and communicate with it accordingly.
+
+There are 9 different LTE UE categories that are define.
+The different LTE categories have a wide range in the supported parameters and performance.
+LTE category 1, for example does not support MIMO, but LTE UE category 5 supports 4x4 MIMO.
+
+
+
+* [ExtremeTech explains: What is LTE?](https://www.extremetech.com/mobile/110711-what-is-lte)
+* [4G vs LTE – what is the difference?](http://www.androidauthority.com/4g-vs-lte-274882/)
+* [LTE Tutorial](https://www.tutorialspoint.com/lte/index.htm)
+* [LTE Long Term Evolution Tutorial & Basics](http://www.radio-electronics.com/info/cellulartelecomms/lte-long-term-evolution/3g-lte-basics.php)
+
+# What is 5G?
+Carriers are already testing the fifth generation of mobile broadband connectivity, 5G,
+but there’s a lot still to work out.
+There’s no agreed upon standard as yet,
+and we’re not likely to see 5G starting to roll out until at least 2020.
+Judging by what has happened with 4G,
+it could also be several years beyond that before it’s widely available.
+
+5G networks will use a type of encoding called OFDM,
+which is similar to the encoding that LTE uses.
+The air interface will be designed for much lower latency and greater flexibility than LTE, though.
+
+The new networks will predominantly use very high frequencies that can transmit huge amounts of data,
+but only a few blocks at a time.
+The standard will work all the way from low frequencies to high,
+but it gets the most benefit over 4G at higher frequencies.
+5G may also transmit data over the unlicensed frequencies currently used for WiFi,
+without conflicting with existing WiFi networks.
+
+For 5G, the FCC has already made available swaths of the spectrum
+in the millimeter wave range for both licensed and unlicensed
+use for companies to begin exploring 5G options (specifically,
+licensed use in the 28 GHz, 37 GHz, and 39 GHz bands, unlicensed use in the 64-71 GHz band,
+and shared access in the 37-37.6 GHz band).
+Millimeter wave technology promises higher data capacity than we currently have now.
+A simplified rule of thumb to go by is the higher the frequency, the more data it can transmit.
+
+It is expected that standards for 5G will be agreed upon and set by 2020
+and that business applications for the technology will start to appear in 2022/23.
+It could take another two to three years for consumer access to the tech.
+
+
+http://www.pcmag.com/article/345387/what-is-5g
+http://www.rcrwireless.com/20170124/carriers/verizon-testing-5g-in-10-locations-could-expand-beyond-fiber-footprint-tag2
+
+
+* [A network of networks: How will carriers handle the evolution to 5G?](https://dupress.deloitte.com/content/dam/dup-us-en/articles/3795_network-of-networks/DUP_Network-of-networks.pdf)
+
+
+######################################################################################################################
+
 
 
 

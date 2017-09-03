@@ -1,4 +1,14 @@
 
+* [Hackaday Dictionary: Servo Motors](https://hackaday.com/2016/03/24/hackaday-dictionary-servo-motors/)
+* [The Little Things I Didn’t Know About Small DC Motors](http://hackaday.com/2016/10/17/the-little-things-i-didnt-know-about-small-dc-motors/)
+* [Giant Stepper Motor Gets You Up to Speed on Theory](http://hackaday.com/2015/08/20/giant-stepper-motor-gets-you-up-to-speed-on-theory/)
+* [Control a DC Motor with an Arduino](http://www.allaboutcircuits.com/projects/control-a-motor-with-an-arduino/)
+* [Introduction to AC Motors](http://www.allaboutcircuits.com/textbook/alternating-current/chpt-13/introduction-ac-motors/)
+* [All About Stepper Motors](https://learn.adafruit.com/all-about-stepper-motors)
+* [Balancing Robot Needs Innovative Controller and Motor](http://hackaday.com/2017/05/18/balancing-robot-needs-innovative-controller-and-motor/)
+* [Driving a brushless DC motors slooooooowly](http://hackaday.com/2015/04/20/driving-a-brushless-dc-motor-sloooooooowly/)
+* [How Accurate Is Microstepping Really?](http://hackaday.com/2016/08/29/how-accurate-is-microstepping-really/)
+* [A Command-Line Stepper Library with All the Frills](http://hackaday.com/2017/03/05/a-command-line-stepper-library-with-all-the-frills/)
 
 
 # DC Brushed Motor
@@ -119,6 +129,12 @@ void loop() {
   }
 }
 ```
+
+# Switec Motors
+The Switec motor is an unassuming bit of plastic and metal that is found behind the dashboards of many American cars and trucks. It’s only a little over an inch in diameter, but it reliably swings tachometer, speedometer, and fuel gauge needles
+http://hackaday.com/2013/01/19/custom-gauges-with-a-stepper-motor-breakout-board/
+https://github.com/clearwater/SwitecX25
+http://guy.carpenter.id.au/gaugette/2012/01/05/what-is-gaugette/
 
 
 

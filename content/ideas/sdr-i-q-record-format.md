@@ -1,11 +1,3 @@
-Title: SDR I/Q Record Format
-Date: 2100-01-01 00:00
-Category: Electronics
-Tags: SDR, Software Defined Radio
-Slug: sdr-iq-record-format
-Author: Jeff Irland
-Image: DRAFT_stamp.png
-Summary: abla bla bla
 
 * [Accelerating Fourier transforms using the Raspberry Pi's GPU](http://www.raspberrypi.org/archives/5934)
 * [csdr - build DSP processing chains by shell pipes](https://github.com/simonyiszk/csdr)
@@ -36,7 +28,9 @@ is a complex-valued representation of the [real-valued][10] modulated physical s
 
 * [I/Q Record Format][13]
 * [Quadrature ( I-Q ) Modulation Tutorial][14]
+* [IQ Modulator Basics: Operation, measurements, impairments](https://www.youtube.com/watch?v=RHFZUqUM8DY&feature=em-subs_digest)
 * [Display in-phase and quadrature components of modulated signal constellation][15]
+* [If The I And Q Of Software Defined Radio Are Your Nemesis, Read On][17]
 
 ## Waveform Viewer
 A waveform viewer is a software tool for viewing a signals waveform.
@@ -60,7 +54,17 @@ http://en.wikipedia.org/wiki/Waveform_viewer
 [14]:http://www.fourier-series.com/IQMod/
 [15]:http://www.mathworks.com/help/comm/ref/discretetimescatterplotscope.html
 [16]:http://en.wikipedia.org/wiki/Waveform
-[17]:
+[17]:http://hackaday.com/2017/05/16/if-the-i-and-q-of-software-defined-radio-are-your-nemesis-read-on/
 [18]:
 [19]:
 [20]:
+[21]:
+[22]:
+[23]:
+[24]:
+[25]:
+[26]:
+[27]:
+[28]:
+[29]:
+[30]:

@@ -1,3 +1,4 @@
+http://www.pighixxx.com/test/wp-content/uploads/2015/06/ESP8266_11.pdf
 
 * 13 part series with interesting examples - [Why is IoT so Expensive? Hint: It Doesn’t Have to Be!](https://blog.falafel.com/why-is-iot-so-expensive-hint-it-doesnt-have-to-be/)
 * [Using a NodeMCU and Light Sensor to Build a JavaScript Night Light](https://www.losant.com/blog/building-a-nodemcu-javascript-night-light)
@@ -116,6 +117,13 @@ but can surge to nearly 500 mA when transmitting over WiFi.
 Thus it is imperative that you connect a well-regulated power supply capable of meeting these demands.
 (Some have suggested adding a 10 uF capacitor between the +3.3
 and ground lines in order to smooth over sudden jumps in power consumption.)
+
+Don’t be fooled into thinking that because the board runs at 3.3V
+or has a small footprint that it is a “low power” device.
+The current draw is high when WiFi runs.
+The ESP-01 little board draw over 50mA while idle.
+When WiFi went active, there are large spikes.
+ You need to use a dedicated 3.3V source or dedicated, high current, regulator.
 
 Below is what I have begain to use.
 
@@ -248,6 +256,7 @@ Thus it is important to consult your board’s documentation.
 
 ## AT Commands
 [!at-command-logo](http://electronicsforu.com/wp-contents/uploads/2016/04/At_COMMAND.png)
+The default firmware on the ESP8266 makes it relatively easy to add WiFi to a project.
 The ESP8266 modules come with a pre-loaded firmware
 that will accept AT Commands through their UART interface
 (connect to wifi, open udp socket, send data to this IP...).
@@ -256,14 +265,20 @@ pins to communicate with and program the microcontrollers.
 Compared to the other programming methods, this technique is arcane,
 but worth mentioning if you need to do some (very) low-level debugging
 or all you have is a terminal.
+
 Listed below are some documentation for the ESP8266 AT Commands:
 
+* [ESP8266 AT Command Set](http://www.pridopia.co.uk/pi-doc/ESP8266ATCommandsSet.pdf)
 * [How to Flash AT commands firmware in ESP8266 ESP-01 Wi-Fi module](http://esp8266internetofthings.blogspot.in/2015/10/how-to-flash-at-commands-firmware-in.html)
 * [WIFI module ESP8266 for IoT](http://www.epanorama.net/newepa/2014/11/09/wifi-module-esp8266-for-iot/)
 * [List of ESP8266 AT Commands](http://www.electrodragon.com/w/Wi07c#Commands)
 * [More AT Command Information Found](https://hackaday.io/project/2879/log/9300-more-at-command-information-found)
 * [Get Started With ESP8266 Using "AT Commands" Via Arduino](http://www.instructables.com/id/Get-Started-With-ESP8266-Using-AT-Commands-Via-Ard/?ALLSTEPS)
 * [Get Started With ESP8266 Using AT Commands, NodeMCU, or Arduino (ESP-12E)](http://www.instructables.com/id/Get-Started-with-ESP8266-Using-AT-Commands-NodeMCU/)
+
+>Back when computers used modems to communicate at 300 baud,
+[Hayes Microcomputer Products][99] created a smartmodem command set that the industry quickly adopted.
+The [Hayes command style][100] is still used today, even though Hayes is long gone.
 
 ## ESP8266 SDK and Toolchain
 [!espressif-logo](http://www.signal.com.tr/img/temlogo/espressif-logo.png)
@@ -310,6 +325,7 @@ Some sources are below:
 * [Adafruit HUZZAH ESP8266 breakout - Using Arduino IDE](https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout/using-arduino-ide)
 * [Programming the ESP8266 With the Arduino IDE in 3 Simple Steps](https://dzone.com/articles/programming-the-esp8266-with-the-arduino-ide-in-3)
 * [Arduino IDE + esp8266 board](https://retro.moe/2016/03/27/c64-remote-controller-nodemcu-vs-adafruit-huzzah-vs-sparkfun-thing-vs/)
+* [Guide to PROGMEM on ESP8266 and Arduino IDE](https://gist.github.com/sticilface/e54016485fcccd10950e93ddcd4461a3)
 
 ## NodeMCU With eLua
 [!lua-logo](http://www.lua.org/images/lua.gif)
@@ -374,6 +390,433 @@ A tick-less mode is provided for low power applications.
 * [Using FreeRTOS multi-tasking in Arduino](https://www.hackster.io/feilipu/using-freertos-multi-tasking-in-arduino-ebc3cc)
 * [Tiny $7 IoT module packs WiFi, BLE, and sensors, runs FreeRTOS](http://linuxgizmos.com/tiny-7-iot-module-packs-wifi-ble-and-sensors-runs-freertos/)
 
+## MicroPython
+* [Building and Running MicroPython on the ESP8266](https://learn.adafruit.com/building-and-running-micropython-on-the-esp8266)
+* https://learn.adafruit.com/micropython-basics-how-to-load-micropython-on-a-board/overview
+* [Video overview of MicroPython on ESP8266](https://www.youtube.com/watch?v=D-CaWFMFCV0)
+* [Micro Python Now Runs on the ESP8266](http://hackaday.com/2014/11/29/micro-python-now-runs-on-the-esp8266-contributors-wanted-to-get-wifi-working/)
+* [MicroPython on the ESP8266: Kicking the Tires](http://hackaday.com/2016/07/21/micropython-on-the-esp8266-kicking-the-tires/)
+* [MicroPython tutorial for ESP8266](https://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/index.html)
+
+## Mongoose OS
+[!mongoos-os-logo](https://blog.cesanta.com/hubfs/logo_blue_MOS.png?t=1490439456366)
+Because of its vibrant community,
+JavaScript has made its way into hardware with projects like [Johnny-Five][119],
+[Espruino][120] and [JerryScript][121].
+Recognizing this trend, [Cesanta][122] developed [Mongoose OS][123],
+(supporting  its own [IDE][131] and Embedded JavaScript engine for C/C++ called [mJS][127])
+an open source Operating System for hardware that supports JavaScript.
+Mongoose OS supports the ESP32, ESP8266, STM32, TI CC3200, and [other][129] microcontrollers.
+It also claims to natively support Amazon AWS IoT & Google IoT integation,
+is popular within [Losant][124],
+supports over-the-air (OTA) updates, includes device security features,
+and simple remote device management.
+
+Cesanta / Mongoose OS claims great popularity and has [posted several use cases][130]
+(including project [videos][133]).
+Mongoose also claims to suport a range of protocols for the supported embedded devices:
+
+* HTTP server & client
+* WebSocket server and client
+* MQTT server & client
+* DNS server & client
+* CoAP server & client
+* TCP and UDP
+
+Mongoose OS provides a detailed [Quick Start Guide][126] (and supporting [videos][134])
+for its [`mos`][128] browser-based graphical IDE
+or you use it as a command line tool which assumes you have a locally built firmware.
+The command line version is also used by [PlatformIO][73] (see below).
+
+Mongoose OS provides firmware for the ESP8266 which includes a tiny-Javascript interpreter and webserver.
+So, a typical Mongoose OS project contains:
+
+* The OS, which handles networking and the like,
+plus extentions to the Javascript engine to handle hardware, and a number of daemons.
+* User-space Javascript files containing application logic.
+* C code compiled at build time, and linked into the firmware.
+
+These articles proved instrumental for defining the steps below:
+
+* [How to build an IoT project with Mongoose OS](https://opensource.com/article/17/3/mongoose-os-iot-development?sc_cid=70160000001290lAAA)
+* [A new approach to embedded scripting and developing for IoT with mJS](https://opensource.com/article/17/4/mjs-JavaScript-engine)
+* [Mongoose OS and the ESP8266](http://www.mjoldfield.com/atelier/2017/07/mongoose.html)
+* [The two-dollar secure IoT solution: Mongoose OS + ESP8266 + ATECC508 + AWS IoT](https://mongoose-os.com/blog/mongoose-esp8266-atecc508-aws/)
+* [Mongoose OS Now Part of Hackster Apps](https://blog.hackster.io/mongoose-os-now-part-of-hackster-apps-e681bc2d12f6)
+* [Getting Started with Mongoose OS, ESP8266, and Losant](https://www.losant.com/blog/getting-started-with-mongoose-os-esp8266-and-losant)
+* [Detecting Motion Using a PIR Sensor, ESP8266, and Mongoose OS](https://www.losant.com/blog/detecting-motion-using-a-pir-sensor-esp8266-and-mongoose-os)
+
+### Step 1: Installing Mongoose OS - DONE
+The [installation is simple on Ubuntu Linux][125].
+This Mongoose OS install provides both a command line tool
+and a web interface is a full IDE and device configuration manager,
+and gives you the ability to build and flash firmware.
+
+```bash
+# install mongoose os command line tool
+sudo add-apt-repository ppa:mongoose-os/mos
+sudo apt-get update
+sudo apt-get install mos
+
+# verify the install
+$ mos --version
+First run of the version 1.14, initializing...
+Init done.
+The Mongoose OS command line tool
+Version: 1.14
+Build ID: 1.14+444307ac~zesty0
+Update channel: release
+
+# mongoose os help message
+$ mos --help
+The Mongoose OS command line tool, v. 1.14+444307ac~zesty0.
+Usage:
+  mos <command>
+
+Commands:
+  ui             Start GUI
+  init           Initialise firmware directory structure in the current directory
+  build          Build a firmware from the sources located in the current directory
+  flash          Flash firmware to the device
+  flash-read     Read a region of flash
+  console        Simple serial port console
+  ls             List files at the local device's filesystem
+  get            Read file from the local device's filesystem and print to stdout
+  put            Put file from the host machine to the local device's filesystem
+  rm             Delete a file from the device's filesystem
+  config-get     Get config value from the locally attached device
+  config-set     Set config value at the locally attached device
+  call           Perform a device API call. "mos call RPC.List" shows available methods
+  aws-iot-setup  Provision the device for AWS IoT cloud
+  update         Self-update mos tool; optionally update channel can be given (e.g. "latest", "release", or some exact version)
+  wifi           Setup WiFi - shortcut to config-set wifi...
+
+Global Flags:
+  --verbose      Verbose output. Optional, default value: "false"
+  --logtostderr  log to standard error instead of files. Optional, default value: "false"
+  --helpfull     Show full help, including advanced flags. Optional, default value: "false"
+```
+
+There is a more exhaustive list of `mos` command line flags:
+
+```bash
+# mongoose os full set of help message
+$ mos --helpfull
+The Mongoose OS command line tool, v. 1.14+444307ac~zesty0.
+Usage:
+  mos <command>
+
+Commands:
+  ui             Start GUI
+  init           Initialise firmware directory structure in the current directory
+  build          Build a firmware from the sources located in the current directory
+  flash          Flash firmware to the device
+  flash-read     Read a region of flash
+  console        Simple serial port console
+  ls             List files at the local device's filesystem
+  get            Read file from the local device's filesystem and print to stdout
+  put            Put file from the host machine to the local device's filesystem
+  rm             Delete a file from the device's filesystem
+  config-get     Get config value from the locally attached device
+  config-set     Set config value at the locally attached device
+  call           Perform a device API call. "mos call RPC.List" shows available methods
+  aws-iot-setup  Provision the device for AWS IoT cloud
+  update         Self-update mos tool; optionally update channel can be given (e.g. "latest", "release", or some exact version)
+  wifi           Setup WiFi - shortcut to config-set wifi...
+
+Global Flags:
+      --alsologtostderr                    log to standard error as well as files
+      --apps-dir string                    Directory to store apps into (default "~/.mos/apps-${mos.version}")
+      --arch string                        Hardware architecture. Possible values: cc3200, esp32, esp8266, stm32
+      --atca-slot int                      When using ATCA, use this slot for key storage.
+      --aws-enable-greengrass              Enable AWS Greengrass support
+      --aws-iot-policy string              Attach this policy to the generated certificate
+      --aws-iot-thing string               Attach the generated certificate to this thing. By default uses device ID. Set to '-' to not attach certificate to any thing.
+      --aws-mqtt-server string             If not specified, calls DescribeEndpoint to get it from AWS
+      --aws-region string                  AWS region to use. If not specified, uses the default
+      --baud-rate uint                     Serial port speed (default 115200)
+      --build-cmd-extra stringSlice        extra make flags, added at the end of the make command. Can be used multiple times.
+      --build-docker-extra stringSlice     extra docker flags, added before image name. Can be used multiple times: e.g. --build-docker-extra -v --build-docker-extra /foo:/bar.
+      --build-parallelism int              build parallelism. default is to use number of CPUs.
+      --build-var stringSlice              build variable in the format "NAME:VALUE" Can be used multiple times.
+      --build_var stringSlice              deprecated, use --build-var
+      --ca-cert-file string                CA cert for TLS server verification
+      --cc3200-format-slfs-size int        Format SLFS for this flash size (bytes) (default 1048576)
+      --cert-cn string                     Common name for the certificate. By default uses device ID.
+      --cert-file string                   Certificate file name
+      --cert-type string                   Type of the key for new cert, RSA or ECDSA. Default is ECDSA.
+      --clean                              perform a clean build, wipe the previous build state
+      --device-id string                   Device ID
+      --device-pass string                 Device pass/key
+      --docker_images string               build images, arch1=image1,arch2=image2 (default "esp8266=docker.cesanta.com/mg-iot-cloud-project-esp8266:release,cc3200=docker.cesanta.com/mg-iot-cloud-project-cc3200:release")
+      --dry-run                            Do not apply changes, print what would be done (default true)
+      --esp-baud-rate uint                 Data port speed during flashing (default 460800)
+      --esp-boot-after-flashing            Boot the firmware after flashing (default true)
+      --esp-data-port string               If specified, this port will be used to send data during flashing. If not set, --port is used.
+      --esp-enable-compression             Compress data while writing to flash. Usually makes flashing faster. (default true)
+      --esp-erase-chip                     Erase entire chip before flashing
+      --esp-flash-params string            Flash chip params. Either a comma-separated string of mode,size,freq or a number. Mode must be one of: qio, qout, dio, dout. Valid values for size are: 2m, 4m, 8m, 16m, 32m, 16m-c1, 32m-c1, 32m-c2. If left empty, an attempt will be made to auto-detect. freq is SPI frequency and can be one of 20m, 26m, 40m, 80m
+      --esp-inverted-control-lines         DTR and RTS control lines use inverted polarity
+      --esp-minimize-writes                Minimize the number of blocks to write by comparing current contents with the images being written (default true)
+      --esp-rom-baud-rate uint             Data port speed when talking to ROM loader (default 115200)
+      --esp32-enable-flash-encryption      Enable flash encryption. This sets a typical set of eFuse options used with flash encryption.
+      --esp32-encryption-key-file string   If specified, this file will be used to encrypt data before flashing. Encryption is only applied to parts with encrypt=true.
+      --esp32-fake-fuses                   Use fake eFuse controller implementation, for testing
+      --esp32-flash-address uint32
+      --esp32-flash-crypt-conf uint32      Value of the FLASH_CRYPT_CONF eFuse setting, affecting how key is tweaked. (default 15)
+      --esp32-protect-key                  Write and read-protect the key inside the device. (default true)
+      --firmware string                    Firmware .zip file location (file of HTTP URL) (default "build/fw.zip")
+      --flash-timeout duration             Maximum flashing time (default 30s)
+      --force                              Use the force
+      --helpfull                           Show full help, including advanced flags
+      --http-addr string                   Web UI HTTP address (default "127.0.0.1:1992")
+      --hw-flow-control                    Enable hardware flow control (CTS/RTS)
+      --keep-temp-files                    keep temp files after the build is done (by default they are in ~/.mos/tmp)
+      --key-file string                    Key file name
+      --lib stringSlice                    location of the lib from mos.yaml, in the format: "lib_name:/path/to/location". Can be used multiple times.
+      --libs-dir string                    Directory to store libraries into (default "~/.mos/libs-${mos.version}")
+      --libs-update-interval duration      how often to update already fetched libs (default 30m0s)
+      --local                              Local build.
+      --log_backtrace_at traceLocation     when logging hits line file:N, emit a stack trace (default :0)
+      --log_dir string                     If non-empty, write log files in this directory
+      --logtostderr                        log to standard error instead of files
+  -l, --long                               Long output format.
+      --migrate                            Migrate data from the previous version if needed (default true)
+      --module stringSlice                 location of the module from mos.yaml, in the format: "module_name:/path/to/location". Can be used multiple times.
+      --modules-dir string                 Directory to store modules into (default "~/.mos/modules-${mos.version}")
+      --no-input                           Do not read from stdin, only print device's output to stdout
+      --no-libs-update                     if true, never try to pull existing libs (treat existing default locations as if they were given in --lib)
+      --no-reboot                          Save config but don't reboot the device.
+      --no-save                            Don't save config and don't reboot the device
+      --pass string                        Cloud password or token
+      --port string                        Serial port where the device is connected. If set to 'auto', ports on the system will be enumerated and the first will be used. (default "auto")
+      --reconnect                          Enable reconnection
+      --repo string                        Path to the mongoose-os repository; if omitted, the mongoose-os repository will be cloned as ./mongoose-os
+      --save-build-stat                    save build statistics (default true)
+      --server string                      FWBuild server (default "https://mongoose.cloud")
+      --start-browser                      Automatically start browser (default true)
+      --state-file string                  Where to store internal mos state (default "~/.mos/state.json")
+      --stderrthreshold severity           logs at or above this threshold go to stderr (default 2)
+      --swmodule-suffix string              (default "-${version}")
+      --temp-dir string                    Directory to store temporary files (default "~/.mos/tmp")
+      --timeout duration                   Timeout for the device connection and call operation (default 10s)
+      --timestamp string[="true"]          Prepend each line with a timestamp in the specified format. A number of specifications are supported:simple 'yes' or 'true' will use UNIX Epoch + .microseconds; the Go way of specifying date/time format, as described in https://golang.org/pkg/time/, including the constants (so --timestamp=UnixDate will work, as will --timestamp=Stamp); the strftime(3) format (see http://strftime.org/) (default "StampMilli")
+      --use-atca                           Use ATCA (AECC508A) to store private key.
+      --user string                        Cloud username
+  -v, --v Level                            log level for V logs
+      --verbose                            Verbose output
+      --version                            Print version and exit
+      --vmodule moduleSpec                 comma-separated list of pattern=N settings for file-filtered logging
+      --web-root string                    UI Web root to use instead of built-in
+```
+
+You’ll see that `mos` will check to see if you're running the most recent version.
+At anytime, you can get the latest Mongoose OS update via:
+
+```bash
+# check for mongoose os update
+mos update
+```
+
+Finally, make sure to [register on the Mongoose OS forum][132].
+
+### Step X: Flashing NodeMCU - DONE
+I chose to use a NodeMCU as my device and I have two ways to flash this device.
+I could execute `mos ui` or just `mos` and use the browser IDE on `http://127.0.0.1:1992/`
+(select "device setup" if it doesn't pop-up automatically).
+This provides an intuitive user interface to flash the device and whole bunch of other things.
+
+An alternative is to use the command line option as follows:
+
+>**NOTE:** Keep in mind that the command `mos flash <dir>` looks for a directory called `<dir>`,
+and `mos` will try to find a firmware blob located there instead.
+Also, you might need to tell `mos` which one to use with the `--port` option.
+
+
+```bash
+# plug in the nodemcu via a usb cable
+# mos is smart enough to find the nodemcu at /dev/ttyUSB*
+
+# flash the nodemcu with mongoose os
+$ mos flash esp8266
+Fetching https://mongoose-os.com/downloads/mos-esp8266-1.14.zip...
+Loaded default/esp8266 version 1.0 (20170814-102009/???)
+Using port /dev/ttyUSB0
+Opening /dev/ttyUSB0 @ 115200...
+Connecting to ESP8266 ROM, attempt 1 of 10...
+  Connected
+Running flasher @ 460800...
+  Flasher is running
+Flash size: 4194304, params: 0x0240 (dio,32m,40m)
+Deduping...
+     2656 @ 0x0 -> 0
+   262144 @ 0x8000 -> 20480
+   756688 @ 0x100000 -> 0
+      128 @ 0x3fc000 -> 0
+Writing...
+     4096 @ 0x7000
+    20480 @ 0x1f000
+     4096 @ 0x3fb000
+Wrote 28672 bytes in 0.35 seconds (639.97 KBit/sec)
+Verifying...
+     2656 @ 0x0
+     4096 @ 0x7000
+   262144 @ 0x8000
+   756688 @ 0x100000
+     4096 @ 0x3fb000
+      128 @ 0x3fc000
+Booting firmware...
+All done!
+
+# setup the nodemcu's wifi
+$ mos wifi <ssid> <password>
+Using port /dev/ttyUSB0
+Getting configuration...
+Setting new configuration...
+Saving and rebooting...
+```
+
+### Step X: Explore What Inside
+Now go to your browser at the NodeMCU's IP address you'll see a simple web page
+that was created by the `index.html` file that Mongoos OS loaded.
+You can find the NodeMCU's IP address via `mos ui`
+or via device API call like `mos call Sys.GetInfo | grep sta_ip`.
+Also, check out the other commands found via `mos --help`.
+
+The file `init.js` is key.
+It’s essentially what gets run at boot, and so by looking at it,
+we can tell what the device is going to do.
+You can see this file via the command `mos get init.js`.
+You can list all the files within the NodeMCU via the command `mos ls`.
+You'll see that not all of them are compliled if you do `mos ls | grep jsc`.
+
+Within the `init.js` file, you'll see code for flashing the NodeMCU LED every one second,
+and code to make a MQTT request when a push-button is pressed.
+To see trace messages for this, use `mos console` and press the button.
+The MQTT server is configured in the `conf0.json` files.
+The files `confN.js` are a crude overlay database where `conf0.js` is overriden
+by `conf1.js`, `conf2.js`, `conf3.js`, etc.
+
+Mongoose OS has places a default MQTT server in the `conf0.json` file.
+That server being the [Eclipse Paho project][137] provided open-source implementations of MQTT,
+hostname `iot.eclipse.org` and port `1883`.
+If you wanted to update the MQTT server used, you could create a `confN.json` overlay,
+or pull the `conf0.json` down for editing
+(e.g. using `mos get conf0.sjon`, edit then do `mos put conf.json`),
+make changes via the command
+`mos config-set mqtt.server=xxx.iot.us-east-1.amazonaws.com:8883`
+and the change will be added to `conf9.json`.
+
+### Step X: Mongoose OS Remote Procedure Calls
+[Mongoose OS also supports some remote prodedure calls (MG-RPC)][138],
+and you can list them via:
+
+```bash
+# list the available remote procedure calls
+$ mos call RPC.List
+Using port /dev/ttyUSB0
+[
+  "OTA.SetBootState",
+  "OTA.GetBootState",
+  "OTA.CreateSnapshot",
+  "OTA.Revert",
+  "OTA.Commit",
+  "OTA.Update",
+  "I2C.WriteRegW",
+  "I2C.WriteRegB",
+  "I2C.ReadRegW",
+  "I2C.ReadRegB",
+  "I2C.Write",
+  "I2C.Read",
+  "I2C.Scan",
+  "GPIO.RemoveIntHandler",
+  "GPIO.SetIntHandler",
+  "GPIO.Toggle",
+  "GPIO.Write",
+  "GPIO.Read",
+  "FS.Umount",
+  "FS.Mount",
+  "FS.Mkfs",
+  "FS.Remove",
+  "FS.Put",
+  "FS.Get",
+  "FS.ListExt",
+  "FS.List",
+  "Config.Save",
+  "Config.Set",
+  "Config.Get",
+  "Sys.SetDebug",
+  "Sys.GetInfo",
+  "Sys.Reboot",
+  "RPC.Ping",
+  "RPC.Describe",
+  "RPC.List"
+]
+```
+
+mos --port ws://192.168.1.42/rpc ls
+
+mos --port ws://192.168.1.42/rpc get init.js > init.js
+
+mos --port ws://192.168.1.42/rpc call Sys.Reboot
+
+### Step X: Wiring the NodeMCU
+Using the [NodeMCU PINout][135], [HC-SR501 PIR Motion Detctor PINout][136],
+and the [DHT22 temperature & humidity sensor PINout][139],
+I breadboard the device in the following fashion:
+
+| NodeMCU |      HC-SR501     |   DHT22  |
+|:-------:|:-----------------:|:--------:|
+|   GND   |        GND        |          |
+|   3.3V  |      +POWER       |          |
+|  GPIO5  | High / Low Output |          |
+|   3.3V  |                   |    VCC   |
+|  GPIO4  |                   | Data Out |
+|   GRD   |                   |    GND   |
+
+> **NOTE:** You will need to place a 10K resistor between VCC and
+the Data Out pin, to act as a medium-strength pull up on the data line.
+
+
+* [Detecting Motion Using a PIR Sensor, ESP8266, and Mongoose OS](https://www.losant.com/blog/detecting-motion-using-a-pir-sensor-esp8266-and-mongoose-os)
+* [DHT Mongoose OS library](https://mongoose-os.com/docs/libraries/hardware/dht.html)
+* https://github.com/mongoose-os-apps/example-dht-c
+
+### Step X: Building an Application
+* http://www.mjoldfield.com/atelier/2017/07/mongoose.html
+* https://mongoose-os.com/docs/overview/apps.html
+
+### Step X: Over-The-Air Update (OTA)
+* https://www.youtube.com/watch?v=o05sBDfaFO8&index=9&list=PLNOffh-6mSoRfxD4wTvRziUDUiSLSyJKE
+* https://mongoose-os.com/docs/libraries/remote_management/rpc-service-ota.html
+
+mos --port ws://192.168.1.42/rpc call OTA.update '{ "url": "http://192.168.1.200:8080/fw.zip", "commit_timeout": 10 }'
+
+
+### Step X: Losant and Mongoose OS
+* [Getting Started with Mongoose OS, ESP8266, and Losant](https://www.losant.com/blog/getting-started-with-mongoose-os-esp8266-and-losant)
+
+### Step X: AWS IoT and Mongoose OS
+AWS IoT has set the security bar very high, demanding [TLS client-side certificate authentication][140].
+Mongoose OS can connect an ESP8266 directly to the AWS IoT without any intermediate gateway.
+No other MCU solution can do this, at least that I'm aware of.
+
+* [Connecting ESP8266 to AWS IoT platform](https://www.youtube.com/watch?v=WJuXv5usXcY)
+* AWS IoT on Mongoose OS: [Part 1](https://aws.amazon.com/blogs/apn/aws-iot-on-mongoose-os-part-1/),
+[Part 2](https://aws.amazon.com/blogs/apn/aws-iot-on-mongoose-os-part-2/)
+* [The two-dollar secure IoT solution: Mongoose OS + ESP8266 + ATECC508 + AWS IoT](https://mongoose-os.com/blog/mongoose-esp8266-atecc508-aws/)
+* http://www.mjoldfield.com/atelier/2017/07/mongoose.html
+* https://www.youtube.com/watch?v=H8w0_pWu0ak&index=11&list=PLNOffh-6mSoRfxD4wTvRziUDUiSLSyJKE
+* https://www.youtube.com/watch?v=H8w0_pWu0ak&list=PLNOffh-6mSoRfxD4wTvRziUDUiSLSyJKE&index=11
+* https://www.youtube.com/playlist?list=PLNOffh-6mSoRxgGXYprODRQyqSa6DvQta
+* https://www.youtube.com/watch?v=v5jblypN28E&index=2&list=PLNOffh-6mSoSUjrfUJDhYIuEKxRT3b8Ep
+* https://www.youtube.com/watch?v=yZ8VAxJ2XpA&list=PLNOffh-6mSoSUjrfUJDhYIuEKxRT3b8Ep&index=8
+* https://www.youtube.com/watch?v=H8w0_pWu0ak
+
+# AWS IoT and Mongoose OS on ESP32
+* [Rapid Prototyping with AWS IoT and Mongoose OS on ESP32 Platform](https://www.slideshare.net/AmazonWebServices/rapid-prototyping-with-aws-iot-and-mongoose-os-on-esp32-platform)
+* https://www.youtube.com/watch?v=16jF0HUyedg&list=PLNOffh-6mSoRfxD4wTvRziUDUiSLSyJKE&index=12
+
 ## PlatformIO
 [!platfromio-logo](http://cdn.platformio.org/images/platformio-logo.17fdc3bc.png)
 [PlatformIO][73] is an open source Integrated Development Environment (IDE) for IoT development
@@ -401,6 +844,7 @@ PlatformIO is a popular IDE on it own but appears have a siginificant
 following within the ESP8266 couuminty,
 as illustrated by the postings below:
 
+* [PlatformIO and Visual Studio Take over the World](http://hackaday.com/2017/04/07/platformio-and-visual-studio-take-over-the-world/)
 * [PlatformIO: An Alternative Arduino IDE](https://dzone.com/articles/platformio-iot-integrated-platform)
 * [PlatformIO: Arduino on the SparkFun WRL-13678 (ESP8266)](http://blog.coria.com/platformio-arduino-on-the-sparkfun)
 * [OTA: PlatformIO and ESP8266](http://tiestvangool.ghost.io/2017/01/12/ota-platformio-and-esp8266/)
@@ -409,15 +853,6 @@ as illustrated by the postings below:
 * [1/3: PlatfomIO overview & compiling + uploading locally and on a Raspberry Pi](https://blog.openenergymonitor.org/2016/06/platformio/)
 * [2/3: Continuous testing and auto release binary generation using PlatformIO & TravisCI](https://blog.openenergymonitor.org/2016/06/auto-build-continuous-test-firmware/)
 * [3/3: Continuous Deployment (OTA to ESP8266)](https://blog.openenergymonitor.org/2016/06/esp8266-ota-update/)
-
-## Mongoose OS
-[!mongoos-os-logo](https://blog.cesanta.com/hubfs/logo_blue_MOS.png?t=1490439456366)
-An open source Operating System for microcontrollers: ESP32, ESP8266, STM32, TI CC3200.
-It also claims to natively support Amazon AWS IoT integation,
-over-the-air (OTA) updates, and remote device management.
-
-* [Mongoose OS](https://mongoose-os.com/)
-* [How to build an IoT project with Mongoose OS](https://opensource.com/article/17/3/mongoose-os-iot-development?sc_cid=70160000001290lAAA)
 
 # ESP-01
 assuming at power up the Blue led flashed twice quickly and then flashes every second, this means it attempting to connect to your WiFi network. It should do this for about 30 seconds then if it can’t connect the flashing will stop and it will become it’s own access point on 192.168.4.1.
@@ -429,6 +864,17 @@ assuming at power up the Blue led flashed twice quickly and then flashes every s
 * [Update the Firmware in Your ESP8266 Wi-Fi Module](https://www.allaboutcircuits.com/projects/update-the-firmware-in-your-esp8266-wi-fi-module/)
 * [How to Flash ESP-01 Firmware to the Improved SDK v2.0.0](https://www.allaboutcircuits.com/projects/flashing-the-ESP-01-firmware-to-SDK-v2.0.0-is-easier-now/?utm_source=All+About+Circuits+Members&utm_campaign=498644bd29-EMAIL_CAMPAIGN_2017_03_23&utm_medium=email&utm_term=0_2565529c4b-498644bd29-270523833)
 * [ESP8266 WiFi Module Quick Start Guide](http://rancidbacon.com/files/kiwicon8/ESP8266_WiFi_Module_Quick_Start_Guide_v_1.0.4.pdf)
+
+## Programming the ESP-01
+Programming the ESP-01 is no easy task.
+It takes a mess of wires, you must powering the ESP with proper voltage and sufficient current,
+you need to toggle it into flash mode, etc.
+This board will ease the task of programming the ESP-01.
+
+* [ESP-01 Dev Board](http://www.instructables.com/id/Tiny-ESP-01-Dev-Board/)
+* [ESP8266 ESP-01 Programming and Development Board](https://www.tindie.com/products/blkbox/esp8266-esp-01-programming-and-development-board/)
+* [Build a simple dev board to make programing ESP-01](http://www.nfriedly.com/techblog/2015/07/build-a-diy-esp8266ex-esp-01-dev-test-programming-board/)
+
 
 # Working with ESP-01 or Similar Boards
 [!esp-01-512K-1M](https://cdn.instructables.com/ORIG/F4Q/KV0K/IO4JRAXC/F4QKV0KIO4JRAXC.jpg)
@@ -982,7 +1428,94 @@ You can also upload scripts via TCP/IP if your NodeMCU is already accessible via
 and the telnet server `telnet_srv.lua` is running.
 See typical telnet server `telnet_srv.lua` [here][60].
 
-### Access File System and other Commands - DONE
+## NodeMCU DevKit Breakout - DONE
+For all pratical puposes,
+the NodeMCU DevKit Breakout and the Adafruit HUZZAH boards are equivalent.
+But there are differeance like the baud rate for the USB serial port
+and the fact that the Adafruit boards come pre-loaded with firmware.
+I'll touch on these things here and
+nearly everything stated above for the Adafruit HUZZAH also applies.
+
+First step is to load the NodeMCU DevKit with the missing firmware.
+I choose to use the latest firmware available from the [cloud build service][86].
+
+```bash
+# go to https://nodemcu-build.com/index.php and create you firmware
+
+# move to directory containing the firmware
+cd ~/Downloads/nodemcu-binary
+
+# generally not required, erase flash on a NodeMCU board
+esptool.py --port /dev/ttyUSB0 erase_flash
+
+# determine the manufacturer ID and a chip ID
+$ esptool.py --port /dev/ttyUSB0 flash_id
+esptool.py v1.3
+Connecting....
+Manufacturer: c8
+Device: 4016
+
+# flash the firmware
+# note: flash size of 32m = 32M bits = 32Mb = 4M bytes = 4MB
+$ esptool.py --port /dev/ttyUSB0 write_flash -fm dio -fs 32m 0x00000 nodemcu-master-8-modules-2017-04-08-15-46-11-integer.bin
+esptool.py v1.3
+Connecting....
+Running Cesanta flasher stub...
+Flash params set to 0x0240
+Wrote 405504 bytes at 0x0 in 35.3 seconds (92.0 kbit/s)...
+Leaving...
+```
+
+The firmware flash will take a little bit of time, but once its done,
+you can connect to the ESP8266 via a USB cable and starting up a serial terminal like this:
+
+```bash
+# works for the NodeMCU DevKit
+screen /dev/ttyUSB0 115200
+```
+
+Now reboot the board using the reset switch on the DevKit board.
+If all goes well, you should be greeted by a Lua prompt like the following:
+
+```
+NodeMCU custom build by frightanic.com
+        branch: master
+        commit: 22e1adc4b06c931797539b986c85e229e5942a5f
+        SSL: false
+        modules: file,gpio,http,net,node,tmr,uart,wifi
+ build  built on: 2017-04-08 15:45
+ powered by Lua 5.1.4 on SDK 2.0.0(656edbf)
+lua: cannot open init.lua
+>
+```
+
+# Lua Programming Examples - DONE
+While the esp8266 can be programmed in several languages,
+the NodeMCU is delivered with Lua installed, making Lua a popular choose.
+Lua is an interpreted programming languages (aka scripting language).
+is popular in game development and
+designed to be simple, portable, to have a small footprint.
+It can run on lots of embedded platforms, that do not have even operating systems,
+and runs Lua on the “bare metal”.
+If the processors has a C cross-compiler and about 64Kb of free RAM, it can run Lua.
+
+This section will cover several useful examples of Lua code that can be run on a NodeMCU.
+There are several online repositories that also contains coding examples and application programs
+that run on the NodeMCU firmware.
+These are a great source for ideas and solutions to your application needs.
+Here are some of them:
+
+* [NodeMCU - Applications](https://github.com/ckuehnel/NodeMCU-applications)
+* [NodeMCU Wikipedia Page](https://en.wikipedia.org/wiki/NodeMCU)
+* [NodeMCU Website](http://nodemcu.com/index_en.html)
+* [Nefastor Online](http://www.nefastor.com/)
+* [Domoticz ESP8266 WiFi Module Wiki](https://www.domoticz.com/wiki/ESP8266_WiFi_module)
+* [Programming the ESP8266 With Lua](https://learn.adafruit.com/diy-esp8266-home-security-with-lua-and-mqtt/programming-the-esp8266-with-lua)
+
+Check [NodeMCU Documentation][57] for the details on what functions are available to you,
+as well as [Lua Org site][56] to learn more about the Lua scripting language.
+
+## Access File System and other Commands - DONE
 NodeMCU has a set rudimentary Lua file system tools you can use.
 For example (see [here][62] for more information:
 
@@ -1039,7 +1572,7 @@ name:init.lua, size:56
 name:scanner.lua, size:500
 ```
 
-### init.lua
+## init.lua
 With `luatool` you can upload to any script on the NodeMCU,
 one that will be uploading most frequently is the file called [`init.lua`][58].
 If NodeMCU finds an `init.lua` in the root of the file system,
@@ -1063,7 +1596,8 @@ that would allow you to interrupt the sequence by deleting or renaming `init.lua
 a good starting point for creating your own `init.lua`
 can be found [here][58], [here][59], and [here][78].
 
-My example below (tested on NodeMCU 2.0 firmware) has four files:
+My example below was tested on NodeMCU 2.0 firmware and may not work on earlier versions.
+It has four files:
 `credentials.lua`, `http-server.lua`, `scanner.lua`, and the `init.lua` file.
 Below is the `credentials.lua`, which contains the WiFi configuration information
 for my home network.
@@ -1203,68 +1737,338 @@ Accept-Encoding: gzip, deflate, sdch
 Accept-Language: en-US,en;q=0.8
 ```
 
-Check [NodeMCU Documentation][57] for the details on what functions are available to you,
-as well as [Lua Org site][56] to learn more about the Lua scripting language
+# ESP8266 Example Using MQTT
+read this for more background on mqtt - http://www.hivemq.com/blog/mqtt-essentials
 
-## NodeMCU DevKit Breakout
-Unlike the pre-loaded Adafruit boards, for the NodeMCU DevKit,
-I choose to use the latest firmware available.
+A very commonly used protocol for IoT devices is Message Queuing Telemetry Transport (MQTT).
+This client/server publish/subscribe messaging transport protocol is light weight, open, and simple.
+These characteristics make it ideal for use constrained environments
+such as for communication in Machine to Machine (M2M) and Internet of Things (IoT)
+contexts where a small code footprint is required and/or network bandwidth is at a premium.
+
+
+I will be capturing tempature, humidity, and motion sensor data via
+
+* [Adafruit Feather HUZZAH][38], flashed with NodeMCU 0.9.5 firmware,
+configured for periodic deep sleep to preserve battery life
+* MQTT communication protocol for device telemetry and control
+* [DHT22][106] humidity temperature combo sensor
+* [HC-SR501][107] passive infrared (PIR) motion sensor
+* [mqtt-spy][118] as a testing tools
+
+This build was helped and guided by the following blog posts:
+
+* [ESP8266 NodeMCU – DHT22 humidity sensor with MQTT and deep sleep](https://odd-one-out.serek.eu/esp8266-nodemcu-dht22-mqtt-deep-sleep/)
+* [IoT Motion Detector With NodeMCU and BLYNK](https://www.hackster.io/mjrobot/iot-motion-detector-with-nodemcu-and-blynk-f3888e)
+* [PIR sensor, ESP8266 and MQTT](https://openhardwarecoza.wordpress.com/2016/03/10/pir-sensor-esp8266-and-mqtt/)
+
+say something about MQTT and MQTT-SN
+
+## Firmware Update for Adafruit Feather HUZZAH - DONE
+I flashed the Adafruit Feather HUZZAH with firmware to support the features/capabilities I listed above.
+Specifically, using the
+the ESP8266 [cloud build service][86] and [`esptool.py`][40],
+I also have to include firmware modules for my sensors.
+The NodeMCU firmware has [libraries that can read all kinds of DHT sensors][104],
+including [DHT11, 21, 22, 33, 44 humidity temperature combo sensor][105].
+
+The HC-SR501 requires modules ?????
+
+I loaded the Adafruit Feather HUZZAH as follows:
 
 ```bash
+# go to https://nodemcu-build.com/index.php and create you firmware
+# using the master branch (aka latest release)
+# including default modules: file, GPIO, net, node, timer, UART, WiFi
+# including additional modules: DHT, MQTT
+
 # move to directory containing the firmware
-cd ~/Downloads/nodemcu-binary
+cd ~/Downloads/nodemcu/firmware
 
-# generally not required, erase flash on a NodeMCU board
+# erase flash on a NodeMCU board
+# generally not required but required here because your flashing a different
+# nodemcu version of firmware
 esptool.py --port /dev/ttyUSB0 erase_flash
-
-# determine the manufacturer ID and a chip ID
-$ esptool.py --port /dev/ttyUSB0 flash_id
-esptool.py v1.3
-Connecting....
-Manufacturer: c8
-Device: 4016
 
 # flash the firmware
 # note: flash size of 32m = 32M bits = 32Mb = 4M bytes = 4MB
 $ esptool.py --port /dev/ttyUSB0 write_flash -fm dio -fs 32m 0x00000 nodemcu-master-8-modules-2017-04-08-15-46-11-integer.bin
-esptool.py v1.3
-Connecting....
-Running Cesanta flasher stub...
-Flash params set to 0x0240
-Wrote 405504 bytes at 0x0 in 35.3 seconds (92.0 kbit/s)...
-Leaving...
-```
 
-The firmware flash will take a little bit of time, but once its done,
-you can connect to the ESP8266 via a USB cable and starting up a serial terminal like this:
-
-```bash
-# works for the NodeMCU DevKit
+# enter the esp8266 console
+# this works for the NodeMCU DevKit, effectively what the Adafruit HUZZAH has been converted too
 screen /dev/ttyUSB0 115200
-```
 
-Now reboot the board using the reset switch on the DevKit board.
-If all goes well, you should be greeted by a Lua prompt like the following:
-
-```
+# check the nodemcu status
+> node.restart()
 NodeMCU custom build by frightanic.com
         branch: master
         commit: 22e1adc4b06c931797539b986c85e229e5942a5f
         SSL: false
-        modules: file,gpio,http,net,node,tmr,uart,wifi
- build  built on: 2017-04-08 15:45
+        modules: dht,file,gpio,mqtt,net,node,tmr,uart,wifi
+ build  built on: 2017-04-29 21:13
  powered by Lua 5.1.4 on SDK 2.0.0(656edbf)
 lua: cannot open init.lua
->
+```
+
+## Enabling Deep Sleep
+There are four types of sleep modes for the ESP8266:
+No-sleep, Modem-sleep, Light-sleep, and Deep-sleep
+(details can be found [here][111] and a good description [here][113]):
+
+* **No-sleep** setting will keep everything on at all times.
+* **Modem-sleep** is the default mode for the ESP8266.,
+however, it's only enabled when you're connected to an access point.
+While in Modem-sleep, the ESP8266 will disable the modem (WiFi) as much as possible.
+It turns off the modem between [DTIM Beacon intervals][110]. This interval is set by your router.
+* **Light-sleep** performs the same function as Modem-sleep,
+but also suspends the CPU (idling).
+* **Deep-sleep** everything is off but the Real Time Clock (RTC).
+Since everything is off, this is the most power efficient option.
+
+Modem-sleep and Light-sleep concern the use of WiFi, and as such,
+they are configured via [ESP8266 WiFi settings][112].
+
+For Deep-sleep to work,
+You need to connect `GPIO16` to `RST` to wake up (or reset) the device when Deep-sleep is over.
+The `RST` pin is held at a HIGH signal while the ESP8266 is running,
+if the `RST` pin receives a LOW signal, it restarts the microcontroller.
+Once your device is in Deep-sleep,
+`RST` will send a LOW signal to `GPIO16` when the sleep timer is up.
+The pinouts are pictured below:
+
+[!nodemcu](https://www.losant.com/hs-fs/hubfs/Blog/deep_sleep/nodemcu_pins.png?t=1493323288333&width=640&name=nodemcu_pins.png)
+[!feather-huzzah](https://cdn-learn.adafruit.com/assets/assets/000/041/285/large1024/adafruit_products_2821_pinout.png?1493318895)
+
+>**NOTE:** For the ESP8266, sleep time is specified as a number in microseconds (µs),
+and since numbers are finite, you can't sleep forever.
+According to the ESP8266 SDK, you can only sleep for 4,294,967,295 µs,
+which is about ~71 minutes.
+
+* [ESP8266 NodeMCU – Enabling modules in firmware](https://odd-one-out.serek.eu/esp8266-nodemcu-dht22-custom-modules-firmware/)
+* [Building a battery powered WiFi IoT Sensor with ESP8266, MS-5611 (GY-63), nodemcu and MQTT](https://www.agocontrol.com/2015/03/building-a-battery-powered-wifi-iot-sensor-with-esp8266-ms-5611-gy-63-nodemcu-and-mqtt/)
+
+## Test DHT22 Sensor
+[The DHT22 has 4 pins][115] (looking at the DHT22 front, from left to right)
+VCC (3V to 5V), Data Out, Not Connected, and Ground.
+
+* Connect VCC to the Adafruit Feather HUZZAH to the `3V3` pin.
+* Connect Ground to the Adafruit Feather HUZZAH to the `GRD` pin.
+* For Data Out, you will want to place a 10K resistor between VCC and the Data Out,
+to act as a pull up on the data line (aka [pull-up resistor][114]).
+And also connect Data Out to `GPIO4` pin.
+
+* [ESP8266 NodeMCU – DHT22 humidity sensor with MQTT and deep sleep](https://odd-one-out.serek.eu/esp8266-nodemcu-dht22-mqtt-deep-sleep/)
+* https://odd-one-out.serek.eu/esp8266-nodemcu-dht22-custom-modules-firmware/
+
+## Test PIR Sensor
+* [HC-SR501][107] passive infrared (PIR) motion sensor
+* [ESP8266_PIRv2 - ESP8266 Huzzah Deep Sleep Mode PIR Motion Alarm using IFTTT](https://github.com/rgrokett/ESP8266_PIRv2)
+* [Passive infrared (PIR) sensor tutorial](https://hackaday.com/2009/08/21/passive-infrared-pir-sensor-tutorial/)
+* [PIR sensor, ESP8266 and MQTT](https://openhardwarecoza.wordpress.com/2016/03/10/pir-sensor-esp8266-and-mqtt/)
+* [IoT Motion Detector With NodeMCU and BLYNK](https://www.hackster.io/mjrobot/iot-motion-detector-with-nodemcu-and-blynk-f3888e)
+
+
+* [Example Sketch: Goodnight Thing (Sleep Mode)](https://learn.sparkfun.com/tutorials/esp8266-thing-hookup-guide/example-sketch-goodnight-thing-sleep-mode)
+* [How to Run Your ESP8266 for Years on a Battery](https://openhomeautomation.net/esp8266-battery/)
+
+## MQTT Broker
+I'm choosing [CloudMQTT][94] as my [MQTT broker][95].
+I subscribed to a free account on AWS' MQTT service, [CloudMQTT][103].
+Within the [CloudMQTT's Console][116]:
+
+* I created a CloudMQTT instance (aka MQTT broker), which I called `AWS-MQTT`.
+    * Server: m11.cloudmqtt.com
+    * User: aqetczvf
+    * Password: l6G_2G4Sk785
+    * Port: 17370
+    * SSL Port: 27370
+    * Websockets Port (TLS only): 37370
+    * Connection limit: 10
+* I created a Manage User (aka MQTT client) for the NodeMCU:
+    * User: nodemcu with Password: 123
+    * User: test with Password: 123
+* I created Access Control Lists (ACL):
+    * User: nodemcu write access to Topics: temperature & humidity, read access to Topics: control
+    * User: test read & write access to Topics: temperature & humidity & control
+
+## MQTT-Spy
+* [Spy on your MQTT devices for fun and profit with mqtt-spy](https://www.meetup.com/Virtual-IoT/events/228632951/)
+* [MQTT Toolbox – mqtt-spy](http://www.hivemq.com/blog/mqtt-toolbox-mqtt-spy)
+* [MQTT Toolbox – mqtt-spy-daemon](http://www.hivemq.com/blog/mqtt-toolbox-mqtt-spy-daemon)
+* [MQTT Toolbox – mqtt-spy advanced](http://www.hivemq.com/blog/mqtt-toolbox-mqtt-spy-advanced)
+
+[mqtt-spy][109] is a Java utility intended to help you with
+monitoring topic activity on a MQTT broker.
+I'm using it here to test the MQTT broker and monitor client activities.
+Your first step  in getting mqtt-spy running
+is to install Java and get it properly configured.
+I used "[How To Install Java with Apt-Get on Ubuntu 16.04][117]"
+as my guide to create the procedures below:
+
+```bash
+# update the package index
+sudo apt-get update
+
+# install the Java Runtime Environment (JRE).
+sudo apt-get install default-jre
+
+# add Oracle's PPA, then update your package repository.
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+
+# find the path to the Java instance you need to use
+$ sudo update-alternatives --config java
+There are 2 choices for the alternative java (providing /usr/bin/java).
+
+  Selection    Path                                            Priority   Status
+------------------------------------------------------------
+  0            /usr/lib/jvm/java-8-oracle/jre/bin/java          1081      auto mode
+  1            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081      manual mode
+* 2            /usr/lib/jvm/java-8-oracle/jre/bin/java          1081      manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 2
+
+# check if JAVA_HOME environment variable is set
+echo $JAVA_HOME
+
+# if not set, add the path to /etc/environment
+# it should looke something like this
+$ cat /etc/environment
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java"
+
+# make sure you  can reach the Java instsance
+source /etc/environment
+$ java -version
+openjdk version "1.8.0_121"
+OpenJDK Runtime Environment (build 1.8.0_121-8u121-b13-0ubuntu1.16.10.2-b13)
+OpenJDK 64-Bit Server VM (build 25.121-b13, mixed mode)
+```
+
+Now you need to install the `mqtt-spy` jar file.
+
+```bash
+# make directory for storing mqtt-spy
+mkdir ~/src/mqtt-spy
+cd ~/src/mqtt-spy
+
+# download jar file from https://github.com/eclipse/paho.mqtt-spy/wiki/Downloads
+# place the jar file in your ~/src/mqtt-spy, file named mqtt-spy-0.5.4-jar-with-dependencies.jar
+
+# test run mqtt-spy
+java -jar mqtt-spy-0.5.4-jar-with-dependencies.jar
+```
+
+Now create a shell script, and place it in your `~/bin` so you can run mqtt-spy from anywhere:
+
+```bash
+#!/bin/bash
+
+# configuration file is located in $HOME/.mqtt-sy
+java -jar ~/src/mqtt-spy/mqtt-spy-0.5.4-jar-with-dependencies.jar pl.baczkowicz.mqttspy.Main --configuration="/home/jeff/.mqtt-spy/mqtt-spy-configuration.xml"
+```
+
+There is a publically accessible sandbox server for the Eclipse IoT projects
+available at `iot.eclipse.org`, port `1883`.
+
+* [How to test the `Mosquitto` server?](http://stackoverflow.com/questions/26716279/how-to-test-the-mosquitto-server)
+    * [mqtt-spy](https://github.com/eclipse/paho.mqtt-spy/wiki)
+    * [How To Install Java with Apt-Get on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04)
+
+## MQTT Client
+[CloudMQTT's documentation][96] also includes code for a [Lua client for the NodeMCU][97],
+and you also find a [Lua client in the NodeMCU documentation][98],
+but the best example might be [Lua MQTT client on Adafruit][108].
+
+check out Adafruits - DIY ESP8266 Home Security with Lua and MQTT - https://learn.adafruit.com/diy-esp8266-home-security-with-lua-and-mqtt/programming-the-esp8266-with-lua
+for ideas on the init.lua
+
+```lua
 ```
 
 
 
+esptool.py --port /dev/ttyUSB0 write_flash -fm dio -fs 32m 0x00000 nodemcu-master-9-modules-2017-04-29-21-15-41-integer.bin
+
+esptool.py --port /dev/ttyUSB0 erase_flash
+
+luatool.py --port /dev/ttyUSB0 --baud 74400 --list
+luatool.py --port /dev/ttyUSB0 --baud 74400 --wipe
+
+luatool.py --port /dev/ttyUSB0 --src credentials.lua --dest credentials.lua
+luatool.py --port /dev/ttyUSB0 --src mqtt_client.lua --dest mqtt_client.lua
+luatool.py --port /dev/ttyUSB0 --src init.lua --dest init.lua --dofile --echo
+
+
+# Losant Builder Kit
+* [Losant Builder Kit Instructions](https://docs.losant.com/getting-started/losant-iot-dev-kits/builder-kit/)
+* [Getting Started With AWS IoT and Losant](https://www.losant.com/blog/getting-started-with-aws-iot-and-losant?utm_campaign=Newsletter&utm_source=hs_email&utm_medium=email&utm_content=53170071&_hsenc=p2ANqtz--KBYVWKDgv4UkpLXvIo5Ol9G509BaFTDpa27jlokHFX8n_GNOLGRy4k0F5bXcMjOVY3BA17IqpOEhW4hxjriop6ebTzA&_hsmi=53170071)
+* [How Devices Can Register Themselves in Losant](https://www.losant.com/blog/how-devices-can-register-themselves-in-losant?utm_campaign=Newsletter&utm_source=hs_email&utm_medium=email&utm_content=53170071&_hsenc=p2ANqtz-9BGzUWS-lEiRXbE8kG2LpzKAF-SbHpVVnQ38Qauk_FCtxnYDtKTTVnimoYjeWQbrCEZvyhUIUwg5NBXCO9eqPfUGp08Q&_hsmi=53170071)
+
+# ESP8266 Example Using OLED Display
+* [ESP8266 NodeMCU – OLED display using SPI](https://odd-one-out.serek.eu/esp8266-nodemcu-oled-display-spi/)
+
+
+
+
+
+
+* [DIY ESP8266 Home Security with Lua and MQTT](https://learn.adafruit.com/diy-esp8266-home-security-with-lua-and-mqtt/programming-the-esp8266-with-lua)
+* [Publishing MQTT messages from a NodeMCU – Soil Moisture Sensor](http://iotalot.com/2016/05/08/publishing-mqtt-messages-from-a-nodemcu-soil-moisture-sensor/)
+* [Minimal MQTT: Networked Nodes](http://hackaday.com/2016/05/17/minimal-mqtt-networked-nodes/)
+* [Remote Temperature Monitoring Using MQTT and ESP8266 Modules](http://www.instructables.com/id/Remote-Temperature-Monitoring-Using-MQTT-and-ESP82/)
+* [mqtt-cli - A node command line app to send mqtt messages through a mqtt broker](https://github.com/mindhelix/mqtt-cli)
+* [A simple connected object with NodeMCU and MQTT](https://www.foobarflies.io/a-simple-connected-object-with-nodemcu-and-mqtt/)
+
+
+
+
+# ESP8266 Security
+* NodeMCU custom builds https://nodemcu-build.com/index.php has a option for TLS/SSL support provided by mbed TLS: TLS 1.0 / 1.1 / 1.2 and most common cipher suites including DH/ECDH (ECDSA-based disabled by default).
+* [How to prevent WiFi Password from being leaked from Lua code?](http://stackoverflow.com/questions/34243734/how-to-prevent-wifi-password-from-being-leaked-from-lua-code)
+
+
+Be wary of precompiled firmware-binaries you find on the web.
+and in fact, be wary of using andy IoT device for security applications like a door opener etc.
+It is also wise to have gone through the sources
+and compile the firmware on your own.
+
+How do you prevent WiFi password from being leaked from Lua code?
+Within Lua code, there is no security on physical access.
+There's no way you can both encrypt and use the password
+on the same device that an attacker couldn't reverse engineer.
+The ESP does have an option to save WiFi settings.
+Program the credentials once and then remove credential code.
+This will make it a little bit harder to get the credentials
+(someone reading the code will not see it),
+but not totally security.
+
+Another thing to do to increase security is to use [MAC address filtering][101],
+but this is [not fool proof protection][102].
+
+
+* Don't expose your board directly to the public internet. Don't open holes in your firewall so the internet can see your device.
+* Put a proper password on your projects.
+* Try to use HTTPS whenever possible.
+* In the event you cannot use HTTPS with your device then use a gateway. i.e. your IoT device will connect with one and only device, your gateway.
+* ESP8266: did not try yet but I believe we have an SSL library available now.
+
+* [IoT Security: Connecting Your ESP8266 to Adafruit IO with SSL/TLS](https://io.adafruit.com/blog/security/2016/07/05/adafruit-io-security-esp8266/)
+* [Securing your esp8266 via TLS/SSL Reverse Proxy](https://jjssoftware.github.io/secure-your-esp8266/)
+* [The two-dollar secure IoT solution: Mongoose OS + ESP8266 + ATECC508 + AWS IoT](https://mongoose-os.com/blog/mongoose-esp8266-atecc508-aws/)
+* [Developing an IoT Security solution](https://thinginnovations.uk/developing-an-iot-security-solution)
+* https://www.zymbit.com/product/zymkey-3i-i2c-k52-4100/
 
 
 # Upload Code Wirelessly
 * [ESP8266 Upload Code Wirelessly!](https://www.youtube.com/watch?v=bplYzg6-_i4)
 * [Upload Programs Over the Air (OTA)](https://www.youtube.com/watch?v=GoQXOLB50HA)
+* [Internet of Things with ESP8266 #4: Upload Programs Over the Air (OTA)](https://www.youtube.com/watch?v=GoQXOLB50HA&t=52s)
+* [Over The Air programming Tutorial](https://www.youtube.com/watch?v=GR2ZXyPaqMo)
+
+
+
+
 
 
 # ESP8266 Surveillance Camera
@@ -1280,33 +2084,36 @@ that could be be battery powered and dropped almost anywhere.
     * http://hackaday.com/2017/04/11/esp32-wifi-hits-10km-with-a-little-help/
         * [more information](https://www.youtube.com/watch?v=yCLb2eItDyE)
 
+# Remote Control with Telegram
+* [Telegram Bot Library for ESP8266 on Arduino IDE](https://github.com/Gianbacchio/ESP8266-TelegramBot)
+* [Raspberry Remote Control With Telegram](http://www.instructables.com/id/Raspberry-remote-control-with-Telegram/)
+* [lua-telegram-bot](https://github.com/cosmonawt/lua-telegram-bot)
+* [short tutoral](https://www.domoticz.com/forum/viewtopic.php?t=12443)
 
-### NodeMCU Applications
-There are several repositories that contains coding examples and application programs
-that run on the NodeMCU firmware.
-These are a great source for ideas and solutions to your application needs.
-Here are some of them:
-
-* [NodeMCU - Applications](https://github.com/ckuehnel/NodeMCU-applications)
-* [NodeMCU Wikipedia Page](https://en.wikipedia.org/wiki/NodeMCU)
-* [NodeMCU Website](http://nodemcu.com/index_en.html)
-* [Nefastor Online](http://www.nefastor.com/)
-* [Domoticz ESP8266 WiFi Module Wiki](https://www.domoticz.com/wiki/ESP8266_WiFi_module)
-* [Programming the ESP8266 With Lua](https://learn.adafruit.com/diy-esp8266-home-security-with-lua-and-mqtt/programming-the-esp8266-with-lua)
-
-
-##########################################################
-If you want to build custom NodeMCU firmware for the ESP8266 (Wikipedia) I suggest you don't build it yourself but have it built by this configurable service.
-https://nodemcu-build.com/index.php
-##########################################################
-
-
+# Over-The-Air (OTA) Flashing of Firmware
+* [TRANSPARENT ESP8266 WIFI-TO-SERIAL BRIDGE](http://hackaday.com/2015/09/18/transparent-esp8266-wifi-to-serial-bridge/)
+* [ESP-LINK: Wifi-Serial Bridge w/REST&MQTT](https://github.com/jeelabs/esp-link)
+* [Hijacking the Sonoff OTA Mechanism](http://hackaday.com/2017/05/31/hijacking-the-sonoff-ota-mechanism/)
 
 # Working without ESP8266 Development Board
 The sections above take your through the use of an ESP8266 on some for of development board.
 But what do you do for a devices like the ESP-01
 where you basically just have the process and a WiFi antenna, without an operating system?
 This [bare metal environment][77] presents additional challeges.
+
+
+# Sonoff
+Sonoff is a very inexpensive box with an ESP8266, a power supply,
+and an AC relay along with a way to tap into a power cord.
+Very inexpensive means $5 or $6.
+The supplied software will work with several systems (including, recently, Alexa).
+And of course, you can hack the stock firmware on the ESP8266 inside.
+
+* [Son of Sonoff](http://hackaday.com/2017/05/12/son-of-sonoff/)
+* [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota)
+* [Sonoff-MQTT-OTA-Arduino - TASMOTA](https://github.com/arendst/Sonoff-MQTT-OTA-Arduino)
+* [Sonoff Works With Alexa](https://www.itead.cc/sonoff-work-with-amazon-alexa)
+
 
 bla bla bla
 
@@ -1332,6 +2139,7 @@ bla bla bla
 
 * Toolchain and Development Boards
     * [Continuous Delivery for Your ESP8266](http://hackaday.com/2016/06/08/continuous-delivery-for-your-esp8266/)
+    * [ESP8266: Continuous Delivery Pipeline – Push To Production](https://blog.squix.org/2016/06/esp8266-continuous-delivery-pipeline-push-to-production.html)
     * [How to Directly Program an Inexpensive ESP8266 WiFi Module](http://hackaday.com/2015/03/18/how-to-directly-program-an-inexpensive-esp8266-wifi-module/)
     * [Building the toolchain](https://github.com/EspressifSystems/low_power_voltage_measurement)
     * [Update the Firmware in Your ESP8266 Wi-Fi Module](http://www.allaboutcircuits.com/projects/update-the-firmware-in-your-esp8266-wi-fi-module/)
@@ -1371,7 +2179,6 @@ bla bla bla
 * [FreeRTOS-based framework for ESP8266 WiFi-enabled microcontrollers](https://github.com/SuperHouse/esp-open-rtos)
 * [Websocket Client and Server for ESP-8266](https://github.com/morrissinger/ESP8266-Websocket)
     * [ESP8266+Websocket server RGB LED controller](http://www.instructables.com/id/Esp8266Websockets-RGB-LED-controller/?ALLSTEPS)
-* []()
 
 # Hacking the ESP8266
 * [Your ESP8266 Needs More Memory](http://hackaday.com/2016/07/16/your-esp8266-needs-more-memory/)
@@ -1449,6 +2256,7 @@ bla bla bla
     * [Making Something Useful With The ESP8266](http://hackaday.com/2015/01/05/making-something-useful-with-the-esp8266/)
     * [ESP8266 AND IOT: STREAMING SERIAL ACCELEROMETER DATA VIA MQTT](http://tinker.yeoman.com.au/2015/03/29/esp8266-and-iot-streaming-serial-accelerometer-data-via-mqtt/)
     * [An Amazon Dash-Like Button For The ESP8266](http://hackaday.com/2015/05/13/an-amazon-dash-like-button-for-the-esp8266/)
+    * [Talking To A Lamp - Alexa Controlled ESP8266](http://hackaday.com/2017/07/22/talking-to-a-lamp/)
     * [ESP8266 Keeps An Eye On Your Batteries](http://hackaday.com/2015/05/24/esp8266-keeps-and-eye-on-your-batteries/)
     * [ESP8266 DIN 8-Channel Wifi Relay Controller](https://hackaday.io/project/6456-esp8266-din-8-channel-wifi-relay-controller)
     * [momentary push button supplies power to a ESP8266](http://hackaday.com/2015/07/24/alarm-notifies-the-office-when-the-coffee-is-ready/)
@@ -1463,11 +2271,8 @@ bla bla bla
     * [How to Make an Interactive TCP Server with NodeMCU on the ESP8266](http://www.allaboutcircuits.com/projects/how-to-make-an-interactive-tcp-server-nodemcu-on-the-esp8266/)
     * [ESP8266 IoT Energy Monitor](https://www.hackster.io/whatnick/esp8266-iot-energy-monitor-b199ed?utm_source=Hackster.io+newsletter&utm_campaign=bb289b34ff-2015_4_17_Top_projects4_16_2015&utm_medium=email&utm_term=0_6ff81e3e5b-bb289b34ff-140225889&mc_cid=bb289b34ff&mc_eid=9036129d51)
     * [GPS Tracker Using NEO 6M and ESP-12](https://www.kolkataonweb.com/code-bank/tag/ai-cloud-inside/)
-
-* ESP8266 Camera
-    * [ArduCAM now Supports ESP8266 Arduino Board with WIFI Websocket Camera Demo](http://www.arducam.com/arducam-supports-esp8266-arduino-board-wifi-websocket-camera-demo/)
-    * [Truly Versatile ESP8266 WiFi Webcam Platform](http://hackaday.com/2016/01/24/truly-versatile-esp8266-wifi-webcam-platform/)
-    * [The GotchaCAM Portable DIY Wifi Camera Based Travel and Home Security and Surveillance System](http://www.arducam.com/)
+    * [ESP to WireShark](http://hackaday.com/2017/07/06/esp-to-wireshark/)
+    * [WiFi Packet-Monitor | ESP8266 + OLED](https://www.youtube.com/watch?v=RGkqemAGbjU)
 
 * ESP8266 Controlled Plug / Receptacle
     * [First IoT device - Plug](https://myesp8266.blogspot.com/2015/04/first-iot-device.html?spref=pi)
@@ -1487,7 +2292,12 @@ bla bla bla
 * [ESP8266 or MKR1000?](http://hackaday.com/2016/04/29/esp8266-or-mkr1000/)
 
 ## MicroPython
+* https://learn.adafruit.com/micropython-basics-how-to-load-micropython-on-a-board/overview
 * [Video overview of MicroPython on ESP8266](https://www.youtube.com/watch?v=D-CaWFMFCV0)
+* [Building and Running MicroPython on the ESP8266](https://learn.adafruit.com/building-and-running-micropython-on-the-esp8266)
+* [Micro Python Now Runs on the ESP8266](http://hackaday.com/2014/11/29/micro-python-now-runs-on-the-esp8266-contributors-wanted-to-get-wifi-working/)
+* [MicroPython on the ESP8266: Kicking the Tires](http://hackaday.com/2016/07/21/micropython-on-the-esp8266-kicking-the-tires/)
+* [MicroPython tutorial for ESP8266](https://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/index.html)
 
 ## More
 * [The Pain of Connecting to WPA Wi-Fi on the Linux Command Line](http://www.sevenforge.com/2009/07/28/connecting-to-wpa-wifi-on-the-command-line/)
@@ -1507,6 +2317,7 @@ bla bla bla
 * [ESP32 Hands-On: Awesome Promise](http://hackaday.com/2016/09/15/esp32-hands-on-awesome-promise/)
 * [What’s New, ESP-32? Testing the Arduino Library](http://hackaday.com/2016/10/31/whats-new-esp-32-testing-the-arduino-esp32-library/)
 * [Enginursday: Creating a Smart Water Sensor with the ESP32 Thing](https://www.sparkfun.com/news/2297?hsCtaTracking=c1619558-8d91-43e0-8b4c-3a9d22b42e0f|07a7f713-13a2-4501-9a18-5bb50c76d43c&utm_campaign=February+10,+2017&utm_medium=email&_hsenc=p2ANqtz-87cMS3CKRMD8SzEWleLTBH5bJOX61fDO5cLB9DGcjLKMbIn7t5Fg60eL_Lcb2xM5qXOWkJmN8IU1LQGErjVXK39wjpUw&_hsmi=42356669&utm_content=42357056&utm_source=hs_email)
+* [ESP32’s Freedom Output Lets You Do Anything](http://hackaday.com/2017/04/24/esp32s-freedom-output-lets-you-do-anything/)
 
 
 
@@ -1602,11 +2413,60 @@ bla bla bla
 [90]:https://www.adafruit.com/product/954
 [91]:https://www.adafruit.com/products/284
 [93]:https://www.adafruit.com/products/70
-[94]:
-[95]:
-[96]:
-[97]:
-[98]:
-[99]:
-[100]:
-
+[94]:https://www.cloudmqtt.com/
+[95]:http://www.hivemq.com/blog/mqtt-essentials-part-3-client-broker-connection-establishment
+[96]:https://www.cloudmqtt.com/docs.html
+[97]:https://www.cloudmqtt.com/docs-nodemcu.html
+[98]:http://nodemcu.readthedocs.io/en/latest/en/modules/mqtt/
+[99]:https://en.wikipedia.org/wiki/Hayes_Microcomputer_Products
+[100]:https://en.wikipedia.org/wiki/Hayes_command_set
+[101]:https://en.wikipedia.org/wiki/MAC_filtering
+[102]:https://www.howtogeek.com/204458/why-you-shouldn%E2%80%99t-use-mac-address-filtering-on-your-wi-fi-router/
+[103]:https://customer.cloudmqtt.com/login
+[104]:https://nodemcu.readthedocs.io/en/master/en/modules/dht/
+[105]:https://learn.adafruit.com/dht/overview
+[106]:https://www.adafruit.com/product/385
+[107]:http://www.datasheet-pdf.download/hc-sr501-pir-motion-sensor/
+[108]:https://learn.adafruit.com/diy-esp8266-home-security-with-lua-and-mqtt/programming-the-esp8266-with-lua
+[109]:https://github.com/eclipse/paho.mqtt-spy/wiki
+[110]:https://community.arubanetworks.com/t5/Controller-Based-WLANs/What-is-the-wireless-DTIM-And-how-do-we-use-it/ta-p/181608
+[111]:http://www.espressif.com/sites/default/files/9b-esp8266-low_power_solutions_en_0.pdf
+[112]:https://nodemcu.readthedocs.io/en/master/en/modules/wifi/#wifistasleeptype
+[113]:https://www.losant.com/blog/making-the-esp8266-low-powered-with-deep-sleep
+[114]:https://learn.sparkfun.com/tutorials/pull-up-resistors
+[115]:https://cdn-learn.adafruit.com/downloads/pdf/dht.pdf
+[116]:https://api.cloudmqtt.com/sso/cloudmqtt/console
+[117]:https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04
+[118]:https://kamilfb.github.io/mqtt-spy/
+[119]:http://johnny-five.io/
+[120]:https://www.espruino.com/
+[121]:http://jerryscript.net/
+[122]:https://cesanta.com/
+[123]:https://mongoose-os.com/
+[124]:https://www.losant.com/
+[125]:https://mongoose-os.com/software.html
+[126]:https://mongoose-os.com/docs/quickstart/setup.html
+[127]:https://opensource.com/article/17/4/mjs-JavaScript-engine
+[128]:https://github.com/cesanta/mongoose-os/tree/master/mos
+[129]:https://cesanta.com/
+[130]:https://cesanta.com/case-studies.html
+[131]:https://opensource.com/article/17/3/mongoose-os-iot-development
+[132]:https://forum.mongoose-os.com/entry/register
+[133]:https://www.youtube.com/playlist?list=PLNOffh-6mSoSUjrfUJDhYIuEKxRT3b8Ep
+[134]:https://www.youtube.com/playlist?list=PLNOffh-6mSoRfxD4wTvRziUDUiSLSyJKE
+[135]:https://iotbytes.wordpress.com/nodemcu-pinout/
+[136]:https://www.mpja.com/download/31227sc.pdf
+[137]:https://iot.eclipse.org/getting-started
+[138]:https://mongoose-os.com/docs/overview/rpc.html
+[139]:https://cdn-learn.adafruit.com/downloads/pdf/dht.pdf
+[140]:http://docs.aws.amazon.com/iot/latest/developerguide/iot-security-identity.html
+[141]:
+[142]:
+[143]:
+[144]:
+[145]:
+[146]:
+[147]:
+[148]:
+[149]:
+[150]:

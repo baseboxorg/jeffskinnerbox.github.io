@@ -46,23 +46,33 @@ can be used to forecast future probabilities with an acceptable level of reliabi
 * [Deep Learning Cheat Sheet](https://hackernoon.com/deep-learning-cheat-sheet-25421411e460#.nrskk2iyy)
 * [Deep Learning in your browser](http://cs.stanford.edu/people/karpathy/convnetjs/)
 * [The Deep Learning Roadmap](https://medium.com/intuitionmachine/the-deep-learning-roadmap-f0b4cac7009a)
+* [The Difference Between Artificial Intelligence, Machine Learning, and Deep Learning](https://iot-for-all.com/the-difference-between-artificial-intelligence-machine-learning-and-deep-learning/)
+* [Taxonomy of Methods for Deep Meta Learning](https://medium.com/intuitionmachine/machines-that-search-for-deep-learning-architectures-c88ae0afb6c8)
+* [Deep Learning with Keras on Google Compute Engine](https://medium.com/google-cloud/keras-inception-v3-on-google-compute-engine-a54918b0058)
+* [Deep Learning CNN’s in Tensorflow with GPUs](https://hackernoon.com/deep-learning-cnns-in-tensorflow-with-gpus-cba6efe0acc2)
 
 # Machine Learning
 [Ten Myths About Machine Learning](https://medium.com/@pedromdd/ten-myths-about-machine-learning-d888b48334a3#.cd074sawz)
 
-# Tools
+# Tools and Books
 * [Deep Learning - Software](http://deeplearning.net/software_links/)
 * [Caffe](http://caffe.berkeleyvision.org/)
 * [TensorFlow](https://www.tensorflow.org/) and [Google Cloud Machine Learning](https://cloud.google.com/ml/)
     * [Awesome TensorFlow](https://github.com/jtoy/awesome-tensorflow)
-    * [OpenFace](https://cmusatyalab.github.io/openface/)
+    * [OpenFace - Free and open source face recognition with deep neural networks](https://cmusatyalab.github.io/openface/)
     * [Image Completion with Deep Learning in TensorFlow](http://bamos.github.io/2016/08/09/deep-completion/)
 * [MXNet](https://mxnet.readthedocs.io/en/latest/)
+* [Neural Networks: You’ve Got It So Easy](http://hackaday.com/2017/04/24/neural-networks-youve-got-it-so-easy/)
 
-# Data Sets
+# Data Sets / Datasets
 * [Deep Learning - Datasets](http://deeplearning.net/datasets/)
 * [Kaggle Datasets](https://www.kaggle.com/datasets)
 * [20 Weird & Wonderful Datasets for Machine Learning](https://medium.com/@olivercameron/20-weird-wonderful-datasets-for-machine-learning-c70fc89b73d5#.9c2d2daua)
+* [ImageNet](http://www.image-net.org/)
+* [Comma.ai Releases a Dataset](https://medium.com/self-driving-cars/comma-ai-releases-a-dataset-10ede8bec74b)
+* [Open Images dataset](https://github.com/openimages/dataset)
+* [ImageNet](http://image-net.org/)
+* [USA Facts](https://usafacts.org/)
 
 # Robtics
 * [Train Your Robot To Walk with a Neural Network](http://hackaday.com/2016/12/11/train-your-robot-to-walk-with-a-neural-network/)
@@ -101,6 +111,28 @@ can be used to forecast future probabilities with an acceptable level of reliabi
 * [Machine Learning: Foundations](http://hackaday.com/2016/11/02/machine-learning-foundations/#more-228331)
 * [Perceptrons in C++](http://hackaday.com/2016/11/08/perceptrons-in-c/)
 * []()
+
+# Embedded Learning Library (ELL)
+Microsoft has released the [Embedded Learning Library (ELL)](https://github.com/Microsoft/ELL),
+offering developers a pre-trained image recognition model for Raspberry Pi and other developer boards.
+
+Appears this is part of Microsoft's effort to miniaturize its machine-learning software
+for a range of extremely low-powered chips on devices that aren't connected to the cloud.i
+This effort could make simple things "smart" without connection to the cloud.
+Microsoft claims it has compression machine learning models 10 to 100 times smaller,
+but to get it running on a Cortex M0 process (a typical micro-controller you'll find in a smart device),
+the models need to be 1,000 to 10,000 times smaller.
+
+To make it work on a Raspberry Pi, Microsoft compressed neural network
+parameters down to just a few bits instead of the usual 32
+and pruning the neural networks down to remove redundancies.
+Microsoft claims to be able to make an image detection system run about
+20 times faster on a Raspberry Pi 3 without any loss of accuracy.
+
+There is also an open source initiative like this call [The Fido Project](http://fidoproject.github.io/).
+
+# Movidius
+* [Movidius launches a $79 deep-learning USB stick](https://techcrunch.com/2017/07/20/movidius-launches-a-79-deep-learning-usb-stick/?ncid=mobilenavtrend)
 
 # Tutorials
 * [Why is machine learning 'hard'?](http://l.goodbits.io/l/ogcalob3)
@@ -143,6 +175,8 @@ can be used to forecast future probabilities with an acceptable level of reliabi
     * [June Update](https://medium.com/the-mission/up-to-speed-on-deep-learning-june-update-bb0f17ccaf0b#.e0wr5tqwh)
     * [July Update, Part 2](https://medium.com/the-mission/up-to-speed-on-deep-learning-july-update-part-2-baacc835d8ab#.yw03l0iax)
 * [Tensorflow demystified](https://chatbotslife.com/tensorflow-demystified-80987184faf7)
+* [Deep Learning in 7 lines of code](https://chatbotslife.com/deep-learning-in-7-lines-of-code-7879a8ef8cfb)
+* [TensorFlow: A proposal of good practices for files, folders and models architecture](https://blog.metaflow.fr/tensorflow-a-proposal-of-good-practices-for-files-folders-and-models-architecture-f23171501ae3)
 * TensorFlow in a Nutshell
     * [GitHub](https://github.com/c0cky/TensorFlow-in-a-Nutshell)
     * [Part One: Basics](https://medium.com/@camrongodbout/tensorflow-in-a-nutshell-part-one-basics-3f4403709c9d#.66dlxsbvd)
@@ -150,6 +184,7 @@ can be used to forecast future probabilities with an acceptable level of reliabi
     * [Part Three: All the Models](https://www.linkedin.com/pulse/tensorflow-nutshell-part-three-all-models-camron-godbout)
 * [TensorFlow Playground](http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.34995&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
 * [TensorFLow for Poets](https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/index.html?index=../../index#0)
+* [Big Picture Machine Learning: Classifying Text with Neural Networks and TensorFlow](https://medium.freecodecamp.com/big-picture-machine-learning-classifying-text-with-neural-networks-and-tensorflow-d94036ac2274)
 * [Tensorflow: How to freeze a model and serve it with a python API](https://blog.metaflow.fr/tensorflow-how-to-freeze-a-model-and-serve-it-with-a-python-api-d4f3596b3adc#.69lj4b5ko)
 * [Beginning Machine Learning with Keras and TensorFlow](http://blog.thoughtram.io/machine-learning/2016/09/23/beginning-ml-with-keras-and-tensorflow.html?utm_source=mybridge&utm_medium=email&utm_campaign=read_more)
 * [A Course in Machine Learning](http://ciml.info/)
@@ -167,6 +202,7 @@ can be used to forecast future probabilities with an acceptable level of reliabi
 * [TensorFlow on the Edge, Part 1 of 5](https://dzone.com/articles/tensorflow-on-the-edge)
 * [3 cool machine learning projects using TensorFlow and the Raspberry Pi](https://opensource.com/article/17/2/machine-learning-projects-tensorflow-raspberry-pi)
 * [TensorBoard](http://hackaday.com/2017/03/24/ten-minute-tensorflow-speech-recognition/)
+* [Train your deep model faster and sharper — two novel techniques](https://hackernoon.com/training-your-deep-model-faster-and-sharper-e85076c3b047)
 
 
 Simple Reinforcement Learning with Tensorflow
@@ -200,5 +236,8 @@ Understanding Convolutional Neural Networks
 
 
 * [The Complete Beginner’s Guide To Chatbots](https://chatbotsmagazine.com/the-complete-beginner-s-guide-to-chatbots-8280b7b906ca#.d3yd7zv3e)
+* [Contextual Chat-bots with Tensorflow](https://chatbotsmagazine.com/contextual-chat-bots-with-tensorflow-4391749d0077)
+
+# Tensors
 * [How Tensors Advance Human Technology](https://medium.com/@philjama/how-tensors-advance-human-technology-3831bff0906#.48fcqkrsm)
 * [Tensor Calculus and the Calculus of Moving Surfaces](https://www.youtube.com/playlist?list=PLlXfTHzgMRULkodlIEqfgTS-H1AY_bNtq)

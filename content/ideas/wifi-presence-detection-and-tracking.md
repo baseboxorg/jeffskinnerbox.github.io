@@ -29,6 +29,7 @@
 * [Introduction to the Domain Name System (DNS)](https://opensource.com/article/17/4/introduction-domain-name-system-dns)
 * [Build your own DNS name server on Linux](https://opensource.com/article/17/4/build-your-own-name-server)
 * [dnsd: DNS encoder, decoder, and server](https://github.com/ansuz/modern-dnsd)
+* [DNS Is Still the Achilles Heel of the Internet](https://www.darkreading.com/partner-perspectives/f5/dns-is-still-the-achilles-heel-of-the-internet/a/d-id/1329019?elq_mid=78743&elq_cid=23179140&_mc=NL_NWC_EDT_NWC_converations_20170606&cid=NL_NWC_EDT_NWC_converations_20170606&elqTrackId=3d7fdc6841d24f4199ac352d2062abca&elq=25cb098a61134c4e8b49e622076230d1&elqaid=78743&elqat=1&elqCampaignId=26848)
 
 # Telemetry over Opportunistic WiFi Links
 * [How DNS Tunneling Works](http://inside-out.xyz/technology/how-dns-tunneling-works.html)
@@ -40,11 +41,19 @@
 * [Tunneling Data and Commands Over DNS to Bypass Firewalls](https://zeltser.com/c2-dns-tunneling/)
 * [PowerShell DNS Command & Control with dnscat2-powershell](http://www.blackhillsinfosec.com/?p=5578)
 
+* [Smuggler - An interactive 802.11 wireless shell without the need for authentication or association](https://www.trustwave.com/Resources/SpiderLabs-Blog/Smuggler---An-interactive-802-11-wireless-shell-without-the-need-for-authentication-or-association/)
+* [Chura-Liya](https://github.com/interference-security/Chura-Liya)
+* [Beacon Stuffing Beacon Frames and Injection](https://www.youtube.com/watch?v=SPY3W_Kmq8U)
+
 # Skyhook Precision Location
 Use Skyhook Precision Location on a Raspberry Pi device running Raspbian Linux.
 The device will continuously record its location, even when disconnected from the internet or not.
 
 * [Skyhook Wireless Developer Site](http://www.skyhookwireless.com/developers)
+
+# Tracking
+* [HyperTrack](https://www.hypertrack.com/)
+    * [HyperTrack Documentation](https://docs.hypertrack.com/)
 
 # Framework for Internal Navigation and Discovery (FIND)
 * [Framework for Internal Navigation and Discovery (FIND)](https://www.internalpositioning.com/)
@@ -65,6 +74,10 @@ multiple modes as in AP+STA or WDS with AP Mode) of the six modes that 802.11 wi
 1. Monitor - passively read packets, no packets are transmitted
 
 Strictly speaking, Infrastructure Mode is not a device mode but a concept.
+
+# WiFi Tracking
+* [Wireless Geographic Logging Engine (WiGLE)](https://en.wikipedia.org/wiki/WiGLE)
+* [WiGLE.net](https://wigle.net/)
 
 # WiFi Scanning
 https://security.stackexchange.com/questions/152007/why-do-wifi-devices-broadcast

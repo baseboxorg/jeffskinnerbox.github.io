@@ -66,6 +66,7 @@ The minimum sampling rate, as dictated by [Nyquist–Shannon sampling theorem][2
 
 * [Differences Between PCM/ADPCM Wave Files Explained][12]
 * [I/Q Data for Dummies][13]
+* [IQ Modulator Basics: Operation, measurements, impairments](https://www.youtube.com/watch?v=RHFZUqUM8DY&feature=em-subs_digest)
 
 **Bit Size** - Bit size is the number of bits used to encode the amplitude of the signal. In 8 bit recordings, a total of 256 (0 to 255) amplitude levels are available. In 16 bit, a total of 65,536 (-32768 to 32767) amplitude levels are available. The greater the resolution of the file is, the greater the realistic dynamic range of the file. CD-Audio uses 16 bit samples.
 

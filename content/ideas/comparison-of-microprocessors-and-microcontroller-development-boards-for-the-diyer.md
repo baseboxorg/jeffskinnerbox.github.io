@@ -1,13 +1,6 @@
 
 * [70+ Raspberry Pi alternatives in one convenient list](http://liliputing.com/2016/06/70-raspberry-pi-alternatives-one-convenient-list.html)
-
-Title: Comparison of Microprocessors and Microcontroller Development Boards for the DIY'er
-Date: 2100-01-01 00:00
-Category:
-Tags:
-Slug: comparison-of-microprocessors-and-microcontroller-development-boards-for-the-diyer
-Author: Jeff Irland
-Summary: bla bla bla
+* [Understanding the Differences Between ARM and x86 Processing Cores](https://www.allaboutcircuits.com/news/understanding-the-differences-between-arm-and-x86-cores/?utm_source=All+About+Circuits+Members&utm_campaign=623e2e2933-EMAIL_CAMPAIGN_2017_05_16&utm_medium=email&utm_term=0_2565529c4b-623e2e2933-270523833/)
 
 Are you feeling confined by the Arduino's limited environment, peripherals, and power?
 You're beginning to look around for other options, but your finding there are too many choices?
