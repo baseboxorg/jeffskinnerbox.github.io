@@ -387,6 +387,9 @@ could be gathered for this cheat sheet.
 * [CodeMirror](http://codemirror.net/)
 * [TextAid](http://lalashan.mcmaster.ca/theobio/projects/index.php/TextAid)
 * [Working Productively in Bash's Vi Command Line Editing Mode (with Cheat Sheet)](http://www.catonmat.net/blog/bash-vi-editing-mode-cheat-sheet/)
+* [VIM Normalization](http://hackaday.com/2017/06/21/vim-normalization/)
+* [Awesome vim plugins for writers](https://opensource.com/article/17/2/vim-plugins-writers?sc_cid=70160000001206xAAA)
+* [Using Syntastic+JSHint for Javascript syntax checking on Vim](https://soledadpenades.com/2013/02/24/using-syntastic-jshint-for-javascript-syntax-checking-on-vim/)
 
 
 

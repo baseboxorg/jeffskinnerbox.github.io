@@ -42,6 +42,9 @@ $ sha1sum /home/jeff/Downloads/2016-02-09-raspbian-jessie.zip
 da329713833e0785ffd94796304b7348803381db  /home/jeff/Downloads/2016-02-09-raspbian-jessie.zip
 ```
 
+>**NOTE:** Latest versons of Raspian may be using SHA-256,
+so replace `sha1sum` with `sha256sum` in the above command.
+
 Next you need to unzip the file to retrieve the Linux image file:
 
 ```bash
@@ -104,13 +107,13 @@ where we need to write the Raspbian image to the SD Card
 cd /home/jeff/Downloads
 
 # unmount the sd card reader
-sudo umount /dev/sdj1
+sudo umount /dev/sdj1 /dev/sdj2
 
 # write the image to the sd card reader
 sudo dd bs=4M if=2016-02-09-raspbian-jessie.img of=/dev/sdj
 
 # ensure the write cache is flushed
-sync
+sudo sync
 
 # check the integrity of the sd card image
 sudo dd bs=4M if=/dev/sdj of=copy-from-sd-card.img
@@ -183,6 +186,30 @@ iface wlan0 inet manual
 Then change it to this:
 
 ```
+# establish connection to home wifi and other known networks
+auto wlan0
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+```
+
+So the file `/etc/network/interfaces` should now look like this:
+
+```bash
+# interfaces(5) file used by ifup(8) and ifdown(8)
+
+# Please note that this file is written to be used with dhcpcd
+# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+
+# Include files from /etc/network/interfaces.d:
+source-directory /etc/network/interfaces.d
+
+auto lo
+iface lo inet loopback
+
+iface eth0 inet manual
+
+# establish connection to home wifi and other known networks
 auto wlan0
 allow-hotplug wlan0
 iface wlan0 inet dhcp
@@ -194,16 +221,30 @@ and add the following to the bottom of the file so your
 Raspberry Pi can connect automatically to your WiFi network:
 
 ```bash
+# country code environment variable, required for RPi 3
+country=US
+
+# path to the ctrl_interface socket and the user group
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+
+# allow wpa_supplicant to overwrite configuration file whenever configuration is changed
+update_config=1
+
+# 1 = wpa_supplicant initiates scanning and AP selection ; 0 = driver takes care of scanning
+ap_scan=1
+
 # home wifi network settings
 network={
-    id_str="home"
-    ssid="<your-network-ssid-name>"
-    scan_ssid=1
-    psk="<your-network-password>"
-    proto=RSN
-    key_mgmt=WPA-PSK
-    pairwise=CCMP
-    auth_alg=OPEN
+    id_str="home"                   # needs to match keyword you used in the interfaces file
+    ssid="<your-network-ssid-name>" # SSID either as an ASCII string with double quotation or as hex string
+    mode=0                          # 0 = managed, 1 = ad-hoc, 2 = access point
+    scan_ssid=0                     # = 1 do not broadcast SSID ; = 0 SSID is visible to scans
+    proto=WPA RSN                   # list of supported protocals; WPA = WPA ; RSN = WPA2 (also WPA2 is alias for RSN)
+	key_mgmt=WPA-PSK WPA-EAP        # list of authenticated key management protocols (WPA-PSK, WPA-EAP, ...)
+    psk="<your-network-password>"   # pre-shared key used in WPA-PSK mode ; 8 to 63 character ASCII passphrase
+    pairwise=CCMP                   # accepted pairwise (unicast) ciphers for WPA (CCMP, TKIP, ...)
+    auth_alg=OPEN                   # authentication algorithms (OPEN, ShARED, LEAP, ...)
+    priority=5                      # priority of selecting network (larger numbers are higher priority)
 }
 ```
 
@@ -220,7 +261,7 @@ If you want to include other WiFi networks,
 just add another `network` structure to the file `etc/wpa_supplicant/wpa_supplicant.conf`.
 (See examples [here][18] and [here][19])
 
-### Step 4: Configure SSH
+### Step 4: Configure SSH and Set Hostname
 [As of the November 2016 release][58], Raspbian has the SSH server disabled by default.
 You will have to enable it manually.
 This can done using `raspi-config` once you login via monitor/keyboard/mouse
@@ -240,6 +281,11 @@ You'll notice that this file is remove once you boot up the Raspberry Pi.
 You need to use `raspi-config`, as shown in a later step of these instructions,
 to permanently activate SSH.
 
+You can also set the host name of the Raspberry Pi now by modifying the contents
+of `/etc/hostname`.
+Just edit its contests, which is currently `raspberry` to what you would like.
+If you do this, you can skip the host name modification step that appears in latter steps.
+
 ### Step 5: First Time Boot of the Raspberry Pi
 Now unmount the SD Card, put the SD Card into the Raspberry Pi,
 plug a [WiFi dongle][14] into the Raspberry Pi
@@ -248,7 +294,7 @@ After approximately a minute, the Raspberry Pi will have completely booted up.
 At this point your WiFi router should have automatically assigned an IP to the Raspberry Pi
 (assuming the router is running DHCP).
 
-To access the Raspberry Pi, we'll need its host name
+To access the Raspberry Pi, we'll need its host name, which you provided in Step 4,
 (generally this defaults to `raspberrypi`) or
 we’ll need to get the IP address it has been assigned by the network,
 which you can get via your WiFi routers administrate interface or `nmap` or `arp`.
@@ -313,14 +359,16 @@ Under these conditions, you would be prompted for the next step automatically.
 
 ### Step 6: Configure the Raspberry Pi
 You should now run the `sudo raspi-config` (see [raspi-config documentation][12])
-The multiple things can be configured within this configuration tool.
+This is an interactive script that allowing you to configured multiple devices settings.
 We need to change the following:
 
-* **Expand Filesystem** - select this
+* **Hostname** select this and change the name of the device
 * **Boot Options** - select this and choose "B1 Console" - You will need a password to get console access. Gives you greater security and allow console cables to work via [`screen`][53] and [`microcom`][54].
-* **Advanced Options** - select this and choose "A2 Hostname", enable "A4 SSH", enable "A5 Device Tree", enable "A6 SPI", enable "A7 IC2", enable "A8 Serial"
+* **Interface** enable "P2 SSH", enable "P4 SPI", enable "P5 IC2", enable "P6 Serial", enable "P7 1-Wire"
+* **Advanced Options** - select "A1 Expland Filesystem"
 
-Finally, select `<Finish>` and reboot so that the configuration changes are all applied.
+Finally, select `<Finish>` but don't reboot yet.
+Make this final update:
 
 ```bash
 # set the time zone for your device
@@ -328,6 +376,8 @@ sudo timedatectl set-timezone America/New_York
 
 sudo reboot
 ```
+>**NOTE: You can run `raspi-config` as a non-interactive command line tool.
+See "[Instructions of command-line in Raspi-config][60]".
 
 ### Step 7: OS Updates
 Let's make sure you have all the most current Linux packages.
@@ -335,9 +385,7 @@ This will patch the Linux operating system and all its GPL applications
 
 ```bash
 # commandline utility for applications upgrade
-sudo apt-get update
-sudo apt-get dist-upgrade
-sudo apt-get upgrade
+sudo apt-get update && sudo apt-get dist-upgrade
 
 # clean up any packages no longer needed
 sudo apt-get autoremove
@@ -427,7 +475,7 @@ sudo easy_install -U distribute
 sudo pip install RPi.GPIO pySerial nose cmd2
 ```
 
-Install X Window utilities, development tools, and other applications
+Install X Window utilities, some general development tools, and other applications
 
 ```bash
 # some X Window utilities
@@ -436,11 +484,10 @@ sudo apt-get install x11-apps x11-xserver-utils xterm wmctrl
 # tools for viewing and minipulating image & video files
 sudo apt-get install imagemagick feh mplayer2
 
-# development tools
+# general development tools
 sudo apt-get install markdown git vim vim-gtk libcanberra-gtk-module
 sudo apt-get install microcom screen
-sudo apt-get install nodejs-legacy npm build-essential i2c-tools python-smbus
-sudo npm install -g jshint
+sudo apt-get install build-essential i2c-tools libssl-dev
 
 # so you can discover hosts via Multicast Domain Name System (mDNS)
 sudo apt-get install avahi-daemon
@@ -451,10 +498,6 @@ sudo apt-get install dnsutils tcpdump wavemon nicstat nmap ufw rfkill
 # other handy tools
 sudo apt-get install sendmail gnome-terminal jq
 ```
-
->**NOTE:** To avoid a [potential namespace collision][17] for the word "node",
-specifically as it relates to [Node.js][16],
-make sure to use the `nodejs-legacy` package for Node.js.
 
 Appears that getting my favorite browser,
 [Chrome][22] or its open source version [Chromium][23],
@@ -527,7 +570,36 @@ ln -s ~/.X/Xresources ~/.Xresources
 ln -s ~/.X/xsessionrc ~/.xsessionrc
 ```
 
-### Step 11: Boot Without Starting X Window (Optional)
+### Step 11: Node.js Development Tools (Optional)
+Now we'll install some of the Node.js development tools.
+This must come after installing my personal tools
+since  the installation of `nvm` will modify the `~/.bashrc` file.
+
+```bash
+# first you need to modify your .bashrc file since you copied it from github
+sed --in-place 's/\/home\/jeff\/.nvm/\/home\/pi\/.nvm/' ~/.bashrc
+source ~/.bashrc
+
+# install or update the node version manager (nvm), do the following
+# https://github.com/creationix/nvm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+
+# install the latest stable version of node and make it the default version
+nvm install 6.11.1
+
+# install the latest version of npm
+npm install npm@latest --global
+
+# node development tools
+npm install jshint --global
+```
+
+>**NOTE:** If you choose to install Node.js via apt-get package management,
+you'll need to avoid a [potential namespace collision][17] for the word "node",
+specifically as it relates to [Node.js][16],
+make sure to use the `nodejs-legacy` package for Node.js.
+
+### Step 12: Boot Without Starting X Window (Optional)
 The Raspberry Pi's Jessie image is configured to automatically bring up the X Window
 graphics system and the supporting GUI (aka [X Window System Display Manager][28]).
 Generally, your not going to be using an RPi to support GUI's for users.
@@ -560,7 +632,7 @@ Note that at this point the X Server will still be running.
 You can see this via the command `ps -aux | grep X`.
 You need to reboot the RPi and then you will no long have X Window running.
 
-### Step 12: Running X Window Clients When You Want It (Optional)
+### Step 13: Running X Window Clients When You Want It (Optional)
 <a href="http://www.xquartz.org/index.html">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="The XQuartz project is an open-source effort to develop a version of the X.Org X Window System that runs on OS X." alt="XQuartz Logo" src="{filename}/images/xquartz-logo.jpg" width="70" height="70" />
 </a>
@@ -605,13 +677,13 @@ Rather than opening `vim` as root,
 you can simply save as root by redirecting via `tee`.
 Here is vi/vim command line ([source][56]):
 
-```
+```bash
 :w !sudo tee % > /dev/null
 ```
 
 You could alias this in your `.vimrc` file with this:
 
-```
+```bash
 " invoke root privilege when writing file
 command W w !sudo tee % > /dev/null
 ```
@@ -621,7 +693,7 @@ but just using a terminal, say with [screen][29] using a [console cable][30],
 your not going to be able run X Window System applications.
 You **must** be connected via TCP/IP to the Raspberry Pi.
 
-### Step 13: Password-less Login via SSH Keys (Optional)
+### Step 14: Password-less Login via SSH Keys (Optional)
 <a href="http://www.openssh.com/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="{filename}/images/openssh-logo.png" width="92" height="90" />
 </a>
@@ -635,7 +707,7 @@ without a user typing in a password.
 To setup password-less login via public key authentication,
 use the posting ["HowTo: Configure SSH Public Key Authentication"][47].
 
-### Step 13: Static IP Address (Optional)
+### Step 15: Static IP Address (Optional)
 Currently, your Raspberry Pi connects automatically to your WiFi network
 every time it is tuned on,
 but you may want to specify a static IP address to communicate with your RPi.
@@ -644,7 +716,7 @@ For example, to set the static IP address to `192.168.100.50`,
 you'll need to update the file `/etc/network/interfaces`.
 This file currently looks like this:
 
-```
+```bash
 # Include files from /etc/network/interfaces.d:
 source-directory /etc/network/interfaces.d
 
@@ -661,7 +733,7 @@ iface wlan0 inet dhcp
 
 For your static IP address, modify file `/etc/network/interfaces` to look like:
 
-```
+```bash
 # Include files from /etc/network/interfaces.d:
 source-directory /etc/network/interfaces.d
 
@@ -711,7 +783,7 @@ Here is a brief summary for your typical needs:
     * `wpa-ssid` Wireless: Set a wireless WPA SSID.
     * `wpa-psk` Wireless: Set a hexadecimal encoded PSK for your SSID.
 
-### Step 14: Configure Firewall (Optional)
+### Step 16: Configure Firewall (Optional)
 I recommend using [`ufw` (Uncomplicated FireWall)][34] to restrict access to the Raspberry Pi.
 The Linux kernel provides a packet filtering system called [`netfilter`][35],
 and the traditional interface for manipulating `netfilter` are the [`iptables`][36] suite of commands.
@@ -724,7 +796,7 @@ easy to use interface for people unfamiliar with firewall concepts,
 while at the same time simplifies complicated `iptables` commands
 to help an administrator who knows what he or she is doing.
 
-### Step 15: Install Fail2Ban (Optional)
+### Step 17: Install Fail2Ban (Optional)
 <a href="http://www.fail2ban.org/wiki/index.php/Main_Page">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time." alt="fail2ban logo" src="{filename}/images/fail2ban-logo.png" width="75" height="75" /></a>
 Recently I examined my desktop computer's `sshd` log file `/var/log/auth.log`
@@ -793,14 +865,14 @@ The use of public/private key authentication mechanisms
 (see ["HowTo: Configure SSH Public Key Authentication"][47])
 can provide the best protection overall.
 
-### Step 16: Basic Security (Optional)
+### Step 18: Basic Security (Optional)
 Beyond the SSH login security take in Step 15,
 you should minimize your exposure to other network security attacks
 and following some of the tips outlined in the postings
 ["IoT Security: Tips to Protect your Device from Bad Hackers"][37]
 and ["Secure your Raspberry Pi"][38] is a good start.
 
-### Step 17: Install Watchdog (Optional)
+### Step 19: Install Watchdog (Optional)
 <a href="http://dovgalecs.com/blog/keeping-your-raspberry-pi-alive-enabling-hardware-watchdog-under-arch-linux/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="A watchdog timer is a piece of hardware or software that can be used to automatically detect software anomalies and reset the processor if any occur. Generally speaking, a watchdog timer is based on a counter that counts down from some initial value to zero." alt="watchdog" src="{filename}/images/watchdog.jpg" width="115" height="110" />
 </a>
@@ -827,11 +899,11 @@ For how to make use of the watchdog and additional information, check out these 
 * [Linux Watchdog Daemon - Configuring](http://www.sat.dundee.ac.uk/psc/watchdog/watchdog-configure.html)
 * [The Linux Watchdog driver API](https://www.kernel.org/doc/Documentation/watchdog/watchdog-api.txt)
 
-### Step 18: Clone the SD Card (Optional)
-There are a few reasons you might want to duplicate (clone/copy)
-your Raspberry Pi’s SD Card.
+### Step 20: Clone the SD Card (Optional)
+There are a few reasons you might want to
+[duplicate (clone/copy) your Raspberry Pi’s SD Card][59].
 One reason is to create a backup.
-Another reason maybe is that you spent untold hours installing and configuring
+Another reason maybe is that you just spent untold hours installing and configuring
 software on your Raspberry Pi,
 and you want to set up a second Raspberry Pi,
 but didn’t want to spend the time to duplicate the previous efforts.
@@ -854,26 +926,39 @@ To clone your SD Card:
 cd /home/jeff/tmp
 
 # we'll assume
-#     sde: this is the primary hard drive
-#     sde1: this is the SD card
+#     sdj: this is the primary hard drive
+#     sdj1: this is the boot partition on the SD card
+#     sdj2: this is the / partition on the SD card
+
+# unmount the sd card reader
+sudo umount /dev/sdj1
+sudo umount /dev/sdj2
 
 # write the sd card copy to the file system
-sudo dd bs=4M if=/dev/sde1 of=sd-card.bin
+sudo dd bs=4M if=/dev/sdj of=~/tmp/sd-card-backup.img
+
+# ensure the write cache is flushed
+sudo sync
+sudo umount /dev/sdj
+```
+
+Now you have an image of the Raspberry Pi on you desktop computerr hard drive.
+When it comes time to create another Raspberry Pi with this same image,
+use the following procedure:
+
+```bash
+umount /dev/sdj
+
+# take sd card image you just created and writes it to the device
+sudo dd bs=4M if=~/tmp/sd-card-backup.img of=/dev/sdj
 
 # ensure the write cache is flushed and unmount
-sync
-sudo umount /dev/sde1
-
-#  take sd card image you just created and writes it to the device
-sudo dd bs=4M if=sd-card.bin of=/dev/sde1
-
-# ensure the write cache is flushed and unmount
-sync
-sudo umount /dev/sde1
+sudo sync
+sudo umount /dev/sdj
 ```
 
 You should now be able to insert the cloned SD Card into a brand new Raspberry Pi and boot it up,
-but you will likely run into some problems.
+but you will want to make some adjustments.
 There are some things you want to change on the cloned Raspberry Pi SC Card.
 For one thing, you should change the cloned Raspberry Pi’s host name
 so it doesn’t conflict with the original Raspberry Pi on the network.
@@ -959,3 +1044,5 @@ This can cause mysterious problems (like WiFi adapter not working, just to name 
 [56]:http://vim.wikia.com/wiki/Su-write
 [57]:https://cdn-learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-5-using-a-console-cable.pdf
 [58]:https://www.raspberrypi.org/documentation/remote-access/ssh/
+[59]:https://www.raspberrypi.org/documentation/linux/filesystem/backup.md
+[60]:https://www.52pi.com/blog/19-instructions-of-command-line-in-raspi-config
