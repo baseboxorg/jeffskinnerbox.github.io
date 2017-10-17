@@ -1,4 +1,5 @@
 
+* [Alexa, Meet Marvel](https://dzone.com/articles/alexa-meet-marvel)
 * [The Ultimate Guide To Mastering Amazon Echo](http://blog.anythings.co/ultimate-guide-amazon-echo-alexa/)
 * [Alexa Skills Kit Tutorial: The Guide To Build Your Alexa Skill](http://blog.anythings.co/alexa-skills-kit-tutorial/)
 * [Get Your Music Into Amazon Music So Alexa Can Play It](http://lovemyecho.com/2015/07/03/getting-your-music-into-amazon-music-library-so-echo-can-play-it/)

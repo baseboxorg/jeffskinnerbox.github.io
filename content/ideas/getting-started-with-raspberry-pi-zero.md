@@ -156,13 +156,13 @@ we'll use the `g_ether` driver creating a virtual Ethernet device
 The other USB Gadget drivers (beside `g_ether`)
 can be done after the first boot and we have the RPi Zero up and working.
 
-## Step 0: Configuring the SD Card - DONE
+## Step 0: Configuring the SD Card
 Download and install the latest Raspbian Jessie onto a suitably large SD card,
 and expand the root partition.
 This has been described in many place, including [my description (Steps 1 & 2)][03].
 Once you're done, plug the micro SD card into the Micro SD Card holder on the Zero.
 
-## Step 1: Setting Up RPi Zero OTG - DONE
+## Step 1: Setting Up RPi Zero OTG
 On a non-Zero Raspberry Pi, like the RPi A,
 the next step would be to configure the WiFi on the SD Card so you can log in,
 or on the RPi B model, just plug in an Ethernet cable.
@@ -200,7 +200,7 @@ dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=/dev/mmcblk0p2 roo
 
 Eject the SD card from your computer.
 
-## Step 2A: Connecting with it as USB Gadget (Ubuntu) - DONE
+## Step 2A: Connecting with it as USB Gadget (Ubuntu)
 To connect to the RPi Zero over USB,
 you’ll need [Bonjour][12], or the Linux [Avahi Daemon][12] or similar
 [zero configuration discovery service][13] on your host computer.
@@ -383,7 +383,7 @@ My experimentation has shown me that removing NetworkManager could cause other p
 I (and many others) have had problems with NetworkManager before,
 so I suspect its the root of my troubles.
 
-## Step 2B: Connecting with it as USB Gadget (Raspberry Pi) - DONE
+## Step 2B: Connecting with it as USB Gadget (Raspberry Pi)
 The Raspberry Pi Linux distribution doesn't use NetworkManager
 ([but some people have installed it][20]),
 so I connected the RPi Zero into a RPi B USB port and it work immediately!
@@ -445,7 +445,7 @@ On this network, the RPi B host will have IP address `10.0.1.1`
 and the RPi Zero USB Gadget will have address `10.0.1.2`.
 **NOTE:** You'll see this addressing scheme being used below without any futher motivation.
 
-## Step 3: Bridging Via Host PC to Allow Gadget to Reach the Internet - DONE
+## Step 3: Bridging Via Host PC to Allow Gadget to Reach the Internet
 Now we want to update the the RPi Zero with the latest software
 and that will require Internet access.
 If you now login into the RPi Zero and `ping` a know host on the Internet,
@@ -662,7 +662,7 @@ To restore iptables rule that you may have saved
 sudo iptables-restore < $HOME/tmp/backup_rules.v4
 ```
 
-## Step 4: Configuring the Raspberry Pi Zero - DONE
+## Step 4: Configuring the Raspberry Pi Zero
 With the above steps complete, you can follow the article
 ["HowTo: Set-Up the Raspberry Pi as a Headless Device"][03] to complete the install.
 Specifically, make sure to do at least the following:
@@ -671,7 +671,7 @@ Specifically, make sure to do at least the following:
 * Step 6: OS Updates
 * Step 7: Updating Firmware for Raspberry Pi
 
-## Step 5: Adding WiFi to the Zero - DONE
+## Step 5: Adding WiFi to the Zero
 If you determined to have WiFi for your RPi Zero, it can be done.
 You could [try using an ESP8266][42].
 But the ESP8266 is a WiFi (aka wireless Ethernet) to serial device
@@ -730,7 +730,21 @@ In fact, if you did this on the SD Card earlier in Step 1,
 you could skip the USB Gadget stuff all together ...
 but then you wouldn't have learned about all of the RPi Zero's USB Gadgetry!
 
-## Step 6: Zero Battery Supply (Optional) - DONE
+## Step 5A: Free Some Disk Space
+If you are using an 8GB SD card,
+you may be using close to 50% of the available space,
+so one simple thing to do is to delete both
+LibreOffice and Wolfram engine to free up about 1G of space.
+
+```bash
+# free up some disk space by remove some packages
+sudo apt-get purge wolfram-engine
+sudo apt-get purge libreoffice*
+sudo apt-get clean
+sudo apt-get autoremove
+```
+
+## Step 6: Zero Battery Supply (Optional)
 The size and power consumption of the Raspberry Pi Zero makes it possible to create battery powered
 solutions like a small stealthy spycam applications.
 You can replacing the micro USB wall charger, and start powering with batteries.
@@ -741,7 +755,7 @@ So it will automatically switch over to the USB power when available,
 instead of continuously charging/draining the battery,
 making it a Uninterruptible Power Supply (UPS).
 
-## Step 7A: Battery Power Monitoring (Optional) - DONE
+## Step 7A: Battery Power Monitoring (Optional)
 If you're running off of a battery, your going to want to know when its running dry,
 and gracefully shutdown the Raspberry Pi.
 How long your project will run on batteries can be estimated by knowing
@@ -766,7 +780,7 @@ The following articles could be helpful:
 * [Adafruit INA219 Current Sensor Breakout](https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout)
 * [Battery Life & Current Consumption](https://learn.adafruit.com/low-power-wifi-datalogging/battery-life-and-current-consumption)
 
-## Step 7B: Battery Supply + Power Monitoring - DONE
+## Step 7B: Battery Supply + Power Monitoring
 [!LiFePO4wered/Pi](https://cdn.hackaday.io/images/9332751457457361166.jpg)
 The [LiFePO4wered/Pi][85] (purchase on [Tindie][87])
 may be the best power solution for the Raspberry Pi Zero.

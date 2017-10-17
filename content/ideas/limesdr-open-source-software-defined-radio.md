@@ -8,6 +8,8 @@
 * [Optimising Performance on HF](https://www.crowdsupply.com/lime-micro/limesdr/updates/optimising-performance-on-hf?utm_source=LimeSDR+supporters&utm_campaign=6181a14370-Update_LimeSDR_optimising_HF_2017_02_14&utm_medium=email&utm_term=0_1e5a81cd57-6181a14370-112302893)
 * [4G (LTE) Home Repeater With LimeSDR](http://www.instructables.com/id/4G-LTE-Home-Repeater-With-LimeSDR/)
 
+* [A Guide to Ubuntu Core and Snaps](https://dzone.com/articles/a-guide-to-ubuntu-core-and-snaps?edition=329543&utm_source=Zone%20Newsletter&utm_medium=email&utm_campaign=iot%202017-10-10)
+
 ![limesdr](https://www.crowdsupply.com/img/31d2/limesdr-7_jpg_project-body.jpg)
 Ever since I become aware of [RTL-SDR][20] and how it could be used to create
 a very cheap [software defined radio (SDR)][21]

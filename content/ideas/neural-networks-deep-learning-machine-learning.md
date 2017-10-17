@@ -50,11 +50,13 @@ can be used to forecast future probabilities with an acceptable level of reliabi
 * [Taxonomy of Methods for Deep Meta Learning](https://medium.com/intuitionmachine/machines-that-search-for-deep-learning-architectures-c88ae0afb6c8)
 * [Deep Learning with Keras on Google Compute Engine](https://medium.com/google-cloud/keras-inception-v3-on-google-compute-engine-a54918b0058)
 * [Deep Learning CNN’s in Tensorflow with GPUs](https://hackernoon.com/deep-learning-cnns-in-tensorflow-with-gpus-cba6efe0acc2)
+* [Secret Sauce behind the beauty of Deep Learning: Beginners guide to Activation Functions](https://medium.com/towards-data-science/secret-sauce-behind-the-beauty-of-deep-learning-beginners-guide-to-activation-functions-a8e23a57d046)
 
 # Machine Learning
 [Ten Myths About Machine Learning](https://medium.com/@pedromdd/ten-myths-about-machine-learning-d888b48334a3#.cd074sawz)
 
 # Tools and Books
+* [nteractive learning tools that can help you understand different machine learning algorithms](https://www.mladdict.com/)
 * [Deep Learning - Software](http://deeplearning.net/software_links/)
 * [Caffe](http://caffe.berkeleyvision.org/)
 * [TensorFlow](https://www.tensorflow.org/) and [Google Cloud Machine Learning](https://cloud.google.com/ml/)
@@ -203,6 +205,12 @@ There is also an open source initiative like this call [The Fido Project](http:/
 * [3 cool machine learning projects using TensorFlow and the Raspberry Pi](https://opensource.com/article/17/2/machine-learning-projects-tensorflow-raspberry-pi)
 * [TensorBoard](http://hackaday.com/2017/03/24/ten-minute-tensorflow-speech-recognition/)
 * [Train your deep model faster and sharper — two novel techniques](https://hackernoon.com/training-your-deep-model-faster-and-sharper-e85076c3b047)
+* [Real-Time TensorFlow Camera Analysis With Sensors](https://dzone.com/articles/real-time-tensorflow-camera-analysis-with-sensors?edition=325556&utm_source=Zone%20Newsletter&utm_medium=email&utm_campaign=iot%202017-09-26)
+
+# OpenCV
+* [Configuring Ubuntu for deep learning with Python](https://www.pyimagesearch.com/2017/09/25/configuring-ubuntu-for-deep-learning-with-python/)
+* [Setting up Ubuntu 16.04 + CUDA + GPU for deep learning with Python](https://www.pyimagesearch.com/2017/09/27/setting-up-ubuntu-16-04-cuda-gpu-for-deep-learning-with-python/)
+* [Deep learning on the Raspberry Pi with OpenCV](https://www.pyimagesearch.com/2017/10/02/deep-learning-on-the-raspberry-pi-with-opencv/)
 
 
 Simple Reinforcement Learning with Tensorflow

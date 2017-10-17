@@ -13,6 +13,7 @@ Computer vision refers in broad terms to the capture and automation of image ana
 It’s a nice board but why would I use instead of a Raspberry Pi + OpenCV + Python?
 
 # Some Concepts
+## Color
 color space - https://en.wikipedia.org/wiki/Color_space
 * CAM - https://en.wikipedia.org/wiki/Color_appearance_model
 * CIE - https://en.wikipedia.org/wiki/International_Commission_on_Illumination
@@ -32,6 +33,25 @@ Graphics Display Resolution - https://en.wikipedia.org/wiki/Graphics_display_res
 Portable Network Graphics - https://en.wikipedia.org/wiki/Portable_Network_Graphics#Pixel_format
 Raster graphics - https://en.wikipedia.org/wiki/Raster_graphics
 Digital Video - https://en.wikipedia.org/wiki/Digital_video
+
+## Video and TV
+National Television System Committee (NTSC) and Phase Alternating Line (PAL) - https://www.youtube.com/watch?v=3GJUM6pCpew&app=desktop
+https://www.youtube.com/watch?v=Z6KAbNvUMXQ
+
+## Best Frame Rate
+Best Frame Rate - https://www.youtube.com/watch?v=-vyxdm5aIOk
+The History of Frame Rate for Film - https://www.youtube.com/watch?v=mjYjFEp9Yx0
+
+## Aspect Ratio
+The History of Aspect Ratio - https://www.youtube.com/watch?v=3CgrMsjGk7k
+
+# Lens and Focal Length
+The History and Science of Lenses - https://www.youtube.com/watch?v=1YIvvXxsR5Y&list=PLrMEncyd64BdPt-iWyxiAdo19tYm7myf1&index=15
+The Properties of Camera Lenses - https://www.youtube.com/watch?v=CGGUXAMliqM
+Focusing on Depth of Field and Lens Equivalents - https://www.youtube.com/watch?v=lte9pa3RtUk
+
+# Color Temperature
+ Color Temperature - https://www.youtube.com/watch?v=3HnhIRPLWsM
 
 # OpenCV
 The JoVois microSD includes many machine vision algorithms from [OpenCV 3.2][30] and other sources.
@@ -85,9 +105,20 @@ Streaming a USB camera and the Pi camera module are fundamentally different oper
 * [PEOPLE COUNTING SYSTEM USING RASPBERRY PI WITH OPENCV ](http://www.ijream.org/papers/IJREAMV02I01894.pdf)
 * [People-Counter](https://github.com/LukashenkoEvgeniy/People-Counter)
 
-Test videos
+Test Videos
 * https://github.com/LukashenkoEvgeniy/People-Counter/blob/master/test2.mp4
 * https://github.com/WatershedArts/Footfall/tree/master/images
+
+Test Images
+* [Lenna](https://en.wikipedia.org/wiki/Lenna)
+* [Lenna](https://medium.com/five-guys-facts/lenna-e802b18d9ddc)
+* [The Lena Standard Test Image, Full Version (!)](http://tech.velmont.net/the-lena-standard-test-image-full-version/)
+* [The Lenna Story](http://www.cs.cmu.edu/~chuck/lennapg/lenna.shtml)
+* [1972 Playboy Magazine - The "Lenna" Edition](http://kevinrye.net/index_files/1972_playboy_magazine_the_lenna_edition.php)
+* [Lena Soderberg: The Playboy model at the centrefold of computer science](http://www.smh.com.au/technology/technology-news/lena-soderberg-the-playboy-model-at-the-centrefold-of-computer-science-20150510-ggyien.html)
+* [The photo of Lena Söderberg](http://www.computableminds.com/post/lena-soderberg-common-image-processing-test-images.html)
+* [The Playboy Centerfold That Helped Create the JPEG](https://www.theatlantic.com/technology/archive/2016/02/lena-image-processing-playboy/461970/)
+* http://sipi.usc.edu/database/database.php?volume=misc&image=12#top
 
 # JeVois
 [!jevios-pictue](https://ksr-ugc.imgix.net/assets/014/886/994/18a5f65e1561e5954d5eff3bb2bcef0e_original.png?w=1024&h=576&fit=fill&bg=000000&v=1482445914&auto=format&q=92&s=44e072db2cf6e8b335395f122ffea599)
@@ -421,19 +452,64 @@ OpenMAX and 1080p30 H.264 high-profile decode.
 * RPI-3: Performance issue on FFmpeg with mmal support - https://raspberrypi.stackexchange.com/questions/66923/rpi-3-performance-issue-on-ffmpeg-with-mmal-support
 * Smooth playback of adaptive video streams on Raspberry Pi with gst-mmal - https://gstreamer.freedesktop.org/data/events/gstreamer-conference/2016/John%20Sadler%20-%20Smooth%20video%20on%20Raspberry%20Pi%20with%20gst-mmal%20(Lightning%20Talk).pdf
 
-# Raspi Camera and OpenCV
-You’ve got your Rasperry Pi camera and your all excited to use it with [OpenCV][33],
-but its not an USB-Webcam, and so OpenCV doesn’t work natively.
-For example, OpenCV functions like `cvCaptureFromCAM` will not work.
-You could easily [use a USB-Webcam on the RPi][38] but
-you get none of the befits of the Raspberry Pi's native GPU.
+# SimpleCV vs OpenCV
+[OpenCV][33] is a library that can be used with different languages (C, C++, Java, Python, etc.),
+and it provides standard things such as image capture, image manipulation, etc.
+SimpleCV on the other hand is a framework including several libraries (OpenCV and other libraries like pygame etc.) and uses Python for scripting. Due to the nature of Python, you can either run scripts or use an interactive shell to do computer vision stuff and related tasks.
 
-My source of insperation for the installation steps below are from:
+Which one to choose? This really depends on your usage scenario. For quick prototyping I'd guess SimpleCV is far superior, but for actual implementation/usage, OpenCV offers a lot more possibilities (although at a higher complexity; e.g. being able to be included in native applications as well as embedded systems).
 
-* [Install guide: Raspberry Pi 3 + Raspbian Jessie + OpenCV 3](http://www.pyimagesearch.com/2016/04/18/install-guide-raspberry-pi-3-raspbian-jessie-opencv-3/)
+There is a book available that is quite detailed "Practical computer vision with SimpleCV"
+
+SimpleCV is great for simple machine projects and hobbies but don't expect high performance, its all in python for a start and so there is a performance penalty just on that
+
+* [Using the Raspberry Pi camera module with SimpleCV](http://openlabtools.eng.cam.ac.uk/Resources/Imaging/RPiCamera/)
+* https://www.youtube.com/watch?v=UZSm7Q2bZoc
+
+# Installing OpenCV and Jupyter on a Raspberry Pi - DONE
+[!opencv-logo](http://opencv.org/assets/theme/logo.png)
+You’ve just got your Rasperry Pi a camera and your all excited to use it with [OpenCV][33].
+First of all, hopefully its one of the [RPi Board Cameras][44].
+While you could use a cheaper [USB-Webcam on the RPi][38],
+you'll get none of the benfits of the Raspberry Pi's native GPU or [Graphics Processing Unit][45].
+
+My sources of insperation for the steps below are from:
+
+* [Accessing the Raspberry Pi Camera with OpenCV and Python](http://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/)
+* [Raspbian Stretch: Install OpenCV 3 + Python on your Raspberry Pi](http://www.pyimagesearch.com/2017/09/04/raspbian-stretch-install-opencv-3-python-on-your-raspberry-pi/)
 * [Installing OpenCV on your Raspberry Pi Zero](http://www.pyimagesearch.com/2015/12/14/installing-opencv-on-your-raspberry-pi-zero/)
+* [Best resources for learning OpenCV (Python and C++)](http://jacksimpson.co/best-resources-for-learning-opencv-python-and-c/)
 
-## Step 1: Install OpenCV Dependencies
+## Step 0: Disk Space - DONE
+The OpenCV and the OpenCV Contribution pakages are very large (430M + 120M).
+If your like me, you'll be using an 8GB SD card on the Raspberry Pi Zero
+and 16GB SD-Card for all the other RPi's.
+A standard Raspberry Pi install will likely use over 4GB of the available space,
+and then you add your personal tools and more space is used up.
+I have found that attempting to load OpenCV and the OpenCV Contribution pakage
+will require 10GB of disk space.
+If your considering using Jupyter and some of the popular Python libraries,
+your looking at 11 to 12GB of SD-Card storage being consumed.
+My advice is to consider using a 32G SD-Card.
+
+If your in the middle of your install,
+and your desperately looking for more space,
+consider deleting both the LibreOffice and Wolfram engines
+to free up about 1G of space, as shown below:
+
+```bash
+# free up some disk space by remove some packages
+sudo apt-get purge wolfram-engine
+sudo apt-get purge libreoffice*
+sudo apt-get clean
+sudo apt-get autoremove
+```
+
+In addition, once you have successfully compiled OpenCV,
+you can delete the source directory,
+as outlined in Step 6 below.
+
+## Step 1: Install OpenCV Dependencies - DONE
 The first thing we should do is update and upgrade any existing packages,
 followed by updating the Raspberry Pi firmware.
 
@@ -444,10 +520,13 @@ sudo rpi-update
 
 # if the firmware is updated, you need to reboot
 sudo shutdown -r now
+```
 
+Now let install OpenCV dependency packages:
+
+```bash
 # install dev tool packages you'll need for opencv
 sudo apt-get install build-essential git cmake pkg-config
-sudo apt-get install python2.7-dev python3-dev libgtk2.0-dev libatlas-base-dev gfortran
 
 # install image processing packages
 sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
@@ -455,31 +534,343 @@ sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
 # install video processing packages
 sudo apt-get install libavutil-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
 sudo apt-get install libxvidcore-dev libx264-dev
+
+# highgui used to display images to screen and build basic GUIs
+sudo apt-get install libgtk2.0-dev libgtk-3-dev
+
+# packages for opencv matrix operations
+sudo apt-get install libatlas-base-dev gfortran
+
+# get python 2.7 and python 3 header files so we can compile opencv with python bindings
+sudo apt-get install python2.7-dev python3-dev
+
+# to manage software packages for python 3, let’s install pip and virtual env tool
+sudo apt-get install python3-pip
+sudo apt-get install python3-venv
+
+# to ensure a robust python programming environment
+sudo apt-get install build-essential libssl-dev libffi-dev python-dev
 ```
 
-# Step 2: Install OpenCV from Source Code
+## Step 2: Install OpenCV from Source Code - DONE
 Lets grab the [latest version of OpenCV][41] from GitHub and install it.
 Make sure your `opencv` and `opencv_contrib` versions match up,
 otherwise you will run into errors during compilation.
 
-```bas
-# clone the opencv repository
+```bash
+# move to the direct where opencv will be installed
 cd ~/src
-git clone https://github.com/opencv/opencv.git
 
-# clone the opencv_contrib repository
-git clone https://github.com/opencv/opencv_contrib.git
+# download and install opencv
+wget -O opencv.zip https://github.com/opencv/opencv/archive/3.3.0.zip
+unzip opencv.zip
+
+# download and install opencv_contrib
+wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/3.3.0.zip
+unzip opencv_contrib.zip
+
+# remove zip files
+rm opencv.zip opencv_contrib.zip
 ```
 
-# Step 3: Setup Python Environment
-Using `virtualenv` and `virtualenvwrapper` allows you to create isolated Python environments,
+## Step 3: Setup Python Environment - DONE
+Using `pyvenv` allows you to create isolated Python environments,
 separate from your system install of Python.
 This means that you can run multiple versions of Python,
 with different versions of packages installed into each virtual environment.
 Installing and using these packages is not a requirement to use OpenCV and Python,
 but I highly recommend.
 
+Next, create the Python virtual environment that we’ll use for computer vision development:
 
+```bash
+# make a virtual environment for python 3 development
+cd ~/src
+pyvenv cv_env
+
+# see what has been created
+$ ls cv_env
+bin  include  lib  lib64  pyvenv.cfg  share
+```
+
+Together, these files work to make sure that your projects
+are isolated from the broader context of your local machine,
+so that system files and project files don’t mix.
+This is good practice for version control and to ensure that each of your projects
+has access to the particular packages that it needs (including `wheels`).
+
+To use this environment, you need to activate it,
+which you can do by typing the following command that calls the activate script:
+
+```bash
+# activate your virtual environment
+source ~/src/cv_env/bin/activate
+```
+
+To leave the environment,
+simply type the command `deactivate` and you will return to your original directory.
+
+Your Linux terminal prompt will now be prefixed with the name of your environment,
+in this case it is called `cv_env`.
+This prefix lets us know that the environment `cv_env` is currently active,
+meaning that when we create programs here they will use
+only this particular environment’s settings and packages.
+
+>**Note:** Within the virtual environment,
+you can use the command python instead of python3,
+and pip instead of pip3 if you would prefer.
+If you use Python 3 on your machine outside of an environment,
+you will need to use the python3 and pip3 commands exclusively.
+
+## Step 4: Installing NumPy on your Raspberry Pi - DONE
+You should now be in the `cv_env` virtual environment and it should be activated
+(which you should stay in for the rest of these steps).
+Our only Python dependency is NumPy, a Python package used for numerical processing.
+We install this now (this will take several minutes):
+
+```bash
+# install python numpy package
+cd ~/src/cv_env
+source ~/src/cv_env/bin/activate
+pip install numpy
+```
+
+## Step 5: Compile and Install OpenCV - DONE
+We are now ready to compile and install OpenCV.
+Make sure you're still in the `cv_env` virtual environment by examining your prompt
+(You should see the `cv_env` text preceding the prompt.)
+
+```bash
+# create and enter the directoy where opencv will be built
+cd ~/src/opencv-3.3.0
+mkdir build
+cd build
+
+# create the makefile for the build
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_PYTHON_EXAMPLES=ON -D OPENCV_EXTRA_MODULES_PATH=~/src/opencv_contrib-3.3.0/modules -D BUILD_EXAMPLES=ON ..
+
+# execute the make file
+# note: if you have a compiler error, do "make clean" and then just "make"
+make
+
+# install opencv executables and libraries
+sudo make install
+
+# creates the necessary links and cache to the most recent shared libraries
+sudo ldconfig
+```
+
+Provided the above steps finished without error,
+OpenCV should now be installed in `/usr/local/lib/python3.5/site-pacakges`.
+You should verify this:
+
+```bash
+# verify the opencv install
+$ ls -l /usr/local/lib/python3.5/site-packages/
+total 3876
+-rw-r--r-- 1 root staff 3968464 Sep  5 17:11 cv2.cpython-35m-arm-linux-gnueabihf.so
+```
+
+For some reason (bug in the CMake script?),
+the OpenCV 3 file for Python 3+ binding has the extention `.so`
+and named `cv2.cpython-35m-arm-linux-gnueabihf.so` (or some variant of)
+rather than simply `cv2.so` like  it should.
+This needs to be fixed:
+
+```bash
+# enter the target directory
+cd /usr/local/lib/python3.5/site-packages/
+
+# rename the file
+sudo mv cv2.cpython-35m-arm-linux-gnueabihf.so cv2.so
+
+# sym-link our opencv bindings into the cv virtual environment for python 3.5
+#cd ~/.virtualenvs/cv/lib/python3.5/site-packages/
+cd ~/src/cv_env/lib/python3.5/site-packages/
+ln -s /usr/local/lib/python3.5/site-packages/cv2.so cv2.so
+```
+
+## Step 6: Test OpenCV 3 Install - DONE
+To validate the install of OpenCV and its binding with Python3,
+open up a new terminal, execute the `source` and `workon` commands,
+and then attempt to import the Python + OpenCV bindings:
+
+```bash
+[cv_env] $ ~/src/cv_env $ python
+Python 3.5.3 (default, Jan 19 2017, 14:11:04)
+[GCC 6.3.0 20170124] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import cv2
+>>> cv2.__version__
+'3.3.0'
+>>>
+```
+
+Appears that OpenCV 3.3.0 has been successfully installed
+on Raspberry Pi 3 + Python 3.5 environment.
+
+Once your absolutely sure OpenCV has been successfully installed,
+you can remove both the `~/src/opencv-3.3.0` and `~/src/opencv_contrib-3.3.0`
+directories to free up a bunch of space on your disk.
+
+## Step 7: Test the Camera and Install Required Python Module - DONE
+Before we go any further,
+we need to make sure the camera on the Raspberry Pi works.
+The install instructions for the camera can bout found [here][47].
+To test out the camera, just use some of the simple tools
+that come with the RPi:
+
+```bash
+# test the raspberry pi camer to make sure it works
+raspistill -o output.jpg
+display output.jpg
+```
+
+With the last command, you should see a picture displayed.
+
+So we know now the Raspberry Pi camera is working properly,
+but how do we interface with the Raspberry Pi camera module using Python?
+To do this, we'll use [Python's picamera][48].
+To do the install,
+make sure your in the `cv_env` virtual environment,
+and execute the following commands:
+
+```bash
+# install picamera modual with the array sub-module
+pip install "picamera[array]"
+```
+The standard picamera module provides methods to interface with the camera,
+but we need the array sub-module so that we can utilize OpenCV.
+With our Python bindings, OpenCV represents images as NumPy arrays
+and the array sub-module enables this.
+
+## Step 8: Uploading Test Data - DONE
+OpenCV is all about processing visual images,
+so your going to need test data,
+potential a great deal of it, in the form of pictures and videos.
+Some sources to consider are:
+
+* Search Google for images or videos to download
+* You can use the utility [`youtube-dl`][46] (may want to use the `-k` option)
+to download videos from Youtube, or from nearly any website.
+* [USC-SIPI image database](http://sipi.usc.edu/database/)
+
+You can use SSH to move data from your local desktop to the Raspberry Pi.
+I did this with the following commands:
+
+```bash
+cd ~/src/cv_env
+mkdir videos images
+
+# copy a file from your computer to another computer
+# scp <file> <username>@<IP address or hostname>:<Destination>
+
+# load images to the raspberry pi
+scp ~/Downloads/Lenna.png pi@BlueRPi:~/src/cv_env/images
+scp ~/Downloads/Lenna.tif pi@BlueRPi:~/src/cv_env/images
+scp ~/Downloads/Lenna.jpg pi@BlueRPi:~/src/cv_env/images
+
+# load videos to the raspberry pi
+scp ~/Downloads/All-is-Full-of-Love-by-Bjork.mp4 pi@BlueRPi:~/src/cv_env/videos
+```
+
+# Install Jupyter Notebook
+I want a interactive and feature rich environment for doing my OpenCV work,
+and I found that in [Jupyter Notebook][55].
+Like the OpenCV package, giving a proper introduction to Jupyter Notebook
+could fill multiple books, web pages, news articles, and in fact does!
+Jupyter is an evolution of the IPython Notebook,
+but now [language agnostic and much more][54]
+If you want to get a sense of the power and versatility of Jupyter Notebook,
+check out the links below:
+
+* [A gallery of interesting Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+* [Jupyter nbviewer](http://nbviewer.jupyter.org/)
+* [IPython Notebook best practices for data science](https://www.youtube.com/watch?v=JI1HWUAyJHE)
+
+If you wish to covert the Jupyter Notebooks to another format for publishing
+(ex. HTML, PDF, Markdown, and more),
+they can be created by using the [nbconvert][52] utility.
+Another nice fact is that Jupyter Notebook files
+(i.e. `*.ipynb`) will render automatically on GitHub/Gist ([example][53])
+giving you a public way to share or .
+
+Installing Jupyter Notebook on your computer is documented [here][50].
+For new users, they highly recommend installing it via [Anaconda][51],
+but as an existing Python user, you can do the following:
+
+```bash
+# update your pip utility
+pip3 install --upgrade pip
+
+# install jupyter
+pip3 install jupyter
+
+# install some of the commonly used python packages
+pip3 install matplotlib
+pip3 install seaborn
+pip3 install sklearn
+pip3 install pandas
+```
+
+You can start the Jupyter Notebook via several ways:
+
+```bash
+# enter this commad in a terminal and your browser will open with jupyter (http://localhost:8888)
+jupyter notebook
+
+# same but openning in port 9999
+jupyter notebook --port 9999
+
+# start notebook server without opening a web browser
+jupyter notebook --no-browser
+
+# notebook server provides help messages
+jupyter notebook --help
+```
+
+What if you Jupyter environment isn't on your local computer,
+but instead on a remote compute accessible via TCP/IP?
+You want to open and manipulate an Jupyter Notebook running on the remote computer.
+This can be done by opening an SSH tunnel.
+This tunnel will forward the port used by the remotely running Jupyter Notebook server instance
+to a port on your local machine,
+where it can be accessed in a browser just like a locally running Jupyter Notebook instance.
+
+On the remote machine, start the Jupyter Notebooks server:
+
+```bash
+# on the remote machine, start the jupyter notebooks server
+jupyter notebook --no-browser --port=8889
+```
+
+On the local machine, start an SSH tunnel:
+
+```bash
+# on the local machine, start an SSH tunnel
+# run in background: ssh -f -N -L localhost:8888:localhost:8889 remote_user@remote_host
+# run in foreground: ssh -N -L localhost:8888:localhost:8889 remote_user@remote_host
+ssh -N pi@BlueRPi -L localhost:8888:localhost:8889
+```
+
+Now enter `localhost:8888` in your favorite browser to use the remote Jupyter Notebook!
+
+* [Remote Access to IPython Notebooks via SSH](https://coderwall.com/p/ohk6cg/remote-access-to-ipython-notebooks-via-ssh)
+* [Use Jupyter notebook remotely](http://amber-md.github.io/pytraj/latest/tutorials/remote_jupyter_notebook)
+* [Running a notebook server](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html)
+* [Jupyter Notebook on remote server](https://coderwall.com/p/y1rwfw/jupyter-notebook-on-remote-server)
+
+# Face Detection Using node-opencv
+[node-opencv][42] is OpenCv's bindings for Node.js.
+
+
+* https://github.com/drejkim/pyenv-opencv/blob/master/detection.py
+* [node-opencv GitHub](https://github.com/peterbraden/node-opencv)
+* [node-opencv documentation](http://peterbraden.github.io/node-opencv/)
+* [Real-time face detection using OpenCV, Node.js, and WebSockets](http://drejkim.com/blog/2014/12/02/real-time-face-detection-using-opencv-nodejs-and-websockets/)
+* [face-detection-node-opencv GitHub](https://github.com/drejkim/face-detection-node-opencv)
+
+################################################################################
 
 * [Install guide: Raspberry Pi 3 + Raspbian Jessie + OpenCV 3](http://www.pyimagesearch.com/2016/04/18/install-guide-raspberry-pi-3-raspbian-jessie-opencv-3/)
 * [OpenCV and Pi Camera Board](https://thinkrpi.wordpress.com/2013/05/22/opencv-and-camera-board-csi/)
@@ -490,6 +881,8 @@ but I highly recommend.
 * [How to Process Live Video Stream Using FFMPEG and OpenCV](http://blog.lemberg.co.uk/how-process-live-video-stream-using-ffmpeg-and-opencv)
 * [OpenCV remote (web-based) stream processing](https://github.com/ECI-Robotics/opencv_remote_streaming_processing)
 * [Raspberry Pi Camera openCV rendering with low latency streaming with gstreamer via RTP](http://hopkinsdev.blogspot.com/2016/06/raspberry-pi-camera-opencv-rendering.html)
+
+################################################################################
 
 # Networked Birdhouse
 * [Networked Solar Birdhouses Deep in the Woods](http://hackaday.com/2016/05/20/making-solar-powered-networked-birdhouses-putting-them-in-the-middle-of-the-woods/)
@@ -512,6 +905,114 @@ but the articles "[How to Operate Linux Spycams With Motion][118]" and
 
 # Other
 * [IoT IP camera teardown and getting root password](http://jelmertiete.com/2016/03/14/IoT-IP-camera-teardown-and-getting-root-password/)
+
+
+# Installing OpenCV and Jupyter on Ubuntu
+I also want OpenCV on my Linux desktop which is running Ubuntu 17.04.
+I used the installation procedure below, which was derived from
+[this website](http://milq.github.io/install-opencv-ubuntu-debian/).
+
+```bash
+################################# Update Linux #################################
+
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y dist-upgrade
+sudo apt-get -y autoremove
+
+######################### Install OpenCV Dependencies ##########################
+
+# required build tools
+sudo apt-get install -y build-essential cmake
+
+# GUI (if you want to use GTK instead of Qt, replace 'qt5-default' with 'libgtkglext1-dev' and remove '-DWITH_QT=ON' option in CMake)
+sudo apt-get install -y qt5-default libvtk6-dev
+
+# Media I/O
+sudo apt-get install -y zlib1g-dev libjpeg-dev libwebp-dev libpng-dev libtiff5-dev libjasper-dev libopenexr-dev libgdal-dev
+
+# NOTE: At the time of this install, ibjasper-dev was not available for Ubuntu 17.04.
+# I needed to install the package from an earlier release.  I did the following
+# echo "deb http://us.archive.ubuntu.com/ubuntu/ yakkety universe" | sudo tee -a /etc/apt/sources.list
+# sudo apt-get update
+# sudo apt-get install libjasper-dev
+
+# Video I/O
+sudo apt-get install -y libdc1394-22-dev libavcodec-dev libavformat-dev libswscale-dev libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev yasm libopencore-amrnb-dev libopencore-amrwb-dev libv4l-dev libxine2-dev
+
+# Parallelism and linear algebra libraries
+sudo apt-get install -y libtbb-dev libeigen3-dev
+
+# get python 2.7 and python 3 header files so we can compile opencv with python bindings
+sudo apt-get install python2.7-dev python3-dev
+
+# to manage software packages for python 3, let’s install pip and virtual env tool
+sudo apt-get install python3-pip
+sudo apt-get install python3-venv
+
+# Java
+sudo apt-get install -y ant default-jdk
+
+# Documentation
+sudo apt-get install -y doxygen
+
+################################ Install OpenCV ################################
+
+# move to the direct where opencv will be installed
+cd ~/src
+
+# download and install opencv
+wget -O opencv.zip https://github.com/opencv/opencv/archive/3.3.0.zip
+unzip opencv.zip
+
+# download and install opencv_contrib
+wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/3.3.0.zip
+unzip opencv_contrib.zip
+
+# remove zip files
+rm opencv.zip opencv_contrib.zip
+
+# create and enter the directoy where opencv will be built
+cd ~/src/opencv-3.3.0
+mkdir build
+cd build
+
+# create the makefile for the build
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_PYTHON_EXAMPLES=ON -D OPENCV_EXTRA_MODULES_PATH=~/src/opencv_contrib-3.3.0/modules -D BUILD_EXAMPLES=ON ..
+
+# execute the make file
+# note: if you have a compiler error, do "make clean" and then just "make"
+make -j4
+
+# install opencv executables and libraries
+sudo make install
+
+# creates the necessary links and cache to the most recent shared libraries
+sudo ldconfig
+```
+
+Provided the above steps finished without error,
+OpenCV should now be installed in `/usr/local/lib/python3.5/dist-packages/`.
+You should verify this:
+
+```bash
+# verify the opencv install
+$ ls -l /usr/local/lib/python3.5/dist-packages/
+total 3876
+-rw-r--r-- 1 root staff 3968464 Sep  5 17:11 cv2.cpython-35m-x86_64-linux-gnu.so
+```
+
+For some reason (bug in the CMake script?),
+the OpenCV 3 file for Python 3+ binding has the extention `.so`
+and named `cv2.cpython-35m-x86_64-linux-gnu.so` (or some variant of)
+rather than simply `cv2.so` like  it should.
+This needs to be fixed:
+
+```bash
+# enter the target directory and rename the file
+cd /usr/local/lib/python3.5/dist-packages/
+sudo mv cv2.cpython-35m-x86_64-linux-gnu.so cv2.so
+```
 
 
 
@@ -556,15 +1057,25 @@ but the articles "[How to Operate Linux Spycams With Motion][118]" and
 [39]:https://en.wikipedia.org/wiki/VideoCore
 [40]:http://elinux.org/Raspberry_Pi_VideoCore_APIs#Built-in_Sample_Programs
 [41]:https://github.com/opencv/opencv
-[42]:
-[43]:
-[44]:
-[45]:
-[46]:
-[47]:
-[48]:
+[42]:https://www.npmjs.com/package/opencv
+[43]:http://www.pyimagesearch.com/2017/09/04/raspbian-stretch-install-opencv-3-python-on-your-raspberry-pi/
+[44]:https://www.adafruit.com/product/3099
+[45]:https://en.wikipedia.org/wiki/Graphics_processing_unit
+[46]:https://rg3.github.io/youtube-dl/download.html
+[47]:https://thepihut.com/blogs/raspberry-pi-tutorials/16021420-how-to-install-use-the-raspberry-pi-camera
+[48]:http://picamera.readthedocs.io/en/release-1.9/index.html
 [49]:
-[50]:
+[50]:http://jupyter.org/install.html
+[51]:https://www.anaconda.com/
+[52]:https://nbconvert.readthedocs.io/en/latest/
+[53]:https://github.com/barbagroup/AeroPython/blob/master/lessons/01_Lesson01_sourceSink.ipynb
+[54]:https://www.quora.com/What-is-the-difference-between-Jupyter-and-IPython-Notebook
+[55]:http://jupyter.org/
+[56]:
+[57]:
+[58]:
+[59]:
+[60]:
 
 [109]:http://www.lavrsen.dk/foswiki/bin/view/Motion/WebHome
 

@@ -1,4 +1,6 @@
 
+* [Pre-configured Amazon AWS deep learning AMI with Python](http://www.pyimagesearch.com/2017/09/20/pre-configured-amazon-aws-deep-learning-ami-with-python/)
+
 The Amazon Dash Button is a tiny WiFi-enabled device that’s
 a simple button with a logo on the front.
 It's IoT implementation for the [Amazon Dash Replenishment (DRS)][17] service.

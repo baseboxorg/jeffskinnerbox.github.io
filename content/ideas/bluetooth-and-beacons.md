@@ -722,6 +722,7 @@ And all the while, Bluetooth 5 is backwards-compatible with the Bluetooth 4.x ve
 
 To take an even deeper dive into Bluetooth 5, check out these references:
 
+* [What is Bluetooth 5? Learn about the Bit Paths Behind the New BLE Standard](https://www.allaboutcircuits.com/technical-articles/long-distance-bluetooth-low-energy-bit-data-paths)
 * [What is Bluetooth 5 – Gary explains](http://www.androidauthority.com/bluetooth-5-gary-explains-703734/)
 * [The truth about Bluetooth 5 – Gary explains](http://www.androidauthority.com/bluetooth-5-speed-range-762369/)
 * [Taking a deeper dive into Bluetooth 5 from Nordic Semiconductor](http://www.semiconductorstore.com/blog/2017/Taking-a-deeper-dive-into-Bluetooth-5-from-Nordic-Semiconductor/2265)
@@ -755,6 +756,15 @@ To learn more about Bluetooth Mesh, check out the following:
 * [How Bluetooth 5 and ilumi MeshTek create the perfect IoT platform for 2017 and beyond](https://ilumi.co/blogs/pulse/how-will-bluetooth-5-impact-bluetooth-mesh-networks)
 * [Introducing the world’s first BLE mesh networking that lasts years on battery power](http://blog.estimote.com/post/153812538740/introducing-the-worlds-first-ble-mesh-networking)
 * [Securing the Mesh](https://hackaday.io/project/6020-bluetooth-low-energy-mesh-protocol/log/19063-securing-the-mesh)
+
+Silicon Labs
+* https://sub.allaboutcircuits.com/white-papers/silicon-labs/Whitepaper_Bluetooth_Mesh_Technology.pdf
+* https://www.silabs.com/products/development-tools/software/bluetooth-low-energy/ble-mesh
+* https://www.silabs.com/products/wireless/bluetooth/bluetooth-mesh-introduction
+* https://www.silabs.com/products/development-tools/wireless/bluetooth/blue-gecko-bluetooth-low-energy-soc-starter-kit
+* https://www.silabs.com/products/development-tools/software/bluetooth-low-energy/mobile-apps/ble-mesh
+* https://www.silabs.com/products/wireless/learning-center/bluetooth/bluetooth-mesh
+* http://pages.silabs.com/BluetoothMesh.html?source=Event&detail=Webinar
 
 ### Estimote Mesh
 Estimote claims to have the first truly low-energy BLE mesh networking solution.
