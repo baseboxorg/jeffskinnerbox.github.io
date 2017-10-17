@@ -1242,6 +1242,9 @@ could be gathered for this cheat sheet.&lt;/p&gt;
 &lt;li&gt;&lt;a href="http://codemirror.net/"&gt;CodeMirror&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://lalashan.mcmaster.ca/theobio/projects/index.php/TextAid"&gt;TextAid&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.catonmat.net/blog/bash-vi-editing-mode-cheat-sheet/"&gt;Working Productively in Bash's Vi Command Line Editing Mode (with Cheat Sheet)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://hackaday.com/2017/06/21/vim-normalization/"&gt;VIM Normalization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://opensource.com/article/17/2/vim-plugins-writers?sc_cid=70160000001206xAAA"&gt;Awesome vim plugins for writers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://soledadpenades.com/2013/02/24/using-syntastic-jshint-for-javascript-syntax-checking-on-vim/"&gt;Using Syntastic+JSHint for Javascript syntax checking on Vim&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;script type= "text/javascript"&gt;
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
         var mathjaxscript = document.createElement('script');

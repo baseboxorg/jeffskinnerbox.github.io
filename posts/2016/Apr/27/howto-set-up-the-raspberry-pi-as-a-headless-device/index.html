@@ -138,6 +138,10 @@ da329713833e0785ffd94796304b7348803381db  /home/jeff/Downloads/2016-02-09-raspbi
 </pre></div>
 
 
+<blockquote>
+<p><strong>NOTE:</strong> Latest versons of Raspian may be using SHA-256,
+so replace <code>sha1sum</code> with <code>sha256sum</code> in the above command.</p>
+</blockquote>
 <p>Next you need to unzip the file to retrieve the Linux image file:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>$ unzip 2016-02-09-raspbian-jessie.zip
 Archive:  2016-02-09-raspbian-jessie.zip
@@ -195,13 +199,13 @@ where we need to write the Raspbian image to the SD Card
 <span style="color: #336666">cd</span> /home/jeff/Downloads
 
 <span style="color: #0099FF; font-style: italic"># unmount the sd card reader</span>
-sudo umount /dev/sdj1
+sudo umount /dev/sdj1 /dev/sdj2
 
 <span style="color: #0099FF; font-style: italic"># write the image to the sd card reader</span>
 sudo dd <span style="color: #003333">bs</span><span style="color: #555555">=</span>4M <span style="color: #006699; font-weight: bold">if</span><span style="color: #555555">=</span>2016-02-09-raspbian-jessie.img <span style="color: #003333">of</span><span style="color: #555555">=</span>/dev/sdj
 
 <span style="color: #0099FF; font-style: italic"># ensure the write cache is flushed</span>
-sync
+sudo sync
 
 <span style="color: #0099FF; font-style: italic"># check the integrity of the sd card image</span>
 sudo dd <span style="color: #003333">bs</span><span style="color: #555555">=</span>4M <span style="color: #006699; font-weight: bold">if</span><span style="color: #555555">=</span>/dev/sdj <span style="color: #003333">of</span><span style="color: #555555">=</span>copy-from-sd-card.img
@@ -270,7 +274,30 @@ iface wlan0 inet manual
 
 
 <p>Then change it to this:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>auto wlan0
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span># establish connection to home wifi and other known networks
+auto wlan0
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+</pre></div>
+
+
+<p>So the file <code>/etc/network/interfaces</code> should now look like this:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># interfaces(5) file used by ifup(8) and ifdown(8)</span>
+
+<span style="color: #0099FF; font-style: italic"># Please note that this file is written to be used with dhcpcd</span>
+<span style="color: #0099FF; font-style: italic"># For static IP, consult /etc/dhcpcd.conf and &#39;man dhcpcd.conf&#39;</span>
+
+<span style="color: #0099FF; font-style: italic"># Include files from /etc/network/interfaces.d:</span>
+source-directory /etc/network/interfaces.d
+
+auto lo
+iface lo inet loopback
+
+iface eth0 inet manual
+
+<span style="color: #0099FF; font-style: italic"># establish connection to home wifi and other known networks</span>
+auto wlan0
 allow-hotplug wlan0
 iface wlan0 inet dhcp
     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
@@ -280,16 +307,30 @@ iface wlan0 inet dhcp
 <p>Now open the file <code>etc/wpa_supplicant/wpa_supplicant.conf</code> in an editor
 and add the following to the bottom of the file so your
 Raspberry Pi can connect automatically to your WiFi network:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># home wifi network settings</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># country code environment variable, required for RPi 3</span>
+<span style="color: #003333">country</span><span style="color: #555555">=</span>US
+
+<span style="color: #0099FF; font-style: italic"># path to the ctrl_interface socket and the user group</span>
+<span style="color: #003333">ctrl_interface</span><span style="color: #555555">=</span><span style="color: #003333">DIR</span><span style="color: #555555">=</span>/var/run/wpa_supplicant <span style="color: #003333">GROUP</span><span style="color: #555555">=</span>netdev
+
+<span style="color: #0099FF; font-style: italic"># allow wpa_supplicant to overwrite configuration file whenever configuration is changed</span>
+<span style="color: #003333">update_config</span><span style="color: #555555">=</span>1
+
+<span style="color: #0099FF; font-style: italic"># 1 = wpa_supplicant initiates scanning and AP selection ; 0 = driver takes care of scanning</span>
+<span style="color: #003333">ap_scan</span><span style="color: #555555">=</span>1
+
+<span style="color: #0099FF; font-style: italic"># home wifi network settings</span>
 <span style="color: #003333">network</span><span style="color: #555555">={</span>
-    <span style="color: #003333">id_str</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;home&quot;</span>
-    <span style="color: #003333">ssid</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;&lt;your-network-ssid-name&gt;&quot;</span>
-    <span style="color: #003333">scan_ssid</span><span style="color: #555555">=</span>1
-    <span style="color: #003333">psk</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;&lt;your-network-password&gt;&quot;</span>
-    <span style="color: #003333">proto</span><span style="color: #555555">=</span>RSN
-    <span style="color: #003333">key_mgmt</span><span style="color: #555555">=</span>WPA-PSK
-    <span style="color: #003333">pairwise</span><span style="color: #555555">=</span>CCMP
-    <span style="color: #003333">auth_alg</span><span style="color: #555555">=</span>OPEN
+    <span style="color: #003333">id_str</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;home&quot;</span>                   <span style="color: #0099FF; font-style: italic"># needs to match keyword you used in the interfaces file</span>
+    <span style="color: #003333">ssid</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;&lt;your-network-ssid-name&gt;&quot;</span> <span style="color: #0099FF; font-style: italic"># SSID either as an ASCII string with double quotation or as hex string</span>
+    <span style="color: #003333">mode</span><span style="color: #555555">=</span><span style="color: #FF6600">0</span>                          <span style="color: #0099FF; font-style: italic"># 0 = managed, 1 = ad-hoc, 2 = access point</span>
+    <span style="color: #003333">scan_ssid</span><span style="color: #555555">=</span><span style="color: #FF6600">0</span>                     <span style="color: #0099FF; font-style: italic"># = 1 do not broadcast SSID ; = 0 SSID is visible to scans</span>
+    <span style="color: #003333">proto</span><span style="color: #555555">=</span>WPA RSN                   <span style="color: #0099FF; font-style: italic"># list of supported protocals; WPA = WPA ; RSN = WPA2 (also WPA2 is alias for RSN)</span>
+    <span style="color: #003333">key_mgmt</span><span style="color: #555555">=</span>WPA-PSK WPA-EAP        <span style="color: #0099FF; font-style: italic"># list of authenticated key management protocols (WPA-PSK, WPA-EAP, ...)</span>
+    <span style="color: #003333">psk</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;&lt;your-network-password&gt;&quot;</span>   <span style="color: #0099FF; font-style: italic"># pre-shared key used in WPA-PSK mode ; 8 to 63 character ASCII passphrase</span>
+    <span style="color: #003333">pairwise</span><span style="color: #555555">=</span>CCMP                   <span style="color: #0099FF; font-style: italic"># accepted pairwise (unicast) ciphers for WPA (CCMP, TKIP, ...)</span>
+    <span style="color: #003333">auth_alg</span><span style="color: #555555">=</span>OPEN                   <span style="color: #0099FF; font-style: italic"># authentication algorithms (OPEN, ShARED, LEAP, ...)</span>
+    <span style="color: #003333">priority</span><span style="color: #555555">=</span><span style="color: #FF6600">5</span>                      <span style="color: #0099FF; font-style: italic"># priority of selecting network (larger numbers are higher priority)</span>
 <span style="color: #555555">}</span>
 </pre></div>
 
@@ -307,7 +348,7 @@ Raspberry Pi can connect automatically to your WiFi network:</p>
 <p>If you want to include other WiFi networks,
 just add another <code>network</code> structure to the file <code>etc/wpa_supplicant/wpa_supplicant.conf</code>.
 (See examples <a href="http://raspberrypi.stackexchange.com/questions/11631/how-to-setup-multiple-wifi-networks">here</a> and <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=91&amp;t=14226">here</a>)</p>
-<h3>Step 4: Configure SSH</h3>
+<h3>Step 4: Configure SSH and Set Hostname</h3>
 <p><a href="https://www.raspberrypi.org/documentation/remote-access/ssh/">As of the November 2016 release</a>, Raspbian has the SSH server disabled by default.
 You will have to enable it manually.
 This can done using <code>raspi-config</code> once you login via monitor/keyboard/mouse
@@ -324,6 +365,10 @@ touch /media/jeff/boot/ssh
 <p>You'll notice that this file is remove once you boot up the Raspberry Pi.
 You need to use <code>raspi-config</code>, as shown in a later step of these instructions,
 to permanently activate SSH.</p>
+<p>You can also set the host name of the Raspberry Pi now by modifying the contents
+of <code>/etc/hostname</code>.
+Just edit its contests, which is currently <code>raspberry</code> to what you would like.
+If you do this, you can skip the host name modification step that appears in latter steps.</p>
 <h3>Step 5: First Time Boot of the Raspberry Pi</h3>
 <p>Now unmount the SD Card, put the SD Card into the Raspberry Pi,
 plug a <a href="http://www.amazon.com/Edimax-EW-7811Un-150Mbps-Raspberry-Supports/dp/B003MTTJOY">WiFi dongle</a> into the Raspberry Pi
@@ -331,7 +376,7 @@ plug a <a href="http://www.amazon.com/Edimax-EW-7811Un-150Mbps-Raspberry-Support
 After approximately a minute, the Raspberry Pi will have completely booted up.
 At this point your WiFi router should have automatically assigned an IP to the Raspberry Pi
 (assuming the router is running DHCP).</p>
-<p>To access the Raspberry Pi, we'll need its host name
+<p>To access the Raspberry Pi, we'll need its host name, which you provided in Step 4,
 (generally this defaults to <code>raspberrypi</code>) or
 we’ll need to get the IP address it has been assigned by the network,
 which you can get via your WiFi routers administrate interface or <code>nmap</code> or <code>arp</code>.
@@ -393,14 +438,16 @@ Under these conditions, you would be prompted for the next step automatically.</
 </blockquote>
 <h3>Step 6: Configure the Raspberry Pi</h3>
 <p>You should now run the <code>sudo raspi-config</code> (see <a href="http://elinux.org/RPi_raspi-config">raspi-config documentation</a>)
-The multiple things can be configured within this configuration tool.
+This is an interactive script that allowing you to configured multiple devices settings.
 We need to change the following:</p>
 <ul>
-<li><strong>Expand Filesystem</strong> - select this</li>
+<li><strong>Hostname</strong> select this and change the name of the device</li>
 <li><strong>Boot Options</strong> - select this and choose "B1 Console" - You will need a password to get console access. Gives you greater security and allow console cables to work via <a href="http://www.computerhope.com/unix/screen.htm"><code>screen</code></a> and <a href="http://manpages.ubuntu.com/manpages/xenial/man1/microcom.1.html"><code>microcom</code></a>.</li>
-<li><strong>Advanced Options</strong> - select this and choose "A2 Hostname", enable "A4 SSH", enable "A5 Device Tree", enable "A6 SPI", enable "A7 IC2", enable "A8 Serial"</li>
+<li><strong>Interface</strong> enable "P2 SSH", enable "P4 SPI", enable "P5 IC2", enable "P6 Serial", enable "P7 1-Wire"</li>
+<li><strong>Advanced Options</strong> - select "A1 Expland Filesystem"</li>
 </ul>
-<p>Finally, select <code>&lt;Finish&gt;</code> and reboot so that the configuration changes are all applied.</p>
+<p>Finally, select <code>&lt;Finish&gt;</code> but don't reboot yet.
+Make this final update:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># set the time zone for your device</span>
 sudo timedatectl set-timezone America/New_York
 
@@ -408,13 +455,15 @@ sudo reboot
 </pre></div>
 
 
+<blockquote>
+<p>**NOTE: You can run <code>raspi-config</code> as a non-interactive command line tool.
+See "<a href="https://www.52pi.com/blog/19-instructions-of-command-line-in-raspi-config">Instructions of command-line in Raspi-config</a>".</p>
+</blockquote>
 <h3>Step 7: OS Updates</h3>
 <p>Let's make sure you have all the most current Linux packages.
 This will patch the Linux operating system and all its GPL applications</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># commandline utility for applications upgrade</span>
-sudo apt-get update
-sudo apt-get dist-upgrade
-sudo apt-get upgrade
+sudo apt-get update <span style="color: #555555">&amp;&amp;</span> sudo apt-get dist-upgrade
 
 <span style="color: #0099FF; font-style: italic"># clean up any packages no longer needed</span>
 sudo apt-get autoremove
@@ -502,18 +551,17 @@ sudo pip install RPi.GPIO pySerial nose cmd2
 </pre></div>
 
 
-<p>Install X Window utilities, development tools, and other applications</p>
+<p>Install X Window utilities, some general development tools, and other applications</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># some X Window utilities</span>
 sudo apt-get install x11-apps x11-xserver-utils xterm wmctrl
 
 <span style="color: #0099FF; font-style: italic"># tools for viewing and minipulating image &amp; video files</span>
 sudo apt-get install imagemagick feh mplayer2
 
-<span style="color: #0099FF; font-style: italic"># development tools</span>
+<span style="color: #0099FF; font-style: italic"># general development tools</span>
 sudo apt-get install markdown git vim vim-gtk libcanberra-gtk-module
 sudo apt-get install microcom screen
-sudo apt-get install nodejs-legacy npm build-essential i2c-tools python-smbus
-sudo npm install -g jshint
+sudo apt-get install build-essential i2c-tools libssl-dev
 
 <span style="color: #0099FF; font-style: italic"># so you can discover hosts via Multicast Domain Name System (mDNS)</span>
 sudo apt-get install avahi-daemon
@@ -526,11 +574,6 @@ sudo apt-get install sendmail gnome-terminal jq
 </pre></div>
 
 
-<blockquote>
-<p><strong>NOTE:</strong> To avoid a <a href="http://stackoverflow.com/questions/21168141/cannot-install-packages-using-node-package-manager-in-ubuntu">potential namespace collision</a> for the word "node",
-specifically as it relates to <a href="https://nodejs.org/en/">Node.js</a>,
-make sure to use the <code>nodejs-legacy</code> package for Node.js.</p>
-</blockquote>
 <p>Appears that getting my favorite browser,
 <a href="https://www.google.com/chrome/browser/desktop/index.html">Chrome</a> or its open source version <a href="https://www.chromium.org/">Chromium</a>,
 on the Raspberry Pi <a href="http://conoroneill.net/running-the-latest-chromium-45-on-debian-jessie-on-your-raspberry-pi-2/">got a bit harder</a>.
@@ -599,7 +642,36 @@ ln -s ~/.X/xsessionrc ~/.xsessionrc
 </pre></div>
 
 
-<h3>Step 11: Boot Without Starting X Window (Optional)</h3>
+<h3>Step 11: Node.js Development Tools (Optional)</h3>
+<p>Now we'll install some of the Node.js development tools.
+This must come after installing my personal tools
+since  the installation of <code>nvm</code> will modify the <code>~/.bashrc</code> file.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># first you need to modify your .bashrc file since you copied it from github</span>
+sed --in-place <span style="color: #CC3300">&#39;s/\/home\/jeff\/.nvm/\/home\/pi\/.nvm/&#39;</span> ~/.bashrc
+<span style="color: #336666">source</span> ~/.bashrc
+
+<span style="color: #0099FF; font-style: italic"># install or update the node version manager (nvm), do the following</span>
+<span style="color: #0099FF; font-style: italic"># https://github.com/creationix/nvm</span>
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+
+<span style="color: #0099FF; font-style: italic"># install the latest stable version of node and make it the default version</span>
+nvm install 6.11.1
+
+<span style="color: #0099FF; font-style: italic"># install the latest version of npm</span>
+npm install npm@latest --global
+
+<span style="color: #0099FF; font-style: italic"># node development tools</span>
+npm install jshint --global
+</pre></div>
+
+
+<blockquote>
+<p><strong>NOTE:</strong> If you choose to install Node.js via apt-get package management,
+you'll need to avoid a <a href="http://stackoverflow.com/questions/21168141/cannot-install-packages-using-node-package-manager-in-ubuntu">potential namespace collision</a> for the word "node",
+specifically as it relates to <a href="https://nodejs.org/en/">Node.js</a>,
+make sure to use the <code>nodejs-legacy</code> package for Node.js.</p>
+</blockquote>
+<h3>Step 12: Boot Without Starting X Window (Optional)</h3>
 <p>The Raspberry Pi's Jessie image is configured to automatically bring up the X Window
 graphics system and the supporting GUI (aka <a href="https://en.wikipedia.org/wiki/X_display_manager_(program_type)">X Window System Display Manager</a>).
 Generally, your not going to be using an RPi to support GUI's for users.
@@ -627,7 +699,7 @@ multi-user.target
 <p>Note that at this point the X Server will still be running.
 You can see this via the command <code>ps -aux | grep X</code>.
 You need to reboot the RPi and then you will no long have X Window running.</p>
-<h3>Step 12: Running X Window Clients When You Want It (Optional)</h3>
+<h3>Step 13: Running X Window Clients When You Want It (Optional)</h3>
 <p><a href="http://www.xquartz.org/index.html">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="The XQuartz project is an open-source effort to develop a version of the X.Org X Window System that runs on OS X." alt="XQuartz Logo" src="http://jeffskinnerbox.me/images/xquartz-logo.jpg" width="70" height="70" />
 </a>
@@ -671,8 +743,8 @@ Here is vi/vim command line (<a href="http://vim.wikia.com/wiki/Su-write">source
 
 
 <p>You could alias this in your <code>.vimrc</code> file with this:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>&quot; invoke root privilege when writing file
-command W w !sudo tee % &gt; /dev/null
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #CC3300">&quot; invoke root privilege when writing file</span>
+<span style="color: #CC3300">command W w !sudo tee % &gt; /dev/null</span>
 </pre></div>
 
 
@@ -680,7 +752,7 @@ command W w !sudo tee % &gt; /dev/null
 but just using a terminal, say with <a href="http://aperiodic.net/screen/start">screen</a> using a <a href="https://learn.adafruit.com/adafruits-raspberry-pi-lesson-5-using-a-console-cable/overview">console cable</a>,
 your not going to be able run X Window System applications.
 You <strong>must</strong> be connected via TCP/IP to the Raspberry Pi.</p>
-<h3>Step 13: Password-less Login via SSH Keys (Optional)</h3>
+<h3>Step 14: Password-less Login via SSH Keys (Optional)</h3>
 <p><a href="http://www.openssh.com/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="OpenSSH is for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options." alt="open ssh" src="http://jeffskinnerbox.me/images/openssh-logo.png" width="92" height="90" />
 </a>
@@ -692,14 +764,14 @@ Also, public key authentication allows you to log into a machine
 without a user typing in a password.</p>
 <p>To setup password-less login via public key authentication,
 use the posting <a href="http://jeffskinnerbox.me/posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/">"HowTo: Configure SSH Public Key Authentication"</a>.</p>
-<h3>Step 13: Static IP Address (Optional)</h3>
+<h3>Step 15: Static IP Address (Optional)</h3>
 <p>Currently, your Raspberry Pi connects automatically to your WiFi network
 every time it is tuned on,
 but you may want to specify a static IP address to communicate with your RPi.</p>
 <p>For example, to set the static IP address to <code>192.168.100.50</code>,
 you'll need to update the file <code>/etc/network/interfaces</code>.
 This file currently looks like this:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span># Include files from /etc/network/interfaces.d:
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># Include files from /etc/network/interfaces.d:</span>
 source-directory /etc/network/interfaces.d
 
 auto lo
@@ -715,7 +787,7 @@ iface wlan0 inet dhcp
 
 
 <p>For your static IP address, modify file <code>/etc/network/interfaces</code> to look like:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span># Include files from /etc/network/interfaces.d:
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># Include files from /etc/network/interfaces.d:</span>
 source-directory /etc/network/interfaces.d
 
 auto lo
@@ -771,7 +843,7 @@ Here is a brief summary for your typical needs:</p>
 </ul>
 </li>
 </ul>
-<h3>Step 14: Configure Firewall (Optional)</h3>
+<h3>Step 16: Configure Firewall (Optional)</h3>
 <p>I recommend using <a href="https://wiki.ubuntu.com/UncomplicatedFirewall"><code>ufw</code> (Uncomplicated FireWall)</a> to restrict access to the Raspberry Pi.
 The Linux kernel provides a packet filtering system called <a href="https://www.digitalocean.com/community/tutorials/a-deep-dive-into-iptables-and-netfilter-architecture"><code>netfilter</code></a>,
 and the traditional interface for manipulating <code>netfilter</code> are the <a href="http://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/"><code>iptables</code></a> suite of commands.
@@ -782,7 +854,7 @@ To make things easier, several frontends for <code>iptables</code> have been cre
 easy to use interface for people unfamiliar with firewall concepts,
 while at the same time simplifies complicated <code>iptables</code> commands
 to help an administrator who knows what he or she is doing.</p>
-<h3>Step 15: Install Fail2Ban (Optional)</h3>
+<h3>Step 17: Install Fail2Ban (Optional)</h3>
 <p><a href="http://www.fail2ban.org/wiki/index.php/Main_Page">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time." alt="fail2ban logo" src="http://jeffskinnerbox.me/images/fail2ban-logo.png" width="75" height="75" /></a>
 Recently I examined my desktop computer's <code>sshd</code> log file <code>/var/log/auth.log</code>
@@ -791,11 +863,15 @@ I saw a list of well over 100 attempts, from mainly one IP (125.88.177.90 - Guan
 trying to login via SSH as root or bin user.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><span style="color: #0099FF; font-style: italic"># attacks on just port 22</span>
 $ cat /var/log/auth.log | grep <span style="color: #CC3300">&#39;sshd.*Failed&#39;</span> | grep <span style="color: #CC3300">&#39;port 22&#39;</span> | wc
-    <span style="color: #FF6600">171</span>    <span style="color: #FF6600">2814</span>   18950
+    <span style="color: #FF6600">806</span>   <span style="color: #FF6600">11825</span>   81130
 
 <span style="color: #0099FF; font-style: italic"># attacks on any port</span>
 $ cat /var/log/auth.log | grep <span style="color: #CC3300">&#39;sshd.*Failed&#39;</span> | wc
-  <span style="color: #FF6600">11066</span>  <span style="color: #FF6600">182457</span> 1229596
+  <span style="color: #FF6600">57110</span>  <span style="color: #FF6600">834856</span> 5744670
+
+<span style="color: #0099FF; font-style: italic"># failed login attempts</span>
+$ sudo lastb | wc
+ <span style="color: #FF6600">599078</span> <span style="color: #FF6600">5990758</span> 43732586
 </pre></div>
 
 
@@ -838,13 +914,13 @@ While Fail2Ban does provide additional protection, the use of two factor authent
 The use of public/private key authentication mechanisms
 (see <a href="http://jeffskinnerbox.me/posts/2016/Apr/27/howto-configure-ssh-public-key-authentication/">"HowTo: Configure SSH Public Key Authentication"</a>)
 can provide the best protection overall.</p>
-<h3>Step 16: Basic Security (Optional)</h3>
+<h3>Step 18: Basic Security (Optional)</h3>
 <p>Beyond the SSH login security take in Step 15,
 you should minimize your exposure to other network security attacks
 and following some of the tips outlined in the postings
 <a href="https://www.hackster.io/charifmahmoudi/iot-security-tips-to-protect-your-device-from-bad-hackers-768093?utm_source=Hackster.io+newsletter&amp;utm_campaign=3e0b3a91f6-2015_4_17_Top_projects4_16_2015&amp;utm_medium=email&amp;utm_term=0_6ff81e3e5b-3e0b3a91f6-140225889">"IoT Security: Tips to Protect your Device from Bad Hackers"</a>
 and <a href="http://jjjjango.blogspot.com/2015/01/secure-your-raspberry-pi.html">"Secure your Raspberry Pi"</a> is a good start.</p>
-<h3>Step 17: Install Watchdog (Optional)</h3>
+<h3>Step 19: Install Watchdog (Optional)</h3>
 <p><a href="http://dovgalecs.com/blog/keeping-your-raspberry-pi-alive-enabling-hardware-watchdog-under-arch-linux/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="A watchdog timer is a piece of hardware or software that can be used to automatically detect software anomalies and reset the processor if any occur. Generally speaking, a watchdog timer is based on a counter that counts down from some initial value to zero." alt="watchdog" src="http://jeffskinnerbox.me/images/watchdog.jpg" width="115" height="110" />
 </a>
@@ -869,11 +945,11 @@ For how to make use of the watchdog and additional information, check out these 
 <li><a href="http://www.sat.dundee.ac.uk/psc/watchdog/watchdog-configure.html">Linux Watchdog Daemon - Configuring</a></li>
 <li><a href="https://www.kernel.org/doc/Documentation/watchdog/watchdog-api.txt">The Linux Watchdog driver API</a></li>
 </ul>
-<h3>Step 18: Clone the SD Card (Optional)</h3>
-<p>There are a few reasons you might want to duplicate (clone/copy)
-your Raspberry Pi’s SD Card.
+<h3>Step 20: Clone the SD Card (Optional)</h3>
+<p>There are a few reasons you might want to
+<a href="https://www.raspberrypi.org/documentation/linux/filesystem/backup.md">duplicate (clone/copy) your Raspberry Pi’s SD Card</a>.
 One reason is to create a backup.
-Another reason maybe is that you spent untold hours installing and configuring
+Another reason maybe is that you just spent untold hours installing and configuring
 software on your Raspberry Pi,
 and you want to set up a second Raspberry Pi,
 but didn’t want to spend the time to duplicate the previous efforts.</p>
@@ -895,27 +971,39 @@ Make sure all your devices are at the same firmware level or you could have unpr
 <span style="color: #336666">cd</span> /home/jeff/tmp
 
 <span style="color: #0099FF; font-style: italic"># we&#39;ll assume</span>
-<span style="color: #0099FF; font-style: italic">#     sde: this is the primary hard drive</span>
-<span style="color: #0099FF; font-style: italic">#     sde1: this is the SD card</span>
+<span style="color: #0099FF; font-style: italic">#     sdj: this is the primary hard drive</span>
+<span style="color: #0099FF; font-style: italic">#     sdj1: this is the boot partition on the SD card</span>
+<span style="color: #0099FF; font-style: italic">#     sdj2: this is the / partition on the SD card</span>
+
+<span style="color: #0099FF; font-style: italic"># unmount the sd card reader</span>
+sudo umount /dev/sdj1
+sudo umount /dev/sdj2
 
 <span style="color: #0099FF; font-style: italic"># write the sd card copy to the file system</span>
-sudo dd <span style="color: #003333">bs</span><span style="color: #555555">=</span>4M <span style="color: #006699; font-weight: bold">if</span><span style="color: #555555">=</span>/dev/sde1 <span style="color: #003333">of</span><span style="color: #555555">=</span>sd-card.bin
+sudo dd <span style="color: #003333">bs</span><span style="color: #555555">=</span>4M <span style="color: #006699; font-weight: bold">if</span><span style="color: #555555">=</span>/dev/sdj <span style="color: #003333">of</span><span style="color: #555555">=</span>~/tmp/sd-card-backup.img
+
+<span style="color: #0099FF; font-style: italic"># ensure the write cache is flushed</span>
+sudo sync
+sudo umount /dev/sdj
+</pre></div>
+
+
+<p>Now you have an image of the Raspberry Pi on you desktop computerr hard drive.
+When it comes time to create another Raspberry Pi with this same image,
+use the following procedure:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span>umount /dev/sdj
+
+<span style="color: #0099FF; font-style: italic"># take sd card image you just created and writes it to the device</span>
+sudo dd <span style="color: #003333">bs</span><span style="color: #555555">=</span>4M <span style="color: #006699; font-weight: bold">if</span><span style="color: #555555">=</span>~/tmp/sd-card-backup.img <span style="color: #003333">of</span><span style="color: #555555">=</span>/dev/sdj
 
 <span style="color: #0099FF; font-style: italic"># ensure the write cache is flushed and unmount</span>
-sync
-sudo umount /dev/sde1
-
-<span style="color: #0099FF; font-style: italic">#  take sd card image you just created and writes it to the device</span>
-sudo dd <span style="color: #003333">bs</span><span style="color: #555555">=</span>4M <span style="color: #006699; font-weight: bold">if</span><span style="color: #555555">=</span>sd-card.bin <span style="color: #003333">of</span><span style="color: #555555">=</span>/dev/sde1
-
-<span style="color: #0099FF; font-style: italic"># ensure the write cache is flushed and unmount</span>
-sync
-sudo umount /dev/sde1
+sudo sync
+sudo umount /dev/sdj
 </pre></div>
 
 
 <p>You should now be able to insert the cloned SD Card into a brand new Raspberry Pi and boot it up,
-but you will likely run into some problems.
+but you will want to make some adjustments.
 There are some things you want to change on the cloned Raspberry Pi SC Card.
 For one thing, you should change the cloned Raspberry Pi’s host name
 so it doesn’t conflict with the original Raspberry Pi on the network.
