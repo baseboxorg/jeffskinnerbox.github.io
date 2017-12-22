@@ -38,6 +38,7 @@ A [search of eBay for "VoIP Intercom"][ebay] gets you device that range from $15
 * [DIY Baby Monitor](https://antibore.wordpress.com/2016/11/10/diy-baby-monitor/)
 * [HackspaceHat part 1: WebRTC, Janus and Gstreamer](https://planb.nicecupoftea.org/2015/07/28/hackspacehat-part-1-webrtc-janus-and-gstreamer/)
 * [Building a Raspberry Pi 2 WebRTC camera](https://www.rs-online.com/designspark/building-a-raspberry-pi-2-webrtc-camera)
+* [FruitNanny: RaspberryPI based Baby Monitor (uses a Janus WebRTC Gateway)](https://ivadim.github.io/2017-08-21-fruitnanny/)
 
 # Google Voice
 * [About Google Voice](https://support.google.com/voice/answer/115061?hl=en&ref_topic=1707989)

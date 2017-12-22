@@ -19,6 +19,8 @@
 * [Drupal 8 on a Cluster of Raspberry Pis](http://www.pidramble.com/)
 * [Raspberry Pi Cluster](http://likemagicappears.com/projects/raspberry-pi-cluster/)
 * [Designing a High Performance Parallel Personal Cluster](http://hackaday.com/2016/05/09/designing-a-high-performance-parallel-personal-cluster/)
+* [Cluster HAT Kit Inc. 4 x Raspberry Pi Zero](https://www.modmypi.com/raspberry-pi/iousbanalogue-expansion-1028/interfacing-1080/cluster-hat-kit-inc.-4-x-raspberry-pi-zero/?search=Cluster%20HAT)
+* [ClusterHAT Case Assembly Instructions](https://www.modmypi.com/blog/clusterhat-case-assembly-instructions)
 
 ## Using Raspberry Pi Zero for Hadoop Cluster
 * Raspberry Pi Zero Cluster "Supercomputer" [Part 1](https://youtu.be/HsIFWk_QHoc) and [Part 2](https://youtu.be/ddrTDCdlYDE)

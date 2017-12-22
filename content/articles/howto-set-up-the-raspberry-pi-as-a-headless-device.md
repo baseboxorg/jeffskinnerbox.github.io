@@ -309,6 +309,10 @@ sudo nmap -sP 192.168.1.0/24
 
 # using arp to find the IP address
 arp -a
+
+# ping sweep without nmap
+# waits for all pings to complete and returns ip with mac address
+(prefix="192.168.1" && for i in `seq 254`; do (sleep 0.5 && ping -c1 -w1 $prefix.$i &> /dev/null && arp -n | awk ' /'$prefix'.'$i' / { print $1 "\t" $3 } ') & done; wait)
 ```
 
 To check to see what devices are running SSH service on port 22:

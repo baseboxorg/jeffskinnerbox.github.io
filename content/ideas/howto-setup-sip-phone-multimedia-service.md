@@ -18,6 +18,7 @@ Summary: bla bla bla
 * [DIY Baby Monitor](https://antibore.wordpress.com/2016/11/10/diy-baby-monitor/)
 * [HackspaceHat part 1: WebRTC, Janus and Gstreamer](https://planb.nicecupoftea.org/2015/07/28/hackspacehat-part-1-webrtc-janus-and-gstreamer/)
 * [Building a Raspberry Pi 2 WebRTC camera](https://www.rs-online.com/designspark/building-a-raspberry-pi-2-webrtc-camera)
+* [FruitNanny: RaspberryPI based Baby Monitor (uses a Janus WebRTC Gateway)](https://ivadim.github.io/2017-08-21-fruitnanny/)
 
 The [Session Initiation Protocol (SIP)][01] is a signaling communications protocol,
 widely used for controlling multimedia communication sessions such as

@@ -140,6 +140,11 @@ but there are things that can be done.
 For one thing, you can [set up an ad-hoc network using WPA security][56].
 
 ## NetworkManager
+* [RPi NetworkManager CLI](http://gary-dalton.github.io/RaspberryPi-projects/rpi_nmcli.html)
+* [Exploring NetworkManager, D-Bus, systemd, and Raspberry Pi](http://dev.iachieved.it/iachievedit/exploring-networkmanager-d-bus-systemd-and-raspberry-pi/)
+* According to [this article](https://raspberrypi.stackexchange.com/questions/48307/sharing-the-pis-wifi-connection-through-the-ethernet-port),
+Network Manager can conflict with dhcpd (the default manager on Raspbian), hence you may need to disable dhcpd.
+
 The default networking setup on Ubuntu
 assumes that you are using the machine as a desktop or a laptop
 ([generally not on Raspberry Pi][49] but [it can be installed][50]).

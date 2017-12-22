@@ -1,5 +1,6 @@
+* [PiTunnel connects your Raspberry Pi to the world](https://techcrunch.com/2017/12/06/pitunnel-connects-your-raspberry-pi-to-the-world/)
 
-When installing a Raspberry Pi on your home network,
+When installing a computer, such as a Raspberry Pi, on your home network,
 its not reachable from the public Internet.
 On your home LAN, your behind a NAT or a firewall and
 it generally can’t act accept income requests for connections.
@@ -9,16 +10,16 @@ and forward traffic from that port, through your home network, to the Raspberry 
 Problem solve!
 Your home based RPi is now accessible anywhere you can get an Internet connection.
 
-But what if your Raspberry Pi is on some private network you can control,
+But what if your Raspberry Pi is on some private network you cannot control,
 where you can't modify the firewall rules and foreword-ports?
-A way around this is called reverse-tunneling.
+A way around this is called [reverse-tunneling][01].
 In reverse tunneling,
 you establish an encrypted connecting out of the RPi, onto the Internet to a third party server.
 This third party then accepts connections from you
 and passes your incoming connection onto the reverse tunnel back to the RPi,
 just as you would have connected directly to it.
 
-Your tunnel connection is encrypted and secured via password (better yet ssh keys).
+Your tunnel connection is encrypted and secured via password (or better yet ssh keys).
 Your connect to the thrid party would also be encripted and password protected,
 giving you total end-to-end protection.
 The only difference is that you always connect to the third party to reach your RPi,
@@ -193,6 +194,8 @@ ngrok http 8090
 google-chrome http://be4fac06.ngrok.io/?action=stream
 ```
 
+* [Ngrok, secure tunnels to your Local Development Environment …or how I exposed my local services in 3 seconds?](https://medium.com/@jotarios/ngrok-secure-tunnels-local-dead8685bd71)
+
 * [How to secure your Raspberry Pi](https://opensource.com/article/17/3/iot-security-raspberry-pi)
 * [Useful Linux Security Tricks To Harden Your System](https://dzone.com/articles/useful-linux-security-tricks-to-harden-your-system?edition=283882&utm_source=weeklydigest&utm_medium=email&utm_campaign=wd2017-03-15)
 * [IoT Security: Tips to Protect your Device from Bad Hackers](https://www.hackster.io/charifmahmoudi/iot-security-tips-to-protect-your-device-from-bad-hackers-768093?ref=platform&ref_id=425_trending___&offset=0)
@@ -305,3 +308,120 @@ google-chrome http://be4fac06.ngrok.io/?action=stream
 * [How an Attacker Could Crack Your Wireless Network Security](https://www.howtogeek.com/191482/how-an-attacker-could-crack-your-wireless-network-security/)
 
 
+
+# Auto-Connect to Open WiFi Network
+[!open-wifi](http://true-random.com/homepage/projects/wifi/free_wifi.jpg)
+I would like this project to auto-connect to any open WiFi network automatically;
+Without knowing the SSID beforehand or involving any human intervention.
+
+To have the RPi Zero search and connect to ANY Open WiFi,
+modifiy the `/etc/network/interfaces`:
+
+```bash
+# Include files from /etc/network/interfaces.d:
+source-directory /etc/network/interfaces.d
+
+auto lo
+iface lo inet loopback
+
+iface eth0 inet manual
+
+# establish connection to home wifi and other known networks
+auto wlan0
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+```
+
+
+See the following `/etc/wpa_supplicant/wpa_supplicant.conf`
+to connect to any open / unsecured wifi in range:
+
+```bash
+# country code environment variable, required for RPi 3
+country=US
+
+# path to the ctrl_interface socket and the user group
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+
+# allow wpa_supplicant to overwrite configuration file whenever configuration is changed
+update_config=1
+
+# 1 = wpa_supplicant initiates scanning and AP selection ; 0 = driver takes care of scanning
+ap_scan=1
+
+# wifi network settings for home network
+network={
+    id_str="home"              # needs to match keyword you used in the interfaces file
+    psk="my-password"          # pre-shared key used in WPA-PSK mode ; 8 to 63 character ASCII passphrase
+    ssid="74LL5"               # SSID either as an ASCII string with double quotation or as hex string
+    mode=0                     # 0 = managed, 1 = ad-hoc, 2 = access point
+    scan_ssid=0                # = 1 scan for hidden SSID ; = 0 scans for visible SSID
+    proto=WPA RSN              # list of supported protocals; WPA = WPA ; RSN = WPA2 (also WPA2 is alias for RSN)
+    key_mgmt=WPA-PSK WPA-EAP   # list of authenticated key management protocols (WPA-PSK, WPA-EAP, ...)
+    pairwise=CCMP              # accepted pairwise (unicast) ciphers for WPA (CCMP, TKIP, ...)
+    auth_alg=OPEN              # authentication algorithms (OPEN, SHARED, LEAP, ...)
+    priority=5                 # priority of selecting this network (larger numbers are higher priority)
+}
+
+wifi network settings for jetpack
+network={
+    id_str="jetpack"           # needs to match keyword you used in the interfaces file
+    psk="my-password"          # pre-shared key used in WPA-PSK mode ; 8 to 63 character ASCII passphrase
+    ssid="Verizon-MiFi6620L-7EE6"      # SSID either as an ASCII string with double quotation or as hex string
+    mode=0                     # 0 = managed, 1 = ad-hoc, 2 = access point
+    scan_ssid=0                # = 1 scan for hidden SSID ; = 0 scans for visible SSID
+    proto=WPA RSN              # list of supported protocals; WPA = WPA ; RSN = WPA2 (also WPA2 is alias for RSN)
+    key_mgmt=WPA-PSK WPA-EAP   # list of authenticated key management protocols (WPA-PSK, WPA-EAP, ...)
+    pairwise=CCMP              # accepted pairwise (unicast) ciphers for WPA (CCMP, TKIP, ...)
+    auth_alg=OPEN              # authentication algorithms (OPEN, SHARED, LEAP, ...)
+    priority=3                 # priority of selecting this network (larger numbers are higher priority)
+}
+
+# connect to any open / unsecured wifi in range (must broadcast an SSID)
+network={
+    id_str="open_wifi"         # needs to match keyword you used in the interfaces file
+    ssid=""                    # SSID isn't important, any will do
+    mode=0                     # 0 = managed, 1 = ad-hoc, 2 = access point
+    key_mgmt=NONE              # network must be open with no security
+    priority=-999              # priority of selecting this network (small number means network of last resort)
+}
+```
+
+Now bring interface down/up and check status.
+Execute `sudo ifconfig wlan0 down && sudo ifconfig wlan0 up && sudo wpa_cli -i wlan0 status`
+and look for `wpa_state=COMPLETED`.
+
+# Auto-Connect to Public WiFi Network
+* [How to get free wifi on public networks](https://medium.freecodecamp.com/free-wifi-on-public-networks-daf716cebc80#.hesy8hhz6)
+    * [FreeWifi](https://github.com/kylemcdonald/FreeWifi)
+    * [SpoofMAC](https://github.com/feross/SpoofMAC)
+
+## Domain Name Server (DNS)
+* [Introduction to the Domain Name System (DNS)](https://opensource.com/article/17/4/introduction-domain-name-system-dns)
+* [Build your own DNS name server on Linux](https://opensource.com/article/17/4/build-your-own-name-server)
+* [dnsd: DNS encoder, decoder, and server](https://github.com/ansuz/modern-dnsd)
+
+## Telemetry over Opportunistic WiFi Links
+* [How DNS Tunneling Works](http://inside-out.xyz/technology/how-dns-tunneling-works.html)
+* [DNS Tunneling: Getting The Data Out Over Other Peoples’ WiFi](http://hackaday.com/2016/08/07/getting-the-data-out-over-other-peoples-wifi/)
+* [TOWL - Telemetry over Opportunistic WiFi Links](http://www.phreakmonkey.com/2016/08/towl-telemetry-over-opportunistic-wifi.html)
+* [Nameserver Transfer Protocol (NSTX)](http://thomer.com/howtos/nstx.html)
+* [iodine](http://code.kryo.se/iodine/)
+* [dnscat2 – DNS Tunnel Tool](http://www.darknet.org.uk/2016/01/dnscat2-dns-tunnel-tool/)
+* [Tunneling Data and Commands Over DNS to Bypass Firewalls](https://zeltser.com/c2-dns-tunneling/)
+* [PowerShell DNS Command & Control with dnscat2-powershell](http://www.blackhillsinfosec.com/?p=5578)
+
+
+
+
+[01]:http://www.thegeekstuff.com/2013/11/reverse-ssh-tunnel
+[02]:
+[03]:
+[04]:
+[05]:
+[06]:
+[07]:
+[08]:
+[09]:
+[10]:

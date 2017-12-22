@@ -20,6 +20,8 @@ mitmproxy
 * [How To: Use mitmproxy to read and modify HTTPS traffic](https://blog.heckel.xyz/2013/07/01/how-to-use-mitmproxy-to-read-and-modify-https-traffic-of-your-phone/)
 * [Decrypt your HTTPS traffic with mitmproxy](http://www.darkcoding.net/software/decrypt-your-https-traffic-with-mitmproxy/)
 
+
+
 # Computer Networking
 TCP/IP has become the global protocol for computer networking.
 
@@ -50,6 +52,11 @@ what about ethtool, netifd, nm-tool, nm-online, [nmcli](https://fedoraproject.or
 * [How to configure networking in Linux](https://opensource.com/life/16/6/how-configure-networking-linux?sc_cid=701600000011yI7AAI)
 
 # NetworkManager
+* [RPi NetworkManager CLI](http://gary-dalton.github.io/RaspberryPi-projects/rpi_nmcli.html)
+* [Exploring NetworkManager, D-Bus, systemd, and Raspberry Pi](http://dev.iachieved.it/iachievedit/exploring-networkmanager-d-bus-systemd-and-raspberry-pi/)
+* According to [this article](https://raspberrypi.stackexchange.com/questions/48307/sharing-the-pis-wifi-connection-through-the-ethernet-port),
+Network Manager can conflict with dhcpd (the default manager on Raspbian), hence you may need to disable dhcpd.
+
 NetworkManager is a service for Linux which manages various networking interfaces,
 including physical such as Ethernet and wireless,
 and virtual such as VPN and other tunnels.
@@ -198,10 +205,15 @@ any interface not listed there will remain under NetworkManager control.
 * IP Networking Utilities
     * [`ping`][25] (Packet Internet Gropper) is like a sonar pulse sent to detect another IP address.
     It is used to test the connection and latency between two network connections.
+    * [`cryping`][69] is a `ping` like command line utility that extends the functionality
+    of the traditional `ping` command to include ping individual specific ports,
+    ping HTTP, SMTP, POP3 or NNTP services, time stamps, audible alarms, etc.
     * [`dig`][59] (domain information groper) is a flexible tool for interrogating DNS name servers.
     It performs DNS lookups and displays the answers that are returned from the name server(s) that were queried.
     * [`traceroute`][26] (trace route) is a diagnostic tool for displaying the route
     (path) and measuring transit delays of packets across an IP network.
+    * [`mtr` aka My TraceRoute or Matt's TraceRoute][70] combines the functions of the traceroute
+    and ping programs in one network diagnostic tool.
     * [`netcat` or `nc`][22] is a [highly functional][21] Unix utility which reads and writes data
     across network connections, using TCP or UDP protocol.
     It is designed to be a reliable "back-end" tool that can
@@ -273,6 +285,210 @@ http://www.computerhope.com/unix/ip.htm
 http://linoxide.com/linux-command/use-ip-command-linux/
 [Wireless Tools for Linux / Wireless Applications for Linux](http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html#links)
 [Cheat Sheets](http://packetlife.net/library/cheat-sheets/)
+
+################################################################################
+
+
+## Networking and WiFi Tools
+The Linux operating systems comes with various set of tools
+allowing you to manipulate network, the [Wireless Extensions][103] and monitor wireless networks.
+These tools can be used to find out network speed, bit rate,
+signal quality/strength, and much more.
+
+[`iw`][124] is the basic tool for WiFi network-related tasks,
+such as finding the WiFi device name, and scanning access points.
+[`wpa_supplicant`][113] is the wireless tool for connecting to a WPA/WPA2 network.
+[`ip`][121] is used for enabling/disabling devices,
+and finding out general network interface information.
+
+* [`ip`][121] - show / manipulate routing, devices, policy routing and tunnels
+
+The above utilities are widely distributed, but many network configuration manuals and blogs
+still refer to [`ifconfig`][120] and [`route`][110]
+as the primary network configuration tools,
+even when `ifconfig` is known to behave inadequately in modern network environments.
+
+* [`ifconfig`][120] - configure a network interface
+* [`route`][110] - command is used to show/manipulate the IP routing table.
+* [`ping`][108] - Packet INternet Gropper (ping) is like a sonar pulse sent to detect connection and latency
+* [`dig`][107] - Domain Information Groper (di) is for interrogating DNS name servers
+* [`traceroute`][109] - displays an IP packets route (path) and measuring transit delays of packets
+
+Note that `ifconfig` is being deprecated via the [iproute2 package][119]
+and is being replaced by [`ip`][117],
+which you can see further explained/motivated [here][118].
+(**NOTE:** [`ifconfig` isn't the only utility being deprecated][127].)
+
+Managing your [WiFi via command line][130] can be done via an array of tools.
+[Wireless Tools for Linux and Linux Wireless Extension][103]
+are a collection of user-space utilities
+written for Linux to support and facilitate
+the configuration of device drivers of wireless network interface controllers.
+
+* [`iwconfig`][122] - configure a wireless network interface (supports WEP)
+* [`ifrename`][114] - renames network interfaces based on various static criteria
+* [`iwevent`][115] - displays wireless events generated by drivers and setting changes
+* [`iwgetid`][116] - reports ESSID, NWID or AP/Cell Address of wireless networks
+* [`iwlist`][135] - gets detailed wireless information from a wireless interface
+* [`iwpriv`][136] - configures optional (private) parameters of a wireless network interface
+* [`iwspy`][132] - gets wireless statistics from specific node
+
+Tools for user space daemon for access points and WPA/WPA2 authentication.
+
+* [`wpa_cli`][129] - command line client program for interacting with `wpa_supplicant`.
+* [`wpa_supplicant`][113] - WiFi Protected Access client and [WPA/WPA2/IEEE 802.1X supplicant][128]
+* [`wpa_supplicant.conf`][112] - configuration file for `wpa_supplicant`
+* [`hostapd`][131] - user space software turns normal network interface cards into access point
+* [`wicd-curses`][133] - Wicd is a network connection manager that can manage wireless and wired interfaces,
+similar and an alternative to NetworkManager.
+
+Some additional useful tools.
+
+* [`rfkill`][106] - tool for accessing the Linux [rfkill device interface][105], which is used to enable and disable wireless networking devices, typically WLAN, Bluetooth and mobile broadband
+* [`wavemon`][111] - signal levels monitoring application for wireless network devices.
+
+Note that `iw` is the anticipated successor to the `iwconfig` family of tools
+but [still under development][125].
+Not all wireless devices and drivers support the [nl80211 standard][126],
+so the older wireless tools above may still be required.
+
+* [`iw`][124] - show / manipulate wireless devices and their configuration (supports WEP)
+
+Below is a list of examples of the above utilities being used
+(also see cheet sheet for [`ip`][100], [subnet masks][102]):
+
+```bash
+# find out your wireless card chipset information
+lspci
+lspci | grep -i wireless
+lspci | egrep -i --color 'wifi|wlan|wireless'
+
+# use the following command to get information about wireless card driver
+lspci -vv -s 0c:00.0
+
+# list all the connected wifi adapters
+# doesn't work on raspberry pi
+iw dev
+
+# verify that you are connected to a network
+iw wlan0 link
+
+# turn down the wireless device
+sudo ip link set wlan0 down
+
+# execute the following command to bring it up
+sudo ip link set wlan0 up
+
+# show full details of wifi networks
+iwlist wlan0 scan
+
+# list the available channels and what is being used by your device
+iwlist wlan0 channel
+
+# list the ssid of all the available networks
+iwlist wlan0 scan | grep ESSID
+
+# lists how many networks are on each channel
+iwlist wlan0 scan | grep Frequency | sort | uniq -c | sort -n
+
+# check the current state of all your network devices
+ip link
+
+# check that the wireless device is up
+ip link show wlan0
+
+# check the connection status
+iw wlan0 link
+
+# report your ESSID, NWID or AP/Cell Address of wireless network
+iwgetid
+
+# list detailed wireless information from a wireless interface
+iwlist
+
+# show the ip address of wireless interface
+sudo ip addr show
+
+# connecting to open network (no encryption)
+iw dev wlan0 connect your-essid   # doesn't work on raspberry pi
+iwconfig wlan0 essid your-essid
+
+# connecting to open network (no encryption) on specific channel/frequency
+iw dev wlan0 connect your-essid 2432    # doesn't work on raspberry pi
+iwconfig wlan0 essid your-essid freq 2432M
+
+# get overall quality of the link
+iwconfig wlan0 | grep -i --color quality
+
+# find out received signal strength (RSSI – how strong the received signal is)
+iwconfig wlan0 | grep -i --color signal
+
+# See link quality continuously on screen
+watch -n 1 cat /proc/net/wireless
+
+# displays continuously updated information about signal levels,
+# as well as, wireless-specific and general network information
+wavemon
+
+# displays wireless events received through the RTNetlink socket.
+# each line displays the specific wireless event which describes
+# what has happened on the specified wireless interface
+iwevent
+
+# obtain IP address by DHCP
+sudo dhclient wlan0
+
+# set ip address
+sudo ifconfig wlan0 192.168.100.1
+sudo ip addr add 192.168.100.1 dev wlan0
+
+# remove an assigned IP address from the given interface
+sudo ip addr del 192.168.50.5/24 dev eth1
+
+# check the routing table information
+sudo ip route show
+sudo route
+
+# adding a default gateway
+sudo route add default gw 192.168.0.1
+sudo ip route add default via 192.168.0.1
+
+# use the ip command to verify the IP address assigned by DHCP. The IP address is 192.168.1.113 from below.
+ip addr show wlan0
+
+# check to see if NetworkManager is running
+service NetworkManager status
+```
+
+|                iw Command                      |            wireless-tools Command              | Description       |
+|:----------------------------------------------:|:----------------------------------------------:|:-----------------:|
+| iw dev wlan0 link                              | iwconfig wlan0                                 | Getting link status. |
+| iw dev wlan0 scan                              | iwlist wlan0 scan                              | Scanning for available access points. |
+| iw dev wlan0 set type ibss                     | iwconfig wlan0 mode ad-hoc                     | Setting the operation mode to ad-hoc. |
+| ifconfig wlan0 192.168.100.1                   | ip addr add 192.168.100.1 dev wlan0            | Set IP address |
+| iw dev wlan0 connect your-essid                | iwconfig wlan0 essid your-essid                | Connecting to open network (no encryption). |
+| iw dev wlan0 connect your-essid 2432           | iwconfig wlan0 essid your-essid freq 2432M     | Connecting to open network specifying channel (no encryption). |
+| iw dev wlan0 connect your-essid key 0:your-key | iwconfig wlan0 essid your-essid key your-key   | Connecting to WEP encrypted network using hexadecimal key. |
+| iw dev wlan0 connect your-essid key 0:your-key | iwconfig wlan0 essid your-essid key s:your-key | Connecting to WEP encrypted network using ASCII key. |
+| iw dev wlan0 set power_save on                 | iwconfig wlan0 power on                        | Enabling power save. |
+
+Fo WAP encryption, the command `iw` will not do.
+You need `wpa_supplicant`.
+l Raspberry Pi configuration using `sudo raspi-config`,
+make sure to select "Boot Options" and choose "B1 Console".
+You will need a password to get console access,
+which gives you greater security, and allow console cables to work via
+[`screen`][101] or [`microcom`][104].
+
+
+
+
+
+
+
+
+
+
 
 WiFi Configuration Via Command Line
 * [Step-by-step: Connect to WiFi network from command line in Linux](http://www.blackmoreops.com/2014/09/18/connect-to-wifi-network-from-command-line-in-linux/)
@@ -1408,6 +1624,8 @@ $
 
 [How to Test Internet Connection Speed using Speedtest-Cli on Ubuntu Server](http://ubuntuserverguide.com/2014/01/how-to-test-internet-connection-speed-using-speedtest-cli-on-ubuntu-server.html)
 
+See [Fast.com](https://fast.com/)
+
 # Script for Wireless Stations Monitoring
 Here is a [script][11] that provides live stats monitor of wireless stations' link quality
 and some additional useful information regarding the
@@ -1535,8 +1753,8 @@ could be gathered for this cheat sheet.
 [66]:http://www.nta-monitor.com/wiki/index.php/Arp-scan_User_Guide
 [67]:http://www.kitploit.com/2015/02/socat-multipurpose-relay-socket-cat.html
 [68]:https://blog.grandcentrix.net/a-command-line-websocket-client/
-[69]:
-[70]:
+[69]:https://www.networkcomputing.com/networking/troubleshooting-why-ping-when-you-can-cryping/1061658753
+[70]:https://www.bitwizard.nl/mtr/
 [71]:
 [72]:
 [73]:
@@ -1547,3 +1765,43 @@ could be gathered for this cheat sheet.
 [78]:
 [79]:
 [80]:
+
+
+[100]:https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf
+[101]:http://www.computerhope.com/unix/screen.htm
+[102]:https://kthx.at/subnetmask/
+[103]:http://www.labs.hpe.com/personal/Jean_Tourrilhes/Linux/Tools.html
+[104]:http://manpages.ubuntu.com/manpages/xenial/man1/microcom.1.html
+[105]:https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Power_Management_Guide/RFKill.html
+[106]:http://www.digimantra.com/linux/rfkill-enabledisable-wireless-linux-laptop/
+[107]:http://www.thegeekstuff.com/2012/02/dig-command-examples/
+[108]:http://linux.die.net/man/8/ping
+[109]:http://pcsupport.about.com/od/commandlinereference/p/tracert-command.htm
+[110]:http://linux.about.com/od/commands/l/blcmdl8_route.htm
+[111]:http://www.raspberrypi-spy.co.uk/2014/10/how-to-use-wavemon-to-monitor-your-wifi-connection/
+[112]:http://linux.die.net/man/5/wpa_supplicant.conf
+[113]:http://linux.die.net/man/8/wpa_supplicant
+[114]:http://linux.die.net/man/8/ifrename
+[115]:http://linux.die.net/man/8/iwevent
+[116]:http://linux.die.net/man/8/iwgetid
+[117]:https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf
+[118]:http://packetpushers.net/linux-ip-command-ostensive-definition/
+[119]:http://www.linuxfoundation.org/collaborate/workgroups/networking/iproute2
+[120]:http://linux.die.net/man/8/ifconfig
+[121]:http://linux.die.net/man/8/ip
+[122]:http://linux.die.net/man/8/iwconfig
+[123]:http://jwalanta.blogspot.com/2010/02/internet-connection-sharing-ics-in.html
+[124]:http://linux.die.net/man/8/iw
+[125]:https://wireless.wiki.kernel.org/en/users/Documentation/iw
+[126]:https://wireless.wiki.kernel.org/en/developers/documentation/nl80211
+[127]:https://dougvitale.wordpress.com/2011/12/21/deprecated-linux-networking-commands-and-their-replacements/
+[128]:https://w1.fi/wpa_supplicant/
+[129]:http://linux.die.net/man/8/wpa_cli
+[130]:http://www.linuxjournal.com/content/wi-fi-command-line
+[131]:https://seravo.fi/2014/create-wireless-access-point-hostapd
+[132]:http://linux.die.net/man/8/iwspy
+[133]:https://wiki.archlinux.org/index.php/wicd
+[134]:
+[135]:http://linux.die.net/man/8/iwlist
+[136]:http://linux.die.net/man/8/iwpriv
+

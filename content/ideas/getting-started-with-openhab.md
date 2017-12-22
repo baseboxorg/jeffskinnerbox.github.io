@@ -1,4 +1,5 @@
 * [10 tips for DIY IoT home automation](https://opensource.com/life/16/9/iot-home-automation-projects?sc_cid=701600000012AJUAA2)
+* [6 open source home automation tools](https://opensource.com/life/17/12/home-automation-tools?utm_medium=Email&utm_campaign=weekly&sc_cid=701f2000000tpYEAAY)
 
 # openHAB
 * [openHAB](http://www.openhab.org/index.html)

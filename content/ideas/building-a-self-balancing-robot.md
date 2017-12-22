@@ -2,6 +2,7 @@ Should you **delete** entry in TiddleWiki, "Self Balancing Robots" when you publ
 
 # Balancing Bot
 * [PIDDYBOT – A Self Balancing Teaching Tool](http://hackaday.com/2014/01/17/piddybot-a-self-balancing-teaching-tool/#more-112629)
+* [PIDDYBOT - DIY Arduino Balancing Robot](https://www.hackster.io/seanhodgins/piddybot-diy-arduino-balancing-robot-14ce90)
 * [Self-balancing Arduino does it without an IMU](http://hackaday.com/2013/09/26/self-balancing-arduino-does-it-without-an-imu/)
 * [Self balancing Raspberry Pi OpenCV image processing Robot](http://roboticssamy.blogspot.pt/)
 * [How to Build a Self-Balancing Autonomous Arduino Bot](http://makezine.com/projects/arduroller-self-balancing-robot/)
@@ -9,6 +10,9 @@ Should you **delete** entry in TiddleWiki, "Self Balancing Robots" when you publ
 * [Make a Self-balancing Robot with Arduino UNO](http://www.instructables.com/id/Make-a-Self-balancing-Robot-with-Arduino-UNO/)
 * [Build your own Arduino balancing robot](https://blog.arduino.cc/2017/05/25/build-your-own-arduino-balancing-robot/)
 * [Building a Self-Balancing Robot Made Easy](http://hackaday.com/2017/06/03/building-a-self-balancing-robot-made-easy/)
+* [ArduRoller Balance Bot](http://www.instructables.com/id/ArduRoller-balance-bot/)
+* [A Robot That Can Still Keep Its Balance After A Night In The Pub](https://hackaday.com/2017/09/27/a-robot-that-can-still-keep-its-balance-after-a-night-in-the-pub/)
+* [Balboa 32U4 Balancing Robot Kit](https://www.pololu.com/product/3575)
 
 # Balancing Wheel
 * [Balance Wheel](http://hackaday.io/project/4267-balance-wheel)
@@ -18,9 +22,12 @@ Should you **delete** entry in TiddleWiki, "Self Balancing Robots" when you publ
 * [Ultra Simple Magnetic Levitator](http://hackaday.com/2016/11/05/ultra-simple-magnetic-levitator/)
 * [Electromagnetic levitation device](http://www.instructables.com/id/Levitron-electromagnetic-Levitation-Device/?ALLSTEPS)
 * [An AVR Atmega based PID magnetic levitator](http://davidegironi.blogspot.it/2013/12/an-avr-atmega-based-pid-magnetic.html#.WCYGFnUrLMS)
+* [Hovering Questions About Magnetic Levitation](https://hackaday.com/2017/10/08/hovering-questions-about-magnetic-levitation/)
 
 # Proportional Integral Derivative (PID) Controller
+* [Control System Fundamentals by Video](https://hackaday.com/2017/10/17/control-system-fundamentals-by-video/)
 * [PID Controller](https://en.wikipedia.org/wiki/PID_controller)
+* [Proportional-Integral-Derivative (PID) Controller](https://nicisdigital.wordpress.com/2011/06/27/proportional-integral-derivative-pid-controller/)
 * [PID Controllers Deep Dive - Nice Layman Description](http://hackaday.com/2014/07/07/droning-on-pid-controllers-and-bullet-connectors/)
 * [Control Theory Seminar](http://focus.ti.com/docs/training/catalog/events/event.jhtml?sku=OLT214002&sp_rid_pod4=NzQ0MDMwMzkzNTMS1&sp_mid_pod4=45597282)
 * [Evolutionary optimization of PID parameters for empirically identified system](http://wemakethings.net/2013/12/01/pid_genetics/)
@@ -56,6 +63,12 @@ Should you **delete** entry in TiddleWiki, "Self Balancing Robots" when you publ
 # Teensy 3.2 (72 MHz Cortex-M4)
 
 # Bill of Materials (BOM)
+Check this out: [Balboa 32U4 Balancing Robot Kit](https://www.pololu.com/product/3575)
+* [How to make a Balboa robot balance, part 5: popping up and driving around](https://www.pololu.com/blog/685/how-to-make-a-balboa-robot-balance-part-5-popping-up-and-driving-around)
+* [Pololu Balboa 32U4 Balancing Robot User’s Guide](https://www.pololu.com/docs/0J70)
+* [Resources: Build Instruction, software, etc.](https://www.pololu.com/product/3575/resources)
+
+Piddy Bot
 |:---------:|:-------------:|:---------:|:-------------:|:-------------:|
 | Quanity | Item | Type  | Source | Unit Price | Notes |
 | 2 | Motor | Micro Metal Gearmotor COM-MOT-95:1 | https://shop.pimoroni.com/, https://www.pololu.com/ | $9.50 | |

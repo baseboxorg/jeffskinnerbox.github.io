@@ -135,7 +135,6 @@ Unfortunately, Alexa doesn't support this but [Jasper does](http://jasperproject
 * [How to Turn Your Raspberry Pi Into a Voice-Enabled Amazon Alexa Device](https://www.linux.com/news/event/open-source-summit-na/2017/3/add-skills-your-raspberry-pi-alexa)
 * [Amazon shows you how to make an Echo with Raspberry Pi](http://www.engadget.com/2016/03/25/amazon-shows-you-how-to-make-an-echo-with-raspberry-pi/)
 * [Project: Raspberry Pi + Alexa Voice Service](https://github.com/amzn/alexa-avs-raspberry-pi)
-* [Google AIY: Artificial Intelligence Yourself](http://hackaday.com/2017/05/04/google-aiy-artificial-intelligence-yourself/)
 
 # Voice Controlled Workbench
 * [You Speak, Your Scope Obeys](http://hackaday.com/2016/03/29/you-speak-your-scope-obeys/)

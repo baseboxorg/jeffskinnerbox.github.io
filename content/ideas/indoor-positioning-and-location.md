@@ -9,11 +9,14 @@
 * [WiFi Location Services](http://hackaday.com/2015/09/22/hackaday-prize-best-product-wifi-location-services/)
 * [decaWave DWM1000 - track an object to within 10cm indoors](http://hackaday.com/2015/06/17/new-part-day-indoor-location-systems/)
 * [Find The Source: WiFi Triangulation](http://hackaday.com/2016/05/29/find-the-source-wifi-trangulation/)
+* [WiFi Trilateration With Three or More Points](https://appelsiini.net/2017/trilateration-with-n-points/)
 * [Tracking of devices through passive listening of WiFi](http://developers-club.com/posts/252831/)
 * [access_points](https://github.com/kootenpv/access_points)
 * [WiFinder](https://github.com/mpescimoro/wi-finder)
 * [whereami](https://github.com/kootenpv/whereami)
 * [Public Wi-Fi database. Geo-Location API. Public API of position by Wi-Fi (MAC, BSSID)](https://www.mylnikov.org/archives/1170)
+* [Mozilla Location Service](https://location.services.mozilla.com/)
+* [OpenCellid - The world's largest Open Database of Cell Towers](https://opencellid.org/)
 * [Estimote Indoor Location](https://itunes.apple.com/us/app/estimote-indoor-location/id963704810?mt=8&ign-mpt=uo%3D4)
 
 # Framework for Internal Navigation and Discovery (FIND)
@@ -22,6 +25,24 @@
 * [Offical version writen in Go - FIND GitHub](https://github.com/schollz/find)
 * [Python version - FIND GitHub](https://github.com/kootenpv/find)
 * [find-lf - extension of FIND, the Framework for Internal Navigation and Discovery](https://github.com/schollz/find-lf)
+
+# Cell ID and WiFi Positioning
+* [Combain](https://combain.com/)
+* [How Google--and everyone else--gets Wi-Fi location data](http://www.zdnet.com/article/how-google-and-everyone-else-gets-wi-fi-location-data/)
+* [SkyHook](http://www.skyhookwireless.com/submit-access-point)
+* [Wigle](https://wigle.net/)
+
+# What3Words
+With what3words, the entire planet into three-meter squares and assigned each a unique,
+three-word identifier, like famous.splice.writers or blocks.evenly.breed,
+giving a precise address to the billions of people worldwide who don't have one.
+
+For example,
+103 Sheridan Way SW, Leesburg VA = distorts.ultrasound.snails
+and the end of my driveway is pillows.intelligent.robot
+
+* [Ted Talk](https://www.ted.com/talks/chris_sheldrick_a_precise_three_word_address_for_every_place_on_earth)
+* [What3Words](https://what3words.com/developers/)
 
 # Skyhook Precision Location
 Use Skyhook Precision Location on a Raspberry Pi device running Raspbian Linux.
@@ -36,6 +57,9 @@ IndoorAtlas provides a unique cloud platform that runs a disruptive
 geomagnetic positioning in its core to accurately pinpoint a location inside a building.
 
 * [IndoorAtlas - Indoor positioning systems (IPS)](https://www.indooratlas.com/)
+
+# Visual Inertial Camera / Visual Inertial Odometry
+* [Optor Visual Inertial Camera](https://www.seeedstudio.com/Optor-Cam2pc-Visual-Inertial-SLAM-p-2873.html)
 
 # SubPos
 The SubPos WiFi Positoning Standard is a dataless positioning system

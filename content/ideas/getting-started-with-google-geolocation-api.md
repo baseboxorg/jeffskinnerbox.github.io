@@ -44,6 +44,18 @@ The device will continuously record its location, even when disconnected from th
 curl ipinfo.io
 ```
 
+# What3Words
+With what3words, the entire planet into three-meter squares and assigned each a unique,
+three-word identifier, like famous.splice.writers or blocks.evenly.breed,
+giving a precise address to the billions of people worldwide who don't have one.
+
+For example,
+103 Sheridan Way SW, Leesburg VA = distorts.ultrasound.snails
+and the end of my driveway is pillows.intelligent.robot
+
+* [Ted Talk](https://www.ted.com/talks/chris_sheldrick_a_precise_three_word_address_for_every_place_on_earth)
+* [What3Words](https://what3words.com/developers/)
+
 # Trilateration / Triangulartion
 * [Trilateration](https://en.wikipedia.org/wiki/Trilateration)
 * [How GPS works? Trilateration explained](https://www.youtube.com/watch?v=4O3ZVHVFhes)

@@ -781,6 +781,8 @@ The following articles could be helpful:
 * [Battery Life & Current Consumption](https://learn.adafruit.com/low-power-wifi-datalogging/battery-life-and-current-consumption)
 
 ## Step 7B: Battery Supply + Power Monitoring
+* [LiFePO4wered/Pi3 Product Brief](https://lifepo4wered.com/files/LiFePO4wered-Pi3-Product-Brief.pdf)
+
 [!LiFePO4wered/Pi](https://cdn.hackaday.io/images/9332751457457361166.jpg)
 The [LiFePO4wered/Pi][85] (purchase on [Tindie][87])
 may be the best power solution for the Raspberry Pi Zero.

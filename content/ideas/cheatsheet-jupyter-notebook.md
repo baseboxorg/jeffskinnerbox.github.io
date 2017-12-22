@@ -59,12 +59,17 @@ sudo -H pip3 install --upgrade pip
 sudo -H pip3 install jupyter
 
 # install commonly used data analysis python packages
+sudo -H pip3 install numpy
 sudo -H pip3 install matplotlib
 sudo -H pip3 install seaborn
 sudo -H pip3 install sklearn
 sudo -H pip3 install pandas
 sudo -H pip3 install imutils
 sudo -H pip3 install dweepy
+
+# deep learning packages
+# Installing Deep Learning Frameworks on Ubuntu with CUDA support
+# https://www.learnopencv.com/installing-deep-learning-frameworks-on-ubuntu-with-cuda-support/
 ```
 
 [Flask][63] is a Python web framework for writing web applications including web services.

@@ -449,6 +449,9 @@ The [Raspberry Pi's VideoCore GPU provides][40] 24 GFLOPS of computation
 and supports OpenGL ES 1.1, OpenGL ES 2.0, hardware-accelerated OpenVG 1.1, Open EGL,
 OpenMAX and 1080p30 H.264 high-profile decode.
 
+
+General-purpose computing on graphics processing units (GPGPU, rarely GPGP) is the use of a graphics processing unit (GPU), which typically handles computation only for computer graphics, to perform computation in applications traditionally handled by the central processing unit (CPU) - https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units
+
 * RPI-3: Performance issue on FFmpeg with mmal support - https://raspberrypi.stackexchange.com/questions/66923/rpi-3-performance-issue-on-ffmpeg-with-mmal-support
 * Smooth playback of adaptive video streams on Raspberry Pi with gst-mmal - https://gstreamer.freedesktop.org/data/events/gstreamer-conference/2016/John%20Sadler%20-%20Smooth%20video%20on%20Raspberry%20Pi%20with%20gst-mmal%20(Lightning%20Talk).pdf
 
@@ -646,8 +649,11 @@ cd ~/src/opencv-3.3.0
 mkdir build
 cd build
 
-# create the makefile for the build
+# for ubuntu ... create the makefile for the build
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_PYTHON_EXAMPLES=ON -D OPENCV_EXTRA_MODULES_PATH=~/src/opencv_contrib-3.3.0/modules -D BUILD_EXAMPLES=ON ..
+
+# for raspberry pi ... create the makefile for the build
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=~/src/opencv_contrib-3.3.0/modules -D INSTALL_PYTHON_EXAMPLES=ON -D ENABLE_NEON=ON -D ENABLE_VFPV3=ON -D BUILD_TESTS=ON -D BUILD_EXAMPLES=ON ..
 
 # execute the make file
 # note: if you have a compiler error, do "make clean" and then just "make"
@@ -661,7 +667,8 @@ sudo ldconfig
 ```
 
 Provided the above steps finished without error,
-OpenCV should now be installed in `/usr/local/lib/python3.5/site-pacakges`.
+OpenCV should now be installed in `/usr/local/lib/python3.5/site-packages`
+or `/usr/local/lib/python3.5/dist-packages`.
 You should verify this:
 
 ```bash
@@ -672,7 +679,7 @@ total 3876
 ```
 
 For some reason (bug in the CMake script?),
-the OpenCV 3 file for Python 3+ binding has the extention `.so`
+the OpenCV 3 file for Python 3+ binding may have the extention `.so`
 and named `cv2.cpython-35m-arm-linux-gnueabihf.so` (or some variant of)
 rather than simply `cv2.so` like  it should.
 This needs to be fixed:
@@ -877,10 +884,6 @@ Now enter `localhost:8888` in your favorite browser to use the remote Jupyter No
 * [OpenFace - Free and open source face recognition with deep neural networks](https://cmusatyalab.github.io/openface/)
 * [Face Detection Using OpenCV With Raspberry Pi](https://www.hackster.io/deligence-technologies/face-detection-using-opencv-with-raspberry-pi-93a8fe)
 * [Face Recognition: Kairos vs Microsoft vs Google vs Amazon vs OpenCV](https://www.kairos.com/blog/face-recognition-kairos-vs-microsoft-vs-google-vs-amazon-vs-opencv)
-
-* [How to Process Live Video Stream Using FFMPEG and OpenCV](http://blog.lemberg.co.uk/how-process-live-video-stream-using-ffmpeg-and-opencv)
-* [OpenCV remote (web-based) stream processing](https://github.com/ECI-Robotics/opencv_remote_streaming_processing)
-* [Raspberry Pi Camera openCV rendering with low latency streaming with gstreamer via RTP](http://hopkinsdev.blogspot.com/2016/06/raspberry-pi-camera-opencv-rendering.html)
 
 ################################################################################
 

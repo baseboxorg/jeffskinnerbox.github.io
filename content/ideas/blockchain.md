@@ -1,4 +1,6 @@
 
+* [Learn Blockchains by Building One](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46)
+
 * [How the blockchain is changing money and business](http://www.ted.com/talks/don_tapscott_how_the_blockchain_is_changing_money_and_business)
 * [Blockchain & The Battle To Secure Digital Identities](http://www.darkreading.com/endpoint/blockchain-and-the-battle-to-secure-digital-identities/a/d-id/1327279)
 * [An End Of Year Blockchain Summary And Primer](http://www.forbes.com/sites/georgehoward/2015/12/10/an-end-of-year-blockchain-summary-and-primer/#49a911847946)

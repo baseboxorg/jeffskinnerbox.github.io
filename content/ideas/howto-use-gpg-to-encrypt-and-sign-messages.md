@@ -1,6 +1,7 @@
 
 * [GPG Cheatsheet](http://irtfweb.ifa.hawaii.edu/~lockhart/gpg/gpg-cs.html)
 
+* [Practical Public Key Cryptography](https://hackaday.com/2017/10/18/practical-public-key-cryptography/)
 * [Security basics with GPG, OpenSSH and OpenSSL](http://www.integralist.co.uk/posts/security-basics.html)
 * [OpenPGP Best Practices](https://help.riseup.net/en/security/message-security/openpgp/best-practices)
 * [GnuPG Commands - Examples](http://www.spywarewarrior.com/uiuc/gpg/gpg-com-4.htm#4-3)

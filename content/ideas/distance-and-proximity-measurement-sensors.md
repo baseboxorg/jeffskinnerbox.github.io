@@ -13,6 +13,7 @@
 * [Measuring Walking Speed Wirelessly](http://hackaday.com/2017/05/10/measuring-walking-speed-wirelessly/)
 
 # Radar Sensors
+* [Walabot](https://walabot.com/)
 * [Radar Sensors / Switches: Comparison and Tests](https://www.youtube.com/watch?v=9WiJJgIi3W0)
 * [HW-MS03 - 2.4GHz To 5.8GHz Radar Sensor Microwave Radar Module Small Size](https://www.banggood.com/HW-MS03-2_4GHz-To-5_8GHz-Radar-Sensor-Microwave-Radar-Module-Small-Size-p-1123550.html?p=E307071053245201501N)
 * [RCWL-0516 - microwave radar sensor module Human body induction switch module Intelligent sensor](https://www.aliexpress.com/item/RCWL-0516-microwave-radar-sensor-module-Human-body-induction-switch-module-Intelligent-sensor/32704946341.html)

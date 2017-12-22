@@ -9,6 +9,9 @@ Image: toshiba-chromebook-linux.jpg
 Summary: The price of the Chromebook makes it a very attractive, assuming you can get your favorite tools working on it.  Well, you can install Linux, along with all the tools Linux brings to your development needs. This post is a somewhat disjointed dump of things that I’ve done to create a comfortable working envirnment on a Chromebook.
 
 
+* [HOW TO SET UP A PIXELBOOK FOR PROGRAMMING](https://www.theverge.com/2017/11/16/16656420/google-pixelbook-chromebook-development-linux-crouton-how-to)
+* [Running Linux on a Chromebook: How to Install & Get the Best of Both Worlds](https://www.techspot.com/guides/1509-how-to-run-linux-chromebook/)
+* [Chrome Remote Desktop: Everything you need to know](https://www.androidcentral.com/getting-started-chrome-remote-desktop)
 * [How to install Linux on a Chromebook (and why you should)](https://arstechnica.com/gadgets/2017/06/how-to-install-linux-on-a-chromebook/)
 * [How to prevent a Chromebook from running out of memory](http://www.techrepublic.com/article/how-to-prevent-a-chromebook-from-running-out-of-memory/)
 * [Now you can unlock Chrome OS with a PIN code](https://www.engadget.com/2016/08/19/unlock-chrome-os-with-pin/)
@@ -462,6 +465,12 @@ sudo startxfce4 -X xorg -n trusty
 
 # lightweight, tilling window manager - i3 Window Manager
 sudo enter-chroot -X xiwi -n trusty xinit
+```
+
+```bash
+sudo startxiwi -f gnome-terminal      # run X Windows in a terminal
+
+sudo startxfce4 -X xiwi               # run X Windows with window manager
 ```
 
 You can also run Linux programs, including X Window programs,

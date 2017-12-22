@@ -1,3 +1,4 @@
+
 # Definitions
 http://searchbusinessanalytics.techtarget.com/definition/deep-learning
 
@@ -40,8 +41,23 @@ Multiple predictors are combined into a predictive model, which, when subjected 
 can be used to forecast future probabilities with an acceptable level of reliability.
 
 # Neural Networks
+* [But what *is* a Neural Network? | Deep learning, chapter 1](https://www.youtube.com/watch?v=aircAruvnKk)
+* [Gradient descent, how neural networks learn | Deep learning, chapter 2](https://www.youtube.com/watch?v=IHZwWFHWa-w)
+* [What is backpropagation and what is it actually doing? | Deep learning, chapter 3](https://www.youtube.com/watch?v=Ilg3gGewQ5U)
+* [Backpropagation calculus | Appendix to deep learning chapter 3](https://www.youtube.com/watch?v=tIeHLnjs5U8)
+* [What is Deep Learning?](https://machinelearningmastery.com/what-is-deep-learning/)
+* [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html)
+* [Make Your Own Neural Network](https://www.amazon.com/Make-Your-Own-Neural-Network-ebook/dp/B01EER4Z4G/)
+* Applied Deep Learning
+    * [Applied Deep Learning - Part 1: Artificial Neural Networks](https://towardsdatascience.com/applied-deep-learning-part-1-artificial-neural-networks-d7834f67a4f6)
+    * [Applied Deep Learning - Part 2: Real World Case Studies](https://towardsdatascience.com/applied-deep-learning-part-2-real-world-case-studies-1bb4b142a585)
+    * [Applied Deep Learning - Part 3: Autoencoders](https://towardsdatascience.com/applied-deep-learning-part-3-autoencoders-1c083af4d798)
+    * [Applied Deep Learning - Part 4: Convolutional Neural Networks](https://towardsdatascience.com/applied-deep-learning-part-4-convolutional-neural-networks-584bc134c1e2)
 
 # Deep Learning
+* [What is Deep Learning?](https://machinelearningmastery.com/what-is-deep-learning/)
+* [From classic AI techniques to Deep Reinforcement Learning](https://towardsdatascience.com/from-classic-ai-techniques-to-deep-learning-753d20cf8578)
+* [Why AlphaGo Zero is a Quantum Leap Forward in Deep Learning](https://medium.com/intuitionmachine/the-strange-loop-in-alphago-zeros-self-play-6e3274fcdd9f)
 * [Dive Deep Into Deep Learning](https://dzone.com/articles/dive-deep-into-deep-learning-using-h2o?edition=248483&utm_source=DailyDigest&utm_medium=email&utm_campaign=dd2016-12-03)
 * [Deep Learning Cheat Sheet](https://hackernoon.com/deep-learning-cheat-sheet-25421411e460#.nrskk2iyy)
 * [Deep Learning in your browser](http://cs.stanford.edu/people/karpathy/convnetjs/)
@@ -52,6 +68,10 @@ can be used to forecast future probabilities with an acceptable level of reliabi
 * [Deep Learning CNN’s in Tensorflow with GPUs](https://hackernoon.com/deep-learning-cnns-in-tensorflow-with-gpus-cba6efe0acc2)
 * [Secret Sauce behind the beauty of Deep Learning: Beginners guide to Activation Functions](https://medium.com/towards-data-science/secret-sauce-behind-the-beauty-of-deep-learning-beginners-guide-to-activation-functions-a8e23a57d046)
 
+# Face Technology
+* [A Practical Guide To Using Face Technology (Part I)](https://www.iotforall.com/practical-guide-face-technology-part-1/)
+* [Face Technology in Business: A Practical Guide to Using Face Technology (Part II)](https://medium.com/iotforall/face-technology-in-business-1d322bedfb09)
+
 # Machine Learning
 [Ten Myths About Machine Learning](https://medium.com/@pedromdd/ten-myths-about-machine-learning-d888b48334a3#.cd074sawz)
 
@@ -60,13 +80,17 @@ can be used to forecast future probabilities with an acceptable level of reliabi
 * [Deep Learning - Software](http://deeplearning.net/software_links/)
 * [Caffe](http://caffe.berkeleyvision.org/)
 * [TensorFlow](https://www.tensorflow.org/) and [Google Cloud Machine Learning](https://cloud.google.com/ml/)
+    * [TensorFlow Lite](https://hackaday.com/2017/11/23/smarter-phones-in-your-hacks-with-tensorflow-lite/)
     * [Awesome TensorFlow](https://github.com/jtoy/awesome-tensorflow)
     * [OpenFace - Free and open source face recognition with deep neural networks](https://cmusatyalab.github.io/openface/)
     * [Image Completion with Deep Learning in TensorFlow](http://bamos.github.io/2016/08/09/deep-completion/)
 * [MXNet](https://mxnet.readthedocs.io/en/latest/)
 * [Neural Networks: You’ve Got It So Easy](http://hackaday.com/2017/04/24/neural-networks-youve-got-it-so-easy/)
 
-# Data Sets / Datasets
+# Data Sets / Datasets / data set
+* [Common Objects in Context - COCO](http://cocodataset.org/#home)
+* [Awesome Public Datasets](https://github.com/caesar0301/awesome-public-datasets)
+* [Labeled Faces in the Wild](http://vis-www.cs.umass.edu/lfw/index.html)
 * [Deep Learning - Datasets](http://deeplearning.net/datasets/)
 * [Kaggle Datasets](https://www.kaggle.com/datasets)
 * [20 Weird & Wonderful Datasets for Machine Learning](https://medium.com/@olivercameron/20-weird-wonderful-datasets-for-machine-learning-c70fc89b73d5#.9c2d2daua)
@@ -75,6 +99,14 @@ can be used to forecast future probabilities with an acceptable level of reliabi
 * [Open Images dataset](https://github.com/openimages/dataset)
 * [ImageNet](http://image-net.org/)
 * [USA Facts](https://usafacts.org/)
+* [Joint-annotated Human Motion Data Base](http://jhmdb.is.tue.mpg.de/)
+* [Atomic Visual Actions (AVA) Dataset](https://research.google.com/ava/)
+* [CIFAR](https://www.cs.toronto.edu/~kriz/cifar.html)
+* [Credit Card Fraud Detection Dataset from Kaggle](https://www.kaggle.com/dalpozz/creditcardfraud)
+* [Labeled Face Parts in the Wild (LFPW) Dataset](https://neerajkumar.org/databases/lfpw/)
+* [Helen dataset](http://www.ifp.illinois.edu/~vuongle2/helen/)
+* [300 Faces In-the-Wild Challenge (300-W)](https://ibug.doc.ic.ac.uk/resources/300-W/)
+* [Cohn-Kanade - Comprehensive database for facial expression](http://www.consortium.ri.cmu.edu/ckagree/)
 
 # Robtics
 * [Train Your Robot To Walk with a Neural Network](http://hackaday.com/2016/12/11/train-your-robot-to-walk-with-a-neural-network/)
@@ -88,6 +120,7 @@ can be used to forecast future probabilities with an acceptable level of reliabi
 
 # Vison APIs
 * [Comparing the Top Five Computer Vision APIs](https://goberoi.com/comparing-the-top-five-computer-vision-apis-98e3e3d7c647#.l6bo3x90t)
+* [Awesome Deep Vision](https://github.com/kjw0612/awesome-deep-vision#imagenet-classification)
 
 # Natural Language APIs
 * [These Five Platforms Will Make Your Bots Language-Intelligent](https://chatbotsmagazine.com/these-five-platforms-will-make-your-bots-language-intelligent-634556750abd#.etccobz7x)
@@ -140,6 +173,9 @@ There is also an open source initiative like this call [The Fido Project](http:/
 * [Why is machine learning 'hard'?](http://l.goodbits.io/l/ogcalob3)
 * [Artificial Intelligence, Deep Learning, & Neural Networks Explained](https://medium.com/innoarchitech-innovation-architecture-technology/artificial-intelligence-deep-learning-neural-networks-explained-22a3cc132580#.k30un4a4j)
 * [Practical Deep Learning](http://hackaday.com/2016/12/21/practical-deep-learning/)
+* [An Introduction to Machine Learning Theory and Its Applications: A Visual Tutorial with Examples](https://www.toptal.com/machine-learning/machine-learning-theory-an-introductory-primer)
+* [A Visual Introduction to Machine Learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
+* [A Deep Learning Tutorial: From Perceptrons to Deep Networks](https://www.toptal.com/machine-learning/an-introduction-to-deep-learning-from-perceptrons-to-deep-networks)
 * Honest Guide to Machine Learning
     * [Part One](https://medium.com/axiomzenteam/an-honest-guide-to-machine-learning-2f6d7a6df60e#.fkg18yn6n)
     * [Part Two - The Core of Machine Learning](https://medium.com/axiomzenteam/the-core-of-machine-learning-5319a57f2941#.2c5k99vaz)
@@ -157,7 +193,6 @@ There is also an open source initiative like this call [The Fido Project](http:/
 [Part 3](https://medium.com/typeme/lets-code-a-neural-network-from-scratch-part-3-87e23adbe4b6)
 * [Backpropagation — How Neural Networks Learn Complex Behaviors](https://medium.com/autonomous-agents/backpropagation-how-neural-networks-learn-complex-behaviors-9572ac161670#.52ag48jjp)
 * [Yes you should understand backprop](https://medium.com/@karpathy/yes-you-should-understand-backprop-e2f06eab496b#.bl4c8r6lk)
-* [A Visual Introduction to Machine Learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
 * [UFLDL Tutorial](http://ufldl.stanford.edu/tutorial/)
 * [Hacker's guide to Neural Networks](http://karpathy.github.io/neuralnets/)
 * [Learn Deep Learning the Hard Way](https://medium.com/artifacia/learn-deep-learning-the-hard-way-e5d844f9fbc1#.5aqnyff7f)
@@ -176,6 +211,10 @@ There is also an open source initiative like this call [The Fido Project](http:/
 * Up to Speed on Deep Learning
     * [June Update](https://medium.com/the-mission/up-to-speed-on-deep-learning-june-update-bb0f17ccaf0b#.e0wr5tqwh)
     * [July Update, Part 2](https://medium.com/the-mission/up-to-speed-on-deep-learning-july-update-part-2-baacc835d8ab#.yw03l0iax)
+* [An introduction to TensorFlow ](https://opensource.com/article/17/11/intro-tensorflow?utm_medium=Email&utm_campaign=weekly&sc_cid=701f2000000tmCPAAY)
+* [Getting Started with TensorFlow: A Machine Learning Tutorial](https://www.toptal.com/machine-learning/tensorflow-machine-learning-tutorial)
+* [From Solving Equations to Deep Learning: A TensorFlow Python Tutorial](https://www.toptal.com/machine-learning/tensorflow-python-tutorial)
+* [Ten Minute TensorFlow Speech Recognition](https://hackaday.com/2017/03/24/ten-minute-tensorflow-speech-recognition/)
 * [Tensorflow demystified](https://chatbotslife.com/tensorflow-demystified-80987184faf7)
 * [Deep Learning in 7 lines of code](https://chatbotslife.com/deep-learning-in-7-lines-of-code-7879a8ef8cfb)
 * [TensorFlow: A proposal of good practices for files, folders and models architecture](https://blog.metaflow.fr/tensorflow-a-proposal-of-good-practices-for-files-folders-and-models-architecture-f23171501ae3)
@@ -184,6 +223,7 @@ There is also an open source initiative like this call [The Fido Project](http:/
     * [Part One: Basics](https://medium.com/@camrongodbout/tensorflow-in-a-nutshell-part-one-basics-3f4403709c9d#.66dlxsbvd)
     * [Part Two: Hybrid Learning](https://medium.com/@camrongodbout/tensorflow-in-a-nutshell-part-two-hybrid-learning-98c121d35392#.v1hlrqrcl)
     * [Part Three: All the Models](https://www.linkedin.com/pulse/tensorflow-nutshell-part-three-all-models-camron-godbout)
+* [Big Picture Machine Learning: Classifying Text with Neural Networks and TensorFlow](https://medium.freecodecamp.org/big-picture-machine-learning-classifying-text-with-neural-networks-and-tensorflow-d94036ac2274)
 * [TensorFlow Playground](http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.34995&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
 * [TensorFLow for Poets](https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/index.html?index=../../index#0)
 * [Big Picture Machine Learning: Classifying Text with Neural Networks and TensorFlow](https://medium.freecodecamp.com/big-picture-machine-learning-classifying-text-with-neural-networks-and-tensorflow-d94036ac2274)
@@ -206,6 +246,7 @@ There is also an open source initiative like this call [The Fido Project](http:/
 * [TensorBoard](http://hackaday.com/2017/03/24/ten-minute-tensorflow-speech-recognition/)
 * [Train your deep model faster and sharper — two novel techniques](https://hackernoon.com/training-your-deep-model-faster-and-sharper-e85076c3b047)
 * [Real-Time TensorFlow Camera Analysis With Sensors](https://dzone.com/articles/real-time-tensorflow-camera-analysis-with-sensors?edition=325556&utm_source=Zone%20Newsletter&utm_medium=email&utm_campaign=iot%202017-09-26)
+* [Sound Classification with TensorFlow](https://medium.com/iotforall/sound-classification-with-tensorflow-8209bdb03dfb)
 
 # OpenCV
 * [Configuring Ubuntu for deep learning with Python](https://www.pyimagesearch.com/2017/09/25/configuring-ubuntu-for-deep-learning-with-python/)
@@ -213,16 +254,15 @@ There is also an open source initiative like this call [The Fido Project](http:/
 * [Deep learning on the Raspberry Pi with OpenCV](https://www.pyimagesearch.com/2017/10/02/deep-learning-on-the-raspberry-pi-with-opencv/)
 
 
-Simple Reinforcement Learning with Tensorflow
 * [Part 0: Q-Learning with Tables and Neural Networks](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-0-q-learning-with-tables-and-neural-networks-d195264329d0#.fyhkwkj6j)
 * [Part 1: Two-armed Bandit](https://medium.com/@awjuliani/super-simple-reinforcement-learning-tutorial-part-1-fd544fab149#.4er9cbs4i)
 * [Part 6: Partial Observability and Deep Recurrent Q-Networks](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-6-partial-observability-and-deep-recurrent-q-68463e9aeefc#.a5wt34bxf)
 
-MNIST
+# MNIST
 * [MNIST For ML Beginners](https://www.tensorflow.org/tutorials/mnist/beginners/#mnist-for-ml-beginners)
 * [Deep MNIST for Experts with TensorFlow](https://www.tensorflow.org/tutorials/mnist/pros/)
 
-Understanding Convolutional Neural Networks
+# Understanding Convolutional Neural Networks
 * [How Convolutional Neural Networks Work](https://brohrer.github.io/how_convolutional_neural_networks_work.html)
 * [The best explanation of Convolutional Neural Networks on the Internet!](https://medium.com/technologymadeeasy/the-best-explanation-of-convolutional-neural-networks-on-the-internet-fbb8b1ad5df8#.ecveser6x)
 * [A Beginner's Guide To Understanding Convolutional Neural Networks Part 1](https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/)
@@ -233,16 +273,23 @@ Understanding Convolutional Neural Networks
     * [Rohan & Lenny #2: Convolutional Neural Networks](https://ayearofai.com/rohan-lenny-2-convolutional-neural-networks-5f4cd480a60b#.9fa692g0c)
     * [Rohan & Lenny #3: Recurrent Neural Networks & LSTMs](https://ayearofai.com/rohan-lenny-3-recurrent-neural-networks-10300100899b)
 
-
+# Reinforcement Learning
+* [From classic AI techniques to Deep Reinforcement Learning](https://towardsdatascience.com/from-classic-ai-techniques-to-deep-learning-753d20cf8578)
 * [Selection of resources to learn Artificial Intelligence / Machine Learning / Statistical Inference / Deep Learning / Reinforcement Learning](https://medium.com/artists-and-machine-intelligence/selection-of-resources-to-learn-artificial-intelligence-machine-learning-statistical-inference-23bc56ba655#.m0homsb1h)
+
+
 * [The Business Implications of Machine Learning](https://medium.freecodecamp.com/the-business-implications-of-machine-learning-11480b99184d#.fwpwg5o82)
 * [Inside Deep Dreams: How Google Made Its Computers Go Crazy](https://backchannel.com/inside-deep-dreams-how-google-made-its-computers-go-crazy-83b9d24e66df#.ymaxehofd)
-* []Deep Dream Generator](https://deepdreamgenerator.com/)
 * [Computer science: The learning machines](http://www.nature.com/news/computer-science-the-learning-machines-1.14481)
 * [How computers are learning to be creative](http://www.ted.com/talks/blaise_aguera_y_arcas_how_computers_are_learning_to_be_creative?utm_source=newsletter_weekly_2016-07-02&utm_campaign=newsletter_weekly&utm_medium=email&utm_content=top_left_image)
 * [Artificial Intelligence Is Far From Matching Humans, Panel Says](http://www.nytimes.com/2016/05/26/technology/artificial-intelligence-is-far-from-matching-humans-panel-says.html?utm_source=pocket&utm_medium=email&utm_campaign=pockethits&_r=1)
 
+# Generative Adversarial Networks (GAN)
+* [Create Data from Random Noise with Generative Adversarial Networks](https://www.toptal.com/machine-learning/generative-adversarial-networks)
+* [Generating Digits and Sounds with Artificial Neural Nets](https://towardsdatascience.com/generating-digits-and-sounds-with-artificial-neural-nets-ca1270d8445f)
+* []Deep Dream Generator](https://deepdreamgenerator.com/)
 
+# Chatbot
 * [The Complete Beginner’s Guide To Chatbots](https://chatbotsmagazine.com/the-complete-beginner-s-guide-to-chatbots-8280b7b906ca#.d3yd7zv3e)
 * [Contextual Chat-bots with Tensorflow](https://chatbotsmagazine.com/contextual-chat-bots-with-tensorflow-4391749d0077)
 
